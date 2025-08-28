@@ -26,6 +26,22 @@
                 <version>${prov.toolbox.version}</version>
                 <executions>
                     <execution>
+                        <id>schema.check.demo</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>validate-bindings</goal>
+                        </goals>
+                        <configuration>
+                            <warning>false</warning>
+                            <args>
+                                <arg>src/main/resources/bindings/add1.json</arg>
+                                <arg>src/main/resources/bindings/integer-division.json</arg>
+                                <arg>src/main/resources/bindings/division-121-4.json</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
                         <id>convert.svg</id>
                         <phase>test</phase>
                         <goals>
