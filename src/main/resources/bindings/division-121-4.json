@@ -1,0 +1,62 @@
+
+{
+    "var": {
+        "dividend": [
+            {
+                "@id": "ex:number/xyz756"
+            }
+        ],
+        "divisor": [
+            {
+                "@id": "ex:number/xat236"
+            }
+        ],
+        "quotient": [
+            {
+                "@id": "ex:number/btc852"
+            }
+        ],
+        "remainder": [
+            {
+                "@id": "ex:number/svk623"
+            }
+        ],
+        "v_dividend": [[
+            {
+                "@type": "xsd:int",
+                "@value": "121"
+            }
+        ]],
+        "v_divisor": [[
+            {
+                "@type": "xsd:int",
+                "@value": "4"
+            }
+        ]],
+        "v_quotient": [[
+            {
+                "@type": "xsd:int",
+                "@value": "30"
+            }
+        ]],
+        "v_remainder": [[
+            {
+                "@type": "xsd:int",
+                "@value": "1"
+            }
+        ]],
+        "division": [
+            {
+                "@id": "ex:activity/division789"
+            }
+        ]
+    },
+    "context": {
+        "ex": "http://example.org/#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "prov": "http://www.w3.org/ns/prov#",
+        "var": "http://openprovenance.org/var#",
+        "vargen": "http://openprovenance.org/vargen#"
+    },
+    "template": "https://openprovenance.org/templates/org/openprovenance/generic/binaryop/1.provn"
+}

@@ -1,0 +1,63 @@
+{
+    "@context" : [ {
+        "xsd" : "http://www.w3.org/2001/XMLSchema#",
+        "provext" : "http://openprovenance.org/prov/extension#",
+        "prov" : "http://www.w3.org/ns/prov#"
+
+    }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+    "@graph": [
+        {
+            "@type": "Bundle",
+            "@context": [
+                {
+                    "xsd": "http://www.w3.org/2001/XMLSchema#",
+                    "prov": "http://www.w3.org/ns/prov#",
+                    "var": "http://openprovenance.org/var#",
+                    "vargen": "http://openprovenance.org/vargen#",
+                    "tmpl": "http://openprovenance.org/templates/tmpl#"
+                },
+                "https://openprovenance.org/prov-jsonld/context.jsonld"
+            ],
+            "@id": "vargen:bundle",
+
+            "@graph" : [ {
+                "@type" : "Activity",
+                "@id" : "var:a",
+                "type" : [ "var:activityType" ],
+                "var:aprop" : [ "var:avalue" ]
+            }, {
+                "@type" : "Entity",
+                "@id" : "var:e0",
+                "type" : [ "var:entityType0" ],
+                "var:eprop0" : [ "var:evalue0" ]
+            }, {
+                "@type" : "Entity",
+                "@id" : "var:e1",
+                "type" : [ "var:entityType1" ],
+                "var:eprop1" : [ "var:evalue1" ]
+            }, {
+                "@type" : "Usage",
+                "@id" : "vargen:u",
+                "activity" : "var:a",
+                "entity" : "var:e0",
+                "tmpl:time" : [ "var:time0" ]
+            }, {
+                "@type" : "Generation",
+                "@id" : "vargen:g",
+                "activity" : "var:a",
+                "entity" : "var:e1",
+                "tmpl:time" :  [ "var:time1" ]
+            }, {
+                "@type" : "Derivation",
+                "generatedEntity" : "var:e1",
+                "usedEntity" : "var:e0",
+                "activity" : "var:a",
+                "generation" : "vargen:g",
+                "usage" : "vargen:u"
+            }
+
+            ]
+
+        }
+    ]
+}
