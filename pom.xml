@@ -40,6 +40,11 @@
                                 <arg>src/main/resources/bindings/general/file-compression.json</arg>
                                 <arg>src/main/resources/bindings/primitive/file-entity.json</arg>
                                 <arg>src/main/resources/bindings/primitive/attribution-with-optionality.json</arg>
+                                <arg>src/main/resources/bindings/examples/derivation-e2-e0.json</arg>
+                                <arg>src/main/resources/bindings/examples/derivation-e0-e1.json</arg>
+                                <arg>src/main/resources/bindings/examples/derivation-e0-e1.json</arg>
+                                <arg>src/main/resources/bindings/examples/derivation-e0-e2.json</arg>
+
                             </args>
                         </configuration>
                     </execution>
@@ -403,6 +408,226 @@
                                 <arg>target/attribution-with-optionality.svg</arg>
                             </args>
                         </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>instantiate.example.simple-derivation.e0-e1.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>src/main/resources/templates/primitive/simple-derivation.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>src/main/resources/bindings/examples/derivation-e0-e1.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/derivation-e0-e1.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>instantiate.example.simple-derivation.e2-e0.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>src/main/resources/templates/primitive/simple-derivation.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>src/main/resources/bindings/examples/derivation-e2-e0.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/derivation-e2-e0.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>instantiate.example.simple-derivation.e0-e2.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>src/main/resources/templates/primitive/simple-derivation.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>src/main/resources/bindings/examples/derivation-e0-e2.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/derivation-e0-e2.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>instantiate.example.simple-derivation.e3-e2.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>src/main/resources/templates/primitive/simple-derivation.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>src/main/resources/bindings/examples/derivation-e3-e2.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/derivation-e3-e2.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.example.simple-derivation.e0-e1.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>target/derivation-e0-e1.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/derivation-e0-e1.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.example.simple-derivation.e0-e2.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>target/derivation-e0-e2.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/derivation-e0-e2.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+
+                    <execution>
+                        <id>convert.example.simple-derivation.e2-e0.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>target/derivation-e2-e0.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/derivation-e2-e0.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+                    <execution>
+                        <id>convert.example.simple-derivation.e3-e2.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>target/derivation-e3-e2.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/derivation-e3-e2.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+
+                    <execution>
+                        <id>merge1.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-merge</arg>
+                                <arg>src/main/resources/config/merge1.txt</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/merge1.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>merge2.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-merge</arg>
+                                <arg>src/main/resources/config/merge2.txt</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/merge2.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                            <id>merge3.svg</id>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>provconvert</goal>
+                            </goals>
+                            <configuration>
+                                <args>
+                                    <arg>-merge</arg>
+                                    <arg>src/main/resources/config/merge3.txt</arg>
+                                    <arg>-outfile</arg>
+                                    <arg>target/merge3.svg</arg>
+                                </args>
+                            </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>merge4.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-merge</arg>
+                                <arg>src/main/resources/config/merge4.txt</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/merge4.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                            <id>merge5.svg</id>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>provconvert</goal>
+                            </goals>
+                            <configuration>
+                                <args>
+                                    <arg>-merge</arg>
+                                    <arg>src/main/resources/config/merge5.txt</arg>
+                                    <arg>-outfile</arg>
+                                    <arg>target/merge5.svg</arg>
+                                </args>
+                            </configuration>
                     </execution>
 
 

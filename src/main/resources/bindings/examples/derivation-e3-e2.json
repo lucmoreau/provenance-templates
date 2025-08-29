@@ -1,0 +1,34 @@
+{
+    "var": {
+        "id": [
+
+                {
+                    "@id": "var:id"
+                }
+
+        ],
+        "e0": [
+            {
+                "@id": "var:e2"
+            }
+        ],
+        "e1": [
+            {
+                "@id": "var:e3"
+            }
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "ex": "http://example.org/#",
+        "var" : "http://openprovenance.org/var#",
+        "vargen" : "http://openprovenance.org/vargen#",
+        "tmpl" : "http://openprovenance.org/tmpl#"
+    }
+}
