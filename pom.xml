@@ -630,6 +630,23 @@
                             </configuration>
                     </execution>
 
+                    <execution>
+                            <id>merge6.svg</id>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>provconvert</goal>
+                            </goals>
+                            <configuration>
+                                <args>
+                                    <arg>-merge</arg>
+                                    <arg>src/main/resources/config/merge6.txt</arg>
+                                    <arg>-outfile</arg>
+                                    <arg>target/merge6.svg</arg>
+                                </args>
+                            </configuration>
+                    </execution>
+                    
+
 
                 </executions>
             </plugin>
