@@ -1,0 +1,42 @@
+{
+    "var": {
+        "tvalue": [
+            [
+                {
+                    "@id": "ex:File"
+                }
+            ]
+        ],
+        "entity": [
+            {
+                "@id": "var:file"
+            }
+        ],
+        "prop": [
+            [
+                {
+                    "@id": "ex:size"
+                }
+            ]
+        ],
+        "pvalue": [
+            [
+                {
+                    "@id": "var:size"
+                }
+            ]
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "ex": "http://example.org/#",
+        "var" : "http://openprovenance.org/var#",
+        "vargen" : "http://openprovenance.org/vargen#"
+    }
+}

@@ -12,9 +12,9 @@
     "@id" : "vargen:b",
     "@graph" : [ {
       "@type" : "Entity",
-      "@id" : "var:input",
+      "@id" : "var:entity",
       "type" : [ "var:tvalue" ],        
-      "var:prop" : [ "var:value" ]      
+      "var:prop" : [ "var:pvalue" ]
     }
     ]
   }

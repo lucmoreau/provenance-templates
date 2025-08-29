@@ -77,6 +77,5 @@
 	"context": {
 		"var" : "http://openprovenance.org/var#",
 		"vargen" : "http://openprovenance.org/vargen#"
-
 	}
 }

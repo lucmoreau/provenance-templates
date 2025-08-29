@@ -38,6 +38,7 @@
                                 <arg>src/main/resources/bindings/triangle/integer-division.json</arg>
                                 <arg>src/main/resources/bindings/examples/division-121-4.json</arg>
                                 <arg>src/main/resources/bindings/general/file-compression.json</arg>
+                                <arg>src/main/resources/bindings/primitive/file-entity.json</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -229,7 +230,7 @@
                     </execution>
 
                     <execution>
-                        <id>convert.general.file.compression.no.agent.no.prop.svg</id>
+                        <id>convert.example.file.compression.no.agent.svg</id>
                         <phase>test</phase>
                         <goals>
                             <goal>provconvert</goal>
@@ -243,6 +244,115 @@
                             </args>
                         </configuration>
                     </execution>
+
+
+
+                    <execution>
+                        <id>instantiate.general.file.compression.no.agent.no.prop.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>target/file-compression.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>src/main/resources/bindings/examples/file-compression-no-agent-no-prop.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/file-compression-no-agent-no-prop.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+
+                    <execution>
+                        <id>instantiate.primitive.entity.file.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>src/main/resources/templates/primitive/entity-with-attribute.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>src/main/resources/bindings/primitive/file-entity.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/file-entity.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.primitive.entity.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>src/main/resources/templates/primitive/entity-with-attribute.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/entity-with-attribute.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+                    <execution>
+                        <id>instantiate.example.entity.file100Gb.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>target/file-entity.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>src/main/resources/bindings/examples/file-100Gb.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/file-100Gb.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.primitive.entity.file.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>target/file-entity.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/file-entity.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.example.entity.file100Gb.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>target/file-100Gb.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/file-100Gb.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
                 </executions>
             </plugin>
         </plugins>
