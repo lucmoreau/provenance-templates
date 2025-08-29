@@ -34,15 +34,16 @@
                         <configuration>
                             <warning>false</warning>
                             <args>
-                                <arg>src/main/resources/bindings/add1.json</arg>
-                                <arg>src/main/resources/bindings/integer-division.json</arg>
-                                <arg>src/main/resources/bindings/division-121-4.json</arg>
+                                <arg>src/main/resources/bindings/examples/add1.json</arg>
+                                <arg>src/main/resources/bindings/triangle/integer-division.json</arg>
+                                <arg>src/main/resources/bindings/examples/division-121-4.json</arg>
+                                <arg>src/main/resources/bindings/general/file-compression.json</arg>
                             </args>
                         </configuration>
                     </execution>
 
                     <execution>
-                        <id>convert.svg</id>
+                        <id>convert.triangle.usage.generation.derivation.svg</id>
                         <phase>test</phase>
                         <goals>
                             <goal>provconvert</goal>
@@ -58,7 +59,7 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>instantiate.jsonld</id>
+                        <id>instantiate.examples.add1.jsonld</id>
                         <phase>test</phase>
                         <goals>
                             <goal>provconvert</goal>
@@ -68,14 +69,14 @@
                                 <arg>-infile</arg>
                                 <arg>src/main/resources/templates/triangle/usage-generation-derivation.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>src/main/resources/bindings/add1.json</arg>
+                                <arg>src/main/resources/bindings/examples/add1.json</arg>
                                 <arg>-outfile</arg>
                                 <arg>target/add1.jsonld</arg>
                             </args>
                         </configuration>
                     </execution>
                     <execution>
-                        <id>convert2.svg</id>
+                        <id>convert.examples.add1.svg</id>
                         <phase>test</phase>
                         <goals>
                             <goal>provconvert</goal>
@@ -93,7 +94,7 @@
 
 
                     <execution>
-                        <id>instantiate2.jsonld</id>
+                        <id>instantiate.triangle.integer.division.jsonld</id>
                         <phase>test</phase>
                         <goals>
                             <goal>provconvert</goal>
@@ -103,14 +104,14 @@
                                 <arg>-infile</arg>
                                 <arg>src/main/resources/templates/triangle/usage-generation-derivation.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>src/main/resources/bindings/integer-division.json</arg>
+                                <arg>src/main/resources/bindings/triangle/integer-division.json</arg>
                                 <arg>-outfile</arg>
                                 <arg>target/integer-division.jsonld</arg>
                             </args>
                         </configuration>
                     </execution>
                     <execution>
-                        <id>convert3.svg</id>
+                        <id>convert.triangle.integer.division.svg</id>
                         <phase>test</phase>
                         <goals>
                             <goal>provconvert</goal>
@@ -128,7 +129,7 @@
 
 
                     <execution>
-                        <id>instantiate3.jsonld</id>
+                        <id>instantiate.examples.division.jsonld</id>
                         <phase>test</phase>
                         <goals>
                             <goal>provconvert</goal>
@@ -138,14 +139,14 @@
                                 <arg>-infile</arg>
                                 <arg>target/integer-division.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>src/main/resources/bindings/division-121-4.json</arg>
+                                <arg>src/main/resources/bindings/examples/division-121-4.json</arg>
                                 <arg>-outfile</arg>
                                 <arg>target/division-121-4.jsonld</arg>
                             </args>
                         </configuration>
                     </execution>
                     <execution>
-                        <id>convert4.svg</id>
+                        <id>convert.examples.division.svg</id>
                         <phase>test</phase>
                         <goals>
                             <goal>provconvert</goal>
@@ -156,6 +157,89 @@
                                 <arg>target/division-121-4.jsonld</arg>
                                 <arg>-outfile</arg>
                                 <arg>target/division-121-4.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+                    <execution>
+                        <id>convert.general.unary.operation.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>src/main/resources/templates/general/unary-operation-with-agent.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/unary-operation-with-agent.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>instantiate.general.file.compression.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>src/main/resources/templates/general/unary-operation-with-agent.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>src/main/resources/bindings/general/file-compression.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/file-compression.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>convert.general.file.compression.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>target/file-compression.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/file-compression.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>instantiate.example.file.compression.no.agent.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>target/file-compression.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>src/main/resources/bindings/examples/file-compression-no-agent-no-prop.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/file-compression-no-agent-no-prop.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.general.file.compression.no.agent.no.prop.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>target/file-compression-no-agent-no-prop.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/file-compression-no-agent-no-prop.svg</arg>
                             </args>
                         </configuration>
                     </execution>
