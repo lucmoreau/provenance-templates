@@ -1,0 +1,55 @@
+{
+    "var": {
+        "id": [
+
+                {
+                    "@id": "var:id"
+                }
+
+        ],
+        "entity": [
+            {
+                "@id": "var:entity"
+            }
+        ],
+        "agent": [
+            {
+                "@id": "var:agent"
+            }
+        ],
+        "prop": [
+            [
+                {
+                    "@id": "var:prop"
+                },
+                {
+                    "@id": "tmpl:if"
+                }
+            ]
+
+        ],
+        "pvalue": [
+            [
+                {
+                    "@id": "var:pvalue"
+                },
+                {
+                    "@id": "var:decision"
+                }
+            ]
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "ex": "http://example.org/#",
+        "var" : "http://openprovenance.org/var#",
+        "vargen" : "http://openprovenance.org/vargen#",
+        "tmpl" : "http://openprovenance.org/tmpl#"
+    }
+}

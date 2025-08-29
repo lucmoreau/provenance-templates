@@ -15,8 +15,17 @@
       "@id" : "var:id",
       "entity": "var:entity",
       "agent": "var:agent",
-      "var:prop" : [ "var:value" ]      
+      "var:prop" : [ "var:pvalue" ]
+    },
+    {
+      "@type" : "Entity",
+      "@id" : "var:entity"
+    },
+    {
+      "@type" : "Agent",
+      "@id" : "var:agent"
     }
+
     ]
   }
   ]

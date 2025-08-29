@@ -39,6 +39,7 @@
                                 <arg>src/main/resources/bindings/examples/division-121-4.json</arg>
                                 <arg>src/main/resources/bindings/general/file-compression.json</arg>
                                 <arg>src/main/resources/bindings/primitive/file-entity.json</arg>
+                                <arg>src/main/resources/bindings/primitive/attribution-with-optionality.json</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -348,6 +349,58 @@
                                 <arg>target/file-100Gb.jsonld</arg>
                                 <arg>-outfile</arg>
                                 <arg>target/file-100Gb.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>instantiate.primitive.attribution-with-optionality.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>src/main/resources/templates/primitive/attribution.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>src/main/resources/bindings/primitive/attribution-with-optionality.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/attribution-with-optionality.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.primitive.attribution.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-qualified</arg>
+                                <arg>-infile</arg>
+                                <arg>src/main/resources/templates/primitive/attribution.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/attribution.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.primitive.attribution-with-optionality.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-qualified</arg>
+                                <arg>-infile</arg>
+                                <arg>target/attribution-with-optionality.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/attribution-with-optionality.svg</arg>
                             </args>
                         </configuration>
                     </execution>
