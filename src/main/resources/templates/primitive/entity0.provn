@@ -1,0 +1,10 @@
+document
+prefix vargen <http://openprovenance.org/vargen#>
+prefix var <http://openprovenance.org/var#>
+bundle vargen:b
+prefix vargen <http://openprovenance.org/vargen#>
+prefix var <http://openprovenance.org/var#>
+
+entity(var:entity,[var:prop = 'var:pvalue'])
+endBundle
+endDocument

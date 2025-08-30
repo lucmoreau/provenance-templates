@@ -8,23 +8,13 @@
         "prov" : "http://www.w3.org/ns/prov#",
         "var" : "http://openprovenance.org/var#",
         "vargen" : "http://openprovenance.org/vargen#"
-      },"https://openprovenance.org/prov-jsonld/context.jsonld" ],
+      }, "http://openprovenance.org/prov.jsonld" ],
       "@id" : "vargen:b",
       "@graph" : [ {
-        "@type" : "Derivation",
-        "@id" : "var:id",
-        "generatedEntity": "var:e1",
-        "usedEntity": "var:e0",
+        "@type" : "Activity",
+        "@id" : "var:activity",
         "var:prop" : [ "var:pvalue" ]
-      },
-        {
-          "@type" : "Entity",
-          "@id" : "var:e1"
-        },
-        {
-          "@type" : "Entity",
-          "@id" : "var:e0"
-        }
+      }
       ]
     }
   ]

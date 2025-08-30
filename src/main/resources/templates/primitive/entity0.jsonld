@@ -1,0 +1,26 @@
+{
+  "@context" : [ {
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "prov" : "http://www.w3.org/ns/prov#",
+    "var" : "http://openprovenance.org/var#",
+    "vargen" : "http://openprovenance.org/vargen#"
+  },"https://openprovenance.org/prov-jsonld/context.jsonld" ],
+  "@graph" : [
+    {
+      "@type" : "Bundle",
+      "@context" : [ {
+        "xsd" : "http://www.w3.org/2001/XMLSchema#",
+        "prov" : "http://www.w3.org/ns/prov#",
+        "var" : "http://openprovenance.org/var#",
+        "vargen" : "http://openprovenance.org/vargen#"
+      }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+      "@id" : "vargen:b",
+      "@graph" : [ {
+        "@type" : "Entity",
+        "@id" : "var:entity",
+        "var:prop" : [ "var:pvalue" ]
+      }
+      ]
+    }
+  ]
+}

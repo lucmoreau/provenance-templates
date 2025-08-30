@@ -646,8 +646,66 @@
                             </configuration>
                     </execution>
 
+                    <execution>
+                        <id>test.ttf.schema</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>validate-ttb</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>src/main/resources/ttfs/config-triangles.json</arg>
+                            </args>
+                        </configuration>
+                    </execution>
 
+                    <execution>
+                        <id>entity0.svg</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>src/main/resources/templates/primitive/entity0.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/entity0.provn</arg>
+                            </args>
+                        </configuration>
+                    </execution>
 
+                    <execution>
+                        <id>exec.process.template</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>execute-ttb</goal>
+                        </goals>
+                        <configuration>
+                            <inputBaseDir>${project.basedir}/src/main/resources</inputBaseDir>
+                            <outputBaseDir>${project.build.directory}</outputBaseDir>
+                            <configs>
+                                <config>ttfs/config-triangles.json</config>
+                            </configs>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.new.triangle.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-qualified</arg>
+                                <arg>-infile</arg>
+                                <arg>target/generated-templates/triangle-ugd.provn</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/triangle-ugd.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
         </plugins>
