@@ -707,7 +707,7 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>log2prov</id>
+                        <id>log2prov.all</id>
                         <phase>test</phase> <!-- later than concat-csv -->
                         <goals>
                             <goal>provconvert</goal>
@@ -725,7 +725,8 @@
                     </execution>
                 </executions>
 
-                <dependencies>
+                <dependencies> <!-- dependency added to support -log2prov use of class
+                                    org.openprovenance.prov.template.library.ptm.Init -->
                     <dependency>
                         <groupId>org.openprovenance.prov</groupId>
                         <artifactId>prov-template-library</artifactId>
