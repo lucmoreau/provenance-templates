@@ -725,7 +725,7 @@
                     </execution>
                 </executions>
 
-                §<dependencies>
+                <dependencies>
                     <dependency>
                         <groupId>org.openprovenance.prov</groupId>
                         <artifactId>prov-template-library</artifactId>
