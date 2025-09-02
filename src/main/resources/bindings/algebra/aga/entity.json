@@ -1,0 +1,36 @@
+{
+    "var": {
+        "pvalue": [
+            [
+                {
+                    "@id": "var:pvalue"
+                }
+            ]
+        ],
+        "entity": [
+            {
+                "@id": "var:entity"
+            }
+
+        ],
+        "prop": [
+            [
+                {
+                    "@id": "var:prop"
+                }
+            ]
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "ex": "http://example.org/#",
+        "var" : "http://openprovenance.org/var#",
+        "vargen" : "http://openprovenance.org/vargen#"
+    }
+}

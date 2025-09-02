@@ -1,7 +1,7 @@
 {
     "template_path": ["templates/primitive", "."],
     "bindings_path": ["bindings/algebra"],
-    "output_dir": "generated-templates",
+    "output_dir": "generated-templates/aga/",
     "variableMaps": ["./common-ns.json"],
 
 
@@ -11,9 +11,18 @@
             "description": "Instantiating an entity pattern",
             "template": "entity0.provn",
             "output": "entities",
-            "bindings": "entity-e0-e1.json",
+            "bindings": "entity-e0.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-entities.prov-csv"
+            "hasProvenance": "prov-entity.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating an agent pattern",
+            "template": "agent0.provn",
+            "output": "agent",
+            "bindings": "agent-ag0.json",
+            "formats": ["provn", "png", "svg"],
+            "hasProvenance": "prov-agent.prov-csv"
         },
         {
             "type": "instantiate",
@@ -27,20 +36,20 @@
         {
             "type": "instantiate",
             "description": "Instantiating a derivation pattern",
-            "template": "derivation0.provn",
-            "output": "derivation",
-            "bindings": "derivation.json",
+            "template": "attribution0.provn",
+            "output": "attribution",
+            "bindings": "attribution.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-derivation.prov-csv"
+            "hasProvenance": "prov-attribution.prov-csv"
         },
         {
             "type": "instantiate",
-            "description": "Instantiating a usage pattern",
-            "template": "usage0.provn",
-            "output": "usage",
-            "bindings": "usage.json",
+            "description": "Instantiating an association pattern",
+            "template": "association0.provn",
+            "output": "association",
+            "bindings": "association.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-usage.prov-csv"
+            "hasProvenance": "prov-association.prov-csv"
         },
         {
             "type": "instantiate",
@@ -54,7 +63,7 @@
 
         {
             "type": "merge",
-            "description": "Adding a component to the output",
+            "description": "Merging the above templates into a single template",
             "addOutputDirToInputPath": true,
             "inputs": ["entities.provn", "activity.provn", "derivation.provn","usage.provn","generation.provn"],
             "output": "triangle-ugd",
