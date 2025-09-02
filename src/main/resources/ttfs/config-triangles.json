@@ -56,38 +56,7 @@
             "type": "merge",
             "description": "Adding a component to the output",
             "addOutputDirToInputPath": true,
-            "input": "entities.provn",
-            "input2": "activity.provn",
-            "output": "entities-and-activity",
-            "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-entity-and-activity.prov-csv"
-        },
-        {
-            "type": "merge",
-            "description": "Adding a component to the output",
-            "addOutputDirToInputPath": true,
-            "input": "entities-and-activity.provn",
-            "input2": "derivation.provn",
-            "output": "entities-and-activity-and-derivation",
-            "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-entity-and-activity-and-derivation.prov-csv"
-        },
-        {
-            "type": "merge",
-            "description": "Adding a component to the output",
-            "addOutputDirToInputPath": true,
-            "input": "entities-and-activity-and-derivation.provn",
-            "input2": "usage.provn",
-            "output": "entities-and-activity-and-derivation-and-usage",
-            "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-entities-and-activity-and-derivation-and-usage.prov-csv"
-        },
-        {
-            "type": "merge",
-            "description": "Adding a component to the output",
-            "addOutputDirToInputPath": true,
-            "input": "entities-and-activity-and-derivation-and-usage.provn",
-            "input2": "generation.provn",
+            "inputs": ["entities.provn", "activity.provn", "derivation.provn","usage.provn","generation.provn"],
             "output": "triangle-ugd",
             "formats": ["provn", "png", "svg"],
             "hasProvenance": "prov-triangle-ugd.prov-csv"
