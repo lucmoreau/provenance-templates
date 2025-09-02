@@ -7,7 +7,7 @@
 
     "tasks": [
         {
-            "type": "instantiation",
+            "type": "instantiate",
             "description": "Instantiating an entity pattern",
             "input": "entity0.provn",
             "output": "entities",
@@ -16,7 +16,7 @@
             "hasProvenance": "prov-entities.prov-csv"
         },
         {
-            "type": "instantiation",
+            "type": "instantiate",
             "description": "Instantiating an activity pattern",
             "input": "activity0.provn",
             "output": "activity",
@@ -25,7 +25,7 @@
             "hasProvenance": "prov-activity.prov-csv"
         },
         {
-            "type": "instantiation",
+            "type": "instantiate",
             "description": "Instantiating a derivation pattern",
             "input": "derivation0.provn",
             "output": "derivation",
@@ -34,7 +34,7 @@
             "hasProvenance": "prov-derivation.prov-csv"
         },
         {
-            "type": "instantiation",
+            "type": "instantiate",
             "description": "Instantiating a usage pattern",
             "input": "usage0.provn",
             "output": "usage",
@@ -43,7 +43,7 @@
             "hasProvenance": "prov-usage.prov-csv"
         },
         {
-            "type": "instantiation",
+            "type": "instantiate",
             "description": "Instantiating a generation pattern",
             "input": "generation0.provn",
             "output": "generation",
