@@ -3,20 +3,20 @@
         "pvalue": [
             [
                 {
-                    "@id": "var:gvalue"
+                    "@id": "var:attrvalue"
                 }
             ]
         ],
-        "activity": [
+        "agent": [
             {
-                "@id": "var:activity"
+                "@id": "var:agent"
             }
 
         ],
         "prop": [
             [
                 {
-                    "@id": "var:gprop"
+                    "@id": "var:attrprop"
                 }
             ]
         ],
@@ -27,15 +27,8 @@
         ],
         "id": [
             {
-                "@id": "var:g"
+                "@id": "var:attr"
             }
-        ],
-        "time": [
-            [
-                {
-                    "@id": "var:gtime"
-                }
-            ]
         ]
     },
     "vargen":  {

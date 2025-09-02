@@ -1,0 +1,64 @@
+{
+    "var": {
+        "entity1": [
+            {
+                "@id": "var:entity1"
+            }
+        ],
+        "entity0": [
+            {
+                "@id": "var:entity0"
+            }
+        ],
+        "id": [
+            {
+                "@id": "var:deriv1"
+            }
+        ],
+        "activity": [
+            {
+                "@id": "var:activity1"
+            }
+        ],
+        "pvalue": [
+            [
+                {
+                    "@id": "var:dvalue1"
+                }
+            ]
+        ],
+        "prop": [
+            [
+                {
+                    "@id": "var:dprop1"
+                }
+            ]
+        ],
+        "usage": [
+            [
+                {
+                    "@id": "var:u1"
+                }
+            ]
+        ],
+        "generation": [
+            [
+                {
+                    "@id": "var:g1"
+                }
+            ]
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "ex": "http://example.org/#",
+        "var" : "http://openprovenance.org/var#",
+        "vargen" : "http://openprovenance.org/vargen#"
+    }
+}

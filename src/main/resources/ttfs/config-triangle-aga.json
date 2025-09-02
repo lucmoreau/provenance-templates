@@ -1,7 +1,7 @@
 {
     "template_path": ["templates/primitive", "."],
-    "bindings_path": ["bindings/algebra"],
-    "output_dir": "generated-templates/aga/",
+    "bindings_path": ["bindings/algebra/aga"],
+    "output_dir": "generated-templates/aga",
     "variableMaps": ["./common-ns.json"],
 
 
@@ -10,8 +10,8 @@
             "type": "instantiate",
             "description": "Instantiating an entity pattern",
             "template": "entity0.provn",
-            "output": "entities",
-            "bindings": "entity-e0.json",
+            "output": "entity",
+            "bindings": "entity.json",
             "formats": ["provn", "png", "svg"],
             "hasProvenance": "prov-entity.prov-csv"
         },
@@ -20,7 +20,7 @@
             "description": "Instantiating an agent pattern",
             "template": "agent0.provn",
             "output": "agent",
-            "bindings": "agent-ag0.json",
+            "bindings": "agent.json",
             "formats": ["provn", "png", "svg"],
             "hasProvenance": "prov-agent.prov-csv"
         },
@@ -65,10 +65,10 @@
             "type": "merge",
             "description": "Merging the above templates into a single template",
             "addOutputDirToInputPath": true,
-            "inputs": ["entities.provn", "activity.provn", "derivation.provn","usage.provn","generation.provn"],
-            "output": "triangle-ugd",
+            "inputs": ["entity.provn", "activity.provn", "agent.provn", "association.provn", "attribution.provn","generation.provn"],
+            "output": "triangle-aga",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-triangle-ugd.prov-csv"
+            "hasProvenance": "prov-triangle-aga.prov-csv"
         }
 
     ]

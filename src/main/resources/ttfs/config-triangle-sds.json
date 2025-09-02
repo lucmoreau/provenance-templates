@@ -1,0 +1,57 @@
+{
+    "template_path": ["templates/primitive", "."],
+    "bindings_path": ["bindings/algebra/sds"],
+    "output_dir": "generated-templates/sds",
+    "variableMaps": ["./common-ns.json"],
+
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating an entity pattern",
+            "template": "entity0.provn",
+            "output": "entity",
+            "bindings": "entity-e0-e1-e2.json",
+            "formats": ["provn", "png", "svg"],
+            "hasProvenance": "prov-entity.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a derivation pattern",
+            "template": "derivation0.provn",
+            "output": "derivation1",
+            "bindings": "derivation1.json",
+            "formats": ["provn", "png", "svg"],
+            "hasProvenance": "prov-derivation1.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a derivation pattern",
+            "template": "derivation0.provn",
+            "output": "derivation2",
+            "bindings": "derivation2.json",
+            "formats": ["provn", "png", "svg"],
+            "hasProvenance": "prov-derivation2.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a specialization pattern",
+            "template": "qualified-specialization0.jsonld",
+            "bindings": "specialization.json",
+            "output": "specialization",
+            "formats": ["jsonld", "provn","png", "svg"],
+            "hasProvenance": "prov-specialization.prov-csv"
+        },
+
+        {
+            "type": "merge",
+            "description": "Merging the above templates into a single template",
+            "addOutputDirToInputPath": true,
+            "inputs": ["entity.provn", "derivation1.provn", "derivation2.provn", "specialization.jsonld"],
+            "output": "triangle-sds",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "prov-triangle-sds.prov-csv"
+        }
+
+    ]
+}

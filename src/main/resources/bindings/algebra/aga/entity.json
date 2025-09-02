@@ -3,22 +3,35 @@
         "pvalue": [
             [
                 {
-                    "@id": "var:pvalue"
+                    "@id": "var:epvalue"
+                }
+            ],
+            [
+                {
+                    "@id": "var:ppvalue"
+                }
+            ]
+        ],
+        "prop": [
+            [
+                {
+                    "@id": "var:eprop"
+                }
+            ],
+            [
+                {
+                    "@id": "var:pprop"
                 }
             ]
         ],
         "entity": [
             {
                 "@id": "var:entity"
+            },
+            {
+                "@id": "var:plan"
             }
 
-        ],
-        "prop": [
-            [
-                {
-                    "@id": "var:prop"
-                }
-            ]
         ]
     },
     "vargen":  {

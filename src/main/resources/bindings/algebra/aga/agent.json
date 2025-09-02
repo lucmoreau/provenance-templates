@@ -3,37 +3,20 @@
         "pvalue": [
             [
                 {
-                    "@id": "var:gvalue"
+                    "@id": "var:agpvalue"
                 }
             ]
         ],
-        "activity": [
+        "agent": [
             {
-                "@id": "var:activity"
+                "@id": "var:agent"
             }
 
         ],
         "prop": [
             [
                 {
-                    "@id": "var:gprop"
-                }
-            ]
-        ],
-        "entity": [
-            {
-                "@id": "var:entity"
-            }
-        ],
-        "id": [
-            {
-                "@id": "var:g"
-            }
-        ],
-        "time": [
-            [
-                {
-                    "@id": "var:gtime"
+                    "@id": "var:agprop"
                 }
             ]
         ]

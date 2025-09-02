@@ -3,7 +3,7 @@
         "pvalue": [
             [
                 {
-                    "@id": "var:dvalue"
+                    "@id": "var:assocpvalue"
                 }
             ]
         ],
@@ -13,38 +13,25 @@
             }
 
         ],
+        "agent": [
+            {
+                "@id": "var:agent"
+            }
+
+        ],
         "prop": [
             [
                 {
-                    "@id": "var:dprop"
+                    "@id": "var:assocprop"
                 }
             ]
         ],
-        "entity1": [
-            {
-                "@id": "var:entity2"
-            }
-        ],
-        "entity0": [
-            {
-                "@id": "var:entity1"
-            }
-        ],
         "id": [
             {
-                "@id": "var:id"
-            }
-        ],
-        "usage": [
-            {
-                "@id": "var:u"
-            }
-        ],
-        "generation": [
-            {
-                "@id": "var:g"
+                "@id": "var:assoc"
             }
         ]
+
     },
     "vargen":  {
         "b": [
