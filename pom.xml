@@ -650,7 +650,7 @@
                         <id>test.ttf.schema</id>
                         <phase>process-resources</phase>
                         <goals>
-                            <goal>validate-ttb</goal>
+                            <goal>validate-ttf</goal>
                         </goals>
                         <configuration>
                             <args>
@@ -679,7 +679,7 @@
                         <id>exec.process.template</id>
                         <phase>process-resources</phase>
                         <goals>
-                            <goal>execute-ttb</goal>
+                            <goal>execute-ttf</goal>
                         </goals>
                         <configuration>
                             <inputBaseDir>${project.basedir}/src/main/resources</inputBaseDir>

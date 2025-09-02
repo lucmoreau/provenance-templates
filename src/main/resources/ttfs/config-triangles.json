@@ -9,7 +9,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an entity pattern",
-            "input": "entity0.provn",
+            "template": "entity0.provn",
             "output": "entities",
             "bindings": "entity-e0-e1.json",
             "formats": ["provn", "png", "svg"],
@@ -18,7 +18,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an activity pattern",
-            "input": "activity0.provn",
+            "template": "activity0.provn",
             "output": "activity",
             "bindings": "activity.json",
             "formats": ["provn", "png", "svg"],
@@ -27,7 +27,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating a derivation pattern",
-            "input": "derivation0.provn",
+            "template": "derivation0.provn",
             "output": "derivation",
             "bindings": "derivation.json",
             "formats": ["provn", "png", "svg"],
@@ -36,7 +36,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating a usage pattern",
-            "input": "usage0.provn",
+            "template": "usage0.provn",
             "output": "usage",
             "bindings": "usage.json",
             "formats": ["provn", "png", "svg"],
@@ -45,7 +45,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating a generation pattern",
-            "input": "generation0.provn",
+            "template": "generation0.provn",
             "output": "generation",
             "bindings": "generation.json",
             "formats": ["provn", "png", "svg"],
