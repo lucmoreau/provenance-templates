@@ -1,7 +1,7 @@
 {
     "template_path": ["templates/primitive", "."],
-    "bindings_path": ["bindings/algebra/sds"],
-    "output_dir": "generated-templates/sds",
+    "bindings_path": ["bindings/algebra/triangle2-sds"],
+    "output_dir": "generated-templates/triangle2-sds",
     "variableMaps": ["./common-ns.json"],
 
 
@@ -48,9 +48,9 @@
             "description": "Merging the above templates into a single template",
             "addOutputDirToInputPath": true,
             "inputs": ["entity.provn", "derivation.provn", "specialization1.jsonld", "specialization2.jsonld"],
-            "output": "triangle-sds",
+            "output": "triangle2-sds",
             "formats": ["jsonld", "provn", "png", "svg"],
-            "hasProvenance": "prov-triangle-sds.prov-csv"
+            "hasProvenance": "prov-triangle2-sds.prov-csv"
         }
 
     ]

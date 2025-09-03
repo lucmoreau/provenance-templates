@@ -1,7 +1,7 @@
 {
     "template_path": ["templates/primitive", "."],
-    "bindings_path": ["bindings/algebra/aia"],
-    "output_dir": "generated-templates/aia",
+    "bindings_path": ["bindings/algebra/triangle4-aia"],
+    "output_dir": "generated-templates/triangle4-aia",
     "variableMaps": ["./common-ns.json"],
 
 
@@ -66,9 +66,9 @@
             "description": "Merging the above templates into a single template",
             "addOutputDirToInputPath": true,
             "inputs": ["entity.provn", "activity.provn", "agent.provn", "association.provn", "attribution.provn","invalidation.provn"],
-            "output": "triangle-aia",
+            "output": "triangle4-aia",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-triangle-aia.prov-csv"
+            "hasProvenance": "prov-triangle4-aia.prov-csv"
         }
 
 

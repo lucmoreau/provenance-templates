@@ -1,7 +1,7 @@
 {
     "template_path": ["templates/primitive", "."],
-    "bindings_path": ["bindings/algebra/aga"],
-    "output_dir": "generated-templates/aga",
+    "bindings_path": ["bindings/algebra/triangle1-ugd"],
+    "output_dir": "generated-templates/triangle1-ugd",
     "variableMaps": ["./common-ns.json"],
 
 
@@ -10,19 +10,10 @@
             "type": "instantiate",
             "description": "Instantiating an entity pattern",
             "template": "entity0.provn",
-            "output": "entity",
-            "bindings": "entity.json",
+            "output": "entities",
+            "bindings": "entity-e0-e1.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-entity.prov-csv"
-        },
-        {
-            "type": "instantiate",
-            "description": "Instantiating an agent pattern",
-            "template": "agent0.provn",
-            "output": "agent",
-            "bindings": "agent.json",
-            "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-agent.prov-csv"
+            "hasProvenance": "prov-entities.prov-csv"
         },
         {
             "type": "instantiate",
@@ -36,22 +27,21 @@
         {
             "type": "instantiate",
             "description": "Instantiating a derivation pattern",
-            "template": "attribution0.provn",
-            "output": "attribution",
-            "bindings": "attribution.json",
+            "template": "derivation0.provn",
+            "output": "derivation",
+            "bindings": "derivation.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-attribution.prov-csv"
+            "hasProvenance": "prov-derivation.prov-csv"
         },
         {
             "type": "instantiate",
-            "description": "Instantiating an association pattern",
-            "template": "association0.provn",
-            "output": "association",
-            "bindings": "association.json",
+            "description": "Instantiating a usage pattern",
+            "template": "usage0.provn",
+            "output": "usage",
+            "bindings": "usage.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-association.prov-csv"
+            "hasProvenance": "prov-usage.prov-csv"
         },
-
         {
             "type": "instantiate",
             "description": "Instantiating a generation pattern",
@@ -66,10 +56,10 @@
             "type": "merge",
             "description": "Merging the above templates into a single template",
             "addOutputDirToInputPath": true,
-            "inputs": ["entity.provn", "activity.provn", "agent.provn", "association.provn", "attribution.provn","generation.provn"],
-            "output": "triangle-aga",
+            "inputs": ["entities.provn", "activity.provn", "derivation.provn","usage.provn","generation.provn"],
+            "output": "triangle1-ugd",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-triangle-aga.prov-csv"
+            "hasProvenance": "prov-triangle1-ugd.prov-csv"
         }
 
     ]
