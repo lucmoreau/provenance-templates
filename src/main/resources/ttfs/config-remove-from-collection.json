@@ -1,0 +1,51 @@
+{
+    "template_path": ["src/main/resources/templates/primitive", "target/generated-templates/triangle1-ugd", "."],
+    "bindings_path": ["src/main/resources/bindings/collections/remove"],
+    "output_dir": "generated-templates/collections-remove",
+    "variableMaps": ["./common-ns.json"],
+
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle1-ugd pattern",
+            "template": "triangle1-ugd.provn",
+            "output": "collection-remove-triangle1-ugd",
+            "bindings": "collection-remove-triangle1-ugd.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "prov-collection-remove-triangle1-ugd.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle1-ugd pattern",
+            "template": "triangle1-ugd.provn",
+            "output": "collection-remove-triangle2-ugd",
+            "bindings": "collection-remove-triangle2-ugd.json",
+            "formats": ["jsonld" ,"provn", "png", "svg"],
+            "hasProvenance": "prov-collection-remove-triangle2-ugd.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating a membership pattern",
+            "template": "qualified-membership0.jsonld",
+            "output": "membership",
+            "bindings": "membership.json",
+            "formats": ["jsonld", "provn","png", "svg"],
+            "hasProvenance": "prov-membership.prov-csv"
+        },
+
+        {
+            "type": "merge",
+            "description": "Merging the above templates into a single template",
+            "addOutputDirToInputPath": true,
+            "inputs": ["collection-remove-triangle1-ugd.jsonld", "collection-remove-triangle2-ugd.jsonld", "membership.jsonld"],
+            "output": "collection-remove",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "prov-collection-remove.prov-csv"
+        }
+
+
+    ]
+}

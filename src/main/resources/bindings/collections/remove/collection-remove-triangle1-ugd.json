@@ -1,0 +1,113 @@
+{
+    "var": {
+
+        "activity": [
+            {
+                "@id": "var:remove"
+            }
+
+        ],
+        "aprop": [
+            [
+                {
+                    "@id": "var:aprop"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "avalue": [
+            [
+                {
+                    "@id": "var:avalue"
+                },
+                {
+                    "@id": "provext:RemovingElementFromCollection"
+                }
+            ]
+        ],
+        "dprop": [
+            [
+                {
+                    "@id": "var:dprop"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "dvalue": [
+            [
+                {
+                    "@id": "var:dvalue"
+                },
+                {
+                    "@id": "provext:RemovingElement"
+                }
+            ]
+        ],
+
+        "uprop": [
+            [
+                {
+                    "@id": "var:uprop1"
+                },
+                {
+                    "@id": "prov:role"
+                }
+            ]
+        ],
+        "uvalue": [
+            [
+                {
+                    "@id": "var:uvalue1"
+
+                },
+                {
+                    "@id": "provext:asEntity"
+                }
+            ]
+        ],
+        "u": [
+            {
+                "@id": "var:usd1"
+            }
+        ],
+        "g": [
+            {
+                "@id": "var:gen"
+            }
+        ],
+
+        "entity1": [
+            {
+                "@id": "var:item"
+            }
+        ],
+        "entity2": [
+            {
+                "@id": "var:coll1"
+            }
+        ],
+        "id": [
+            {
+                "@id": "var:wdf1"
+            }
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "ex": "http://example.org/#",
+        "var" : "http://openprovenance.org/var#",
+        "vargen" : "http://openprovenance.org/vargen#",
+        "provext": "http://openprovenance.org/prov/extension#",
+        "prov": "http://www.w3.org/ns/prov#"
+    }
+}

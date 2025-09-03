@@ -33,7 +33,7 @@
             "inputs": ["collection-insert-triangle1-ugm.jsonld", "collection-insert-triangle2-ugd.jsonld"],
             "output": "collection-insert",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-collection.prov-csv"
+            "hasProvenance": "prov-collection-insert.prov-csv"
         }
 
 

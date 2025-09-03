@@ -1,0 +1,33 @@
+{
+    "var": {
+        "mid": [
+            {
+                "@id": "var:mid0"
+            }
+        ],
+
+        "collection": [
+            {
+                "@id": "var:coll0"
+            }
+        ],
+        "entity": [
+            {
+                "@id": "var:item"
+            }
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "ex": "http://example.org/#",
+        "var" : "http://openprovenance.org/var#",
+        "vargen" : "http://openprovenance.org/vargen#",
+        "provext": "http://openprovenance.org/prov/extension#"
+    }
+}

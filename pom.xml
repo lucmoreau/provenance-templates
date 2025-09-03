@@ -660,6 +660,7 @@
                                 <arg>src/main/resources/ttfs/config-triangle4-aia.json</arg>
                                 <arg>src/main/resources/ttfs/config-triangle6-ugm.json</arg>
                                 <arg>src/main/resources/ttfs/config-insert-into-collection.json</arg>
+                                <arg>src/main/resources/ttfs/config-remove-from-collection.json</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -702,7 +703,7 @@
                     </execution>
 
                     <execution>
-                        <id>exec.process.template.collections</id>
+                        <id>exec.process.template.collections.insert</id>
                         <phase>process-resources</phase>
                         <goals>
                             <goal>execute-ttf</goal>
@@ -712,6 +713,21 @@
                             <outputBaseDir>${project.build.directory}</outputBaseDir>
                             <configs>
                                 <config>src/main/resources/ttfs/config-insert-into-collection.json</config>
+                            </configs>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>exec.process.template.collections.remove</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>execute-ttf</goal>
+                        </goals>
+                        <configuration>
+                            <inputBaseDir>${project.basedir}</inputBaseDir>
+                            <outputBaseDir>${project.build.directory}</outputBaseDir>
+                            <configs>
+                                <config>src/main/resources/ttfs/config-remove-from-collection.json</config>
                             </configs>
                         </configuration>
                     </execution>
@@ -905,6 +921,23 @@
                                 <arg>target/generated-templates/collections-insert/collection-insert.jsonld</arg>
                                 <arg>-outfile</arg>
                                 <arg>target/collection-insert.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.new.collection.remove.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-qualified</arg>
+                                <arg>-infile</arg>
+                                <arg>target/generated-templates/collections-remove/collection-remove.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/collection-remove.svg</arg>
                             </args>
                         </configuration>
                     </execution>

@@ -1,0 +1,146 @@
+{
+    "var": {
+        "id": [
+            {
+                "@id": "var:wdf2"
+            }
+        ],
+        "entity1": [
+            {
+                "@id": "var:coll0"
+            }
+        ],
+        "entity2": [
+            {
+                "@id": "var:coll1"
+            }
+        ],
+        "activity": [
+            {
+                "@id": "var:remove"
+            }
+
+        ],
+        "dprop": [
+            [
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "dvalue": [
+            [
+                {
+                    "@id": "provext:RemovingElementFromCollection"
+                }
+            ]
+        ],
+        "uprop": [
+            [
+                {
+                    "@id": "var:uprop2"
+                },
+                {
+                    "@id": "prov:role"
+                }
+            ]
+        ],
+        "uvalue": [
+            [
+                {
+                    "@id": "var:uvalue2"
+
+                },
+                {
+                    "@id": "provext:asCollection"
+                }
+            ]
+        ],
+        "prop2" : [
+            [
+                {
+                    "@id": "var:prop1"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "evalue2" : [
+            [
+                {
+                    "@id": "var:value1"
+                },
+                {
+                    "@id": "prov:Collection"
+                }
+            ]
+        ],
+        "prop1" : [
+            [
+                {
+                    "@id": "var:prop0"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "evalue1" : [
+            [
+                {
+                    "@id": "var:value0"
+                },
+                {
+                    "@id": "prov:Collection"
+                }
+            ]
+        ],
+        "gprop": [
+            [
+                {
+                    "@id": "var:gprop"
+                },
+                {
+                    "@id": "prov:role"
+                }
+            ]
+        ],
+        "gvalue": [
+            [
+                {
+                    "@id": "var:gvalue"
+
+                },
+                {
+                    "@id": "provext:outCollection"
+                }
+            ]
+        ],
+        "u": [
+            {
+                "@id": "var:usd2"
+            }
+        ],
+        "g": [
+            {
+                "@id": "var:gen"
+            }
+        ]
+
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "ex": "http://example.org/#",
+        "var" : "http://openprovenance.org/var#",
+        "vargen" : "http://openprovenance.org/vargen#",
+        "provext": "http://openprovenance.org/prov/extension#",
+        "prov": "http://www.w3.org/ns/prov#"
+    }
+}
