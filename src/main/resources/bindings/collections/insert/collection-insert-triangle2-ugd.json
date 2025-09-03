@@ -1,0 +1,86 @@
+{
+    "var": {
+
+        "activity": [
+            {
+                "@id": "var:insert"
+            }
+
+        ],
+        "dprop": [
+            [
+                {
+                    "@id": "var:type"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "dvalue": [
+            [
+                {
+                    "@id": "provext:Membership"
+                },
+                {
+                    "@id": "provext:InsertingIntoCollection"
+                }
+            ]
+        ],
+        "uprop": [
+            [
+                {
+                    "@id": "var:uprop2"
+                },
+                {
+                    "@id": "prov:role"
+                }
+            ]
+        ],
+        "uvalue": [
+            [
+                {
+                    "@id": "var:uvalue2"
+
+                },
+                {
+                    "@id": "provext:asCollection"
+                }
+            ]
+        ],
+        "u": [
+            {
+                "@id": "var:uid2"
+            }
+        ],
+        "entity1": [
+            {
+                "@id": "var:coll0"
+            }
+        ],
+        "entity2": [
+            {
+                "@id": "var:coll1"
+            }
+        ],
+        "id": [
+            {
+                "@id": "var:wdf2"
+            }
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "ex": "http://example.org/#",
+        "var" : "http://openprovenance.org/var#",
+        "vargen" : "http://openprovenance.org/vargen#",
+        "provext": "http://openprovenance.org/prov/extension#",
+        "prov": "http://www.w3.org/ns/prov#"
+    }
+}

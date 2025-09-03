@@ -658,6 +658,7 @@
                                 <arg>src/main/resources/ttfs/config-triangle2-sds.json</arg>
                                 <arg>src/main/resources/ttfs/config-triangle3-aga.json</arg>
                                 <arg>src/main/resources/ttfs/config-triangle4-aia.json</arg>
+                                <arg>src/main/resources/ttfs/config-insert-into-collection.json</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -679,7 +680,7 @@
                     </execution>
 
                     <execution>
-                        <id>exec.process.template</id>
+                        <id>exec.process.template.triangles</id>
                         <phase>process-resources</phase>
                         <goals>
                             <goal>execute-ttf</goal>
@@ -692,6 +693,23 @@
                                 <config>ttfs/config-triangle2-sds.json</config>
                                 <config>ttfs/config-triangle3-aga.json</config>
                                 <config>ttfs/config-triangle4-aia.json</config>
+
+
+                            </configs>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>exec.process.template.collections</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>execute-ttf</goal>
+                        </goals>
+                        <configuration>
+                            <inputBaseDir>${project.basedir}</inputBaseDir>
+                            <outputBaseDir>${project.build.directory}</outputBaseDir>
+                            <configs>
+                                <config>src/main/resources/ttfs/config-insert-into-collection.json</config>
                             </configs>
                         </configuration>
                     </execution>
@@ -836,6 +854,24 @@
                         </configuration>
                     </execution>
 
+
+
+                    <execution>
+                        <id>convert.new.collection.insert.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-qualified</arg>
+                                <arg>-infile</arg>
+                                <arg>target/generated-templates/collections-insert/collection-insert.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>target/collection-insert.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
 
                 </executions>
 
