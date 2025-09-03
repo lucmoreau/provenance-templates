@@ -3,23 +3,23 @@
         "pvalue": [
             [
                 {
-                    "@id": "var:svalue"
+                    "@id": "var:svalue2"
                 },
                 {
-                    "@id": "var:deriv1"
+                    "@id": "var:deriv"
                 },
                 {
-                    "@id": "var:entity"
+                    "@id": "var:entity2"
                 },
                 {
-                    "@id": "var:specialization"
+                    "@id": "var:spec1"
                 }
             ]
         ],
         "prop": [
             [
                 {
-                    "@id": "var:sprop"
+                    "@id": "var:sprop2"
                 },
                 {
                     "@id": "provext:derivation"
@@ -34,7 +34,7 @@
         ],
         "specificEntity": [
             {
-                "@id": "var:entity2"
+                "@id": "var:entity3"
             }
         ],
         "generalEntity": [
@@ -45,7 +45,7 @@
 
         "id": [
             {
-                "@id": "var:spec"
+                "@id": "var:spec2"
             }
         ]
     },

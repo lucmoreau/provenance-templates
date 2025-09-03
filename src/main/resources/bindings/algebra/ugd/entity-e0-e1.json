@@ -3,12 +3,12 @@
         "pvalue": [
             [
                 {
-                    "@id": "var:pvalue1"
+                    "@id": "var:evalue1"
                 }
             ],
             [
                 {
-                    "@id": "var:pvalue2"
+                    "@id": "var:evalue2"
                 }
             ]
         ],

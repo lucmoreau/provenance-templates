@@ -19,35 +19,35 @@
             "type": "instantiate",
             "description": "Instantiating a derivation pattern",
             "template": "derivation0.provn",
-            "output": "derivation1",
-            "bindings": "derivation1.json",
+            "output": "derivation",
+            "bindings": "derivation.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-derivation1.prov-csv"
-        },
-        {
-            "type": "instantiate",
-            "description": "Instantiating a derivation pattern",
-            "template": "derivation0.provn",
-            "output": "derivation2",
-            "bindings": "derivation2.json",
-            "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-derivation2.prov-csv"
+            "hasProvenance": "prov-derivation.prov-csv"
         },
         {
             "type": "instantiate",
             "description": "Instantiating a specialization pattern",
             "template": "qualified-specialization0.jsonld",
-            "bindings": "specialization.json",
-            "output": "specialization",
+            "bindings": "specialization1.json",
+            "output": "specialization1",
             "formats": ["jsonld", "provn","png", "svg"],
-            "hasProvenance": "prov-specialization.prov-csv"
+            "hasProvenance": "prov-specialization1.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a specialization pattern",
+            "template": "qualified-specialization0.jsonld",
+            "bindings": "specialization2.json",
+            "output": "specialization2",
+            "formats": ["jsonld", "provn","png", "svg"],
+            "hasProvenance": "prov-specialization2.prov-csv"
         },
 
         {
             "type": "merge",
             "description": "Merging the above templates into a single template",
             "addOutputDirToInputPath": true,
-            "inputs": ["entity.provn", "derivation1.provn", "derivation2.provn", "specialization.jsonld"],
+            "inputs": ["entity.provn", "derivation.provn", "specialization1.jsonld", "specialization2.jsonld"],
             "output": "triangle-sds",
             "formats": ["jsonld", "provn", "png", "svg"],
             "hasProvenance": "prov-triangle-sds.prov-csv"

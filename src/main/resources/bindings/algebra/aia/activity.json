@@ -1,50 +1,36 @@
 {
     "var": {
-        "entity1": [
-            {
-                "@id": "var:entity1"
-            }
-        ],
-        "entity0": [
-            {
-                "@id": "var:entity0"
-            }
-        ],
-        "id": [
-            {
-                "@id": "var:deriv1"
-            }
-        ],
-        "activity": [
-            {
-                "@id": "var:activity1"
-            }
-        ],
         "pvalue": [
             [
                 {
-                    "@id": "var:dvalue1"
+                    "@id": "var:avalue"
                 }
             ]
+        ],
+        "activity": [
+            {
+                "@id": "var:activity"
+            }
+
         ],
         "prop": [
             [
                 {
-                    "@id": "var:dprop1"
+                    "@id": "var:aprop"
                 }
             ]
         ],
-        "usage": [
+        "startTime": [
             [
                 {
-                    "@id": "var:u1"
+                    "@id": "var:stime"
                 }
             ]
         ],
-        "generation": [
+        "endTime": [
             [
                 {
-                    "@id": "var:g1"
+                    "@id": "var:etime"
                 }
             ]
         ]

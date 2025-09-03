@@ -2,51 +2,51 @@
     "var": {
         "entity1": [
             {
-                "@id": "var:entity2"
+                "@id": "var:entity3"
             }
         ],
         "entity0": [
-              {
-                "@id": "var:entity0"
+            {
+                "@id": "var:entity2"
             }
         ],
         "id": [
             {
-                "@id": "var:deriv2"
+                "@id": "var:deriv"
             }
         ],
         "activity": [
             {
-                "@id": "var:activity2"
+                "@id": null
             }
         ],
         "pvalue": [
             [
                 {
-                    "@id": "var:dvalue2"
+                    "@id": "var:dvalue"
                 }
             ]
         ],
         "prop": [
             [
                 {
-                    "@id": "var:dprop2"
+                    "@id": "var:dprop"
                 }
             ]
         ],
         "usage": [
-            [
-                {
-                    "@id": "var:u2"
-                }
-            ]
+
+            {
+                "@id": null
+            }
+
         ],
         "generation": [
-            [
-                {
-                    "@id": "var:g2"
-                }
-            ]
+
+            {
+                "@id": null
+            }
+
         ]
     },
     "vargen":  {

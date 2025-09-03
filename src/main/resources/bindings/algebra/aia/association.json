@@ -3,36 +3,35 @@
         "pvalue": [
             [
                 {
-                    "@id": "var:evalue"
-                }
-            ],
-            [
-                {
-                    "@id": "var:pvalue"
+                    "@id": "var:assocpvalue"
                 }
             ]
+        ],
+        "activity": [
+            {
+                "@id": "var:activity"
+            }
+
+        ],
+        "agent": [
+            {
+                "@id": "var:agent"
+            }
+
         ],
         "prop": [
             [
                 {
-                    "@id": "var:eprop"
-                }
-            ],
-            [
-                {
-                    "@id": "var:pprop"
+                    "@id": "var:assocprop"
                 }
             ]
         ],
-        "entity": [
+        "id": [
             {
-                "@id": "var:entity"
-            },
-            {
-                "@id": "var:plan"
+                "@id": "var:assoc"
             }
-
         ]
+
     },
     "vargen":  {
         "b": [

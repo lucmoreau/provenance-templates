@@ -1,5 +1,10 @@
 {
     "var": {
+        "id": [
+            {
+                "@id": "var:g"
+            }
+        ],
         "pvalue": [
             [
                 {
@@ -23,11 +28,6 @@
         "entity": [
             {
                 "@id": "var:entity"
-            }
-        ],
-        "id": [
-            {
-                "@id": "var:g"
             }
         ],
         "time": [

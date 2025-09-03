@@ -1,11 +1,11 @@
 {
     "var": {
+
         "entity": [
             {
                 "@id": "var:entity"
             }
         ],
-
         "agent": [
             {
                 "@id": "var:agent"
@@ -21,7 +21,7 @@
                     "@id": "provext:association"
                 },
                 {
-                    "@id": "provext:generation"
+                    "@id": "provext:invalidation"
                 }
             ]
         ],
@@ -34,7 +34,7 @@
                     "@id": "var:assoc"
                 },
                 {
-                    "@id": "var:g"
+                    "@id": "var:i"
                 }
             ]
         ],

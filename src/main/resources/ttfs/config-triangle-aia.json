@@ -1,7 +1,7 @@
 {
     "template_path": ["templates/primitive", "."],
-    "bindings_path": ["bindings/algebra/aga"],
-    "output_dir": "generated-templates/aga",
+    "bindings_path": ["bindings/algebra/aia"],
+    "output_dir": "generated-templates/aia",
     "variableMaps": ["./common-ns.json"],
 
 
@@ -51,26 +51,26 @@
             "formats": ["provn", "png", "svg"],
             "hasProvenance": "prov-association.prov-csv"
         },
-
         {
             "type": "instantiate",
-            "description": "Instantiating a generation pattern",
-            "template": "generation0.provn",
-            "output": "generation",
-            "bindings": "generation.json",
+            "description": "Instantiating a invalidation pattern",
+            "template": "invalidation0.provn",
+            "output": "invalidation",
+            "bindings": "invalidation.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-generation.prov-csv"
+            "hasProvenance": "prov-invalidation.prov-csv"
         },
 
         {
             "type": "merge",
             "description": "Merging the above templates into a single template",
             "addOutputDirToInputPath": true,
-            "inputs": ["entity.provn", "activity.provn", "agent.provn", "association.provn", "attribution.provn","generation.provn"],
-            "output": "triangle-aga",
+            "inputs": ["entity.provn", "activity.provn", "agent.provn", "association.provn", "attribution.provn","invalidation.provn"],
+            "output": "triangle-aia",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-triangle-aga.prov-csv"
+            "hasProvenance": "prov-triangle-aia.prov-csv"
         }
+
 
     ]
 }
