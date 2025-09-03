@@ -1,6 +1,17 @@
 {
     "var": {
-
+        "pvalue": [
+            [
+                {
+                    "@id": "var:evalue1"
+                }
+            ],
+            [
+                {
+                    "@id": "var:evalue2"
+                }
+            ]
+        ],
         "entity": [
             {
                 "@id": "var:entity1"
@@ -19,18 +30,6 @@
             [
                 {
                     "@id": "var:prop2"
-                }
-            ]
-        ],
-        "pvalue": [
-            [
-                {
-                    "@id": "var:evalue1"
-                }
-            ],
-            [
-                {
-                    "@id": "var:evalue2"
                 }
             ]
         ]

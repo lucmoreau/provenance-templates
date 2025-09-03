@@ -1,0 +1,66 @@
+{
+    "template_path": ["templates/primitive", "."],
+    "bindings_path": ["bindings/algebra/triangle6-ugm"],
+    "output_dir": "generated-templates/triangle6-ugm",
+    "variableMaps": ["./common-ns.json"],
+
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating an entity pattern",
+            "template": "entity0.provn",
+            "output": "entities",
+            "bindings": "entity-e0-e1.json",
+            "formats": ["provn", "png", "svg"],
+            "hasProvenance": "prov-entities.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating an activity pattern",
+            "template": "activity0.provn",
+            "output": "activity",
+            "bindings": "activity.json",
+            "formats": ["provn", "png", "svg"],
+            "hasProvenance": "prov-activity.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a membership pattern",
+            "template": "qualified-membership0.jsonld",
+            "output": "membership",
+            "bindings": "membership.json",
+            "formats": ["jsonld", "provn","png", "svg"],
+            "hasProvenance": "prov-membership.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a usage pattern",
+            "template": "usage0.provn",
+            "output": "usage",
+            "bindings": "usage.json",
+            "formats": ["provn", "png", "svg"],
+            "hasProvenance": "prov-usage.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a generation pattern",
+            "template": "generation0.provn",
+            "output": "generation",
+            "bindings": "generation.json",
+            "formats": ["provn", "png", "svg"],
+            "hasProvenance": "prov-generation.prov-csv"
+        },
+
+        {
+            "type": "merge",
+            "description": "Merging the above templates into a single template",
+            "addOutputDirToInputPath": true,
+            "inputs": ["entities.provn", "activity.provn", "membership.jsonld","usage.provn","generation.provn"],
+            "output": "triangle6-ugm",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "prov-triangle6-ugm.prov-csv"
+        }
+
+    ]
+}

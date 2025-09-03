@@ -1,0 +1,24 @@
+{
+  "@context" : [ "http://openprovenance.org/prov.jsonld" ],
+  "@graph" : [
+    {
+      "@type" : "Bundle",
+      "@context" : [ {
+        "xsd" : "http://www.w3.org/2001/XMLSchema#",
+        "prov" : "http://www.w3.org/ns/prov#",
+        "var" : "http://openprovenance.org/var#",
+        "vargen" : "http://openprovenance.org/vargen#"
+      }, "http://openprovenance.org/prov.jsonld" ],
+      "@id" : "vargen:b",
+      "@graph" : [ {
+        "@type" : "Membership",
+        "@id" : "var:mid",
+        "entity" : ["var:entity"],
+        "collection" : "var:collection",
+        "var:mprop" : [ "var:mvalue" ]
+      }
+
+      ]
+    }
+  ]
+}

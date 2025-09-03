@@ -3,10 +3,10 @@
 
         "entity": [
             {
-                "@id": "var:entity1"
+                "@id": "var:item"
             },
             {
-                "@id": "var:entity2"
+                "@id": "var:collection"
             }
 
         ],

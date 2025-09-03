@@ -1,0 +1,75 @@
+{
+    "var": {
+        "id": [
+            {
+                "@id": "var:mid"
+            }
+        ],
+
+        "collection": [
+            {
+                "@id": "var:collection"
+            }
+        ],
+        "entity": [
+            {
+                "@id": "var:item"
+            }
+        ],
+        "mprop": [
+            [
+                {
+                    "@id": "var:mprop"
+                },
+                {
+                    "@id": "provext:activity"
+                },
+                {
+                    "@id": "provext:generation"
+                },
+                {
+                    "@id": "provext:usage"
+                }
+            ]
+        ],
+        "mvalue": [
+            [
+                {
+                    "@id": "var:mvalue"
+                },
+                {
+                    "@id": "var:activity"
+                },
+                {
+                    "@id": "var:gen"
+                },
+                {
+                    "@id": "var:usd"
+                }
+            ]
+        ],
+        "usage": [
+            {
+                "@id": "var:usd"
+            }
+        ],
+        "generation": [
+            {
+                "@id": "var:gen"
+            }
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "ex": "http://example.org/#",
+        "var" : "http://openprovenance.org/var#",
+        "vargen" : "http://openprovenance.org/vargen#",
+        "provext": "http://openprovenance.org/prov/extension#"
+    }
+}

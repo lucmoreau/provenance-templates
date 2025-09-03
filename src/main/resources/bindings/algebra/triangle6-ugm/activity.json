@@ -1,36 +1,36 @@
 {
     "var": {
-
-        "entity": [
+        "pvalue": [
+            [
+                {
+                    "@id": "var:avalue"
+                }
+            ]
+        ],
+        "activity": [
             {
-                "@id": "var:entity1"
-            },
-            {
-                "@id": "var:entity2"
+                "@id": "var:activity"
             }
 
         ],
         "prop": [
             [
                 {
-                    "@id": "var:prop1"
-                }
-            ],
-            [
-                {
-                    "@id": "var:prop2"
+                    "@id": "var:aprop"
                 }
             ]
         ],
-        "pvalue": [
+        "startTime": [
             [
                 {
-                    "@id": "var:evalue1"
+                    "@id": "var:stime"
                 }
-            ],
+            ]
+        ],
+        "endTime": [
             [
                 {
-                    "@id": "var:evalue2"
+                    "@id": "var:etime"
                 }
             ]
         ]
