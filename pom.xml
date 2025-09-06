@@ -34,16 +34,16 @@
                         <configuration>
                             <warning>false</warning>
                             <args>
-                                <arg>src/main/resources/bindings/examples/add1.json</arg>
-                                <arg>src/main/resources/bindings/triangle/integer-division.json</arg>
-                                <arg>src/main/resources/bindings/examples/division-121-4.json</arg>
-                                <arg>src/main/resources/bindings/general/file-compression.json</arg>
-                                <arg>src/main/resources/bindings/primitive/file-entity.json</arg>
-                                <arg>src/main/resources/bindings/primitive/attribution-with-optionality.json</arg>
-                                <arg>src/main/resources/bindings/examples/derivation-e2-e0.json</arg>
-                                <arg>src/main/resources/bindings/examples/derivation-e0-e1.json</arg>
-                                <arg>src/main/resources/bindings/examples/derivation-e0-e1.json</arg>
-                                <arg>src/main/resources/bindings/examples/derivation-e0-e2.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/examples/add1.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/triangle/integer-division.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/examples/division-121-4.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/general/file-compression.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/primitive/file-entity.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/primitive/attribution-with-optionality.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/examples/derivation-e2-e0.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/examples/derivation-e0-e1.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/examples/derivation-e0-e1.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/examples/derivation-e0-e2.json</arg>
 
                             </args>
                         </configuration>
@@ -59,9 +59,9 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>src/main/resources/templates/triangle/usage-generation-derivation.jsonld</arg>
+                                <arg>${project.basedir}/src/main/resources/templates/triangle/usage-generation-derivation.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/usage-generation-derivation.svg</arg>
+                                <arg>${project.build.directory}/usage-generation-derivation.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -74,11 +74,11 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>src/main/resources/templates/triangle/usage-generation-derivation.jsonld</arg>
+                                <arg>${project.basedir}/src/main/resources/templates/triangle/usage-generation-derivation.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>src/main/resources/bindings/examples/add1.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/examples/add1.json</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/add1.jsonld</arg>
+                                <arg>${project.build.directory}/add1.jsonld</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -92,9 +92,9 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>target/add1.jsonld</arg>
+                                <arg>${project.build.directory}/add1.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/add1.svg</arg>
+                                <arg>${project.build.directory}/add1.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -109,11 +109,11 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>src/main/resources/templates/triangle/usage-generation-derivation.jsonld</arg>
+                                <arg>${project.basedir}/src/main/resources/templates/triangle/usage-generation-derivation.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>src/main/resources/bindings/triangle/integer-division.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/triangle/integer-division.json</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/integer-division.jsonld</arg>
+                                <arg>${project.build.directory}/integer-division.jsonld</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -126,9 +126,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>target/integer-division.jsonld</arg>
+                                <arg>${project.build.directory}/integer-division.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/integer-division.svg</arg>
+                                <arg>${project.build.directory}/integer-division.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -144,11 +144,11 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>target/integer-division.jsonld</arg>
+                                <arg>${project.build.directory}/integer-division.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>src/main/resources/bindings/examples/division-121-4.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/examples/division-121-4.json</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/division-121-4.jsonld</arg>
+                                <arg>${project.build.directory}/division-121-4.jsonld</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -161,9 +161,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>target/division-121-4.jsonld</arg>
+                                <arg>${project.build.directory}/division-121-4.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/division-121-4.svg</arg>
+                                <arg>${project.build.directory}/division-121-4.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -178,9 +178,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>src/main/resources/templates/general/unary-operation-with-agent.jsonld</arg>
+                                <arg>${project.basedir}/src/main/resources/templates/general/unary-operation-with-agent.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/unary-operation-with-agent.svg</arg>
+                                <arg>${project.build.directory}/unary-operation-with-agent.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -193,11 +193,11 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>src/main/resources/templates/general/unary-operation-with-agent.jsonld</arg>
+                                <arg>${project.basedir}/src/main/resources/templates/general/unary-operation-with-agent.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>src/main/resources/bindings/general/file-compression.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/general/file-compression.json</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/file-compression.jsonld</arg>
+                                <arg>${project.build.directory}/file-compression.jsonld</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -210,9 +210,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>target/file-compression.jsonld</arg>
+                                <arg>${project.build.directory}/file-compression.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/file-compression.svg</arg>
+                                <arg>${project.build.directory}/file-compression.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -226,11 +226,11 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>target/file-compression.jsonld</arg>
+                                <arg>${project.build.directory}/file-compression.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>src/main/resources/bindings/examples/file-compression-no-agent-no-prop.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/examples/file-compression-no-agent-no-prop.json</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/file-compression-no-agent-no-prop.jsonld</arg>
+                                <arg>${project.build.directory}/file-compression-no-agent-no-prop.jsonld</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -244,9 +244,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>target/file-compression-no-agent-no-prop.jsonld</arg>
+                                <arg>${project.build.directory}/file-compression-no-agent-no-prop.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/file-compression-no-agent-no-prop.svg</arg>
+                                <arg>${project.build.directory}/file-compression-no-agent-no-prop.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -262,11 +262,11 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>target/file-compression.jsonld</arg>
+                                <arg>${project.build.directory}/file-compression.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>src/main/resources/bindings/examples/file-compression-no-agent-no-prop.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/examples/file-compression-no-agent-no-prop.json</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/file-compression-no-agent-no-prop.jsonld</arg>
+                                <arg>${project.build.directory}/file-compression-no-agent-no-prop.jsonld</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -282,11 +282,11 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>src/main/resources/templates/primitive/entity-with-attribute.jsonld</arg>
+                                <arg>${project.basedir}/src/main/resources/templates/primitive/entity-with-attribute.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>src/main/resources/bindings/primitive/file-entity.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/primitive/file-entity.json</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/file-entity.jsonld</arg>
+                                <arg>${project.build.directory}/file-entity.jsonld</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -300,9 +300,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>src/main/resources/templates/primitive/entity-with-attribute.jsonld</arg>
+                                <arg>${project.basedir}/src/main/resources/templates/primitive/entity-with-attribute.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/entity-with-attribute.svg</arg>
+                                <arg>${project.build.directory}/entity-with-attribute.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -317,11 +317,11 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>target/file-entity.jsonld</arg>
+                                <arg>${project.build.directory}/file-entity.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>src/main/resources/bindings/examples/file-100Gb.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/examples/file-100Gb.json</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/file-100Gb.jsonld</arg>
+                                <arg>${project.build.directory}/file-100Gb.jsonld</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -335,9 +335,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>target/file-entity.jsonld</arg>
+                                <arg>${project.build.directory}/file-entity.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/file-entity.svg</arg>
+                                <arg>${project.build.directory}/file-entity.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -351,9 +351,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>target/file-100Gb.jsonld</arg>
+                                <arg>${project.build.directory}/file-100Gb.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/file-100Gb.svg</arg>
+                                <arg>${project.build.directory}/file-100Gb.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -367,11 +367,11 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>src/main/resources/templates/primitive/attribution.jsonld</arg>
+                                <arg>${project.basedir}/src/main/resources/templates/primitive/attribution.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>src/main/resources/bindings/primitive/attribution-with-optionality.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/primitive/attribution-with-optionality.json</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/attribution-with-optionality.jsonld</arg>
+                                <arg>${project.build.directory}/attribution-with-optionality.jsonld</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -386,9 +386,9 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>src/main/resources/templates/primitive/attribution.jsonld</arg>
+                                <arg>${project.basedir}/src/main/resources/templates/primitive/attribution.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/attribution.svg</arg>
+                                <arg>${project.build.directory}/attribution.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -403,9 +403,9 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>target/attribution-with-optionality.jsonld</arg>
+                                <arg>${project.build.directory}/attribution-with-optionality.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/attribution-with-optionality.svg</arg>
+                                <arg>${project.build.directory}/attribution-with-optionality.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -419,11 +419,11 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>src/main/resources/templates/primitive/simple-derivation.jsonld</arg>
+                                <arg>${project.basedir}/src/main/resources/templates/primitive/simple-derivation.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>src/main/resources/bindings/examples/derivation-e0-e1.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/examples/derivation-e0-e1.json</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/derivation-e0-e1.jsonld</arg>
+                                <arg>${project.build.directory}/derivation-e0-e1.jsonld</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -437,11 +437,11 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>src/main/resources/templates/primitive/simple-derivation.jsonld</arg>
+                                <arg>${project.basedir}/src/main/resources/templates/primitive/simple-derivation.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>src/main/resources/bindings/examples/derivation-e2-e0.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/examples/derivation-e2-e0.json</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/derivation-e2-e0.jsonld</arg>
+                                <arg>${project.build.directory}/derivation-e2-e0.jsonld</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -455,11 +455,11 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>src/main/resources/templates/primitive/simple-derivation.jsonld</arg>
+                                <arg>${project.basedir}/src/main/resources/templates/primitive/simple-derivation.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>src/main/resources/bindings/examples/derivation-e0-e2.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/examples/derivation-e0-e2.json</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/derivation-e0-e2.jsonld</arg>
+                                <arg>${project.build.directory}/derivation-e0-e2.jsonld</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -472,11 +472,11 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>src/main/resources/templates/primitive/simple-derivation.jsonld</arg>
+                                <arg>${project.basedir}/src/main/resources/templates/primitive/simple-derivation.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>src/main/resources/bindings/examples/derivation-e3-e2.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/examples/derivation-e3-e2.json</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/derivation-e3-e2.jsonld</arg>
+                                <arg>${project.build.directory}/derivation-e3-e2.jsonld</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -490,9 +490,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>target/derivation-e0-e1.jsonld</arg>
+                                <arg>${project.build.directory}/derivation-e0-e1.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/derivation-e0-e1.svg</arg>
+                                <arg>${project.build.directory}/derivation-e0-e1.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -506,9 +506,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>target/derivation-e0-e2.jsonld</arg>
+                                <arg>${project.build.directory}/derivation-e0-e2.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/derivation-e0-e2.svg</arg>
+                                <arg>${project.build.directory}/derivation-e0-e2.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -524,9 +524,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>target/derivation-e2-e0.jsonld</arg>
+                                <arg>${project.build.directory}/derivation-e2-e0.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/derivation-e2-e0.svg</arg>
+                                <arg>${project.build.directory}/derivation-e2-e0.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -541,9 +541,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>target/derivation-e3-e2.jsonld</arg>
+                                <arg>${project.build.directory}/derivation-e3-e2.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/derivation-e3-e2.svg</arg>
+                                <arg>${project.build.directory}/derivation-e3-e2.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -559,9 +559,9 @@
                         <configuration>
                             <args>
                                 <arg>-merge</arg>
-                                <arg>src/main/resources/config/merge1.txt</arg>
+                                <arg>${project.basedir}/src/main/resources/config/merge1.txt</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/merge1.svg</arg>
+                                <arg>${project.build.directory}/merge1.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -575,9 +575,9 @@
                         <configuration>
                             <args>
                                 <arg>-merge</arg>
-                                <arg>src/main/resources/config/merge2.txt</arg>
+                                <arg>${project.basedir}/src/main/resources/config/merge2.txt</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/merge2.svg</arg>
+                                <arg>${project.build.directory}/merge2.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -591,9 +591,9 @@
                             <configuration>
                                 <args>
                                     <arg>-merge</arg>
-                                    <arg>src/main/resources/config/merge3.txt</arg>
+                                    <arg>${project.basedir}/src/main/resources/config/merge3.txt</arg>
                                     <arg>-outfile</arg>
-                                    <arg>target/merge3.svg</arg>
+                                    <arg>${project.build.directory}/merge3.svg</arg>
                                 </args>
                             </configuration>
                     </execution>
@@ -607,9 +607,9 @@
                         <configuration>
                             <args>
                                 <arg>-merge</arg>
-                                <arg>src/main/resources/config/merge4.txt</arg>
+                                <arg>${project.basedir}/src/main/resources/config/merge4.txt</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/merge4.svg</arg>
+                                <arg>${project.build.directory}/merge4.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -623,9 +623,9 @@
                             <configuration>
                                 <args>
                                     <arg>-merge</arg>
-                                    <arg>src/main/resources/config/merge5.txt</arg>
+                                    <arg>${project.basedir}/src/main/resources/config/merge5.txt</arg>
                                     <arg>-outfile</arg>
-                                    <arg>target/merge5.svg</arg>
+                                    <arg>${project.build.directory}/merge5.svg</arg>
                                 </args>
                             </configuration>
                     </execution>
@@ -639,9 +639,9 @@
                             <configuration>
                                 <args>
                                     <arg>-merge</arg>
-                                    <arg>src/main/resources/config/merge6.txt</arg>
+                                    <arg>${project.basedir}/src/main/resources/config/merge6.txt</arg>
                                     <arg>-outfile</arg>
-                                    <arg>target/merge6.svg</arg>
+                                    <arg>${project.build.directory}/merge6.svg</arg>
                                 </args>
                             </configuration>
                     </execution>
@@ -654,13 +654,13 @@
                         </goals>
                         <configuration>
                             <args>
-                                <arg>src/main/resources/ttfs/config-triangle1-ugd.json</arg>
-                                <arg>src/main/resources/ttfs/config-triangle2-sds.json</arg>
-                                <arg>src/main/resources/ttfs/config-triangle3-aga.json</arg>
-                                <arg>src/main/resources/ttfs/config-triangle4-aia.json</arg>
-                                <arg>src/main/resources/ttfs/config-triangle6-ugm.json</arg>
-                                <arg>src/main/resources/ttfs/config-insert-into-collection.json</arg>
-                                <arg>src/main/resources/ttfs/config-remove-from-collection.json</arg>
+                                <arg>${project.basedir}/src/main/resources/ttfs/config-triangle1-ugd.json</arg>
+                                <arg>${project.basedir}/src/main/resources/ttfs/config-triangle2-sds.json</arg>
+                                <arg>${project.basedir}/src/main/resources/ttfs/config-triangle3-aga.json</arg>
+                                <arg>${project.basedir}/src/main/resources/ttfs/config-triangle4-aia.json</arg>
+                                <arg>${project.basedir}/src/main/resources/ttfs/config-triangle6-ugm.json</arg>
+                                <arg>${project.basedir}/src/main/resources/ttfs/config-insert-into-collection.json</arg>
+                                <arg>${project.basedir}/src/main/resources/ttfs/config-remove-from-collection.json</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -674,9 +674,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>src/main/resources/templates/primitive/entity0.jsonld</arg>
+                                <arg>${project.basedir}/src/main/resources/templates/primitive/entity0.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/entity0.provn</arg>
+                                <arg>${project.build.directory}/entity0.provn</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -742,9 +742,9 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>target/generated-templates/triangle1-ugd/triangle1-ugd.provn</arg>
+                                <arg>${project.build.directory}/generated-templates/triangle1-ugd/triangle1-ugd.provn</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/triangle1-ugd.svg</arg>
+                                <arg>${project.build.directory}/triangle1-ugd.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -761,7 +761,7 @@
                                 <arg>-log2prov</arg>
                                 <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/triangle1-ugd-all.svg</arg>
+                                <arg>${project.build.directory}/triangle1-ugd-all.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -777,9 +777,9 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>target/generated-templates/triangle3-aga/triangle3-aga.provn</arg>
+                                <arg>${project.build.directory}/generated-templates/triangle3-aga/triangle3-aga.provn</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/triangle3-aga.svg</arg>
+                                <arg>${project.build.directory}/triangle3-aga.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -794,9 +794,9 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>target/generated-templates/triangle2-sds/triangle2-sds.jsonld</arg>
+                                <arg>${project.build.directory}/generated-templates/triangle2-sds/triangle2-sds.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/triangle2-sds.svg</arg>
+                                <arg>${project.build.directory}/triangle2-sds.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -813,7 +813,7 @@
                                 <arg>-log2prov</arg>
                                 <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/triangle3-aga-all.svg</arg>
+                                <arg>${project.build.directory}/triangle3-aga-all.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -831,7 +831,7 @@
                                 <arg>-log2prov</arg>
                                 <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/triangle2-sds-all.svg</arg>
+                                <arg>${project.build.directory}/triangle2-sds-all.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -849,7 +849,7 @@
                                 <arg>-log2prov</arg>
                                 <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/triangle6-ugm-all.svg</arg>
+                                <arg>${project.build.directory}/triangle6-ugm-all.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -866,9 +866,9 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>target/generated-templates/triangle4-aia/triangle4-aia.provn</arg>
+                                <arg>${project.build.directory}/generated-templates/triangle4-aia/triangle4-aia.provn</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/triangle4-aia.svg</arg>
+                                <arg>${project.build.directory}/triangle4-aia.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -882,9 +882,9 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>target/generated-templates/triangle6-ugm/triangle6-ugm.jsonld</arg>
+                                <arg>${project.build.directory}/generated-templates/triangle6-ugm/triangle6-ugm.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/triangle6-ugm.svg</arg>
+                                <arg>${project.build.directory}/triangle6-ugm.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -901,7 +901,7 @@
                                 <arg>-log2prov</arg>
                                 <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/triangle4-aia-all.svg</arg>
+                                <arg>${project.build.directory}/triangle4-aia-all.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -918,9 +918,9 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>target/generated-templates/collections-insert/collection-insert.jsonld</arg>
+                                <arg>${project.build.directory}/generated-templates/collections-insert/collection-insert.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/collection-insert.svg</arg>
+                                <arg>${project.build.directory}/collection-insert.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -935,9 +935,9 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>target/generated-templates/collections-remove/collection-remove.jsonld</arg>
+                                <arg>${project.build.directory}/generated-templates/collections-remove/collection-remove.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>target/collection-remove.svg</arg>
+                                <arg>${project.build.directory}/collection-remove.svg</arg>
                             </args>
                         </configuration>
                     </execution>
