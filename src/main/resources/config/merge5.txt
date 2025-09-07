@@ -1,2 +1,2 @@
-target/derivation-e0-e1.jsonld
-target/derivation-e3-e2.jsonld
+${project.build.directory}/derivation-e0-e1.jsonld
+${project.build.directory}/derivation-e3-e2.jsonld

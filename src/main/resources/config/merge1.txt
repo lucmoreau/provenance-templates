@@ -1,2 +1,2 @@
-src/main/resources/templates/primitive/simple-derivation.jsonld
-target/derivation-e2-e0.jsonld
+${project.basedir}/src/main/resources/templates/primitive/simple-derivation.jsonld
+${project.build.directory}/derivation-e2-e0.jsonld

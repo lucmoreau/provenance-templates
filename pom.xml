@@ -10,7 +10,7 @@
     <artifactId>template-intro1</artifactId>
     <packaging>jar</packaging>
 
-    <name>template-intro1</name>
+    <name>|-- template-intro1</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -559,7 +559,7 @@
                         <configuration>
                             <args>
                                 <arg>-merge</arg>
-                                <arg>${project.basedir}/src/main/resources/config/merge1.txt</arg>
+                                <arg>${project.build.directory}/config-merge/merge1.txt</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/merge1.svg</arg>
                             </args>
@@ -575,7 +575,7 @@
                         <configuration>
                             <args>
                                 <arg>-merge</arg>
-                                <arg>${project.basedir}/src/main/resources/config/merge2.txt</arg>
+                                <arg>${project.build.directory}/config-merge/merge2.txt</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/merge2.svg</arg>
                             </args>
@@ -591,7 +591,7 @@
                             <configuration>
                                 <args>
                                     <arg>-merge</arg>
-                                    <arg>${project.basedir}/src/main/resources/config/merge3.txt</arg>
+                                    <arg>${project.build.directory}/config-merge/merge3.txt</arg>
                                     <arg>-outfile</arg>
                                     <arg>${project.build.directory}/merge3.svg</arg>
                                 </args>
@@ -607,7 +607,7 @@
                         <configuration>
                             <args>
                                 <arg>-merge</arg>
-                                <arg>${project.basedir}/src/main/resources/config/merge4.txt</arg>
+                                <arg>${project.build.directory}/config-merge/merge4.txt</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/merge4.svg</arg>
                             </args>
@@ -623,7 +623,7 @@
                             <configuration>
                                 <args>
                                     <arg>-merge</arg>
-                                    <arg>${project.basedir}/src/main/resources/config/merge5.txt</arg>
+                                    <arg>${project.build.directory}/config-merge/merge5.txt</arg>
                                     <arg>-outfile</arg>
                                     <arg>${project.build.directory}/merge5.svg</arg>
                                 </args>
@@ -639,7 +639,7 @@
                             <configuration>
                                 <args>
                                     <arg>-merge</arg>
-                                    <arg>${project.basedir}/src/main/resources/config/merge6.txt</arg>
+                                    <arg>${project.build.directory}/config-merge/merge6.txt</arg>
                                     <arg>-outfile</arg>
                                     <arg>${project.build.directory}/merge6.svg</arg>
                                 </args>
@@ -1035,5 +1035,14 @@
             </plugin>
 
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources/config</directory>
+                <filtering>true</filtering>
+                <targetPath>${project.build.directory}/config-merge</targetPath>
+            </resource>
+        </resources>
+
     </build>
 </project>
