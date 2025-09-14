@@ -1,0 +1,66 @@
+{
+    "var": {
+
+        "entity": [
+            {
+                "@id": "var:template1"
+            }
+        ],
+        "agent": [
+            {
+                "@id": "var:creator"
+            }
+        ],
+        "activity": [
+            {
+                "@id": "var:creating"
+            }
+        ],
+        "plan": [
+            {
+                "@id": "var:dc"
+            }
+        ],
+        "pprop": [
+            [
+                {
+                    "@id": "prov:value"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "pvalue": [
+            [
+                {
+                    "@id": "var:dcvalue"
+                },
+                {
+                    "@id": "ptm:DesignConsiderations"
+                }
+            ]
+        ],
+        "assoc": [
+            {
+                "@id": "var:assoc2"
+            }
+        ]
+
+
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context":  {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "provext": "${provext_ns}",
+        "ptm": "${ptm_ns}",
+        "prov": "${prov_ns}"
+    }
+}

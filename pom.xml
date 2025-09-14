@@ -45,6 +45,12 @@
                                 <arg>${project.basedir}/src/main/resources/bindings/examples/derivation-e0-e1.json</arg>
                                 <arg>${project.basedir}/src/main/resources/bindings/examples/derivation-e0-e2.json</arg>
 
+                                <arg>${project.basedir}/src/main/resources/bindings/ptm/create-template/create-template-triangle1-ugd.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/ptm/create-template/create-template-triangle3a-aga.json</arg>
+                                <arg>${project.basedir}/src/main/resources/bindings/ptm/create-template/create-template-triangle3b-aga.json</arg>
+
+                                <arg>${project.basedir}/src/main/resources/bindings0/ptm/ptm-creating.json</arg>
+
                             </args>
                         </configuration>
                     </execution>
@@ -661,6 +667,8 @@
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-triangle6-ugm.json</arg>
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-insert-into-collection.json</arg>
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-remove-from-collection.json</arg>
+
+                                <arg>${project.basedir}/src/main/resources/ttfs/config-ptm-create-template.json</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -854,6 +862,20 @@
                         </configuration>
                     </execution>
 
+                    <execution>
+                        <id>exec.ttf.ptm.create.template</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>execute-ttf</goal>
+                        </goals>
+                        <configuration>
+                            <inputBaseDir>${project.basedir}</inputBaseDir>
+                            <outputBaseDir>${project.build.directory}</outputBaseDir>
+                            <configs>
+                                <config>src/main/resources/ttfs/config-ptm-create-template.json</config>
+                            </configs>
+                        </configuration>
+                    </execution>
 
 
                     <execution>
@@ -942,7 +964,40 @@
                         </configuration>
                     </execution>
 
+
+                    <execution>
+                        <id>validate.catalogue</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>validate-catalogue</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>${project.basedir}/src/main/resources/catalogue/ptm-catalogue.json</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+                    <execution>
+                        <id>compile.catalogue</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>compile-catalogue</goal>
+                        </goals>
+                        <configuration>
+                            <baseDir>${project.basedir}</baseDir>
+                            <configs>
+                                <config>${project.basedir}/src/main/resources/catalogue/ptm-catalogue.json</config>
+                            </configs>
+                        </configuration>
+                    </execution>
+
+
                 </executions>
+
+
+
 
                 <dependencies> <!-- dependency added to support -log2prov use of class
                                     org.openprovenance.prov.template.library.ptm.Init -->

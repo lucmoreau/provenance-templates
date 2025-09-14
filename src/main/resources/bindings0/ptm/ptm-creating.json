@@ -1,0 +1,170 @@
+{
+    "var": {
+        "template1": [
+            {
+                "@id": "file:*",
+                "@type": "xsd:string",
+                "@examplar": "file/template123-456.provn",
+                "@documentation": "The created template",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "file"
+            }
+        ],
+        "template0": [
+            {
+                "@id": "file:*",
+                "@type": "xsd:string",
+                "@examplar": "file/template123-450.provn",
+                "@documentation": "The original template",
+                "@input": "optional",
+                "@output": "false",
+                "@sql.table": "file"
+            }
+        ],
+        "ttf": [
+            {
+                "@id": "file:*",
+                "@type": "xsd:string",
+                "@examplar": "file/ttf-839.json",
+                "@documentation": "The template task file that led to the creation of the new template",
+                "@input": "optional",
+                "@output": "false",
+                "@sql.table": "file"
+            }
+        ],
+        "dc": [
+            {
+                "@id": "dc:dc*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The design consideration",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "dc"
+            }
+        ],
+        "context": [
+            {
+                "@id": "ctxt:context*",
+                "@type": "xsd:int",
+                "@examplar": 24,
+                "@documentation": "The context in which the template is created to achieve a specific purpose",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "ctxt"
+            }
+        ],
+        "creator": [
+            {
+                "@id": "people:*",
+                "@type": "xsd:string",
+                "@documentation": "The agent creator of the template",
+                "@input": "optional"
+            }
+        ],
+        "creating": [
+            {
+                "@id": "act:*",
+                "@type": "xsd:int",
+                "@documentation": "The activity of creating the template",
+                "@output": "true",
+                "@sql.table": "activity"
+            }
+        ],
+        "dcvalue": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:string",
+                    "@examplar": "1 ugd triangle, and 3 instances of aga triangles",
+                    "@documentation": "Design considertations",
+                    "@input": "optional"
+                }
+            ]
+        ],
+        "cvalue": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:string",
+                    "@examplar": "Auditing the creation of provenance templates",
+                    "@documentation": "Context in which the template was designed",
+                    "@input": "optional"
+                }
+            ]
+        ],
+        "ppath": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:string",
+                    "@examplar": "/path/to/some/file",
+                    "@documentation": "The paths to the template task file",
+                    "@input": "optional"
+                }
+            ]
+        ],
+        "time": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:dateTime",
+                    "@documentation": "Time when the transformed file is created",
+                    "@input": "optional",
+                    "@sql.type":  "timestamptz"
+                }
+            ]
+        ],
+        "tvalue": [[{
+            "@value": "*",
+            "@type": "xsd:string",
+            "@examplar": "template property ",
+            "@documentation": "template property",
+            "@input": "optional"
+        }]],
+        "assoc1": [
+            {
+                "@id": "assoc:assoc*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The first association",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "assoc"
+            }
+        ],
+        "assoc2": [
+            {
+                "@id": "assoc:assoc*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The second association",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "assoc"
+            }
+        ],
+        "assoc3": [
+            {
+                "@id": "assoc:assoc*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The third association",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "assoc"
+            }
+        ]
+    },
+    "context": {
+        "people":  "${PROV_API}/live/agent/",
+        "act": "${PROV_API}/live/activity/",
+        "file": "${PROV_API}/live/file/",
+        "dc": "${PROV_API}/live/dc/",
+        "ctxt": "${PROV_API}/live/ctxt/",
+        "assoc": "${PROV_API}/live/assoc/"
+    },
+    "template": "TODO template",
+    "@documentation": "TODO doc."
+}

@@ -1,0 +1,104 @@
+{
+    "var": {
+
+        "entity1": [
+            {
+                "@id": "var:template0"
+            }
+        ],
+        "entity2": [
+            {
+                "@id": "var:template1"
+            }
+        ],
+        "activity": [
+            {
+                "@id": "var:creating"
+            }
+        ],
+        "prop2": [
+            [
+                {
+                    "@id": "var:tprop"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "evalue2": [
+            [
+                {
+                    "@id": "var:tvalue"
+                },
+                {
+                    "@id": "ptm:ProvenanceTemplate"
+                }
+            ]
+        ],
+        "aprop": [
+            [
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "avalue": [
+            [
+                {
+                    "@id": "ptm:CreatingTemplate"
+                }
+            ]
+        ],
+        "dprop": [
+            [
+                {
+                    "@id": "var:dprop"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "dvalue": [
+            [
+                {
+                    "@id": "var:dvalue"
+                },
+                {
+                    "@id": "prov:Revision"
+                }
+            ]
+        ],
+
+        "uprop": [
+            [
+                {
+                    "@id": "var:uprop1"
+                }
+            ]
+        ],
+        "uvalue": [
+            [
+                {
+                    "@id": "var:uvalue1"
+
+                }
+            ]
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "provext": "${provext_ns}",
+        "ptm": "${ptm_ns}",
+        "prov": "${prov_ns}"
+    }
+}
