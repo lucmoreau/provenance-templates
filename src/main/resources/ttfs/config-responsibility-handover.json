@@ -1,0 +1,72 @@
+{
+    "template_path": [
+        "src/main/resources/templates/primitive",
+        "target/generated-templates/triangle1-ugd",
+        "target/generated-templates/triangle2-sds",
+        "target/generated-templates/triangle3-aga",
+        "target/generated-templates/triangle4-aia",
+        "target/generated-templates/triangle6-ugm", "."],
+    "bindings_path": ["src/main/resources/bindings/responsibility/handover"],
+    "output_dir": "generated-templates/responsibility/handover",
+    "variableMaps": ["./common-ns.json"],
+
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle1-ugd pattern",
+            "template": "triangle1-ugd.provn",
+            "output": "handover-ugd",
+            "bindings": "handover-ugd.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "prov-handover-ugd.prov-csv"
+        },
+
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle2-sds pattern",
+            "template": "triangle2-sds.provn",
+            "output": "handover-sds",
+            "bindings": "handover-sds.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "prov-handover-sds.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle3-aga (a) pattern",
+            "template": "triangle3-aga.provn",
+            "output": "handover-aga-ag1",
+            "bindings": "handover-aga-ag1.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "prov-handover-aga-ag1.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle4-agi (a) pattern",
+            "template": "triangle4-aia.provn",
+            "output": "handover-aia-ag0",
+            "bindings": "handover-aia-ag0.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "prov-handover-aia-ag0.prov-csv"
+        },
+
+
+        {
+            "type": "merge",
+            "description": "Merging all temporary handover outputs",
+            "addOutputDirToInputPath": true,
+            "inputs": [
+                "handover-ugd.jsonld",
+                "handover-sds.jsonld",
+                "handover-aga-ag1.jsonld",
+                "handover-aia-ag0.jsonld"
+            ],
+            "output": "handover",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "prov-handover.prov-csv"
+        }
+    ]
+}

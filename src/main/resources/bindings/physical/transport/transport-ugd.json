@@ -1,0 +1,127 @@
+{
+    "var": {
+
+        "entity1": [
+            {
+                "@id": "var:item0"
+            }
+        ],
+        "entity2": [
+            {
+                "@id": "var:item1"
+            }
+        ],
+        "activity": [
+            {
+                "@id": "var:transporting"
+            }
+
+        ],
+        "prop2": [
+            [
+                {
+                    "@id": "var:iprop"
+                },
+                {
+                    "@id": "prov:location"
+                }
+            ]
+        ],
+        "evalue2": [
+            [
+                {
+                    "@id": "var:ivalue"
+                },
+                {
+                    "@id": "var:ilocation"
+                }
+            ]
+        ],
+        "aprop": [
+            [
+                {
+                    "@id": "var:aprop"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "avalue": [
+            [
+                {
+                    "@id": "var:avalue"
+                },
+                {
+                    "@id": "phys:Transporting"
+                }
+            ]
+        ],
+        "dprop": [
+            [
+                {
+                    "@id": "var:dprop"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "dvalue": [
+            [
+                {
+                    "@id": "var:dvalue"
+                },
+                {
+                    "@id": "phys:Transporting"
+                }
+            ]
+        ],
+
+        "uprop": [
+            [
+                {
+                    "@id": "var:uprop1"
+                },
+                {
+                    "@id": "prov:role"
+                }
+            ]
+        ],
+        "uvalue": [
+            [
+                {
+                    "@id": "var:uvalue1"
+
+                },
+                {
+                    "@id": "var:asItem"
+                }
+            ]
+        ],
+        "u": [
+            {
+                "@id": "var:uid1"
+            }
+        ],
+        "id": [
+            {
+                "@id": "var:wdf1"
+            }
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov": "${prov_ns}",
+        "provext": "${provext_ns}",
+        "phys": "${phys_ns}"
+    }
+}

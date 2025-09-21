@@ -2,9 +2,12 @@
     "xsd_ns": "http://www.w3.org/2001/XMLSchema#",
     "var_ns": "http://openprovenance.org/var#",
     "vargen_ns": "http://openprovenance.org/vargen#",
-    "ptm_ns": "http://openprovenance.org/ns/ptm#",
     "prov_ns": "http://www.w3.org/ns/prov#",
     "provext_ns": "http://openprovenance.org/prov/extension#",
+    "ptm_ns": "http://openprovenance.org/ns/ptm#",
+
+    "phys_ns": "http://openprovenance.org/ns/phys#",
+    "resp_ns": "http://openprovenance.org/ns/responsibility#",
 
     "uuid_ns": "urn:uuid:",
     "foaf_ns": "http://xmlns.com/foaf/0.1/",

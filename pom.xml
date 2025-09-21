@@ -17,6 +17,89 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.openprovenance.prov</groupId>
+            <artifactId>prov-model</artifactId>
+            <version>${prov.toolbox.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openprovenance.prov</groupId>
+            <artifactId>prov-template-compiler</artifactId>
+            <version>${prov.toolbox.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>${commons.text.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-client</artifactId>
+            <version>${spring.version}</version>
+
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-to-slf4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-to-slf4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+            <version>${spring.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-to-slf4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.19.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openprovenance.prov</groupId>
+            <artifactId>prov-dot</artifactId>
+            <version>2.2.2-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.19.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.20.0</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
 
     <build>
         <plugins>
@@ -654,7 +737,7 @@
 
                     <execution>
                         <id>test.ttf.schema</id>
-                        <phase>process-resources</phase>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>validate-ttf</goal>
                         </goals>
@@ -669,6 +752,8 @@
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-remove-from-collection.json</arg>
 
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-ptm-create-template.json</arg>
+                                <arg>${project.basedir}/src/main/resources/ttfs/config-transport.json</arg>
+                                <arg>${project.basedir}/src/main/resources/ttfs/config-responsibility-handover.json</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -691,7 +776,7 @@
 
                     <execution>
                         <id>exec.process.template.triangles</id>
-                        <phase>process-resources</phase>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>execute-ttf</goal>
                         </goals>
@@ -711,8 +796,8 @@
                     </execution>
 
                     <execution>
-                        <id>exec.process.template.collections.insert</id>
-                        <phase>process-resources</phase>
+                        <id>exec.process.template.collections</id>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>execute-ttf</goal>
                         </goals>
@@ -721,13 +806,16 @@
                             <outputBaseDir>${project.build.directory}</outputBaseDir>
                             <configs>
                                 <config>src/main/resources/ttfs/config-insert-into-collection.json</config>
+                                <config>src/main/resources/ttfs/config-remove-from-collection.json</config>
+
                             </configs>
                         </configuration>
                     </execution>
 
+
                     <execution>
-                        <id>exec.process.template.collections.remove</id>
-                        <phase>process-resources</phase>
+                        <id>exec.process.template.physical</id>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>execute-ttf</goal>
                         </goals>
@@ -735,10 +823,13 @@
                             <inputBaseDir>${project.basedir}</inputBaseDir>
                             <outputBaseDir>${project.build.directory}</outputBaseDir>
                             <configs>
-                                <config>src/main/resources/ttfs/config-remove-from-collection.json</config>
+                                <config>src/main/resources/ttfs/config-transport.json</config>
+                                <config>src/main/resources/ttfs/config-responsibility-handover.json</config>
+
                             </configs>
                         </configuration>
                     </execution>
+
 
                     <execution>
                         <id>convert.new.triangle1.ugd.svg</id>
@@ -864,7 +955,7 @@
 
                     <execution>
                         <id>exec.ttf.ptm.create.template</id>
-                        <phase>process-resources</phase>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>execute-ttf</goal>
                         </goals>
@@ -967,7 +1058,7 @@
 
                     <execution>
                         <id>validate.catalogue</id>
-                        <phase>process-resources</phase>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>validate-catalogue</goal>
                         </goals>
@@ -981,7 +1072,7 @@
 
                     <execution>
                         <id>compile.catalogue</id>
-                        <phase>process-resources</phase>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>compile-catalogue</goal>
                         </goals>
@@ -989,9 +1080,11 @@
                             <baseDir>${project.basedir}</baseDir>
                             <configs>
                                 <config>${project.basedir}/src/main/resources/catalogue/ptm-catalogue.json</config>
+                                <config>${project.basedir}/src/main/resources/catalogue/transport-catalogue.json</config>
                             </configs>
                         </configuration>
                     </execution>
+
 
 
                 </executions>
@@ -1088,6 +1181,108 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>${antrun.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <!--
+                                <mkdir dir="${project.build.directory}/generated-sources/transport_template_library_cli/src/main/java"/> -->
+                                <move todir="${project.build.directory}/generated-sources/transport_template_library_cli">
+                                    <fileset dir="${project.build.directory}/transport_template_library/transport_template_library_cli/src/main/java">
+                                        <include name="**/*" />
+                                    </fileset>
+                                </move>
+                                <move todir="${project.build.directory}/generated-sources/transport_template_library_l2p">
+                                    <fileset dir="${project.build.directory}/transport_template_library/transport_template_library_l2p/src/main/java">
+                                        <include name="**/*" />
+                                    </fileset>
+                                </move>
+                                <!--
+                                <copy todir="${project.build.directory}/templates">
+                                    <fileset dir="src/main/resources/templates/iso14001">
+                                        <include name="**/*" />
+                                    </fileset>
+                                </copy>
+                                <copy todir="${project.build.directory}/bindings">
+                                    <fileset dir="src/main/resources/bindings/iso14001">
+                                        <include name="**/*" />
+                                    </fileset>
+                                </copy>
+                                -->
+                            </target>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>check-java12-exists</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <available file="${java12.home}" type="dir" property="java12Exists" />
+                            </target>
+                            <exportAntProperties>true</exportAntProperties>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>antrun-jsweet</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target if="${java12Exists}">
+                                <exec executable="mvn">
+                                    <env key="JAVA_HOME" value="${java12.home}" />
+                                    <arg value="-f" />
+                                    <arg value="pom12.xml" />
+                                    <arg value="jsweet:jsweet" />
+                                </exec>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>16</source>
+                    <target>16</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>${build.helper.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>sources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources/transport_template_library_cli</source>
+                                <source>${project.build.directory}/generated-sources/transport_template_library_l2p</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
 
         </plugins>
 

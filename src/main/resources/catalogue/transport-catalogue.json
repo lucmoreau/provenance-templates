@@ -1,0 +1,55 @@
+{
+    "group": "org.openprovenance.bk.physical",
+    "name": "transport_template_library",
+    "destination": "target",
+    "description": "PROV templates for prov template management",
+    "version": "2.2.2-SNAPSHOT",
+    "root_package": "org.openprovenance.bk.physical",
+    "script": "physical_run",
+    "script_dir": "target/bin",
+    "python_dir": "target/generated-python",
+    "integrator": true,
+    "jsweet": true,
+    "jsonschema": "schema-transport.json",
+    "documentation": "doc-transport.html",
+    "sqlFile": "prov-template-library-transport.sql",
+    "templates" : [
+
+
+        {
+            "@type": "simple",
+            "name": "transporting",
+            "template": "target/generated-templates/physical/transport/transport.jsonld",
+            "package": "org.openprovenance.bk.physical",
+            "bindings": "src/main/resources/bindings0/physical/transport.json"
+        },
+        {
+            "@type": "simple",
+            "name": "handover",
+            "template": "target/generated-templates/responsibility/handover/handover.jsonld",
+            "package": "org.openprovenance.bk.physical",
+            "bindings": "src/main/resources/bindings0/responsibility/handover.json"
+        }
+
+
+
+    ],
+    "sql.tables":  {
+        "activity": {
+            "id": "SERIAL",
+            "created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+        },
+        "item": {
+            "id": "SERIAL",
+            "created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+        },
+        "people": {
+            "id": "SERIAL",
+            "created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+        },
+        "document": {
+            "id": "SERIAL",
+            "created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+        }
+    }
+}

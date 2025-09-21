@@ -1,0 +1,66 @@
+{
+    "var": {
+
+        "entity": [
+            {
+                "@id": "var:item0"
+            }
+        ],
+        "agent": [
+            {
+                "@id": "var:agent0"
+            }
+        ],
+        "activity": [
+            {
+                "@id": "var:handingover"
+            }
+        ],
+        "assoc": [
+            {
+                "@id": "var:assoc0"
+            }
+        ],
+        "plan": [
+            {
+                "@id": null
+            }
+        ],
+        "itime": [
+            [
+                {
+                    "@id": "var:time"
+                }
+            ]
+        ],
+        "assocprop": [
+            [
+                {
+                    "@id": "prov:role"
+                }
+            ]
+        ],
+        "assocpvalue": [
+            [
+                {
+                    "@id": "var:role0"
+                }
+            ]
+        ]
+
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context":  {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov": "${prov_ns}",
+        "provext": "${provext_ns}",
+        "phys": "${phys_ns}"
+    }
+}
