@@ -1,12 +1,12 @@
 {
     "var": {
 
-        "delegate": [
+        "agent1": [
             {
                 "@id": "var:instrument"
             }
         ],
-        "responsible": [
+        "agent0": [
             {
                 "@id": "var:agent"
             }
