@@ -29,6 +29,14 @@
             "template": "target/generated-templates/responsibility/handover/handover.jsonld",
             "package": "org.openprovenance.bk.physical",
             "bindings": "src/main/resources/bindings0/responsibility/handover.json"
+        },
+
+        {
+            "@type": "simple",
+            "name": "weighing",
+            "template": "target/generated-templates/physical/weighing/weighing.jsonld",
+            "package": "org.openprovenance.bk.physical",
+            "bindings": "src/main/resources/bindings0/physical/weighing.json"
         }
 
 

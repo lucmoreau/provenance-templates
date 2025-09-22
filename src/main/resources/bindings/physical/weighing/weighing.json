@@ -1,0 +1,87 @@
+{
+    "var": {
+        "entity": [
+            {
+                "@id": "var:item"
+            }
+
+        ],
+        "entity1": [
+            {
+                "@id": "var:item1"
+            }
+
+        ],
+        "entity0": [
+            {
+                "@id": "var:item0"
+            }
+
+        ],
+        "instrument": [
+            {
+                "@id": "var:scale"
+            }
+        ],
+        "agent": [
+            {
+                "@id": "var:agent"
+            }
+        ],
+        "examining": [
+            {
+                "@id": "var:weighing"
+            }
+
+        ],
+        "iprop": [
+            [
+                {
+                    "@id": "phys:lmw"
+                },
+                {
+                    "@id": "phys:activity"
+                }
+            ]
+        ],
+        "ivalue": [
+            [
+                {
+                    "@id": "var:weight"
+                },
+                {
+                    "@id": "var:weighing"
+                }
+            ]
+        ],
+        "ExaminingType": [
+            [
+                {
+                    "@id": "phys:Weighing"
+                }
+            ]
+        ],
+        "time": [
+            [
+                {
+                    "@id": "var:time"
+                }
+            ]
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov": "${prov_ns}",
+        "provext": "${provext_ns}",
+        "resp": "${resp_ns}",
+        "phys": "${phys_ns}"
+    }
+}

@@ -34,7 +34,7 @@ public class BoxTest extends TestCase {
         // print all results
         new ObjectMapper().writeValue(new File("target/testBox.json"), results);
 
-        assertEquals(18,results.size());
+        assertEquals(20,results.size());
 
 
         new TemplatesToDot(workflow.connections, templateInvoker.getId2array(), "template", pf, null).convert(null, new FileOutputStream("target/viz.svg"), "template_connections");

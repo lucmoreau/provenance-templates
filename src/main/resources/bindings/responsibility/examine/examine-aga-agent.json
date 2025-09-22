@@ -1,0 +1,59 @@
+{
+    "var": {
+
+        "entity": [
+            {
+                "@id": "var:entity1"
+            }
+        ],
+        "agent": [
+            {
+                "@id": "var:agent"
+            }
+        ],
+        "activity": [
+            {
+                "@id": "var:examining"
+            }
+        ],
+        "assoc": [
+            {
+                "@id": "var:assoc1"
+            }
+        ],
+        "plan": [
+            {
+                "@id": null
+            }
+        ],
+        "assocprop": [
+            [
+                {
+                    "@id": "prov:role"
+                }
+            ]
+        ],
+        "assocpvalue": [
+            [
+                {
+                    "@id": "resp:asAgent"
+                }
+            ]
+        ]
+
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context":  {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov": "${prov_ns}",
+        "provext": "${provext_ns}",
+        "resp": "${resp_ns}"
+    }
+}

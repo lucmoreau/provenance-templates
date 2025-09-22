@@ -1,0 +1,45 @@
+{
+    "var": {
+
+        "entity1": [
+            {
+                "@id": "var:entity"
+            }
+        ],
+        "entity2": [
+            {
+                "@id": "var:entity0"
+            }
+        ],
+        "entity3": [
+            {
+                "@id": "var:entity1"
+            }
+        ],
+        "activity": [
+            {
+                "@id": "var:examining"
+            }
+
+        ],
+        "deriv": [
+            {
+                "@id": "var:wdf1"
+            }
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov": "${prov_ns}",
+        "provext": "${provext_ns}",
+        "resp": "${resp_ns}"
+    }
+}
