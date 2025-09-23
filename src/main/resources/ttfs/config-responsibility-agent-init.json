@@ -1,0 +1,63 @@
+{
+    "template_path": ["templates/primitive", "."],
+    "bindings_path": ["bindings/responsibility/agent-init"],
+    "output_dir": "generated-templates/responsibility/agent-init",
+    "variableMaps": ["./common-ns.json"],
+
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating an entity pattern",
+            "template": "agent0.provn",
+            "output": "agent",
+            "bindings": "agent-e0-e1.json",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "prov-agent.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a specialization pattern",
+            "template": "qualified-specialization0.jsonld",
+            "bindings": "specialization.json",
+            "output": "specialization",
+            "formats": ["jsonld", "provn","png", "svg"],
+            "hasProvenance": "prov-specialization.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an activity pattern",
+            "template": "activity0.provn",
+            "output": "activity",
+            "bindings": "activity.json",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "prov-activity.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a generation pattern for two entities",
+            "template": "generation0.provn",
+            "output": "generation",
+            "bindings": "generation.json",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "prov-generation.prov-csv"
+        },
+
+        {
+            "type": "merge",
+            "description": "Merging the above templates into a single template",
+            "addOutputDirToInputPath": true,
+            "inputs": [
+                "agent.jsonld",
+                "specialization.jsonld",
+                "activity.jsonld",
+                "generation.jsonld"
+            ],
+            "output": "agent-init",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "prov-agent-init.prov-csv"
+        }
+
+    ]
+}

@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class LocalEnactor extends BeanLocalEnactor2 {
 
-    private int counterInitialValue=-1000;
+    private int counterInitialValue=-10000;
     private final Map<String, AtomicInteger> counterMap=new HashMap<>() ;
     private final Map<String, List<Integer>> recordedValues=new HashMap<>();
     private List<Object> history=new LinkedList<>();

@@ -1,0 +1,37 @@
+{
+    "var": {
+
+        "activity": [
+            {
+                "@id": "var:activity"
+            }
+
+        ],
+        "prop": [
+            [
+                {
+                    "@id": "var:aprop"
+                }
+            ]
+        ],
+        "pvalue": [
+            [
+                {
+                    "@id": "var:avalue"
+                }
+            ]
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "ex": "http://example.org/#",
+        "var" : "http://openprovenance.org/var#",
+        "vargen" : "http://openprovenance.org/vargen#"
+    }
+}

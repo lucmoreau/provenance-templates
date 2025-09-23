@@ -40,6 +40,9 @@
                     "@id": "phys:lmw"
                 },
                 {
+                    "@id": "phys:unit"
+                },
+                {
                     "@id": "phys:activity"
                 }
             ]
@@ -48,6 +51,9 @@
             [
                 {
                     "@id": "var:weight"
+                },
+                {
+                    "@id": "var:unit"
                 },
                 {
                     "@id": "var:weighing"

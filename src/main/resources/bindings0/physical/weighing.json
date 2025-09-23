@@ -66,14 +66,27 @@
                 "@sql.table": "activity"
             }
         ],
-        "weight": [[{
-            "@value": "*",
-            "@type": "xsd:float",
-            "@examplar": 1.23,
-            "@documentation": "weight in kg",
-            "@input": "compulsory",
-            "@sql.type": "double precision"
-        }]],
+        "weight": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:float",
+                    "@examplar": 1.23,
+                    "@documentation": "weight (unit specified separately, if unit absent, assume kg)",
+                    "@input": "compulsory",
+                    "@sql.type": "double precision"
+                }
+            ]],
+        "unit": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:string",
+                    "@examplar": "kg",
+                    "@documentation": "unit of weight",
+                    "@input": "optional"
+                }
+            ]],
         "time": [
             [
                 {

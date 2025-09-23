@@ -756,6 +756,10 @@
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-responsibility-handover.json</arg>
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-responsibility-examine.json</arg>
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-weighing.json</arg>
+
+                                <arg>${project.basedir}/src/main/resources/ttfs/config-entity-init.json</arg>
+                                <arg>${project.basedir}/src/main/resources/ttfs/config-responsibility-agent-init.json</arg>
+
                             </args>
                         </configuration>
                     </execution>
@@ -792,6 +796,8 @@
                                 <config>ttfs/config-triangle4-aia.json</config>
 
                                 <config>ttfs/config-triangle6-ugm.json</config>
+                                <config>ttfs/config-entity-init.json</config>
+                                <config>ttfs/config-responsibility-agent-init.json</config>
 
                             </configs>
                         </configuration>
