@@ -11,9 +11,18 @@
             "description": "Instantiating an entity pattern",
             "template": "entity0.provn",
             "output": "entity",
-            "bindings": "entity-e0-e1.json",
+            "bindings": "entity-e0-e.json",
             "formats": ["jsonld", "provn", "png", "svg"],
             "hasProvenance": "prov-entity.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating an entity pattern",
+            "template": "entity0.provn",
+            "output": "entity-location",
+            "bindings": "entity-e0-e-location.json",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "prov-entity-location.prov-csv"
         },
         {
             "type": "instantiate",
@@ -57,6 +66,21 @@
             "output": "entity-init",
             "formats": ["jsonld", "provn", "png", "svg"],
             "hasProvenance": "prov-entity-init.prov-csv"
+        },
+
+        {
+            "type": "merge",
+            "description": "Merging the above templates into a single template",
+            "addOutputDirToInputPath": true,
+            "inputs": [
+                "entity-location.jsonld",
+                "specialization.jsonld",
+                "activity.jsonld",
+                "generation.jsonld"
+            ],
+            "output": "entity-location-init",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "prov-entity-location-init.prov-csv"
         }
 
     ]

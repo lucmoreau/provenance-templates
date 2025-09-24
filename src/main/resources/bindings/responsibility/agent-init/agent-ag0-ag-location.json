@@ -1,0 +1,56 @@
+{
+    "var": {
+
+        "agent": [
+            {
+                "@id": "var:agent"
+            },
+            {
+                "@id": "var:agent0"
+            }
+
+        ],
+        "prop": [
+            [
+                {
+                    "@id": "var:agprop"
+                }
+            ],
+            [
+                {
+                    "@id": "var:agprop0"
+                },
+                {
+                    "@id": "phys:lkl"
+                }
+            ]
+        ],
+        "pvalue": [
+            [
+                {
+                    "@id": "var:agvalue"
+                }
+            ],
+            [
+                {
+                    "@id": "var:agvalue0"
+                },
+                {
+                    "@id": "var:location"
+                }
+            ]
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "var" : "http://openprovenance.org/var#",
+        "vargen" : "http://openprovenance.org/vargen#",
+        "phys" : "${phys_ns}"
+    }
+}

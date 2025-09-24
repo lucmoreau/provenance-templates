@@ -8,12 +8,21 @@
     "tasks": [
         {
             "type": "instantiate",
-            "description": "Instantiating an entity pattern",
+            "description": "Instantiating an agent pattern",
             "template": "agent0.provn",
             "output": "agent",
-            "bindings": "agent-e0-e1.json",
+            "bindings": "agent-ag0-ag.json",
             "formats": ["jsonld", "provn", "png", "svg"],
             "hasProvenance": "prov-agent.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating an agent pattern",
+            "template": "agent0.provn",
+            "output": "agent-location",
+            "bindings": "agent-ag0-ag-location.json",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "prov-agent-location.prov-csv"
         },
         {
             "type": "instantiate",
@@ -57,6 +66,20 @@
             "output": "agent-init",
             "formats": ["jsonld", "provn", "png", "svg"],
             "hasProvenance": "prov-agent-init.prov-csv"
+        },
+        {
+            "type": "merge",
+            "description": "Merging the above templates into a single template",
+            "addOutputDirToInputPath": true,
+            "inputs": [
+                "agent-location.jsonld",
+                "specialization.jsonld",
+                "activity.jsonld",
+                "generation.jsonld"
+            ],
+            "output": "agent-location-init",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "prov-agent-location-init.prov-csv"
         }
 
     ]
