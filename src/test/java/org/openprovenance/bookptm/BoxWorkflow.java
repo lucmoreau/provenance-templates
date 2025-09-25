@@ -20,6 +20,8 @@ public class BoxWorkflow {
 
     String agent1Time ="2024-09-01T10:00:00Z";
     String agent2Time ="2024-09-01T10:00:00Z";
+    String agent3Time ="2024-08-01T10:00:00Z";
+    String agent4Time ="2024-09-01T10:00:00Z";
 
 
     String weighing1Time ="2024-09-15T10:00:00Z";
@@ -104,33 +106,45 @@ public class BoxWorkflow {
         weighingInputs2.weight=10.0f;
         weighingInputs2.time=weighing2Time;
         WeighingOutputs weighingOutputs2=templateInvoker.process(weighingInputs2);
+        //  new agent-init for first transporter
+        Agent_initInputs agent_initInputs3=new Agent_initInputs();
+        agent_initInputs3.location="Oxford";
+        agent_initInputs3.type="Person";
+        agent_initInputs3.time=agent3Time;
+        Agent_initOutputs agent_initOutputs3=templateInvoker.process(agent_initInputs3);
 
         HandoverInputs handoverInputs3=new HandoverInputs();
         handoverInputs3.item0=weighingOutputs2.item1;
         handoverInputs3.item=item;
-        handoverInputs3.agent1=agent3;
-        handoverInputs3.agent0=agent2;
+        handoverInputs3.agent1=agent_initOutputs3.agent0;
+        handoverInputs3.agent0=agent_initOutputs2.agent0;
         handoverInputs3.time=handoverTime2;
         HandoverOutputs handoverOutputs3=templateInvoker.process(handoverInputs3);
+
 
 
         TransportingInputs transportingInputs2=new TransportingInputs();
         transportingInputs2.item0=handoverOutputs3.item1;
         transportingInputs2.item=item;
-        transportingInputs2.transporter=agent3;
+        transportingInputs2.transporter=agent_initOutputs3.agent0;
         transportingInputs2.time=deliveryTime;
         TransportingOutputs transportingOutputs2=templateInvoker.process(transportingInputs2);
         // at this point, the item is with the transporter
 
 
+        Agent_initInputs agent_initInputs4=new Agent_initInputs();
+        agent_initInputs4.location="Oxford";
+        agent_initInputs4.type="Person";
+        agent_initInputs4.time=agent4Time;
+        Agent_initOutputs agent_initOutputs4=templateInvoker.process(agent_initInputs4);
 
 
 
         HandoverInputs handoverInputs4=new HandoverInputs();
         handoverInputs4.item0=transportingOutputs2.item1;
         handoverInputs4.item=item;
-        handoverInputs4.agent1= agent4;
-        handoverInputs4.agent0=agent3;
+        handoverInputs4.agent1= agent_initOutputs4.agent0;
+        handoverInputs4.agent0=agent_initOutputs3.agent0;
         handoverInputs4.time=deliveryTime;
         HandoverOutputs handoverOutputs4=templateInvoker.process(handoverInputs4);
         // at this point, the item is with the recipient
@@ -139,7 +153,7 @@ public class BoxWorkflow {
         WeighingInputs weighingInputs3=new WeighingInputs();
         weighingInputs3.item0=handoverOutputs4.item1;
         weighingInputs3.item=item;
-        weighingInputs3.agent=agent4;
+        weighingInputs3.agent=agent_initOutputs4.agent0;
         weighingInputs3.weight=15.0f;
         weighingInputs3.time=deliveryTime;
         WeighingOutputs weighingOutputs3=templateInvoker.process(weighingInputs3);
@@ -201,7 +215,6 @@ public class BoxWorkflow {
         connections.add(tcag2c);
 
 
-
         TemplateConnection tc1=new TemplateConnection();
         tc1.out_id=handoverOutputs.ID;
         tc1.out_template=handoverOutputs.isA;
@@ -230,6 +243,52 @@ public class BoxWorkflow {
         tcag3.in_property="agent1";
         connections.add(tcag3);
 
+        TemplateConnection tcag3b=new TemplateConnection();
+        tcag3b.out_id=agent_initOutputs2.ID;
+        tcag3b.out_template=agent_initOutputs2.isA;
+        tcag3b.out_property="agent0";
+        tcag3b.in_id=weighingOutputs2.ID;
+        tcag3b.in_template=weighingOutputs2.isA;
+        tcag3b.in_property="agent";
+        connections.add(tcag3b);
+
+        TemplateConnection tcag3c=new TemplateConnection();
+        tcag3c.out_id=agent_initOutputs2.ID;
+        tcag3c.out_template=agent_initOutputs2.isA;
+        tcag3c.out_property="agent0";
+        tcag3c.in_id=handoverOutputs3.ID;
+        tcag3c.in_template=handoverOutputs3.isA;
+        tcag3c.in_property="agent0";
+        connections.add(tcag3c);
+
+
+
+        TemplateConnection tcag4=new TemplateConnection();
+        tcag4.out_id=agent_initOutputs3.ID;
+        tcag4.out_template=agent_initOutputs3.isA;
+        tcag4.out_property="agent0";
+        tcag4.in_id=handoverOutputs3.ID;
+        tcag4.in_template=handoverOutputs3.isA;
+        tcag4.in_property="agent1";
+        connections.add(tcag4);
+
+        TemplateConnection tcag4b=new TemplateConnection();
+        tcag4b.out_id=agent_initOutputs3.ID;
+        tcag4b.out_template=agent_initOutputs3.isA;
+        tcag4b.out_property="agent0";
+        tcag4b.in_id=transportingOutputs2.ID;
+        tcag4b.in_template=transportingOutputs2.isA;
+        tcag4b.in_property="transporter";
+        connections.add(tcag4b);
+
+        TemplateConnection tcag4c=new TemplateConnection();
+        tcag4c.out_id=agent_initOutputs3.ID;
+        tcag4c.out_template=agent_initOutputs3.isA;
+        tcag4c.out_property="agent0";
+        tcag4c.in_id=handoverOutputs4.ID;
+        tcag4c.in_template=handoverOutputs4.isA;
+        tcag4c.in_property="agent0";
+        connections.add(tcag4c);
 
 
         TemplateConnection tc3=new TemplateConnection();
@@ -278,6 +337,24 @@ public class BoxWorkflow {
         tc6.in_property="item0";
         connections.add(tc6);
 
+        TemplateConnection tcag5=new TemplateConnection();
+        tcag5.out_id=agent_initOutputs4.ID;
+        tcag5.out_template=agent_initOutputs4.isA;
+        tcag5.out_property="agent0";
+        tcag5.in_id=handoverOutputs4.ID;
+        tcag5.in_template=handoverOutputs4.isA;
+        tcag5.in_property="agent1";
+        connections.add(tcag5);
+
+
+        TemplateConnection tcag5b=new TemplateConnection();
+        tcag5b.out_id=agent_initOutputs4.ID;
+        tcag5b.out_template=agent_initOutputs4.isA;
+        tcag5b.out_property="agent0";
+        tcag5b.in_id=weighingOutputs3.ID;
+        tcag5b.in_template=weighingOutputs3.isA;
+        tcag5b.in_property="agent";
+        connections.add(tcag5b);
 
 
         // return all inputs and outputs
@@ -286,6 +363,8 @@ public class BoxWorkflow {
                 agent_initInputs0, agent_initOutputs0,
                 agent_initInputs1, agent_initOutputs1,
                 agent_initInputs2, agent_initOutputs2,
+                agent_initInputs3, agent_initOutputs3,
+                agent_initInputs4, agent_initOutputs4,
                 handoverInputs, handoverOutputs,
                 transportingInputs, transportingOutputs,
                 handoverInputs2, handoverOutputs2,
