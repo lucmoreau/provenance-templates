@@ -14,14 +14,15 @@ public class BoxWorkflow {
     private final Function<String, List<List<Object>>> query;
     Integer item0=11;
     Integer item=10;
-    Integer agent2=300; // depot manager
-    Integer agent3=400; // transporter2
-    Integer agent4=500; // recipient
 
     String agent1Time ="2024-09-01T10:00:00Z";
     String agent2Time ="2024-09-01T10:00:00Z";
     String agent3Time ="2024-08-01T10:00:00Z";
     String agent4Time ="2024-09-01T10:00:00Z";
+
+    String scale1Time ="2022-09-01T10:00:00Z";
+    String scale2Time ="2023-06-01T10:00:00Z";
+    String scale3Time ="2024-01-01T10:00:00Z";
 
 
     String weighing1Time ="2024-09-15T10:00:00Z";
@@ -49,11 +50,20 @@ public class BoxWorkflow {
         Agent_initOutputs agent_initOutputs0=templateInvoker.process(agent_initInputs0);
 
 
+        // new agent-init for box owner
+        Agent_initInputs agent_initInputsS1=new Agent_initInputs();
+        agent_initInputsS1.location="London";
+        agent_initInputsS1.type="Scale";
+        agent_initInputsS1.time=scale1Time;
+        Agent_initOutputs agent_initOutputsS1=templateInvoker.process(agent_initInputsS1);
+
+
 
         WeighingInputs weighingInputs1=new WeighingInputs();
         weighingInputs1.item0=item0;
         weighingInputs1.item=item;
         weighingInputs1.agent=agent_initOutputs0.agent0;
+        weighingInputs1.scale=agent_initOutputsS1.agent0;
         weighingInputs1.weight=10.0f;
         weighingInputs1.time=weighing1Time;
         WeighingOutputs weighingOutputs1=templateInvoker.process(weighingInputs1);
@@ -99,10 +109,21 @@ public class BoxWorkflow {
         handoverInputs2.time= handoverTime;
         HandoverOutputs handoverOutputs2=templateInvoker.process(handoverInputs2);
 
+
+        // new agent-init for box owner
+        Agent_initInputs agent_initInputsS2=new Agent_initInputs();
+        agent_initInputsS2.location="London-Depot";
+        agent_initInputsS2.type="Scale";
+        agent_initInputsS2.time=scale2Time;
+        Agent_initOutputs agent_initOutputsS2=templateInvoker.process(agent_initInputsS2);
+
+
+
         WeighingInputs weighingInputs2=new WeighingInputs();
         weighingInputs2.item0=handoverOutputs2.item1;
         weighingInputs2.item=item;
         weighingInputs2.agent=agent_initOutputs2.agent0;
+        weighingInputs2.scale=agent_initOutputsS2.agent0;
         weighingInputs2.weight=10.0f;
         weighingInputs2.time=weighing2Time;
         WeighingOutputs weighingOutputs2=templateInvoker.process(weighingInputs2);
@@ -149,11 +170,21 @@ public class BoxWorkflow {
         HandoverOutputs handoverOutputs4=templateInvoker.process(handoverInputs4);
         // at this point, the item is with the recipient
 
+        // new agent-init for box owner
+        Agent_initInputs agent_initInputsS3=new Agent_initInputs();
+        agent_initInputsS3.location="Brighton";
+        agent_initInputsS3.type="Scale";
+        agent_initInputsS3.time=scale3Time;
+        Agent_initOutputs agent_initOutputsS3=templateInvoker.process(agent_initInputsS3);
+
+
+
         // recipient weighing item
         WeighingInputs weighingInputs3=new WeighingInputs();
         weighingInputs3.item0=handoverOutputs4.item1;
         weighingInputs3.item=item;
         weighingInputs3.agent=agent_initOutputs4.agent0;
+        weighingInputs3.scale=agent_initOutputsS3.agent0;
         weighingInputs3.weight=15.0f;
         weighingInputs3.time=deliveryTime;
         WeighingOutputs weighingOutputs3=templateInvoker.process(weighingInputs3);
@@ -356,6 +387,36 @@ public class BoxWorkflow {
         tcag5b.in_property="agent";
         connections.add(tcag5b);
 
+        TemplateConnection tcsc1=new TemplateConnection();
+        tcsc1.out_id=agent_initOutputsS1.ID;
+        tcsc1.out_template=agent_initOutputsS1.isA;
+        tcsc1.out_property="agent0";
+        tcsc1.in_id=weighingOutputs1.ID;
+        tcsc1.in_template=weighingOutputs1.isA;
+        tcsc1.in_property="scale";
+        connections.add(tcsc1);
+
+
+        TemplateConnection tcsc2=new TemplateConnection();
+        tcsc2.out_id=agent_initOutputsS2.ID;
+        tcsc2.out_template=agent_initOutputsS2.isA;
+        tcsc2.out_property="agent0";
+        tcsc2.in_id=weighingOutputs2.ID;
+        tcsc2.in_template=weighingOutputs2.isA;
+        tcsc2.in_property="scale";
+        connections.add(tcsc2);
+
+
+        TemplateConnection tcsc3=new TemplateConnection();
+        tcsc3.out_id=agent_initOutputsS3.ID;
+        tcsc3.out_template=agent_initOutputsS3.isA;
+        tcsc3.out_property="agent0";
+        tcsc3.in_id=weighingOutputs3.ID;
+        tcsc3.in_template=weighingOutputs3.isA;
+        tcsc3.in_property="scale";
+        connections.add(tcsc3);
+
+
 
         // return all inputs and outputs
 
@@ -365,6 +426,10 @@ public class BoxWorkflow {
                 agent_initInputs2, agent_initOutputs2,
                 agent_initInputs3, agent_initOutputs3,
                 agent_initInputs4, agent_initOutputs4,
+                agent_initInputsS1, agent_initOutputsS1,
+                agent_initInputsS2, agent_initOutputsS2,
+                agent_initInputsS3, agent_initOutputsS3,
+
                 handoverInputs, handoverOutputs,
                 transportingInputs, transportingOutputs,
                 handoverInputs2, handoverOutputs2,
