@@ -1,0 +1,81 @@
+{
+    "var": {
+        "agent": [
+            {
+                "@id": "agent:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The item after handover",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "item"
+            }
+        ],
+        "agent0": [
+            {
+                "@id": "agent:*",
+                "@type": "xsd:int",
+                "@examplar": 12,
+                "@documentation": "The item before handover",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "item"
+            }
+        ],
+
+
+        "activity": [
+            {
+                "@id": "act:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The activity of creating the agent",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "activity"
+            }
+        ],
+        "time": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:dateTime",
+                    "@documentation": "Time when the handover took place",
+                    "@input": "optional",
+                    "@sql.type":  "timestamptz"
+                }
+            ]
+        ],
+        "type": [
+
+                {
+                    "@id": "trs:*",
+                    "@type": "xsd:string",
+                    "@documentation": "Type of agent",
+                    "@input": "compulsory"
+                }
+
+        ],
+        "location": [
+            [
+                {
+                    "@value": "loc:*",
+                    "@type": "xsd:string",
+                    "@documentation": "Agent Location",
+                    "@input": "optional"
+                }
+            ]
+        ],
+        "avalue": null
+    },
+    "context": {
+        "people":  "${PROV_API}/live/agent/",
+        "act": "${PROV_API}/live/activity/",
+        "doc": "${PROV_API}/live/doc/",
+        "agent": "${PROV_API}/live/agent/",
+        "loc": "${PROV_API}/live/location/",
+        "trs": "https://openprovenance.org/transport/ns/#"
+    },
+    "template": "TODO template",
+    "@documentation": "TODO doc."
+}

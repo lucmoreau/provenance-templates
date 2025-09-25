@@ -2,6 +2,7 @@
 package org.openprovenance.bookptm;
 
 
+import org.openprovenance.bk.physical.client.common.Agent_initBuilder;
 import org.openprovenance.bk.physical.client.common.HandoverBuilder;
 import org.openprovenance.bk.physical.client.common.TransportingBuilder;
 import org.openprovenance.bk.physical.client.common.WeighingBuilder;
@@ -51,6 +52,17 @@ public class TableConfiguratorForSuccessors implements TableConfigurator<Map<Str
                 .collect(Collectors.toMap(
                         k -> order[k],
                         k -> Arrays.stream(WeighingBuilder.__successors.get(k))
+                                .mapToObj(v -> order[v])
+                                .collect(Collectors.toList())));
+    }
+
+    @Override
+    public Map<String, List<String>> agent_init(Agent_initBuilder builder) {
+        String[] order=Agent_initBuilder.propertyOrder;
+        return Agent_initBuilder.__successors.keySet().stream()
+                .collect(Collectors.toMap(
+                        k -> order[k],
+                        k -> Arrays.stream(Agent_initBuilder.__successors.get(k))
                                 .mapToObj(v -> order[v])
                                 .collect(Collectors.toList())));
     }

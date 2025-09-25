@@ -85,6 +85,9 @@ public class TemplatesToDot extends ProvToDot {
 
     public Map<String, Map<String, String>> getBaseTypes() {
 
+        System.out.println("typeAssignment: " + typeAssignment);
+
+
         typeAssignment.entrySet().removeIf(entry -> entry.getValue() ==null || entry.getValue().isEmpty());
 
         Map<String,Map<String,String>> baseTypes
@@ -102,7 +105,7 @@ public class TemplatesToDot extends ProvToDot {
                                                         .toMap(var->var,
                                                                 var -> preferredType(typeAssignment
                                                                         .get(tpl)
-                                                                        .get(var))))));
+                                                                        .getOrDefault(var, Collections.emptySet()))))));
 
         return baseTypes;
     }
@@ -123,6 +126,7 @@ public class TemplatesToDot extends ProvToDot {
     }
 
     private String preferredType(Set<String> value) {
+        if (value==null || value.isEmpty()) return "none";
         return value.stream().max(Comparator.comparingInt(this::colorValue)).orElse("none");
     }
 
@@ -306,8 +310,10 @@ public class TemplatesToDot extends ProvToDot {
             Map<String, String> templateBaseTypes = baseTypes.get(template);
 
 
+            System.out.println("template: " + template);
+            System.out.println("inputs: " + inputs);
 
-            List<String> inputsNames  = new ArrayList<>(inputs.get(template).keySet());
+            List<String> inputsNames  = new ArrayList<>(inputs.getOrDefault(template,new HashMap<>()).keySet());
             List<String> inputPorts   = inputsNames.stream().map(s -> portName(template,templateId,s)).collect(Collectors.toList());
             List<String> inputsColors = inputsNames.stream().map(s -> provcolors.get(templateBaseTypes.get(s))).collect(Collectors.toList()); //inputPorts.stream().map(s -> "lightgreen").collect(Collectors.toList());
 

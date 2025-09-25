@@ -37,6 +37,13 @@
             "template": "target/generated-templates/physical/weighing/weighing.jsonld",
             "package": "org.openprovenance.bk.physical",
             "bindings": "src/main/resources/bindings0/physical/weighing.json"
+        },
+        {
+            "@type": "simple",
+            "name": "agent_init",
+            "template": "target/generated-templates/responsibility/agent-init/agent-location-init.jsonld",
+            "package": "org.openprovenance.bk.physical",
+            "bindings": "src/main/resources/bindings0/responsibility/agent-location-init.json"
         }
 
 
