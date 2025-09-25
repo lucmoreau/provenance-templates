@@ -34,7 +34,7 @@
                 "@sql.table": "item"
             }
         ],
-        "agent1": [
+        "receiver": [
             {
                 "@id": "people:*",
                 "@type": "xsd:int",
@@ -45,7 +45,7 @@
                 "@sql.table": "people"
             }
         ],
-        "agent0": [
+        "giver": [
             {
                 "@id": "people:*",
                 "@type": "xsd:int",

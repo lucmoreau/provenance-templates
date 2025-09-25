@@ -80,8 +80,8 @@ public class BoxWorkflow {
         HandoverInputs handoverInputs=new HandoverInputs();
         handoverInputs.item0=weighingOutputs1.item1;
         handoverInputs.item=item;
-        handoverInputs.agent1=agent_initOutputs1.agent0;
-        handoverInputs.agent0=agent_initOutputs0.agent0;
+        handoverInputs.receiver=agent_initOutputs1.agent0;
+        handoverInputs.giver=agent_initOutputs0.agent0;
         handoverInputs.time=pickupTime;
         HandoverOutputs handoverOutputs=templateInvoker.process(handoverInputs);
 
@@ -104,8 +104,8 @@ public class BoxWorkflow {
         HandoverInputs handoverInputs2=new HandoverInputs();
         handoverInputs2.item0=transportingOutputs.item1;
         handoverInputs2.item=item;
-        handoverInputs2.agent1=agent_initOutputs2.agent0;
-        handoverInputs2.agent0=agent_initOutputs1.agent0;
+        handoverInputs2.receiver=agent_initOutputs2.agent0;
+        handoverInputs2.giver=agent_initOutputs1.agent0;
         handoverInputs2.time= handoverTime;
         HandoverOutputs handoverOutputs2=templateInvoker.process(handoverInputs2);
 
@@ -137,8 +137,8 @@ public class BoxWorkflow {
         HandoverInputs handoverInputs3=new HandoverInputs();
         handoverInputs3.item0=weighingOutputs2.item1;
         handoverInputs3.item=item;
-        handoverInputs3.agent1=agent_initOutputs3.agent0;
-        handoverInputs3.agent0=agent_initOutputs2.agent0;
+        handoverInputs3.receiver=agent_initOutputs3.agent0;
+        handoverInputs3.giver=agent_initOutputs2.agent0;
         handoverInputs3.time=handoverTime2;
         HandoverOutputs handoverOutputs3=templateInvoker.process(handoverInputs3);
 
@@ -164,8 +164,8 @@ public class BoxWorkflow {
         HandoverInputs handoverInputs4=new HandoverInputs();
         handoverInputs4.item0=transportingOutputs2.item1;
         handoverInputs4.item=item;
-        handoverInputs4.agent1= agent_initOutputs4.agent0;
-        handoverInputs4.agent0=agent_initOutputs3.agent0;
+        handoverInputs4.receiver= agent_initOutputs4.agent0;
+        handoverInputs4.giver=agent_initOutputs3.agent0;
         handoverInputs4.time=deliveryTime;
         HandoverOutputs handoverOutputs4=templateInvoker.process(handoverInputs4);
         // at this point, the item is with the recipient
@@ -205,7 +205,7 @@ public class BoxWorkflow {
         tcag1b.out_property="agent0";
         tcag1b.in_id=handoverOutputs.ID;
         tcag1b.in_template=handoverOutputs.isA;
-        tcag1b.in_property="agent0";
+        tcag1b.in_property="giver";
         connections.add(tcag1b);
 
         //
@@ -215,7 +215,7 @@ public class BoxWorkflow {
         tc0.out_property="item1";
         tc0.in_id=handoverOutputs.ID;
         tc0.in_template=handoverOutputs.isA;
-        tc0.in_property="item0";
+        tc0.in_property="giver";
         connections.add(tc0);
 
         TemplateConnection tcag2=new TemplateConnection();
@@ -224,7 +224,7 @@ public class BoxWorkflow {
         tcag2.out_property="agent0";
         tcag2.in_id=handoverOutputs.ID;
         tcag2.in_template=handoverOutputs.isA;
-        tcag2.in_property="agent1";
+        tcag2.in_property="receiver";
         connections.add(tcag2);
 
         TemplateConnection tcag2b=new TemplateConnection();
@@ -242,7 +242,7 @@ public class BoxWorkflow {
         tcag2c.out_property="agent0";
         tcag2c.in_id=handoverOutputs2.ID;
         tcag2c.in_template=handoverOutputs2.isA;
-        tcag2c.in_property="agent0";
+        tcag2c.in_property="giver";
         connections.add(tcag2c);
 
 
@@ -271,7 +271,7 @@ public class BoxWorkflow {
         tcag3.out_property="agent0";
         tcag3.in_id=handoverOutputs2.ID;
         tcag3.in_template=handoverOutputs2.isA;
-        tcag3.in_property="agent1";
+        tcag3.in_property="receiver";
         connections.add(tcag3);
 
         TemplateConnection tcag3b=new TemplateConnection();
@@ -289,7 +289,7 @@ public class BoxWorkflow {
         tcag3c.out_property="agent0";
         tcag3c.in_id=handoverOutputs3.ID;
         tcag3c.in_template=handoverOutputs3.isA;
-        tcag3c.in_property="agent0";
+        tcag3c.in_property="giver";
         connections.add(tcag3c);
 
 
@@ -300,7 +300,7 @@ public class BoxWorkflow {
         tcag4.out_property="agent0";
         tcag4.in_id=handoverOutputs3.ID;
         tcag4.in_template=handoverOutputs3.isA;
-        tcag4.in_property="agent1";
+        tcag4.in_property="receiver";
         connections.add(tcag4);
 
         TemplateConnection tcag4b=new TemplateConnection();
@@ -318,7 +318,7 @@ public class BoxWorkflow {
         tcag4c.out_property="agent0";
         tcag4c.in_id=handoverOutputs4.ID;
         tcag4c.in_template=handoverOutputs4.isA;
-        tcag4c.in_property="agent0";
+        tcag4c.in_property="giver";
         connections.add(tcag4c);
 
 
@@ -374,7 +374,7 @@ public class BoxWorkflow {
         tcag5.out_property="agent0";
         tcag5.in_id=handoverOutputs4.ID;
         tcag5.in_template=handoverOutputs4.isA;
-        tcag5.in_property="agent1";
+        tcag5.in_property="receiver";
         connections.add(tcag5);
 
 

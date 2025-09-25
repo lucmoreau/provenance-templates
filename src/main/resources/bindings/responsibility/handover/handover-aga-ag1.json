@@ -8,7 +8,7 @@
         ],
         "agent": [
             {
-                "@id": "var:agent1"
+                "@id": "var:receiver"
             }
         ],
         "activity": [

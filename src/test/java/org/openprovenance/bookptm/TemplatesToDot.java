@@ -85,7 +85,7 @@ public class TemplatesToDot extends ProvToDot {
 
     public Map<String, Map<String, String>> getBaseTypes() {
 
-        System.out.println("typeAssignment: " + typeAssignment);
+        //System.out.println("typeAssignment: " + typeAssignment);
 
 
         typeAssignment.entrySet().removeIf(entry -> entry.getValue() ==null || entry.getValue().isEmpty());
@@ -308,10 +308,6 @@ public class TemplatesToDot extends ProvToDot {
             String template = templateInfo.template;
             String templateId = templateInfo.templateId;
             Map<String, String> templateBaseTypes = baseTypes.get(template);
-
-
-            System.out.println("template: " + template);
-            System.out.println("inputs: " + inputs);
 
             List<String> inputsNames  = new ArrayList<>(inputs.getOrDefault(template,new HashMap<>()).keySet());
             List<String> inputPorts   = inputsNames.stream().map(s -> portName(template,templateId,s)).collect(Collectors.toList());
