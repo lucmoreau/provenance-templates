@@ -38,7 +38,8 @@ public class BoxWorkflow {
         this.query=query;
     }
 
-    List<TemplateConnection> connections= new LinkedList<>();
+    public List<TemplateConnection> connections;
+    public List<TemplateConnection> connectionsNoAgent;
 
     public List<Object> run() {
 
@@ -64,7 +65,7 @@ public class BoxWorkflow {
         weighingInputs1.item=item;
         weighingInputs1.agent=agent_initOutputs0.agent0;
         weighingInputs1.scale=agent_initOutputsS1.agent0;
-        weighingInputs1.weight=10.0f;
+        weighingInputs1.weight=10.0d;
         weighingInputs1.time=weighing1Time;
         WeighingOutputs weighingOutputs1=templateInvoker.process(weighingInputs1);
 
@@ -124,7 +125,7 @@ public class BoxWorkflow {
         weighingInputs2.item=item;
         weighingInputs2.agent=agent_initOutputs2.agent0;
         weighingInputs2.scale=agent_initOutputsS2.agent0;
-        weighingInputs2.weight=10.0f;
+        weighingInputs2.weight=10.0d;
         weighingInputs2.time=weighing2Time;
         WeighingOutputs weighingOutputs2=templateInvoker.process(weighingInputs2);
         //  new agent-init for first transporter
@@ -185,237 +186,16 @@ public class BoxWorkflow {
         weighingInputs3.item=item;
         weighingInputs3.agent=agent_initOutputs4.agent0;
         weighingInputs3.scale=agent_initOutputsS3.agent0;
-        weighingInputs3.weight=15.0f;
+        weighingInputs3.weight=15.0d;
         weighingInputs3.time=deliveryTime;
         WeighingOutputs weighingOutputs3=templateInvoker.process(weighingInputs3);
         // item should weigh 10.0, so this is a discrepancy
 
 
-        TemplateConnection tcag1=new TemplateConnection();
-        tcag1.out_id=agent_initOutputs0.ID;
-        tcag1.out_template=agent_initOutputs0.isA;
-        tcag1.out_property="agent0";
-        tcag1.in_id=weighingOutputs1.ID;
-        tcag1.in_template=weighingOutputs1.isA;
-        tcag1.in_property="agent";
-        connections.add(tcag1);
-        TemplateConnection tcag1b=new TemplateConnection();
-        tcag1b.out_id=agent_initOutputs0.ID;
-        tcag1b.out_template=agent_initOutputs0.isA;
-        tcag1b.out_property="agent0";
-        tcag1b.in_id=handoverOutputs.ID;
-        tcag1b.in_template=handoverOutputs.isA;
-        tcag1b.in_property="giver";
-        connections.add(tcag1b);
-
-        //
-        TemplateConnection tc0=new TemplateConnection();
-        tc0.out_id=weighingOutputs1.ID;
-        tc0.out_template=weighingOutputs1.isA;
-        tc0.out_property="item1";
-        tc0.in_id=handoverOutputs.ID;
-        tc0.in_template=handoverOutputs.isA;
-        tc0.in_property="giver";
-        connections.add(tc0);
-
-        TemplateConnection tcag2=new TemplateConnection();
-        tcag2.out_id=agent_initOutputs1.ID;
-        tcag2.out_template=agent_initOutputs1.isA;
-        tcag2.out_property="agent0";
-        tcag2.in_id=handoverOutputs.ID;
-        tcag2.in_template=handoverOutputs.isA;
-        tcag2.in_property="receiver";
-        connections.add(tcag2);
-
-        TemplateConnection tcag2b=new TemplateConnection();
-        tcag2b.out_id=agent_initOutputs1.ID;
-        tcag2b.out_template=agent_initOutputs1.isA;
-        tcag2b.out_property="agent0";
-        tcag2b.in_id=transportingOutputs.ID;
-        tcag2b.in_template=transportingOutputs.isA;
-        tcag2b.in_property="transporter";
-        connections.add(tcag2b);
-
-        TemplateConnection tcag2c=new TemplateConnection();
-        tcag2c.out_id=agent_initOutputs1.ID;
-        tcag2c.out_template=agent_initOutputs1.isA;
-        tcag2c.out_property="agent0";
-        tcag2c.in_id=handoverOutputs2.ID;
-        tcag2c.in_template=handoverOutputs2.isA;
-        tcag2c.in_property="giver";
-        connections.add(tcag2c);
-
-
-        TemplateConnection tc1=new TemplateConnection();
-        tc1.out_id=handoverOutputs.ID;
-        tc1.out_template=handoverOutputs.isA;
-        tc1.out_property="item1";
-        tc1.in_id=transportingOutputs.ID;
-        tc1.in_template=transportingOutputs.isA;
-        tc1.in_property="item0";
-        connections.add(tc1);
-
-        TemplateConnection tc2=new TemplateConnection();
-        tc2.out_id=transportingOutputs.ID;
-        tc2.out_template=transportingOutputs.isA;
-        tc2.out_property="item1";
-        tc2.in_id=handoverOutputs2.ID;
-        tc2.in_template=handoverOutputs2.isA;
-        tc2.in_property="item0";
-        connections.add(tc2);
-
-
-        TemplateConnection tcag3=new TemplateConnection();
-        tcag3.out_id=agent_initOutputs2.ID;
-        tcag3.out_template=agent_initOutputs2.isA;
-        tcag3.out_property="agent0";
-        tcag3.in_id=handoverOutputs2.ID;
-        tcag3.in_template=handoverOutputs2.isA;
-        tcag3.in_property="receiver";
-        connections.add(tcag3);
-
-        TemplateConnection tcag3b=new TemplateConnection();
-        tcag3b.out_id=agent_initOutputs2.ID;
-        tcag3b.out_template=agent_initOutputs2.isA;
-        tcag3b.out_property="agent0";
-        tcag3b.in_id=weighingOutputs2.ID;
-        tcag3b.in_template=weighingOutputs2.isA;
-        tcag3b.in_property="agent";
-        connections.add(tcag3b);
-
-        TemplateConnection tcag3c=new TemplateConnection();
-        tcag3c.out_id=agent_initOutputs2.ID;
-        tcag3c.out_template=agent_initOutputs2.isA;
-        tcag3c.out_property="agent0";
-        tcag3c.in_id=handoverOutputs3.ID;
-        tcag3c.in_template=handoverOutputs3.isA;
-        tcag3c.in_property="giver";
-        connections.add(tcag3c);
-
-
-
-        TemplateConnection tcag4=new TemplateConnection();
-        tcag4.out_id=agent_initOutputs3.ID;
-        tcag4.out_template=agent_initOutputs3.isA;
-        tcag4.out_property="agent0";
-        tcag4.in_id=handoverOutputs3.ID;
-        tcag4.in_template=handoverOutputs3.isA;
-        tcag4.in_property="receiver";
-        connections.add(tcag4);
-
-        TemplateConnection tcag4b=new TemplateConnection();
-        tcag4b.out_id=agent_initOutputs3.ID;
-        tcag4b.out_template=agent_initOutputs3.isA;
-        tcag4b.out_property="agent0";
-        tcag4b.in_id=transportingOutputs2.ID;
-        tcag4b.in_template=transportingOutputs2.isA;
-        tcag4b.in_property="transporter";
-        connections.add(tcag4b);
-
-        TemplateConnection tcag4c=new TemplateConnection();
-        tcag4c.out_id=agent_initOutputs3.ID;
-        tcag4c.out_template=agent_initOutputs3.isA;
-        tcag4c.out_property="agent0";
-        tcag4c.in_id=handoverOutputs4.ID;
-        tcag4c.in_template=handoverOutputs4.isA;
-        tcag4c.in_property="giver";
-        connections.add(tcag4c);
-
-
-        TemplateConnection tc3=new TemplateConnection();
-        tc3.out_id=handoverOutputs2.ID;
-        tc3.out_template=handoverOutputs2.isA;
-        tc3.out_property="item1";
-        tc3.in_id=weighingOutputs2.ID;
-        tc3.in_template=weighingOutputs2.isA;
-        tc3.in_property="item0";
-        connections.add(tc3);
-
-        TemplateConnection tc3b=new TemplateConnection();
-        tc3b.out_id=weighingOutputs2.ID;
-        tc3b.out_template=weighingOutputs2.isA;
-        tc3b.out_property="item1";
-        tc3b.in_id=handoverOutputs3.ID;
-        tc3b.in_template=handoverOutputs3.isA;
-        tc3b.in_property="item0";
-        connections.add(tc3b);
-
-
-        TemplateConnection tc4=new TemplateConnection();
-        tc4.out_id=handoverOutputs3.ID;
-        tc4.out_template=handoverOutputs3.isA;
-        tc4.out_property="item1";
-        tc4.in_id=transportingOutputs2.ID;
-        tc4.in_template=transportingOutputs2.isA;
-        tc4.in_property="item0";
-        connections.add(tc4);
-
-        TemplateConnection tc5=new TemplateConnection();
-        tc5.out_id=transportingOutputs2.ID;
-        tc5.out_template=transportingOutputs2.isA;
-        tc5.out_property="item1";
-        tc5.in_id=handoverOutputs4.ID;
-        tc5.in_template=handoverOutputs4.isA;
-        tc5.in_property="item0";
-        connections.add(tc5);
-
-        TemplateConnection tc6=new TemplateConnection();
-        tc6.out_id=handoverOutputs4.ID;
-        tc6.out_template=handoverOutputs4.isA;
-        tc6.out_property="item1";
-        tc6.in_id=weighingOutputs3.ID;
-        tc6.in_template=weighingOutputs3.isA;
-        tc6.in_property="item0";
-        connections.add(tc6);
-
-        TemplateConnection tcag5=new TemplateConnection();
-        tcag5.out_id=agent_initOutputs4.ID;
-        tcag5.out_template=agent_initOutputs4.isA;
-        tcag5.out_property="agent0";
-        tcag5.in_id=handoverOutputs4.ID;
-        tcag5.in_template=handoverOutputs4.isA;
-        tcag5.in_property="receiver";
-        connections.add(tcag5);
-
-
-        TemplateConnection tcag5b=new TemplateConnection();
-        tcag5b.out_id=agent_initOutputs4.ID;
-        tcag5b.out_template=agent_initOutputs4.isA;
-        tcag5b.out_property="agent0";
-        tcag5b.in_id=weighingOutputs3.ID;
-        tcag5b.in_template=weighingOutputs3.isA;
-        tcag5b.in_property="agent";
-        connections.add(tcag5b);
-
-        TemplateConnection tcsc1=new TemplateConnection();
-        tcsc1.out_id=agent_initOutputsS1.ID;
-        tcsc1.out_template=agent_initOutputsS1.isA;
-        tcsc1.out_property="agent0";
-        tcsc1.in_id=weighingOutputs1.ID;
-        tcsc1.in_template=weighingOutputs1.isA;
-        tcsc1.in_property="scale";
-        connections.add(tcsc1);
-
-
-        TemplateConnection tcsc2=new TemplateConnection();
-        tcsc2.out_id=agent_initOutputsS2.ID;
-        tcsc2.out_template=agent_initOutputsS2.isA;
-        tcsc2.out_property="agent0";
-        tcsc2.in_id=weighingOutputs2.ID;
-        tcsc2.in_template=weighingOutputs2.isA;
-        tcsc2.in_property="scale";
-        connections.add(tcsc2);
-
-
-        TemplateConnection tcsc3=new TemplateConnection();
-        tcsc3.out_id=agent_initOutputsS3.ID;
-        tcsc3.out_template=agent_initOutputsS3.isA;
-        tcsc3.out_property="agent0";
-        tcsc3.in_id=weighingOutputs3.ID;
-        tcsc3.in_template=weighingOutputs3.isA;
-        tcsc3.in_property="scale";
-        connections.add(tcsc3);
-
+        connections=
+                createConnections(agent_initOutputs0, weighingOutputs1, handoverOutputs, agent_initOutputs1, transportingOutputs, handoverOutputs2, agent_initOutputs2, weighingOutputs2, handoverOutputs3, agent_initOutputs3, transportingOutputs2, handoverOutputs4, weighingOutputs3, agent_initOutputs4, agent_initOutputsS1, agent_initOutputsS2, agent_initOutputsS3, true);
+        connectionsNoAgent=
+                createConnections(agent_initOutputs0, weighingOutputs1, handoverOutputs, agent_initOutputs1, transportingOutputs, handoverOutputs2, agent_initOutputs2, weighingOutputs2, handoverOutputs3, agent_initOutputs3, transportingOutputs2, handoverOutputs4, weighingOutputs3, agent_initOutputs4, agent_initOutputsS1, agent_initOutputsS2, agent_initOutputsS3, false);
 
 
         // return all inputs and outputs
@@ -437,8 +217,269 @@ public class BoxWorkflow {
                 transportingInputs2, transportingOutputs2,
                 handoverInputs4, handoverOutputs4,
                 weighingInputs3, weighingOutputs3,
-                connections);
+                connections,
+                connectionsNoAgent);
 
+    }
+
+    private List<TemplateConnection> createConnections(
+            Agent_initOutputs agent_initOutputs0,
+            WeighingOutputs weighingOutputs1,
+            HandoverOutputs handoverOutputs,
+            Agent_initOutputs agent_initOutputs1,
+            TransportingOutputs transportingOutputs,
+            HandoverOutputs handoverOutputs2,
+            Agent_initOutputs agent_initOutputs2,
+            WeighingOutputs weighingOutputs2,
+            HandoverOutputs handoverOutputs3,
+            Agent_initOutputs agent_initOutputs3,
+            TransportingOutputs transportingOutputs2,
+            HandoverOutputs handoverOutputs4,
+            WeighingOutputs weighingOutputs3,
+            Agent_initOutputs agent_initOutputs4,
+            Agent_initOutputs agent_initOutputsS1,
+            Agent_initOutputs agent_initOutputsS2,
+            Agent_initOutputs agent_initOutputsS3, boolean withAgent) {
+
+        List<TemplateConnection> connections=new LinkedList<>();
+
+        if (withAgent) {
+            TemplateConnection tcag1 = new TemplateConnection();
+            tcag1.out_id = agent_initOutputs0.ID;
+            tcag1.out_template = agent_initOutputs0.isA;
+            tcag1.out_property = "agent0";
+            tcag1.in_id = weighingOutputs1.ID;
+            tcag1.in_template = weighingOutputs1.isA;
+            tcag1.in_property = "agent";
+            connections.add(tcag1);
+
+            TemplateConnection tcag1b = new TemplateConnection();
+            tcag1b.out_id = agent_initOutputs0.ID;
+            tcag1b.out_template = agent_initOutputs0.isA;
+            tcag1b.out_property = "agent0";
+            tcag1b.in_id = handoverOutputs.ID;
+            tcag1b.in_template = handoverOutputs.isA;
+            tcag1b.in_property = "giver";
+            connections.add(tcag1b);
+
+        }
+
+        //
+        TemplateConnection tc0=new TemplateConnection();
+        tc0.out_id= weighingOutputs1.ID;
+        tc0.out_template= weighingOutputs1.isA;
+        tc0.out_property="item1";
+        tc0.in_id= handoverOutputs.ID;
+        tc0.in_template= handoverOutputs.isA;
+        tc0.in_property="giver";
+        connections.add(tc0);
+
+        if (withAgent) {
+
+            TemplateConnection tcag2 = new TemplateConnection();
+            tcag2.out_id = agent_initOutputs1.ID;
+            tcag2.out_template = agent_initOutputs1.isA;
+            tcag2.out_property = "agent0";
+            tcag2.in_id = handoverOutputs.ID;
+            tcag2.in_template = handoverOutputs.isA;
+            tcag2.in_property = "receiver";
+            connections.add(tcag2);
+
+            TemplateConnection tcag2b = new TemplateConnection();
+            tcag2b.out_id = agent_initOutputs1.ID;
+            tcag2b.out_template = agent_initOutputs1.isA;
+            tcag2b.out_property = "agent0";
+            tcag2b.in_id = transportingOutputs.ID;
+            tcag2b.in_template = transportingOutputs.isA;
+            tcag2b.in_property = "transporter";
+            connections.add(tcag2b);
+
+            TemplateConnection tcag2c = new TemplateConnection();
+            tcag2c.out_id = agent_initOutputs1.ID;
+            tcag2c.out_template = agent_initOutputs1.isA;
+            tcag2c.out_property = "agent0";
+            tcag2c.in_id = handoverOutputs2.ID;
+            tcag2c.in_template = handoverOutputs2.isA;
+            tcag2c.in_property = "giver";
+            connections.add(tcag2c);
+        }
+
+        TemplateConnection tc1=new TemplateConnection();
+        tc1.out_id= handoverOutputs.ID;
+        tc1.out_template= handoverOutputs.isA;
+        tc1.out_property="item1";
+        tc1.in_id= transportingOutputs.ID;
+        tc1.in_template= transportingOutputs.isA;
+        tc1.in_property="item0";
+        connections.add(tc1);
+
+        TemplateConnection tc2=new TemplateConnection();
+        tc2.out_id= transportingOutputs.ID;
+        tc2.out_template= transportingOutputs.isA;
+        tc2.out_property="item1";
+        tc2.in_id= handoverOutputs2.ID;
+        tc2.in_template= handoverOutputs2.isA;
+        tc2.in_property="item0";
+        connections.add(tc2);
+
+
+        if (withAgent) {
+            TemplateConnection tcag3 = new TemplateConnection();
+            tcag3.out_id = agent_initOutputs2.ID;
+            tcag3.out_template = agent_initOutputs2.isA;
+            tcag3.out_property = "agent0";
+            tcag3.in_id = handoverOutputs2.ID;
+            tcag3.in_template = handoverOutputs2.isA;
+            tcag3.in_property = "receiver";
+            connections.add(tcag3);
+
+            TemplateConnection tcag3b = new TemplateConnection();
+            tcag3b.out_id = agent_initOutputs2.ID;
+            tcag3b.out_template = agent_initOutputs2.isA;
+            tcag3b.out_property = "agent0";
+            tcag3b.in_id = weighingOutputs2.ID;
+            tcag3b.in_template = weighingOutputs2.isA;
+            tcag3b.in_property = "agent";
+            connections.add(tcag3b);
+
+            TemplateConnection tcag3c = new TemplateConnection();
+            tcag3c.out_id = agent_initOutputs2.ID;
+            tcag3c.out_template = agent_initOutputs2.isA;
+            tcag3c.out_property = "agent0";
+            tcag3c.in_id = handoverOutputs3.ID;
+            tcag3c.in_template = handoverOutputs3.isA;
+            tcag3c.in_property = "giver";
+            connections.add(tcag3c);
+
+
+            TemplateConnection tcag4 = new TemplateConnection();
+            tcag4.out_id = agent_initOutputs3.ID;
+            tcag4.out_template = agent_initOutputs3.isA;
+            tcag4.out_property = "agent0";
+            tcag4.in_id = handoverOutputs3.ID;
+            tcag4.in_template = handoverOutputs3.isA;
+            tcag4.in_property = "receiver";
+            connections.add(tcag4);
+
+            TemplateConnection tcag4b = new TemplateConnection();
+            tcag4b.out_id = agent_initOutputs3.ID;
+            tcag4b.out_template = agent_initOutputs3.isA;
+            tcag4b.out_property = "agent0";
+            tcag4b.in_id = transportingOutputs2.ID;
+            tcag4b.in_template = transportingOutputs2.isA;
+            tcag4b.in_property = "transporter";
+            connections.add(tcag4b);
+
+            TemplateConnection tcag4c = new TemplateConnection();
+            tcag4c.out_id = agent_initOutputs3.ID;
+            tcag4c.out_template = agent_initOutputs3.isA;
+            tcag4c.out_property = "agent0";
+            tcag4c.in_id = handoverOutputs4.ID;
+            tcag4c.in_template = handoverOutputs4.isA;
+            tcag4c.in_property = "giver";
+            connections.add(tcag4c);
+
+        }
+
+
+        TemplateConnection tc3=new TemplateConnection();
+        tc3.out_id= handoverOutputs2.ID;
+        tc3.out_template= handoverOutputs2.isA;
+        tc3.out_property="item1";
+        tc3.in_id= weighingOutputs2.ID;
+        tc3.in_template= weighingOutputs2.isA;
+        tc3.in_property="item0";
+        connections.add(tc3);
+
+        TemplateConnection tc3b=new TemplateConnection();
+        tc3b.out_id= weighingOutputs2.ID;
+        tc3b.out_template= weighingOutputs2.isA;
+        tc3b.out_property="item1";
+        tc3b.in_id= handoverOutputs3.ID;
+        tc3b.in_template= handoverOutputs3.isA;
+        tc3b.in_property="item0";
+        connections.add(tc3b);
+
+
+        TemplateConnection tc4=new TemplateConnection();
+        tc4.out_id= handoverOutputs3.ID;
+        tc4.out_template= handoverOutputs3.isA;
+        tc4.out_property="item1";
+        tc4.in_id= transportingOutputs2.ID;
+        tc4.in_template= transportingOutputs2.isA;
+        tc4.in_property="item0";
+        connections.add(tc4);
+
+        TemplateConnection tc5=new TemplateConnection();
+        tc5.out_id= transportingOutputs2.ID;
+        tc5.out_template= transportingOutputs2.isA;
+        tc5.out_property="item1";
+        tc5.in_id= handoverOutputs4.ID;
+        tc5.in_template= handoverOutputs4.isA;
+        tc5.in_property="item0";
+        connections.add(tc5);
+
+        TemplateConnection tc6=new TemplateConnection();
+        tc6.out_id= handoverOutputs4.ID;
+        tc6.out_template= handoverOutputs4.isA;
+        tc6.out_property="item1";
+        tc6.in_id= weighingOutputs3.ID;
+        tc6.in_template= weighingOutputs3.isA;
+        tc6.in_property="item0";
+        connections.add(tc6);
+
+        if (withAgent) {
+            TemplateConnection tcag5 = new TemplateConnection();
+            tcag5.out_id = agent_initOutputs4.ID;
+            tcag5.out_template = agent_initOutputs4.isA;
+            tcag5.out_property = "agent0";
+            tcag5.in_id = handoverOutputs4.ID;
+            tcag5.in_template = handoverOutputs4.isA;
+            tcag5.in_property = "receiver";
+            connections.add(tcag5);
+
+
+            TemplateConnection tcag5b = new TemplateConnection();
+            tcag5b.out_id = agent_initOutputs4.ID;
+            tcag5b.out_template = agent_initOutputs4.isA;
+            tcag5b.out_property = "agent0";
+            tcag5b.in_id = weighingOutputs3.ID;
+            tcag5b.in_template = weighingOutputs3.isA;
+            tcag5b.in_property = "agent";
+            connections.add(tcag5b);
+
+            TemplateConnection tcsc1 = new TemplateConnection();
+            tcsc1.out_id = agent_initOutputsS1.ID;
+            tcsc1.out_template = agent_initOutputsS1.isA;
+            tcsc1.out_property = "agent0";
+            tcsc1.in_id = weighingOutputs1.ID;
+            tcsc1.in_template = weighingOutputs1.isA;
+            tcsc1.in_property = "scale";
+            connections.add(tcsc1);
+
+
+            TemplateConnection tcsc2 = new TemplateConnection();
+            tcsc2.out_id = agent_initOutputsS2.ID;
+            tcsc2.out_template = agent_initOutputsS2.isA;
+            tcsc2.out_property = "agent0";
+            tcsc2.in_id = weighingOutputs2.ID;
+            tcsc2.in_template = weighingOutputs2.isA;
+            tcsc2.in_property = "scale";
+            connections.add(tcsc2);
+
+
+            TemplateConnection tcsc3 = new TemplateConnection();
+            tcsc3.out_id = agent_initOutputsS3.ID;
+            tcsc3.out_template = agent_initOutputsS3.isA;
+            tcsc3.out_property = "agent0";
+            tcsc3.in_id = weighingOutputs3.ID;
+            tcsc3.in_template = weighingOutputs3.isA;
+            tcsc3.in_property = "scale";
+            connections.add(tcsc3);
+
+        }
+
+        return connections;
     }
 
 }

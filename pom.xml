@@ -11,10 +11,14 @@
     <packaging>jar</packaging>
 
     <name>|-- template-intro1</name>
-    <url>http://maven.apache.org</url>
+    <description>templates for book</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <meta.inf.webjars>META-INF/resources/webjars</meta.inf.webjars>
+        <package.name>transport_template_library</package.name>
+        <package.name.cli>${package.name}_cli</package.name.cli>
+        <package.name.l2p>${package.name}_l2p</package.name.l2p>
     </properties>
 
     <dependencies>
@@ -22,6 +26,13 @@
             <groupId>org.openprovenance.prov</groupId>
             <artifactId>prov-model</artifactId>
             <version>${prov.toolbox.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openprovenance.prov</groupId>
+            <artifactId>prov-interop</artifactId>
+            <version>${prov.toolbox.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -1285,14 +1296,99 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>${project.build.directory}/generated-sources/transport_template_library_cli</source>
-                                <source>${project.build.directory}/generated-sources/transport_template_library_l2p</source>
+                                <source>${project.build.directory}/generated-sources/${package.name.cli}</source>
+                                <source>${project.build.directory}/generated-sources/${package.name.l2p}</source>
                             </sources>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>resources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-resource</goal>
+                        </goals>
+                        <configuration>
+                            <resources>
+                                <resource>
+                                    <directory>${project.build.directory}/resources</directory>
+                                    <targetPath />
+                                </resource>
+                                <resource>
+                                    <directory>${project.build.directory}/js</directory>
+                                    <targetPath>${meta.inf.webjars}/${project.artifactId}/${project.version}/js</targetPath>
+                                </resource>
+                                <resource>
+                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/js</directory>
+                                    <targetPath>${meta.inf.webjars}/${project.artifactId}/${project.version}/js</targetPath>
+                                </resource>
+                                <resource>
+                                    <directory>${project.build.directory}/ts</directory>
+                                    <targetPath>${meta.inf.webjars}/${project.artifactId}/${project.version}/ts</targetPath>
+                                </resource>
+                                <resource>
+                                    <directory>${project.build.directory}/bindings</directory>
+                                    <targetPath>${meta.inf.webjars}/${project.artifactId}/${project.version}/bindings</targetPath>
+                                </resource>
+                                <resource>
+                                    <directory>${project.build.directory}/prov-template-library/templates</directory>
+                                    <targetPath>${meta.inf.webjars}/${project.artifactId}/${project.version}/templates</targetPath>
+                                </resource>
+                                <resource>
+                                    <directory>${project.build.directory}/prov-template-library/mbindings</directory>
+                                    <targetPath>${meta.inf.webjars}/${project.artifactId}/${project.version}/mbindings</targetPath>
+                                </resource>
+
+                                <resource>
+                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/css</directory>
+                                    <targetPath>${meta.inf.webjars}/${project.artifactId}/${project.version}/css</targetPath>
+                                    <includes>
+                                        <include>*.css</include>
+                                    </includes>
+                                </resource>
+
+                                <resource>
+                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources</directory>
+                                    <targetPath>${meta.inf.webjars}/${project.artifactId}/${project.version}/schema</targetPath>
+                                    <includes>
+                                        <include>*.json</include>
+                                    </includes>
+                                </resource>
+
+                                <resource>
+                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources</directory>
+                                    <targetPath>${meta.inf.webjars}/${project.artifactId}/${project.version}/sql</targetPath>
+                                    <includes>
+                                        <include>*.sql</include>
+                                    </includes>
+                                </resource>
+
+
+                                <resource>
+                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources/${meta.inf.webjars}/${package.name.cli}/${prov.toolbox.version}/html</directory>
+                                    <targetPath>${meta.inf.webjars}/${project.artifactId}/${project.version}/html</targetPath>
+                                    <includes>
+                                        <include>*.html</include>
+                                    </includes>
+                                </resource>
+                            </resources>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
 
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
         </plugins>
 

@@ -70,7 +70,7 @@
             [
                 {
                     "@value": "*",
-                    "@type": "xsd:float",
+                    "@type": "xsd:double",
                     "@examplar": 1.23,
                     "@documentation": "weight (unit specified separately, if unit absent, assume kg)",
                     "@input": "compulsory",
@@ -105,7 +105,7 @@
         "act": "${PROV_API}/live/activity/",
         "doc": "${PROV_API}/live/doc/",
         "item": "${PROV_API}/live/item/",
-        "instrument": "${PROV_API}/live/instrument/"
+        "instrument": "${PROV_API}/live/agent/"
     },
     "template": "TODO template",
     "@documentation": "TODO doc."

@@ -2,6 +2,8 @@ package org.openprovenance.bookptm;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import junit.framework.TestCase;
+import org.openprovenance.prov.model.Document;
+import org.openprovenance.prov.interop.InteropFramework;
 
 
 import java.io.File;
@@ -34,10 +36,24 @@ public class BoxTest extends TestCase {
         // print all results
         new ObjectMapper().writeValue(new File("target/testBox.json"), results);
 
-        assertEquals(36,results.size());
+        assertEquals(37,results.size());
 
 
         new TemplatesToDot(workflow.connections, templateInvoker.getId2array(), "template", pf, null).convert(null, new FileOutputStream("target/viz.svg"), "template_connections");
+        new TemplatesToDot(workflow.connectionsNoAgent, templateInvoker.getId2array(), "template", pf, null).convert(null, new FileOutputStream("target/viz2.svg"), "template_connections");
+
+        //new TemplatesToDot(workflow.connections, templateInvoker.getId2array(), "prov", pf, null).convert(null, new FileOutputStream("target/viz3.svg"), "template_connections");
+
+        TemplatesToDot templateProcessing = new TemplatesToDot(workflow.connections, templateInvoker.getId2array(), "prov", pf, null);
+        Document doc= templateProcessing.getDocument();
+        new InteropFramework().writeDocument("target/viz3.provn",doc);
+        templateProcessing.convert(null, new FileOutputStream("target/viz3.svg"), "template_connections");
+
+
+        new TemplatesToDot(workflow.connections, templateInvoker.getId2array(), "entities", pf, null).convert(null, new FileOutputStream("target/viz4.svg"), "template_connections");
+
+
+
 
     }
 

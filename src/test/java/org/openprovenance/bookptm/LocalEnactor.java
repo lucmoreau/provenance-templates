@@ -1,9 +1,6 @@
 package org.openprovenance.bookptm;
 
-import org.openprovenance.bk.physical.client.common.HandoverBean;
-import org.openprovenance.bk.physical.client.common.HandoverBuilder;
-import org.openprovenance.bk.physical.client.common.TransportingBean;
-import org.openprovenance.bk.physical.client.common.TransportingBuilder;
+import org.openprovenance.bk.physical.client.common.*;
 import org.openprovenance.bk.physical.client.integrator.*;
 
 import java.util.HashMap;
@@ -22,6 +19,9 @@ public class LocalEnactor extends BeanLocalEnactor2 {
     private Map<Integer, Object []> id2array=new HashMap<>();
     private List<String> csv=new LinkedList<>();
 
+    public LocalEnactor() {
+        super();
+    }
 
 
     @Override
@@ -71,7 +71,43 @@ public class LocalEnactor extends BeanLocalEnactor2 {
         return out;
     }
 
+    @Override
+    public Agent_initOutputs process(Agent_initInputs bean) {
+        Agent_initOutputs out = super.process(bean);
+        Agent_initBean agent_initBean=merge(bean, out);
+        history.add(agent_initBean);
+        id2object.put(out.ID, agent_initBean);
+        id2array.put(out.ID, agent_initBean.process(new Agent_initBuilder().aArgs2RecordConverter()));
+        csv.add(agent_initBean.process(new Agent_initBuilder().aArgs2CsVConverter));
+        return out;
+    }
 
+    @Override
+    public WeighingOutputs process(WeighingInputs bean) {
+        WeighingOutputs out = super.process(bean);
+        WeighingBean weighingBean=merge(bean, out);
+        history.add(weighingBean);
+        id2object.put(out.ID, weighingBean);
+        id2array.put(out.ID, weighingBean.process(new WeighingBuilder().aArgs2RecordConverter()));
+        csv.add(weighingBean.process(new WeighingBuilder().aArgs2CsVConverter));
+        return out;
+    }
+
+    private WeighingBean merge(WeighingInputs weighingInputs, WeighingOutputs weighingOutputs) {
+        WeighingBuilder builder=new WeighingBuilder();
+        Object[] weighingIn= weighingInputs.process(builder.aArgs2RecordConverter());
+        Object[] weighingOut= weighingOutputs.process(builder.aArgs2RecordConverter());
+        Object[] weighing=merge(weighingIn, weighingOut);
+        return builder.toBean(weighing);
+    }
+
+    private Agent_initBean merge(Agent_initInputs bean, Agent_initOutputs out) {
+        Agent_initBuilder builder=new Agent_initBuilder();
+        Object[] agentIn= bean.process(builder.aArgs2RecordConverter());
+        Object[] agentOut= out.process(builder.aArgs2RecordConverter());
+        Object[] agent=merge(agentIn, agentOut);
+        return builder.toBean(agent);
+    }
 
     private TransportingBean merge(TransportingInputs transportingInputs, TransportingOutputs transportingOutputs) {
         TransportingBuilder builder=new TransportingBuilder();

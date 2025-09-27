@@ -52,7 +52,8 @@
                     "@id": "trs:*",
                     "@type": "xsd:string",
                     "@documentation": "Type of agent",
-                    "@input": "compulsory"
+                    "@input": "compulsory",
+                    "@sql.type": "nonNullableTEXT"
                 }
 
         ],
@@ -62,7 +63,8 @@
                     "@value": "loc:*",
                     "@type": "xsd:string",
                     "@documentation": "Agent Location",
-                    "@input": "optional"
+                    "@input": "optional",
+                    "@sql.type": "nullableTEXT"
                 }
             ]
         ],

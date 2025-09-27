@@ -13,6 +13,8 @@
     "jsonschema": "schema-transport.json",
     "documentation": "doc-transport.html",
     "sqlFile": "prov-template-library-transport.sql",
+    "search": ["activity", "item"],
+
     "templates" : [
 
 
