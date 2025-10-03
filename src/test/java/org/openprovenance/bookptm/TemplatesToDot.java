@@ -367,7 +367,7 @@ public class TemplatesToDot extends ProvToDot {
         return templateId + ":" + portName(template, templateId, property);
     }
     private QualifiedName qualifiedPortNameAsQn(String template, String templateId, String property) {
-        return pf.newQualifiedName( "/ptl/provapi/template/", template + "/"+ templateId + "/" + property, "ex");
+        return pf.newQualifiedName( "/book/provapi/template/", template + "/"+ templateId + "/" + property, "ex");
     }
 
     public void emitTemplate(String template, String templateId, String htmlTable, PrintStream out) {
