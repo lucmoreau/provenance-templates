@@ -86,7 +86,7 @@ public class ServiceInvoker {
                     if (accessTokenValue!=null) h.setBearerAuth(accessTokenValue);
                 })
                 .retrieve()
-                .onStatus(HttpStatus::is4xxClientError, response -> {
+                .onStatus(x->x.is4xxClientError(), response -> {
                     String statusCode = response.statusCode().toString();
 
                     logTraceResponse(logger,response);

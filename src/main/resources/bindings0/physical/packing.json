@@ -1,0 +1,86 @@
+{
+    "var": {
+        "container1": [
+            {
+                "@id": "item:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The container after packing",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "item"
+            }
+        ],
+        "container0": [
+            {
+                "@id": "item:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The container before packing",
+                "@input": "compulsory",
+                "@output": "false",
+                "@sql.table": "item"
+            }
+        ],
+        "item": [
+            {
+                "@id": "item:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The item generic entity",
+                "@input": "compulsory",
+                "@output": "false",
+                "@sql.table": "item"
+            }
+        ],
+        "adding": [
+            {
+                "@id": "act:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The activity of adding an item to a container",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "activity"
+            }
+        ],
+        "sealed": [[{
+            "@value": "*",
+            "@type": "xsd:boolean",
+            "@examplar": true,
+            "@documentation": "whether the container is sealed after packing",
+            "@input": "optional"
+        }]],
+        "containerType": [
+
+            {
+                "@id": "phys:*",
+                "@type": "xsd:string",
+                "@documentation": "Type of container",
+                "@input": "compulsory",
+                "@sql.type": "nonNullableTEXT"
+            }
+
+        ],
+        "time": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:dateTime",
+                    "@documentation": "Time when the transformed file is created",
+                    "@input": "optional",
+                    "@sql.type":  "timestamptz"
+                }
+            ]
+        ]
+    },
+    "context": {
+        "people":  "${PROV_API}/live/agent/",
+        "act": "${PROV_API}/live/activity/",
+        "doc": "${PROV_API}/live/doc/",
+        "item": "${PROV_API}/live/item/",
+        "phys": "${phys_ns}"
+    },
+    "template": "TODO template",
+    "@documentation": "TODO doc."
+}

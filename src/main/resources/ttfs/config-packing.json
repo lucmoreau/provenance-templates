@@ -1,0 +1,22 @@
+{
+    "template_path": [
+        "src/main/resources/templates/primitive",
+        "target/generated-templates/collections-insert",
+        "."],
+    "bindings_path": ["src/main/resources/bindings/physical/packing"],
+    "output_dir": "generated-templates/physical/packing",
+    "variableMaps": ["./common-ns.json"],
+
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating a collection-insert pattern",
+            "template": "collection-insert.jsonld",
+            "output": "packing",
+            "bindings": "packing.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "prov-packing.prov-csv"
+        }
+    ]
+}

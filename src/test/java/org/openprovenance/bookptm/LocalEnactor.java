@@ -46,7 +46,53 @@ public class LocalEnactor extends BeanLocalEnactor2 {
     }
 
 
+    public Packing_compositeOutputs process(Packing_compositeInputs bean) {
 
+        Packing_compositeOutputs out=new Packing_compositeOutputs();
+        Map<String,Map<Integer,Integer>> map= new HashMap<>() {{
+            put("container1", new HashMap<>());
+            put("adding", new HashMap<>());
+        }};
+
+        bean.__elements.forEach( in1 -> out.__addElements(process(in1,map)));
+        return out;
+    }
+
+
+
+    private PackingOutputs process(PackingInputs_1 input, Map<String, Map<Integer, Integer>> map) {
+        PackingOutputs out=new PackingOutputs();
+        if (map.get("container1")==null) {
+            out.container1 = newIdentifier("container1","item");
+        } else if (map.get("container1").containsKey(input.container0)) {
+            out.container1=map.get("container1").get(input.container0);
+        } else {
+            out.container1=newIdentifier("container1","item");
+            map.get("container1").put(input.container0, out.container1);
+        }
+        // same for adding
+        if (map.get("adding")==null) {
+            out.adding = newIdentifier("adding","activity");
+        } else if (map.get("adding").containsKey(input.adding)) {
+            out.adding=map.get("adding").get(input.adding);
+        } else {
+            out.adding=newIdentifier("adding","activity");
+            map.get("adding").put(input.adding, out.adding);
+        }
+        out.ID = newIdentifier("template/packing_composite","template/packing_composite");
+        return out;
+    }
+
+    @Override
+    public PackingOutputs process(PackingInputs bean) {
+        PackingOutputs out = super.process(bean);
+        PackingBean packingBean=merge(bean, out);
+        history.add(packingBean);
+        id2object.put(out.ID, packingBean);
+        id2array.put(out.ID, packingBean.process(new PackingBuilder().aArgs2RecordConverter()));
+        csv.add(packingBean.process(new PackingBuilder().aArgs2CsVConverter));
+        return out;
+    }
 
 
     @Override
@@ -124,6 +170,16 @@ public class LocalEnactor extends BeanLocalEnactor2 {
         Object[] handover=merge(handoverIn, handoverOut);
         return builder.toBean(handover);
     }
+
+    private PackingBean merge(PackingInputs packingInputs, PackingOutputs packingOutputs) {
+        PackingBuilder builder=new PackingBuilder();
+        Object[] packingIn= packingInputs.process(builder.aArgs2RecordConverter());
+        Object[] packingOut= packingOutputs.process(builder.aArgs2RecordConverter());
+        Object[] packing=merge(packingIn, packingOut);
+        return builder.toBean(packing);
+    }
+
+
 
     private Object[] merge(Object[] arrayIn, Object[] arrayOut) {
         Object[] result=new Object[arrayIn.length];

@@ -24,6 +24,7 @@ public class BoxWorkflow {
     String scale2Time ="2023-06-01T10:00:00Z";
     String scale3Time ="2024-01-01T10:00:00Z";
 
+    String boxTime ="2024-09-14T10:00:00Z";
 
     String weighing1Time ="2024-09-15T10:00:00Z";
     String pickupTime ="2024-10-01T10:00:00Z";
@@ -42,6 +43,47 @@ public class BoxWorkflow {
     public List<TemplateConnection> connectionsNoAgent;
 
     public List<Object> run() {
+
+        Item_initInputs box_initInputs=new Item_initInputs();
+        box_initInputs.type="Box";
+        box_initInputs.time=boxTime;
+        Item_initOutputs box_initOutputs=templateInvoker.process(box_initInputs);
+
+        Item_initInputs book1_initInputs=new Item_initInputs();
+        book1_initInputs.type="Book";
+        Item_initOutputs book1_initOutputs=templateInvoker.process(book1_initInputs);
+
+        // second book
+        Item_initInputs book2_initInputs=new Item_initInputs();
+        book2_initInputs.type="Book";
+        Item_initOutputs book2_initOutputs=templateInvoker.process(book2_initInputs);
+
+        // composite pack
+        PackingInputs_1 packingInputs_1=new PackingInputs_1();
+        packingInputs_1.item=book1_initOutputs.entity0;
+        packingInputs_1.sealed=true;
+        packingInputs_1.adding=-1;
+        packingInputs_1.container0=box_initOutputs.entity0;
+        packingInputs_1.container1=-2;
+
+        PackingInputs_1 packingInputs_2=new PackingInputs_1();
+        packingInputs_2.item=book2_initOutputs.entity0;
+        packingInputs_2.sealed=true;
+        packingInputs_2.adding=-1;
+        packingInputs_2.container0=box_initOutputs.entity0;
+        packingInputs_2.container1=-2;
+
+
+        Packing_compositeInputs packing_compositeInputs=new Packing_compositeInputs();
+        packing_compositeInputs.__addElements(packingInputs_1);
+        packing_compositeInputs.__addElements(packingInputs_2);
+        packing_compositeInputs.count=2;
+        Packing_compositeOutputs packing_compositeOutputs=templateInvoker.process(packing_compositeInputs);
+
+        item0=packing_compositeOutputs.__elements.get(0).container1;
+        item=box_initOutputs.entity;
+
+
 
         // new agent-init for box owner
         Agent_initInputs agent_initInputs0=new Agent_initInputs();
@@ -193,14 +235,19 @@ public class BoxWorkflow {
 
 
         connections=
-                createConnections(agent_initOutputs0, weighingOutputs1, handoverOutputs, agent_initOutputs1, transportingOutputs, handoverOutputs2, agent_initOutputs2, weighingOutputs2, handoverOutputs3, agent_initOutputs3, transportingOutputs2, handoverOutputs4, weighingOutputs3, agent_initOutputs4, agent_initOutputsS1, agent_initOutputsS2, agent_initOutputsS3, true);
+                createConnections(box_initOutputs,book1_initOutputs, book2_initOutputs, packing_compositeOutputs, agent_initOutputs0, weighingOutputs1, handoverOutputs, agent_initOutputs1, transportingOutputs, handoverOutputs2, agent_initOutputs2, weighingOutputs2, handoverOutputs3, agent_initOutputs3, transportingOutputs2, handoverOutputs4, weighingOutputs3, agent_initOutputs4, agent_initOutputsS1, agent_initOutputsS2, agent_initOutputsS3, true);
         connectionsNoAgent=
-                createConnections(agent_initOutputs0, weighingOutputs1, handoverOutputs, agent_initOutputs1, transportingOutputs, handoverOutputs2, agent_initOutputs2, weighingOutputs2, handoverOutputs3, agent_initOutputs3, transportingOutputs2, handoverOutputs4, weighingOutputs3, agent_initOutputs4, agent_initOutputsS1, agent_initOutputsS2, agent_initOutputsS3, false);
+                createConnections(box_initOutputs,book1_initOutputs, book2_initOutputs, packing_compositeOutputs, agent_initOutputs0, weighingOutputs1, handoverOutputs, agent_initOutputs1, transportingOutputs, handoverOutputs2, agent_initOutputs2, weighingOutputs2, handoverOutputs3, agent_initOutputs3, transportingOutputs2, handoverOutputs4, weighingOutputs3, agent_initOutputs4, agent_initOutputsS1, agent_initOutputsS2, agent_initOutputsS3, false);
 
 
         // return all inputs and outputs
 
         return Arrays.asList(
+                box_initInputs, box_initOutputs,
+                book1_initInputs, book1_initOutputs,
+                book2_initInputs, book2_initOutputs,
+                packing_compositeInputs, packing_compositeOutputs,
+
                 agent_initInputs0, agent_initOutputs0,
                 agent_initInputs1, agent_initOutputs1,
                 agent_initInputs2, agent_initOutputs2,
@@ -223,6 +270,10 @@ public class BoxWorkflow {
     }
 
     private List<TemplateConnection> createConnections(
+            Item_initOutputs box_initOutputs,
+            Item_initOutputs book1_initOutputs,
+            Item_initOutputs book2_initOutputs,
+            Packing_compositeOutputs packing_compositeOutputs,
             Agent_initOutputs agent_initOutputs0,
             WeighingOutputs weighingOutputs1,
             HandoverOutputs handoverOutputs,
@@ -263,6 +314,73 @@ public class BoxWorkflow {
             connections.add(tcag1b);
 
         }
+
+        // box to packing
+        TemplateConnection tcbox0=new TemplateConnection();
+        tcbox0.out_id = box_initOutputs.ID;
+        tcbox0.out_template = box_initOutputs.isA;
+        tcbox0.out_property = "entity0";
+        tcbox0.in_id = packing_compositeOutputs.__elements.get(0).ID;
+        tcbox0.in_template = packing_compositeOutputs.__elements.get(0).isA;
+        tcbox0.in_property = "container0";
+        connections.add(tcbox0);
+        TemplateConnection tcbox0b=new TemplateConnection();
+        tcbox0b.out_id = box_initOutputs.ID;
+        tcbox0b.out_template = box_initOutputs.isA;
+        tcbox0b.out_property = "entity0";
+        tcbox0b.in_id = packing_compositeOutputs.__elements.get(1).ID;
+        tcbox0b.in_template = packing_compositeOutputs.__elements.get(1).isA;
+        tcbox0b.in_property = "container0";
+        connections.add(tcbox0b);
+
+        TemplateConnection tcbox1=new TemplateConnection();
+        tcbox1.out_id = book1_initOutputs.ID;
+        tcbox1.out_template = book1_initOutputs.isA;
+        tcbox1.out_property = "entity0";
+
+        tcbox1.in_id = packing_compositeOutputs.__elements.get(0).ID;
+        tcbox1.in_template = packing_compositeOutputs.__elements.get(0).isA;
+        tcbox1.in_property = "item";
+        connections.add(tcbox1);
+
+        TemplateConnection tcbox2=new TemplateConnection();
+        tcbox2.out_id = book2_initOutputs.ID;
+        tcbox2.out_template = book2_initOutputs.isA;
+        tcbox2.out_property = "entity0";
+
+        tcbox2.in_id = packing_compositeOutputs.__elements.get(1).ID;
+        tcbox2.in_template = packing_compositeOutputs.__elements.get(1).isA;
+        tcbox2.in_property = "item";
+        connections.add(tcbox2);
+
+        TemplateConnection tcbox0x=new TemplateConnection();
+        tcbox0x.out_id = box_initOutputs.ID;
+        tcbox0x.out_template = box_initOutputs.isA;
+        tcbox0x.out_property = "entity";
+        tcbox0x.in_id =weighingOutputs1.ID;
+        tcbox0x.in_template = weighingOutputs1.isA;
+        tcbox0x.in_property = "item";
+        connections.add(tcbox0x);
+
+        TemplateConnection tcbox3=new TemplateConnection();
+        tcbox3.out_id = packing_compositeOutputs.__elements.get(0).ID;
+        tcbox3.out_template = packing_compositeOutputs.__elements.get(0).isA;
+        tcbox3.out_property = "container1";
+        tcbox3.in_id =weighingOutputs1.ID;
+        tcbox3.in_template = weighingOutputs1.isA;
+        tcbox3.in_property = "item0";
+        connections.add(tcbox3);
+
+        TemplateConnection tcbox4=new TemplateConnection();
+        tcbox4.out_id = packing_compositeOutputs.__elements.get(1).ID;
+        tcbox4.out_template = packing_compositeOutputs.__elements.get(1).isA;
+        tcbox4.out_property = "container1";
+        tcbox4.in_id =weighingOutputs1.ID;
+        tcbox4.in_template = weighingOutputs1.isA;
+        tcbox4.in_property = "item0";
+        connections.add(tcbox4);
+
+
 
         //
         TemplateConnection tc0=new TemplateConnection();

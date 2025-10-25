@@ -46,6 +46,27 @@
             "template": "target/generated-templates/responsibility/agent-init/agent-location-init.jsonld",
             "package": "org.openprovenance.bk.physical",
             "bindings": "src/main/resources/bindings0/responsibility/agent-location-init.json"
+        },
+        {
+            "@type": "simple",
+            "name": "item_init",
+            "template": "target/generated-templates/general/entity-init/entity-location-init.jsonld",
+            "package": "org.openprovenance.bk.physical",
+            "bindings": "src/main/resources/bindings0/physical/item-location-init.json"
+        },
+        {
+            "@type": "simple",
+            "name": "packing",
+            "template": "target/generated-templates/physical/packing/packing.jsonld",
+            "package": "org.openprovenance.bk.physical",
+            "bindings": "src/main/resources/bindings0/physical/packing.json"
+        },
+        {
+            "@type": "composite",
+            "name": "packing_composite",
+            "consistsOf": "packing",
+            "package": "org.openprovenance.bk.physical",
+            "sharing": ["container1", "adding"]
         }
 
 

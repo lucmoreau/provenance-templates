@@ -1,0 +1,105 @@
+{
+    "var": {
+        "coll1": [
+            {
+                "@id": "var:container1"
+            }
+
+        ],
+        "coll0": [
+            {
+                "@id": "var:container0"
+            }
+
+        ],
+        "item": [
+            {
+                "@id": "var:item"
+            }
+
+        ],
+        "insert": [
+            {
+                "@id": "var:adding"
+            }
+
+        ],
+        "prop0": [
+            [
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "value0": [
+            [
+                {
+                    "@id": "var:containerType"
+                }
+            ]
+        ],
+        "prop1": [
+            [
+                {
+                    "@id": "prov:type"
+                },
+                {
+                    "@id": "phys:sealed"
+                }
+            ]
+        ],
+        "value1": [
+            [
+                {
+                    "@id": "var:containerType"
+                },
+                {
+                    "@id": "var:sealed"
+                }
+            ]
+        ],
+        "ExaminingType": [
+            [
+                {
+                    "@id": "phys:Weighing"
+                }
+            ]
+        ],
+        "aprop": [
+            [
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "avalue": [
+            [
+                {
+                    "@id": "phys:AddingItemToContainer"
+                }
+            ]
+        ],
+        "time": [
+            [
+                {
+                    "@id": "var:time"
+                }
+            ]
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov": "${prov_ns}",
+        "provext": "${provext_ns}",
+        "resp": "${resp_ns}",
+        "phys": "${phys_ns}"
+    }
+}

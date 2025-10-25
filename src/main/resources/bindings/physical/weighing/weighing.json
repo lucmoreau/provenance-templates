@@ -34,39 +34,6 @@
             }
 
         ],
-        "iprop": [
-            [
-                {
-                    "@id": "phys:lmw"
-                },
-                {
-                    "@id": "phys:unit"
-                },
-                {
-                    "@id": "phys:activity"
-                }
-            ]
-        ],
-        "ivalue": [
-            [
-                {
-                    "@id": "var:weight"
-                },
-                {
-                    "@id": "var:unit"
-                },
-                {
-                    "@id": "var:weighing"
-                }
-            ]
-        ],
-        "ExaminingType": [
-            [
-                {
-                    "@id": "phys:Weighing"
-                }
-            ]
-        ],
         "time": [
             [
                 {

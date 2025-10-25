@@ -2,10 +2,7 @@
 package org.openprovenance.bookptm;
 
 
-import org.openprovenance.bk.physical.client.common.Agent_initBuilder;
-import org.openprovenance.bk.physical.client.common.HandoverBuilder;
-import org.openprovenance.bk.physical.client.common.TransportingBuilder;
-import org.openprovenance.bk.physical.client.common.WeighingBuilder;
+import org.openprovenance.bk.physical.client.common.*;
 import org.openprovenance.bk.physical.client.configurator.TableConfigurator;
 import org.openprovenance.prov.template.log2prov.FileBuilder;
 
@@ -65,6 +62,33 @@ public class TableConfiguratorForSuccessors implements TableConfigurator<Map<Str
                         k -> Arrays.stream(Agent_initBuilder.__successors.get(k))
                                 .mapToObj(v -> order[v])
                                 .collect(Collectors.toList())));
+    }
+
+    @Override
+    public Map<String, List<String>> item_init(Item_initBuilder builder) {
+        String[] order=Item_initBuilder.propertyOrder;
+        return Item_initBuilder.__successors.keySet().stream()
+                .collect(Collectors.toMap(
+                        k -> order[k],
+                        k -> Arrays.stream(Item_initBuilder.__successors.get(k))
+                                .mapToObj(v -> order[v])
+                                .collect(Collectors.toList())));
+    }
+
+    @Override
+    public Map<String, List<String>> packing(PackingBuilder builder) {
+        String[] order=PackingBuilder.propertyOrder;
+        return PackingBuilder.__successors.keySet().stream()
+                .collect(Collectors.toMap(
+                        k -> order[k],
+                        k -> Arrays.stream(PackingBuilder.__successors.get(k))
+                                .mapToObj(v -> order[v])
+                                .collect(Collectors.toList())));
+    }
+
+    @Override
+    public Map<String, List<String>> packing_composite(Packing_compositeBuilder builder) {
+        return null;
     }
 
 
