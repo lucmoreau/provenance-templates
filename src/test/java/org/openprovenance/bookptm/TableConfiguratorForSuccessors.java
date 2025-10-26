@@ -86,8 +86,24 @@ public class TableConfiguratorForSuccessors implements TableConfigurator<Map<Str
                                 .collect(Collectors.toList())));
     }
 
+
+    @Override
+    public Map<String, List<String>> unpacking(UnpackingBuilder builder) {
+        String[] order=UnpackingBuilder.propertyOrder;
+        return UnpackingBuilder.__successors.keySet().stream()
+                .collect(Collectors.toMap(
+                        k -> order[k],
+                        k -> Arrays.stream(UnpackingBuilder.__successors.get(k))
+                                .mapToObj(v -> order[v])
+                                .collect(Collectors.toList())));
+    }
     @Override
     public Map<String, List<String>> packing_composite(Packing_compositeBuilder builder) {
+        return null;
+    }
+
+    @Override
+    public Map<String, List<String>> unpacking_composite(Unpacking_compositeBuilder builder) {
         return null;
     }
 

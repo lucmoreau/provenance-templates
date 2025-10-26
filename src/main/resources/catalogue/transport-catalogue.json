@@ -67,6 +67,21 @@
             "consistsOf": "packing",
             "package": "org.openprovenance.bk.physical",
             "sharing": ["container1", "adding"]
+        },
+
+        {
+            "@type": "simple",
+            "name": "unpacking",
+            "template": "target/generated-templates/physical/unpacking/unpacking.jsonld",
+            "package": "org.openprovenance.bk.physical",
+            "bindings": "src/main/resources/bindings0/physical/unpacking.json"
+        },
+        {
+            "@type": "composite",
+            "name": "unpacking_composite",
+            "consistsOf": "unpacking",
+            "package": "org.openprovenance.bk.physical",
+            "sharing": ["container1", "removing"]
         }
 
 

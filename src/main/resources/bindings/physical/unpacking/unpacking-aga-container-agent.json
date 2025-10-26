@@ -1,0 +1,55 @@
+{
+    "var": {
+
+        "entity": [
+            {
+                "@id": "var:container1"
+            }
+        ],
+        "agent": [
+            {
+                "@id": "var:unpacker"
+            }
+        ],
+        "activity": [
+            {
+                "@id": "var:removing"
+            }
+        ],
+        "plan": [
+            {
+                "@id": null
+            }
+        ],
+        "assoc": [
+            {
+                "@id": "var:assoc"
+            }
+        ],
+        "g": [
+            {
+                "@id": "var:gen"
+            }
+        ],
+        "attr": [
+            {
+                "@id": "var:attr1"
+            }
+        ]
+
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context":  {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov": "${prov_ns}",
+        "provext": "${provext_ns}",
+        "phys": "${phys_ns}"
+    }
+}

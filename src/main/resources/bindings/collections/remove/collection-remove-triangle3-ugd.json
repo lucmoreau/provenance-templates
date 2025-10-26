@@ -1,6 +1,10 @@
 {
     "var": {
-
+        "id": [
+            {
+                "@id": "var:wdf3"
+            }
+        ],
         "entity1": [
             {
                 "@id": "var:item0"
@@ -8,41 +12,17 @@
         ],
         "entity2": [
             {
-                "@id": "var:coll1"
+                "@id": "var:item1"
             }
         ],
-
         "activity": [
             {
                 "@id": "var:removing"
             }
 
         ],
-        "aprop": [
-            [
-                {
-                    "@id": "var:aprop"
-                },
-                {
-                    "@id": "prov:type"
-                }
-            ]
-        ],
-        "avalue": [
-            [
-                {
-                    "@id": "var:avalue"
-                },
-                {
-                    "@id": "provext:RemovingElementFromCollection"
-                }
-            ]
-        ],
         "dprop": [
             [
-                {
-                    "@id": "var:dprop"
-                },
                 {
                     "@id": "prov:type"
                 }
@@ -51,32 +31,28 @@
         "dvalue": [
             [
                 {
-                    "@id": "var:dvalue"
-                },
-                {
-                    "@id": "provext:RemovingElement"
+                    "@id": "provext:RemovingElementFromCollection"
                 }
             ]
         ],
-
-        "uprop": [
+        "gprop": [
             [
                 {
-                    "@id": "var:uprop1"
+                    "@id": "var:gprop2"
                 },
                 {
                     "@id": "prov:role"
                 }
             ]
         ],
-        "uvalue": [
+        "gvalue": [
             [
                 {
-                    "@id": "var:uvalue1"
+                    "@id": "var:gvalue2"
 
                 },
                 {
-                    "@id": "provext:asEntity"
+                    "@id": "provext:outEntity"
                 }
             ]
         ],
@@ -87,15 +63,10 @@
         ],
         "g": [
             {
-                "@id": "var:gen"
-            }
-        ],
-
-        "id": [
-            {
-                "@id": "var:wdf1"
+                "@id": "var:gen2"
             }
         ]
+
     },
     "vargen":  {
         "b": [

@@ -768,6 +768,7 @@
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-responsibility-examine.json</arg>
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-weighing.json</arg>
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-packing.json</arg>
+                                <arg>${project.basedir}/src/main/resources/ttfs/config-unpacking.json</arg>
 
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-entity-init.json</arg>
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-responsibility-agent-init.json</arg>
@@ -848,6 +849,7 @@
                                 <config>src/main/resources/ttfs/config-responsibility-examine.json</config>
                                 <config>src/main/resources/ttfs/config-weighing.json</config>
                                 <config>src/main/resources/ttfs/config-packing.json</config>
+                                <config>src/main/resources/ttfs/config-unpacking.json</config>
 
                             </configs>
                         </configuration>

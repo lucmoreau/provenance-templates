@@ -1,0 +1,81 @@
+{
+    "template_path": [
+        "src/main/resources/templates/primitive",
+        "target/generated-templates/triangle1-ugd",
+        "target/generated-templates/triangle2-sds",
+        "target/generated-templates/triangle3-aga",
+        "target/generated-templates/triangle6-ugm",
+        "target/generated-templates/collections-remove",
+        "."],
+    "bindings_path": ["src/main/resources/bindings/physical/unpacking"],
+    "output_dir": "generated-templates/physical/unpacking",
+    "variableMaps": ["./common-ns.json"],
+
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating a collection-remove pattern",
+            "template": "collection-remove.jsonld",
+            "output": "unpacking-remove-collection",
+            "bindings": "unpacking-remove-collection.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "prov-unpacking-remove-collection.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle3-aga (a) pattern",
+            "template": "triangle3-aga.provn",
+            "output": "unpacking-aga-container-agent",
+            "bindings": "unpacking-aga-container-agent.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "prov-unpacking-aga-container-agent.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle3-aga (b) pattern",
+            "template": "triangle3-aga.provn",
+            "output": "unpacking-aga-item-agent",
+            "bindings": "unpacking-aga-item-agent.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "prov-unpacking-aga-item-agent.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle2-sds pattern",
+            "template": "triangle2-sds.provn",
+            "output": "unpacking-sds-container",
+            "bindings": "unpacking-sds-container.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "prov-unpacking-sds-container.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle2-sds pattern",
+            "template": "triangle2-sds.provn",
+            "output": "unpacking-sds-item",
+            "bindings": "unpacking-sds-item.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "prov-unpacking-sds-item.prov-csv"
+        },
+
+        {
+            "type": "merge",
+            "description": "Merging all temporary unpacking outputs",
+            "addOutputDirToInputPath": true,
+            "inputs": [
+                "unpacking-remove-collection.jsonld",
+                "unpacking-aga-container-agent.jsonld",
+                "unpacking-aga-item-agent.jsonld",
+                "unpacking-sds-container.jsonld",
+                "unpacking-sds-item.jsonld"
+            ],
+            "output": "unpacking",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "prov-unpacking.prov-csv"
+        }
+    ]
+}

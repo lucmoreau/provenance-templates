@@ -1,0 +1,114 @@
+{
+    "var": {
+        "container1": [
+            {
+                "@id": "item:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The container after unpacking",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "item"
+            }
+        ],
+        "container0": [
+            {
+                "@id": "item:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The container before unpacking",
+                "@input": "compulsory",
+                "@output": "false",
+                "@sql.table": "item"
+            }
+        ],
+        "item1": [
+            {
+                "@id": "item:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The item after unpacking",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "item"
+            }
+        ],
+        "item0": [
+            {
+                "@id": "item:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The item before unpacking",
+                "@input": "compulsory",
+                "@output": "false",
+                "@sql.table": "item"
+            }
+        ],
+
+        "container": [
+            {
+                "@id": "item:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The general container",
+                "@input": "optional",
+                "@output": "false",
+                "@sql.table": "item"
+            }
+        ],
+
+        "item": [
+            {
+                "@id": "item:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The item generic entity",
+                "@input": "compulsory",
+                "@output": "false",
+                "@sql.table": "item"
+            }
+        ],
+        "unpacker": [
+            {
+                "@id": "people:*",
+                "@type": "xsd:int",
+                "@examplar": 12,
+                "@documentation": "The agent performing the unpacking",
+                "@input": "optional",
+                "@output": "false",
+                "@sql.table": "people"
+            }
+        ],
+        "removing": [
+            {
+                "@id": "act:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The activity of removing an item from a container",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "activity"
+            }
+        ],
+        "time": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:dateTime",
+                    "@documentation": "Time when the transformed file is created",
+                    "@input": "optional",
+                    "@sql.type":  "timestamptz"
+                }
+            ]
+        ]
+    },
+    "context": {
+        "people":  "${PROV_API}/live/agent/",
+        "act": "${PROV_API}/live/activity/",
+        "doc": "${PROV_API}/live/doc/",
+        "item": "${PROV_API}/live/item/",
+        "phys": "${phys_ns}"
+    },
+    "template": "TODO template",
+    "@documentation": "TODO doc."
+}

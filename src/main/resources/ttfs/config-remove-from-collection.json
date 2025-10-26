@@ -28,6 +28,17 @@
 
         {
             "type": "instantiate",
+            "description": "Instantiating an triangle1-ugd pattern",
+            "template": "triangle1-ugd.provn",
+            "output": "collection-remove-triangle3-ugd",
+            "bindings": "collection-remove-triangle3-ugd.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "prov-collection-remove-triangle3-ugd.prov-csv"
+        },
+
+
+        {
+            "type": "instantiate",
             "description": "Instantiating a membership pattern",
             "template": "qualified-membership0.jsonld",
             "output": "membership",
@@ -40,7 +51,12 @@
             "type": "merge",
             "description": "Merging the above templates into a single template",
             "addOutputDirToInputPath": true,
-            "inputs": ["collection-remove-triangle1-ugd.jsonld", "collection-remove-triangle2-ugd.jsonld", "membership.jsonld"],
+            "inputs": [
+                "collection-remove-triangle1-ugd.jsonld",
+                "collection-remove-triangle2-ugd.jsonld",
+                "collection-remove-triangle3-ugd.jsonld",
+                "membership.jsonld"
+            ],
             "output": "collection-remove",
             "formats": ["jsonld","provn", "png", "svg"],
             "hasProvenance": "prov-collection-remove.prov-csv"
