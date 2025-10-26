@@ -44,6 +44,16 @@ public class BoxWorkflow {
 
     public List<Object> run() {
 
+
+
+        // new agent-init for box owner
+        Agent_initInputs agent_initInputs0=new Agent_initInputs();
+        agent_initInputs0.location="London";
+        agent_initInputs0.type="Person";
+        agent_initInputs0.time=agent1Time;
+        Agent_initOutputs agent_initOutputs0=templateInvoker.process(agent_initInputs0);
+
+
         Item_initInputs box_initInputs=new Item_initInputs();
         box_initInputs.type="Box";
         box_initInputs.time=boxTime;
@@ -62,16 +72,21 @@ public class BoxWorkflow {
         PackingInputs_1 packingInputs_1=new PackingInputs_1();
         packingInputs_1.item=book1_initOutputs.entity0;
         packingInputs_1.sealed=true;
+        packingInputs_1.packer=agent_initOutputs0.agent0;
         packingInputs_1.adding=-1;
         packingInputs_1.container0=box_initOutputs.entity0;
         packingInputs_1.container1=-2;
+        packingInputs_1.container=box_initOutputs.entity;
+
 
         PackingInputs_1 packingInputs_2=new PackingInputs_1();
         packingInputs_2.item=book2_initOutputs.entity0;
         packingInputs_2.sealed=true;
+        packingInputs_2.packer=agent_initOutputs0.agent0;
         packingInputs_2.adding=-1;
         packingInputs_2.container0=box_initOutputs.entity0;
         packingInputs_2.container1=-2;
+        packingInputs_2.container=box_initOutputs.entity;
 
 
         Packing_compositeInputs packing_compositeInputs=new Packing_compositeInputs();
@@ -84,16 +99,7 @@ public class BoxWorkflow {
         item=box_initOutputs.entity;
 
 
-
-        // new agent-init for box owner
-        Agent_initInputs agent_initInputs0=new Agent_initInputs();
-        agent_initInputs0.location="London";
-        agent_initInputs0.type="Person";
-        agent_initInputs0.time=agent1Time;
-        Agent_initOutputs agent_initOutputs0=templateInvoker.process(agent_initInputs0);
-
-
-        // new agent-init for box owner
+        // new agent-init for scale
         Agent_initInputs agent_initInputsS1=new Agent_initInputs();
         agent_initInputsS1.location="London";
         agent_initInputsS1.type="Scale";
@@ -295,6 +301,25 @@ public class BoxWorkflow {
         List<TemplateConnection> connections=new LinkedList<>();
 
         if (withAgent) {
+            TemplateConnection tcag0a = new TemplateConnection();
+            tcag0a.out_id = agent_initOutputs0.ID;
+            tcag0a.out_template = agent_initOutputs0.isA;
+            tcag0a.out_property = "agent0";
+            tcag0a.in_id = packing_compositeOutputs.__elements.get(0).ID;
+            tcag0a.in_template = packing_compositeOutputs.__elements.get(0).isA;
+            tcag0a.in_property = "packer";
+            connections.add(tcag0a);
+
+            TemplateConnection tcag0b = new TemplateConnection();
+            tcag0b.out_id = agent_initOutputs0.ID;
+            tcag0b.out_template = agent_initOutputs0.isA;
+            tcag0b.out_property = "agent0";
+            tcag0b.in_id = packing_compositeOutputs.__elements.get(1).ID;
+            tcag0b.in_template = packing_compositeOutputs.__elements.get(1).isA;
+            tcag0b.in_property = "packer";
+            connections.add(tcag0b);
+
+
             TemplateConnection tcag1 = new TemplateConnection();
             tcag1.out_id = agent_initOutputs0.ID;
             tcag1.out_template = agent_initOutputs0.isA;
@@ -332,6 +357,24 @@ public class BoxWorkflow {
         tcbox0b.in_template = packing_compositeOutputs.__elements.get(1).isA;
         tcbox0b.in_property = "container0";
         connections.add(tcbox0b);
+
+        TemplateConnection tcbox0c=new TemplateConnection();
+        tcbox0c.out_id = box_initOutputs.ID;
+        tcbox0c.out_template = box_initOutputs.isA;
+        tcbox0c.out_property = "entity";
+        tcbox0c.in_id = packing_compositeOutputs.__elements.get(0).ID;
+        tcbox0c.in_template = packing_compositeOutputs.__elements.get(0).isA;
+        tcbox0c.in_property = "container";
+        connections.add(tcbox0c);
+
+        TemplateConnection tcbox0d=new TemplateConnection();
+        tcbox0d.out_id = box_initOutputs.ID;
+        tcbox0d.out_template = box_initOutputs.isA;
+        tcbox0d.out_property = "entity";
+        tcbox0d.in_id = packing_compositeOutputs.__elements.get(1).ID;
+        tcbox0d.in_template = packing_compositeOutputs.__elements.get(1).isA;
+        tcbox0d.in_property = "container";
+        connections.add(tcbox0d);
 
         TemplateConnection tcbox1=new TemplateConnection();
         tcbox1.out_id = book1_initOutputs.ID;

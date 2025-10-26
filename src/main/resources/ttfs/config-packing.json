@@ -1,6 +1,10 @@
 {
     "template_path": [
         "src/main/resources/templates/primitive",
+        "target/generated-templates/triangle1-ugd",
+        "target/generated-templates/triangle2-sds",
+        "target/generated-templates/triangle3-aga",
+        "target/generated-templates/triangle6-ugm",
         "target/generated-templates/collections-insert",
         "."],
     "bindings_path": ["src/main/resources/bindings/physical/packing"],
@@ -13,8 +17,42 @@
             "type": "instantiate",
             "description": "Instantiating a collection-insert pattern",
             "template": "collection-insert.jsonld",
+            "output": "packing-insert-collection",
+            "bindings": "packing-insert-collection.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "prov-packing-insert-collection.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle3-aga (a) pattern",
+            "template": "triangle3-aga.provn",
+            "output": "packing-aga-agent",
+            "bindings": "packing-aga-agent.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "prov-packing-aga-agent.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle2-sds pattern",
+            "template": "triangle2-sds.provn",
+            "output": "packing-sds",
+            "bindings": "packing-sds.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "prov-packing-sds.prov-csv"
+        },
+
+        {
+            "type": "merge",
+            "description": "Merging all temporary packing outputs",
+            "addOutputDirToInputPath": true,
+            "inputs": [
+                "packing-insert-collection.jsonld",
+                "packing-aga-agent.jsonld",
+                "packing-sds.jsonld"
+            ],
             "output": "packing",
-            "bindings": "packing.json",
             "formats": ["jsonld","provn", "png", "svg"],
             "hasProvenance": "prov-packing.prov-csv"
         }

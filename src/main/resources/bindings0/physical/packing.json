@@ -33,6 +33,28 @@
                 "@sql.table": "item"
             }
         ],
+        "container": [
+            {
+                "@id": "item:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The general container",
+                "@input": "optional",
+                "@output": "false",
+                "@sql.table": "item"
+            }
+        ],
+        "packer": [
+            {
+                "@id": "people:*",
+                "@type": "xsd:int",
+                "@examplar": 12,
+                "@documentation": "The agent performing the packing",
+                "@input": "optional",
+                "@output": "false",
+                "@sql.table": "people"
+            }
+        ],
         "adding": [
             {
                 "@id": "act:*",
