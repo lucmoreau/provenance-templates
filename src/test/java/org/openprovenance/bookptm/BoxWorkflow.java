@@ -1,19 +1,20 @@
 package org.openprovenance.bookptm;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.openprovenance.bk.physical.client.integrator.*;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class BoxWorkflow {
 
     private final InputOutputProcessor templateInvoker;
     private final Function<String, List<List<Object>>> query;
-    Integer item0=11;
-    Integer item=10;
 
     String agent1Time ="2024-09-01T10:00:00Z";
     String agent2Time ="2024-09-01T10:00:00Z";
@@ -39,7 +40,7 @@ public class BoxWorkflow {
         this.query=query;
     }
 
-    public List<TemplateConnection> connections;
+    public List<TemplateConnection> connections=new LinkedList<>();
     public List<TemplateConnection> connectionsNoAgent;
 
     public List<Object> run() {
@@ -70,23 +71,31 @@ public class BoxWorkflow {
 
         // composite pack
         PackingInputs_1 packingInputs_1=new PackingInputs_1();
-        packingInputs_1.item=book1_initOutputs.entity0;
+        //packingInputs_1.item=book1_initOutputs.entity0;
+        flowToFrom(packingInputs_1, "item", book1_initOutputs, "entity0");
         packingInputs_1.sealed=true;
-        packingInputs_1.packer=agent_initOutputs0.agent0;
+        //packingInputs_1.packer=agent_initOutputs0.agent0;
+        flowToFrom(packingInputs_1, "packer", agent_initOutputs0, "agent0");
         packingInputs_1.adding=-1;
-        packingInputs_1.container0=box_initOutputs.entity0;
+        //packingInputs_1.container0=box_initOutputs.entity0;
+        flowToFrom(packingInputs_1, "container0", box_initOutputs, "entity0");
         packingInputs_1.container1=-2;
-        packingInputs_1.container=box_initOutputs.entity;
+        //packingInputs_1.container=box_initOutputs.entity;
+        flowToFrom(packingInputs_1, "container", box_initOutputs, "entity");
 
 
         PackingInputs_1 packingInputs_2=new PackingInputs_1();
-        packingInputs_2.item=book2_initOutputs.entity0;
+        //packingInputs_2.item=book2_initOutputs.entity0;
+        flowToFrom(packingInputs_2, "item", book2_initOutputs, "entity0");
         packingInputs_2.sealed=true;
-        packingInputs_2.packer=agent_initOutputs0.agent0;
+        //packingInputs_2.packer=agent_initOutputs0.agent0;
+        flowToFrom(packingInputs_2, "packer", agent_initOutputs0, "agent0");
         packingInputs_2.adding=-1;
-        packingInputs_2.container0=box_initOutputs.entity0;
+        //packingInputs_2.container0=box_initOutputs.entity0;
+        flowToFrom(packingInputs_2, "container0", box_initOutputs, "entity0");
         packingInputs_2.container1=-2;
-        packingInputs_2.container=box_initOutputs.entity;
+        //packingInputs_2.container=box_initOutputs.entity;
+        flowToFrom(packingInputs_2, "container", box_initOutputs, "entity");
 
 
         Packing_compositeInputs packing_compositeInputs=new Packing_compositeInputs();
@@ -94,9 +103,11 @@ public class BoxWorkflow {
         packing_compositeInputs.__addElements(packingInputs_2);
         packing_compositeInputs.count=2;
         Packing_compositeOutputs packing_compositeOutputs=templateInvoker.process(packing_compositeInputs);
+        generateConnections(packing_compositeOutputs.__elements.get(0),4);  // note, process first 4 only
 
-        item0=packing_compositeOutputs.__elements.get(0).container1;
-        item=box_initOutputs.entity;
+        generateConnections(packing_compositeOutputs.__elements.get(1));
+
+
 
 
         // new agent-init for scale
@@ -109,13 +120,18 @@ public class BoxWorkflow {
 
 
         WeighingInputs weighingInputs1=new WeighingInputs();
-        weighingInputs1.item0=item0;
-        weighingInputs1.item=item;
-        weighingInputs1.agent=agent_initOutputs0.agent0;
-        weighingInputs1.scale=agent_initOutputsS1.agent0;
+        //weighingInputs1.item0=item0;
+        flowToFrom(weighingInputs1,"item0", box_initOutputs, "entity0");
+        //weighingInputs1.item=item;
+        flowToFrom(weighingInputs1,"item", box_initOutputs, "entity");
+        //weighingInputs1.agent=agent_initOutputs0.agent0;
+        flowToFrom(weighingInputs1,"agent", agent_initOutputs0, "agent0");
+        //weighingInputs1.scale=agent_initOutputsS1.agent0;
+        flowToFrom(weighingInputs1,"scale", agent_initOutputsS1, "agent0");
         weighingInputs1.weight=10.0d;
         weighingInputs1.time=weighing1Time;
         WeighingOutputs weighingOutputs1=templateInvoker.process(weighingInputs1);
+        generateConnections(weighingOutputs1);
 
 
         //  new agent-init for first transporter
@@ -127,20 +143,31 @@ public class BoxWorkflow {
 
 
         HandoverInputs handoverInputs=new HandoverInputs();
-        handoverInputs.item0=weighingOutputs1.item1;
-        handoverInputs.item=item;
-        handoverInputs.receiver=agent_initOutputs1.agent0;
-        handoverInputs.giver=agent_initOutputs0.agent0;
+        flowToFrom(handoverInputs, "item0", weighingOutputs1, "item1");
+        //handoverInputs.item0=weighingOutputs1.item1;
+        flowToFrom(handoverInputs, "item", box_initOutputs, "entity");
+        //handoverInputs.item=item;
+        flowToFrom(handoverInputs, "receiver", agent_initOutputs1, "agent0");
+        //handoverInputs.receiver=agent_initOutputs1.agent0;
+        flowToFrom(handoverInputs, "giver", agent_initOutputs0, "agent0");
+        //handoverInputs.giver=agent_initOutputs0.agent0;
         handoverInputs.time=pickupTime;
         HandoverOutputs handoverOutputs=templateInvoker.process(handoverInputs);
+        generateConnections(handoverOutputs);
+
 
 
         TransportingInputs transportingInputs=new TransportingInputs();
-        transportingInputs.item0=handoverOutputs.item1;
-        transportingInputs.item=item;
+        flowToFrom(transportingInputs, "item0", handoverOutputs, "item1");
+        //transportingInputs.item0=handoverOutputs.item1;
+        flowToFrom(transportingInputs, "item", box_initOutputs, "entity");
+        //transportingInputs.item=item;
+        flowToFrom(transportingInputs, "transporter", agent_initOutputs1, "agent0");
         transportingInputs.transporter=agent_initOutputs1.agent0;
         transportingInputs.time=drop1Time;
         TransportingOutputs transportingOutputs=templateInvoker.process(transportingInputs);
+        generateConnections(transportingOutputs);
+
 
         //  new agent-init for depot manager
         Agent_initInputs agent_initInputs2=new Agent_initInputs();
@@ -149,14 +176,18 @@ public class BoxWorkflow {
         agent_initInputs2.time=agent2Time;
         Agent_initOutputs agent_initOutputs2=templateInvoker.process(agent_initInputs2);
 
-
         HandoverInputs handoverInputs2=new HandoverInputs();
-        handoverInputs2.item0=transportingOutputs.item1;
-        handoverInputs2.item=item;
-        handoverInputs2.receiver=agent_initOutputs2.agent0;
-        handoverInputs2.giver=agent_initOutputs1.agent0;
+        //handoverInputs2.item0=transportingOutputs.item1;
+        flowToFrom(handoverInputs2, "item0", transportingOutputs, "item1");
+        //handoverInputs2.item=item;
+        flowToFrom(handoverInputs2, "item", box_initOutputs, "entity");
+        //handoverInputs2.receiver=agent_initOutputs2.agent0;
+        flowToFrom(handoverInputs2, "receiver", agent_initOutputs2, "agent0");
+        //handoverInputs2.giver=agent_initOutputs1.agent0;
+        flowToFrom(handoverInputs2, "giver", agent_initOutputs1, "agent0");
         handoverInputs2.time= handoverTime;
         HandoverOutputs handoverOutputs2=templateInvoker.process(handoverInputs2);
+        generateConnections(handoverOutputs2);
 
 
         // new agent-init for box owner
@@ -169,13 +200,19 @@ public class BoxWorkflow {
 
 
         WeighingInputs weighingInputs2=new WeighingInputs();
-        weighingInputs2.item0=handoverOutputs2.item1;
-        weighingInputs2.item=item;
-        weighingInputs2.agent=agent_initOutputs2.agent0;
-        weighingInputs2.scale=agent_initOutputsS2.agent0;
+        //weighingInputs2.item0=handoverOutputs2.item1;
+        flowToFrom(weighingInputs2, "item0", handoverOutputs2, "item1");
+        //weighingInputs2.item=item;
+        flowToFrom(weighingInputs2, "item", box_initOutputs, "entity");
+        //weighingInputs2.agent=agent_initOutputs2.agent0;
+        flowToFrom(weighingInputs2, "agent", agent_initOutputs2, "agent0");
+        //weighingInputs2.scale=agent_initOutputsS2.agent0;
+        flowToFrom(weighingInputs2, "scale", agent_initOutputsS2, "agent0");
         weighingInputs2.weight=10.0d;
         weighingInputs2.time=weighing2Time;
         WeighingOutputs weighingOutputs2=templateInvoker.process(weighingInputs2);
+        generateConnections(weighingOutputs2);
+
         //  new agent-init for first transporter
         Agent_initInputs agent_initInputs3=new Agent_initInputs();
         agent_initInputs3.location="Oxford";
@@ -184,21 +221,30 @@ public class BoxWorkflow {
         Agent_initOutputs agent_initOutputs3=templateInvoker.process(agent_initInputs3);
 
         HandoverInputs handoverInputs3=new HandoverInputs();
-        handoverInputs3.item0=weighingOutputs2.item1;
-        handoverInputs3.item=item;
-        handoverInputs3.receiver=agent_initOutputs3.agent0;
-        handoverInputs3.giver=agent_initOutputs2.agent0;
+        //handoverInputs3.item0=weighingOutputs2.item1;
+        flowToFrom(handoverInputs3, "item0", weighingOutputs2, "item1");
+        //handoverInputs3.item=item;
+        flowToFrom(handoverInputs3, "item", box_initOutputs, "entity");
+        //handoverInputs3.receiver=agent_initOutputs3.agent0;
+        flowToFrom(handoverInputs3, "receiver", agent_initOutputs3, "agent0");
+        //handoverInputs3.giver=agent_initOutputs2.agent0;
+        flowToFrom(handoverInputs3, "giver", agent_initOutputs2, "agent0");
         handoverInputs3.time=handoverTime2;
         HandoverOutputs handoverOutputs3=templateInvoker.process(handoverInputs3);
+        generateConnections(handoverOutputs3);
 
 
 
         TransportingInputs transportingInputs2=new TransportingInputs();
-        transportingInputs2.item0=handoverOutputs3.item1;
-        transportingInputs2.item=item;
-        transportingInputs2.transporter=agent_initOutputs3.agent0;
+        //transportingInputs2.item0=handoverOutputs3.item1;
+        flowToFrom(transportingInputs2, "item0", handoverOutputs3, "item1");
+        //transportingInputs2.item=item;
+        flowToFrom(transportingInputs2, "item", box_initOutputs, "entity");
+        //transportingInputs2.transporter=agent_initOutputs3.agent0;
+        flowToFrom(transportingInputs2, "transporter", agent_initOutputs3, "agent0");
         transportingInputs2.time=deliveryTime;
         TransportingOutputs transportingOutputs2=templateInvoker.process(transportingInputs2);
+        generateConnections(transportingOutputs2);
         // at this point, the item is with the transporter
 
 
@@ -211,12 +257,17 @@ public class BoxWorkflow {
 
 
         HandoverInputs handoverInputs4=new HandoverInputs();
-        handoverInputs4.item0=transportingOutputs2.item1;
-        handoverInputs4.item=item;
-        handoverInputs4.receiver= agent_initOutputs4.agent0;
-        handoverInputs4.giver=agent_initOutputs3.agent0;
+        //handoverInputs4.item0=transportingOutputs2.item1;
+        flowToFrom(handoverInputs4, "item0", transportingOutputs2, "item1");
+        //handoverInputs4.item=item;
+        flowToFrom(handoverInputs4, "item", box_initOutputs, "entity");
+        //handoverInputs4.receiver= agent_initOutputs4.agent0;
+        flowToFrom(handoverInputs4, "receiver", agent_initOutputs4, "agent0");
+        //handoverInputs4.giver=agent_initOutputs3.agent0;
+        flowToFrom(handoverInputs4, "giver", agent_initOutputs3, "agent0");
         handoverInputs4.time=deliveryTime;
         HandoverOutputs handoverOutputs4=templateInvoker.process(handoverInputs4);
+        generateConnections(handoverOutputs4);
         // at this point, the item is with the recipient
 
         // new agent-init for box owner
@@ -230,28 +281,40 @@ public class BoxWorkflow {
 
         // recipient weighing item
         WeighingInputs weighingInputs3=new WeighingInputs();
-        weighingInputs3.item0=handoverOutputs4.item1;
-        weighingInputs3.item=item;
-        weighingInputs3.agent=agent_initOutputs4.agent0;
-        weighingInputs3.scale=agent_initOutputsS3.agent0;
+        //weighingInputs3.item0=handoverOutputs4.item1;
+        flowToFrom(weighingInputs3, "item0", handoverOutputs4, "item1");
+        //weighingInputs3.item=item;
+        flowToFrom(weighingInputs3, "item", box_initOutputs, "entity");
+        //weighingInputs3.agent=agent_initOutputs4.agent0;
+        flowToFrom(weighingInputs3, "agent", agent_initOutputs4, "agent0");
+        //weighingInputs3.scale=agent_initOutputsS3.agent0;
+        flowToFrom(weighingInputs3, "scale", agent_initOutputsS3, "agent0");
         weighingInputs3.weight=15.0d;
         weighingInputs3.time=deliveryTime;
         WeighingOutputs weighingOutputs3=templateInvoker.process(weighingInputs3);
+        generateConnections(weighingOutputs3);
         // item should weigh 10.0, so this is a discrepancy
 
         // unpack book1 and book2
 
         UnpackingInputs_1 unpackingInputs1=new UnpackingInputs_1();
-        unpackingInputs1.container=box_initOutputs.entity;
-        unpackingInputs1.container0=weighingOutputs3.item1;
+        //unpackingInputs1.container=box_initOutputs.entity;
+        flowToFrom(unpackingInputs1,"container", box_initOutputs, "entity");
+        //unpackingInputs1.container0=weighingOutputs3.item1;
+        flowToFrom(unpackingInputs1,"container0", weighingOutputs3, "item1");
         unpackingInputs1.container1=-1;
-        unpackingInputs1.item=book1_initOutputs.entity;
+        //unpackingInputs1.item=book1_initOutputs.entity;
+        flowToFrom(unpackingInputs1,"item", book1_initOutputs, "entity");
 
         UnpackingInputs_1 unpackingInputs2=new UnpackingInputs_1();
-        unpackingInputs2.container=box_initOutputs.entity;
-        unpackingInputs2.container0=weighingOutputs3.item1;
+        //unpackingInputs2.container=box_initOutputs.entity;
+        flowToFrom(unpackingInputs2,"container", box_initOutputs, "entity");
+        //unpackingInputs2.container0=weighingOutputs3.item1;
+        flowToFrom(unpackingInputs2,"container0", weighingOutputs3, "item1");
+
         unpackingInputs2.container1=-1;
-        unpackingInputs2.item=book2_initOutputs.entity;
+        //unpackingInputs2.item=book2_initOutputs.entity;
+        flowToFrom(unpackingInputs2,"item", book2_initOutputs, "entity");
 
 
         Unpacking_compositeInputs unpacking_compositeInputs=new Unpacking_compositeInputs();
@@ -259,14 +322,15 @@ public class BoxWorkflow {
         unpacking_compositeInputs.__addElements(unpackingInputs2);
         unpacking_compositeInputs.count=2;
         Unpacking_compositeOutputs unpacking_compositeOutputs=templateInvoker.process(unpacking_compositeInputs);
+        generateConnections(unpacking_compositeOutputs.__elements.get(0),3);  // note, process first 3 only
+        generateConnections(unpacking_compositeOutputs.__elements.get(1));
 
 
 
-
-        connections=
-                createConnections(box_initOutputs,book1_initOutputs, book2_initOutputs, packing_compositeOutputs, unpacking_compositeOutputs, agent_initOutputs0, weighingOutputs1, handoverOutputs, agent_initOutputs1, transportingOutputs, handoverOutputs2, agent_initOutputs2, weighingOutputs2, handoverOutputs3, agent_initOutputs3, transportingOutputs2, handoverOutputs4, weighingOutputs3, agent_initOutputs4, agent_initOutputsS1, agent_initOutputsS2, agent_initOutputsS3, true);
-        connectionsNoAgent=
-                createConnections(box_initOutputs,book1_initOutputs, book2_initOutputs, packing_compositeOutputs, unpacking_compositeOutputs, agent_initOutputs0, weighingOutputs1, handoverOutputs, agent_initOutputs1, transportingOutputs, handoverOutputs2, agent_initOutputs2, weighingOutputs2, handoverOutputs3, agent_initOutputs3, transportingOutputs2, handoverOutputs4, weighingOutputs3, agent_initOutputs4, agent_initOutputsS1, agent_initOutputsS2, agent_initOutputsS3, false);
+        //connections.addAll(
+          //      createConnections(box_initOutputs,book1_initOutputs, book2_initOutputs, packing_compositeOutputs, unpacking_compositeOutputs, agent_initOutputs0, weighingOutputs1, handoverOutputs, agent_initOutputs1, transportingOutputs, handoverOutputs2, agent_initOutputs2, weighingOutputs2, handoverOutputs3, agent_initOutputs3, transportingOutputs2, handoverOutputs4, weighingOutputs3, agent_initOutputs4, agent_initOutputsS1, agent_initOutputsS2, agent_initOutputsS3, true));
+        connectionsNoAgent=filterOutAgentInit(connections);
+//                createConnections(box_initOutputs,book1_initOutputs, book2_initOutputs, packing_compositeOutputs, unpacking_compositeOutputs, agent_initOutputs0, weighingOutputs1, handoverOutputs, agent_initOutputs1, transportingOutputs, handoverOutputs2, agent_initOutputs2, weighingOutputs2, handoverOutputs3, agent_initOutputs3, transportingOutputs2, handoverOutputs4, weighingOutputs3, agent_initOutputs4, agent_initOutputsS1, agent_initOutputsS2, agent_initOutputsS3, false);
 
 
         // return all inputs and outputs
@@ -298,6 +362,13 @@ public class BoxWorkflow {
                 connections,
                 connectionsNoAgent);
 
+    }
+
+    // filter list of connections to remove those with an out_template of agent_init
+    List<TemplateConnection> filterOutAgentInit(List<TemplateConnection> connections) {
+        return connections.stream()
+                .filter(tc -> !tc.out_template.equals("agent_init"))
+                .collect(Collectors.toList());
     }
 
     private List<TemplateConnection> createConnections(
@@ -458,7 +529,7 @@ public class BoxWorkflow {
         tc0.out_property="item1";
         tc0.in_id= handoverOutputs.ID;
         tc0.in_template= handoverOutputs.isA;
-        tc0.in_property="giver";
+        tc0.in_property="item0";
         connections.add(tc0);
 
         if (withAgent) {
@@ -747,6 +818,89 @@ public class BoxWorkflow {
         }
 
         return connections;
+    }
+
+    List<Function<Object,TemplateConnection>> connectionFuns=new LinkedList<>();
+    void newTemplate() {
+        connectionFuns=new LinkedList<>();
+    }
+
+
+    List<TemplateConnection> generateConnections(Object toTemplate,int count) {
+        // select first count elements of connectionFuns and remove them from the list
+        List<Function<Object,TemplateConnection>> selectedFuns=new LinkedList<>();
+        for (int i=0;i<count;i++) {
+            selectedFuns.add(connectionFuns.remove(0));
+        }
+        List<TemplateConnection> conns=selectedFuns.stream().map(f -> f.apply(toTemplate)).collect(Collectors.toList());
+        connections.addAll(conns);
+        return conns;
+    }
+
+    List<TemplateConnection> generateConnections(Object toTemplate) {
+        List<TemplateConnection> conns=connectionFuns.stream().map(f -> f.apply(toTemplate)).collect(Collectors.toList());
+        newTemplate();
+        connections.addAll(conns);
+        return conns;
+    }
+
+
+
+
+    private Function<Object,TemplateConnection> flowToFrom(Object toInputBean, String toProperty, Object fromTemplate, String fromProperty) {
+        //tc0.out_id= fromTemplate.ID;
+        //tc0.out_template= fromTemplate.isA;
+        //tc0.out_property= fromProperty;
+        //tc0.in_id= toTemplate.ID;
+        //tc0.in_template= toTemplate.isA;
+        //tc0.in_property= toProperty;
+
+        // using reflection, assign toProperty of toTemplate object with the value of fromProperty of fromTemplate object
+
+        try {
+
+            java.lang.reflect.Field fromPropertyField = fromTemplate.getClass().getDeclaredField(fromProperty);
+            fromPropertyField.setAccessible(true);
+            Object fromPropertyFieldValue = fromPropertyField.get(fromTemplate);
+
+            java.lang.reflect.Field toPropertyField = toInputBean.getClass().getDeclaredField(toProperty);
+            toPropertyField.setAccessible(true);
+            toPropertyField.set(toInputBean, fromPropertyFieldValue);
+
+            Function<Object,TemplateConnection> fun= (Object toTemplate) -> {
+                TemplateConnection tc0=new TemplateConnection();
+
+                try {
+                    java.lang.reflect.Field fromID = fromTemplate.getClass().getDeclaredField("ID");
+                    fromID.setAccessible(true);
+                    tc0.out_id = (Integer) fromID.get(fromTemplate);
+                    java.lang.reflect.Field fromIsA = fromTemplate.getClass().getDeclaredField("isA");
+                    fromIsA.setAccessible(true);
+                    tc0.out_template = (String) fromIsA.get(fromTemplate);
+                    tc0.out_property = fromProperty;
+
+                    java.lang.reflect.Field toID = toTemplate.getClass().getDeclaredField("ID");
+                    toID.setAccessible(true);
+                    tc0.in_id = (Integer) toID.get(toTemplate);
+                    java.lang.reflect.Field toIsa = toTemplate.getClass().getDeclaredField("isA");
+                    toIsa.setAccessible(true);
+                    tc0.in_template = (String) toIsa.get(toTemplate);
+                    tc0.in_property = toProperty;
+
+                    return tc0;
+                }  catch (NoSuchFieldException | IllegalAccessException e1) {
+                    throw new RuntimeException(e1);
+                }
+            };
+
+            connectionFuns.add(fun);
+
+            return fun;
+
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
 }
