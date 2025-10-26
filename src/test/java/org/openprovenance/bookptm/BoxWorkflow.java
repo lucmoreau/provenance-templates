@@ -11,6 +11,10 @@ import java.util.stream.Collectors;
 
 public class BoxWorkflow {
 
+    public static int MARKER1=-1;
+    public static int MARKER2=-2;
+
+
     private final InputOutputProcessor templateInvoker;
     private final Function<String, List<List<Object>>> query;
 
@@ -69,31 +73,23 @@ public class BoxWorkflow {
 
         // composite pack
         PackingInputs_1 packingInputs_1=new PackingInputs_1();
-        //packingInputs_1.item=book1_initOutputs.entity0;
         flowToFrom(packingInputs_1, "item", book1_initOutputs, "entity0");
-        packingInputs_1.sealed=true;
-        //packingInputs_1.packer=agent_initOutputs0.agent0;
         flowToFrom(packingInputs_1, "packer", agent_initOutputs0, "agent0");
-        packingInputs_1.adding=-1;
-        //packingInputs_1.container0=box_initOutputs.entity0;
         flowToFrom(packingInputs_1, "container0", box_initOutputs, "entity0");
-        packingInputs_1.container1=-2;
-        //packingInputs_1.container=box_initOutputs.entity;
         flowToFrom(packingInputs_1, "container", box_initOutputs, "entity");
+        packingInputs_1.sealed=true;
+        packingInputs_1.adding=MARKER1;
+        packingInputs_1.container1=MARKER2;
 
 
         PackingInputs_1 packingInputs_2=new PackingInputs_1();
-        //packingInputs_2.item=book2_initOutputs.entity0;
         flowToFrom(packingInputs_2, "item", book2_initOutputs, "entity0");
-        packingInputs_2.sealed=true;
-        //packingInputs_2.packer=agent_initOutputs0.agent0;
         flowToFrom(packingInputs_2, "packer", agent_initOutputs0, "agent0");
-        packingInputs_2.adding=-1;
-        //packingInputs_2.container0=box_initOutputs.entity0;
         flowToFrom(packingInputs_2, "container0", box_initOutputs, "entity0");
-        packingInputs_2.container1=-2;
-        //packingInputs_2.container=box_initOutputs.entity;
         flowToFrom(packingInputs_2, "container", box_initOutputs, "entity");
+        packingInputs_2.sealed=true;
+        packingInputs_2.adding=MARKER1;
+        packingInputs_2.container1=MARKER2;
 
 
         Packing_compositeInputs packing_compositeInputs=new Packing_compositeInputs();
@@ -102,7 +98,6 @@ public class BoxWorkflow {
         packing_compositeInputs.count=2;
         Packing_compositeOutputs packing_compositeOutputs=templateInvoker.process(packing_compositeInputs);
         generateConnections(packing_compositeOutputs.__elements.get(0),4);  // note, process first 4 only
-
         generateConnections(packing_compositeOutputs.__elements.get(1));
 
 
@@ -116,16 +111,11 @@ public class BoxWorkflow {
         Agent_initOutputs agent_initOutputsS1=templateInvoker.process(agent_initInputsS1);
 
 
-
         WeighingInputs weighingInputs1=new WeighingInputs();
-        //weighingInputs1.item0=item0;
         flowToFrom(weighingInputs1,"item0", packing_compositeOutputs.__elements.get(0), "container1");
         flowToFrom(weighingInputs1,"item0", packing_compositeOutputs.__elements.get(1), "container1");
-        //weighingInputs1.item=item;
         flowToFrom(weighingInputs1,"item", box_initOutputs, "entity");
-        //weighingInputs1.agent=agent_initOutputs0.agent0;
         flowToFrom(weighingInputs1,"agent", agent_initOutputs0, "agent0");
-        //weighingInputs1.scale=agent_initOutputsS1.agent0;
         flowToFrom(weighingInputs1,"scale", agent_initOutputsS1, "agent0");
         weighingInputs1.weight=10.0d;
         weighingInputs1.time=weighing1Time;
@@ -143,13 +133,9 @@ public class BoxWorkflow {
 
         HandoverInputs handoverInputs=new HandoverInputs();
         flowToFrom(handoverInputs, "item0", weighingOutputs1, "item1");
-        //handoverInputs.item0=weighingOutputs1.item1;
         flowToFrom(handoverInputs, "item", box_initOutputs, "entity");
-        //handoverInputs.item=item;
         flowToFrom(handoverInputs, "receiver", agent_initOutputs1, "agent0");
-        //handoverInputs.receiver=agent_initOutputs1.agent0;
         flowToFrom(handoverInputs, "giver", agent_initOutputs0, "agent0");
-        //handoverInputs.giver=agent_initOutputs0.agent0;
         handoverInputs.time=pickupTime;
         HandoverOutputs handoverOutputs=templateInvoker.process(handoverInputs);
         generateConnections(handoverOutputs);
@@ -158,9 +144,7 @@ public class BoxWorkflow {
 
         TransportingInputs transportingInputs=new TransportingInputs();
         flowToFrom(transportingInputs, "item0", handoverOutputs, "item1");
-        //transportingInputs.item0=handoverOutputs.item1;
         flowToFrom(transportingInputs, "item", box_initOutputs, "entity");
-        //transportingInputs.item=item;
         flowToFrom(transportingInputs, "transporter", agent_initOutputs1, "agent0");
         transportingInputs.transporter=agent_initOutputs1.agent0;
         transportingInputs.time=drop1Time;
@@ -176,13 +160,9 @@ public class BoxWorkflow {
         Agent_initOutputs agent_initOutputs2=templateInvoker.process(agent_initInputs2);
 
         HandoverInputs handoverInputs2=new HandoverInputs();
-        //handoverInputs2.item0=transportingOutputs.item1;
         flowToFrom(handoverInputs2, "item0", transportingOutputs, "item1");
-        //handoverInputs2.item=item;
         flowToFrom(handoverInputs2, "item", box_initOutputs, "entity");
-        //handoverInputs2.receiver=agent_initOutputs2.agent0;
         flowToFrom(handoverInputs2, "receiver", agent_initOutputs2, "agent0");
-        //handoverInputs2.giver=agent_initOutputs1.agent0;
         flowToFrom(handoverInputs2, "giver", agent_initOutputs1, "agent0");
         handoverInputs2.time= handoverTime;
         HandoverOutputs handoverOutputs2=templateInvoker.process(handoverInputs2);
@@ -199,13 +179,9 @@ public class BoxWorkflow {
 
 
         WeighingInputs weighingInputs2=new WeighingInputs();
-        //weighingInputs2.item0=handoverOutputs2.item1;
         flowToFrom(weighingInputs2, "item0", handoverOutputs2, "item1");
-        //weighingInputs2.item=item;
         flowToFrom(weighingInputs2, "item", box_initOutputs, "entity");
-        //weighingInputs2.agent=agent_initOutputs2.agent0;
         flowToFrom(weighingInputs2, "agent", agent_initOutputs2, "agent0");
-        //weighingInputs2.scale=agent_initOutputsS2.agent0;
         flowToFrom(weighingInputs2, "scale", agent_initOutputsS2, "agent0");
         weighingInputs2.weight=10.0d;
         weighingInputs2.time=weighing2Time;
@@ -220,13 +196,9 @@ public class BoxWorkflow {
         Agent_initOutputs agent_initOutputs3=templateInvoker.process(agent_initInputs3);
 
         HandoverInputs handoverInputs3=new HandoverInputs();
-        //handoverInputs3.item0=weighingOutputs2.item1;
         flowToFrom(handoverInputs3, "item0", weighingOutputs2, "item1");
-        //handoverInputs3.item=item;
         flowToFrom(handoverInputs3, "item", box_initOutputs, "entity");
-        //handoverInputs3.receiver=agent_initOutputs3.agent0;
         flowToFrom(handoverInputs3, "receiver", agent_initOutputs3, "agent0");
-        //handoverInputs3.giver=agent_initOutputs2.agent0;
         flowToFrom(handoverInputs3, "giver", agent_initOutputs2, "agent0");
         handoverInputs3.time=handoverTime2;
         HandoverOutputs handoverOutputs3=templateInvoker.process(handoverInputs3);
@@ -235,11 +207,8 @@ public class BoxWorkflow {
 
 
         TransportingInputs transportingInputs2=new TransportingInputs();
-        //transportingInputs2.item0=handoverOutputs3.item1;
         flowToFrom(transportingInputs2, "item0", handoverOutputs3, "item1");
-        //transportingInputs2.item=item;
         flowToFrom(transportingInputs2, "item", box_initOutputs, "entity");
-        //transportingInputs2.transporter=agent_initOutputs3.agent0;
         flowToFrom(transportingInputs2, "transporter", agent_initOutputs3, "agent0");
         transportingInputs2.time=deliveryTime;
         TransportingOutputs transportingOutputs2=templateInvoker.process(transportingInputs2);
@@ -256,13 +225,9 @@ public class BoxWorkflow {
 
 
         HandoverInputs handoverInputs4=new HandoverInputs();
-        //handoverInputs4.item0=transportingOutputs2.item1;
         flowToFrom(handoverInputs4, "item0", transportingOutputs2, "item1");
-        //handoverInputs4.item=item;
         flowToFrom(handoverInputs4, "item", box_initOutputs, "entity");
-        //handoverInputs4.receiver= agent_initOutputs4.agent0;
         flowToFrom(handoverInputs4, "receiver", agent_initOutputs4, "agent0");
-        //handoverInputs4.giver=agent_initOutputs3.agent0;
         flowToFrom(handoverInputs4, "giver", agent_initOutputs3, "agent0");
         handoverInputs4.time=deliveryTime;
         HandoverOutputs handoverOutputs4=templateInvoker.process(handoverInputs4);
@@ -280,13 +245,9 @@ public class BoxWorkflow {
 
         // recipient weighing item
         WeighingInputs weighingInputs3=new WeighingInputs();
-        //weighingInputs3.item0=handoverOutputs4.item1;
         flowToFrom(weighingInputs3, "item0", handoverOutputs4, "item1");
-        //weighingInputs3.item=item;
         flowToFrom(weighingInputs3, "item", box_initOutputs, "entity");
-        //weighingInputs3.agent=agent_initOutputs4.agent0;
         flowToFrom(weighingInputs3, "agent", agent_initOutputs4, "agent0");
-        //weighingInputs3.scale=agent_initOutputsS3.agent0;
         flowToFrom(weighingInputs3, "scale", agent_initOutputsS3, "agent0");
         weighingInputs3.weight=15.0d;
         weighingInputs3.time=deliveryTime;
@@ -297,23 +258,20 @@ public class BoxWorkflow {
         // unpack book1 and book2
 
         UnpackingInputs_1 unpackingInputs1=new UnpackingInputs_1();
-        //unpackingInputs1.container=box_initOutputs.entity;
         flowToFrom(unpackingInputs1,"container", box_initOutputs, "entity");
-        //unpackingInputs1.container0=weighingOutputs3.item1;
         flowToFrom(unpackingInputs1,"container0", weighingOutputs3, "item1");
-        unpackingInputs1.container1=-1;
-        //unpackingInputs1.item=book1_initOutputs.entity;
         flowToFrom(unpackingInputs1,"item", book1_initOutputs, "entity");
+        flowToFrom(unpackingInputs1,"unpacker", agent_initOutputs4, "agent0");
+        unpackingInputs1.container1=MARKER1;
+        unpackingInputs1.removing=MARKER2;
 
         UnpackingInputs_1 unpackingInputs2=new UnpackingInputs_1();
-        //unpackingInputs2.container=box_initOutputs.entity;
         flowToFrom(unpackingInputs2,"container", box_initOutputs, "entity");
-        //unpackingInputs2.container0=weighingOutputs3.item1;
         flowToFrom(unpackingInputs2,"container0", weighingOutputs3, "item1");
-
-        unpackingInputs2.container1=-1;
-        //unpackingInputs2.item=book2_initOutputs.entity;
         flowToFrom(unpackingInputs2,"item", book2_initOutputs, "entity");
+        flowToFrom(unpackingInputs2,"unpacker", agent_initOutputs4, "agent0");
+        unpackingInputs2.container1=MARKER1;
+        unpackingInputs2.removing=MARKER2;
 
 
         Unpacking_compositeInputs unpacking_compositeInputs=new Unpacking_compositeInputs();
@@ -321,16 +279,11 @@ public class BoxWorkflow {
         unpacking_compositeInputs.__addElements(unpackingInputs2);
         unpacking_compositeInputs.count=2;
         Unpacking_compositeOutputs unpacking_compositeOutputs=templateInvoker.process(unpacking_compositeInputs);
-        generateConnections(unpacking_compositeOutputs.__elements.get(0),3);  // note, process first 3 only
+        generateConnections(unpacking_compositeOutputs.__elements.get(0),4);  // note, process first 4 only
         generateConnections(unpacking_compositeOutputs.__elements.get(1));
 
 
-
-        //connections.addAll(
-          //      createConnections(box_initOutputs,book1_initOutputs, book2_initOutputs, packing_compositeOutputs, unpacking_compositeOutputs, agent_initOutputs0, weighingOutputs1, handoverOutputs, agent_initOutputs1, transportingOutputs, handoverOutputs2, agent_initOutputs2, weighingOutputs2, handoverOutputs3, agent_initOutputs3, transportingOutputs2, handoverOutputs4, weighingOutputs3, agent_initOutputs4, agent_initOutputsS1, agent_initOutputsS2, agent_initOutputsS3, true));
         connectionsNoAgent=filterOutAgentInit(connections);
-//                createConnections(box_initOutputs,book1_initOutputs, book2_initOutputs, packing_compositeOutputs, unpacking_compositeOutputs, agent_initOutputs0, weighingOutputs1, handoverOutputs, agent_initOutputs1, transportingOutputs, handoverOutputs2, agent_initOutputs2, weighingOutputs2, handoverOutputs3, agent_initOutputs3, transportingOutputs2, handoverOutputs4, weighingOutputs3, agent_initOutputs4, agent_initOutputsS1, agent_initOutputsS2, agent_initOutputsS3, false);
-
 
         // return all inputs and outputs
 
