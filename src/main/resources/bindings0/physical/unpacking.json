@@ -39,8 +39,8 @@
                 "@type": "xsd:int",
                 "@examplar": 14,
                 "@documentation": "The item before unpacking",
-                "@input": "compulsory",
-                "@output": "false",
+                "@input": "false",
+                "@output": "true",
                 "@sql.table": "item"
             }
         ],

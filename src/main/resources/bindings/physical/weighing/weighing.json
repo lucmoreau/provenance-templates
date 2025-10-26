@@ -40,6 +40,13 @@
                     "@id": "var:time"
                 }
             ]
+        ],
+        "ExaminingType": [
+            [
+                {
+                    "@id": "phys:Weighing"
+                }
+            ]
         ]
     },
     "vargen":  {
