@@ -760,6 +760,7 @@
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-triangle4-aia.json</arg>
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-triangle6-ugm.json</arg>
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-insert-into-collection.json</arg>
+                                <arg>${project.basedir}/src/main/resources/ttfs/config-insert-into-collection-old.json</arg>
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-remove-from-collection.json</arg>
 
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-ptm-create-template.json</arg>
@@ -827,6 +828,7 @@
                             <outputBaseDir>${project.build.directory}</outputBaseDir>
                             <configs>
                                 <config>src/main/resources/ttfs/config-insert-into-collection.json</config>
+                                <config>src/main/resources/ttfs/config-insert-into-collection-old.json</config>
                                 <config>src/main/resources/ttfs/config-remove-from-collection.json</config>
 
                             </configs>

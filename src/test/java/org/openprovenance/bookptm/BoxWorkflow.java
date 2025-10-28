@@ -73,21 +73,25 @@ public class BoxWorkflow {
 
         // composite pack
         PackingInputs_1 packingInputs_1=new PackingInputs_1();
-        flowToFrom(packingInputs_1, "item", book1_initOutputs, "entity0");
-        flowToFrom(packingInputs_1, "packer", agent_initOutputs0, "agent0");
+        flowToFrom(packingInputs_1, "item0",      book1_initOutputs, "entity0");
+        flowToFrom(packingInputs_1, "item",       book1_initOutputs, "entity");
+        flowToFrom(packingInputs_1, "packer",     agent_initOutputs0, "agent0");
         flowToFrom(packingInputs_1, "container0", box_initOutputs, "entity0");
-        flowToFrom(packingInputs_1, "container", box_initOutputs, "entity");
+        flowToFrom(packingInputs_1, "container",  box_initOutputs, "entity");
         packingInputs_1.sealed=true;
+        packingInputs_1.containerType="Box";
         packingInputs_1.adding=MARKER1;
         packingInputs_1.container1=MARKER2;
 
 
         PackingInputs_1 packingInputs_2=new PackingInputs_1();
-        flowToFrom(packingInputs_2, "item", book2_initOutputs, "entity0");
-        flowToFrom(packingInputs_2, "packer", agent_initOutputs0, "agent0");
+        flowToFrom(packingInputs_2, "item0",      book2_initOutputs, "entity0");
+        flowToFrom(packingInputs_2, "item",       book2_initOutputs, "entity");
+        flowToFrom(packingInputs_2, "packer",     agent_initOutputs0, "agent0");
         flowToFrom(packingInputs_2, "container0", box_initOutputs, "entity0");
-        flowToFrom(packingInputs_2, "container", box_initOutputs, "entity");
+        flowToFrom(packingInputs_2, "container",  box_initOutputs, "entity");
         packingInputs_2.sealed=true;
+        packingInputs_2.containerType="Box";
         packingInputs_2.adding=MARKER1;
         packingInputs_2.container1=MARKER2;
 
@@ -97,7 +101,7 @@ public class BoxWorkflow {
         packing_compositeInputs.__addElements(packingInputs_2);
         packing_compositeInputs.count=2;
         Packing_compositeOutputs packing_compositeOutputs=templateInvoker.process(packing_compositeInputs);
-        generateConnections(packing_compositeOutputs.__elements.get(0),4);  // note, process first 4 only
+        generateConnections(packing_compositeOutputs.__elements.get(0),5);  // note, process first 5 only
         generateConnections(packing_compositeOutputs.__elements.get(1));
 
 

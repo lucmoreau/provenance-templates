@@ -2,13 +2,12 @@
     "var": {
         "id": [
             {
-                "@id": "var:wdf1"
+                "@id": "var:wdf2"
             }
         ],
-
         "entity1": [
             {
-                "@id": "var:item0"
+                "@id": "var:coll0"
             }
         ],
         "entity2": [
@@ -16,37 +15,16 @@
                 "@id": "var:coll1"
             }
         ],
-
         "activity": [
             {
-                "@id": "var:inserting"
+                "@id": "var:insert"
             }
 
-        ],
-        "aprop": [
-            [
-                {
-                    "@id": "var:aprop"
-                },
-                {
-                    "@id": "prov:type"
-                }
-            ]
-        ],
-        "avalue": [
-            [
-                {
-                    "@id": "var:avalue"
-                },
-                {
-                    "@id": "provext:InsertingItemIntoCollection"
-                }
-            ]
         ],
         "dprop": [
             [
                 {
-                    "@id": "var:dprop1"
+                    "@id": "var:type"
                 },
                 {
                     "@id": "prov:type"
@@ -56,18 +34,17 @@
         "dvalue": [
             [
                 {
-                    "@id": "var:dvalue1"
+                    "@id": "provext:Membership"
                 },
                 {
-                    "@id": "provext:InsertingItemIntoCollection"
+                    "@id": "provext:InsertingIntoCollection"
                 }
             ]
         ],
-
         "uprop": [
             [
                 {
-                    "@id": "var:uprop1"
+                    "@id": "var:uprop2"
                 },
                 {
                     "@id": "prov:role"
@@ -77,25 +54,64 @@
         "uvalue": [
             [
                 {
-                    "@id": "var:uvalue1"
+                    "@id": "var:uvalue2"
 
                 },
                 {
-                    "@id": "provext:asItem"
+                    "@id": "provext:asCollection"
+                }
+            ]
+        ],
+        "prop2" : [
+            [
+                {
+                    "@id": "var:prop1"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "evalue2" : [
+            [
+                {
+                    "@id": "var:value1"
+                },
+                {
+                    "@id": "prov:Collection"
+                }
+            ]
+        ],
+        "prop1" : [
+            [
+                {
+                    "@id": "var:prop0"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "evalue1" : [
+            [
+                {
+                    "@id": "var:value0"
+                },
+                {
+                    "@id": "prov:Collection"
                 }
             ]
         ],
         "u": [
             {
-                "@id": "var:usd1"
+                "@id": "var:usd2"
             }
         ],
         "g": [
             {
-                "@id": "var:gen0"
+                "@id": "var:gen"
             }
         ]
-
 
     },
     "vargen":  {

@@ -76,6 +76,8 @@ public class LocalEnactor extends BeanLocalEnactor2 {
 
     private PackingOutputs process(PackingInputs_1 input, Map<String, Map<Integer, Integer>> map) {
         PackingOutputs out=new PackingOutputs();
+        // for each field in shared list.
+        // container1
         if (map.get("container1")==null) {
             out.container1 = newIdentifier("container1","item");
         } else if (map.get("container1").containsKey(input.container0)) {
@@ -93,8 +95,7 @@ public class LocalEnactor extends BeanLocalEnactor2 {
             out.adding=newIdentifier("adding","activity");
             map.get("adding").put(input.adding, out.adding);
         }
-
-
+        out.item1=newIdentifier("item1","item"); // field, not in shared list
         out.ID = newIdentifier("template/packing","template/packing");
 
         PackingBean packingBean=merge(input, out);

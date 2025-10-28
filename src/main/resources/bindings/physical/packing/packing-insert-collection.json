@@ -12,33 +12,39 @@
             }
 
         ],
-        "item": [
+        "item1": [
             {
-                "@id": "var:item"
+                "@id": "var:item1"
             }
 
         ],
-        "insert": [
+        "item0": [
+            {
+                "@id": "var:item0"
+            }
+
+        ],
+        "inserting": [
             {
                 "@id": "var:adding"
             }
 
         ],
-        "prop0": [
+        "cprop0": [
             [
                 {
                     "@id": "prov:type"
                 }
             ]
         ],
-        "value0": [
+        "cvalue0": [
             [
                 {
                     "@id": "var:containerType"
                 }
             ]
         ],
-        "prop1": [
+        "cprop1": [
             [
                 {
                     "@id": "prov:type"
@@ -48,7 +54,7 @@
                 }
             ]
         ],
-        "value1": [
+        "cvalue1": [
             [
                 {
                     "@id": "var:containerType"

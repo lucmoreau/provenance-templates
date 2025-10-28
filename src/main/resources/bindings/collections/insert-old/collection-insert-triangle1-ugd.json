@@ -1,25 +1,9 @@
 {
     "var": {
-        "id": [
-            {
-                "@id": "var:wdf1"
-            }
-        ],
-
-        "entity1": [
-            {
-                "@id": "var:item0"
-            }
-        ],
-        "entity2": [
-            {
-                "@id": "var:coll1"
-            }
-        ],
 
         "activity": [
             {
-                "@id": "var:inserting"
+                "@id": "var:insert"
             }
 
         ],
@@ -39,14 +23,14 @@
                     "@id": "var:avalue"
                 },
                 {
-                    "@id": "provext:InsertingItemIntoCollection"
+                    "@id": "provext:InsertingIntoElement"
                 }
             ]
         ],
         "dprop": [
             [
                 {
-                    "@id": "var:dprop1"
+                    "@id": "var:dprop"
                 },
                 {
                     "@id": "prov:type"
@@ -56,10 +40,10 @@
         "dvalue": [
             [
                 {
-                    "@id": "var:dvalue1"
+                    "@id": "var:dvalue"
                 },
                 {
-                    "@id": "provext:InsertingItemIntoCollection"
+                    "@id": "provext:InsertingIntoElement"
                 }
             ]
         ],
@@ -81,22 +65,30 @@
 
                 },
                 {
-                    "@id": "provext:asItem"
+                    "@id": "provext:asEntity"
                 }
             ]
         ],
         "u": [
             {
-                "@id": "var:usd1"
+                "@id": "var:uid1"
             }
         ],
-        "g": [
+        "entity1": [
             {
-                "@id": "var:gen0"
+                "@id": "var:item"
+            }
+        ],
+        "entity2": [
+            {
+                "@id": "var:coll1"
+            }
+        ],
+        "id": [
+            {
+                "@id": "var:wdf1"
             }
         ]
-
-
     },
     "vargen":  {
         "b": [

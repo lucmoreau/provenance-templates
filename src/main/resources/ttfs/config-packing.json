@@ -42,6 +42,15 @@
             "formats": ["jsonld","provn", "png", "svg"],
             "hasProvenance": "prov-packing-sds.prov-csv"
         },
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle2-sds pattern",
+            "template": "triangle2-sds.provn",
+            "output": "packing-sds-item",
+            "bindings": "packing-sds-item.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "prov-packing-sds-item.prov-csv"
+        },
 
         {
             "type": "merge",
@@ -50,7 +59,8 @@
             "inputs": [
                 "packing-insert-collection.jsonld",
                 "packing-aga-agent.jsonld",
-                "packing-sds.jsonld"
+                "packing-sds.jsonld",
+                "packing-sds-item.jsonld"
             ],
             "output": "packing",
             "formats": ["jsonld","provn", "png", "svg"],

@@ -9,11 +9,11 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle1-ugd pattern",
-            "template": "triangle6-ugm.provn",
-            "output": "collection-insert-triangle1-ugm",
-            "bindings": "collection-insert-triangle1-ugm.json",
+            "template": "triangle1-ugd.provn",
+            "output": "collection-insert-triangle1-ugd",
+            "bindings": "collection-insert-triangle1-ugd.json",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-collection-insert-triangle1-ugm.prov-csv"
+            "hasProvenance": "prov-collection-insert-triangle1-ugd.prov-csv"
         },
 
         {
@@ -26,11 +26,37 @@
             "hasProvenance": "prov-collection-insert-triangle2-ugd.prov-csv"
         },
 
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle1-ugd pattern",
+            "template": "triangle1-ugd.provn",
+            "output": "collection-insert-triangle3-ugd",
+            "bindings": "collection-insert-triangle3-ugd.json",
+            "formats": ["jsonld" ,"provn", "png", "svg"],
+            "hasProvenance": "prov-collection-insert-triangle3-ugd.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating a membership pattern",
+            "template": "qualified-membership0.jsonld",
+            "output": "membership",
+            "bindings": "membership.json",
+            "formats": ["jsonld", "provn","png", "svg"],
+            "hasProvenance": "prov-membership.prov-csv"
+        },
+
         {
             "type": "merge",
             "description": "Merging the above templates into a single template",
             "addOutputDirToInputPath": true,
-            "inputs": ["collection-insert-triangle1-ugm.jsonld", "collection-insert-triangle2-ugd.jsonld"],
+            "inputs": [
+                "collection-insert-triangle1-ugd.jsonld",
+                "collection-insert-triangle2-ugd.jsonld",
+                "collection-insert-triangle3-ugd.jsonld",
+                "membership.jsonld"
+            ],
             "output": "collection-insert",
             "formats": ["jsonld","provn", "png", "svg"],
             "hasProvenance": "prov-collection-insert.prov-csv"

@@ -17,14 +17,14 @@
         ],
         "activity": [
             {
-                "@id": "var:insert"
+                "@id": "var:inserting"
             }
 
         ],
         "dprop": [
             [
                 {
-                    "@id": "var:type"
+                    "@id": "var:dprop2"
                 },
                 {
                     "@id": "prov:type"
@@ -34,10 +34,10 @@
         "dvalue": [
             [
                 {
-                    "@id": "provext:Membership"
+                    "@id": "var:dvalue2"
                 },
                 {
-                    "@id": "provext:InsertingIntoCollection"
+                    "@id": "provext:InsertingInto_Collection"
                 }
             ]
         ],
@@ -65,7 +65,7 @@
         "prop2" : [
             [
                 {
-                    "@id": "var:prop1"
+                    "@id": "var:cprop1"
                 },
                 {
                     "@id": "prov:type"
@@ -75,7 +75,7 @@
         "evalue2" : [
             [
                 {
-                    "@id": "var:value1"
+                    "@id": "var:cvalue1"
                 },
                 {
                     "@id": "prov:Collection"
@@ -85,7 +85,7 @@
         "prop1" : [
             [
                 {
-                    "@id": "var:prop0"
+                    "@id": "var:cprop0"
                 },
                 {
                     "@id": "prov:type"
@@ -95,10 +95,32 @@
         "evalue1" : [
             [
                 {
-                    "@id": "var:value0"
+                    "@id": "var:cvalue0"
                 },
                 {
                     "@id": "prov:Collection"
+                }
+            ]
+        ],
+
+        "gprop": [
+            [
+                {
+                    "@id": "var:gprop0"
+                },
+                {
+                    "@id": "prov:role"
+                }
+            ]
+        ],
+        "gvalue": [
+            [
+                {
+                    "@id": "var:gvalue0"
+
+                },
+                {
+                    "@id": "provext:asCollection"
                 }
             ]
         ],
@@ -109,7 +131,7 @@
         ],
         "g": [
             {
-                "@id": "var:gen"
+                "@id": "var:gen0"
             }
         ]
 

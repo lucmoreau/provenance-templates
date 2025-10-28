@@ -11,6 +11,17 @@
                 "@sql.table": "item"
             }
         ],
+        "item1": [
+            {
+                "@id": "item:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The item after packing",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "item"
+            }
+        ],
         "container0": [
             {
                 "@id": "item:*",
@@ -22,12 +33,12 @@
                 "@sql.table": "item"
             }
         ],
-        "item": [
+        "item0": [
             {
                 "@id": "item:*",
                 "@type": "xsd:int",
                 "@examplar": 14,
-                "@documentation": "The item generic entity",
+                "@documentation": "The item before packing",
                 "@input": "compulsory",
                 "@output": "false",
                 "@sql.table": "item"
@@ -39,6 +50,17 @@
                 "@type": "xsd:int",
                 "@examplar": 14,
                 "@documentation": "The general container",
+                "@input": "optional",
+                "@output": "false",
+                "@sql.table": "item"
+            }
+        ],
+        "item": [
+            {
+                "@id": "item:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The general item",
                 "@input": "optional",
                 "@output": "false",
                 "@sql.table": "item"
