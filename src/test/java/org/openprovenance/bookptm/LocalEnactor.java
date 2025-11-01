@@ -2,8 +2,8 @@ package org.openprovenance.bookptm;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.openprovenance.bk.physical.client.common.*;
-import org.openprovenance.bk.physical.client.integrator.*;
+import org.openprovenance.templates.physical.client.common.*;
+import org.openprovenance.templates.physical.client.integrator.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -191,13 +191,13 @@ public class LocalEnactor extends BeanLocalEnactor2 {
     }
 
     @Override
-    public HandoverOutputs process(HandoverInputs bean) {
-        HandoverOutputs out = super.process(bean);
-        HandoverBean handoverBean=merge(bean, out);
-        history.add(handoverBean);
-        id2object.put(out.ID, handoverBean);
-        id2array.put(out.ID, handoverBean.process(new HandoverBuilder().aArgs2RecordConverter()));
-        csv.add(handoverBean.process(new HandoverBuilder().aArgs2CsVConverter));
+    public HandingoverOutputs process(HandingoverInputs bean) {
+        HandingoverOutputs out = super.process(bean);
+        HandingoverBean handingoverBean=merge(bean, out);
+        history.add(handingoverBean);
+        id2object.put(out.ID, handingoverBean);
+        id2array.put(out.ID, handingoverBean.process(new HandingoverBuilder().aArgs2RecordConverter()));
+        csv.add(handingoverBean.process(new HandingoverBuilder().aArgs2CsVConverter));
         return out;
     }
 
@@ -269,8 +269,8 @@ public class LocalEnactor extends BeanLocalEnactor2 {
         return builder.toBean(transporting);
     }
 
-    private HandoverBean merge(HandoverInputs handoverInputs, HandoverOutputs handoverOutputs) {
-        HandoverBuilder builder=new HandoverBuilder();
+    private HandingoverBean merge(HandingoverInputs handoverInputs, HandingoverOutputs handoverOutputs) {
+        HandingoverBuilder builder=new HandingoverBuilder();
         Object[] handoverIn= handoverInputs.process(builder.aArgs2RecordConverter());
         Object[] handoverOut= handoverOutputs.process(builder.aArgs2RecordConverter());
         Object[] handover=merge(handoverIn, handoverOut);

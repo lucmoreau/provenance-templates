@@ -1,10 +1,10 @@
 {
-    "group": "org.openprovenance.bk.physical",
+    "group": "org.openprovenance.templates.physical",
     "name": "transport_template_library",
     "destination": "target",
     "description": "PROV templates for prov template management",
     "version": "2.2.2-SNAPSHOT",
-    "root_package": "org.openprovenance.bk.physical",
+    "root_package": "org.openprovenance.templates.physical",
     "script": "physical_run",
     "script_dir": "target/bin",
     "python_dir": "target/generated-python",
@@ -21,51 +21,51 @@
         {
             "@type": "simple",
             "name": "transporting",
-            "template": "target/generated-templates/physical/transport/transport.jsonld",
-            "package": "org.openprovenance.bk.physical",
-            "bindings": "src/main/resources/bindings0/physical/transport.json"
+            "template": "target/generated-templates/physical/transporting/transporting.jsonld",
+            "package": "org.openprovenance.templates.physical",
+            "bindings": "src/main/resources/bindings0/physical/transporting.json"
         },
         {
             "@type": "simple",
-            "name": "handover",
-            "template": "target/generated-templates/responsibility/handover/handover.jsonld",
-            "package": "org.openprovenance.bk.physical",
-            "bindings": "src/main/resources/bindings0/responsibility/handover.json"
+            "name": "handingover",
+            "template": "target/generated-templates/responsibility/handingover/handingover.jsonld",
+            "package": "org.openprovenance.templates.physical",
+            "bindings": "src/main/resources/bindings0/responsibility/handingover.json"
         },
 
         {
             "@type": "simple",
             "name": "weighing",
             "template": "target/generated-templates/physical/weighing/weighing.jsonld",
-            "package": "org.openprovenance.bk.physical",
+            "package": "org.openprovenance.templates.physical",
             "bindings": "src/main/resources/bindings0/physical/weighing.json"
         },
         {
             "@type": "simple",
             "name": "agent_init",
             "template": "target/generated-templates/responsibility/agent-init/agent-location-init.jsonld",
-            "package": "org.openprovenance.bk.physical",
+            "package": "org.openprovenance.templates.physical",
             "bindings": "src/main/resources/bindings0/responsibility/agent-location-init.json"
         },
         {
             "@type": "simple",
             "name": "item_init",
             "template": "target/generated-templates/general/entity-init/entity-location-init.jsonld",
-            "package": "org.openprovenance.bk.physical",
+            "package": "org.openprovenance.templates.physical",
             "bindings": "src/main/resources/bindings0/physical/item-location-init.json"
         },
         {
             "@type": "simple",
             "name": "packing",
             "template": "target/generated-templates/physical/packing/packing.jsonld",
-            "package": "org.openprovenance.bk.physical",
+            "package": "org.openprovenance.templates.physical",
             "bindings": "src/main/resources/bindings0/physical/packing.json"
         },
         {
             "@type": "composite",
             "name": "packing_composite",
             "consistsOf": "packing",
-            "package": "org.openprovenance.bk.physical",
+            "package": "org.openprovenance.templates.physical",
             "sharing": ["container1", "adding"]
         },
 
@@ -73,14 +73,14 @@
             "@type": "simple",
             "name": "unpacking",
             "template": "target/generated-templates/physical/unpacking/unpacking.jsonld",
-            "package": "org.openprovenance.bk.physical",
+            "package": "org.openprovenance.templates.physical",
             "bindings": "src/main/resources/bindings0/physical/unpacking.json"
         },
         {
             "@type": "composite",
             "name": "unpacking_composite",
             "consistsOf": "unpacking",
-            "package": "org.openprovenance.bk.physical",
+            "package": "org.openprovenance.templates.physical",
             "sharing": ["container1", "removing"]
         }
 

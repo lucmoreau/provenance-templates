@@ -11,7 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.*;
 
-import static org.openprovenance.bk.physical.Init.pf;
+import static org.openprovenance.templates.physical.Init.pf;
 
 public class BoxTest extends TestCase {
     private final LocalEnactor templateInvoker;

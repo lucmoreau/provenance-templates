@@ -764,8 +764,8 @@
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-remove-from-collection.json</arg>
 
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-ptm-create-template.json</arg>
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-transport.json</arg>
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-responsibility-handover.json</arg>
+                                <arg>${project.basedir}/src/main/resources/ttfs/config-transporting.json</arg>
+                                <arg>${project.basedir}/src/main/resources/ttfs/config-responsibility-handingover.json</arg>
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-responsibility-examine.json</arg>
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-weighing.json</arg>
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-packing.json</arg>
@@ -846,8 +846,8 @@
                             <inputBaseDir>${project.basedir}</inputBaseDir>
                             <outputBaseDir>${project.build.directory}</outputBaseDir>
                             <configs>
-                                <config>src/main/resources/ttfs/config-transport.json</config>
-                                <config>src/main/resources/ttfs/config-responsibility-handover.json</config>
+                                <config>src/main/resources/ttfs/config-transporting.json</config>
+                                <config>src/main/resources/ttfs/config-responsibility-handingover.json</config>
                                 <config>src/main/resources/ttfs/config-responsibility-examine.json</config>
                                 <config>src/main/resources/ttfs/config-weighing.json</config>
                                 <config>src/main/resources/ttfs/config-packing.json</config>
@@ -1222,7 +1222,7 @@
                         <configuration>
                             <target>
                                 <!--
-                                <mkdir dir="${project.build.directory}/generated-sources/transport_template_library_cli/src/main/java"/> -->
+                                <mkdir dir="${project.build.directory}/generated-sources/transporting_template_library_cli/src/main/java"/> -->
                                 <move todir="${project.build.directory}/generated-sources/transport_template_library_cli">
                                     <fileset dir="${project.build.directory}/transport_template_library/transport_template_library_cli/src/main/java">
                                         <include name="**/*" />

@@ -2,8 +2,8 @@
 package org.openprovenance.bookptm;
 
 
-import org.openprovenance.bk.physical.client.common.*;
-import org.openprovenance.bk.physical.client.configurator.TableConfigurator;
+import org.openprovenance.templates.physical.client.common.*;
+import org.openprovenance.templates.physical.client.configurator.TableConfigurator;
 import org.openprovenance.prov.template.log2prov.FileBuilder;
 
 import java.util.Arrays;
@@ -32,12 +32,12 @@ public class TableConfiguratorForSuccessors implements TableConfigurator<Map<Str
     }
 
     @Override
-    public Map<String, List<String>> handover(HandoverBuilder builder) {
-        String[] order=HandoverBuilder.propertyOrder;
-        return HandoverBuilder.__successors.keySet().stream()
+    public Map<String, List<String>> handingover(HandingoverBuilder builder) {
+        String[] order=HandingoverBuilder.propertyOrder;
+        return HandingoverBuilder.__successors.keySet().stream()
                 .collect(Collectors.toMap(
                         k -> order[k],
-                        k -> Arrays.stream(HandoverBuilder.__successors.get(k))
+                        k -> Arrays.stream(HandingoverBuilder.__successors.get(k))
                                 .mapToObj(v -> order[v])
                                 .collect(Collectors.toList())));
     }

@@ -2,7 +2,7 @@ package org.openprovenance.bookptm;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openprovenance.bk.physical.client.integrator.TemplateInvoker;
+import org.openprovenance.templates.physical.client.integrator.TemplateInvoker;
 import org.springframework.core.ParameterizedTypeReference;
 
 import java.util.Collections;

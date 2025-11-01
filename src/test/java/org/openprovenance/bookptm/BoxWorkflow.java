@@ -1,7 +1,7 @@
 package org.openprovenance.bookptm;
 
 
-import org.openprovenance.bk.physical.client.integrator.*;
+import org.openprovenance.templates.physical.client.integrator.*;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -135,19 +135,19 @@ public class BoxWorkflow {
         Agent_initOutputs agent_initOutputs1=templateInvoker.process(agent_initInputs1);
 
 
-        HandoverInputs handoverInputs=new HandoverInputs();
-        flowToFrom(handoverInputs, "item0", weighingOutputs1, "item1");
-        flowToFrom(handoverInputs, "item", box_initOutputs, "entity");
-        flowToFrom(handoverInputs, "receiver", agent_initOutputs1, "agent0");
-        flowToFrom(handoverInputs, "giver", agent_initOutputs0, "agent0");
-        handoverInputs.time=pickupTime;
-        HandoverOutputs handoverOutputs=templateInvoker.process(handoverInputs);
-        generateConnections(handoverOutputs);
+        HandingoverInputs handingoverInputs=new HandingoverInputs();
+        flowToFrom(handingoverInputs, "item0", weighingOutputs1, "item1");
+        flowToFrom(handingoverInputs, "item", box_initOutputs, "entity");
+        flowToFrom(handingoverInputs, "receiver", agent_initOutputs1, "agent0");
+        flowToFrom(handingoverInputs, "giver", agent_initOutputs0, "agent0");
+        handingoverInputs.time=pickupTime;
+        HandingoverOutputs handingoverOutputs=templateInvoker.process(handingoverInputs);
+        generateConnections(handingoverOutputs);
 
 
 
         TransportingInputs transportingInputs=new TransportingInputs();
-        flowToFrom(transportingInputs, "item0", handoverOutputs, "item1");
+        flowToFrom(transportingInputs, "item0", handingoverOutputs, "item1");
         flowToFrom(transportingInputs, "item", box_initOutputs, "entity");
         flowToFrom(transportingInputs, "transporter", agent_initOutputs1, "agent0");
         transportingInputs.transporter=agent_initOutputs1.agent0;
@@ -163,14 +163,14 @@ public class BoxWorkflow {
         agent_initInputs2.time=agent2Time;
         Agent_initOutputs agent_initOutputs2=templateInvoker.process(agent_initInputs2);
 
-        HandoverInputs handoverInputs2=new HandoverInputs();
-        flowToFrom(handoverInputs2, "item0", transportingOutputs, "item1");
-        flowToFrom(handoverInputs2, "item", box_initOutputs, "entity");
-        flowToFrom(handoverInputs2, "receiver", agent_initOutputs2, "agent0");
-        flowToFrom(handoverInputs2, "giver", agent_initOutputs1, "agent0");
-        handoverInputs2.time= handoverTime;
-        HandoverOutputs handoverOutputs2=templateInvoker.process(handoverInputs2);
-        generateConnections(handoverOutputs2);
+        HandingoverInputs handingoverInputs2=new HandingoverInputs();
+        flowToFrom(handingoverInputs2, "item0", transportingOutputs, "item1");
+        flowToFrom(handingoverInputs2, "item", box_initOutputs, "entity");
+        flowToFrom(handingoverInputs2, "receiver", agent_initOutputs2, "agent0");
+        flowToFrom(handingoverInputs2, "giver", agent_initOutputs1, "agent0");
+        handingoverInputs2.time= handoverTime;
+        HandingoverOutputs handingoverOutputs2=templateInvoker.process(handingoverInputs2);
+        generateConnections(handingoverOutputs2);
 
 
         // new agent-init for box owner
@@ -183,7 +183,7 @@ public class BoxWorkflow {
 
 
         WeighingInputs weighingInputs2=new WeighingInputs();
-        flowToFrom(weighingInputs2, "item0", handoverOutputs2, "item1");
+        flowToFrom(weighingInputs2, "item0", handingoverOutputs2, "item1");
         flowToFrom(weighingInputs2, "item", box_initOutputs, "entity");
         flowToFrom(weighingInputs2, "agent", agent_initOutputs2, "agent0");
         flowToFrom(weighingInputs2, "scale", agent_initOutputsS2, "agent0");
@@ -199,19 +199,19 @@ public class BoxWorkflow {
         agent_initInputs3.time=agent3Time;
         Agent_initOutputs agent_initOutputs3=templateInvoker.process(agent_initInputs3);
 
-        HandoverInputs handoverInputs3=new HandoverInputs();
-        flowToFrom(handoverInputs3, "item0", weighingOutputs2, "item1");
-        flowToFrom(handoverInputs3, "item", box_initOutputs, "entity");
-        flowToFrom(handoverInputs3, "receiver", agent_initOutputs3, "agent0");
-        flowToFrom(handoverInputs3, "giver", agent_initOutputs2, "agent0");
-        handoverInputs3.time=handoverTime2;
-        HandoverOutputs handoverOutputs3=templateInvoker.process(handoverInputs3);
-        generateConnections(handoverOutputs3);
+        HandingoverInputs handingoverInputs3=new HandingoverInputs();
+        flowToFrom(handingoverInputs3, "item0", weighingOutputs2, "item1");
+        flowToFrom(handingoverInputs3, "item", box_initOutputs, "entity");
+        flowToFrom(handingoverInputs3, "receiver", agent_initOutputs3, "agent0");
+        flowToFrom(handingoverInputs3, "giver", agent_initOutputs2, "agent0");
+        handingoverInputs3.time=handoverTime2;
+        HandingoverOutputs handingoverOutputs3=templateInvoker.process(handingoverInputs3);
+        generateConnections(handingoverOutputs3);
 
 
 
         TransportingInputs transportingInputs2=new TransportingInputs();
-        flowToFrom(transportingInputs2, "item0", handoverOutputs3, "item1");
+        flowToFrom(transportingInputs2, "item0", handingoverOutputs3, "item1");
         flowToFrom(transportingInputs2, "item", box_initOutputs, "entity");
         flowToFrom(transportingInputs2, "transporter", agent_initOutputs3, "agent0");
         transportingInputs2.time=deliveryTime;
@@ -228,14 +228,14 @@ public class BoxWorkflow {
 
 
 
-        HandoverInputs handoverInputs4=new HandoverInputs();
-        flowToFrom(handoverInputs4, "item0", transportingOutputs2, "item1");
-        flowToFrom(handoverInputs4, "item", box_initOutputs, "entity");
-        flowToFrom(handoverInputs4, "receiver", agent_initOutputs4, "agent0");
-        flowToFrom(handoverInputs4, "giver", agent_initOutputs3, "agent0");
-        handoverInputs4.time=deliveryTime;
-        HandoverOutputs handoverOutputs4=templateInvoker.process(handoverInputs4);
-        generateConnections(handoverOutputs4);
+        HandingoverInputs handingoverInputs4=new HandingoverInputs();
+        flowToFrom(handingoverInputs4, "item0", transportingOutputs2, "item1");
+        flowToFrom(handingoverInputs4, "item", box_initOutputs, "entity");
+        flowToFrom(handingoverInputs4, "receiver", agent_initOutputs4, "agent0");
+        flowToFrom(handingoverInputs4, "giver", agent_initOutputs3, "agent0");
+        handingoverInputs4.time=deliveryTime;
+        HandingoverOutputs handingoverOutputs4=templateInvoker.process(handingoverInputs4);
+        generateConnections(handingoverOutputs4);
         // at this point, the item is with the recipient
 
         // new agent-init for box owner
@@ -249,7 +249,7 @@ public class BoxWorkflow {
 
         // recipient weighing item
         WeighingInputs weighingInputs3=new WeighingInputs();
-        flowToFrom(weighingInputs3, "item0", handoverOutputs4, "item1");
+        flowToFrom(weighingInputs3, "item0", handingoverOutputs4, "item1");
         flowToFrom(weighingInputs3, "item", box_initOutputs, "entity");
         flowToFrom(weighingInputs3, "agent", agent_initOutputs4, "agent0");
         flowToFrom(weighingInputs3, "scale", agent_initOutputsS3, "agent0");
@@ -306,12 +306,12 @@ public class BoxWorkflow {
                 agent_initInputsS2, agent_initOutputsS2,
                 agent_initInputsS3, agent_initOutputsS3,
 
-                handoverInputs, handoverOutputs,
+                handingoverInputs, handingoverOutputs,
                 transportingInputs, transportingOutputs,
-                handoverInputs2, handoverOutputs2,
-                handoverInputs3, handoverOutputs3,
+                handingoverInputs2, handingoverOutputs2,
+                handingoverInputs3, handingoverOutputs3,
                 transportingInputs2, transportingOutputs2,
-                handoverInputs4, handoverOutputs4,
+                handingoverInputs4, handingoverOutputs4,
                 weighingInputs3, weighingOutputs3,
 
                 unpacking_compositeInputs, unpacking_compositeOutputs,

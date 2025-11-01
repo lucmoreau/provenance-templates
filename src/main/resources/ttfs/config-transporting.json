@@ -5,8 +5,8 @@
         "target/generated-templates/triangle2-sds",
         "target/generated-templates/triangle3-aga",
         "target/generated-templates/triangle6-ugm", "."],
-    "bindings_path": ["src/main/resources/bindings/physical/transport"],
-    "output_dir": "generated-templates/physical/transport",
+    "bindings_path": ["src/main/resources/bindings/physical/transporting"],
+    "output_dir": "generated-templates/physical/transporting",
     "variableMaps": ["./common-ns.json"],
 
 
@@ -15,44 +15,44 @@
             "type": "instantiate",
             "description": "Instantiating an triangle1-ugd pattern",
             "template": "triangle1-ugd.provn",
-            "output": "transport-ugd",
-            "bindings": "transport-ugd.json",
+            "output": "transporting-ugd",
+            "bindings": "transporting-ugd.json",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-transport-ugd.prov-csv"
+            "hasProvenance": "prov-transporting-ugd.prov-csv"
         },
 
         {
             "type": "instantiate",
             "description": "Instantiating an triangle3-aga (a) pattern",
             "template": "triangle3-aga.provn",
-            "output": "transport-aga-agent",
-            "bindings": "transport-aga-agent.json",
+            "output": "transporting-aga-agent",
+            "bindings": "transporting-aga-agent.json",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-transport-aga-agent.prov-csv"
+            "hasProvenance": "prov-transporting-aga-agent.prov-csv"
         },
 
         {
             "type": "instantiate",
             "description": "Instantiating an triangle2-sds pattern",
             "template": "triangle2-sds.provn",
-            "output": "transport-sds",
-            "bindings": "transport-sds.json",
+            "output": "transporting-sds",
+            "bindings": "transporting-sds.json",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-transport-sds.prov-csv"
+            "hasProvenance": "prov-transporting-sds.prov-csv"
         },
 
         {
             "type": "merge",
-            "description": "Merging all temporary transport outputs",
+            "description": "Merging all temporary transporting outputs",
             "addOutputDirToInputPath": true,
             "inputs": [
-                "transport-ugd.jsonld",
-                "transport-aga-agent.jsonld",
-                "transport-sds.jsonld"
+                "transporting-ugd.jsonld",
+                "transporting-aga-agent.jsonld",
+                "transporting-sds.jsonld"
             ],
-            "output": "transport",
+            "output": "transporting",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-transport.prov-csv"
+            "hasProvenance": "prov-transporting.prov-csv"
         }
     ]
 }
