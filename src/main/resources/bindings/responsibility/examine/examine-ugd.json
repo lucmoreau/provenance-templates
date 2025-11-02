@@ -20,14 +20,14 @@
         "prop2": [
             [
                 {
-                    "@id": "var:iprop"
+                    "@id": "var:iprop1"
                 }
             ]
         ],
         "evalue2": [
             [
                 {
-                    "@id": "var:ivalue"
+                    "@id": "var:ivalue1"
                 }
             ]
         ],

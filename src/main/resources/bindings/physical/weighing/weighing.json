@@ -34,6 +34,32 @@
             }
 
         ],
+        "iprop1": [
+            [
+                {
+                    "@id": "phys:lkw"
+                },
+                {
+                    "@id": "phys:massUnit"
+                },
+                {
+                    "@id": "var:iprop1"
+                }
+            ]
+        ],
+        "ivalue1": [
+            [
+                {
+                    "@id": "var:weight"
+                },
+                {
+                    "@id": "var:unit"
+                },
+                {
+                    "@id": "var:ivalue1"
+                }
+            ]
+        ],
         "time": [
             [
                 {
