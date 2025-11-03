@@ -3,12 +3,12 @@
 
         "entity1": [
             {
-                "@id": "var:entity0"
+                "@id": "var:e0"
             }
         ],
         "entity2": [
             {
-                "@id": "var:entity1"
+                "@id": "var:e1"
             }
         ],
         "activity": [
@@ -20,14 +20,14 @@
         "prop2": [
             [
                 {
-                    "@id": "var:iprop1"
+                    "@id": "var:eprop1"
                 }
             ]
         ],
         "evalue2": [
             [
                 {
-                    "@id": "var:ivalue1"
+                    "@id": "var:evalue1"
                 }
             ]
         ],

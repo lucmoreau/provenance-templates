@@ -3,12 +3,12 @@
 
         "entity": [
             {
-                "@id": "var:entity1"
+                "@id": "var:e1"
             }
         ],
         "agent": [
             {
-                "@id": "var:agent"
+                "@id": "var:instrument"
             }
         ],
         "activity": [
@@ -18,7 +18,7 @@
         ],
         "assoc": [
             {
-                "@id": "var:assoc1"
+                "@id": "var:assoc2"
             }
         ],
         "plan": [
@@ -36,7 +36,7 @@
         "assocpvalue": [
             [
                 {
-                    "@id": "resp:asAgent"
+                    "@id": "resp:asInstrument"
                 }
             ]
         ]

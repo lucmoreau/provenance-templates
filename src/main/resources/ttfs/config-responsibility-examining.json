@@ -6,8 +6,8 @@
         "target/generated-templates/triangle3-aga",
         "target/generated-templates/triangle4-aia",
         "target/generated-templates/triangle6-ugm", "."],
-    "bindings_path": ["src/main/resources/bindings/responsibility/examine"],
-    "output_dir": "generated-templates/responsibility/examine",
+    "bindings_path": ["src/main/resources/bindings/responsibility/examining"],
+    "output_dir": "generated-templates/responsibility/examining",
     "variableMaps": ["./common-ns.json"],
 
 
@@ -16,10 +16,10 @@
             "type": "instantiate",
             "description": "Instantiating an triangle1-ugd pattern",
             "template": "triangle1-ugd.provn",
-            "output": "examine-ugd",
-            "bindings": "examine-ugd.json",
+            "output": "examining-ugd",
+            "bindings": "examining-ugd.json",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-examine-ugd.prov-csv"
+            "hasProvenance": "prov-examining-ugd.prov-csv"
         },
 
 
@@ -27,57 +27,57 @@
             "type": "instantiate",
             "description": "Instantiating an triangle2-sds pattern",
             "template": "triangle2-sds.provn",
-            "output": "examine-sds",
-            "bindings": "examine-sds.json",
+            "output": "examining-sds",
+            "bindings": "examining-sds.json",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-examine-sds.prov-csv"
+            "hasProvenance": "prov-examining-sds.prov-csv"
         },
 
         {
             "type": "instantiate",
             "description": "Instantiating an triangle3-aga (a) pattern",
             "template": "triangle3-aga.provn",
-            "output": "examine-aga-agent",
-            "bindings": "examine-aga-agent.json",
+            "output": "examining-aga-agent",
+            "bindings": "examining-aga-agent.json",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-examine-aga-agent.prov-csv"
+            "hasProvenance": "prov-examining-aga-agent.prov-csv"
         },
 
         {
             "type": "instantiate",
             "description": "Instantiating an triangle3-aga (b) pattern",
             "template": "triangle3-aga.provn",
-            "output": "examine-aga-instrument",
-            "bindings": "examine-aga-instrument.json",
+            "output": "examining-aga-instrument",
+            "bindings": "examining-aga-instrument.json",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-examine-aga-instrument.prov-csv"
+            "hasProvenance": "prov-examining-aga-instrument.prov-csv"
         },
 
         {
             "type": "instantiate",
             "description": "Instantiating an delegation0 pattern",
             "template": "delegation0.jsonld",
-            "output": "examine-delegation",
-            "bindings": "examine-delegation.json",
+            "output": "examining-delegation",
+            "bindings": "examining-delegation.json",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-examine-delegation.prov-csv"
+            "hasProvenance": "prov-examining-delegation.prov-csv"
         },
 
 
         {
             "type": "merge",
-            "description": "Merging all temporary examine outputs",
+            "description": "Merging all temporary examining outputs",
             "addOutputDirToInputPath": true,
             "inputs": [
-                "examine-ugd.jsonld",
-                "examine-sds.jsonld",
-                "examine-aga-agent.jsonld",
-                "examine-aga-instrument.jsonld",
-                "examine-delegation.jsonld"
+                "examining-ugd.jsonld",
+                "examining-sds.jsonld",
+                "examining-aga-agent.jsonld",
+                "examining-aga-instrument.jsonld",
+                "examining-delegation.jsonld"
             ],
-            "output": "examine",
+            "output": "examining",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-examine.prov-csv"
+            "hasProvenance": "prov-examining.prov-csv"
         }
     ]
 }

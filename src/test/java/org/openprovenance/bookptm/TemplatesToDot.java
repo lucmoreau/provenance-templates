@@ -5,13 +5,13 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openprovenance.templates.physical.client.configurator.PropertyOrderConfigurator;
-import org.openprovenance.templates.physical.client.configurator.TableConfiguratorForTypesWithMap;
-import org.openprovenance.templates.physical.client.configurator.TableConfiguratorWithMap;
 import org.openprovenance.prov.dot.ProvToDot;
 import org.openprovenance.prov.model.*;
 import org.openprovenance.prov.model.exception.UncheckedException;
 import org.openprovenance.prov.template.log2prov.FileBuilder;
+import org.openprovenance.templates.physical.client.configurator.PropertyOrderConfigurator;
+import org.openprovenance.templates.physical.configurator.TableConfiguratorForTypesWithMap;
+import org.openprovenance.templates.physical.configurator.TableConfiguratorWithMap;
 
 import java.io.*;
 import java.util.*;

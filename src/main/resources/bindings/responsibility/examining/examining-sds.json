@@ -3,17 +3,17 @@
 
         "entity1": [
             {
-                "@id": "var:entity"
+                "@id": "var:e"
             }
         ],
         "entity2": [
             {
-                "@id": "var:entity0"
+                "@id": "var:e0"
             }
         ],
         "entity3": [
             {
-                "@id": "var:entity1"
+                "@id": "var:e1"
             }
         ],
         "activity": [

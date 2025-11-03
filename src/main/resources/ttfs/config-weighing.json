@@ -5,7 +5,7 @@
         "target/generated-templates/triangle2-sds",
         "target/generated-templates/triangle3-aga",
         "target/generated-templates/triangle6-ugm",
-        "target/generated-templates/responsibility/examine",
+        "target/generated-templates/responsibility/examining",
         "."],
     "bindings_path": ["src/main/resources/bindings/physical/weighing"],
     "output_dir": "generated-templates/physical/weighing",
@@ -16,7 +16,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle1-ugd pattern",
-            "template": "examine.provn",
+            "template": "examining.provn",
             "output": "weighing",
             "bindings": "weighing.json",
             "formats": ["jsonld","provn", "png", "svg"],
