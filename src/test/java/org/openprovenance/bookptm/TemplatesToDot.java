@@ -9,7 +9,7 @@ import org.openprovenance.prov.dot.ProvToDot;
 import org.openprovenance.prov.model.*;
 import org.openprovenance.prov.model.exception.UncheckedException;
 import org.openprovenance.prov.template.log2prov.FileBuilder;
-import org.openprovenance.templates.catalogue.transport.client.configurator.PropertyOrderConfigurator;
+import org.openprovenance.templates.catalogue.transport.configurator.PropertyOrderConfigurator;
 import org.openprovenance.templates.catalogue.transport.configurator.TableConfiguratorForTypesWithMap;
 import org.openprovenance.templates.catalogue.transport.configurator.TableConfiguratorWithMap;
 

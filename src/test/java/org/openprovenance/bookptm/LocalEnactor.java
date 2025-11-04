@@ -2,7 +2,7 @@ package org.openprovenance.bookptm;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.openprovenance.templates.catalogue.transport.client.integrator.BeanLocalEnactor2;
+import org.openprovenance.templates.catalogue.transport.integrator.BeanLocalEnactor2;
 import org.openprovenance.templates.physical.client.common.*;
 import org.openprovenance.templates.physical.client.integrator.*;
 import org.openprovenance.templates.responsibility.client.common.HandingoverBean;

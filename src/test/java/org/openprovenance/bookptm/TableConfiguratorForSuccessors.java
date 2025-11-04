@@ -2,7 +2,7 @@
 package org.openprovenance.bookptm;
 
 
-import org.openprovenance.templates.catalogue.transport.client.configurator.TableConfigurator;
+import org.openprovenance.templates.catalogue.transport.configurator.TableConfigurator;
 import org.openprovenance.templates.physical.client.common.*;
 import org.openprovenance.prov.template.log2prov.FileBuilder;
 import org.openprovenance.templates.responsibility.client.common.HandingoverBuilder;

@@ -1,7 +1,7 @@
 package org.openprovenance.bookptm;
 
 
-import org.openprovenance.templates.catalogue.transport.client.integrator.InputOutputProcessor;
+import org.openprovenance.templates.catalogue.transport.integrator.InputOutputProcessor;
 import org.openprovenance.templates.physical.client.integrator.*;
 import org.openprovenance.templates.responsibility.client.integrator.HandingoverInputs;
 import org.openprovenance.templates.responsibility.client.integrator.HandingoverOutputs;
