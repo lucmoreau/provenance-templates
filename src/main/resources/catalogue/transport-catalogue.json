@@ -4,7 +4,7 @@
     "destination": "target",
     "description": "PROV templates for prov template management",
     "version": "2.2.2-SNAPSHOT",
-    "root_package": "org.openprovenance.templates.physical",
+    "root_package": "org.openprovenance.templates.catalogue.transport",
     "script": "physical_run",
     "script_dir": "target/bin",
     "python_dir": "target/generated-python",
@@ -29,7 +29,7 @@
             "@type": "simple",
             "name": "handingover",
             "template": "target/generated-templates/responsibility/handingover/handingover.jsonld",
-            "package": "org.openprovenance.templates.physical",
+            "package": "org.openprovenance.templates.responsibility",
             "bindings": "src/main/resources/bindings0/responsibility/handingover.json"
         },
 

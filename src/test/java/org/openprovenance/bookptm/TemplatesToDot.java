@@ -9,16 +9,16 @@ import org.openprovenance.prov.dot.ProvToDot;
 import org.openprovenance.prov.model.*;
 import org.openprovenance.prov.model.exception.UncheckedException;
 import org.openprovenance.prov.template.log2prov.FileBuilder;
-import org.openprovenance.templates.physical.client.configurator.PropertyOrderConfigurator;
-import org.openprovenance.templates.physical.configurator.TableConfiguratorForTypesWithMap;
-import org.openprovenance.templates.physical.configurator.TableConfiguratorWithMap;
+import org.openprovenance.templates.catalogue.transport.client.configurator.PropertyOrderConfigurator;
+import org.openprovenance.templates.catalogue.transport.configurator.TableConfiguratorForTypesWithMap;
+import org.openprovenance.templates.catalogue.transport.configurator.TableConfiguratorWithMap;
 
 import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
 import static java.lang.Math.abs;
-import static org.openprovenance.templates.physical.client.logger.Logger.initializeBeanTable;
+import static org.openprovenance.templates.catalogue.transport.client.logger.Logger.initializeBeanTable;
 import static org.openprovenance.prov.model.NamespacePrefixMapper.DOT_NS;
 import static org.openprovenance.prov.template.compiler.common.Constants.INPUT;
 import static org.openprovenance.prov.template.compiler.common.Constants.OUTPUT;
@@ -69,7 +69,7 @@ public class TemplatesToDot extends ProvToDot {
         this.pf=pf;
         this.templateConnections = templateConnections;
         this.templateConnections.forEach(tc -> { tc.in_id=abs(tc.in_id); tc.out_id=abs(tc.out_id);});
-        this.ioMap = getIoMap(org.openprovenance.templates.physical.client.logger.Logger.ioMap);
+        this.ioMap = getIoMap(org.openprovenance.templates.catalogue.transport.client.logger.Logger.ioMap);
         this.style=style;
         this.principal=principal;
         this.id2array=id2array;
