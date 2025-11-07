@@ -1,6 +1,6 @@
 {
-    "template_path": ["templates/primitive", "."],
-    "bindings_path": ["bindings/algebra/triangle2-sds"],
+    "template_path": ["templates/org/openprovenance/templates/primitive", "."],
+    "bindings_path": ["bindings/org/openprovenance/bindings/algebra/triangle2-sds"],
     "output_dir": "generated-templates/triangle2-sds",
     "variableMaps": ["./common-ns.json"],
 

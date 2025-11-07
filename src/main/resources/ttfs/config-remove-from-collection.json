@@ -1,6 +1,6 @@
 {
-    "template_path": ["src/main/resources/templates/primitive", "target/generated-templates/triangle1-ugd", "."],
-    "bindings_path": ["src/main/resources/bindings/collections/remove"],
+    "template_path": ["src/main/resources/templates/org/openprovenance/templates/primitive", "target/generated-templates/triangle1-ugd", "."],
+    "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/collections/remove"],
     "output_dir": "generated-templates/collections-remove",
     "variableMaps": ["./common-ns.json"],
 

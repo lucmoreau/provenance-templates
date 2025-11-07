@@ -1,6 +1,6 @@
 {
-    "template_path": ["templates/primitive", "."],
-    "bindings_path": ["bindings/algebra/triangle4-aia"],
+    "template_path": ["templates/org/openprovenance/templates/primitive", "."],
+    "bindings_path": ["bindings/org/openprovenance/bindings/algebra/triangle4-aia"],
     "output_dir": "generated-templates/triangle4-aia",
     "variableMaps": ["./common-ns.json"],
 

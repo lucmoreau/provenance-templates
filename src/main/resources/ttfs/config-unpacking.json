@@ -1,14 +1,14 @@
 {
     "template_path": [
-        "src/main/resources/templates/primitive",
+        "src/main/resources/templates/org/openprovenance/templates/primitive",
         "target/generated-templates/triangle1-ugd",
         "target/generated-templates/triangle2-sds",
         "target/generated-templates/triangle3-aga",
         "target/generated-templates/triangle6-ugm",
         "target/generated-templates/collections-remove",
         "."],
-    "bindings_path": ["src/main/resources/bindings/physical/unpacking"],
-    "output_dir": "generated-templates/physical/unpacking",
+    "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/physical/unpacking"],
+    "output_dir": "generated-templates/org/openprovenance/templates/physical/unpacking",
     "variableMaps": ["./common-ns.json"],
 
 

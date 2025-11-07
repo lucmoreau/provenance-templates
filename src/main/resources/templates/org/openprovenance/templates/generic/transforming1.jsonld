@@ -19,11 +19,6 @@
       "var:agprops" : [ "var:agprop_values" ],
       "type" : [ "var:agtype" ]
     }, {
-      "@type" : "Agent",
-      "@id" : "var:responsible",
-      "var:rprops" : [ "var:rprop_values" ],
-      "type" : [ "var:rtype" ]
-    }, {
       "@type" : "Entity",
       "@id" : "var:input",
       "location" : [ "var:ilocation" ],
@@ -65,11 +60,6 @@
       "activity" : "var:activity",
       "agent" : "var:agent",
       "plan" : "var:plan"
-    }, {
-      "@type" : "Delegation",
-      "delegate" : "var:agent",
-      "responsible" : "var:responsible",
-      "activity" : "var:activity"
     }, {
       "@type" : "Attribution",
       "entity" : "var:output",

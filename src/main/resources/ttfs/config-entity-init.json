@@ -1,7 +1,7 @@
 {
-    "template_path": ["templates/primitive", "."],
-    "bindings_path": ["bindings/algebra/entity-init"],
-    "output_dir": "generated-templates/general/entity-init",
+    "template_path": ["templates/org/openprovenance/templates/primitive", "."],
+    "bindings_path": ["bindings/org/openprovenance/bindings/algebra/entity-init"],
+    "output_dir": "generated-templates/org/openprovenance/templates/general/entity-init",
     "variableMaps": ["./common-ns.json"],
 
 

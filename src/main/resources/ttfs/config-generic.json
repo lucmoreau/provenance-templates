@@ -1,6 +1,6 @@
 {
-    "template_path": ["src/main/resources/templates/generic"],
-    "bindings_path": ["src/main/resources/bindings/generic"],
+    "template_path": ["src/main/resources/templates/org/openprovenance/templates/generic"],
+    "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/generic"],
     "output_dir": "generated-templates/org/openprovenance/templates/generic",
 
     "variableMaps": ["./common-ns.json"],

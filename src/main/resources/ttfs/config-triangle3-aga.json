@@ -1,6 +1,6 @@
 {
-    "template_path": ["templates/primitive", "."],
-    "bindings_path": ["bindings/algebra/triangle3-aga"],
+    "template_path": ["templates/org/openprovenance/templates/primitive", "."],
+    "bindings_path": ["bindings/org/openprovenance/bindings/algebra/triangle3-aga"],
     "output_dir": "generated-templates/triangle3-aga",
     "variableMaps": ["./common-ns.json"],
 

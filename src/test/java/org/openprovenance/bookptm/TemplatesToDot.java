@@ -235,14 +235,14 @@ public class TemplatesToDot extends ProvToDot {
         for (RecordEntry linked_record : the_templates) {
             Integer simple = linked_record.key;
 
-            System.out.println("simple " + simple);
+            //System.out.println("simple " + simple);
             List<Object[]> simple_records = querySimple(linked_record.table, -simple, false, principal);
             the_records.addAll(simple_records);
         }
 
 
-        System.out.println("the_records: " + the_records);
-        System.out.println("the_records: " + id2array);
+        //System.out.println("the_records: " + the_records);
+        //System.out.println("the_records: " + id2array);
 
         Document result=constructDocument(the_records);
         return result;

@@ -1,6 +1,6 @@
 {
-    "template_path": ["templates/primitive", "."],
-    "bindings_path": ["bindings/algebra/triangle1-ugd"],
+    "template_path": ["templates/org/openprovenance/templates/primitive", "."],
+    "bindings_path": ["bindings/org/openprovenance/bindings/algebra/triangle1-ugd"],
     "output_dir": "generated-templates/triangle1-ugd",
     "variableMaps": ["./common-ns.json"],
 

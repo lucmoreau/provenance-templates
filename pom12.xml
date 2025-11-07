@@ -88,6 +88,7 @@
             <version>1.9.0</version>
         </dependency>
 
+        <!--
         <dependency>
             <groupId>org.openprovenance.prov</groupId>
             <artifactId>prov-template</artifactId>
@@ -95,13 +96,13 @@
             <classifier>template-library</classifier>
             <type>zip</type>
         </dependency>
+        -->
 
 
         <dependency>
             <groupId>org.jsweet</groupId>
             <artifactId>j4ts</artifactId>
             <version>2.0.0</version>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -122,6 +123,7 @@
 
 
     <build>
+
         <plugins>
             <plugin>
                 <groupId>org.jsweet</groupId>
@@ -152,6 +154,7 @@
                     <bundle>true</bundle>
                     <declaration>true</declaration>
                     <dtsOut>${project.build.directory}/resources/src/typings/${project.artifactId}/${project.version}</dtsOut>
+
                 </configuration>
             </plugin>
             <!--

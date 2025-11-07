@@ -19,6 +19,12 @@
         <package.name>transport_template_library</package.name>
         <package.name.cli>${package.name}_cli</package.name.cli>
         <package.name.l2p>${package.name}_l2p</package.name.l2p>
+
+        <templates.dir>${project.basedir}/src/main/resources/templates</templates.dir>
+        <bindings.dir>${project.basedir}/src/main/resources/bindings</bindings.dir>
+        <cbindings.dir>${project.basedir}/src/main/resources/cbindings</cbindings.dir>
+
+        <generated.templates.dir>${project.build.directory}/generated-templates</generated.templates.dir>
     </properties>
 
     <dependencies>
@@ -128,22 +134,22 @@
                         <configuration>
                             <warning>false</warning>
                             <args>
-                                <arg>${project.basedir}/src/main/resources/bindings/examples/add1.json</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/triangle/integer-division.json</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/examples/division-121-4.json</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/general/file-compression.json</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/primitive/file-entity.json</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/primitive/attribution-with-optionality.json</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/examples/derivation-e2-e0.json</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/examples/derivation-e0-e1.json</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/examples/derivation-e0-e1.json</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/examples/derivation-e0-e2.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/add1.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/triangle/integer-division.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/division-121-4.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/generic/file-compression.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/primitive/file-entity.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/primitive/attribution-with-optionality.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/derivation-e2-e0.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/derivation-e0-e1.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/derivation-e0-e1.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/derivation-e0-e2.json</arg>
 
-                                <arg>${project.basedir}/src/main/resources/bindings/ptm/create-template/create-template-triangle1-ugd.json</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/ptm/create-template/create-template-triangle3a-aga.json</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/ptm/create-template/create-template-triangle3b-aga.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/ptm/create-template/create-template-triangle1-ugd.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/ptm/create-template/create-template-triangle3a-aga.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/ptm/create-template/create-template-triangle3b-aga.json</arg>
 
-                                <arg>${project.basedir}/src/main/resources/bindings0/ptm/ptm-creating.json</arg>
+                                <arg>${cbindings.dir}/org/openprovenance/cbindings/ptm/ptm-creating.json</arg>
 
                             </args>
                         </configuration>
@@ -159,7 +165,7 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>${project.basedir}/src/main/resources/templates/triangle/usage-generation-derivation.jsonld</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/triangle/usage-generation-derivation.jsonld</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/usage-generation-derivation.svg</arg>
                             </args>
@@ -174,9 +180,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>${project.basedir}/src/main/resources/templates/triangle/usage-generation-derivation.jsonld</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/triangle/usage-generation-derivation.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/examples/add1.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/add1.json</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/add1.jsonld</arg>
                             </args>
@@ -209,9 +215,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>${project.basedir}/src/main/resources/templates/triangle/usage-generation-derivation.jsonld</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/triangle/usage-generation-derivation.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/triangle/integer-division.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/triangle/integer-division.json</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/integer-division.jsonld</arg>
                             </args>
@@ -246,7 +252,7 @@
                                 <arg>-infile</arg>
                                 <arg>${project.build.directory}/integer-division.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/examples/division-121-4.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/division-121-4.json</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/division-121-4.jsonld</arg>
                             </args>
@@ -270,7 +276,7 @@
 
 
                     <execution>
-                        <id>convert.general.unary.operation.svg</id>
+                        <id>convert.generic.unary.operation.svg</id>
                         <phase>test</phase>
                         <goals>
                             <goal>provconvert</goal>
@@ -278,14 +284,14 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>${project.basedir}/src/main/resources/templates/general/unary-operation-with-agent.jsonld</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/generic/unary-operation-with-agent.jsonld</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/unary-operation-with-agent.svg</arg>
                             </args>
                         </configuration>
                     </execution>
                     <execution>
-                        <id>instantiate.general.file.compression.jsonld</id>
+                        <id>instantiate.generic.file.compression.jsonld</id>
                         <phase>test</phase>
                         <goals>
                             <goal>provconvert</goal>
@@ -293,16 +299,16 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>${project.basedir}/src/main/resources/templates/general/unary-operation-with-agent.jsonld</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/generic/unary-operation-with-agent.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/general/file-compression.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/generic/file-compression.json</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/file-compression.jsonld</arg>
                             </args>
                         </configuration>
                     </execution>
                     <execution>
-                        <id>convert.general.file.compression.svg</id>
+                        <id>convert.generic.file.compression.svg</id>
                         <phase>test</phase>
                         <goals>
                             <goal>provconvert</goal>
@@ -328,7 +334,7 @@
                                 <arg>-infile</arg>
                                 <arg>${project.build.directory}/file-compression.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/examples/file-compression-no-agent-no-prop.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/file-compression-no-agent-no-prop.json</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/file-compression-no-agent-no-prop.jsonld</arg>
                             </args>
@@ -354,7 +360,7 @@
 
 
                     <execution>
-                        <id>instantiate.general.file.compression.no.agent.no.prop.jsonld</id>
+                        <id>instantiate.generic.file.compression.no.agent.no.prop.jsonld</id>
                         <phase>test</phase>
                         <goals>
                             <goal>provconvert</goal>
@@ -364,7 +370,7 @@
                                 <arg>-infile</arg>
                                 <arg>${project.build.directory}/file-compression.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/examples/file-compression-no-agent-no-prop.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/file-compression-no-agent-no-prop.json</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/file-compression-no-agent-no-prop.jsonld</arg>
                             </args>
@@ -382,9 +388,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>${project.basedir}/src/main/resources/templates/primitive/entity-with-attribute.jsonld</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/primitive/entity-with-attribute.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/primitive/file-entity.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/primitive/file-entity.json</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/file-entity.jsonld</arg>
                             </args>
@@ -400,7 +406,7 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>${project.basedir}/src/main/resources/templates/primitive/entity-with-attribute.jsonld</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/primitive/entity-with-attribute.jsonld</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/entity-with-attribute.svg</arg>
                             </args>
@@ -419,7 +425,7 @@
                                 <arg>-infile</arg>
                                 <arg>${project.build.directory}/file-entity.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/examples/file-100Gb.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/file-100Gb.json</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/file-100Gb.jsonld</arg>
                             </args>
@@ -467,9 +473,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>${project.basedir}/src/main/resources/templates/primitive/attribution.jsonld</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/primitive/attribution.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/primitive/attribution-with-optionality.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/primitive/attribution-with-optionality.json</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/attribution-with-optionality.jsonld</arg>
                             </args>
@@ -486,7 +492,7 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>${project.basedir}/src/main/resources/templates/primitive/attribution.jsonld</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/primitive/attribution.jsonld</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/attribution.svg</arg>
                             </args>
@@ -519,9 +525,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>${project.basedir}/src/main/resources/templates/primitive/simple-derivation.jsonld</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/primitive/simple-derivation.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/examples/derivation-e0-e1.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/derivation-e0-e1.json</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/derivation-e0-e1.jsonld</arg>
                             </args>
@@ -537,9 +543,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>${project.basedir}/src/main/resources/templates/primitive/simple-derivation.jsonld</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/primitive/simple-derivation.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/examples/derivation-e2-e0.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/derivation-e2-e0.json</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/derivation-e2-e0.jsonld</arg>
                             </args>
@@ -555,9 +561,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>${project.basedir}/src/main/resources/templates/primitive/simple-derivation.jsonld</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/primitive/simple-derivation.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/examples/derivation-e0-e2.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/derivation-e0-e2.json</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/derivation-e0-e2.jsonld</arg>
                             </args>
@@ -572,9 +578,9 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>${project.basedir}/src/main/resources/templates/primitive/simple-derivation.jsonld</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates//primitive/simple-derivation.jsonld</arg>
                                 <arg>-bindings</arg>
-                                <arg>${project.basedir}/src/main/resources/bindings/examples/derivation-e3-e2.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/derivation-e3-e2.json</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/derivation-e3-e2.jsonld</arg>
                             </args>
@@ -789,7 +795,7 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>${project.basedir}/src/main/resources/templates/primitive/entity0.jsonld</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/primitive/entity0.jsonld</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/entity0.provn</arg>
                             </args>
@@ -797,7 +803,7 @@
                     </execution>
 
                     <execution>
-                        <id>exec.process.template.triangles</id>
+                        <id>exec.process.templates.triangles</id>
                         <phase>generate-sources</phase>
                         <goals>
                             <goal>execute-ttf</goal>
@@ -821,7 +827,7 @@
                     </execution>
 
                     <execution>
-                        <id>exec.process.template.generic</id>
+                        <id>exec.process.templates.generic</id>
                         <phase>generate-sources</phase>
                         <goals>
                             <goal>execute-ttf</goal>
@@ -836,7 +842,7 @@
                     </execution>
 
                     <execution>
-                        <id>exec.process.template.collections</id>
+                        <id>exec.process.templates.collections</id>
                         <phase>generate-sources</phase>
                         <goals>
                             <goal>execute-ttf</goal>
@@ -855,7 +861,7 @@
 
 
                     <execution>
-                        <id>exec.process.template.physical</id>
+                        <id>exec.process.templates.physical</id>
                         <phase>generate-sources</phase>
                         <goals>
                             <goal>execute-ttf</goal>
@@ -886,7 +892,7 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>${project.build.directory}/generated-templates/triangle1-ugd/triangle1-ugd.provn</arg>
+                                <arg>${generated.templates.dir}/triangle1-ugd/triangle1-ugd.provn</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/triangle1-ugd.svg</arg>
                             </args>
@@ -901,7 +907,7 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>${project.build.directory}/generated-templates/triangle1-ugd/all.prov-csv</arg>
+                                <arg>${generated.templates.dir}/triangle1-ugd/all.prov-csv</arg>
                                 <arg>-log2prov</arg>
                                 <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
                                 <arg>-outfile</arg>
@@ -921,7 +927,7 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>${project.build.directory}/generated-templates/triangle3-aga/triangle3-aga.provn</arg>
+                                <arg>${generated.templates.dir}/triangle3-aga/triangle3-aga.provn</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/triangle3-aga.svg</arg>
                             </args>
@@ -938,7 +944,7 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>${project.build.directory}/generated-templates/triangle2-sds/triangle2-sds.jsonld</arg>
+                                <arg>${generated.templates.dir}/triangle2-sds/triangle2-sds.jsonld</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/triangle2-sds.svg</arg>
                             </args>
@@ -953,7 +959,7 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>${project.build.directory}/generated-templates/triangle3-aga/all.prov-csv</arg>
+                                <arg>${generated.templates.dir}/triangle3-aga/all.prov-csv</arg>
                                 <arg>-log2prov</arg>
                                 <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
                                 <arg>-outfile</arg>
@@ -971,7 +977,7 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>${project.build.directory}/generated-templates/triangle2-sds/all.prov-csv</arg>
+                                <arg>${generated.templates.dir}/triangle2-sds/all.prov-csv</arg>
                                 <arg>-log2prov</arg>
                                 <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
                                 <arg>-outfile</arg>
@@ -989,7 +995,7 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>${project.build.directory}/generated-templates/triangle6-ugm/all.prov-csv</arg>
+                                <arg>${generated.templates.dir}/triangle6-ugm/all.prov-csv</arg>
                                 <arg>-log2prov</arg>
                                 <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
                                 <arg>-outfile</arg>
@@ -1024,7 +1030,7 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>${project.build.directory}/generated-templates/triangle4-aia/triangle4-aia.provn</arg>
+                                <arg>${generated.templates.dir}/triangle4-aia/triangle4-aia.provn</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/triangle4-aia.svg</arg>
                             </args>
@@ -1040,7 +1046,7 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>${project.build.directory}/generated-templates/triangle6-ugm/triangle6-ugm.jsonld</arg>
+                                <arg>${generated.templates.dir}/triangle6-ugm/triangle6-ugm.jsonld</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/triangle6-ugm.svg</arg>
                             </args>
@@ -1055,7 +1061,7 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>${project.build.directory}/generated-templates/triangle4-aia/all.prov-csv</arg>
+                                <arg>${generated.templates.dir}/triangle4-aia/all.prov-csv</arg>
                                 <arg>-log2prov</arg>
                                 <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
                                 <arg>-outfile</arg>
@@ -1076,7 +1082,7 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>${project.build.directory}/generated-templates/collections-insert/collection-insert.jsonld</arg>
+                                <arg>${generated.templates.dir}/collections-insert/collection-insert.jsonld</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/collection-insert.svg</arg>
                             </args>
@@ -1093,7 +1099,7 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>${project.build.directory}/generated-templates/collections-remove/collection-remove.jsonld</arg>
+                                <arg>${generated.templates.dir}/collections-remove/collection-remove.jsonld</arg>
                                 <arg>-outfile</arg>
                                 <arg>${project.build.directory}/collection-remove.svg</arg>
                             </args>
@@ -1163,7 +1169,7 @@
                             <executable>bash</executable>
                             <arguments>
                                 <argument>-c</argument>
-                                <argument>cat ${project.build.directory}/generated-templates/triangle1-ugd/prov-*.prov-csv &gt; ${project.build.directory}/generated-templates/triangle1-ugd/all.prov-csv</argument>
+                                <argument>cat ${generated.templates.dir}/triangle1-ugd/prov-*.prov-csv &gt; ${generated.templates.dir}/triangle1-ugd/all.prov-csv</argument>
                             </arguments>
                         </configuration>
                     </execution>
@@ -1177,7 +1183,7 @@
                             <executable>bash</executable>
                             <arguments>
                                 <argument>-c</argument>
-                                <argument>cat ${project.build.directory}/generated-templates/triangle3-aga/prov-*.prov-csv &gt; ${project.build.directory}/generated-templates/triangle3-aga/all.prov-csv</argument>
+                                <argument>cat ${generated.templates.dir}/triangle3-aga/prov-*.prov-csv &gt; ${generated.templates.dir}/triangle3-aga/all.prov-csv</argument>
                             </arguments>
                         </configuration>
                     </execution>
@@ -1191,7 +1197,7 @@
                             <executable>bash</executable>
                             <arguments>
                                 <argument>-c</argument>
-                                <argument>cat ${project.build.directory}/generated-templates/triangle2-sds/prov-*.prov-csv &gt; ${project.build.directory}/generated-templates/triangle2-sds/all.prov-csv</argument>
+                                <argument>cat ${generated.templates.dir}/triangle2-sds/prov-*.prov-csv &gt; ${generated.templates.dir}/triangle2-sds/all.prov-csv</argument>
                             </arguments>
                         </configuration>
                     </execution>
@@ -1206,7 +1212,7 @@
                             <executable>bash</executable>
                             <arguments>
                                 <argument>-c</argument>
-                                <argument>cat ${project.build.directory}/generated-templates/triangle4-aia/prov-*.prov-csv &gt; ${project.build.directory}/generated-templates/triangle4-aia/all.prov-csv</argument>
+                                <argument>cat ${generated.templates.dir}/triangle4-aia/prov-*.prov-csv &gt; ${generated.templates.dir}/triangle4-aia/all.prov-csv</argument>
                             </arguments>
                         </configuration>
                     </execution>
@@ -1220,7 +1226,7 @@
                             <executable>bash</executable>
                             <arguments>
                                 <argument>-c</argument>
-                                <argument>cat ${project.build.directory}/generated-templates/triangle6-ugm/prov-*.prov-csv &gt; ${project.build.directory}/generated-templates/triangle6-ugm/all.prov-csv</argument>
+                                <argument>cat ${generated.templates.dir}/triangle6-ugm/prov-*.prov-csv &gt; ${generated.templates.dir}/triangle6-ugm/all.prov-csv</argument>
                             </arguments>
                         </configuration>
                     </execution>
@@ -1280,6 +1286,7 @@
                         </configuration>
                     </execution>
                     <execution>
+
                         <id>antrun-jsweet</id>
                         <phase>generate-sources</phase>
                         <goals>
