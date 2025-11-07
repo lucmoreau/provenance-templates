@@ -1,0 +1,79 @@
+{
+  "@context" : [ {
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "vargen" : "http://openprovenance.org/vargen#",
+    "tmpl" : "http://openprovenance.org/tmpl#",
+    "prov" : "http://www.w3.org/ns/prov#",
+    "var" : "http://openprovenance.org/var#"
+  }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+  "@graph" : [ {
+    "@type" : "Bundle",
+    "@context" : [ {
+      "xsd" : "http://www.w3.org/2001/XMLSchema#",
+      "prov" : "http://www.w3.org/ns/prov#"
+    }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+    "@id" : "vargen:view",
+    "@graph" : [ {
+      "@type" : "Agent",
+      "@id" : "var:agent",
+      "var:agprops" : [ "var:agprop_values" ],
+      "type" : [ "var:agtype" ]
+    }, {
+      "@type" : "Agent",
+      "@id" : "var:responsible",
+      "var:rprops" : [ "var:rprop_values" ],
+      "type" : [ "var:rtype" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "var:input",
+      "location" : [ "var:ilocation" ],
+      "var:iprops" : [ "var:iprop_values" ],
+      "type" : [ "var:itype" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "var:output",
+      "var:oprops" : [ "var:oprop_values" ],
+      "location" : [ "var:olocation" ],
+      "type" : [ "var:otype" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "var:plan",
+      "type" : [ "var:ptype" ],
+      "var:pprops" : [ "var:pprop_values" ]
+    }, {
+      "@type" : "Activity",
+      "@id" : "var:activity",
+      "tmpl:startTime" : [ "var:start" ],
+      "var:aprops" : [ "var:aprop_values" ],
+      "tmpl:endTime" : [ "var:end" ],
+      "type" : [ "var:atype" ]
+    }, {
+      "@type" : "Usage",
+      "activity" : "var:activity",
+      "entity" : "var:input"
+    }, {
+      "@type" : "Generation",
+      "entity" : "var:output",
+      "activity" : "var:activity"
+    }, {
+      "@type" : "Derivation",
+      "generatedEntity" : "var:output",
+      "usedEntity" : "var:input",
+      "activity" : "var:activity"
+    }, {
+      "@type" : "Association",
+      "activity" : "var:activity",
+      "agent" : "var:agent",
+      "plan" : "var:plan"
+    }, {
+      "@type" : "Delegation",
+      "delegate" : "var:agent",
+      "responsible" : "var:responsible",
+      "activity" : "var:activity"
+    }, {
+      "@type" : "Attribution",
+      "entity" : "var:output",
+      "agent" : "var:agent"
+    } ]
+  } ]
+}

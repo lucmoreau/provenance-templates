@@ -754,6 +754,8 @@
                         </goals>
                         <configuration>
                             <args>
+                                <arg>${project.basedir}/src/main/resources/ttfs/config-generic.json</arg>
+
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-triangle1-ugd.json</arg>
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-triangle2-sds.json</arg>
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-triangle3-aga.json</arg>
@@ -804,6 +806,7 @@
                             <inputBaseDir>${project.basedir}/src/main/resources</inputBaseDir>
                             <outputBaseDir>${project.build.directory}</outputBaseDir>
                             <configs>
+
                                 <config>ttfs/config-triangle1-ugd.json</config>
                                 <config>ttfs/config-triangle2-sds.json</config>
                                 <config>ttfs/config-triangle3-aga.json</config>
@@ -813,6 +816,21 @@
                                 <config>ttfs/config-entity-init.json</config>
                                 <config>ttfs/config-responsibility-agent-init.json</config>
 
+                            </configs>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>exec.process.template.generic</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>execute-ttf</goal>
+                        </goals>
+                        <configuration>
+                            <inputBaseDir>${project.basedir}</inputBaseDir>
+                            <outputBaseDir>${project.build.directory}</outputBaseDir>
+                            <configs>
+                                <config>src/main/resources/ttfs/config-generic.json</config>
                             </configs>
                         </configuration>
                     </execution>
