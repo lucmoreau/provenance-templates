@@ -13,7 +13,7 @@
         "prop": [
             [
                 {
-                    "@id": "var:prop"
+                    "@id": "var:eprop"
                 },
                 {
                     "@id": "prov:type"
@@ -22,7 +22,7 @@
             ],
             [
                 {
-                    "@id": "var:prop0"
+                    "@id": "var:eprop0"
                 },
                 {
                     "@id": "phys:lkl"

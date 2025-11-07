@@ -13,12 +13,12 @@
         "prop": [
             [
                 {
-                    "@id": "var:prop"
+                    "@id": "var:eprop"
                 }
             ],
             [
                 {
-                    "@id": "var:prop0"
+                    "@id": "var:eprop0"
                 }
             ]
         ],

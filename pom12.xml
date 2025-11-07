@@ -138,7 +138,7 @@
                 </executions>
                 <configuration>
                     <compileSourceRootsOverride>${project.build.directory}/generated-sources/${package.name}_cli</compileSourceRootsOverride>
-                    <verbose>true</verbose>
+                    <verbose>false</verbose>
                     <outDir>${project.build.directory}/js</outDir>
                     <tsOut>${project.build.directory}/ts</tsOut>
                     <candiesJsOut>target/webapp/candies</candiesJsOut>

@@ -12,7 +12,7 @@
       "@id" : "vargen:b",
       "@graph" : [ {
         "@type" : "Membership",
-        "@id" : "var:mid",
+        "@id" : "var:mem",
         "entity" : ["var:entity"],
         "collection" : "var:collection",
         "var:mprop" : [ "var:mvalue" ]
