@@ -1,0 +1,64 @@
+{
+    "template_path": ["src/main/resources/templates/org/openprovenance/templates/generic"],
+    "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/generic/fs"],
+    "output_dir": "generated-templates/org/openprovenance/templates/fs",
+
+    "variableMaps": ["./common-ns.json"],
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "template": "transforming1.provn",
+            "output": "file-transforming",
+            "bindings": "file-transforming.json",
+            "formats": ["jsonld", "provn", "png"],
+            "hasProvenance": "prov-file-transforming.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "template": "transforming1.provn",
+            "output": "file-validating",
+            "bindings": "file-validating.json",
+            "formats": ["jsonld", "provn", "png"],
+            "hasProvenance": "prov-file-validating.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "template": "transforming1.provn",
+            "output": "file-training",
+            "bindings": "file-training.json",
+            "formats": ["jsonld", "provn", "png"],
+            "hasProvenance": "prov-file-training.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "template": "transforming1.provn",
+            "output": "file-filtering",
+            "bindings": "file-filtering.json",
+            "formats": ["jsonld", "provn", "png"],
+            "hasProvenance": "prov-file-filtering.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "template": "product2-2.provn",
+            "template_path": ["target/generated-templates/org/openprovenance/templates/generic"],
+            "output": "file-approving",
+            "bindings": "file-approving.json",
+            "formats": ["jsonld", "provn", "png"],
+            "hasProvenance": "prov-file-approving.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "template": "forking2.provn",
+            "template_path": ["target/generated-templates/org/openprovenance/templates/generic"],
+            "output": "file-splitting",
+            "bindings": "file-splitting.json",
+            "formats": ["jsonld", "provn", "png"],
+            "hasProvenance": "prov-file-splitting.prov-csv"
+        }
+    ]
+
+
+}
+
+

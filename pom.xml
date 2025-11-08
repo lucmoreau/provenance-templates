@@ -761,6 +761,8 @@
                         <configuration>
                             <args>
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-generic.json</arg>
+                                <arg>${project.basedir}/src/main/resources/ttfs/config-fs.json</arg>
+                                <arg>${project.basedir}/src/main/resources/ttfs/config-ptm.json</arg>
 
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-triangle1-ugd.json</arg>
                                 <arg>${project.basedir}/src/main/resources/ttfs/config-triangle2-sds.json</arg>
@@ -837,6 +839,8 @@
                             <outputBaseDir>${project.build.directory}</outputBaseDir>
                             <configs>
                                 <config>src/main/resources/ttfs/config-generic.json</config>
+                                <config>src/main/resources/ttfs/config-fs.json</config>
+                                <config>src/main/resources/ttfs/config-ptm.json</config>
                             </configs>
                         </configuration>
                     </execution>
@@ -1115,6 +1119,7 @@
                         </goals>
                         <configuration>
                             <args>
+                                <arg>${project.basedir}/src/main/resources/catalogue/fs-catalogue.json</arg>
                                 <arg>${project.basedir}/src/main/resources/catalogue/ptm-catalogue.json</arg>
                             </args>
                         </configuration>
@@ -1130,8 +1135,9 @@
                         <configuration>
                             <baseDir>${project.basedir}</baseDir>
                             <configs>
-                                <config>${project.basedir}/src/main/resources/catalogue/ptm-catalogue.json</config>
                                 <config>${project.basedir}/src/main/resources/catalogue/transport-catalogue.json</config>
+                                <config>${project.basedir}/src/main/resources/catalogue/fs-catalogue.json</config>
+                                <config>${project.basedir}/src/main/resources/catalogue/ptm-catalogue.json</config>
                             </configs>
                         </configuration>
                     </execution>
@@ -1247,16 +1253,38 @@
                             <target>
                                 <!--
                                 <mkdir dir="${project.build.directory}/generated-sources/transporting_template_library_cli/src/main/java"/> -->
-                                <move todir="${project.build.directory}/generated-sources/transport_template_library_cli">
+                                <move todir="${project.build.directory}/generated-sources/${package.name.cli}">
                                     <fileset dir="${project.build.directory}/transport_template_library/transport_template_library_cli/src/main/java">
                                         <include name="**/*" />
                                     </fileset>
                                 </move>
-                                <move todir="${project.build.directory}/generated-sources/transport_template_library_l2p">
+                                <move todir="${project.build.directory}/generated-sources/${package.name.l2p}">
                                     <fileset dir="${project.build.directory}/transport_template_library/transport_template_library_l2p/src/main/java">
                                         <include name="**/*" />
                                     </fileset>
                                 </move>
+                                <move todir="${project.build.directory}/generated-sources/${package.name.cli}">
+                                    <fileset dir="${project.build.directory}/fs_template_library/fs_template_library_cli/src/main/java">
+                                        <include name="**/*" />
+                                    </fileset>
+                                </move>
+                                <move todir="${project.build.directory}/generated-sources/${package.name.l2p}">
+                                    <fileset dir="${project.build.directory}/fs_template_library/fs_template_library_l2p/src/main/java">
+                                        <include name="**/*" />
+                                    </fileset>
+                                </move>
+
+                                <move todir="${project.build.directory}/generated-sources/${package.name.cli}">
+                                    <fileset dir="${project.build.directory}/ptm_template_library/ptm_template_library_cli/src/main/java">
+                                        <include name="**/*" />
+                                    </fileset>
+                                </move>
+                                <move todir="${project.build.directory}/generated-sources/${package.name.l2p}">
+                                    <fileset dir="${project.build.directory}/ptm_template_library/ptm_template_library_l2p/src/main/java">
+                                        <include name="**/*" />
+                                    </fileset>
+                                </move>
+
                                 <!--
                                 <copy todir="${project.build.directory}/templates">
                                     <fileset dir="src/main/resources/templates/iso14001">

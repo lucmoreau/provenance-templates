@@ -1,0 +1,98 @@
+{
+	"group": "org.openprovenance.templates.fs",
+	"name": "fs_template_library",
+	"destination": "target",
+	"description": "PROV templates for plead ML pipeline",
+	"version": "0.1.0",
+	"root_package": "org.openprovenance.templates.catalogue.fs",
+	"search": ["activity", "file", "agent", "method", "score", "approval_record"],
+	"script": "ptm_file_run",
+	"script_dir": "target/bin",
+	"python_dir": "target/generated-python",
+	"integrator": true,
+	"jsweet": true,
+	"jsonschema": "schema-fs.json",
+	"documentation": "doc-fs.html",
+	"sqlFile": "prov-template-library-fs.sql",
+	"templates" : [
+
+		{
+			"@type": "simple",
+			"name": "file_transforming",
+			"template": "target/generated-templates/org/openprovenance/templates/fs/file-transforming.jsonld",
+			"package": "org.openprovenance.templates.fs",
+			"bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/fs/file-transforming.json"
+		},
+
+		{
+			"@type": "simple",
+			"name": "file_filtering",
+			"template": "target/generated-templates/org/openprovenance/templates/fs/file-filtering.provn",
+			"package": "org.openprovenance.templates.fs",
+			"bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/fs/file-filtering.json"
+		},
+		{
+			"@type": "simple",
+			"name": "file_training",
+			"template": "target/generated-templates/org/openprovenance/templates/fs/file-training.provn",
+			"package": "org.openprovenance.templates.fs",
+			"bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/fs/file-training.json"
+		},
+		{
+			"@type": "simple",
+			"name": "file_validating",
+			"template": "target/generated-templates/org/openprovenance/templates/fs/file-validating.provn",
+			"package": "org.openprovenance.templates.fs",
+			"bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/fs/file-validating.json"
+		},
+		{
+			"@type": "simple",
+			"name": "file_approving",
+			"template": "target/generated-templates/org/openprovenance/templates/fs/file-approving.provn",
+			"package": "org.openprovenance.templates.fs",
+			"bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/fs/file-approving.json"
+		},
+		{
+			"@type": "simple",
+			"name": "file_splitting",
+			"template": "target/generated-templates/org/openprovenance/templates/fs/file-splitting.provn",
+			"package": "org.openprovenance.templates.fs",
+			"bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/fs/file-splitting.json"
+		},
+
+		{
+			"@type": "composite",
+			"name": "file_transforming_composite",
+			"consistsOf": "file_transforming",
+			"package": "org.openprovenance.templates.fs",
+			"sharing": ["transformed_file", "transforming"]
+		}
+	],
+	"sql.tables":  {
+		"file": {
+			"id": "SERIAL",
+			"created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+		},
+		"agent": {
+			"id": "SERIAL",
+			"created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+		},
+		"score": {
+			"id": "SERIAL",
+			"created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+		},
+		"approval_record": {
+			"id": "SERIAL",
+			"created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+		},
+		"activity": {
+			"id": "SERIAL",
+			"created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+		},
+		"method": {
+			"id": "SERIAL",
+			"serial": "INT",
+			"created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+		}
+	}
+}

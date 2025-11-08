@@ -123,7 +123,7 @@
             "@documentation": "template property",
             "@input": "optional"
         }]],
-        "assoc1": [
+        "asc1": [
             {
                 "@id": "assoc:assoc*",
                 "@type": "xsd:int",
