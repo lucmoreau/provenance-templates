@@ -1,0 +1,70 @@
+{
+    "template_path": [
+        "IGNOREME/src/main/resources/templates/org/openprovenance/templates/ptm/creating-template",
+        "target/generated-templates/org/openprovenance/templates/triangles/triangle1-ugd",
+        "target/generated-templates/org/openprovenance/templates/triangles/triangle3-aga",
+        "."],
+    "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/ptm/creating-template"],
+    "output_dir": "generated-templates/org/openprovenance/templates/ptm/creating-template",
+    "variableMaps": ["./common-ns.json"],
+
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle1-ugd pattern",
+            "template": "triangle1-ugd.provn",
+            "output": "creating-template-triangle1-ugd",
+            "bindings": "creating-template-triangle1-ugd.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "creating-template-triangle1-ugd.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle3-aga (a) pattern",
+            "template": "triangle3-aga.provn",
+            "output": "creating-template-triangle3a-aga",
+            "bindings": "creating-template-triangle3a-aga.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "creating-template-triangle3a-aga.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle3-aga (b) pattern",
+            "template": "triangle3-aga.provn",
+            "output": "creating-template-triangle3b-aga",
+            "bindings": "creating-template-triangle3b-aga.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "creating-template-triangle3b-aga.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle3-aga (c) pattern",
+            "template": "triangle3-aga.provn",
+            "output": "creating-template-triangle3c-aga",
+            "bindings": "creating-template-triangle3c-aga.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "creating-template-triangle3c-aga.prov-csv"
+        },
+        {
+            "type": "merge",
+            "description": "Merging all creating-template triangle outputs",
+            "addOutputDirToInputPath": true,
+            "inputs": [
+                "creating-template-triangle1-ugd.jsonld",
+                "creating-template-triangle3a-aga.jsonld",
+                "creating-template-triangle3b-aga.jsonld",
+                "creating-template-triangle3c-aga.jsonld"
+            ],
+            "output": "creating-template",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "ptm-creating-template.prov-csv"
+        }
+
+
+
+
+    ]
+}

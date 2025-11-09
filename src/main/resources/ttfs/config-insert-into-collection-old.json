@@ -1,7 +1,11 @@
 {
-    "template_path": ["src/main/resources/templates/org/openprovenance/templates/primitive", "target/generated-templates/triangle1-ugd", "target/generated-templates/triangle6-ugm", "."],
+    "template_path": [
+        "src/main/resources/templates/org/openprovenance/templates/primitive",
+        "target/generated-templates/org/openprovenance/templates/triangles/triangle1-ugd",
+        "target/generated-templates/org/openprovenance/templates/triangles/triangle6-ugm",
+        "."],
     "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/collections/insert-old"],
-    "output_dir": "generated-templates/collections-insert-old",
+    "output_dir": "generated-templates/org/openprovenance/templates/collections/insert-old",
     "variableMaps": ["./common-ns.json"],
 
 

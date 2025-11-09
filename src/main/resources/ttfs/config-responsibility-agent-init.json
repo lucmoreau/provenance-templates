@@ -1,7 +1,7 @@
 {
     "template_path": ["templates/org/openprovenance/templates/primitive", "."],
-    "bindings_path": ["bindings//org/openprovenance/bindings/responsibility/agent-init"],
-    "output_dir": "generated-templates/responsibility/agent-init",
+    "bindings_path": ["bindings/org/openprovenance/bindings/responsibility/agent-init"],
+    "output_dir": "generated-templates/org/openprovenance/templates/responsibility/agent-init",
     "variableMaps": ["./common-ns.json"],
 
 

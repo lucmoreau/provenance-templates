@@ -30,7 +30,7 @@
         {
             "@type": "simple",
             "name": "handingover",
-            "template": "target/generated-templates/responsibility/handingover/handingover.jsonld",
+            "template": "target/generated-templates/org/openprovenance/templates/responsibility/handingover/handingover.jsonld",
             "package": "org.openprovenance.templates.responsibility",
             "bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/responsibility/handingover.json"
         },
@@ -45,7 +45,7 @@
         {
             "@type": "simple",
             "name": "agent_init",
-            "template": "target/generated-templates/responsibility/agent-init/agent-location-init.jsonld",
+            "template": "target/generated-templates/org/openprovenance/templates/responsibility/agent-init/agent-location-init.jsonld",
             "package": "org.openprovenance.templates.physical",
             "bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/responsibility/agent-location-init.json"
         },
