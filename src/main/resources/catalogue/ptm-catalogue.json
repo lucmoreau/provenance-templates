@@ -19,6 +19,7 @@
         {
             "@type": "simple",
             "name": "ptm_creating",
+            "fullyQualifiedName": "org.openprovenance.templates.ptm.CreatingTemplate",
             "template": "target/generated-templates/org/openprovenance/templates/ptm/creating-template/creating-template.jsonld",
             "package": "org.openprovenance.templates.ptm",
             "bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/ptm/ptm-creating.json"

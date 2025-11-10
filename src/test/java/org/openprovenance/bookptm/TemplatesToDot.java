@@ -179,14 +179,17 @@ public class TemplatesToDot extends ProvToDot {
         try {
             File dotFile=File.createTempFile("temp", ".dot");
             logger.info("dotFile: " + dotFile);
+            System.out.println("dotFile: " + dotFile);
             convert(graph, new PrintStream(new FileOutputStream(dotFile)) ,title);
             Runtime runtime = Runtime.getRuntime();
             Process proc = runtime.exec("dot  -Tsvg " + dotFile);
             InputStream is=proc.getInputStream();
             org.apache.commons.io.IOUtils.copy(is, os);
             logger.info("finished conversion to svg");
-            @SuppressWarnings("unused")
-            boolean resultCode=dotFile.delete();
+
+                    if (false) {
+                        boolean resultCode = dotFile.delete();
+                    }
         } catch (IOException e) {
             logger.throwing(e);
             throw new UncheckedException(e);
@@ -301,15 +304,27 @@ public class TemplatesToDot extends ProvToDot {
         if (title!=null) name=title;
         prelude(doc, out);
 
+
+        List<TemplateConnection> trimmedTemplateConnections = getTrimmedTemplateConnections();
+
+
         // pairs <template, templateInstance>
         Set<TemplateInfo> allTemplates = new HashSet<>();
-        for (TemplateConnection templateConnection : templateConnections) {
+        for (TemplateConnection templateConnection : trimmedTemplateConnections) {
             allTemplates.add(TemplateInfo.of(templateConnection.in_template, templateName(templateConnection.in_template, templateConnection.in_id),  url(templateConnection.in_template,  templateConnection.in_id)));
             allTemplates.add(TemplateInfo.of(templateConnection.out_template,templateName(templateConnection.out_template,templateConnection.out_id), url(templateConnection.out_template, templateConnection.out_id)));
         }
 
+
+
         Map<String, Map<String, String>> inputs=ioMap.get("input"); //templateDispatcher.getInputs();
         Map<String, Map<String, String>> outputs=ioMap.get("output"); //templateDispatcher.getOutputs();
+
+        // transform all keys in inputs, by retaining just the suffix following the last .
+        inputs = trimKeys(inputs);
+        outputs = trimKeys(outputs);
+        Map<String, Map<String, String>> baseTypes2=trimKeys(baseTypes);
+
 
 
         for (TemplateInfo templateInfo: allTemplates) {
@@ -317,7 +332,7 @@ public class TemplatesToDot extends ProvToDot {
 
             String template = templateInfo.template;
             String templateId = templateInfo.templateId;
-            Map<String, String> templateBaseTypes = baseTypes.get(template);
+            Map<String, String> templateBaseTypes = baseTypes2.get(template);
 
             List<String> inputsNames  = new ArrayList<>(inputs.getOrDefault(template,new HashMap<>()).keySet());
             List<String> inputPorts   = inputsNames.stream().map(s -> portName(template,templateId,s)).collect(Collectors.toList());
@@ -333,7 +348,7 @@ public class TemplatesToDot extends ProvToDot {
 
         }
 
-        for (TemplateConnection templateConnection : templateConnections) {
+        for (TemplateConnection templateConnection : trimmedTemplateConnections) {
             emitEdge(qualifiedPortName(templateConnection.in_template,  templateName(templateConnection.in_template, templateConnection.in_id),  templateConnection.in_property),
                      qualifiedPortName(templateConnection.out_template, templateName(templateConnection.out_template,templateConnection.out_id), templateConnection.out_property),
                      out);
@@ -342,6 +357,27 @@ public class TemplatesToDot extends ProvToDot {
         postlude(doc,out);
         out.close();
 
+    }
+
+    private List<TemplateConnection> getTrimmedTemplateConnections() {
+        List<TemplateConnection> trimmedTemplateConnections=templateConnections.stream().map(tc -> {
+            TemplateConnection tc2=new TemplateConnection();
+            tc2.in_template = tc.in_template.contains(".") ? tc.in_template.substring(tc.in_template.lastIndexOf(".") + 1) : tc.in_template;
+            tc2.out_template = tc.out_template.contains(".") ? tc.out_template.substring(tc.out_template.lastIndexOf(".") + 1) : tc.out_template;
+            tc2.in_id = tc.in_id;
+            tc2.out_id = tc.out_id;
+            tc2.in_property = tc.in_property;
+            tc2.out_property = tc.out_property;
+            return tc2;
+        }).collect(Collectors.toList());
+        return trimmedTemplateConnections;
+    }
+
+    private Map<String, Map<String, String>> trimKeys(Map<String, Map<String, String>> inputs) {
+        return inputs.entrySet().stream().collect(Collectors.toMap(
+                e -> e.getKey().contains(".") ? e.getKey().substring(e.getKey().lastIndexOf(".")+1) : e.getKey(),
+                Map.Entry::getValue
+        ));
     }
 
     String headstyle="invempty";
