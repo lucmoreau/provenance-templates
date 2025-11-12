@@ -109,11 +109,15 @@ public class LocalEnactor extends BeanLocalEnactor2 {
         id2array.put(out.ID, packingBean.process(new PackingBuilder().aArgs2RecordConverter()));
         csv.add(packingBean.process(new PackingBuilder().aArgs2CsVConverter));
 
+
+        /*
         try {
-            System.out.println(new ObjectMapper().writeValueAsString(packingBean));
+            logger.debug(new ObjectMapper().writeValueAsString(packingBean));
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
+
+         */
 
         return out;
     }
@@ -151,11 +155,14 @@ public class LocalEnactor extends BeanLocalEnactor2 {
         id2array.put(out.ID, unpackingBean.process(new UnpackingBuilder().aArgs2RecordConverter()));
         csv.add(unpackingBean.process(new UnpackingBuilder().aArgs2CsVConverter));
 
+        /*
         try {
             System.out.println(new ObjectMapper().writeValueAsString(unpackingBean));
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
+
+         */
 
         return out;
     }
