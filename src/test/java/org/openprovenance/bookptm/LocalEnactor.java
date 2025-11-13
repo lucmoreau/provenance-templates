@@ -52,6 +52,7 @@ public class LocalEnactor extends BeanLocalEnactor2 {
         return String.valueOf(newValue);
     }
 
+    /*
 
     public Packing_compositeOutputs process(Packing_compositeInputs bean) {
 
@@ -78,8 +79,15 @@ public class LocalEnactor extends BeanLocalEnactor2 {
     }
 
 
+     */
 
-    private PackingOutputs process(PackingInputs_1 input, Map<String, Map<Integer, Integer>> map) {
+
+    public PackingOutputs process(PackingInputs_1 input, Map<String, Map<Integer, Integer>> map) {
+
+        PackingOutputs out=super.process(input,map);
+
+        /*
+
         PackingOutputs out=new PackingOutputs();
         // for each field in shared list.
         // container1
@@ -103,28 +111,24 @@ public class LocalEnactor extends BeanLocalEnactor2 {
         out.item1=newIdentifier("item1","item"); // field, not in shared list
         out.ID = newIdentifier("template/packing","template/packing");
 
+         */
+
         PackingBean packingBean=merge(input, out);
         history.add(packingBean);
         id2object.put(out.ID, packingBean);
         id2array.put(out.ID, packingBean.process(new PackingBuilder().aArgs2RecordConverter()));
         csv.add(packingBean.process(new PackingBuilder().aArgs2CsVConverter));
 
-
-        /*
-        try {
-            logger.debug(new ObjectMapper().writeValueAsString(packingBean));
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-
-         */
-
         return out;
     }
 
 
 
-    private UnpackingOutputs process(UnpackingInputs_1 input, Map<String, Map<Integer, Integer>> map) {
+    public UnpackingOutputs process(UnpackingInputs_1 input, Map<String, Map<Integer, Integer>> map) {
+
+        UnpackingOutputs out=super.process(input,map);
+
+        /*
         UnpackingOutputs out=new UnpackingOutputs();
         if (map.get("container1")==null) {
             out.container1 = newIdentifier("container1","item");
@@ -148,6 +152,8 @@ public class LocalEnactor extends BeanLocalEnactor2 {
         out.ID = newIdentifier("template/unpacking","template/unpacking");
 
         out.ID = newIdentifier("template/unpacking","template/unpacking");
+
+         */
 
         UnpackingBean unpackingBean=merge(input, out);
         history.add(unpackingBean);
