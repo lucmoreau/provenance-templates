@@ -1136,7 +1136,11 @@
                             <goal>compile-catalogue</goal>
                         </goals>
                         <configuration>
-                            <baseDir>${project.basedir}</baseDir>
+                            <inputBaseDir>${project.basedir}</inputBaseDir>
+                            <outputBaseDir>${project.basedir}</outputBaseDir>
+                            <templateLibraryPath>${project.basedir}/src/main/resources/templates:${project.basedir}/target/generated-templates</templateLibraryPath>
+
+
                             <configs>
                                 <config>${project.basedir}/src/main/resources/catalogue/transport-catalogue.json</config>
                                 <config>${project.basedir}/src/main/resources/catalogue/fs-catalogue.json</config>

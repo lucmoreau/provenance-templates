@@ -52,124 +52,62 @@ public class LocalEnactor extends BeanLocalEnactor2 {
         return String.valueOf(newValue);
     }
 
-    /*
 
     public Packing_compositeOutputs process(Packing_compositeInputs bean) {
-
-        Packing_compositeOutputs out=new Packing_compositeOutputs();
-        Map<String,Map<Integer,Integer>> map= new HashMap<>() {{
-            put("container1", new HashMap<>());
-            put("adding", new HashMap<>());
-        }};
-
-        bean.__elements.forEach( in1 -> out.__addElements(process(in1,map)));
+        Packing_compositeOutputs out = super.process(bean);
+        Packing_compositeBean packingCompositeBean=merge(bean, out);
+        packingCompositeBean.type="org.openprovenance.templates.physical.Packing";
+        history.add(packingCompositeBean);
+        if (out.ID!=null) {
+            id2object.put(out.ID, packingCompositeBean);
+            id2array.put(out.ID, packingCompositeBean.process(new Packing_compositeBuilder().aArgs2RecordConverter));
+            id2array.put(out.ID, new Object[]{"packing compsite bean", "still", "need to be supported"});
+        } else {
+            System.out.println("Packing composite with null ID");
+        }
+        csv.add(packingCompositeBean.process(new Packing_compositeBuilder().aArgs2CsVConverter));
         return out;
     }
 
     public Unpacking_compositeOutputs process(Unpacking_compositeInputs bean) {
-
-        Unpacking_compositeOutputs out=new Unpacking_compositeOutputs();
-        Map<String,Map<Integer,Integer>> map= new HashMap<>() {{
-            put("container1", new HashMap<>());
-            put("removing", new HashMap<>());
-        }};
-
-        bean.__elements.forEach( in1 -> out.__addElements(process(in1,map)));
+        Unpacking_compositeOutputs out = super.process(bean);
+        Unpacking_compositeBean unpackingCompositeBean=merge(bean, out);
+        unpackingCompositeBean.type="org.openprovenance.templates.physical.Unpacking";
+        history.add(unpackingCompositeBean);
+        if (out.ID!=null) {
+            id2object.put(out.ID, unpackingCompositeBean);
+            id2array.put(out.ID, unpackingCompositeBean.process(new Unpacking_compositeBuilder().aArgs2RecordConverter));
+            id2array.put(out.ID, new Object[]{"packing compsite bean", "still", "need to be supported"});
+        } else {
+            System.out.println("Unpacking composite with null ID");
+        }
+        csv.add(unpackingCompositeBean.process(new Unpacking_compositeBuilder().aArgs2CsVConverter));
         return out;
     }
 
 
-     */
 
-
+    @Override
     public PackingOutputs process(PackingInputs_1 input, Map<String, Map<Integer, Integer>> map) {
-
         PackingOutputs out=super.process(input,map);
-
-        /*
-
-        PackingOutputs out=new PackingOutputs();
-        // for each field in shared list.
-        // container1
-        if (map.get("container1")==null) {
-            out.container1 = newIdentifier("container1","item");
-        } else if (map.get("container1").containsKey(input.container0)) {
-            out.container1=map.get("container1").get(input.container0);
-        } else {
-            out.container1=newIdentifier("container1","item");
-            map.get("container1").put(input.container0, out.container1);
-        }
-        // same for adding
-        if (map.get("adding")==null) {
-            out.adding = newIdentifier("adding","activity");
-        } else if (map.get("adding").containsKey(input.adding)) {
-            out.adding=map.get("adding").get(input.adding);
-        } else {
-            out.adding=newIdentifier("adding","activity");
-            map.get("adding").put(input.adding, out.adding);
-        }
-        out.item1=newIdentifier("item1","item"); // field, not in shared list
-        out.ID = newIdentifier("template/packing","template/packing");
-
-         */
-
         PackingBean packingBean=merge(input, out);
         history.add(packingBean);
         id2object.put(out.ID, packingBean);
         id2array.put(out.ID, packingBean.process(new PackingBuilder().aArgs2RecordConverter()));
         csv.add(packingBean.process(new PackingBuilder().aArgs2CsVConverter));
-
         return out;
     }
 
 
 
+    @Override
     public UnpackingOutputs process(UnpackingInputs_1 input, Map<String, Map<Integer, Integer>> map) {
-
         UnpackingOutputs out=super.process(input,map);
-
-        /*
-        UnpackingOutputs out=new UnpackingOutputs();
-        if (map.get("container1")==null) {
-            out.container1 = newIdentifier("container1","item");
-        } else if (map.get("container1").containsKey(input.container1)) {
-            out.container1=map.get("container1").get(input.container1);
-        } else {
-            out.container1=newIdentifier("container1","item");
-            map.get("container1").put(input.container1, out.container1);
-        }
-        // same for removing
-        if (map.get("removing")==null) {
-            out.removing = newIdentifier("removing","activity");
-        } else if (map.get("removing").containsKey(input.removing)) {
-            out.removing=map.get("removing").get(input.removing);
-        } else {
-            out.removing=newIdentifier("removing","activity");
-            map.get("removing").put(input.removing, out.removing);
-        }
-        out.item0 = newIdentifier("item0","item");
-        out.item1 = newIdentifier("item1","item");
-        out.ID = newIdentifier("template/unpacking","template/unpacking");
-
-        out.ID = newIdentifier("template/unpacking","template/unpacking");
-
-         */
-
         UnpackingBean unpackingBean=merge(input, out);
         history.add(unpackingBean);
         id2object.put(out.ID, unpackingBean);
         id2array.put(out.ID, unpackingBean.process(new UnpackingBuilder().aArgs2RecordConverter()));
         csv.add(unpackingBean.process(new UnpackingBuilder().aArgs2CsVConverter));
-
-        /*
-        try {
-            System.out.println(new ObjectMapper().writeValueAsString(unpackingBean));
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-
-         */
-
         return out;
     }
 
@@ -254,7 +192,32 @@ public class LocalEnactor extends BeanLocalEnactor2 {
         return out;
     }
 
-    private WeighingBean merge(WeighingInputs weighingInputs, WeighingOutputs weighingOutputs) {
+    private Packing_compositeBean merge(Packing_compositeInputs bean, Packing_compositeOutputs out) {
+        Packing_compositeBean res = new Packing_compositeBean();
+        PackingBuilder build = new PackingBuilder();
+        for (int i = 0; i < bean.__elements.size(); i++) {
+            Object[] packingIn = bean.__elements.get(i).process(build.aArgs2RecordConverter());
+            Object[] packingOut = out.__elements.get(i).process(build.aArgs2RecordConverter());
+            Object[] packing = merge(packingIn, packingOut);
+            res.__addElements(build.toBean(packing));
+        }
+        return res;
+    }
+
+    private Unpacking_compositeBean merge(Unpacking_compositeInputs bean, Unpacking_compositeOutputs out) {
+        Unpacking_compositeBean res = new Unpacking_compositeBean();
+        UnpackingBuilder build = new UnpackingBuilder();
+        for (int i = 0; i < bean.__elements.size(); i++) {
+            Object[] unpackingIn = bean.__elements.get(i).process(build.aArgs2RecordConverter());
+            Object[] unpackingOut = out.__elements.get(i).process(build.aArgs2RecordConverter());
+            Object[] unpacking = merge(unpackingIn, unpackingOut);
+            res.__addElements(build.toBean(unpacking));
+        }
+        return res;
+    }
+
+
+        private WeighingBean merge(WeighingInputs weighingInputs, WeighingOutputs weighingOutputs) {
         WeighingBuilder builder=new WeighingBuilder();
         Object[] weighingIn= weighingInputs.process(builder.aArgs2RecordConverter());
         Object[] weighingOut= weighingOutputs.process(builder.aArgs2RecordConverter());

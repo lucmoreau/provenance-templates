@@ -34,7 +34,11 @@ public class BoxTest extends TestCase {
         results.add(workflow.connections);
 
         // print all results
-        new ObjectMapper().writeValue(new File("target/testBox.json"), results);
+        try {
+            new ObjectMapper().writeValue(new File("target/testBox.json"), results);
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
 
         assertEquals(37+8+2,results.size());
 

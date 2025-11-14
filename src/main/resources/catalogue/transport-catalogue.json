@@ -24,7 +24,7 @@
             "@type": "simple",
             "name": "transporting",
             "fullyQualifiedName": "org.openprovenance.templates.physical.Transporting",
-            "template": "target/generated-templates/org/openprovenance/templates/physical/transporting/transporting.jsonld",
+            "template": "org/openprovenance/templates/physical/transporting/transporting",
             "package": "org.openprovenance.templates.physical",
             "bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/physical/transporting.json"
         },
@@ -32,7 +32,7 @@
             "@type": "simple",
             "name": "handingover",
             "fullyQualifiedName": "org.openprovenance.templates.responsibility.HandingOver",
-            "template": "target/generated-templates/org/openprovenance/templates/responsibility/handingover/handingover.jsonld",
+            "template": "org/openprovenance/templates/responsibility/handingover/handingover",
             "package": "org.openprovenance.templates.responsibility",
             "bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/responsibility/handingover.json"
         },
@@ -41,7 +41,7 @@
             "@type": "simple",
             "name": "weighing",
             "fullyQualifiedName": "org.openprovenance.templates.physical.Weighing",
-            "template": "target/generated-templates/org/openprovenance/templates/physical/weighing/weighing.jsonld",
+            "template": "org/openprovenance/templates/physical/weighing/weighing",
             "package": "org.openprovenance.templates.physical",
             "bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/physical/weighing.json"
         },
@@ -49,7 +49,7 @@
             "@type": "simple",
             "name": "agent_init",
             "fullyQualifiedName": "org.openprovenance.templates.responsibility.AgentInit",
-            "template": "target/generated-templates/org/openprovenance/templates/responsibility/agent-init/agent-location-init.jsonld",
+            "template": "org/openprovenance/templates/responsibility/agent-init/agent-location-init",
             "package": "org.openprovenance.templates.physical",
             "bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/responsibility/agent-location-init.json"
         },
@@ -57,7 +57,7 @@
             "@type": "simple",
             "name": "item_init",
             "fullyQualifiedName": "org.openprovenance.templates.general.EntityInit",
-            "template": "target/generated-templates/org/openprovenance/templates/general/entity-init/entity-location-init.jsonld",
+            "template": "org/openprovenance/templates/general/entity-init/entity-location-init",
             "package": "org.openprovenance.templates.physical",
             "bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/physical/item-location-init.json"
         },
@@ -65,7 +65,7 @@
             "@type": "simple",
             "name": "packing",
             "fullyQualifiedName": "org.openprovenance.templates.physical.Packing",
-            "template": "target/generated-templates/org/openprovenance/templates/physical/packing/packing.jsonld",
+            "template": "org/openprovenance/templates/physical/packing/packing",
             "package": "org.openprovenance.templates.physical",
             "bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/physical/packing.json"
         },
@@ -82,7 +82,7 @@
             "@type": "simple",
             "name": "unpacking",
             "fullyQualifiedName": "org.openprovenance.templates.physical.Unpacking",
-            "template": "target/generated-templates/org/openprovenance/templates/physical/unpacking/unpacking.jsonld",
+            "template": "org/openprovenance/templates/physical/unpacking/unpacking",
             "package": "org.openprovenance.templates.physical",
             "bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/physical/unpacking.json"
         },
