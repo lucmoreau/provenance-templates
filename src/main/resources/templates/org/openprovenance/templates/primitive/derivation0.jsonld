@@ -17,8 +17,8 @@
         {
           "@type": "Derivation",
           "@id": "var:id",
-          "generatedEntity": "var:e1",
-          "usedEntity": "var:e0",
+          "generatedEntity": "var:entity1",
+          "usedEntity": "var:entity0",
           "generation": "var:generation",
           "usage": "var:usage",
           "activity": "var:activity",

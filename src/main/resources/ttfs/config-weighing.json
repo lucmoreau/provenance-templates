@@ -1,14 +1,10 @@
 {
     "template_path": [
-        "src/main/resources/templates/org/openprovenance/templates/primitive",
-        "target/generated-templates/org/openprovenance/templates/triangles/triangle1-ugd",
-        "target/generated-templates/org/openprovenance/templates/triangles/triangle2-sds",
-        "target/generated-templates/org/openprovenance/templates/triangles/triangle3-aga",
-        "target/generated-templates/org/openprovenance/templates/triangles/triangle6-ugm",
-        "target/generated-templates/org/openprovenance/templates/responsibility/examining",
+        "src/main/resources/templates",
+        "target/generated-templates/",
         "."],
     "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/physical/weighing"],
-    "output_dir": "generated-templates/org/openprovenance/templates/physical/weighing",
+    "output_dir": "generated-templates",
     "variableMaps": ["./common-ns.json"],
 
 
@@ -16,11 +12,11 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle1-ugd pattern",
-            "template": "examining.provn",
-            "output": "weighing",
+            "template": "org/openprovenance/templates/responsibility/examining/examining",
+            "output": "org/openprovenance/templates/physical/weighing/weighing",
             "bindings": "weighing.json",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-weighing.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/physical/weighing/prov/prov-weighing.prov-csv"
         }
     ]
 }

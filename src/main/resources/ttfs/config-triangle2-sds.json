@@ -1,7 +1,7 @@
 {
-    "template_path": ["templates/org/openprovenance/templates/primitive", "."],
+    "template_path": ["templates", "."],
     "bindings_path": ["bindings/org/openprovenance/bindings/algebra/triangle2-sds"],
-    "output_dir": "generated-templates/org/openprovenance/templates/triangles/triangle2-sds",
+    "output_dir": "generated-templates",
     "variableMaps": ["./common-ns.json"],
 
 
@@ -9,48 +9,52 @@
         {
             "type": "instantiate",
             "description": "Instantiating an entity pattern",
-            "template": "entity0.provn",
-            "output": "entity",
+            "template": "org.openprovenance.templates.primitive.Entity0",
+            "output": "org/openprovenance/templates/triangles/triangle2-sds/entity",
             "bindings": "entity-e0-e1-e2.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-entity.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle2-sds/prov/prov-entity.prov-csv"
         },
         {
             "type": "instantiate",
             "description": "Instantiating a derivation pattern",
-            "template": "derivation0.provn",
-            "output": "derivation",
+            "template": "org.openprovenance.templates.primitive.Derivation0",
+            "output": "org/openprovenance/templates/triangles/triangle2-sds/derivation",
             "bindings": "derivation.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-derivation.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle2-sds/prov/prov-derivation.prov-csv"
         },
         {
             "type": "instantiate",
             "description": "Instantiating a specialization pattern",
-            "template": "qualified-specialization0.jsonld",
+            "template": "org.openprovenance.templates.primitive.Qualified-Specialization0",
             "bindings": "specialization1.json",
-            "output": "specialization1",
+            "output": "org/openprovenance/templates/triangles/triangle2-sds/specialization1",
             "formats": ["jsonld", "provn","png", "svg"],
-            "hasProvenance": "prov-specialization1.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle2-sds/prov/prov-specialization1.prov-csv"
         },
         {
             "type": "instantiate",
             "description": "Instantiating a specialization pattern",
-            "template": "qualified-specialization0.jsonld",
+            "template": "org.openprovenance.templates.primitive.Qualified-Specialization0",
             "bindings": "specialization2.json",
-            "output": "specialization2",
+            "output": "org/openprovenance/templates/triangles/triangle2-sds/specialization2",
             "formats": ["jsonld", "provn","png", "svg"],
-            "hasProvenance": "prov-specialization2.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle2-sds/prov/prov-specialization2.prov-csv"
         },
 
         {
             "type": "merge",
             "description": "Merging the above templates into a single template",
             "addOutputDirToInputPath": true,
-            "inputs": ["entity.provn", "derivation.provn", "specialization1.jsonld", "specialization2.jsonld"],
-            "output": "triangle2-sds",
+            "inputs": [
+                "org/openprovenance/templates/triangles/triangle2-sds/entity",
+                "org/openprovenance/templates/triangles/triangle2-sds/derivation",
+                "org/openprovenance/templates/triangles/triangle2-sds/specialization1",
+                "org/openprovenance/templates/triangles/triangle2-sds/specialization2"],
+            "output": "org/openprovenance/templates/triangles/triangle2-sds/triangle2-sds",
             "formats": ["jsonld", "provn", "png", "svg"],
-            "hasProvenance": "prov-triangle2-sds.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle2-sds/prov/prov-triangle2-sds.prov-csv"
         }
 
     ]

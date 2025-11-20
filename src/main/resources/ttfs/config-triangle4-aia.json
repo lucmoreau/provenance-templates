@@ -1,7 +1,7 @@
 {
-    "template_path": ["templates/org/openprovenance/templates/primitive", "."],
+    "template_path": ["templates", "."],
     "bindings_path": ["bindings/org/openprovenance/bindings/algebra/triangle4-aia"],
-    "output_dir": "generated-templates/org/openprovenance/templates/triangles/triangle4-aia",
+    "output_dir": "generated-templates",
     "variableMaps": ["./common-ns.json"],
 
 
@@ -9,66 +9,72 @@
         {
             "type": "instantiate",
             "description": "Instantiating an entity pattern",
-            "template": "entity0.provn",
-            "output": "entity",
+            "template": "org.openprovenance.templates.primitive.Entity0",
+            "output": "org/openprovenance/templates/triangles/triangle4-aia/entity",
             "bindings": "entity.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-entity.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle4-aia/prov/prov-entity.prov-csv"
         },
         {
             "type": "instantiate",
             "description": "Instantiating an agent pattern",
-            "template": "agent0.provn",
-            "output": "agent",
+            "template": "org.openprovenance.templates.primitive.Agent0",
+            "output": "org/openprovenance/templates/triangles/triangle4-aia/agent",
             "bindings": "agent.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-agent.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle4-aia/prov/prov-agent.prov-csv"
         },
         {
             "type": "instantiate",
             "description": "Instantiating an activity pattern",
-            "template": "activity0.provn",
-            "output": "activity",
+            "template": "org.openprovenance.templates.primitive.Activity0",
+            "output": "org/openprovenance/templates/triangles/triangle4-aia/activity",
             "bindings": "activity.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-activity.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle4-aia/prov/prov-activity.prov-csv"
         },
         {
             "type": "instantiate",
             "description": "Instantiating a derivation pattern",
-            "template": "attribution0.provn",
-            "output": "attribution",
+            "template": "org.openprovenance.templates.primitive.Attribution0",
+            "output": "org/openprovenance/templates/triangles/triangle4-aia/attribution",
             "bindings": "attribution.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-attribution.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle4-aia/prov/prov-attribution.prov-csv"
         },
         {
             "type": "instantiate",
             "description": "Instantiating an association pattern",
-            "template": "association0.provn",
-            "output": "association",
+            "template": "org.openprovenance.templates.primitive.Association0",
+            "output": "org/openprovenance/templates/triangles/triangle4-aia/association",
             "bindings": "association.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-association.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle4-aia/prov/prov-association.prov-csv"
         },
         {
             "type": "instantiate",
             "description": "Instantiating a invalidation pattern",
-            "template": "invalidation0.provn",
-            "output": "invalidation",
+            "template": "org.openprovenance.templates.primitive.Invalidation0",
+            "output": "org/openprovenance/templates/triangles/triangle4-aia/invalidation",
             "bindings": "invalidation.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-invalidation.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle4-aia/prov/prov-invalidation.prov-csv"
         },
 
         {
             "type": "merge",
             "description": "Merging the above templates into a single template",
             "addOutputDirToInputPath": true,
-            "inputs": ["entity.provn", "activity.provn", "agent.provn", "association.provn", "attribution.provn","invalidation.provn"],
-            "output": "triangle4-aia",
+            "inputs": [
+                "org/openprovenance/templates/triangles/triangle4-aia/entity",
+                "org/openprovenance/templates/triangles/triangle4-aia/activity",
+                "org/openprovenance/templates/triangles/triangle4-aia/agent",
+                "org/openprovenance/templates/triangles/triangle4-aia/association",
+                "org/openprovenance/templates/triangles/triangle4-aia/attribution",
+                "org/openprovenance/templates/triangles/triangle4-aia/invalidation"],
+            "output": "org/openprovenance/templates/triangles/triangle4-aia/triangle4-aia",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-triangle4-aia.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle4-aia/prov/prov-triangle4-aia.prov-csv"
         }
 
 

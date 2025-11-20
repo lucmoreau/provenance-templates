@@ -1,7 +1,7 @@
 {
-    "template_path": ["templates/org/openprovenance/templates/primitive", "."],
+    "template_path": ["templates", "."],
     "bindings_path": ["bindings/org/openprovenance/bindings/responsibility/agent-init"],
-    "output_dir": "generated-templates/org/openprovenance/templates/responsibility/agent-init",
+    "output_dir": "generated-templates",
     "variableMaps": ["./common-ns.json"],
 
 
@@ -9,48 +9,48 @@
         {
             "type": "instantiate",
             "description": "Instantiating an agent pattern",
-            "template": "agent0.provn",
-            "output": "agent",
+            "template": "org.openprovenance.templates.primitive.Agent0",
+            "output": "org/openprovenance/templates/responsibility/agent-init/agent",
             "bindings": "agent-ag0-ag.json",
             "formats": ["jsonld", "provn", "png", "svg"],
-            "hasProvenance": "prov-agent.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/responsibility/agent-init/prov/prov-agent.prov-csv"
         },
         {
             "type": "instantiate",
             "description": "Instantiating an agent pattern",
-            "template": "agent0.provn",
-            "output": "agent-location",
+            "template": "org.openprovenance.templates.primitive.Agent0",
+            "output": "org/openprovenance/templates/responsibility/agent-init/agent-location",
             "bindings": "agent-ag0-ag-location.json",
             "formats": ["jsonld", "provn", "png", "svg"],
-            "hasProvenance": "prov-agent-location.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/responsibility/agent-init/prov/prov-agent-location.prov-csv"
         },
         {
             "type": "instantiate",
             "description": "Instantiating a specialization pattern",
-            "template": "qualified-specialization0.jsonld",
+            "template": "org.openprovenance.templates.primitive.Qualified-Specialization0",
             "bindings": "specialization.json",
-            "output": "specialization",
+            "output": "org/openprovenance/templates/responsibility/agent-init/specialization",
             "formats": ["jsonld", "provn","png", "svg"],
-            "hasProvenance": "prov-specialization.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/responsibility/agent-init/prov/prov-specialization.prov-csv"
         },
 
         {
             "type": "instantiate",
             "description": "Instantiating an activity pattern",
-            "template": "activity0.provn",
-            "output": "activity",
+            "template": "org.openprovenance.templates.primitive.Activity0",
+            "output": "org/openprovenance/templates/responsibility/agent-init/activity",
             "bindings": "activity.json",
             "formats": ["jsonld", "provn", "png", "svg"],
-            "hasProvenance": "prov-activity.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/responsibility/agent-init/prov/prov-activity.prov-csv"
         },
         {
             "type": "instantiate",
             "description": "Instantiating a generation pattern for two entities",
-            "template": "generation0.provn",
-            "output": "generation",
+            "template": "org.openprovenance.templates.primitive.Generation0",
+            "output": "org/openprovenance/templates/responsibility/agent-init/generation",
             "bindings": "generation.json",
             "formats": ["jsonld", "provn", "png", "svg"],
-            "hasProvenance": "prov-generation.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/responsibility/agent-init/prov/prov-generation.prov-csv"
         },
 
         {
@@ -58,28 +58,28 @@
             "description": "Merging the above templates into a single template",
             "addOutputDirToInputPath": true,
             "inputs": [
-                "agent.jsonld",
-                "specialization.jsonld",
-                "activity.jsonld",
-                "generation.jsonld"
+                "org/openprovenance/templates/responsibility/agent-init/agent",
+                "org/openprovenance/templates/responsibility/agent-init/specialization",
+                "org/openprovenance/templates/responsibility/agent-init/activity",
+                "org/openprovenance/templates/responsibility/agent-init/generation"
             ],
-            "output": "agent-init",
+            "output": "org/openprovenance/templates/responsibility/agent-init/agent-init",
             "formats": ["jsonld", "provn", "png", "svg"],
-            "hasProvenance": "prov-agent-init.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/responsibility/agent-init/prov/prov-agent-init.prov-csv"
         },
         {
             "type": "merge",
             "description": "Merging the above templates into a single template",
             "addOutputDirToInputPath": true,
             "inputs": [
-                "agent-location.jsonld",
-                "specialization.jsonld",
-                "activity.jsonld",
-                "generation.jsonld"
+                "org/openprovenance/templates/responsibility/agent-init/agent-location",
+                "org/openprovenance/templates/responsibility/agent-init/specialization",
+                "org/openprovenance/templates/responsibility/agent-init/activity",
+                "org/openprovenance/templates/responsibility/agent-init/generation"
             ],
-            "output": "agent-location-init",
+            "output": "org/openprovenance/templates/responsibility/agent-init/agent-location-init",
             "formats": ["jsonld", "provn", "png", "svg"],
-            "hasProvenance": "prov-agent-location-init.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/responsibility/agent-init/prov/prov-agent-location-init.prov-csv"
         }
 
     ]

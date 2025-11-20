@@ -1,14 +1,10 @@
 {
     "template_path": [
-        "src/main/resources/templates/org/openprovenance/templates/primitive",
-        "target/generated-templates/org/openprovenance/templates/triangles/triangle1-ugd",
-        "target/generated-templates/org/openprovenance/templates/triangles/triangle2-sds",
-        "target/generated-templates/org/openprovenance/templates/triangles/triangle3-aga",
-        "target/generated-templates/org/openprovenance/templates/triangles/triangle6-ugm",
-        "target/generated-templates/org/openprovenance/templates/collections/inserting",
-        "."],
+        "src/main/resources/templates",
+        "target/generated-templates"
+    ],
     "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/physical/packing"],
-    "output_dir": "generated-templates/org/openprovenance/templates/physical/packing",
+    "output_dir": "generated-templates",
     "variableMaps": ["./common-ns.json"],
 
 
@@ -16,40 +12,40 @@
         {
             "type": "instantiate",
             "description": "Instantiating a collection-insert pattern",
-            "template": "collection-inserting.jsonld",
-            "output": "packing-insert-collection",
+            "template": "org/openprovenance/templates/collections/inserting/collection-inserting",
+            "output": "org/openprovenance/templates/physical/packing/packing-insert-collection",
             "bindings": "packing-insert-collection.json",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-packing-insert-collection.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/physical/packing/prov/prov-packing-insert-collection.prov-csv"
         },
 
         {
             "type": "instantiate",
             "description": "Instantiating an triangle3-aga (a) pattern",
-            "template": "triangle3-aga.provn",
-            "output": "packing-aga-agent",
+            "template": "org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga",
+            "output": "org/openprovenance/templates/physical/packing/packing-aga-agent",
             "bindings": "packing-aga-agent.json",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-packing-aga-agent.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/physical/packing/prov/prov-packing-aga-agent.prov-csv"
         },
 
         {
             "type": "instantiate",
             "description": "Instantiating an triangle2-sds pattern",
-            "template": "triangle2-sds.provn",
-            "output": "packing-sds",
+            "template": "org/openprovenance/templates/triangles/triangle2-sds/triangle2-sds",
+            "output": "org/openprovenance/templates/physical/packing/packing-sds",
             "bindings": "packing-sds.json",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-packing-sds.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/physical/packing/prov/prov-packing-sds.prov-csv"
         },
         {
             "type": "instantiate",
             "description": "Instantiating an triangle2-sds pattern",
-            "template": "triangle2-sds.provn",
-            "output": "packing-sds-item",
+            "template": "org/openprovenance/templates/triangles/triangle2-sds/triangle2-sds",
+            "output": "org/openprovenance/templates/physical/packing/packing-sds-item",
             "bindings": "packing-sds-item.json",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-packing-sds-item.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/physical/packing/prov/prov-packing-sds-item.prov-csv"
         },
 
         {
@@ -57,14 +53,14 @@
             "description": "Merging all temporary packing outputs",
             "addOutputDirToInputPath": true,
             "inputs": [
-                "packing-insert-collection.jsonld",
-                "packing-aga-agent.jsonld",
-                "packing-sds.jsonld",
-                "packing-sds-item.jsonld"
+                "org/openprovenance/templates/physical/packing/packing-insert-collection",
+                "org/openprovenance/templates/physical/packing/packing-aga-agent",
+                "org/openprovenance/templates/physical/packing/packing-sds",
+                "org/openprovenance/templates/physical/packing/packing-sds-item"
             ],
-            "output": "packing",
+            "output": "org/openprovenance/templates/physical/packing/packing",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-packing.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/physical/packing/prov/prov-packing.prov-csv"
         }
     ]
 }

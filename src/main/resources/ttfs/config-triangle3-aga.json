@@ -1,7 +1,7 @@
 {
-    "template_path": ["templates/org/openprovenance/templates/primitive", "."],
+    "template_path": ["templates", "."],
     "bindings_path": ["bindings/org/openprovenance/bindings/algebra/triangle3-aga"],
-    "output_dir": "generated-templates/org/openprovenance/templates/triangles/triangle3-aga",
+    "output_dir": "generated-templates",
     "variableMaps": ["./common-ns.json"],
 
 
@@ -9,67 +9,74 @@
         {
             "type": "instantiate",
             "description": "Instantiating an entity pattern",
-            "template": "entity0.provn",
-            "output": "entity",
+            "template": "org.openprovenance.templates.primitive.Entity0",
+            "output": "org/openprovenance/templates/triangles/triangle3-aga/entity",
             "bindings": "entity.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-entity.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle3-aga/prov/prov-entity.prov-csv"
         },
         {
             "type": "instantiate",
             "description": "Instantiating an agent pattern",
-            "template": "agent0.provn",
-            "output": "agent",
+            "template": "org.openprovenance.templates.primitive.Agent0",
+            "output": "org/openprovenance/templates/triangles/triangle3-aga/agent",
             "bindings": "agent.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-agent.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle3-aga/prov/prov-agent.prov-csv"
         },
         {
             "type": "instantiate",
             "description": "Instantiating an activity pattern",
-            "template": "activity0.provn",
-            "output": "activity",
+            "template": "org.openprovenance.templates.primitive.Activity0",
+            "output": "org/openprovenance/templates/triangles/triangle3-aga/activity",
             "bindings": "activity.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-activity.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle3-aga/prov/prov-activity.prov-csv"
         },
         {
             "type": "instantiate",
             "description": "Instantiating a derivation pattern",
-            "template": "attribution0.provn",
-            "output": "attribution",
+            "template": "org.openprovenance.templates.primitive.Attribution0",
+            "output": "org/openprovenance/templates/triangles/triangle3-aga/attribution",
             "bindings": "attribution.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-attribution.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle3-aga/prov/prov-attribution.prov-csv"
         },
         {
             "type": "instantiate",
             "description": "Instantiating an association pattern",
-            "template": "association0.provn",
-            "output": "association",
+            "template": "org.openprovenance.templates.primitive.Association0",
+            "output": "org/openprovenance/templates/triangles/triangle3-aga/association",
             "bindings": "association.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-association.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle3-aga/prov/prov-association.prov-csv"
         },
 
         {
             "type": "instantiate",
             "description": "Instantiating a generation pattern",
-            "template": "generation0.provn",
-            "output": "generation",
+            "template": "org.openprovenance.templates.primitive.Generation0",
+            "output": "org/openprovenance/templates/triangles/triangle3-aga/generation",
             "bindings": "generation.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-generation.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle3-aga/prov/prov-generation.prov-csv"
         },
 
         {
             "type": "merge",
             "description": "Merging the above templates into a single template",
             "addOutputDirToInputPath": true,
-            "inputs": ["entity.provn", "activity.provn", "agent.provn", "association.provn", "attribution.provn","generation.provn"],
-            "output": "triangle3-aga",
+            "inputs": [
+                "org/openprovenance/templates/triangles/triangle3-aga/entity",
+                "org/openprovenance/templates/triangles/triangle3-aga/activity",
+                "org/openprovenance/templates/triangles/triangle3-aga/agent",
+                "org/openprovenance/templates/triangles/triangle3-aga/association",
+                "org/openprovenance/templates/triangles/triangle3-aga/attribution",
+                "org/openprovenance/templates/triangles/triangle3-aga/generation"
+            ],
+            "output": "org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "prov-triangle3-aga.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle3-aga/prov/prov-triangle3-aga.prov-csv"
         }
 
     ]

@@ -1,14 +1,10 @@
 {
     "template_path": [
-        "src/main/resources/templates/org/openprovenance/templates/primitive",
-        "target/generated-templates/org/openprovenance/templates/triangles/triangle1-ugd",
-        "target/generated-templates/org/openprovenance/templates/triangles/triangle2-sds",
-        "target/generated-templates/org/openprovenance/templates/triangles/triangle3-aga",
-        "target/generated-templates/org/openprovenance/templates/triangles/triangle6-ugm",
-        "target/generated-templates/org/openprovenance/templates/collections/removing",
+        "src/main/resources/templates",
+        "target/generated-templates",
         "."],
     "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/physical/unpacking"],
-    "output_dir": "generated-templates/org/openprovenance/templates/physical/unpacking",
+    "output_dir": "generated-templates",
     "variableMaps": ["./common-ns.json"],
 
 
@@ -16,50 +12,50 @@
         {
             "type": "instantiate",
             "description": "Instantiating a collection-remove pattern",
-            "template": "collection-removing.jsonld",
-            "output": "unpacking-remove-collection",
+            "template": "org/openprovenance/templates/collections/removing/collection-removing",
+            "output": "org/openprovenance/templates/physical/unpacking/unpacking-remove-collection",
             "bindings": "unpacking-remove-collection.json",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-unpacking-remove-collection.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/physical/unpacking/prov/prov-unpacking-remove-collection.prov-csv"
         },
 
         {
             "type": "instantiate",
             "description": "Instantiating an triangle3-aga (a) pattern",
-            "template": "triangle3-aga.provn",
-            "output": "unpacking-aga-container-agent",
+            "template": "org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga",
+            "output": "org/openprovenance/templates/physical/unpacking/unpacking-aga-container-agent",
             "bindings": "unpacking-aga-container-agent.json",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-unpacking-aga-container-agent.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/physical/unpacking/prov/prov-unpacking-aga-container-agent.prov-csv"
         },
         {
             "type": "instantiate",
             "description": "Instantiating an triangle3-aga (b) pattern",
-            "template": "triangle3-aga.provn",
-            "output": "unpacking-aga-item-agent",
+            "template": "org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga",
+            "output": "org/openprovenance/templates/physical/unpacking/unpacking-aga-item-agent",
             "bindings": "unpacking-aga-item-agent.json",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-unpacking-aga-item-agent.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/physical/unpacking/prov/prov-unpacking-aga-item-agent.prov-csv"
         },
 
         {
             "type": "instantiate",
             "description": "Instantiating an triangle2-sds pattern",
-            "template": "triangle2-sds.provn",
-            "output": "unpacking-sds-container",
+            "template": "org/openprovenance/templates/triangles/triangle2-sds/triangle2-sds",
+            "output": "org/openprovenance/templates/physical/unpacking/unpacking-sds-container",
             "bindings": "unpacking-sds-container.json",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-unpacking-sds-container.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/physical/unpacking/prov/prov-unpacking-sds-container.prov-csv"
         },
 
         {
             "type": "instantiate",
             "description": "Instantiating an triangle2-sds pattern",
-            "template": "triangle2-sds.provn",
-            "output": "unpacking-sds-item",
+            "template": "org/openprovenance/templates/triangles/triangle2-sds/triangle2-sds",
+            "output": "org/openprovenance/templates/physical/unpacking/unpacking-sds-item",
             "bindings": "unpacking-sds-item.json",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-unpacking-sds-item.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/physical/unpacking/prov/prov-unpacking-sds-item.prov-csv"
         },
 
         {
@@ -67,15 +63,15 @@
             "description": "Merging all temporary unpacking outputs",
             "addOutputDirToInputPath": true,
             "inputs": [
-                "unpacking-remove-collection.jsonld",
-                "unpacking-aga-container-agent.jsonld",
-                "unpacking-aga-item-agent.jsonld",
-                "unpacking-sds-container.jsonld",
-                "unpacking-sds-item.jsonld"
+                "org/openprovenance/templates/physical/unpacking/unpacking-remove-collection",
+                "org/openprovenance/templates/physical/unpacking/unpacking-aga-container-agent",
+                "org/openprovenance/templates/physical/unpacking/unpacking-aga-item-agent",
+                "org/openprovenance/templates/physical/unpacking/unpacking-sds-container",
+                "org/openprovenance/templates/physical/unpacking/unpacking-sds-item"
             ],
-            "output": "unpacking",
+            "output": "org/openprovenance/templates/physical/unpacking/unpacking",
             "formats": ["jsonld","provn", "png", "svg"],
-            "hasProvenance": "prov-unpacking.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/physical/unpacking/prov/prov-unpacking.prov-csv"
         }
     ]
 }
