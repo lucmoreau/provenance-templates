@@ -1,8 +1,7 @@
 {
     "template_path": [
         "src/main/resources/templates",
-        "target/generated-templates",
-        "."],
+        "target/generated-templates"],
     "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/physical/unpacking"],
     "output_dir": "generated-templates",
     "variableMaps": ["./common-ns.json"],
@@ -41,7 +40,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle2-sds pattern",
-            "template": "org/openprovenance/templates/triangles/triangle2-sds/triangle2-sds",
+            "template": "org.openprovenance.templates.triangles.Triangle2-SDS",
             "output": "org/openprovenance/templates/physical/unpacking/unpacking-sds-container",
             "bindings": "unpacking-sds-container.json",
             "formats": ["jsonld","provn", "png", "svg"],
@@ -51,7 +50,8 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle2-sds pattern",
-            "template": "org/openprovenance/templates/triangles/triangle2-sds/triangle2-sds",
+            "template": "org.openprovenance.templates.triangles.Triangle2-SDS",
+
             "output": "org/openprovenance/templates/physical/unpacking/unpacking-sds-item",
             "bindings": "unpacking-sds-item.json",
             "formats": ["jsonld","provn", "png", "svg"],

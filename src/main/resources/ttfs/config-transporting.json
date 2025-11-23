@@ -1,7 +1,6 @@
 {
     "template_path": [
-        "target/generated-templates",
-        "target/generated-templates/org/openprovenance/templates/triangles/triangle2-sds"
+        "target/generated-templates"
     ],
     "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/physical/transporting"],
     "output_dir": "generated-templates",
@@ -12,7 +11,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle1-ugd pattern",
-            "template": "org/openprovenance/templates/triangles/triangle1-ugd/triangle1-ugd",
+            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
             "output": "org/openprovenance/templates/physical/transporting/transporting-ugd",
             "bindings": "transporting-ugd.json",
             "formats": ["jsonld","provn", "png", "svg"],
@@ -32,7 +31,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle2-sds pattern",
-            "template": "org/openprovenance/templates/triangles/triangle2-sds/triangle2-sds",
+            "template": "org.openprovenance.templates.triangles.Triangle2-SDS",
             "output": "org/openprovenance/templates/physical/transporting/transporting-sds",
             "bindings": "transporting-sds.json",
             "formats": ["jsonld","provn", "png", "svg"],

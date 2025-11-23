@@ -1,5 +1,5 @@
 {
-    "template_path": ["templates", "."],
+    "template_path": ["templates"],
     "bindings_path": ["bindings/org/openprovenance/bindings/algebra/triangle2-sds"],
     "output_dir": "generated-templates",
     "variableMaps": ["./common-ns.json"],
@@ -53,6 +53,7 @@
                 "org/openprovenance/templates/triangles/triangle2-sds/specialization1",
                 "org/openprovenance/templates/triangles/triangle2-sds/specialization2"],
             "output": "org/openprovenance/templates/triangles/triangle2-sds/triangle2-sds",
+            "outputFullyQualifiedName": "org.openprovenance.templates.triangles.Triangle2-SDS",
             "formats": ["jsonld", "provn", "png", "svg"],
             "hasProvenance": "org/openprovenance/templates/triangles/triangle2-sds/prov/prov-triangle2-sds.prov-csv"
         }

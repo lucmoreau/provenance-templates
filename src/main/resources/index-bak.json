@@ -248,7 +248,7 @@
     "png" : "org/openprovenance/templates/triangles/triangle1-ugd/generation.png",
     "svg" : "org/openprovenance/templates/triangles/triangle1-ugd/generation.svg"
   },
-  "org/openprovenance/templates/triangles/triangle1-ugd/triangle1-ugd" : {
+  "org.openprovenance.templates.triangles.Triangle1-UGD" : {
     "provn" : "org/openprovenance/templates/triangles/triangle1-ugd/triangle1-ugd.provn",
     "png" : "org/openprovenance/templates/triangles/triangle1-ugd/triangle1-ugd.png",
     "svg" : "org/openprovenance/templates/triangles/triangle1-ugd/triangle1-ugd.svg"
@@ -609,7 +609,7 @@
   "org/openprovenance/templates/responsibility/examining/prov-examining-ugd" : {
     "provCsv" : "org/openprovenance/templates/responsibility/examining/prov-examining-ugd.prov-csv"
   },
-  "org/openprovenance/templates/triangles/triangle2-sds/triangle2-sds" : {
+  "org.openprovenance.templates.triangles.Triangle2-SDS" : {
     "jsonld" : "org/openprovenance/templates/triangles/triangle2-sds/triangle2-sds.jsonld",
     "provn" : "org/openprovenance/templates/triangles/triangle2-sds/triangle2-sds.provn",
     "png" : "org/openprovenance/templates/triangles/triangle2-sds/triangle2-sds.png",

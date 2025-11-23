@@ -1,7 +1,6 @@
 {
     "template_path": [
-        "target/generated-templates",
-        "."],
+        "target/generated-templates"],
     "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/ptm/creating-template"],
     "output_dir": "generated-templates",
     "variableMaps": ["./common-ns.json"],
@@ -11,7 +10,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle1-ugd pattern",
-            "template": "org/openprovenance/templates/triangles/triangle1-ugd/triangle1-ugd",
+            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
             "output": "org/openprovenance/templates/ptm/creating-template/creating-template-triangle1-ugd",
             "bindings": "creating-template-triangle1-ugd.json",
             "formats": ["jsonld","provn", "png", "svg"],

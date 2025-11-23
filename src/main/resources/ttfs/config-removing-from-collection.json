@@ -1,8 +1,7 @@
 {
     "template_path": [
         "src/main/resources/templates",
-        "target/generated-templates",
-        "."],
+        "target/generated-templates"],
     "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/collections/removing"],
     "output_dir": "generated-templates",
     "variableMaps": ["./common-ns.json"],
@@ -12,7 +11,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle1-ugd pattern",
-            "template": "org/openprovenance/templates/triangles/triangle1-ugd/triangle1-ugd",
+            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
             "output": "org/openprovenance/templates/collections/removing/collection-remove-triangle1-ugd",
             "bindings": "collection-remove-triangle1-ugd.json",
             "formats": ["jsonld","provn", "png", "svg"],
@@ -22,7 +21,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle1-ugd pattern",
-            "template": "org/openprovenance/templates/triangles/triangle1-ugd/triangle1-ugd",
+            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
             "output": "org/openprovenance/templates/collections/removing/collection-remove-triangle2-ugd",
             "bindings": "collection-remove-triangle2-ugd.json",
             "formats": ["jsonld" ,"provn", "png", "svg"],
@@ -32,7 +31,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle1-ugd pattern",
-            "template": "org/openprovenance/templates/triangles/triangle1-ugd/triangle1-ugd",
+            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
             "output": "org/openprovenance/templates/collections/removing/collection-remove-triangle3-ugd",
             "bindings": "collection-remove-triangle3-ugd.json",
             "formats": ["jsonld","provn", "png", "svg"],

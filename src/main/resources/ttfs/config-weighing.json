@@ -1,8 +1,8 @@
 {
     "template_path": [
         "src/main/resources/templates",
-        "target/generated-templates/",
-        "."],
+        "target/generated-templates/"
+    ],
     "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/physical/weighing"],
     "output_dir": "generated-templates",
     "variableMaps": ["./common-ns.json"],

@@ -32,7 +32,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle2-sds pattern",
-            "template": "org/openprovenance/templates/triangles/triangle2-sds/triangle2-sds",
+            "template": "org.openprovenance.templates.triangles.Triangle2-SDS",
             "output": "org/openprovenance/templates/physical/packing/packing-sds",
             "bindings": "packing-sds.json",
             "formats": ["jsonld","provn", "png", "svg"],
@@ -41,7 +41,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle2-sds pattern",
-            "template": "org/openprovenance/templates/triangles/triangle2-sds/triangle2-sds",
+            "template": "org.openprovenance.templates.triangles.Triangle2-SDS",
             "output": "org/openprovenance/templates/physical/packing/packing-sds-item",
             "bindings": "packing-sds-item.json",
             "formats": ["jsonld","provn", "png", "svg"],
