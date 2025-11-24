@@ -1109,9 +1109,10 @@
                         <configuration>
                             <inputBaseDir>${project.basedir}</inputBaseDir>
                             <outputBaseDir>${project.basedir}</outputBaseDir>
-                            <templateLibraryPath>${project.basedir}/src/main/resources/templates:${project.basedir}/target/generated-templates</templateLibraryPath>
-
-
+                            <templateLibrary>
+                                <templateLibrary>${project.basedir}/src/main/resources/templates</templateLibrary>
+                                <templateLibrary>${project.basedir}/target/generated-templates</templateLibrary>
+                            </templateLibrary>
                             <configs>
                                 <config>${project.basedir}/src/main/resources/catalogue/transport-catalogue.json</config>
                                 <config>${project.basedir}/src/main/resources/catalogue/fs-catalogue.json</config>
