@@ -14,6 +14,7 @@
             "description": "Instantiating an triangle1-ugd pattern",
             "template": "org/openprovenance/templates/responsibility/examining/examining",
             "output": "org/openprovenance/templates/physical/weighing/weighing",
+            "outputFullyQualifiedName": "org.openprovenance.templates.physical.Weighing",
             "bindings": "weighing.json",
             "formats": ["jsonld","provn", "png", "svg"],
             "hasProvenance": "org/openprovenance/templates/physical/weighing/prov/prov-weighing.prov-csv"

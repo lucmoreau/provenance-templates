@@ -61,6 +61,7 @@
                 "org/openprovenance/templates/responsibility/handingover/handingover-aia-ag0"
             ],
             "output": "org/openprovenance/templates/responsibility/handingover/handingover",
+            "outputFullyQualifiedName": "org.openprovenance.templates.responsibility.HandingOver",
             "formats": ["jsonld","provn", "png", "svg"],
             "hasProvenance": "org/openprovenance/templates/responsibility/handingover/prov/prov-handingover.prov-csv"
         }

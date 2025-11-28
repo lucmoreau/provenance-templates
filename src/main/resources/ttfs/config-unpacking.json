@@ -70,6 +70,7 @@
                 "org/openprovenance/templates/physical/unpacking/unpacking-sds-item"
             ],
             "output": "org/openprovenance/templates/physical/unpacking/unpacking",
+            "outputFullyQualifiedName": "org.openprovenance.templates.physical.Unpacking",
             "formats": ["jsonld","provn", "png", "svg"],
             "hasProvenance": "org/openprovenance/templates/physical/unpacking/prov/prov-unpacking.prov-csv"
         }

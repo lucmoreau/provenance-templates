@@ -48,6 +48,7 @@
                 "org/openprovenance/templates/physical/transporting/transporting-sds"
             ],
             "output": "org/openprovenance/templates/physical/transporting/transporting",
+            "outputFullyQualifiedName": "org.openprovenance.templates.physical.Transporting",
             "formats": ["jsonld","provn", "png", "svg"],
             "hasProvenance": "org/openprovenance/templates/physical/transporting/prov/prov-transporting.prov-csv"
         }

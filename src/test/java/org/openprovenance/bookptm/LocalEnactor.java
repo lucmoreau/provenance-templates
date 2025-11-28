@@ -1,7 +1,6 @@
 package org.openprovenance.bookptm;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.openprovenance.templates.catalogue.transport.integrator.BeanLocalEnactor2;
 import org.openprovenance.templates.physical.client.common.*;
 import org.openprovenance.templates.physical.client.integrator.*;
@@ -56,7 +55,7 @@ public class LocalEnactor extends BeanLocalEnactor2 {
     public Packing_compositeOutputs process(Packing_compositeInputs bean) {
         Packing_compositeOutputs out = super.process(bean);
         Packing_compositeBean packingCompositeBean=merge(bean, out);
-        packingCompositeBean.type="org.openprovenance.templates.physical.Packing";
+        packingCompositeBean.type="org.openprovenance.book.Packing";
         history.add(packingCompositeBean);
         if (out.ID!=null) {
             id2object.put(out.ID, packingCompositeBean);

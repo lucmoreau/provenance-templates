@@ -15,10 +15,13 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <meta.inf.webjars>META-INF/resources/webjars</meta.inf.webjars>
+
         <package.name>transport_template_library</package.name>
         <package.name.cli>${package.name}_cli</package.name.cli>
         <package.name.l2p>${package.name}_l2p</package.name.l2p>
+
+        <meta-inf-prefix>META-INF/resources/webjars</meta-inf-prefix>
+        <meta-inf.webjars>${meta-inf-prefix}/${project.artifactId}/${project.version}</meta-inf.webjars>
 
         <templates.dir>${project.basedir}/src/main/resources/templates</templates.dir>
         <bindings.dir>${project.basedir}/src/main/resources/bindings</bindings.dir>
@@ -1108,6 +1111,7 @@
                         </goals>
                         <configuration>
                             <inputBaseDir>${project.basedir}</inputBaseDir>
+                            <cbindingsBaseDir>${project.basedir}/src/main/resources/cbindings</cbindingsBaseDir>
                             <outputBaseDir>${project.basedir}</outputBaseDir>
                             <templateLibrary>
                                 <templateLibrary>${project.basedir}/src/main/resources/templates</templateLibrary>
@@ -1118,6 +1122,77 @@
                                 <config>${project.basedir}/src/main/resources/catalogue/fs-catalogue.json</config>
                                 <config>${project.basedir}/src/main/resources/catalogue/ptm-catalogue.json</config>
                             </configs>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>prepare.webjar</id>
+                        <goals>
+                            <goal>prepare-webjar</goal>
+                        </goals>
+                        <phase>process-resources</phase>
+                        <configuration>
+                            <warning>true</warning>
+                            <templates>
+                                <template>
+                                    <directory>${project.basedir}/src/main/resources/templates</directory>
+                                </template>
+                                <template>
+                                    <directory>${project.basedir}/target/generated-templates</directory>
+                                </template>
+                            </templates>
+                            <bindings>
+                                <bindings>
+                                    <directory>${project.basedir}/src/main/resources/bindings</directory>
+                                </bindings>
+                            </bindings>
+                            <cbindings>
+                                <cbindings>
+                                    <directory>${project.basedir}/src/main/resources/cbindings</directory>
+                                </cbindings>
+                            </cbindings>
+                            <js>
+                                <js>
+                                    <directory>${project.build.directory}/js</directory>
+                                </js>
+                                <js>
+                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/js</directory>
+                                </js>
+                            </js>
+                            <css>
+                                <css>
+                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/css</directory>
+                                </css>
+                            </css>
+                            <ts>
+                                <ts>
+                                    <directory>${project.build.directory}/ts</directory>
+                                </ts>
+                            </ts>
+                            <schema>
+                                <schema>
+                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources</directory>
+                                    <includes>
+                                        <includes>[^/]+\.json$</includes> <!-- note this is a java regex *-->
+                                    </includes>
+                                </schema>
+                            </schema>
+                            <sql>
+                                <sql>
+                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources</directory>
+                                    <includes>
+                                        <includes>[^/]+\.sql</includes> <!-- note this is a java regex *-->
+                                    </includes>
+                                </sql>
+                            </sql>
+                            <html>
+                                <html>
+                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources/META-INF/resources/webjars/${package.name.cli}/${prov.toolbox.version}/html/</directory>
+                                    <includes>
+                                        <includes>[^/]+\.html</includes> <!-- note this is a java regex *-->
+                                    </includes>
+                                </html>
+                            </html>
                         </configuration>
                     </execution>
 
@@ -1263,19 +1338,6 @@
                                         <include name="**/*" />
                                     </fileset>
                                 </move>
-
-                                <!--
-                                <copy todir="${project.build.directory}/templates">
-                                    <fileset dir="src/main/resources/templates/iso14001">
-                                        <include name="**/*" />
-                                    </fileset>
-                                </copy>
-                                <copy todir="${project.build.directory}/bindings">
-                                    <fileset dir="src/main/resources/bindings/iso14001">
-                                        <include name="**/*" />
-                                    </fileset>
-                                </copy>
-                                -->
                             </target>
                         </configuration>
                     </execution>
@@ -1293,7 +1355,6 @@
                         </configuration>
                     </execution>
                     <execution>
-
                         <id>antrun-jsweet</id>
                         <phase>generate-sources</phase>
                         <goals>
@@ -1312,6 +1373,7 @@
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -1342,78 +1404,100 @@
 
                     <execution>
                         <id>resources</id>
-                        <phase>generate-sources</phase>
+                        <phase>process-resources</phase>
                         <goals>
                             <goal>add-resource</goal>
                         </goals>
                         <configuration>
                             <resources>
                                 <resource>
-                                    <directory>${project.build.directory}/resources</directory>
-                                    <targetPath />
-                                </resource>
-                                <resource>
-                                    <directory>${project.build.directory}/js</directory>
-                                    <targetPath>${meta.inf.webjars}/${project.artifactId}/${project.version}/js</targetPath>
-                                </resource>
-                                <resource>
-                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/js</directory>
-                                    <targetPath>${meta.inf.webjars}/${project.artifactId}/${project.version}/js</targetPath>
-                                </resource>
-                                <resource>
-                                    <directory>${project.build.directory}/ts</directory>
-                                    <targetPath>${meta.inf.webjars}/${project.artifactId}/${project.version}/ts</targetPath>
-                                </resource>
-                                <resource>
-                                    <directory>${project.build.directory}/bindings</directory>
-                                    <targetPath>${meta.inf.webjars}/${project.artifactId}/${project.version}/bindings</targetPath>
-                                </resource>
-                                <resource>
-                                    <directory>${project.build.directory}/prov-template-library/templates</directory>
-                                    <targetPath>${meta.inf.webjars}/${project.artifactId}/${project.version}/templates</targetPath>
-                                </resource>
-                                <resource>
-                                    <directory>${project.build.directory}/prov-template-library/mbindings</directory>
-                                    <targetPath>${meta.inf.webjars}/${project.artifactId}/${project.version}/mbindings</targetPath>
-                                </resource>
-
-                                <resource>
-                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/css</directory>
-                                    <targetPath>${meta.inf.webjars}/${project.artifactId}/${project.version}/css</targetPath>
-                                    <includes>
-                                        <include>*.css</include>
-                                    </includes>
-                                </resource>
-
-                                <resource>
-                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources</directory>
-                                    <targetPath>${meta.inf.webjars}/${project.artifactId}/${project.version}/schema</targetPath>
-                                    <includes>
-                                        <include>*.json</include>
-                                    </includes>
-                                </resource>
-
-                                <resource>
-                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources</directory>
-                                    <targetPath>${meta.inf.webjars}/${project.artifactId}/${project.version}/sql</targetPath>
-                                    <includes>
-                                        <include>*.sql</include>
-                                    </includes>
-                                </resource>
-
-
-                                <resource>
-                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources/${meta.inf.webjars}/${package.name.cli}/${prov.toolbox.version}/html</directory>
-                                    <targetPath>${meta.inf.webjars}/${project.artifactId}/${project.version}/html</targetPath>
-                                    <includes>
-                                        <include>*.html</include>
-                                    </includes>
+                                    <directory>${project.build.directory}/META-INF-STAGING</directory>
+                                    <targetPath>${meta-inf.webjars}</targetPath>
                                 </resource>
                             </resources>
                         </configuration>
                     </execution>
+
                 </executions>
             </plugin>
+
+            <!--
+                   <execution>
+                       <id>resources</id>
+                       <phase>generate-sources</phase>
+                       <goals>
+                           <goal>add-resource</goal>
+                       </goals>
+                       <configuration>
+                           <resources>
+                               <resource>
+                                   <directory>${project.build.directory}/resources</directory>
+                                   <targetPath />
+                               </resource>
+
+                               <resource>
+                                   <directory>${project.build.directory}/js</directory>
+                                   <targetPath>${meta-inf.webjars}/js</targetPath>
+                               </resource>
+                               <resource>
+                                   <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/js</directory>
+                                   <targetPath>${meta-inf.webjars}/js</targetPath>
+                               </resource>
+                               <resource>
+                                   <directory>${project.build.directory}/ts</directory>
+                                   <targetPath>${meta-inf.webjars}/ts</targetPath>
+                               </resource>
+                               <resource>
+                                   <directory>${project.build.directory}/bindings</directory>
+                                   <targetPath>${meta-inf.webjars}/bindings</targetPath>
+                               </resource>
+                               <resource>
+                                   <directory>${project.build.directory}/prov-template-library/templates</directory>
+                                   <targetPath>${meta-inf.webjars}/templates</targetPath>
+                               </resource>
+                               <resource>
+                                   <directory>${project.build.directory}/prov-template-library/mbindings</directory>
+                                   <targetPath>${meta-inf.webjars}/mbindings</targetPath>
+                               </resource>
+
+                               <resource>
+                                   <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/css</directory>
+                                   <targetPath>${meta-inf.webjars}/css</targetPath>
+                                   <includes>
+                                       <include>*.css</include>
+                                   </includes>
+                               </resource>
+
+                               <resource>
+                                   <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources</directory>
+                                   <targetPath>${meta-inf.webjars}/schema</targetPath>
+                                   <includes>
+                                       <include>*.json</include>
+                                   </includes>
+                               </resource>
+
+                               <resource>
+                                   <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources</directory>
+                                   <targetPath>${meta-inf.webjars}/sql</targetPath>
+                                   <includes>
+                                       <include>*.sql</include>
+                                   </includes>
+                               </resource>
+
+
+                               <resource>
+                                   <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources/${meta-inf-prefix}/${package.name.cli}/${prov.toolbox.version}/html</directory>
+                                   <targetPath>${meta-inf.webjars}/html</targetPath>
+                                   <includes>
+                                       <include>*.html</include>
+                                   </includes>
+                               </resource>
+
+         </resources>
+     </configuration>
+ </execution>
+ -->
+
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

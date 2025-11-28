@@ -59,6 +59,7 @@
                 "org/openprovenance/templates/physical/packing/packing-sds-item"
             ],
             "output": "org/openprovenance/templates/physical/packing/packing",
+            "outputFullyQualifiedName": "org.openprovenance.templates.physical.Packing",
             "formats": ["jsonld","provn", "png", "svg"],
             "hasProvenance": "org/openprovenance/templates/physical/packing/prov/prov-packing.prov-csv"
         }

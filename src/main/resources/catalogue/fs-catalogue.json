@@ -22,7 +22,7 @@
             "fullyQualifiedName": "org.openprovenance.templates.fs.FileTransforming",
 			"template": "org/openprovenance/templates/fs/file-transforming",
 			"package": "org.openprovenance.templates.fs",
-			"bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/fs/file-transforming.json"
+			"bindings": "org/openprovenance/cbindings/fs/file-transforming.json"
 		},
 
 		{
@@ -31,7 +31,7 @@
             "fullyQualifiedName": "org.openprovenance.templates.fs.FileFiltering",
 			"template": "org/openprovenance/templates/fs/file-filtering",
 			"package": "org.openprovenance.templates.fs",
-			"bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/fs/file-filtering.json"
+			"bindings": "org/openprovenance/cbindings/fs/file-filtering.json"
 		},
 		{
 			"@type": "simple",
@@ -39,7 +39,7 @@
             "fullyQualifiedName": "org.openprovenance.templates.fs.FileTraining",
 			"template": "org/openprovenance/templates/fs/file-training",
 			"package": "org.openprovenance.templates.fs",
-			"bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/fs/file-training.json"
+			"bindings": "org/openprovenance/cbindings/fs/file-training.json"
 		},
 		{
 			"@type": "simple",
@@ -47,7 +47,7 @@
             "fullyQualifiedName": "org.openprovenance.templates.fs.FileValidating",
 			"template": "org/openprovenance/templates/fs/file-validating",
 			"package": "org.openprovenance.templates.fs",
-			"bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/fs/file-validating.json"
+			"bindings": "org/openprovenance/cbindings/fs/file-validating.json"
 		},
 		{
 			"@type": "simple",
@@ -55,7 +55,7 @@
             "fullyQualifiedName": "org.openprovenance.templates.fs.FileApproving",
 			"template": "org/openprovenance/templates/fs/file-approving",
 			"package": "org.openprovenance.templates.fs",
-			"bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/fs/file-approving.json"
+			"bindings": "org/openprovenance/cbindings/fs/file-approving.json"
 		},
 		{
 			"@type": "simple",
@@ -63,7 +63,7 @@
             "fullyQualifiedName": "org.openprovenance.templates.fs.FileSplitting",
 			"template": "org/openprovenance/templates/fs/file-splitting",
 			"package": "org.openprovenance.templates.fs",
-			"bindings": "src/main/resources/cbindings/org/openprovenance/cbindings/fs/file-splitting.json"
+			"bindings": "org/openprovenance/cbindings/fs/file-splitting.json"
 		},
 
 		{
