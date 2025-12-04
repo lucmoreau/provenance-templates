@@ -26,7 +26,7 @@
             "fullyQualifiedName": "org.openprovenance.book.Transporting",
             "package": "org.openprovenance.templates.physical",
             "template": "org.openprovenance.templates.physical.Transporting",
-            "bindings": "org/openprovenance/cbindings/physical/transporting.json"
+            "cbindings": "org/openprovenance/cbindings/physical/transporting.json"
         },
         {
             "@type": "simple",
@@ -34,7 +34,7 @@
             "fullyQualifiedName": "org.openprovenance.book.HandingOver",
             "package": "org.openprovenance.templates.responsibility",
             "template": "org.openprovenance.templates.responsibility.HandingOver",
-            "bindings": "org/openprovenance/cbindings/responsibility/handingover.json"
+            "cbindings": "org/openprovenance/cbindings/responsibility/handingover.json"
         },
 
         {
@@ -43,7 +43,7 @@
             "fullyQualifiedName": "org.openprovenance.book.Weighing",
             "package": "org.openprovenance.templates.physical",
             "template": "org.openprovenance.templates.physical.Weighing",
-            "bindings": "org/openprovenance/cbindings/physical/weighing.json"
+            "cbindings": "org/openprovenance/cbindings/physical/weighing.json"
         },
         {
             "@type": "simple",
@@ -51,7 +51,7 @@
             "fullyQualifiedName": "org.openprovenance.book.AgentInit",
             "package": "org.openprovenance.templates.physical",
             "template": "org/openprovenance/templates/responsibility/agent-init/agent-location-init",
-            "bindings": "org/openprovenance/cbindings/responsibility/agent-location-init.json"
+            "cbindings": "org/openprovenance/cbindings/responsibility/agent-location-init.json"
         },
         {
             "@type": "simple",
@@ -59,7 +59,7 @@
             "fullyQualifiedName": "org.openprovenance.book.EntityInit",
             "package": "org.openprovenance.templates.physical",
             "template": "org/openprovenance/templates/general/entity-init/entity-location-init",
-            "bindings": "org/openprovenance/cbindings/physical/item-location-init.json"
+            "cbindings": "org/openprovenance/cbindings/physical/item-location-init.json"
         },
         {
             "@type": "simple",
@@ -67,7 +67,7 @@
             "fullyQualifiedName": "org.openprovenance.book.Packing",
             "package": "org.openprovenance.templates.physical",
             "template": "org.openprovenance.templates.physical.Packing",
-            "bindings": "org/openprovenance/cbindings/physical/packing.json"
+            "cbindings": "org/openprovenance/cbindings/physical/packing.json"
         },
         {
             "@type": "composite",
@@ -84,7 +84,7 @@
             "fullyQualifiedName": "org.openprovenance.templates.physical.Unpacking",
             "package": "org.openprovenance.templates.physical",
             "template": "org.openprovenance.templates.physical.Unpacking",
-            "bindings": "org/openprovenance/cbindings/physical/unpacking.json"
+            "cbindings": "org/openprovenance/cbindings/physical/unpacking.json"
         },
         {
             "@type": "composite",

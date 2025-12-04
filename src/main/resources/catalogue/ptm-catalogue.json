@@ -22,7 +22,7 @@
             "fullyQualifiedName": "org.openprovenance.templates.ptm.CreatingTemplate",
             "template": "org/openprovenance/templates/ptm/creating-template/creating-template",
             "package": "org.openprovenance.templates.ptm",
-            "bindings": "org/openprovenance/cbindings/ptm/ptm-creating.json"
+            "cbindings": "org/openprovenance/cbindings/ptm/ptm-creating.json"
         }
 
 

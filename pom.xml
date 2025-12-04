@@ -761,32 +761,33 @@
                         <goals>
                             <goal>validate-ttf</goal>
                         </goals>
+
                         <configuration>
+                            <inputBaseDir>${project.basedir}</inputBaseDir>
                             <args>
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-generic.json</arg>
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-fs.json</arg>
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-ptm.json</arg>
+                                <arg>src/main/resources/ttfs/config-generic.json</arg>
+                                <arg>src/main/resources/ttfs/config-fs.json</arg>
+                                <arg>src/main/resources/ttfs/config-ptm.json</arg>
 
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-triangle1-ugd.json</arg>
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-triangle2-sds.json</arg>
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-triangle3-aga.json</arg>
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-triangle4-aia.json</arg>
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-triangle6-ugm.json</arg>
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-inserting-into-collection.json</arg>
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-insert-into-collection-old.json</arg>
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-removing-from-collection.json</arg>
+                                <arg>src/main/resources/ttfs/config-triangle1-ugd.json</arg>
+                                <arg>src/main/resources/ttfs/config-triangle2-sds.json</arg>
+                                <arg>src/main/resources/ttfs/config-triangle3-aga.json</arg>
+                                <arg>src/main/resources/ttfs/config-triangle4-aia.json</arg>
+                                <arg>src/main/resources/ttfs/config-triangle6-ugm.json</arg>
+                                <arg>src/main/resources/ttfs/config-inserting-into-collection.json</arg>
+                                <arg>src/main/resources/ttfs/config-insert-into-collection-old.json</arg>
+                                <arg>src/main/resources/ttfs/config-removing-from-collection.json</arg>
 
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-ptm-creating-template.json</arg>
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-transporting.json</arg>
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-responsibility-handingover.json</arg>
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-responsibility-examining.json</arg>
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-weighing.json</arg>
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-packing.json</arg>
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-unpacking.json</arg>
+                                <arg>src/main/resources/ttfs/config-ptm-creating-template.json</arg>
+                                <arg>src/main/resources/ttfs/config-transporting.json</arg>
+                                <arg>src/main/resources/ttfs/config-responsibility-handingover.json</arg>
+                                <arg>src/main/resources/ttfs/config-responsibility-examining.json</arg>
+                                <arg>src/main/resources/ttfs/config-weighing.json</arg>
+                                <arg>src/main/resources/ttfs/config-packing.json</arg>
+                                <arg>src/main/resources/ttfs/config-unpacking.json</arg>
 
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-entity-init.json</arg>
-                                <arg>${project.basedir}/src/main/resources/ttfs/config-responsibility-agent-init.json</arg>
-
+                                <arg>src/main/resources/ttfs/config-entity-init.json</arg>
+                                <arg>src/main/resources/ttfs/config-responsibility-agent-init.json</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -811,43 +812,41 @@
                         <id>exec.process.templates.triangles</id>
                         <phase>generate-sources</phase>
                         <goals>
+                            <goal>validate-ttf</goal>
                             <goal>execute-ttf</goal>
                         </goals>
                         <configuration>
+                            <debug>true</debug>
                             <inputBaseDir>${project.basedir}/src/main/resources</inputBaseDir>
                             <outputBaseDir>${project.build.directory}</outputBaseDir>
-
-                            <configs>
-
-                                <config>ttfs/config-triangle1-ugd.json</config>
-                                <config>ttfs/config-triangle2-sds.json</config>
-                                <config>ttfs/config-triangle3-aga.json</config>
-                                <config>ttfs/config-triangle4-aia.json</config>
-
-                                <config>ttfs/config-triangle6-ugm.json</config>
-                                <config>ttfs/config-entity-init.json</config>
-                                <config>ttfs/config-responsibility-agent-init.json</config>
-
-                            </configs>
-
+                            <args>
+                                <arg>ttfs/config-triangle1-ugd.json</arg>
+                                <arg>ttfs/config-triangle2-sds.json</arg>
+                                <arg>ttfs/config-triangle3-aga.json</arg>
+                                <arg>ttfs/config-triangle4-aia.json</arg>
+                                <arg>ttfs/config-triangle6-ugm.json</arg>
+                                <arg>ttfs/config-entity-init.json</arg>
+                                <arg>ttfs/config-responsibility-agent-init.json</arg>
+                            </args>
                         </configuration>
-
                     </execution>
 
                     <execution>
                         <id>exec.process.templates.generic</id>
                         <phase>generate-sources</phase>
                         <goals>
+                            <goal>validate-ttf</goal>
                             <goal>execute-ttf</goal>
                         </goals>
                         <configuration>
+                            <debug>true</debug>
                             <inputBaseDir>${project.basedir}</inputBaseDir>
                             <outputBaseDir>${project.build.directory}</outputBaseDir>
-                            <configs>
-                                <config>src/main/resources/ttfs/config-generic.json</config>
-                                <config>src/main/resources/ttfs/config-fs.json</config>
-                                <config>src/main/resources/ttfs/config-ptm.json</config>
-                            </configs>
+                            <args>
+                                <arg>src/main/resources/ttfs/config-generic.json</arg>
+                                <arg>src/main/resources/ttfs/config-fs.json</arg>
+                                <arg>src/main/resources/ttfs/config-ptm.json</arg>
+                            </args>
                         </configuration>
                     </execution>
 
@@ -855,17 +854,19 @@
                         <id>exec.process.templates.collections</id>
                         <phase>generate-sources</phase>
                         <goals>
+                            <goal>validate-ttf</goal>
                             <goal>execute-ttf</goal>
                         </goals>
                         <configuration>
+                            <debug>true</debug>
                             <inputBaseDir>${project.basedir}</inputBaseDir>
                             <outputBaseDir>${project.build.directory}</outputBaseDir>
-                            <configs>
-                                <config>src/main/resources/ttfs/config-inserting-into-collection.json</config>
+                            <args>
+                                <arg>src/main/resources/ttfs/config-inserting-into-collection.json</arg>
                                <!-- <config>src/main/resources/ttfs/config-insert-into-collection-old.json</config>-->
-                                <config>src/main/resources/ttfs/config-removing-from-collection.json</config>
+                                <arg>src/main/resources/ttfs/config-removing-from-collection.json</arg>
 
-                            </configs>
+                            </args>
                         </configuration>
                     </execution>
 
@@ -874,20 +875,21 @@
                         <id>exec.process.templates.physical</id>
                         <phase>generate-sources</phase>
                         <goals>
+                            <goal>validate-ttf</goal>
                             <goal>execute-ttf</goal>
                         </goals>
                         <configuration>
+                            <debug>true</debug>
                             <inputBaseDir>${project.basedir}</inputBaseDir>
                             <outputBaseDir>${project.build.directory}</outputBaseDir>
-                            <configs>
-                                <config>src/main/resources/ttfs/config-transporting.json</config>
-                                <config>src/main/resources/ttfs/config-responsibility-handingover.json</config>
-                                <config>src/main/resources/ttfs/config-responsibility-examining.json</config>
-                                <config>src/main/resources/ttfs/config-weighing.json</config>
-                                <config>src/main/resources/ttfs/config-packing.json</config>
-                                <config>src/main/resources/ttfs/config-unpacking.json</config>
-
-                            </configs>
+                            <args>
+                                <args>src/main/resources/ttfs/config-transporting.json</args>
+                                <arg>src/main/resources/ttfs/config-responsibility-handingover.json</arg>
+                                <arg>src/main/resources/ttfs/config-responsibility-examining.json</arg>
+                                <arg>src/main/resources/ttfs/config-weighing.json</arg>
+                                <arg>src/main/resources/ttfs/config-packing.json</arg>
+                                <arg>src/main/resources/ttfs/config-unpacking.json</arg>
+                            </args>
                         </configuration>
                     </execution>
 
@@ -987,14 +989,16 @@
                         <id>exec.ttf.ptm.creating.template</id>
                         <phase>generate-sources</phase>
                         <goals>
+                            <goal>validate-ttf</goal>
                             <goal>execute-ttf</goal>
                         </goals>
                         <configuration>
+                            <debug>true</debug>
                             <inputBaseDir>${project.basedir}</inputBaseDir>
                             <outputBaseDir>${project.build.directory}</outputBaseDir>
-                            <configs>
-                                <config>src/main/resources/ttfs/config-ptm-creating-template.json</config>
-                            </configs>
+                            <args>
+                                <args>src/main/resources/ttfs/config-ptm-creating-template.json</args>
+                            </args>
                         </configuration>
                     </execution>
 
@@ -1065,6 +1069,7 @@
                             </args>
                         </configuration>
                     </execution>
+
                     <execution>
                         <id>log2prov.aia.all</id>
                         <phase>test</phase> <!-- later than concat-csv -->
@@ -1083,11 +1088,6 @@
                         </configuration>
                     </execution>
 
-
-
-
-
-
                     <execution>
                         <id>validate.catalogue</id>
                         <phase>generate-sources</phase>
@@ -1101,7 +1101,6 @@
                             </args>
                         </configuration>
                     </execution>
-
 
                     <execution>
                         <id>compile.catalogue</id>
@@ -1195,13 +1194,7 @@
                             </html>
                         </configuration>
                     </execution>
-
-
-
                 </executions>
-
-
-
 
                 <dependencies> <!-- dependency added to support -log2prov use of class
                                     org.openprovenance.prov.template.library.ptm.Init -->
@@ -1211,8 +1204,8 @@
                         <version>${prov.toolbox.version}</version>
                     </dependency>
                 </dependencies>
-
             </plugin>
+
             <!-- exec plugin to cat all files in target/generated-templates/prov-*.prov-csv into target/generated-templates/all.prov-csv -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -1233,6 +1226,7 @@
                             </arguments>
                         </configuration>
                     </execution>
+
                     <execution>
                         <id>concat.aga.csv</id>
                         <phase>process-resources</phase>
@@ -1247,6 +1241,7 @@
                             </arguments>
                         </configuration>
                     </execution>
+
                     <execution>
                         <id>concat.sds.csv</id>
                         <phase>process-resources</phase>
@@ -1276,6 +1271,7 @@
                             </arguments>
                         </configuration>
                     </execution>
+
                     <execution>
                         <id>concat.ugm.csv</id>
                         <phase>process-resources</phase>
@@ -1341,6 +1337,7 @@
                             </target>
                         </configuration>
                     </execution>
+
                     <execution>
                         <id>check-java12-exists</id>
                         <phase>generate-sources</phase>
@@ -1354,6 +1351,7 @@
                             <exportAntProperties>true</exportAntProperties>
                         </configuration>
                     </execution>
+
                     <execution>
                         <id>antrun-jsweet</id>
                         <phase>generate-sources</phase>
@@ -1361,11 +1359,12 @@
                             <goal>run</goal>
                         </goals>
                         <configuration>
-                            <target if="${java12Exists}">
+                            <target>
+                                <echo message="Running JSweet Maven build with MAVEN_OPTS" />
                                 <exec executable="mvn">
-                                    <env key="JAVA_HOME" value="${java12.home}" />
+                                    <env key="MAVEN_OPTS" value="--add-opens jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED  --add-opens jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED  --add-opens jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED  --add-opens jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED  --add-opens jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED"/>
                                     <arg value="-f" />
-                                    <arg value="pom12.xml" />
+                                    <arg value="pom-jsweet.xml" />
                                     <arg value="jsweet:jsweet" />
                                 </exec>
                             </target>
