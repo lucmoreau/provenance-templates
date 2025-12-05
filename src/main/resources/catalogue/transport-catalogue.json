@@ -24,7 +24,7 @@
             "@type": "simple",
             "name": "transporting",
             "fullyQualifiedName": "org.openprovenance.book.Transporting",
-            "package": "org.openprovenance.templates.physical",
+            "package": "org.openprovenance.book.physical",
             "template": "org.openprovenance.templates.physical.Transporting",
             "cbindings": "org/openprovenance/cbindings/physical/transporting.json"
         },
@@ -32,16 +32,15 @@
             "@type": "simple",
             "name": "handingover",
             "fullyQualifiedName": "org.openprovenance.book.HandingOver",
-            "package": "org.openprovenance.templates.responsibility",
+            "package": "org.openprovenance.book.responsibility",
             "template": "org.openprovenance.templates.responsibility.HandingOver",
             "cbindings": "org/openprovenance/cbindings/responsibility/handingover.json"
         },
-
         {
             "@type": "simple",
             "name": "weighing",
             "fullyQualifiedName": "org.openprovenance.book.Weighing",
-            "package": "org.openprovenance.templates.physical",
+            "package": "org.openprovenance.book.physical",
             "template": "org.openprovenance.templates.physical.Weighing",
             "cbindings": "org/openprovenance/cbindings/physical/weighing.json"
         },
@@ -49,7 +48,7 @@
             "@type": "simple",
             "name": "agent_init",
             "fullyQualifiedName": "org.openprovenance.book.AgentInit",
-            "package": "org.openprovenance.templates.physical",
+            "package": "org.openprovenance.book.physical",
             "template": "org/openprovenance/templates/responsibility/agent-init/agent-location-init",
             "cbindings": "org/openprovenance/cbindings/responsibility/agent-location-init.json"
         },
@@ -57,7 +56,7 @@
             "@type": "simple",
             "name": "item_init",
             "fullyQualifiedName": "org.openprovenance.book.EntityInit",
-            "package": "org.openprovenance.templates.physical",
+            "package": "org.openprovenance.book.physical",
             "template": "org/openprovenance/templates/general/entity-init/entity-location-init",
             "cbindings": "org/openprovenance/cbindings/physical/item-location-init.json"
         },
@@ -65,7 +64,7 @@
             "@type": "simple",
             "name": "packing",
             "fullyQualifiedName": "org.openprovenance.book.Packing",
-            "package": "org.openprovenance.templates.physical",
+            "package": "org.openprovenance.book.physical",
             "template": "org.openprovenance.templates.physical.Packing",
             "cbindings": "org/openprovenance/cbindings/physical/packing.json"
         },
@@ -74,7 +73,7 @@
             "name": "packing_composite",
             "fullyQualifiedName": "org.openprovenance.book.PackingComposite",
             "consistsOf": "org.openprovenance.book.Packing",
-            "package": "org.openprovenance.templates.physical",
+            "package": "org.openprovenance.book.physical",
             "sharing": ["container1", "adding"]
         },
 
@@ -82,7 +81,7 @@
             "@type": "simple",
             "name": "unpacking",
             "fullyQualifiedName": "org.openprovenance.templates.physical.Unpacking",
-            "package": "org.openprovenance.templates.physical",
+            "package": "org.openprovenance.book.physical",
             "template": "org.openprovenance.templates.physical.Unpacking",
             "cbindings": "org/openprovenance/cbindings/physical/unpacking.json"
         },
@@ -90,8 +89,8 @@
             "@type": "composite",
             "name": "unpacking_composite",
             "fullyQualifiedName": "org.openprovenance.book.UnpackingComposite",
+            "package": "org.openprovenance.book.physical",
             "consistsOf": "org.openprovenance.templates.physical.Unpacking",
-            "package": "org.openprovenance.templates.physical",
             "sharing": ["container1", "removing"]
         }
 

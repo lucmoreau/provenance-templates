@@ -2,9 +2,9 @@ package org.openprovenance.bookptm;
 
 
 import org.openprovenance.templates.catalogue.transport.integrator.InputOutputProcessor;
-import org.openprovenance.templates.physical.client.integrator.*;
-import org.openprovenance.templates.responsibility.client.integrator.HandingoverInputs;
-import org.openprovenance.templates.responsibility.client.integrator.HandingoverOutputs;
+import org.openprovenance.book.physical.client.integrator.*;
+import org.openprovenance.book.responsibility.client.integrator.HandingoverInputs;
+import org.openprovenance.book.responsibility.client.integrator.HandingoverOutputs;
 
 import java.util.Arrays;
 import java.util.LinkedList;

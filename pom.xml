@@ -129,7 +129,7 @@
                 <version>${prov.toolbox.version}</version>
                 <executions>
                     <execution>
-                        <id>schema.check.demo</id>
+                        <id>validate.bindings</id>
                         <phase>process-sources</phase>
                         <goals>
                             <goal>validate-bindings</goal>
@@ -1096,6 +1096,7 @@
                         </goals>
                         <configuration>
                             <args>
+                                <arg>${project.basedir}/src/main/resources/catalogue/transport-catalogue.json</arg>
                                 <arg>${project.basedir}/src/main/resources/catalogue/fs-catalogue.json</arg>
                                 <arg>${project.basedir}/src/main/resources/catalogue/ptm-catalogue.json</arg>
                             </args>
