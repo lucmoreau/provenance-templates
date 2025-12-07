@@ -15,8 +15,8 @@
         "otype1" :                  [[{"@id" : "plead:ApprovedPipeline"}]],
         "otype2" :                  [[{"@id" : "plead:ApprovalRecord"}]],
         "atype" :                   [[{"@id" : "plead:ApprovingPipeline"}]],
-        "start" :                   [{"@id" : "var:start"}],
-        "end" :                     [{"@id" : "var:end"}],
+        "start" :                   [{"@id" : "var:startTime"}],
+        "end" :                     [{"@id" : "var:endTime"}],
         "iprops1":                  [[{"@id" : "plead:path"}]],
         "iprop_values1":            [[{"@id" : "var:path"}]],
         "oprops1":                  [[{"@id": "plead:createdAt"}, {"@id" : "plead:path"},  {"@id" : "plead:pipeline"}]],
@@ -26,7 +26,7 @@
     },
     "vargen" : {
         "view" : [ {
-            "@id" : "vargen:view"
+            "@id" : "vargen:b"
         } ]
     },
     "context" : {

@@ -14,7 +14,10 @@
 	"jsonschema": "schema-fs.json",
 	"documentation": "doc-fs.html",
 	"sqlFile": "prov-template-library-fs.sql",
-	"templates" : [
+
+    "variableCheck": "src/main/resources/variable-check/fs/variables.json",
+
+    "templates" : [
 
 		{
 			"@type": "simple",

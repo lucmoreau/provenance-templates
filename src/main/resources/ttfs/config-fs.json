@@ -1,6 +1,6 @@
 {
     "template_path": ["src/main/resources/templates"],
-    "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/generic/fs"],
+    "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/fs"],
     "output_dir": "generated-templates",
 
     "variableMaps": ["./common-ns.json"],
@@ -43,6 +43,16 @@
             "outputFullyQualifiedName": "org.openprovenance.templates.fs.FileSplitting",
             "formats": ["jsonld", "provn", "png", "svg"],
             "hasProvenance": "org/openprovenance/templates/fs/prov/prov-file-splitting.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "template": "org/openprovenance/templates/generic/joining2",
+            "template_path": ["target/generated-templates"],
+            "bindings": "file-merging.json",
+            "output": "org/openprovenance/templates/fs/file-merging",
+            "outputFullyQualifiedName": "org.openprovenance.templates.fs.FileMerging",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/fs/prov/prov-file-merging.prov-csv"
         },
         {
             "type": "instantiate",

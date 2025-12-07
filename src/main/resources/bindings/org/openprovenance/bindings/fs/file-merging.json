@@ -1,0 +1,37 @@
+{
+    "var" : {
+        "agent" :                    [{"@id" : "var:engineer"}],
+        "responsible" :              [{"@id" : "var:organization"}],
+        "output" :                    [{"@id" : "var:outfile"}],
+        "input1" :                  [{"@id" : "var:infile1"}],
+        "input2" :                  [{"@id" : "var:infile2"}],
+        "activity" :                 [{"@id" : "var:merging"}],
+        "plan":                      [{"@id" : null}],
+        "agtype" :                   [[{"@id" : "fs:DataEngineer"},   {"@id" : "prov:Person"}]],
+        "rtype" :                    [[{"@id" : "prov:Organization"}]],
+        "otype" :                    [[{"@id" : "fs:DataFile"},       {"@id" : "fs:CSVFile"}]],
+        "itype1" :                   [[{"@id" : "fs:DataFile"},       {"@id" : "fs:CSVFile"}]],
+        "itype2" :                   [[{"@id" : "fs:DataFile"},       {"@id" : "fs:CSVFile"}]],
+        "atype" :                    [[{"@id" : "fs:MergingData"}]],
+        "ptype" :                    [[{"@id" : "fs:Method"}]],
+        "start" :                    [{"@id" : "var:startTime"}],
+        "end" :                      [{"@id" : "var:endTime"}]
+
+    },
+    "vargen" : {
+        "view" : [ {
+            "@id" : "vargen:b"
+        } ]
+    },
+    "linked": {"prop_values":  "props"},
+    "context" : {
+        "fs":     "${fs_ns}",
+        "prov":   "${prov_ns}",
+        "sk":     "${sk_ns}",
+        "uuid" :  "${uuid_ns}",
+        "var":    "${var_ns}",
+        "vargen": "${vargen_ns}",
+        "xsd":    "${xsd_ns}"
+    },
+    "template" : null
+}

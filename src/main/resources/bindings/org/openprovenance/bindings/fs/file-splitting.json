@@ -1,0 +1,40 @@
+{
+    "var" : {
+        "agent" :                    [{"@id" : "var:engineer"}],
+        "responsible" :              [{"@id" : "var:organization"}],
+        "input" :                    [{"@id" : "var:file"}],
+        "output1" :                  [{"@id" : "var:split_file1"}],
+        "output2" :                  [{"@id" : "var:split_file2"}],
+        "activity" :                 [{"@id" : "var:splitting"}],
+        "plan":                      [{"@id" : null}],
+        "agtype" :                   [[{"@id" : "fs:DataEngineer"},   {"@id" : "prov:Person"}]],
+        "rtype" :                    [[{"@id" : "fs:CreditProvider"}, {"@id" : "prov:Organization"}]],
+        "itype" :                    [[{"@id" : "fs:DataFile"},       {"@id" : "fs:CSVFile"}]],
+        "otype1" :                   [[{"@id" : "fs:DataFile"},       {"@id" : "fs:CSVFile"}]],
+        "otype2" :                   [[{"@id" : "fs:DataFile"},       {"@id" : "fs:CSVFile"}]],
+        "atype" :                    [[{"@id" : "fs:SplittingData"}]],
+        "ptype" :                    [[{"@id" : "fs:Method"}]],
+        "start" :                    [{"@id" : "var:startTime"}],
+        "end" :                      [{"@id" : "var:endTime"}],
+        "oprops1":                   [[{"@id": "fs:n_rows"}, {"@id" : "fs:n_cols"}, {"@id": "fs:filename"}, {"@id" : "fs:path"}]],
+        "oprop_values1":             [[{"@id": "var:n_rows1"},   {"@id" : "var:n_cols1"}, {"@id": "var:filename1"},  {"@id" : "var:path1"}]],
+        "oprops2":                   [[{"@id": "fs:n_rows"}, {"@id" : "fs:n_cols"}, {"@id": "fs:filename"}, {"@id" : "fs:path"}]],
+        "oprop_values2":             [[{"@id": "var:n_rows2"},   {"@id" : "var:n_cols2"}, {"@id": "var:filename2"},  {"@id" : "var:path2"}]]
+    },
+    "vargen" : {
+        "view" : [ {
+            "@id" : "vargen:b"
+        } ]
+    },
+    "linked": {"prop_values":  "props"},
+    "context" : {
+        "fs":     "${fs_ns}",
+        "prov":   "${prov_ns}",
+        "sk":     "${sk_ns}",
+        "uuid" :  "${uuid_ns}",
+        "var":    "${var_ns}",
+        "vargen": "${vargen_ns}",
+        "xsd":    "${xsd_ns}"
+    },
+    "template" : null
+}

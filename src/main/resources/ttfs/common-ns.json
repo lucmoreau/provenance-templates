@@ -8,6 +8,7 @@
 
     "phys_ns": "http://openprovenance.org/ns/phys#",
     "resp_ns": "http://openprovenance.org/ns/responsibility#",
+    "fs_ns": "http://openprovenance.org/ns/fs#",
 
     "uuid_ns": "urn:uuid:",
     "foaf_ns": "http://xmlns.com/foaf/0.1/",

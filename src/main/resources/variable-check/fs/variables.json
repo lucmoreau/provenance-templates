@@ -1,0 +1,41 @@
+{
+    "entity": "(.*file|.*dataset|method|.*pipeline|score|approval_record)\\d*",
+    "agent": "(engineer|organization|manager)\\d*",
+    "activity": "((a|activity)\\d*)|(.*ing)$",
+
+    "entity.wasGeneratedBy": "(ag|agent)\\d*",
+    "entity.specializationOf": "(ag|agent)\\d*",
+
+    "plan": "(e|entity|p|plan|method)\\d*",
+    "collection": "(coll|container)\\d*",
+
+    "bundle": "(b|bundle)\\d*",
+
+    "used": "(u|usd)\\d*",
+    "wasAttributedTo": "(attr)\\d*",
+    "wasAssociatedWith": "(asc)\\d*",
+    "wasGeneratedBy": "(g|gen)\\d*",
+    "wasDerivedFrom": "(wdf)\\d*",
+    "actedOnBehalfOf": "(aobo|del)\\d*",
+    "hadMember": "(mem)\\d*",
+    "specializationOf": "(spec)\\d*",
+
+    "time": "(time|startTime|endTime)\\d*",
+
+    "attributes": {
+        "entity": "(eprop|iprop)\\d*",
+        "activity": "(aprop)\\d*",
+        "agent": "(agprop)\\d*",
+        "wasGeneratedBy": "(gprop)\\d*",
+        "specializationOf": "(sprop)\\d*",
+        "used": "(uprop)\\d*"
+    },
+    "values": {
+        "entity": "(evalue|ivalue)\\d*",
+        "activity": "(avalue)\\d*",
+        "agent": "(agvalue)\\d*",
+        "wasGeneratedBy": "(gvalue)\\d*",
+        "specializationOf": "(svalue)\\d*",
+        "used": "(uvalue)\\d*"
+    }
+}

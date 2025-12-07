@@ -13,12 +13,12 @@
         "atype" :                   [[{"@id" : "plead:AssessingPerformance"}]],
         "oprops":                   [[{"@id": "plead:createdAt"},{"@id": "prov:value"}]],
         "oprop_values":             [[{"@id": "var:time"}, {"@id": "var:score_value"}]],
-        "start" :                   [{"@id" : "var:start"}],
-        "end" :                     [{"@id" : "var:end"}]
+        "start" :                   [{"@id" : "var:startTime"}],
+        "end" :                     [{"@id" : "var:endTime"}]
     },
     "vargen" : {
         "view" : [ {
-            "@id" : "vargen:view"
+            "@id" : "vargen:b"
         } ]
     },
     "linked": {"prop_values":  "props"},
