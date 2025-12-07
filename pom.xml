@@ -789,6 +789,7 @@
 
                                 <arg>src/main/resources/ttfs/config-entity-init.json</arg>
                                 <arg>src/main/resources/ttfs/config-responsibility-agent-init.json</arg>
+                                <arg>src/main/resources/ttfs/config-responsibility-assigning.json</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -829,6 +830,7 @@
                                 <arg>ttfs/config-triangle6-ugm.json</arg>
                                 <arg>ttfs/config-entity-init.json</arg>
                                 <arg>ttfs/config-responsibility-agent-init.json</arg>
+                                <arg>ttfs/config-responsibility-assigning.json</arg>
                             </args>
                         </configuration>
                     </execution>

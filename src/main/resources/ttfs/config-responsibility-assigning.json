@@ -1,0 +1,148 @@
+{
+    "template_path": ["templates"],
+    "bindings_path": ["bindings/org/openprovenance/bindings/responsibility/assigning"],
+    "output_dir": "generated-templates",
+    "variableMaps": ["./common-ns.json"],
+
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating an agent pattern",
+            "template": "org.openprovenance.templates.primitive.Agent0",
+            "output": "org/openprovenance/templates/responsibility/assigning/agents",
+            "bindings": "agent-ag0-ag1-ag2.json",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-agents.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating an agent pattern",
+            "template": "org.openprovenance.templates.primitive.Entity0",
+            "output": "org/openprovenance/templates/responsibility/assigning/entities",
+            "bindings": "entity-e0-e1-e2.json",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-entities.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a specialization pattern",
+            "template": "org.openprovenance.templates.primitive.Qualified-Specialization0",
+            "bindings": "specialization1.json",
+            "output": "org/openprovenance/templates/responsibility/assigning/specialization1",
+            "formats": ["jsonld", "provn","png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-specialization1.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating a specialization pattern",
+            "template": "org.openprovenance.templates.primitive.Qualified-Specialization0",
+            "bindings": "specialization2.json",
+            "output": "org/openprovenance/templates/responsibility/assigning/specialization2",
+            "formats": ["jsonld", "provn","png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-specialization2.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a specialization pattern",
+            "template": "org.openprovenance.templates.primitive.Qualified-Specialization0",
+            "bindings": "specialization-ag1.json",
+            "output": "org/openprovenance/templates/responsibility/assigning/specialization-ag1",
+            "formats": ["jsonld", "provn","png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-specialization-ag1.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating a specialization pattern",
+            "template": "org.openprovenance.templates.primitive.Qualified-Specialization0",
+            "bindings": "specialization-ag2.json",
+            "output": "org/openprovenance/templates/responsibility/assigning/specialization-ag2",
+            "formats": ["jsonld", "provn","png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-specialization-ag2.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an activity pattern",
+            "template": "org.openprovenance.templates.primitive.Activity0",
+            "output": "org/openprovenance/templates/responsibility/assigning/activity",
+            "bindings": "activity.json",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-activity.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a generation pattern",
+            "template": "org.openprovenance.templates.primitive.Generation0",
+            "output": "org/openprovenance/templates/responsibility/assigning/generation",
+            "bindings": "generation.json",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-generation.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating a generation pattern",
+            "template": "org.openprovenance.templates.primitive.Generation0",
+            "output": "org/openprovenance/templates/responsibility/assigning/generation-ag",
+            "bindings": "generation-ag.json",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-generation-ag.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating a attribution pattern",
+            "template": "org.openprovenance.templates.primitive.Attribution0",
+            "output": "org/openprovenance/templates/responsibility/assigning/attribution",
+            "bindings": "attribution.json",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-attribution.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a derivation pattern",
+            "template": "org.openprovenance.templates.primitive.Derivation0",
+            "output": "org/openprovenance/templates/responsibility/assigning/derivation",
+            "bindings": "derivation.json",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-derivation.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a derivation pattern",
+            "template": "org.openprovenance.templates.primitive.Derivation0",
+            "output": "org/openprovenance/templates/responsibility/assigning/derivation-ag",
+            "bindings": "derivation-ag.json",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-derivation-ag.prov-csv"
+        },
+
+        {
+            "type": "merge",
+            "description": "Merging the above templates into a single template",
+            "addOutputDirToInputPath": true,
+            "inputs": [
+                "org/openprovenance/templates/responsibility/assigning/agents",
+                "org/openprovenance/templates/responsibility/assigning/entities",
+                "org/openprovenance/templates/responsibility/assigning/specialization1",
+                "org/openprovenance/templates/responsibility/assigning/specialization2",
+                "org/openprovenance/templates/responsibility/assigning/specialization-ag1",
+                "org/openprovenance/templates/responsibility/assigning/specialization-ag2",
+                "org/openprovenance/templates/responsibility/assigning/activity",
+                "org/openprovenance/templates/responsibility/assigning/generation",
+                "org/openprovenance/templates/responsibility/assigning/generation-ag",
+                "org/openprovenance/templates/responsibility/assigning/attribution",
+                "org/openprovenance/templates/responsibility/assigning/derivation",
+                "org/openprovenance/templates/responsibility/assigning/derivation-ag"
+            ],
+            "output": "org/openprovenance/templates/responsibility/assigning/assigning",
+            "outputFullyQualifiedName": "org.openprovenance.templates.responsibility.Assigning",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-assigning.prov-csv"
+        }
+
+    ]
+}

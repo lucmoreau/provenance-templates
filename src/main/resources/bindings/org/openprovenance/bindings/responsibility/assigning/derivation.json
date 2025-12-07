@@ -1,0 +1,56 @@
+{
+    "var": {
+        "entity1": [
+            {
+                "@id": "var:e2"
+            }
+        ],
+        "entity0": [
+            {
+                "@id": "var:e1"
+            }
+        ],
+        "activity": [
+            {
+                "@id": "var:assigning"
+            }
+
+        ],
+        "prop": [
+            [
+                {
+                    "@id": "var:dprops1"
+                }
+            ]
+        ],
+        "pvalue": [
+            [
+                {
+                    "@id": "var:dvalues1"
+                }
+            ]
+        ],
+        "id": [
+            {
+                "@id": "var:d1"
+            }
+        ],
+        "generation": [
+            {
+                "@id": "var:g0"
+            }
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "ex": "http://example.org/#",
+        "var" : "http://openprovenance.org/var#",
+        "vargen" : "http://openprovenance.org/vargen#"
+    }
+}

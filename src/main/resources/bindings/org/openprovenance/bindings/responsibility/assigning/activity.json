@@ -1,0 +1,38 @@
+{
+    "var": {
+
+        "activity": [
+            {
+                "@id": "var:assigning"
+            }
+
+        ],
+        "prop": [
+            [
+                {
+                    "@id": "var:aprop"
+                }
+            ]
+        ],
+        "pvalue": [
+            [
+                {
+                    "@id": "var:avalue"
+                }
+            ]
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov": "${prov_ns}",
+        "phys" : "${phys_ns}"
+    }
+}

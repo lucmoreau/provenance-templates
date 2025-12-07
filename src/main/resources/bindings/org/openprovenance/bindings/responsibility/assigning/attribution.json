@@ -1,0 +1,48 @@
+{
+    "var": {
+        "entity": [
+            {
+                "@id": "var:e2"
+            }
+        ],
+
+        "agent": [
+            {
+                "@id": "var:ag2"
+            }
+
+        ],
+        "prop": [
+            [
+                {
+                    "@id": "var:attrprop"
+                }
+            ]
+        ],
+        "pvalue": [
+            [
+                {
+                    "@id": "var:attrvalue"
+                }
+            ]
+        ],
+        "id": [
+            {
+                "@id": "var:attr"
+            }
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "ex": "http://example.org/#",
+        "var" : "http://openprovenance.org/var#",
+        "vargen" : "http://openprovenance.org/vargen#",
+        "provext": "http://openprovenance.org/prov/extension#"
+    }
+}
