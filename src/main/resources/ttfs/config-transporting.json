@@ -31,7 +31,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle2-sds pattern",
-            "template": "org.openprovenance.templates.triangles.Triangle2-SDS",
+            "template": "org.openprovenance.templates.triangles.Triangle2-Entity-SDS",
             "output": "org/openprovenance/templates/physical/transporting/transporting-sds",
             "bindings": "transporting-sds.json",
             "formats": ["jsonld","provn", "png", "svg"],

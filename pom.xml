@@ -770,7 +770,8 @@
                                 <arg>src/main/resources/ttfs/config-ptm.json</arg>
 
                                 <arg>src/main/resources/ttfs/config-triangle1-ugd.json</arg>
-                                <arg>src/main/resources/ttfs/config-triangle2-sds.json</arg>
+                                <arg>src/main/resources/ttfs/config-triangle2-entity-sds.json</arg>
+                                <arg>src/main/resources/ttfs/config-triangle2-agent-sds.json</arg>
                                 <arg>src/main/resources/ttfs/config-triangle3-aga.json</arg>
                                 <arg>src/main/resources/ttfs/config-triangle4-aia.json</arg>
                                 <arg>src/main/resources/ttfs/config-triangle6-ugm.json</arg>
@@ -821,7 +822,8 @@
                             <outputBaseDir>${project.build.directory}</outputBaseDir>
                             <args>
                                 <arg>ttfs/config-triangle1-ugd.json</arg>
-                                <arg>ttfs/config-triangle2-sds.json</arg>
+                                <arg>ttfs/config-triangle2-entity-sds.json</arg>
+                                <arg>ttfs/config-triangle2-agent-sds.json</arg>
                                 <arg>ttfs/config-triangle3-aga.json</arg>
                                 <arg>ttfs/config-triangle4-aia.json</arg>
                                 <arg>ttfs/config-triangle6-ugm.json</arg>
@@ -950,7 +952,7 @@
                     </execution>
 
                     <execution>
-                        <id>log2prov.sds.all</id>
+                        <id>log2prov.entity.sds.all</id>
                         <phase>test</phase> <!-- later than concat-csv -->
                         <goals>
                             <goal>provconvert</goal>
@@ -958,11 +960,29 @@
                         <configuration>
                             <args>
                                 <arg>-infile</arg>
-                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-sds/prov/all.prov-csv</arg>
+                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-entity-sds/prov/all.prov-csv</arg>
                                 <arg>-log2prov</arg>
                                 <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
                                 <arg>-outfile</arg>
-                                <arg>${project.build.directory}/triangle2-sds-all.svg</arg>
+                                <arg>${project.build.directory}/triangle2-entity-sds-all.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>log2prov.agent.sds.all</id>
+                        <phase>test</phase> <!-- later than concat-csv -->
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-agent-sds/prov/all.prov-csv</arg>
+                                <arg>-log2prov</arg>
+                                <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/triangle2-agent-sds-all.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -1021,7 +1041,7 @@
                     </execution>
 
                     <execution>
-                        <id>convert.new.triangle2.sds.svg</id>
+                        <id>convert.new.triangle2.entity.sds.svg</id>
                         <phase>test</phase>
                         <goals>
                             <goal>provconvert</goal>
@@ -1030,9 +1050,26 @@
                             <args>
                                 <arg>-qualified</arg>
                                 <arg>-infile</arg>
-                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-sds/triangle2-sds.jsonld</arg>
+                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-entity-sds/triangle2-entity-sds.jsonld</arg>
                                 <arg>-outfile</arg>
-                                <arg>${project.build.directory}/triangle2-sds.svg</arg>
+                                <arg>${project.build.directory}/triangle2-entity-sds.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.new.triangle2.agent.sds.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-qualified</arg>
+                                <arg>-infile</arg>
+                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-agent-sds/triangle2-agent-sds.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/triangle2-agent-sds.svg</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -1244,7 +1281,7 @@
                     </execution>
 
                     <execution>
-                        <id>concat.sds.csv</id>
+                        <id>concat.entity.sds.csv</id>
                         <phase>process-resources</phase>
                         <goals>
                             <goal>exec</goal>
@@ -1253,10 +1290,26 @@
                             <executable>bash</executable>
                             <arguments>
                                 <argument>-c</argument>
-                                <argument>cat ${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-sds/prov/prov-*.prov-csv &gt; ${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-sds/prov/all.prov-csv</argument>
+                                <argument>cat ${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-entity-sds/prov/prov-*.prov-csv &gt; ${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-entity-sds/prov/all.prov-csv</argument>
                             </arguments>
                         </configuration>
                     </execution>
+
+                    <execution>
+                        <id>concat.agent.sds.csv</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>bash</executable>
+                            <arguments>
+                                <argument>-c</argument>
+                                <argument>cat ${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-agent-sds/prov/prov-*.prov-csv &gt; ${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-agent-sds/prov/all.prov-csv</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
 
                     <execution>
                         <id>concat.aia.csv</id>

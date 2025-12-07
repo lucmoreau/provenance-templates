@@ -1,0 +1,66 @@
+{
+    "var": {
+        "specificEntity": [
+            {
+                "@id": "var:agent3"
+            }
+        ],
+        "generalEntity": [
+            {
+                "@id": "var:agent1"
+            }
+        ],
+        "pvalue": [
+            [
+                {
+                    "@id": "var:svalue2"
+                },
+                {
+                    "@id": "var:deriv"
+                },
+                {
+                    "@id": "var:entity2"
+                },
+                {
+                    "@id": "var:spec1"
+                }
+            ]
+        ],
+        "prop": [
+            [
+                {
+                    "@id": "var:sprop2"
+                },
+                {
+                    "@id": "provext:derivation"
+                },
+                {
+                    "@id": "provext:entity"
+                },
+                {
+                    "@id": "provext:specialization"
+                }
+            ]
+        ],
+
+        "id": [
+            {
+                "@id": "var:spec2"
+            }
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "ex": "http://example.org/#",
+        "var" : "http://openprovenance.org/var#",
+        "vargen" : "http://openprovenance.org/vargen#",
+        "provext": "http://openprovenance.org/prov/extension#"
+
+    }
+}

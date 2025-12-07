@@ -18,6 +18,7 @@
     "wasDerivedFrom": "(wdf)\\d*",
     "actedOnBehalfOf": "(aobo|del)\\d*",
     "hadMember": "(mem)\\d*",
+    "specializationOf": "(spec)\\d*",
 
     "time": "(time)\\d*",
 
