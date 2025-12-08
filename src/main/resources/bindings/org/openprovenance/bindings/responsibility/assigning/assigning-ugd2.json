@@ -1,0 +1,93 @@
+{
+    "var": {
+
+        "entity1": [
+            {
+                "@id": "var:ag1"
+            }
+        ],
+        "entity2": [
+            {
+                "@id": "var:ag2"
+            }
+        ],
+        "activity": [
+            {
+                "@id": "var:assigning"
+            }
+        ],
+        "dprop": [
+            [
+                {
+                    "@id": "var:dprops2"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "dvalue": [
+            [
+                {
+                    "@id": "var:dvalues2"
+                },
+                {
+                    "@id": "resp:Assigning"
+                }
+            ]
+        ],
+
+        "uprop": [
+            [
+                {
+                    "@id": "var:uprop2"
+                },
+                {
+                    "@id": "prov:role"
+                }
+            ]
+        ],
+        "uvalue": [
+            [
+                {
+                    "@id": "var:uvalue2"
+
+                },
+                {
+                    "@id": "var:asItem"
+                }
+            ]
+        ],
+        "u": [
+            {
+                "@id": "var:usd2"
+            }
+        ],
+        "id": [
+            {
+                "@id": "var:wdf2"
+            }
+        ],
+        "gtime": [
+            [
+                {
+                    "@id": "var:time2"
+                }
+            ]
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov": "${prov_ns}",
+        "provext": "${provext_ns}",
+        "resp": "${resp_ns}"
+    }
+}

@@ -1,11 +1,51 @@
 {
-    "template_path": ["templates"],
-    "bindings_path": ["bindings/org/openprovenance/bindings/responsibility/assigning"],
+    "template_path": [
+        "src/main/resources/templates",
+        "target/generated-templates"],
+    "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/responsibility/assigning"],
     "output_dir": "generated-templates",
     "variableMaps": ["./common-ns.json"],
 
 
     "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle1-ugd pattern (for entities)",
+            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
+            "output": "org/openprovenance/templates/responsibility/assigning/triangle-ugd1",
+            "bindings": "assigning-ugd1.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-triangle-ugd1.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle1-ugd pattern (for agents)",
+            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
+            "output": "org/openprovenance/templates/responsibility/assigning/triangle-ugd2",
+            "bindings": "assigning-ugd2.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-triangle-ugd2.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle2-entity-sds pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle2-Entity-SDS",
+            "output": "org/openprovenance/templates/responsibility/assigning/triangle-sds1",
+            "bindings": "assigning-sds1.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-triangle-sds1.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle2-agent-sds pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle2-Agent-SDS",
+            "output": "org/openprovenance/templates/responsibility/assigning/triangle-sds2",
+            "bindings": "assigning-sds2.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-triangle-sds2.prov-csv"
+        },
+
         {
             "type": "instantiate",
             "description": "Instantiating an agent pattern",
@@ -72,25 +112,6 @@
             "formats": ["jsonld", "provn", "png", "svg"],
             "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-activity.prov-csv"
         },
-        {
-            "type": "instantiate",
-            "description": "Instantiating a generation pattern",
-            "template": "org.openprovenance.templates.primitive.Generation0",
-            "output": "org/openprovenance/templates/responsibility/assigning/generation",
-            "bindings": "generation.json",
-            "formats": ["jsonld", "provn", "png", "svg"],
-            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-generation.prov-csv"
-        },
-
-        {
-            "type": "instantiate",
-            "description": "Instantiating a generation pattern",
-            "template": "org.openprovenance.templates.primitive.Generation0",
-            "output": "org/openprovenance/templates/responsibility/assigning/generation-ag",
-            "bindings": "generation-ag.json",
-            "formats": ["jsonld", "provn", "png", "svg"],
-            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-generation-ag.prov-csv"
-        },
 
         {
             "type": "instantiate",
@@ -101,24 +122,6 @@
             "formats": ["jsonld", "provn", "png", "svg"],
             "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-attribution.prov-csv"
         },
-        {
-            "type": "instantiate",
-            "description": "Instantiating a derivation pattern",
-            "template": "org.openprovenance.templates.primitive.Derivation0",
-            "output": "org/openprovenance/templates/responsibility/assigning/derivation",
-            "bindings": "derivation.json",
-            "formats": ["jsonld", "provn", "png", "svg"],
-            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-derivation.prov-csv"
-        },
-        {
-            "type": "instantiate",
-            "description": "Instantiating a derivation pattern",
-            "template": "org.openprovenance.templates.primitive.Derivation0",
-            "output": "org/openprovenance/templates/responsibility/assigning/derivation-ag",
-            "bindings": "derivation-ag.json",
-            "formats": ["jsonld", "provn", "png", "svg"],
-            "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-derivation-ag.prov-csv"
-        },
 
         {
             "type": "merge",
@@ -127,16 +130,12 @@
             "inputs": [
                 "org/openprovenance/templates/responsibility/assigning/agents",
                 "org/openprovenance/templates/responsibility/assigning/entities",
-                "org/openprovenance/templates/responsibility/assigning/specialization1",
-                "org/openprovenance/templates/responsibility/assigning/specialization2",
-                "org/openprovenance/templates/responsibility/assigning/specialization-ag1",
-                "org/openprovenance/templates/responsibility/assigning/specialization-ag2",
                 "org/openprovenance/templates/responsibility/assigning/activity",
-                "org/openprovenance/templates/responsibility/assigning/generation",
-                "org/openprovenance/templates/responsibility/assigning/generation-ag",
                 "org/openprovenance/templates/responsibility/assigning/attribution",
-                "org/openprovenance/templates/responsibility/assigning/derivation",
-                "org/openprovenance/templates/responsibility/assigning/derivation-ag"
+                "org/openprovenance/templates/responsibility/assigning/triangle-ugd1",
+                "org/openprovenance/templates/responsibility/assigning/triangle-ugd2",
+                "org/openprovenance/templates/responsibility/assigning/triangle-sds1",
+                "org/openprovenance/templates/responsibility/assigning/triangle-sds2"
             ],
             "output": "org/openprovenance/templates/responsibility/assigning/assigning",
             "outputFullyQualifiedName": "org.openprovenance.templates.responsibility.Assigning",

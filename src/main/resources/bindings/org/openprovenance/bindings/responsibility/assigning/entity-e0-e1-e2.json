@@ -15,14 +15,8 @@
         ],
         "prop": [
             [
-                {
-                    "@id": "var:eprops0"
-                }
             ],
             [
-                {
-                    "@id": "var:eprops1"
-                }
             ],
             [
                 {
@@ -32,14 +26,9 @@
         ],
         "pvalue": [
             [
-                {
-                    "@id": "var:evalues0"
-                }
+
             ],
             [
-                {
-                    "@id": "var:evalues1"
-                }
             ],
             [
                 {

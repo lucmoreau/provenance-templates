@@ -57,7 +57,7 @@
             <version>${commons.text.version}</version>
         </dependency>
 
-
+<!--
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-oauth2-client</artifactId>
@@ -83,6 +83,7 @@
             </exclusions>
         </dependency>
 
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
@@ -94,10 +95,11 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.19.2</version>
+            <version>${jackson.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -109,13 +111,13 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>2.19.2</version>
+            <version>${jackson.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.20.0</version>
+            <version>${commons.io.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -830,7 +832,6 @@
                                 <arg>ttfs/config-triangle6-ugm.json</arg>
                                 <arg>ttfs/config-entity-init.json</arg>
                                 <arg>ttfs/config-responsibility-agent-init.json</arg>
-                                <arg>ttfs/config-responsibility-assigning.json</arg>
                             </args>
                         </configuration>
                     </execution>
@@ -850,6 +851,7 @@
                                 <arg>src/main/resources/ttfs/config-generic.json</arg>
                                 <arg>src/main/resources/ttfs/config-fs.json</arg>
                                 <arg>src/main/resources/ttfs/config-ptm.json</arg>
+                                <arg>src/main/resources/ttfs/config-responsibility-assigning.json</arg>
                             </args>
                         </configuration>
                     </execution>

@@ -1,0 +1,45 @@
+{
+    "var": {
+
+        "agent1": [
+            {
+                "@id": "var:ag0"
+            }
+        ],
+        "agent2": [
+            {
+                "@id": "var:ag1"
+            }
+        ],
+        "agent3": [
+            {
+                "@id": "var:ag2"
+            }
+        ],
+        "activity": [
+            {
+                "@id": "var:assigning"
+            }
+
+        ],
+        "deriv": [
+            {
+                "@id": "var:wdf2"
+            }
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov": "${prov_ns}",
+        "provext": "${provext_ns}",
+        "resp": "${resp_ns}"
+    }
+}

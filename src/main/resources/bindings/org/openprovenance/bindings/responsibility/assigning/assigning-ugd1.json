@@ -1,0 +1,128 @@
+{
+    "var": {
+
+        "entity1": [
+            {
+                "@id": "var:e1"
+            }
+        ],
+        "entity2": [
+            {
+                "@id": "var:e2"
+            }
+        ],
+        "activity": [
+            {
+                "@id": "var:assigning"
+            }
+
+        ],
+        "prop2": [
+            [
+                {
+                    "@id": "var:eprops2"
+                }
+            ]
+        ],
+        "evalue2": [
+            [
+                {
+                    "@id": "var:evalues2"
+                }
+            ]
+        ],
+        "aprop": [
+            [
+                {
+                    "@id": "var:aprop"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "avalue": [
+            [
+                {
+                    "@id": "var:avalue"
+                },
+                {
+                    "@id": "resp:Assigning"
+                }
+            ]
+        ],
+        "dprop": [
+            [
+                {
+                    "@id": "var:dprops1"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "dvalue": [
+            [
+                {
+                    "@id": "var:dvalues1"
+                },
+                {
+                    "@id": "resp:Assigning"
+                }
+            ]
+        ],
+
+        "uprop": [
+            [
+                {
+                    "@id": "var:uprop1"
+                },
+                {
+                    "@id": "prov:role"
+                }
+            ]
+        ],
+        "uvalue": [
+            [
+                {
+                    "@id": "var:uvalue1"
+
+                },
+                {
+                    "@id": "var:asItem"
+                }
+            ]
+        ],
+        "u": [
+            {
+                "@id": "var:usd1"
+            }
+        ],
+        "id": [
+            {
+                "@id": "var:wdf1"
+            }
+        ],
+        "gtime": [
+            [
+                {
+                    "@id": "var:time"
+                }
+            ]
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov": "${prov_ns}",
+        "provext": "${provext_ns}",
+        "resp": "${resp_ns}"
+    }
+}

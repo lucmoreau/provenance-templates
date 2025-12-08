@@ -15,12 +15,18 @@
         "prop": [
             [
                 {
+                    "@id": "prov:type"
+                },
+                {
                     "@id": "var:attrprop"
                 }
             ]
         ],
         "pvalue": [
             [
+                {
+                    "@id": "var:attrType"
+                },
                 {
                     "@id": "var:attrvalue"
                 }
