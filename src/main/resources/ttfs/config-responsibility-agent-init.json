@@ -49,7 +49,7 @@
             "template": "org.openprovenance.templates.primitive.Generation0",
             "output": "org/openprovenance/templates/responsibility/agent-init/generation",
             "bindings": "generation.json",
-            "formats": ["jsonld", "provn", "png", "svg"],
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
             "hasProvenance": "org/openprovenance/templates/responsibility/agent-init/prov/prov-generation.prov-csv"
         },
 

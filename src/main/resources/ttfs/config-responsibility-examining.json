@@ -72,7 +72,7 @@
                 "org/openprovenance/templates/responsibility/examining/examining-delegation"
             ],
             "output": "org/openprovenance/templates/responsibility/examining/examining",
-            "formats": ["jsonld","provn", "png", "svg"],
+            "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
             "hasProvenance": "org/openprovenance/templates/responsibility/examining/prov/prov-examining.prov-csv"
         }
     ]

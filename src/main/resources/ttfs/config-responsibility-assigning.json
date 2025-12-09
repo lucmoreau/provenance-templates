@@ -100,7 +100,7 @@
             ],
             "output": "org/openprovenance/templates/responsibility/assigning/assigning",
             "outputFullyQualifiedName": "org.openprovenance.templates.responsibility.Assigning",
-            "formats": ["jsonld", "provn", "png", "svg"],
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
             "hasProvenance": "org/openprovenance/templates/responsibility/assigning/prov/prov-assigning.prov-csv"
         }
 
