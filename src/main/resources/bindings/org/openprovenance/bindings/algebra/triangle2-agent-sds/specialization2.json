@@ -2,34 +2,34 @@
     "var": {
         "specificEntity": [
             {
-                "@id": "var:agent3"
+                "@id": "var:ag1"
             }
         ],
         "generalEntity": [
             {
-                "@id": "var:agent1"
+                "@id": "var:ag"
             }
         ],
         "pvalue": [
             [
                 {
-                    "@id": "var:svalue2"
+                    "@id": "var:svalues1"
                 },
                 {
-                    "@id": "var:deriv"
+                    "@id": "var:der"
                 },
                 {
-                    "@id": "var:entity2"
+                    "@id": "var:ag0"
                 },
                 {
-                    "@id": "var:spec1"
+                    "@id": "var:spec0"
                 }
             ]
         ],
         "prop": [
             [
                 {
-                    "@id": "var:sprop2"
+                    "@id": "var:sprops1"
                 },
                 {
                     "@id": "provext:derivation"
@@ -45,7 +45,7 @@
 
         "id": [
             {
-                "@id": "var:spec2"
+                "@id": "var:spec1"
             }
         ]
     },

@@ -16,7 +16,7 @@
                 "@id": "var:examining"
             }
         ],
-        "assoc": [
+        "asc": [
             {
                 "@id": "var:asc1"
             }
@@ -39,6 +39,16 @@
                     "@id": "resp:asAgent"
                 }
             ]
+        ],
+        "attr": [
+            {
+                "@id": "var:attr1"
+            }
+        ],
+        "gen": [
+            {
+                "@id": "var:gen1"
+            }
         ]
 
     },

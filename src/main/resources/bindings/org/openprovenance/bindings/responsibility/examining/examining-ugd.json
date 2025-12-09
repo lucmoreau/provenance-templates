@@ -20,14 +20,14 @@
         "prop2": [
             [
                 {
-                    "@id": "var:eprop1"
+                    "@id": "var:eprops1"
                 }
             ]
         ],
         "evalue2": [
             [
                 {
-                    "@id": "var:evalue1"
+                    "@id": "var:evalues1"
                 }
             ]
         ],
@@ -98,9 +98,14 @@
                 "@id": "var:usd1"
             }
         ],
-        "id": [
+        "der": [
             {
-                "@id": "var:wdf1"
+                "@id": "var:der1"
+            }
+        ],
+        "gen": [
+            {
+                "@id": "var:gen1"
             }
         ],
         "gtime": [

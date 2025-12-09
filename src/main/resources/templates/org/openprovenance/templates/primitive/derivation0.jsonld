@@ -16,7 +16,7 @@
       "@graph": [
         {
           "@type": "Derivation",
-          "@id": "var:id",
+          "@id": "var:der",
           "generatedEntity": "var:entity1",
           "usedEntity": "var:entity0",
           "generation": "var:generation",

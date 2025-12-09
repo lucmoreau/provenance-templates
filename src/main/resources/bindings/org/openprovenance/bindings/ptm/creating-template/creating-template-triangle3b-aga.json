@@ -41,9 +41,9 @@
                 }
             ]
         ],
-        "assoc": [
+        "asc": [
             {
-                "@id": "var:assoc2"
+                "@id": "var:asc2"
             }
         ]
 

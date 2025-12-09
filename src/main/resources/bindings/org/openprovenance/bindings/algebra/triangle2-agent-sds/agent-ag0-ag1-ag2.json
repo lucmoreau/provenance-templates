@@ -2,47 +2,35 @@
     "var": {
         "agent": [
             {
-                "@id": "var:agent1"
+                "@id": "var:ag"
             },
             {
-                "@id": "var:agent2"
+                "@id": "var:ag0"
             },
             {
-                "@id": "var:agent3"
+                "@id": "var:ag1"
             }
 
         ],
         "prop": [
             [
-                {
-                    "@id": "var:agprop1"
-                }
+            ],
+            [
             ],
             [
                 {
-                    "@id": "var:agprop2"
-                }
-            ],
-            [
-                {
-                    "@id": "var:agprop3"
+                    "@id": "var:agprops1"
                 }
             ]
         ],
         "pvalue": [
             [
-                {
-                    "@id": "var:agvalue1"
-                }
+            ],
+            [
             ],
             [
                 {
-                    "@id": "var:agvalue2"
-                }
-            ],
-            [
-                {
-                    "@id": "var:agvalue3"
+                    "@id": "var:agvalues1"
                 }
             ]
         ]

@@ -98,14 +98,14 @@
                 "@id": "var:usd0"
             }
         ],
-        "g": [
+        "gen": [
             {
                 "@id": "var:gen1"
             }
         ],
-        "id": [
+        "der": [
             {
-                "@id": "var:wdf1"
+                "@id": "var:der1"
             }
         ],
         "gtime": [

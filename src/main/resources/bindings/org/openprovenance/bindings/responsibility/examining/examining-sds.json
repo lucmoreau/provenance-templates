@@ -1,17 +1,17 @@
 {
     "var": {
 
-        "entity1": [
+        "e": [
             {
                 "@id": "var:e"
             }
         ],
-        "entity2": [
+        "e0": [
             {
                 "@id": "var:e0"
             }
         ],
-        "entity3": [
+        "e1": [
             {
                 "@id": "var:e1"
             }
@@ -22,9 +22,9 @@
             }
 
         ],
-        "deriv": [
+        "der": [
             {
-                "@id": "var:wdf1"
+                "@id": "var:der1"
             }
         ]
     },

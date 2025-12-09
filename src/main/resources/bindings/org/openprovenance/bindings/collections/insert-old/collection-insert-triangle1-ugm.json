@@ -1,9 +1,9 @@
 {
     "var": {
 
-        "id": [
+        "der": [
             {
-                "@id": "var:wdf1"
+                "@id": "var:der1"
             }
         ],
         "item": [

@@ -2,32 +2,32 @@
     "var": {
         "specificEntity": [
             {
-                "@id": "var:agent2"
+                "@id": "var:ag0"
             }
         ],
         "generalEntity": [
             {
-                "@id": "var:agent1"
+                "@id": "var:ag"
             }
         ],
         "pvalue": [
             [
                 {
-                    "@id": "var:svalue1"
+                    "@id": "var:svalues0"
                 }
             ]
         ],
         "prop": [
             [
                 {
-                    "@id": "var:sprop1"
+                    "@id": "var:sprops0"
                 }
             ]
         ],
 
         "id": [
             {
-                "@id": "var:spec1"
+                "@id": "var:spec0"
             }
         ]
     },

@@ -6,6 +6,6 @@ prefix vargen <http://openprovenance.org/vargen#>
 prefix var <http://openprovenance.org/var#>
 prefix tmpl <http://openprovenance.org/template#>
 
-wasAssociatedWith(var:id;var:activity,var:agent,var:plan,[var:prop = 'var:pvalue'])
+wasAssociatedWith(var:asc;var:activity,var:agent,var:plan,[var:prop = 'var:pvalue'])
 endBundle
 endDocument

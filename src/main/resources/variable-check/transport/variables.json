@@ -15,7 +15,7 @@
     "wasAttributedTo": "(attr)\\d*",
     "wasAssociatedWith": "(asc)\\d*",
     "wasGeneratedBy": "(g|gen)\\d*",
-    "wasDerivedFrom": "(wdf)\\d*",
+    "wasDerivedFrom": "(der)\\d*",
     "actedOnBehalfOf": "(aobo|del)\\d*",
     "hadMember": "(mem)\\d*",
     "specializationOf": "(spec)\\d*",
@@ -23,16 +23,16 @@
     "time": "(time)\\d*",
 
     "attributes": {
-        "entity": "(eprop|iprop)\\d*",
-        "activity": "(aprop)\\d*",
+        "entity": "(eprop|iprops)\\d*",
+        "activity": "(aprops)\\d*",
         "agent": "(agprop)\\d*",
         "wasGeneratedBy": "(gprop)\\d*",
         "specializationOf": "(sprop)\\d*",
         "used": "(uprop)\\d*"
     },
     "values": {
-        "entity": "(evalue|ivalue)\\d*",
-        "activity": "(avalue)\\d*",
+        "entity": "(evalue|ivalues)\\d*",
+        "activity": "(avalues)\\d*",
         "agent": "(agvalue)\\d*",
         "wasGeneratedBy": "(gvalue)\\d*",
         "specializationOf": "(svalue)\\d*",

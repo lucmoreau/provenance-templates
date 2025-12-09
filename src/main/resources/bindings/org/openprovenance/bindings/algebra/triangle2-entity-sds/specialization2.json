@@ -1,25 +1,20 @@
 {
     "var": {
-        "pvalue": [
-            [
-                {
-                    "@id": "var:svalue2"
-                },
-                {
-                    "@id": "var:deriv"
-                },
-                {
-                    "@id": "var:entity2"
-                },
-                {
-                    "@id": "var:spec1"
-                }
-            ]
+        "specificEntity": [
+            {
+                "@id": "var:e1"
+            }
         ],
+        "generalEntity": [
+            {
+                "@id": "var:e"
+            }
+        ],
+
         "prop": [
             [
                 {
-                    "@id": "var:sprop2"
+                    "@id": "var:sprops1"
                 },
                 {
                     "@id": "provext:derivation"
@@ -32,20 +27,25 @@
                 }
             ]
         ],
-        "specificEntity": [
-            {
-                "@id": "var:entity3"
-            }
+        "pvalue": [
+            [
+                {
+                    "@id": "var:svalues1"
+                },
+                {
+                    "@id": "var:der"
+                },
+                {
+                    "@id": "var:e0"
+                },
+                {
+                    "@id": "var:spec0"
+                }
+            ]
         ],
-        "generalEntity": [
-            {
-                "@id": "var:entity1"
-            }
-        ],
-
         "id": [
             {
-                "@id": "var:spec2"
+                "@id": "var:spec1"
             }
         ]
     },
@@ -57,10 +57,10 @@
         ]
     },
     "context": {
-        "ex": "http://example.org/#",
-        "var" : "http://openprovenance.org/var#",
-        "vargen" : "http://openprovenance.org/vargen#",
-        "provext": "http://openprovenance.org/prov/extension#"
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov": "${prov_ns}",
+        "provext": "${provext_ns}"
 
     }
 }

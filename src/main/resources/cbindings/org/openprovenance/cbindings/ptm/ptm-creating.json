@@ -134,7 +134,7 @@
                 "@sql.table": "assoc"
             }
         ],
-        "assoc2": [
+        "asc2": [
             {
                 "@id": "assoc:assoc*",
                 "@type": "xsd:int",
@@ -145,7 +145,7 @@
                 "@sql.table": "assoc"
             }
         ],
-        "assoc3": [
+        "asc3": [
             {
                 "@id": "assoc:assoc*",
                 "@type": "xsd:int",

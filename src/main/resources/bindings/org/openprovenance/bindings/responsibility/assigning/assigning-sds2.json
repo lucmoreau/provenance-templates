@@ -1,19 +1,19 @@
 {
     "var": {
 
-        "agent1": [
+        "ag": [
+            {
+                "@id": "var:ag"
+            }
+        ],
+        "ag0": [
             {
                 "@id": "var:ag0"
             }
         ],
-        "agent2": [
+        "ag1": [
             {
                 "@id": "var:ag1"
-            }
-        ],
-        "agent3": [
-            {
-                "@id": "var:ag2"
             }
         ],
         "activity": [
@@ -22,9 +22,19 @@
             }
 
         ],
-        "deriv": [
+        "der": [
             {
-                "@id": "var:wdf2"
+                "@id": "var:der2"
+            }
+        ],
+        "spec0": [
+            {
+                "@id": "var:spec2"
+            }
+        ],
+        "spec1": [
+            {
+                "@id": "var:spec3"
             }
         ]
     },

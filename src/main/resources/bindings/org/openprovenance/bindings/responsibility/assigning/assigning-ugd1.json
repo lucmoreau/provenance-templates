@@ -3,12 +3,12 @@
 
         "entity1": [
             {
-                "@id": "var:e1"
+                "@id": "var:e0"
             }
         ],
         "entity2": [
             {
-                "@id": "var:e2"
+                "@id": "var:e1"
             }
         ],
         "activity": [
@@ -20,21 +20,21 @@
         "prop2": [
             [
                 {
-                    "@id": "var:eprops2"
+                    "@id": "var:eprops1"
                 }
             ]
         ],
         "evalue2": [
             [
                 {
-                    "@id": "var:evalues2"
+                    "@id": "var:evalues1"
                 }
             ]
         ],
         "aprop": [
             [
                 {
-                    "@id": "var:aprop"
+                    "@id": "var:aprops"
                 },
                 {
                     "@id": "prov:type"
@@ -44,7 +44,7 @@
         "avalue": [
             [
                 {
-                    "@id": "var:avalue"
+                    "@id": "var:avalues"
                 },
                 {
                     "@id": "resp:Assigning"
@@ -75,7 +75,7 @@
         "uprop": [
             [
                 {
-                    "@id": "var:uprop1"
+                    "@id": "var:uprops1"
                 },
                 {
                     "@id": "prov:role"
@@ -85,7 +85,7 @@
         "uvalue": [
             [
                 {
-                    "@id": "var:uvalue1"
+                    "@id": "var:uvalues1"
 
                 },
                 {
@@ -98,9 +98,14 @@
                 "@id": "var:usd1"
             }
         ],
-        "id": [
+        "gen": [
             {
-                "@id": "var:wdf1"
+                "@id": "var:gen1"
+            }
+        ],
+        "der": [
+            {
+                "@id": "var:der1"
             }
         ],
         "gtime": [

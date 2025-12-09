@@ -10,7 +10,7 @@
         "prop": [
             [
                 {
-                    "@id": "var:aprop"
+                    "@id": "var:aprops"
                 },
                 {
                     "@id": "prov:type"
@@ -20,7 +20,7 @@
         "pvalue": [
             [
                 {
-                    "@id": "var:avalue"
+                    "@id": "var:avalues"
                 },
                 {
                     "@id": "phys:RegisteringAgent"

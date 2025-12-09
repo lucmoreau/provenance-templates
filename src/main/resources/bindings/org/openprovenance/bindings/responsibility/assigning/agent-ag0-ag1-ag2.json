@@ -3,13 +3,13 @@
 
         "agent": [
             {
+                "@id": "var:ag"
+            },
+            {
                 "@id": "var:ag0"
             },
             {
                 "@id": "var:ag1"
-            },
-            {
-                "@id": "var:ag2"
             }
 
         ],
@@ -18,7 +18,7 @@
             [],
             [
                 {
-                    "@id": "var:agprops2"
+                    "@id": "var:agprops1"
                 }
             ]
         ],
@@ -27,7 +27,7 @@
             [],
             [
                 {
-                    "@id": "var:agvalues2"
+                    "@id": "var:agvalues1"
                 }
             ]
         ]

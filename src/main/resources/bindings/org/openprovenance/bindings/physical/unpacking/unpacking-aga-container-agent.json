@@ -21,12 +21,12 @@
                 "@id": null
             }
         ],
-        "assoc": [
+        "asc": [
             {
                 "@id": "var:asc"
             }
         ],
-        "g": [
+        "gen": [
             {
                 "@id": "var:gen"
             }

@@ -30,9 +30,9 @@
                 "@id": "var:entity1"
             }
         ],
-        "id": [
+        "der": [
             {
-                "@id": "var:id"
+                "@id": "var:der"
             }
         ],
         "usage": [

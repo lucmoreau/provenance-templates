@@ -2,17 +2,17 @@
     "var": {
         "entity1": [
             {
-                "@id": "var:agent3"
+                "@id": "var:ag1"
             }
         ],
         "entity0": [
             {
-                "@id": "var:agent2"
+                "@id": "var:ag0"
             }
         ],
-        "id": [
+        "der": [
             {
-                "@id": "var:deriv"
+                "@id": "var:der"
             }
         ],
         "activity": [
@@ -23,14 +23,14 @@
         "pvalue": [
             [
                 {
-                    "@id": "var:dvalue"
+                    "@id": "var:dvalues"
                 }
             ]
         ],
         "prop": [
             [
                 {
-                    "@id": "var:dprop"
+                    "@id": "var:dprops"
                 }
             ]
         ],

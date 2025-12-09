@@ -3,13 +3,13 @@
 
         "entity": [
             {
+                "@id": "var:e"
+            },
+            {
                 "@id": "var:e0"
             },
             {
                 "@id": "var:e1"
-            },
-            {
-                "@id": "var:e2"
             }
 
         ],
@@ -20,7 +20,7 @@
             ],
             [
                 {
-                    "@id": "var:eprops2"
+                    "@id": "var:eprops1"
                 }
             ]
         ],
@@ -32,7 +32,7 @@
             ],
             [
                 {
-                    "@id": "var:evalues2"
+                    "@id": "var:evalues1"
                 }
             ]
         ]

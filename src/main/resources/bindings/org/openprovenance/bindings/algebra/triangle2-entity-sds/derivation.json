@@ -2,17 +2,17 @@
     "var": {
         "entity1": [
             {
-                "@id": "var:entity3"
+                "@id": "var:e1"
             }
         ],
         "entity0": [
             {
-                "@id": "var:entity2"
+                "@id": "var:e0"
             }
         ],
-        "id": [
+        "der": [
             {
-                "@id": "var:deriv"
+                "@id": "var:der"
             }
         ],
         "activity": [
@@ -23,14 +23,14 @@
         "pvalue": [
             [
                 {
-                    "@id": "var:dvalue"
+                    "@id": "var:dvalues"
                 }
             ]
         ],
         "prop": [
             [
                 {
-                    "@id": "var:dprop"
+                    "@id": "var:dprops"
                 }
             ]
         ],
@@ -57,8 +57,9 @@
         ]
     },
     "context": {
-        "ex": "http://example.org/#",
-        "var" : "http://openprovenance.org/var#",
-        "vargen" : "http://openprovenance.org/vargen#"
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov": "${prov_ns}",
+        "provext": "${provext_ns}"
     }
 }
