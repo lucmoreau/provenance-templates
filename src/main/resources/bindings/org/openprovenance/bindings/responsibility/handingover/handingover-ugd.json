@@ -20,21 +20,21 @@
         "prop2": [
             [
                 {
-                    "@id": "var:iprop"
+                    "@id": "var:iprops1"
                 }
             ]
         ],
         "evalue2": [
             [
                 {
-                    "@id": "var:ivalue"
+                    "@id": "var:ivalues1"
                 }
             ]
         ],
         "aprop": [
             [
                 {
-                    "@id": "var:aprop"
+                    "@id": "var:aprops"
                 },
                 {
                     "@id": "prov:type"
@@ -44,7 +44,7 @@
         "avalue": [
             [
                 {
-                    "@id": "var:avalue"
+                    "@id": "var:avalues"
                 },
                 {
                     "@id": "resp:HandingOver"
@@ -95,7 +95,12 @@
         ],
         "u": [
             {
-                "@id": "var:usd1"
+                "@id": "var:usd0"
+            }
+        ],
+        "g": [
+            {
+                "@id": "var:gen1"
             }
         ],
         "id": [

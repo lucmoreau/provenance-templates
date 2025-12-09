@@ -26,6 +26,16 @@
             {
                 "@id": "var:wdf1"
             }
+        ],
+        "spec1": [
+            {
+                "@id": "var:spec0"
+            }
+        ],
+        "spec2": [
+            {
+                "@id": "var:spec1"
+            }
         ]
     },
     "vargen":  {

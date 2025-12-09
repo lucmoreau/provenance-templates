@@ -10,14 +10,20 @@
         "prop": [
             [
                 {
-                    "@id": "var:aprop"
+                    "@id": "prov:type"
+                },
+                {
+                    "@id": "var:aprops"
                 }
             ]
         ],
         "pvalue": [
             [
                 {
-                    "@id": "var:avalue"
+                    "@id": "resp:Assigning"
+                },
+                {
+                    "@id": "var:avalues"
                 }
             ]
         ]
@@ -33,6 +39,7 @@
         "var" : "${var_ns}",
         "vargen" : "${vargen_ns}",
         "prov": "${prov_ns}",
-        "phys" : "${phys_ns}"
+        "provext": "${provext_ns}",
+        "resp": "${resp_ns}"
     }
 }

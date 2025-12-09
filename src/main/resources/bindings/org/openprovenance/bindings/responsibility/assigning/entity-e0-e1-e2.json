@@ -46,6 +46,9 @@
     },
     "context": {
         "var" : "${var_ns}",
-        "vargen" : "${vargen_ns}"
+        "vargen" : "${vargen_ns}",
+        "prov": "${prov_ns}",
+        "provext": "${provext_ns}",
+        "resp": "${resp_ns}"
     }
 }

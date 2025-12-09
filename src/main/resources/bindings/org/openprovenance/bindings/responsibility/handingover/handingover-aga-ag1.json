@@ -16,7 +16,7 @@
                 "@id": "var:handingover"
             }
         ],
-        "assoc": [
+        "asc": [
             {
                 "@id": "var:asc1"
             }
@@ -39,6 +39,30 @@
                     "@id": "var:role1"
                 }
             ]
+        ],
+        "attrprop": [
+            [
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "attrvalue": [
+            [
+                {
+                    "@id": "var:attrType"
+                }
+            ]
+        ],
+        "g": [
+            {
+                "@id": "var:gen1"
+            }
+        ],
+        "attr": [
+            {
+                "@id": "var:attr1"
+            }
         ]
     },
     "vargen":  {

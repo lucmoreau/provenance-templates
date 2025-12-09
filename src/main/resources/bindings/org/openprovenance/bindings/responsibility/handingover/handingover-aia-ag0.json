@@ -16,7 +16,7 @@
                 "@id": "var:handingover"
             }
         ],
-        "assoc": [
+        "asc": [
             {
                 "@id": "var:asc0"
             }
@@ -46,6 +46,16 @@
                     "@id": "var:role0"
                 }
             ]
+        ],
+        "attr": [
+            {
+                "@id": "var:attr0"
+            }
+        ],
+        "i": [
+            {
+                "@id": "var:inv0"
+            }
         ]
 
     },

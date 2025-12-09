@@ -62,7 +62,7 @@
             ],
             "output": "org/openprovenance/templates/responsibility/handingover/handingover",
             "outputFullyQualifiedName": "org.openprovenance.templates.responsibility.HandingOver",
-            "formats": ["jsonld","provn", "png", "svg"],
+            "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
             "hasProvenance": "org/openprovenance/templates/responsibility/handingover/prov/prov-handingover.prov-csv"
         }
     ]
