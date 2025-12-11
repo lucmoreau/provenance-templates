@@ -54,7 +54,7 @@
                 "org/openprovenance/templates/triangles/triangle2-agent-sds/specialization2"],
             "output": "org/openprovenance/templates/triangles/triangle2-agent-sds/triangle2-agent-sds",
             "outputFullyQualifiedName": "org.openprovenance.templates.triangles.Triangle2-Agent-SDS",
-            "formats": ["jsonld", "provn", "png", "svg"],
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
             "hasProvenance": "org/openprovenance/templates/triangles/triangle2-agent-sds/prov/prov-triangle2-agent-sds.prov-csv"
         }
 

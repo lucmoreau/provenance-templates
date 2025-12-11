@@ -71,7 +71,7 @@
             ],
             "output": "org/openprovenance/templates/physical/unpacking/unpacking",
             "outputFullyQualifiedName": "org.openprovenance.templates.physical.Unpacking",
-            "formats": ["jsonld","provn", "png", "svg"],
+            "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
             "hasProvenance": "org/openprovenance/templates/physical/unpacking/prov/prov-unpacking.prov-csv"
         }
     ]

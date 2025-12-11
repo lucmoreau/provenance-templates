@@ -1,47 +1,42 @@
 {
     "var": {
+
         "entity": [
             {
-                "@id": "var:entity"
+                "@id": "var:ag1"
             }
         ],
-
-        "agent": [
+        "activity": [
             {
-                "@id": "var:agent"
+                "@id": "var:activity"
             }
 
         ],
         "prop": [
             [
                 {
-                    "@id": "var:attrprops"
-                },
-                {
-                    "@id": "provext:association"
-                },
-                {
-                    "@id": "provext:generation"
+                    "@id": "var:gprops"
                 }
             ]
         ],
         "pvalue": [
             [
                 {
-                    "@id": "var:attrvalues"
-                },
-                {
-                    "@id": "var:asc"
-                },
-                {
-                    "@id": "var:gen"
+                    "@id": "var:gvalues"
                 }
             ]
         ],
         "id": [
             {
-                "@id": "var:attr"
+                "@id": "var:gen"
             }
+        ],
+        "time": [
+            [
+                {
+                    "@id": "var:gtime"
+                }
+            ]
         ]
     },
     "vargen":  {

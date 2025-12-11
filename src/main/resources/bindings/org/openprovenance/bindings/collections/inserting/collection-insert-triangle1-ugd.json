@@ -6,12 +6,12 @@
             }
         ],
 
-        "entity1": [
+        "e0": [
             {
                 "@id": "var:item0"
             }
         ],
-        "entity2": [
+        "e1": [
             {
                 "@id": "var:coll1"
             }
@@ -23,20 +23,20 @@
             }
 
         ],
-        "aprop": [
+        "aprops": [
             [
                 {
-                    "@id": "var:aprop"
+                    "@id": "var:aprops"
                 },
                 {
                     "@id": "prov:type"
                 }
             ]
         ],
-        "avalue": [
+        "avalues": [
             [
                 {
-                    "@id": "var:avalue"
+                    "@id": "var:avalues"
                 },
                 {
                     "@id": "provext:InsertingItemIntoCollection"

@@ -1,11 +1,9 @@
 {
     "var": {
-        "pvalue": [
-            [
-                {
-                    "@id": "var:ivalue"
-                }
-            ]
+        "entity": [
+            {
+                "@id": "var:entity"
+            }
         ],
         "activity": [
             {
@@ -16,24 +14,26 @@
         "prop": [
             [
                 {
-                    "@id": "var:iprop"
+                    "@id": "var:invprops"
                 }
             ]
         ],
-        "entity": [
-            {
-                "@id": "var:entity"
-            }
+        "pvalue": [
+            [
+                {
+                    "@id": "var:invvalues"
+                }
+            ]
         ],
         "id": [
             {
-                "@id": "var:i"
+                "@id": "var:inv"
             }
         ],
         "time": [
             [
                 {
-                    "@id": "var:itime"
+                    "@id": "var:invtime"
                 }
             ]
         ]
@@ -46,8 +46,9 @@
         ]
     },
     "context": {
-        "ex": "http://example.org/#",
-        "var" : "http://openprovenance.org/var#",
-        "vargen" : "http://openprovenance.org/vargen#"
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
     }
 }

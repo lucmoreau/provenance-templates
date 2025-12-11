@@ -12,16 +12,11 @@
         ],
         "pvalue": [
             [
-                {
-                    "@id": "var:svalues0"
-                }
+
             ]
         ],
         "prop": [
             [
-                {
-                    "@id": "var:sprops0"
-                }
             ]
         ],
 
@@ -39,10 +34,9 @@
         ]
     },
     "context": {
-        "ex": "http://example.org/#",
-        "var" : "http://openprovenance.org/var#",
-        "vargen" : "http://openprovenance.org/vargen#",
-        "provext": "http://openprovenance.org/prov/extension#"
-
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
     }
 }

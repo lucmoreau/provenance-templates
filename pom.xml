@@ -772,6 +772,7 @@
                                 <arg>src/main/resources/ttfs/config-ptm.json</arg>
 
                                 <arg>src/main/resources/ttfs/config-triangle1-ugd.json</arg>
+                                <arg>src/main/resources/ttfs/config-triangle1-agent-ugd.json</arg>
                                 <arg>src/main/resources/ttfs/config-triangle2-entity-sds.json</arg>
                                 <arg>src/main/resources/ttfs/config-triangle2-agent-sds.json</arg>
                                 <arg>src/main/resources/ttfs/config-triangle3-aga.json</arg>
@@ -825,6 +826,7 @@
                             <outputBaseDir>${project.build.directory}</outputBaseDir>
                             <args>
                                 <arg>ttfs/config-triangle1-ugd.json</arg>
+                                <arg>ttfs/config-triangle1-agent-ugd.json</arg>
                                 <arg>ttfs/config-triangle2-entity-sds.json</arg>
                                 <arg>ttfs/config-triangle2-agent-sds.json</arg>
                                 <arg>ttfs/config-triangle3-aga.json</arg>

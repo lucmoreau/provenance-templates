@@ -1,12 +1,12 @@
 {
     "var": {
 
-        "entity1": [
+        "e0": [
             {
                 "@id": "var:item0"
             }
         ],
-        "entity2": [
+        "e1": [
             {
                 "@id": "var:item1"
             }
@@ -17,21 +17,21 @@
             }
 
         ],
-        "prop2": [
+        "props2": [
             [
                 {
                     "@id": "var:iprops1"
                 }
             ]
         ],
-        "evalue2": [
+        "evalues2": [
             [
                 {
                     "@id": "var:ivalues1"
                 }
             ]
         ],
-        "aprop": [
+        "aprops": [
             [
                 {
                     "@id": "var:aprops"
@@ -41,7 +41,7 @@
                 }
             ]
         ],
-        "avalue": [
+        "avalues": [
             [
                 {
                     "@id": "var:avalues"

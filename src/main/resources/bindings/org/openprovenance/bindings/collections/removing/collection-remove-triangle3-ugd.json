@@ -5,12 +5,12 @@
                 "@id": "var:der3"
             }
         ],
-        "entity1": [
+        "e0": [
             {
                 "@id": "var:item0"
             }
         ],
-        "entity2": [
+        "e1": [
             {
                 "@id": "var:item1"
             }

@@ -74,12 +74,12 @@
                 "@id": "var:uid1"
             }
         ],
-        "entity1": [
+        "e0": [
             {
                 "@id": "var:item"
             }
         ],
-        "entity2": [
+        "e1": [
             {
                 "@id": "var:coll1"
             }

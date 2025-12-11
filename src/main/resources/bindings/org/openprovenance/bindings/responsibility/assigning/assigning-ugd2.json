@@ -1,12 +1,12 @@
 {
     "var": {
 
-        "entity1": [
+        "e0": [
             {
                 "@id": "var:ag0"
             }
         ],
-        "entity2": [
+        "e1": [
             {
                 "@id": "var:ag1"
             }

@@ -49,7 +49,7 @@
             ],
             "output": "org/openprovenance/templates/physical/transporting/transporting",
             "outputFullyQualifiedName": "org.openprovenance.templates.physical.Transporting",
-            "formats": ["jsonld","provn", "png", "svg"],
+            "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
             "hasProvenance": "org/openprovenance/templates/physical/transporting/prov/prov-transporting.prov-csv"
         }
     ]

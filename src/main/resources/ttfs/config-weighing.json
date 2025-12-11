@@ -16,7 +16,7 @@
             "bindings": "weighing.json",
             "output": "org/openprovenance/templates/physical/weighing/weighing",
             "outputFullyQualifiedName": "org.openprovenance.templates.physical.Weighing",
-            "formats": ["jsonld","provn", "png", "svg"],
+            "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
             "hasProvenance": "org/openprovenance/templates/physical/weighing/prov/prov-weighing.prov-csv"
         }
     ]

@@ -14,14 +14,10 @@
         ],
         "pvalue": [
             [
-                {
-                    "@id": "var:evalues"
-                }
+
             ],
             [
-                {
-                    "@id": "var:evalues0"
-                }
+
             ],
             [
                 {
@@ -32,14 +28,8 @@
 
         "prop": [
             [
-                {
-                    "@id": "var:eprops"
-                }
             ],
             [
-                {
-                    "@id": "var:eprops0"
-                }
             ],
             [
                 {

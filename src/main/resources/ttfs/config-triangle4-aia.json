@@ -73,7 +73,7 @@
                 "org/openprovenance/templates/triangles/triangle4-aia/attribution",
                 "org/openprovenance/templates/triangles/triangle4-aia/invalidation"],
             "output": "org/openprovenance/templates/triangles/triangle4-aia/triangle4-aia",
-            "formats": ["provn", "png", "svg"],
+            "formats": ["provn", "png", "svg", "qualified.png"],
             "hasProvenance": "org/openprovenance/templates/triangles/triangle4-aia/prov/prov-triangle4-aia.prov-csv"
         }
 

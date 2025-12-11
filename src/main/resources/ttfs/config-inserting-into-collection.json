@@ -60,7 +60,7 @@
                 "org/openprovenance/templates/collections/inserting/membership"
             ],
             "output": "org/openprovenance/templates/collections/inserting/collection-inserting",
-            "formats": ["jsonld","provn", "png", "svg"],
+            "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
             "hasProvenance": "org/openprovenance/templates/collections/inserting/prov/prov-collection-inserting.prov-csv"
         }
 

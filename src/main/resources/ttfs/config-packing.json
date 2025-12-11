@@ -60,7 +60,7 @@
             ],
             "output": "org/openprovenance/templates/physical/packing/packing",
             "outputFullyQualifiedName": "org.openprovenance.templates.physical.Packing",
-            "formats": ["jsonld","provn", "png", "svg"],
+            "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
             "hasProvenance": "org/openprovenance/templates/physical/packing/prov/prov-packing.prov-csv"
         }
     ]

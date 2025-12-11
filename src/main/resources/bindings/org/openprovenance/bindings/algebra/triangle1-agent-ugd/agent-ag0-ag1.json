@@ -1,40 +1,30 @@
 {
     "var": {
-        "entity": [
-            {
-                "@id": "var:e0"
-            }
-        ],
 
-        "activity": [
+        "agent": [
             {
-                "@id": "var:activity"
+                "@id": "var:ag0"
+            },
+            {
+                "@id": "var:ag1"
             }
 
         ],
         "prop": [
             [
+            ],
+            [
                 {
-                    "@id": "var:uprops"
+                    "@id": "var:agprops1"
                 }
             ]
         ],
         "pvalue": [
             [
-                {
-                    "@id": "var:uvalues"
-                }
-            ]
-        ],
-        "id": [
-            {
-                "@id": "var:u"
-            }
-        ],
-        "time": [
+            ],
             [
                 {
-                    "@id": "var:utime"
+                    "@id": "var:agvalues1"
                 }
             ]
         ]

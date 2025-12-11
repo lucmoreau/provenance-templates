@@ -1,29 +1,5 @@
 {
     "var": {
-        "pvalue": [
-            [
-                {
-                    "@id": "var:evalue"
-                }
-            ],
-            [
-                {
-                    "@id": "var:pvalue"
-                }
-            ]
-        ],
-        "prop": [
-            [
-                {
-                    "@id": "var:eprop"
-                }
-            ],
-            [
-                {
-                    "@id": "var:pprop"
-                }
-            ]
-        ],
         "entity": [
             {
                 "@id": "var:entity"
@@ -32,6 +8,30 @@
                 "@id": "var:plan"
             }
 
+        ],
+        "prop": [
+            [
+                {
+                    "@id": "var:eprops"
+                }
+            ],
+            [
+                {
+                    "@id": "var:pprops"
+                }
+            ]
+        ],
+        "pvalue": [
+            [
+                {
+                    "@id": "var:evalues"
+                }
+            ],
+            [
+                {
+                    "@id": "var:pvalues"
+                }
+            ]
         ]
     },
     "vargen":  {
@@ -42,8 +42,9 @@
         ]
     },
     "context": {
-        "ex": "http://example.org/#",
-        "var" : "http://openprovenance.org/var#",
-        "vargen" : "http://openprovenance.org/vargen#"
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
     }
 }

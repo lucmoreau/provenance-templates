@@ -5,12 +5,12 @@
                 "@id": "var:wdf2"
             }
         ],
-        "entity1": [
+        "e0": [
             {
                 "@id": "var:coll0"
             }
         ],
-        "entity2": [
+        "e1": [
             {
                 "@id": "var:coll1"
             }

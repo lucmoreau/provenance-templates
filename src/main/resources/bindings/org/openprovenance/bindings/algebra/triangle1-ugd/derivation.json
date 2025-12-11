@@ -1,9 +1,26 @@
 {
     "var": {
+        "entity1": [
+            {
+                "@id": "var:e1"
+            }
+        ],
+        "entity0": [
+            {
+                "@id": "var:e0"
+            }
+        ],
+        "prop": [
+            [
+                {
+                    "@id": "var:dprops"
+                }
+            ]
+        ],
         "pvalue": [
             [
                 {
-                    "@id": "var:dvalue"
+                    "@id": "var:dvalues"
                 }
             ]
         ],
@@ -12,23 +29,6 @@
                 "@id": "var:activity"
             }
 
-        ],
-        "prop": [
-            [
-                {
-                    "@id": "var:dprop"
-                }
-            ]
-        ],
-        "entity1": [
-            {
-                "@id": "var:entity2"
-            }
-        ],
-        "entity0": [
-            {
-                "@id": "var:entity1"
-            }
         ],
         "der": [
             {
@@ -54,8 +54,9 @@
         ]
     },
     "context": {
-        "ex": "http://example.org/#",
-        "var" : "http://openprovenance.org/var#",
-        "vargen" : "http://openprovenance.org/vargen#"
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
     }
 }

@@ -5,30 +5,30 @@
                 "@id": "var:gen"
             }
         ],
-        "pvalue": [
-            [
-                {
-                    "@id": "var:gvalue"
-                }
-            ]
-        ],
         "activity": [
             {
                 "@id": "var:activity"
             }
 
         ],
-        "prop": [
-            [
-                {
-                    "@id": "var:gprop"
-                }
-            ]
-        ],
         "entity": [
             {
                 "@id": "var:entity"
             }
+        ],
+        "prop": [
+            [
+                {
+                    "@id": "var:gprops"
+                }
+            ]
+        ],
+        "pvalue": [
+            [
+                {
+                    "@id": "var:gvalues"
+                }
+            ]
         ],
         "time": [
             [
@@ -46,8 +46,9 @@
         ]
     },
     "context": {
-        "ex": "http://example.org/#",
-        "var" : "http://openprovenance.org/var#",
-        "vargen" : "http://openprovenance.org/vargen#"
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
     }
 }
