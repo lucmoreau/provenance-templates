@@ -22,6 +22,9 @@
                 },
                 {
                     "@id": "provext:generation"
+                },
+                {
+                    "@id": "provext:activity"
                 }
             ]
         ],
@@ -35,6 +38,9 @@
                 },
                 {
                     "@id": "var:gen"
+                },
+                {
+                    "@id": "var:activity"
                 }
             ]
         ],

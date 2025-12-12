@@ -22,6 +22,9 @@
                 },
                 {
                     "@id": "provext:invalidation"
+                },
+                {
+                    "@id": "provext:activity"
                 }
             ]
         ],
@@ -34,7 +37,10 @@
                     "@id": "var:asc"
                 },
                 {
-                    "@id": "var:i"
+                    "@id": "var:inv"
+                },
+                {
+                    "@id": "provext:activity"
                 }
             ]
         ],
