@@ -61,7 +61,8 @@
             ],
             "output": "org/openprovenance/templates/collections/inserting/collection-inserting",
             "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
-            "hasProvenance": "org/openprovenance/templates/collections/inserting/prov/prov-collection-inserting.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/collections/inserting/prov/prov-collection-inserting.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/collections/variables.json"
         }
 
 

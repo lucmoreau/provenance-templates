@@ -1,85 +1,24 @@
 {
     "var": {
-        "der": [
-            {
-                "@id": "var:der3"
-            }
-        ],
-        "e0": [
-            {
-                "@id": "var:item0"
-            }
-        ],
-        "e1": [
-            {
-                "@id": "var:item1"
-            }
-        ],
-        "activity": [
-            {
-                "@id": "var:removing"
-            }
-
-        ],
-        "dprop": [
-            [
-                {
-                    "@id": "prov:type"
-                }
-            ]
-        ],
-        "dvalue": [
-            [
-                {
-                    "@id": "provext:RemovingElementFromCollection"
-                }
-            ]
-        ],
-        "gprop": [
-            [
-                {
-                    "@id": "var:gprop2"
-                },
-                {
-                    "@id": "prov:role"
-                }
-            ]
-        ],
-        "gvalue": [
-            [
-                {
-                    "@id": "var:gvalue2"
-
-                },
-                {
-                    "@id": "provext:outEntity"
-                }
-            ]
-        ],
-        "u": [
-            {
-                "@id": "var:usd1"
-            }
-        ],
-        "g": [
-            {
-                "@id": "var:gen2"
-            }
-        ]
+        "der":      [  {"@id": "var:der3"}      ],
+        "e0":       [  {"@id": "var:item0"}     ],
+        "e1":       [  {"@id": "var:item1"}     ],
+        "activity": [  {"@id": "var:removing"}  ],
+        "dprops":   [[ {"@id": "prov:type"}]    ],
+        "dvalues":  [[ {"@id": "provext:RemovingElementFromCollection"}      ]],
+        "gprops":   [[ {"@id": "var:gprops2"},  {"@id": "prov:role"}         ]],
+        "gvalues":  [[ {"@id": "var:gvalues2"}, {"@id": "provext:outEntity"} ]],
+        "usd":      [  {"@id": "var:usd1"}      ],
+        "gen":      [  {"@id": "var:gen2"}      ]
 
     },
     "vargen":  {
-        "b": [
-            {
-                "@id": "vargen:b"
-            }
-        ]
+        "b": [{"@id": "vargen:b"}]
     },
     "context": {
-        "ex": "http://example.org/#",
-        "var" : "http://openprovenance.org/var#",
-        "vargen" : "http://openprovenance.org/vargen#",
-        "provext": "http://openprovenance.org/prov/extension#",
-        "prov": "http://www.w3.org/ns/prov#"
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
     }
 }

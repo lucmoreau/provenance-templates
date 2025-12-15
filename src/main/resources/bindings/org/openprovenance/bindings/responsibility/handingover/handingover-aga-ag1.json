@@ -1,76 +1,19 @@
 {
     "var": {
-
-        "entity": [
-            {
-                "@id": "var:item1"
-            }
-        ],
-        "agent": [
-            {
-                "@id": "var:receiver"
-            }
-        ],
-        "activity": [
-            {
-                "@id": "var:handingover"
-            }
-        ],
-        "asc": [
-            {
-                "@id": "var:asc1"
-            }
-        ],
-        "plan": [
-            {
-                "@id": null
-            }
-        ],
-        "assocprop": [
-            [
-                {
-                    "@id": "prov:role"
-                }
-            ]
-        ],
-        "assocpvalue": [
-            [
-                {
-                    "@id": "var:role1"
-                }
-            ]
-        ],
-        "attrprop": [
-            [
-                {
-                    "@id": "prov:type"
-                }
-            ]
-        ],
-        "attrvalue": [
-            [
-                {
-                    "@id": "var:attrType"
-                }
-            ]
-        ],
-        "gen": [
-            {
-                "@id": "var:gen1"
-            }
-        ],
-        "attr": [
-            {
-                "@id": "var:attr1"
-            }
-        ]
+        "e":           [  {"@id": "var:item1"}       ],
+        "ag":          [  {"@id": "var:receiver"}    ],
+        "activity":    [  {"@id": "var:handingover"} ],
+        "asc":         [  {"@id": "var:asc1"}        ],
+        "p":           [  {"@id": null}              ],
+        "ascprops":    [[ {"@id": "prov:role"}      ]],
+        "ascpvalues":  [[ {"@id": "var:role1"}      ]],
+        "attrprops":   [[ {"@id": "prov:type"}      ]],
+        "attrvalues":  [[ {"@id": "var:attrType"}   ]],
+        "gen":         [  {"@id": "var:gen1"}        ],
+        "attr":        [  {"@id": "var:attr1"}       ]
     },
     "vargen":  {
-        "b": [
-            {
-                "@id": "vargen:b"
-            }
-        ]
+        "b": [{"@id": "vargen:b"}]
     },
     "context":  {
         "var" : "${var_ns}",

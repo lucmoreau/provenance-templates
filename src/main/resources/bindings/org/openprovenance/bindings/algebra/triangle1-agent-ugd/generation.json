@@ -1,50 +1,15 @@
 {
     "var": {
 
-        "entity": [
-            {
-                "@id": "var:ag1"
-            }
-        ],
-        "activity": [
-            {
-                "@id": "var:activity"
-            }
-
-        ],
-        "prop": [
-            [
-                {
-                    "@id": "var:gprops"
-                }
-            ]
-        ],
-        "pvalue": [
-            [
-                {
-                    "@id": "var:gvalues"
-                }
-            ]
-        ],
-        "id": [
-            {
-                "@id": "var:gen"
-            }
-        ],
-        "time": [
-            [
-                {
-                    "@id": "var:gtime"
-                }
-            ]
-        ]
+        "entity":   [  {"@id": "var:ag1"}      ],
+        "activity": [  {"@id": "var:activity"} ],
+        "prop":     [[ {"@id": "var:gprops"}]  ],
+        "pvalue":   [[ {"@id": "var:gvalues"} ]],
+        "id":       [  {"@id": "var:gen"}      ],
+        "time":     [[ {"@id": "var:gtime"}   ]]
     },
     "vargen":  {
-        "b": [
-            {
-                "@id": "vargen:b"
-            }
-        ]
+        "b":        [  {"@id": "vargen:b"}     ]
     },
     "context": {
         "var":      "${var_ns}",

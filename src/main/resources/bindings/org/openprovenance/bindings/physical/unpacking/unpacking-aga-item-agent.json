@@ -1,49 +1,17 @@
 {
     "var": {
 
-        "entity": [
-            {
-                "@id": "var:item1"
-            }
-        ],
-        "agent": [
-            {
-                "@id": "var:unpacker"
-            }
-        ],
-        "activity": [
-            {
-                "@id": "var:removing"
-            }
-        ],
-        "plan": [
-            {
-                "@id": null
-            }
-        ],
-        "asc": [
-            {
-                "@id": "var:asc"
-            }
-        ],
-        "gen": [
-            {
-                "@id": "var:gen2"
-            }
-        ],
-        "attr": [
-            {
-                "@id": "var:attr2"
-            }
-        ]
+        "e":        [{"@id": "var:item1"}],
+        "ag":       [{"@id": "var:unpacker"}],
+        "activity": [{"@id": "var:removing"}],
+        "p":        [{"@id": null}],
+        "asc":      [{"@id": "var:asc"}],
+        "gen":      [{"@id": "var:gen2"}],
+        "attr":     [{"@id": "var:attr2"}]
 
     },
     "vargen":  {
-        "b": [
-            {
-                "@id": "vargen:b"
-            }
-        ]
+        "b": [{"@id": "vargen:b"}]
     },
     "context":  {
         "var" : "${var_ns}",

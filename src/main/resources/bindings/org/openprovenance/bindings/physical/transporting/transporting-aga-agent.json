@@ -1,53 +1,15 @@
 {
     "var": {
-
-        "entity": [
-            {
-                "@id": "var:item1"
-            }
-        ],
-        "agent": [
-            {
-                "@id": "var:transporter"
-            }
-        ],
-        "activity": [
-            {
-                "@id": "var:transporting"
-            }
-        ],
-        "plan": [
-            {
-                "@id": "var:schedule"
-            }
-        ],
-        "pprop": [
-            [
-                {
-                    "@id": "prov:type"
-                }
-            ]
-        ],
-        "pvalue": [
-            [
-                {
-                    "@id": "phys:Schedule"
-                }
-            ]
-        ],
-        "assoc": [
-            {
-                "@id": "var:assoc1"
-            }
-        ]
-
+        "e":         [  {"@id": "var:item1"}        ],
+        "ag":        [  {"@id": "var:transporter"}  ],
+        "activity":  [  {"@id": "var:transporting"} ],
+        "p":         [  {"@id": "var:schedule"}     ],
+        "pprops":    [[ {"@id": "prov:type"}       ]],
+        "pvalues":   [[ {"@id": "phys:Schedule"}   ]],
+        "asc":       [  {"@id": "var:asc1"}         ]
     },
     "vargen":  {
-        "b": [
-            {
-                "@id": "vargen:b"
-            }
-        ]
+        "b": [{"@id": "vargen:b"}]
     },
     "context":  {
         "var" : "${var_ns}",

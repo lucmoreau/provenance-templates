@@ -17,14 +17,14 @@
             }
 
         ],
-        "props2": [
+        "eprops1": [
             [
                 {
                     "@id": "var:eprops1"
                 }
             ]
         ],
-        "evalues2": [
+        "evalues1": [
             [
                 {
                     "@id": "var:evalues1"
@@ -34,7 +34,7 @@
         "aprops": [
             [
                 {
-                    "@id": "var:aprop"
+                    "@id": "var:aprops"
                 },
                 {
                     "@id": "prov:type"
@@ -44,27 +44,27 @@
         "avalues": [
             [
                 {
-                    "@id": "var:avalue"
+                    "@id": "var:avalues"
                 },
                 {
                     "@id": "var:ExaminingType"
                 }
             ]
         ],
-        "dprop": [
+        "dprops": [
             [
                 {
-                    "@id": "var:dprop"
+                    "@id": "var:dprops"
                 },
                 {
                     "@id": "prov:type"
                 }
             ]
         ],
-        "dvalue": [
+        "dvalues": [
             [
                 {
-                    "@id": "var:dvalue"
+                    "@id": "var:dvalues"
                 },
                 {
                     "@id": "var:ExaminingType"
@@ -72,28 +72,28 @@
             ]
         ],
 
-        "uprop": [
+        "uprops": [
             [
                 {
-                    "@id": "var:uprop1"
+                    "@id": "var:uprops1"
                 },
                 {
                     "@id": "prov:role"
                 }
             ]
         ],
-        "uvalue": [
+        "uvalues": [
             [
                 {
-                    "@id": "var:uvalue1"
+                    "@id": "var:uvalues1"
 
                 },
                 {
-                    "@id": "var:asEntity"
+                    "@id": "provext:asEntity"
                 }
             ]
         ],
-        "u": [
+        "usd": [
             {
                 "@id": "var:usd1"
             }

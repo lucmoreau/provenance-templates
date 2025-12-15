@@ -55,7 +55,8 @@
             "output": "org/openprovenance/templates/triangles/triangle2-entity-sds/triangle2-entity-sds",
             "outputFullyQualifiedName": "org.openprovenance.templates.triangles.Triangle2-Entity-SDS",
             "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
-            "hasProvenance": "org/openprovenance/templates/triangles/triangle2-entity-sds/prov/prov-triangle2-entity-sds.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle2-entity-sds/prov/prov-triangle2-entity-sds.prov-csv",
+            "variableCheck": "variable-check/triangles/variables.json"
         }
 
     ]

@@ -16,7 +16,7 @@
                 "@id": "var:creating"
             }
         ],
-        "props2": [
+        "eprops1": [
             [
                 {
                     "@id": "var:tprops"
@@ -26,7 +26,7 @@
                 }
             ]
         ],
-        "evalues2": [
+        "evalues1": [
             [
                 {
                     "@id": "var:tvalues"
@@ -50,20 +50,20 @@
                 }
             ]
         ],
-        "dprop": [
+        "dprops": [
             [
                 {
-                    "@id": "var:dprop"
+                    "@id": "var:dprops"
                 },
                 {
                     "@id": "prov:type"
                 }
             ]
         ],
-        "dvalue": [
+        "dvalues": [
             [
                 {
-                    "@id": "var:dvalue"
+                    "@id": "var:dvalues"
                 },
                 {
                     "@id": "prov:Revision"
@@ -71,17 +71,17 @@
             ]
         ],
 
-        "uprop": [
+        "uprops": [
             [
                 {
-                    "@id": "var:uprop1"
+                    "@id": "var:uprops1"
                 }
             ]
         ],
-        "uvalue": [
+        "uvalues": [
             [
                 {
-                    "@id": "var:uvalue1"
+                    "@id": "var:uvalues1"
 
                 }
             ]

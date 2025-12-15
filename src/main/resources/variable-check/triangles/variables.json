@@ -1,0 +1,43 @@
+{
+    "entity": "(e|p)\\d*",
+    "agent": "(ag)\\d*",
+    "activity": "(a|activity)\\d*$",
+
+    "entity.wasGeneratedBy": "(ag)\\d*",
+    "entity.specializationOf": "(ag)\\d*",
+
+    "plan": "(p)\\d*",
+    "plan.wasAssociatedWith": "(p)\\d*",
+
+    "collection": "(coll|container)\\d*",
+
+    "bundle": "(b)\\d*",
+
+    "used": "(usd)\\d*",
+    "wasAttributedTo": "(attr)\\d*",
+    "wasAssociatedWith": "(asc)\\d*",
+    "wasGeneratedBy": "(gen)\\d*",
+    "wasDerivedFrom": "(der)\\d*",
+    "actedOnBehalfOf": "(del)\\d*",
+    "hadMember": "(mem)\\d*",
+    "specializationOf": "(spec)\\d*",
+
+    "time": "(time)\\d*",
+
+    "attributes": {
+        "entity": "(eprops|pprops)\\d*",
+        "activity": "(aprops)\\d*",
+        "agent": "(agprops)\\d*",
+        "wasGeneratedBy": "(gprops)\\d*",
+        "specializationOf": "(sprops)\\d*",
+        "used": "(uprops)\\d*"
+    },
+    "values": {
+        "entity": "(evalues|pvalues)\\d*",
+        "activity": "(avalues)\\d*",
+        "agent": "(agvalues)\\d*",
+        "wasGeneratedBy": "(gvalues)\\d*",
+        "specializationOf": "(svalues)\\d*",
+        "used": "(uvalues)\\d*"
+    }
+}

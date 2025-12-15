@@ -1,61 +1,14 @@
 {
     "var": {
 
-        "entity": [
-            {
-                "@id": "var:entity"
-            }
-        ],
-        "agent": [
-            {
-                "@id": "var:agent"
-            }
-
-        ],
-        "prop": [
-            [
-                {
-                    "@id": "var:attrprop"
-                },
-                {
-                    "@id": "provext:association"
-                },
-                {
-                    "@id": "provext:invalidation"
-                },
-                {
-                    "@id": "provext:activity"
-                }
-            ]
-        ],
-        "pvalue": [
-            [
-                {
-                    "@id": "var:attrvalue"
-                },
-                {
-                    "@id": "var:asc"
-                },
-                {
-                    "@id": "var:inv"
-                },
-                {
-                    "@id": "provext:activity"
-                }
-            ]
-        ],
-        "id": [
-            {
-                "@id": "var:attr"
-            }
-        ]
+        "entity":  [  {"@id": "var:e"}],
+        "agent":   [  {"@id": "var:ag"}],
+        "prop":    [[ {"@id": "var:attrprop"}, {"@id": "provext:association"},{"@id": "provext:invalidation"},{"@id": "provext:activity"}]],
+        "pvalue":  [[ {"@id": "var:attrvalue"},{"@id": "var:asc"}            ,{"@id": "var:inv"},             {"@id": "var:activity"}    ]],
+        "id":      [  {"@id": "var:attr"}]
     },
     "vargen":  {
-        "b": [
-            {
-                "@id": "vargen:b"
-            }
-        ]
+        "b": [{"@id": "vargen:b"}]
     },
     "context": {
         "var":      "${var_ns}",

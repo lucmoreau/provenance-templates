@@ -1,121 +1,22 @@
 {
     "var": {
 
-        "e0": [
-            {
-                "@id": "var:item0"
-            }
-        ],
-        "e1": [
-            {
-                "@id": "var:item1"
-            }
-        ],
-        "activity": [
-            {
-                "@id": "var:transporting"
-            }
-
-        ],
-        "props2": [
-            [
-                {
-                    "@id": "var:iprops"
-                },
-                {
-                    "@id": "prov:location"
-                }
-            ]
-        ],
-        "evalues2": [
-            [
-                {
-                    "@id": "var:ivalues"
-                },
-                {
-                    "@id": "var:ilocation"
-                }
-            ]
-        ],
-        "aprops": [
-            [
-                {
-                    "@id": "var:aprops"
-                },
-                {
-                    "@id": "prov:type"
-                }
-            ]
-        ],
-        "avalues": [
-            [
-                {
-                    "@id": "var:avalues"
-                },
-                {
-                    "@id": "phys:Transporting"
-                }
-            ]
-        ],
-        "dprop": [
-            [
-                {
-                    "@id": "var:dprop"
-                },
-                {
-                    "@id": "prov:type"
-                }
-            ]
-        ],
-        "dvalue": [
-            [
-                {
-                    "@id": "var:dvalue"
-                },
-                {
-                    "@id": "phys:Transporting"
-                }
-            ]
-        ],
-
-        "uprop": [
-            [
-                {
-                    "@id": "var:uprop1"
-                },
-                {
-                    "@id": "prov:role"
-                }
-            ]
-        ],
-        "uvalue": [
-            [
-                {
-                    "@id": "var:uvalue1"
-
-                },
-                {
-                    "@id": "var:asItem"
-                }
-            ]
-        ],
-        "u": [
-            {
-                "@id": "var:usd1"
-            }
-        ],
-        "der": [
-            {
-                "@id": "var:der1"
-            }
-        ]
+        "e0":       [  {"@id": "var:item0"}                                   ],
+        "e1":       [  {"@id": "var:item1"}                                   ],
+        "activity": [  {"@id": "var:transporting"}                            ],
+        "eprops1":  [[ {"@id": "var:iprops1"},  {"@id": "prov:location"}     ]],
+        "evalues1": [[ {"@id": "var:ivalues1"}, {"@id": "var:ilocation1"}    ]],
+        "aprops":   [[ {"@id": "var:aprops"},   {"@id": "prov:type"}         ]],
+        "avalues":  [[ {"@id": "var:avalues"},  {"@id": "phys:Transporting"} ]],
+        "dprops":   [[ {"@id": "var:dprops"},   {"@id": "prov:type"}         ]],
+        "dvalue":   [[ {"@id": "var:dvalues"},  {"@id": "phys:Transporting"} ]],
+        "uprops":   [[ {"@id": "var:uprops1"},  {"@id": "prov:role"}         ]],
+        "uvalues":  [[ {"@id": "var:uvalues1"}, {"@id": "provext:asItem"}    ]],
+        "usd":      [  {"@id": "var:usd1"}                                    ],
+        "der":      [  {"@id": "var:der1"}                                    ]
     },
     "vargen":  {
-        "b": [
-            {
-                "@id": "vargen:b"
-            }
-        ]
+        "b": [{"@id": "vargen:b"}]
     },
     "context": {
         "var" : "${var_ns}",

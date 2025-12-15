@@ -1,100 +1,17 @@
 {
     "var": {
-        "der": [
-            {
-                "@id": "var:der1"
-            }
-        ],
-
-        "e0": [
-            {
-                "@id": "var:item0"
-            }
-        ],
-        "e1": [
-            {
-                "@id": "var:coll1"
-            }
-        ],
-
-        "activity": [
-            {
-                "@id": "var:inserting"
-            }
-
-        ],
-        "aprops": [
-            [
-                {
-                    "@id": "var:aprops"
-                },
-                {
-                    "@id": "prov:type"
-                }
-            ]
-        ],
-        "avalues": [
-            [
-                {
-                    "@id": "var:avalues"
-                },
-                {
-                    "@id": "provext:InsertingItemIntoCollection"
-                }
-            ]
-        ],
-        "dprop": [
-            [
-                {
-                    "@id": "var:dprop1"
-                },
-                {
-                    "@id": "prov:type"
-                }
-            ]
-        ],
-        "dvalue": [
-            [
-                {
-                    "@id": "var:dvalue1"
-                },
-                {
-                    "@id": "provext:InsertingItemIntoCollection"
-                }
-            ]
-        ],
-
-        "uprop": [
-            [
-                {
-                    "@id": "var:uprop1"
-                },
-                {
-                    "@id": "prov:role"
-                }
-            ]
-        ],
-        "uvalue": [
-            [
-                {
-                    "@id": "var:uvalue1"
-
-                },
-                {
-                    "@id": "provext:asItem"
-                }
-            ]
-        ],
-        "u": [
-            {
-                "@id": "var:usd1"
-            }
-        ],
-        "g": [
-            {
-                "@id": "var:gen0"
-            }
-        ]
+        "der":      [  {"@id": "var:der1"}      ],
+        "e0":       [  {"@id": "var:item0"}     ],
+        "e1":       [  {"@id": "var:coll1"}     ],
+        "activity": [  {"@id": "var:inserting"} ],
+        "aprops":   [[ {"@id": "var:aprops"},   {"@id": "prov:type"}                           ]],
+        "avalues":  [[ {"@id": "var:avalues"},  {"@id": "provext:InsertingItemIntoCollection"} ]],
+        "dprops":   [[ {"@id": "var:dprops1"},  {"@id": "prov:type"}                           ]],
+        "dvalues":  [[ {"@id": "var:dvalues1"}, {"@id": "provext:InsertingItemIntoCollection"} ]],
+        "uprops":   [[ {"@id": "var:uprops1"},  {"@id": "prov:role"}                           ]],
+        "uvalues":  [[ {"@id": "var:uvalues1"}, {"@id": "provext:asItem"}                      ]],
+        "usd":      [  {"@id": "var:usd1"}      ],
+        "gen":      [  {"@id": "var:gen0"}      ]
 
 
     },

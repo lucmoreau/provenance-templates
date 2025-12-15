@@ -1,44 +1,15 @@
 {
     "var": {
-
-        "entity": [
-            {
-                "@id": "var:container1"
-            }
-        ],
-        "agent": [
-            {
-                "@id": "var:packer"
-            }
-        ],
-        "activity": [
-            {
-                "@id": "var:adding"
-            }
-        ],
-        "plan": [
-            {
-                "@id": null
-            }
-        ],
-        "asc": [
-            {
-                "@id": "var:asc1"
-            }
-        ],
-        "gen": [
-            {
-                "@id": "var:gen0"
-            }
-        ]
+        "e":        [{"@id": "var:container1"}],
+        "ag":       [{"@id": "var:packer"}    ],
+        "activity": [{"@id": "var:adding"}    ],
+        "p":        [{"@id": null}            ],
+        "asc":      [{"@id": "var:asc1"}      ],
+        "gen":      [{"@id": "var:gen0"}      ]
 
     },
     "vargen":  {
-        "b": [
-            {
-                "@id": "vargen:b"
-            }
-        ]
+        "b": [{"@id": "vargen:b"}]
     },
     "context":  {
         "var" : "${var_ns}",

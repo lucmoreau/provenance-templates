@@ -1,12 +1,12 @@
 {
     "var": {
 
-        "entity": [
+        "e": [
             {
                 "@id": "var:template1"
             }
         ],
-        "agent": [
+        "ag": [
             {
                 "@id": "var:creator"
             }
@@ -16,12 +16,12 @@
                 "@id": "var:creating"
             }
         ],
-        "plan": [
+        "p": [
             {
                 "@id": "var:ttf"
             }
         ],
-        "pprop": [
+        "pprops": [
             [
                 {
                     "@id": "ptm:path"
@@ -31,7 +31,7 @@
                 }
             ]
         ],
-        "pvalue": [
+        "pvalues": [
             [
                 {
                     "@id": "var:ppath"

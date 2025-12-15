@@ -1,81 +1,20 @@
 {
     "var": {
-        "coll1": [
-            {
-                "@id": "var:container1"
-            }
-
-        ],
-        "coll0": [
-            {
-                "@id": "var:container0"
-            }
-
-        ],
-        "item1": [
-            {
-                "@id": "var:item1"
-            }
-
-        ],
-        "item0": [
-            {
-                "@id": "var:item0"
-            }
-
-        ],
-        "removing": [
-            {
-                "@id": "var:removing"
-            }
-
-        ],
-        "ExaminingType": [
-            [
-                {
-                    "@id": "phys:Weighing"
-                }
-            ]
-        ],
-        "aprop": [
-            [
-                {
-                    "@id": "prov:type"
-                }
-            ]
-        ],
-        "avalue": [
-            [
-                {
-                    "@id": "phys:RemovingItemFromContainer"
-                }
-            ]
-        ],
-        "time": [
-            [
-                {
-                    "@id": "var:time"
-                }
-            ]
-        ],
-        "gen": [
-            {
-                "@id": "var:gen"
-            }
-        ],
-        "gen2": [
-            {
-                "@id": "var:gen2"
-            }
-        ]
+        "coll1":         [  {"@id": "var:container1"}],
+        "coll0":         [  {"@id": "var:container0"}],
+        "item1":         [  {"@id": "var:item1"}],
+        "item0":         [  {"@id": "var:item0"}],
+        "removing":      [  {"@id": "var:removing"}],
+        "ExaminingType": [[ {"@id": "phys:Weighing"}]],
+        "aprops":        [[ {"@id": "prov:type"}]],
+        "avalues":       [[ {"@id": "phys:RemovingItemFromContainer"}]],
+        "time":          [[ {"@id": "var:time"}]],
+        "gen":           [  {"@id": "var:gen"}],
+        "gen2":          [  {"@id": "var:gen2"}]
 
     },
     "vargen":  {
-        "b": [
-            {
-                "@id": "vargen:b"
-            }
-        ]
+        "b": [{"@id": "vargen:b"}]
     },
     "context": {
         "var" : "${var_ns}",

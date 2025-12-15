@@ -1,45 +1,11 @@
 {
     "var": {
-        "entity": [
-            {
-                "@id": "var:entity"
-            },
-            {
-                "@id": "var:plan"
-            }
-
-        ],
-        "prop": [
-            [
-                {
-                    "@id": "var:eprops"
-                }
-            ],
-            [
-                {
-                    "@id": "var:pprops"
-                }
-            ]
-        ],
-        "pvalue": [
-            [
-                {
-                    "@id": "var:evalues"
-                }
-            ],
-            [
-                {
-                    "@id": "var:pvalues"
-                }
-            ]
-        ]
+        "entity": [  {"@id": "var:e"},        {"@id": "var:p"}        ],
+        "prop":   [[ {"@id": "var:eprops"}],  [  ]],
+        "pvalue": [[ {"@id": "var:evalues"}], [  ]]
     },
     "vargen":  {
-        "b": [
-            {
-                "@id": "vargen:b"
-            }
-        ]
+        "b": [{"@id": "vargen:b"}]
     },
     "context": {
         "var":      "${var_ns}",

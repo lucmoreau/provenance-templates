@@ -1,27 +1,10 @@
 {
     "var": {
-
-        "agent": [
-            {
-                "@id": "var:agent"
-            }
-
-        ],
-        "prop": [
-            [
-            ]
-        ],
-        "pvalue": [
-            [
-            ]
-        ]
-    },
+        "agent":   [{"@id": "var:ag"}],
+        "prop":    [[]],
+	"pvalue":  [[]]},
     "vargen":  {
-        "b": [
-            {
-                "@id": "vargen:b"
-            }
-        ]
+        "b": [{"@id": "vargen:b"}]
     },
     "context": {
         "var":      "${var_ns}",

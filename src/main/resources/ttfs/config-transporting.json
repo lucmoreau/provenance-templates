@@ -50,7 +50,8 @@
             "output": "org/openprovenance/templates/physical/transporting/transporting",
             "outputFullyQualifiedName": "org.openprovenance.templates.physical.Transporting",
             "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
-            "hasProvenance": "org/openprovenance/templates/physical/transporting/prov/prov-transporting.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/physical/transporting/prov/prov-transporting.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/physical/variables.json"
         }
     ]
 }

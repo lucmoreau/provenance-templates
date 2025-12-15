@@ -96,7 +96,6 @@
             "@input": "optional"
         }]],
         "containerType": [
-
             {
                 "@id": "phys:*",
                 "@type": "xsd:string",
@@ -104,7 +103,6 @@
                 "@input": "compulsory",
                 "@sql.type": "nonNullableTEXT"
             }
-
         ],
         "time": [
             [

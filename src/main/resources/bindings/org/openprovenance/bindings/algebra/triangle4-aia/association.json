@@ -1,45 +1,15 @@
 {
     "var": {
-
-        "activity": [
-            {
-                "@id": "var:activity"
-            }
-
-        ],
-        "agent": [
-            {
-                "@id": "var:agent"
-            }
-
-        ],
-        "prop": [
-            [
-                {
-                    "@id": "var:ascprops"
-                }
-            ]
-        ],
-        "pvalue": [
-            [
-                {
-                    "@id": "var:ascvalues"
-                }
-            ]
-        ],
-        "asc": [
-            {
-                "@id": "var:asc"
-            }
-        ]
+        "activity": [  {"@id": "var:activity"}   ],
+        "agent":    [  {"@id": "var:ag"}         ],
+        "plan":     [  {"@id": "var:p"}         ],
+        "prop":     [[ {"@id": "var:ascprops"}  ]],
+        "pvalue":   [[ {"@id": "var:ascvalues"} ]],
+        "asc":      [  {"@id": "var:asc"}]
 
     },
     "vargen":  {
-        "b": [
-            {
-                "@id": "vargen:b"
-            }
-        ]
+        "b": [{"@id": "vargen:b"}]
     },
     "context": {
         "var":      "${var_ns}",

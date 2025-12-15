@@ -1,127 +1,23 @@
 {
     "var": {
-
-        "e0": [
-            {
-                "@id": "var:item0"
-            }
-        ],
-        "e1": [
-            {
-                "@id": "var:item1"
-            }
-        ],
-        "activity": [
-            {
-                "@id": "var:handingover"
-            }
-
-        ],
-        "props2": [
-            [
-                {
-                    "@id": "var:iprops1"
-                }
-            ]
-        ],
-        "evalues2": [
-            [
-                {
-                    "@id": "var:ivalues1"
-                }
-            ]
-        ],
-        "aprops": [
-            [
-                {
-                    "@id": "var:aprops"
-                },
-                {
-                    "@id": "prov:type"
-                }
-            ]
-        ],
-        "avalues": [
-            [
-                {
-                    "@id": "var:avalues"
-                },
-                {
-                    "@id": "resp:HandingOver"
-                }
-            ]
-        ],
-        "dprop": [
-            [
-                {
-                    "@id": "var:dprop"
-                },
-                {
-                    "@id": "prov:type"
-                }
-            ]
-        ],
-        "dvalue": [
-            [
-                {
-                    "@id": "var:dvalue"
-                },
-                {
-                    "@id": "resp:HandingOver"
-                }
-            ]
-        ],
-
-        "uprop": [
-            [
-                {
-                    "@id": "var:uprop1"
-                },
-                {
-                    "@id": "prov:role"
-                }
-            ]
-        ],
-        "uvalue": [
-            [
-                {
-                    "@id": "var:uvalue1"
-
-                },
-                {
-                    "@id": "var:asItem"
-                }
-            ]
-        ],
-        "u": [
-            {
-                "@id": "var:usd0"
-            }
-        ],
-        "gen": [
-            {
-                "@id": "var:gen1"
-            }
-        ],
-        "der": [
-            {
-                "@id": "var:der1"
-            }
-        ],
-        "gtime": [
-            [
-                {
-                    "@id": "var:time"
-                }
-            ]
-        ]
+        "e0":       [  {"@id": "var:item0"}       ],
+        "e1":       [  {"@id": "var:item1"}       ],
+        "activity": [  {"@id": "var:handingover"} ],
+        "eprops1":  [[ {"@id": "var:iprops1"}    ]],
+        "evalues1": [[ {"@id": "var:ivalues1"}   ]],
+        "aprops":   [[ {"@id": "var:aprops"},   {"@id": "prov:type"}        ]],
+        "avalues":  [[ {"@id": "var:avalues"},  {"@id": "resp:HandingOver"} ]],
+        "dprops":   [[ {"@id": "var:dprops"},   {"@id": "prov:type"}        ]],
+        "dvalues":  [[ {"@id": "var:dvalues"},  {"@id": "resp:HandingOver"} ]],
+        "uprops":   [[ {"@id": "var:uprops1"},  {"@id": "prov:role"}        ]],
+        "uvalues":  [[ {"@id": "var:uvalues1"}, {"@id": "provext:asItem"}       ]],
+        "usd":      [  {"@id": "var:usd0"}],
+        "gen":      [  {"@id": "var:gen1"}],
+        "der":      [  {"@id": "var:der1"}],
+        "gtime":    [[ {"@id": "var:time"}]]
     },
     "vargen":  {
-        "b": [
-            {
-                "@id": "vargen:b"
-            }
-        ]
+        "b": [{"@id": "vargen:b"}]
     },
     "context": {
         "var" : "${var_ns}",

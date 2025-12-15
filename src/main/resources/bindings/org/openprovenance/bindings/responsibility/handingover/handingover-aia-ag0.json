@@ -1,70 +1,19 @@
 {
     "var": {
-
-        "entity": [
-            {
-                "@id": "var:item0"
-            }
-        ],
-        "agent": [
-            {
-                "@id": "var:giver"
-            }
-        ],
-        "activity": [
-            {
-                "@id": "var:handingover"
-            }
-        ],
-        "asc": [
-            {
-                "@id": "var:asc0"
-            }
-        ],
-        "plan": [
-            {
-                "@id": null
-            }
-        ],
-        "itime": [
-            [
-                {
-                    "@id": "var:time"
-                }
-            ]
-        ],
-        "assocprop": [
-            [
-                {
-                    "@id": "prov:role"
-                }
-            ]
-        ],
-        "assocpvalue": [
-            [
-                {
-                    "@id": "var:role0"
-                }
-            ]
-        ],
-        "attr": [
-            {
-                "@id": "var:attr0"
-            }
-        ],
-        "i": [
-            {
-                "@id": "var:inv0"
-            }
-        ]
+        "e":           [  {"@id": "var:item0"}],
+        "ag":          [  {"@id": "var:giver"}],
+        "activity":    [  {"@id": "var:handingover"}],
+        "asc":         [  {"@id": "var:asc0"}],
+        "p":           [  {"@id": null}],
+        "itime":       [[ {"@id": "var:time"}]],
+        "ascprops":    [[ {"@id": "prov:role"}]],
+        "ascvalues":   [[ {"@id": "var:role0"}]],
+        "attr":        [  {"@id": "var:attr0"}],
+        "inv":         [  {"@id": "var:inv0"}]
 
     },
     "vargen":  {
-        "b": [
-            {
-                "@id": "vargen:b"
-            }
-        ]
+        "b": [{"@id": "vargen:b"}]
     },
     "context":  {
         "var" : "${var_ns}",

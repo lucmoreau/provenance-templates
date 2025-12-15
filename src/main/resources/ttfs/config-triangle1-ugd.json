@@ -5,6 +5,7 @@
     "variableMaps": ["./common-ns.json"],
 
 
+
     "tasks": [
         {
             "type": "instantiate",
@@ -65,7 +66,8 @@
             "output": "org/openprovenance/templates/triangles/triangle1-ugd/triangle1-ugd",
             "outputFullyQualifiedName": "org.openprovenance.templates.triangles.Triangle1-UGD",
             "formats": ["provn", "png", "svg", "jsonld", "qualified.png"],
-            "hasProvenance": "org/openprovenance/templates/triangles/triangle1-ugd/prov/prov-triangle1-ugd.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle1-ugd/prov/prov-triangle1-ugd.prov-csv",
+            "variableCheck": "variable-check/triangles/variables.json"
         }
 
     ]

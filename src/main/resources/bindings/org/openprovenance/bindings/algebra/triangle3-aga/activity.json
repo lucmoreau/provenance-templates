@@ -1,46 +1,13 @@
 {
     "var": {
-        "activity": [
-            {
-                "@id": "var:activity"
-            }
-
-        ],
-        "prop": [
-            [
-                {
-                    "@id": "var:aprops"
-                }
-            ]
-        ],
-        "pvalue": [
-            [
-                {
-                    "@id": "var:avalues"
-                }
-            ]
-        ],
-        "startTime": [
-            [
-                {
-                    "@id": "var:stime"
-                }
-            ]
-        ],
-        "endTime": [
-            [
-                {
-                    "@id": "var:etime"
-                }
-            ]
-        ]
+        "activity":  [  {"@id": "var:activity"} ],
+        "prop":      [[ {"@id": "var:aprops"}  ]],
+        "pvalue":    [[ {"@id": "var:avalues"} ]],
+        "startTime": [[ {"@id": "var:stime"}   ]],
+        "endTime":   [[ {"@id": "var:etime"}   ]]
     },
     "vargen":  {
-        "b": [
-            {
-                "@id": "vargen:b"
-            }
-        ]
+        "b": [{"@id": "vargen:b"}]
     },
     "context": {
         "var":      "${var_ns}",

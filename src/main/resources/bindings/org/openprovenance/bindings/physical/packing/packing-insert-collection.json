@@ -1,104 +1,23 @@
 {
     "var": {
-        "coll1": [
-            {
-                "@id": "var:container1"
-            }
-
-        ],
-        "coll0": [
-            {
-                "@id": "var:container0"
-            }
-
-        ],
-        "item1": [
-            {
-                "@id": "var:item1"
-            }
-
-        ],
-        "item0": [
-            {
-                "@id": "var:item0"
-            }
-
-        ],
-        "inserting": [
-            {
-                "@id": "var:adding"
-            }
-
-        ],
-        "cprop0": [
-            [
-                {
-                    "@id": "prov:type"
-                }
-            ]
-        ],
-        "cvalue0": [
-            [
-                {
-                    "@id": "var:containerType"
-                }
-            ]
-        ],
-        "cprop1": [
-            [
-                {
-                    "@id": "prov:type"
-                },
-                {
-                    "@id": "phys:sealed"
-                }
-            ]
-        ],
-        "cvalue1": [
-            [
-                {
-                    "@id": "var:containerType"
-                },
-                {
-                    "@id": "var:sealed"
-                }
-            ]
-        ],
-        "ExaminingType": [
-            [
-                {
-                    "@id": "phys:Weighing"
-                }
-            ]
-        ],
-        "aprop": [
-            [
-                {
-                    "@id": "prov:type"
-                }
-            ]
-        ],
-        "avalue": [
-            [
-                {
-                    "@id": "phys:AddingItemToContainer"
-                }
-            ]
-        ],
-        "time": [
-            [
-                {
-                    "@id": "var:time"
-                }
-            ]
-        ]
+        "coll1":          [  {"@id": "var:container1"}                             ],
+        "coll0":          [  {"@id": "var:container0"}                             ],
+        "item1":          [  {"@id": "var:item1"}                                  ],
+        "item0":          [  {"@id": "var:item0"}                                  ],
+        "inserting":      [  {"@id": "var:adding"}                                 ],
+        "cprops0":        [[ {"@id": "prov:type"}                                 ]],
+        "cvalues0":       [[ {"@id": "var:containerType"}                         ]],
+        "cprops1":        [[ {"@id": "prov:type"},         {"@id": "phys:sealed"} ]],
+        "cvalues1":       [[ {"@id": "var:containerType"}, {"@id": "var:sealed"}  ]],
+        "iprops1":        [[ {"@id": "var:iprops1"}                               ]],
+        "ivalues1":       [[ {"@id": "var:ivalues1"}                              ]],
+        "ExaminingType":  [[ {"@id": "phys:Weighing"}                             ]],
+        "aprops":         [[ {"@id": "prov:type"}                                 ]],
+        "avalues":        [[ {"@id": "phys:AddingItemToContainer"}                ]],
+	    "time":           [[ {"@id": "var:time"}                                  ]]
     },
     "vargen":  {
-        "b": [
-            {
-                "@id": "vargen:b"
-            }
-        ]
+        "b": [{"@id": "vargen:b"}]
     },
     "context": {
         "var" : "${var_ns}",
