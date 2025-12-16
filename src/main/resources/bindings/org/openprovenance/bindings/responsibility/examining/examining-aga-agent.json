@@ -1,63 +1,18 @@
 {
     "var": {
-
-        "entity": [
-            {
-                "@id": "var:e1"
-            }
-        ],
-        "agent": [
-            {
-                "@id": "var:agent"
-            }
-        ],
-        "activity": [
-            {
-                "@id": "var:examining"
-            }
-        ],
-        "asc": [
-            {
-                "@id": "var:asc1"
-            }
-        ],
-        "plan": [
-            {
-                "@id": null
-            }
-        ],
-        "assocprop": [
-            [
-                {
-                    "@id": "prov:role"
-                }
-            ]
-        ],
-        "assocpvalue": [
-            [
-                {
-                    "@id": "resp:asAgent"
-                }
-            ]
-        ],
-        "attr": [
-            {
-                "@id": "var:attr1"
-            }
-        ],
-        "gen": [
-            {
-                "@id": "var:gen1"
-            }
-        ]
+        "e":         [  {"@id": "var:e1"}],
+        "ag":        [  {"@id": "var:agent"}],
+        "activity":  [  {"@id": "var:examining"}],
+        "asc":       [  {"@id": "var:asc1"}],
+        "p":         [  {"@id": null}],
+        "ascprops":  [[ {"@id": "prov:role"}]],
+        "ascvalues": [[ {"@id": "resp:asAgent"}]],
+	"attr":      [  {"@id": "var:attr1"}],
+        "gen":       [  {"@id": "var:gen1"}]
 
     },
     "vargen":  {
-        "b": [
-            {
-                "@id": "vargen:b"
-            }
-        ]
+        "b": [{"@id": "vargen:b"}]
     },
     "context":  {
         "var" : "${var_ns}",

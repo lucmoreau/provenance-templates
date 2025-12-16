@@ -105,7 +105,7 @@
         <dependency>
             <groupId>org.openprovenance.prov</groupId>
             <artifactId>prov-dot</artifactId>
-            <version>2.2.2-SNAPSHOT</version>
+            <version>${prov.toolbox.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -767,7 +767,9 @@
                         <configuration>
                             <inputBaseDir>${project.basedir}</inputBaseDir>
                             <args>
+                                <arg>src/main/resources/ttfs/config-generic-transforming.json</arg>
                                 <arg>src/main/resources/ttfs/config-generic.json</arg>
+                                <arg>src/main/resources/ttfs/config-simple.json</arg>
                                 <arg>src/main/resources/ttfs/config-fs.json</arg>
                                 <arg>src/main/resources/ttfs/config-ptm.json</arg>
 
@@ -850,7 +852,9 @@
                             <inputBaseDir>${project.basedir}</inputBaseDir>
                             <outputBaseDir>${project.build.directory}</outputBaseDir>
                             <args>
+                                <arg>src/main/resources/ttfs/config-generic-transforming.json</arg>
                                 <arg>src/main/resources/ttfs/config-generic.json</arg>
+                                <arg>src/main/resources/ttfs/config-simple.json</arg>
                                 <arg>src/main/resources/ttfs/config-fs.json</arg>
                                 <arg>src/main/resources/ttfs/config-ptm.json</arg>
                                 <arg>src/main/resources/ttfs/config-responsibility-assigning.json</arg>

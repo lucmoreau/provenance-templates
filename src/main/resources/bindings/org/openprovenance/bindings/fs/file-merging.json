@@ -5,7 +5,7 @@
         "output" :                    [{"@id" : "var:outfile"}],
         "input1" :                  [{"@id" : "var:infile1"}],
         "input2" :                  [{"@id" : "var:infile2"}],
-        "activity" :                 [{"@id" : "var:merging"}],
+        "transforming" :             [{"@id" : "var:merging"}],
         "plan":                      [{"@id" : null}],
         "agtype" :                   [[{"@id" : "fs:DataEngineer"},   {"@id" : "prov:Person"}]],
         "rtype" :                    [[{"@id" : "prov:Organization"}]],
@@ -19,7 +19,7 @@
 
     },
     "vargen" : {
-        "view" : [ {
+        "b" : [ {
             "@id" : "vargen:b"
         } ]
     },

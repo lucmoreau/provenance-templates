@@ -1,39 +1,13 @@
 {
     "var": {
-
-        "e": [
-            {
-                "@id": "var:e"
-            }
-        ],
-        "e0": [
-            {
-                "@id": "var:e0"
-            }
-        ],
-        "e1": [
-            {
-                "@id": "var:e1"
-            }
-        ],
-        "activity": [
-            {
-                "@id": "var:examining"
-            }
-
-        ],
-        "der": [
-            {
-                "@id": "var:der1"
-            }
-        ]
+        "e": [{"@id": "var:e"}],
+        "e0": [{"@id": "var:e0"}],
+        "e1": [{"@id": "var:e1"}],
+        "activity": [{"@id": "var:examining"}],
+        "der": [{"@id": "var:der1"}]
     },
     "vargen":  {
-        "b": [
-            {
-                "@id": "vargen:b"
-            }
-        ]
+        "b": [{"@id": "vargen:b"}]
     },
     "context": {
         "var" : "${var_ns}",

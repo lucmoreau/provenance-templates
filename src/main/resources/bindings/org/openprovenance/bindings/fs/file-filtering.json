@@ -5,7 +5,7 @@
         "input" :                   [{"@id" : "var:file"}],
         "output" :                  [{"@id" : "var:filtered_file"}],
         "plan" :                    [{"@id" : "var:method"}],
-        "activity" :                [{"@id" : "var:filtering"}],
+        "transforming" :            [{"@id" : "var:filtering"}],
         "agtype" :                  [[{"@id" : "plead:DataEngineer"},   {"@id" : "prov:Person"}]],
         "rtype" :                   [[{"@id" : "plead:CreditProvider"}, {"@id" : "prov:Organization"}]],
         "itype" :                   [[{"@id" : "plead:DataFile"},       {"@id" : "plead:CSVFile"}]],
@@ -18,7 +18,7 @@
         "oprop_values":             [[{"@id": "var:n_rows"},   {"@id" : "var:n_cols"},   {"@id": "var:filename"},   {"@id" : "var:path"}]]
     },
     "vargen" : {
-        "view" : [ {
+        "b" : [ {
             "@id" : "vargen:b"
         } ]
     },

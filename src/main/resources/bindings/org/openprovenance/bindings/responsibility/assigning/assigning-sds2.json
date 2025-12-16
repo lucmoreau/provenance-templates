@@ -1,49 +1,15 @@
 {
     "var": {
-
-        "ag": [
-            {
-                "@id": "var:ag"
-            }
-        ],
-        "ag0": [
-            {
-                "@id": "var:ag0"
-            }
-        ],
-        "ag1": [
-            {
-                "@id": "var:ag1"
-            }
-        ],
-        "activity": [
-            {
-                "@id": "var:assigning"
-            }
-
-        ],
-        "der": [
-            {
-                "@id": "var:der2"
-            }
-        ],
-        "spec0": [
-            {
-                "@id": "var:spec2"
-            }
-        ],
-        "spec1": [
-            {
-                "@id": "var:spec3"
-            }
-        ]
+        "ag": [{"@id": "var:ag"}],
+        "ag0": [{"@id": "var:ag0"}],
+        "ag1": [{"@id": "var:ag1"}],
+        "activity": [{"@id": "var:assigning"}],
+        "der": [{"@id": "var:der2"}],
+        "spec0": [{"@id": "var:spec2"}],
+        "spec1": [{"@id": "var:spec3"}]
     },
     "vargen":  {
-        "b": [
-            {
-                "@id": "vargen:b"
-            }
-        ]
+        "b": [{"@id": "vargen:b"}]
     },
     "context": {
         "var" : "${var_ns}",

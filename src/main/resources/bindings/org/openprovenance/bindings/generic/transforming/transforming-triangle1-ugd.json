@@ -1,0 +1,31 @@
+{
+    "var" : {
+        "e0" :                      [{"@id" : "var:input"}],
+        "e1" :                      [{"@id" : "var:output"}],
+        "activity" :                [{"@id" : "var:transforming"}],
+
+        "gprops" :                  [[]],
+        "gvalues":                  [[]],
+
+        "eprops1":                  [[{"@id" : "var:oprops"},  {"@id":  "prov:type"}]],
+        "evalues1":                 [[{"@id" : "var:ovalues"}, {"@id":  "var:otype"}]],
+
+        "aprops":                   [[{"@id" : "var:aprops"}, {"@id" : "tmpl:startTime"}, {"@id" : "tmpl:endTime"}, {"@id":  "prov:type"}]],
+        "avalues":                  [[{"@id" : "var:avalues"},{"@id" : "var:start"},      {"@id" : "var:end"},      {"@id":  "var:atype"}]]
+
+    },
+    "vargen" : {
+        "b" : [ {
+            "@id" : "vargen:b"
+        } ]
+    },
+    "context" : {
+        "prov":   "${prov_ns}",
+        "uuid" :  "${uuid_ns}",
+        "var":    "${var_ns}",
+        "vargen": "${vargen_ns}",
+        "tmpl":   "${tmpl_ns}",
+        "xsd":    "${xsd_ns}"
+    },
+    "template" : null
+}

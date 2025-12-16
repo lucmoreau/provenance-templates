@@ -75,6 +75,7 @@
                 "org/openprovenance/templates/triangles/triangle3-aga/generation"
             ],
             "output": "org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga",
+            "outputFullyQualifiedName": "org.openprovenance.templates.triangles.Triangle3-AGA",
             "formats": ["provn", "png", "svg", "jsonld", "qualified.png"],
             "hasProvenance": "org/openprovenance/templates/triangles/triangle3-aga/prov/prov-triangle3-aga.prov-csv",
             "variableCheck": "variable-check/triangles/variables.json"

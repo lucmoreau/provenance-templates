@@ -65,14 +65,14 @@
         "png": "org/openprovenance/templates/generic/unary-operation-with-agent.png",
         "svg": "org/openprovenance/templates/generic/unary-operation-with-agent.svg"
     },
-    "org.openprovenance.templates.generic.Transforming1": {
-        "jsonld": "org/openprovenance/templates/generic/transforming1.jsonld",
-        "provn": "org/openprovenance/templates/generic/transforming1.provn",
-        "png": "org/openprovenance/templates/generic/transforming1.png",
-        "svg": "org/openprovenance/templates/generic/transforming1.svg"
+    "org.openprovenance.templates.generic.SimpleTransforming1": {
+        "jsonld": "org/openprovenance/templates/simple/simple-transforming1.jsonld",
+        "provn": "org/openprovenance/templates/simple/simple-transforming1.provn",
+        "png": "org/openprovenance/templates/simple/simple-transforming1.png",
+        "svg": "org/openprovenance/templates/simple/simple-transforming1.svg"
     },
     "org.openprovenance.templates.generic.Transforming1-Old": {
-        "provn": "org/openprovenance/templates/generic/transforming1-old.provn"
+        "provn": "org/openprovenance/templates/generic/old/transforming1-old.provn"
     },
     "org.openprovenance.templates.generic.Updating-Entity": {
         "jsonld": "org/openprovenance/templates/generic/updating-entity.jsonld",

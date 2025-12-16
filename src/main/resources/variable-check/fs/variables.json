@@ -14,9 +14,9 @@
     "used": "(u|usd)\\d*",
     "wasAttributedTo": "(attr)\\d*",
     "wasAssociatedWith": "(asc)\\d*",
-    "wasGeneratedBy": "(g|gen)\\d*",
-    "wasDerivedFrom": "(wdf)\\d*",
-    "actedOnBehalfOf": "(aobo|del)\\d*",
+    "wasGeneratedBy": "(gen)\\d*",
+    "wasDerivedFrom": "(der)\\d*",
+    "actedOnBehalfOf": "(del)\\d*",
     "hadMember": "(mem)\\d*",
     "specializationOf": "(spec)\\d*",
 
@@ -37,5 +37,7 @@
         "wasGeneratedBy": "(gvalue)\\d*",
         "specializationOf": "(svalue)\\d*",
         "used": "(uvalue)\\d*"
-    }
+    },
+
+    ".name": "fs-variables"
 }

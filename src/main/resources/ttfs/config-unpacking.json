@@ -21,7 +21,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle3-aga (a) pattern",
-            "template": "org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga",
+            "template": "org.openprovenance.templates.triangles.Triangle3-AGA",
             "output": "org/openprovenance/templates/physical/unpacking/unpacking-aga-container-agent",
             "bindings": "unpacking-aga-container-agent.json",
             "formats": ["jsonld","provn", "png", "svg"],
@@ -30,7 +30,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle3-aga (b) pattern",
-            "template": "org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga",
+            "template": "org.openprovenance.templates.triangles.Triangle3-AGA",
             "output": "org/openprovenance/templates/physical/unpacking/unpacking-aga-item-agent",
             "bindings": "unpacking-aga-item-agent.json",
             "formats": ["jsonld","provn", "png", "svg"],

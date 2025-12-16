@@ -7,7 +7,7 @@
         "input" :                   [{"@id" : "var:input"}],
         "path" :                    [{"@id" : "var:path"}],
         "output" :                  [{"@id" : "var:output1"},{"@id" : "var:output2"}],
-        "activity" :                [{"@id" : "var:activity"}],
+        "transforming" :            [{"@id" : "var:transforming"}],
         "plan":                     [{"@id" : "var:plan"}],
 
         "agtype" :                  [[{"@id" : "var:agtype"}]],
@@ -20,22 +20,30 @@
         "ilocation" :               [[{"@id" : "var:ilocation"}]],
         "iprops" :                  [[{"@id" : "var:iprops"}]],
         "iprop_values":             [[{"@id" : "var:iprop_values"}]],
-        "otype" :                   [[{"@id" : "var:otype1"}],       [{"@id" : "var:otype2"}]],
-        "olocation" :               [[{"@id" : "var:olocation1"}],   [{"@id" : "var:olocation2"}]],
-        "oprops":                   [[{"@id": "var:oprops1"}],       [{"@id" : "var:oprops2"}]],
-        "oprop_values":             [[{"@id": "var:oprop_values1"}], [{"@id" : "var:oprop_values2"}]],
+        "otype" :                   [[{"@id" : "var:otype1"}],        [{"@id" : "var:otype2"}]],
+        "olocation" :               [[{"@id" : "var:olocation1"}],    [{"@id" : "var:olocation2"}]],
+        "oprops":                   [[{"@id" : "var:oprops1"}],       [{"@id" : "var:oprops2"}]],
+        "ovalues":                  [[{"@id" : "var:ovalues1"}],      [{"@id" : "var:ovalues2"}]],
         "atype" :                   [[{"@id" : "var:atype"}]],
-        "aprop_values":             [[{"@id": "var:aprop_values"}]],
-        "pprops":                   [[{"@id": "var:pprops"}]],
-        "pprop_values":             [[{"@id": "var:pprop_values"}]]
+        "aprop_values":             [[{"@id" : "var:avalues"}]],
+        "pprops":                   [[{"@id" : "var:pprops"}]],
+        "pprop_values":             [[{"@id" : "var:pvalues"}]],
+        "attr":                     [{"@id" : "var:attr1"},{"@id" : "var:attr2"}],
+        "der":                      [{"@id" : "var:der1"},{"@id" : "var:der2"}],
+        "gen":                      [{"@id" : "var:gen1"},{"@id" : "var:gen2"}]
 
     },
     "vargen" : {
-        "view" : [ {
-            "@id" : "vargen:view"
+        "b" : [ {
+            "@id" : "vargen:b"
         } ]
     },
-    "linked": {"prop_values":  "props"},
+    "linked": {
+        "ovalues":  "oprops",
+        "attr":     "output",
+        "der":     "output",
+        "gen":     "output"
+    },
     "context" : {
         "prov":   "${prov_ns}",
         "uuid" :  "${uuid_ns}",

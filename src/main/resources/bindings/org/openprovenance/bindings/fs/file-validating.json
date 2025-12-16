@@ -4,7 +4,7 @@
         "responsible" :             [{"@id" : "var:organization"}],
         "input" :                   [{"@id" : "var:testing_dataset"}],
         "output" :                  [{"@id" : "var:score"}],
-        "activity" :                [{"@id" : "var:validating"}],
+        "transforming" :            [{"@id" : "var:validating"}],
         "plan" :                    [{"@id" : null}],
         "agtype" :                  [[{"@id" : "plead:DataEngineer"},   {"@id" : "prov:Person"}]],
         "rtype" :                   [[{"@id" : "plead:CreditProvider"}, {"@id" : "prov:Organization"}]],
@@ -12,12 +12,12 @@
         "otype" :                   [[{"@id" : "plead:AccuracyScore"}]],
         "atype" :                   [[{"@id" : "plead:AssessingPerformance"}]],
         "oprops":                   [[{"@id": "plead:createdAt"},{"@id": "prov:value"}]],
-        "oprop_values":             [[{"@id": "var:time"}, {"@id": "var:score_value"}]],
+        "ovalues":             [[{"@id": "var:time"}, {"@id": "var:score_value"}]],
         "start" :                   [{"@id" : "var:startTime"}],
         "end" :                     [{"@id" : "var:endTime"}]
     },
     "vargen" : {
-        "view" : [ {
+        "b" : [ {
             "@id" : "vargen:b"
         } ]
     },

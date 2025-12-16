@@ -7,7 +7,7 @@
         "input" :                   [{"@id" : "var:input1"},{"@id" : "var:input2"}],
         "path" :                    [{"@id" : "var:path"}],
         "output" :                  [{"@id" : "var:output1"},{"@id" : "var:output2"}],
-        "activity" :                [{"@id" : "var:activity"}],
+        "transforming" :            [{"@id" : "var:transforming"}],
         "plan":                     [{"@id" : "var:plan"}],
 
         "agtype" :                  [[{"@id" : "var:agtype"}]],
@@ -31,8 +31,8 @@
 
     },
     "vargen" : {
-        "view" : [ {
-            "@id" : "vargen:view"
+        "b" : [ {
+            "@id" : "vargen:b"
         } ]
     },
     "context" : {

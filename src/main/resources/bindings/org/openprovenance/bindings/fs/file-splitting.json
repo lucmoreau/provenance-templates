@@ -5,7 +5,7 @@
         "input" :                    [{"@id" : "var:file"}],
         "output1" :                  [{"@id" : "var:split_file1"}],
         "output2" :                  [{"@id" : "var:split_file2"}],
-        "activity" :                 [{"@id" : "var:splitting"}],
+        "transforming" :             [{"@id" : "var:splitting"}],
         "plan":                      [{"@id" : null}],
         "agtype" :                   [[{"@id" : "fs:DataEngineer"},   {"@id" : "prov:Person"}]],
         "rtype" :                    [[{"@id" : "fs:CreditProvider"}, {"@id" : "prov:Organization"}]],
@@ -22,7 +22,7 @@
         "oprop_values2":             [[{"@id": "var:n_rows2"},   {"@id" : "var:n_cols2"}, {"@id": "var:filename2"},  {"@id" : "var:path2"}]]
     },
     "vargen" : {
-        "view" : [ {
+        "b" : [ {
             "@id" : "vargen:b"
         } ]
     },

@@ -32,7 +32,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle3-aga (a) pattern",
-            "template": "org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga",
+            "template": "org.openprovenance.templates.triangles.Triangle3-AGA",
             "output": "org/openprovenance/templates/responsibility/handingover/handingover-aga-ag1",
             "bindings": "handingover-aga-ag1.json",
             "formats": ["jsonld","provn", "png", "svg"],

@@ -28,7 +28,7 @@
         "agent": "(agprop)\\d*",
         "wasGeneratedBy": "(gprop)\\d*",
         "specializationOf": "(sprop)\\d*",
-        "used": "(uprop)\\d*"
+        "used": "(uprops)\\d*"
     },
     "values": {
         "entity": "(evalue|ivalues)\\d*",
@@ -36,6 +36,8 @@
         "agent": "(agvalue)\\d*",
         "wasGeneratedBy": "(gvalue)\\d*",
         "specializationOf": "(svalue)\\d*",
-        "used": "(uvalue)\\d*"
-    }
+        "used": "(uvalues)\\d*"
+    },
+    ".name": "transport-variables"
+
 }

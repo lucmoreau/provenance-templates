@@ -1,0 +1,22 @@
+{
+    "var": {
+
+        "e":        [{"@id": "var:output"}],
+        "ag":       [{"@id": "var:agent"}],
+        "activity": [{"@id": "var:transforming"}],
+        "p":        [{"@id": "var:plan"}],
+        "asc":      [{"@id": "var:asc"}],
+        "gen":      [{"@id": "var:gen"}],
+        "attr":     [{"@id": "var:attr"}]
+    },
+    "vargen":  {
+        "b": [{"@id": "vargen:b"}]
+    },
+    "context":  {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov": "${prov_ns}",
+        "provext": "${provext_ns}",
+        "phys": "${phys_ns}"
+    }
+}

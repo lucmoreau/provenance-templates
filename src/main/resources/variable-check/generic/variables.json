@@ -1,12 +1,12 @@
 {
-    "entity": "(container|item|schedule)\\d*",
-    "agent": "(packer|transporter|unpacker|giver|receiver)\\d*",
-    "activity": "((pack|add|transport|remov)ing|handingover)\\d*$",
+    "entity": "(input|output|plan)\\d*",
+    "agent": "(agent)\\d*",
+    "activity": "(transforming|splitting)\\d*$",
 
-    "entity.wasGeneratedBy": "(e)\\d*",
+    "entity.wasGeneratedBy": "(ag)\\d*",
     "entity.specializationOf": "(ag)\\d*",
 
-    "plan": "(schedule)\\d*",
+    "plan": "(plan)\\d*",
     "plan.wasAssociatedWith": "(p)\\d*",
 
     "collection": "(coll|container)\\d*",
@@ -22,10 +22,10 @@
     "hadMember": "(mem)\\d*",
     "specializationOf": "(spec)\\d*",
 
-    "time": "(time)\\d*",
+    "time": "(start|end|time)\\d*",
 
     "attributes": {
-        "entity": "(cprops|iprops)\\d*",
+        "entity": "(oprops|pprops)\\d*",
         "activity": "(aprops)\\d*",
         "agent": "(agprops)\\d*",
         "wasGeneratedBy": "(gprops)\\d*",
@@ -33,13 +33,13 @@
         "used": "(uprops)\\d*"
     },
     "values": {
-        "entity": "(cvalues|ivalues)\\d*",
+        "entity": "(ovalues|pvalues)\\d*",
         "activity": "(avalues)\\d*",
         "agent": "(agvalues)\\d*",
         "wasGeneratedBy": "(gvalues)\\d*",
         "specializationOf": "(svalues)\\d*",
         "used": "(uvalues)\\d*"
     },
-    ".name": "physical-variables"
+    ".name": "generic-variables"
 
 }

@@ -6,7 +6,7 @@
         "input2" :                  [{"@id" : "var:score"}],
         "output1" :                 [{"@id" : "var:approved_pipeline"}],
         "output2" :                 [{"@id" : "var:approval_record"}],
-        "activity" :                [{"@id" : "var:approving"}],
+        "transforming" :            [{"@id" : "var:approving"}],
         "plan" :                    [{"@id" : null}],
         "agtype" :                  [[{"@id" : "plead:Manager"},   {"@id" : "prov:Person"}]],
         "rtype" :                   [[{"@id" : "plead:CreditProvider"}, {"@id" : "prov:Organization"}]],
@@ -25,7 +25,7 @@
         "oprop_values2":            [[{"@id": "var:time"},        {"@id" : "var:signature"},     {"@id" : "var:approved_pipeline"}]]
     },
     "vargen" : {
-        "view" : [ {
+        "b" : [ {
             "@id" : "vargen:b"
         } ]
     },

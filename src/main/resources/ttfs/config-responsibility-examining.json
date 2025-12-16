@@ -32,7 +32,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle3-aga (a) pattern",
-            "template": "org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga",
+            "template": "org.openprovenance.templates.triangles.Triangle3-AGA",
             "output": "org/openprovenance/templates/responsibility/examining/examining-aga-agent",
             "bindings": "examining-aga-agent.json",
             "formats": ["jsonld","provn", "png", "svg"],
@@ -42,7 +42,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle3-aga (b) pattern",
-            "template": "org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga",
+            "template": "org.openprovenance.templates.triangles.Triangle3-AGA",
             "output": "org/openprovenance/templates/responsibility/examining/examining-aga-instrument",
             "bindings": "examining-aga-instrument.json",
             "formats": ["jsonld","provn", "png", "svg"],
@@ -73,7 +73,8 @@
             ],
             "output": "org/openprovenance/templates/responsibility/examining/examining",
             "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
-            "hasProvenance": "org/openprovenance/templates/responsibility/examining/prov/prov-examining.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/responsibility/examining/prov/prov-examining.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/responsibility/variables.json"
         }
     ]
 }

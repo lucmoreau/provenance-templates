@@ -20,7 +20,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle3-aga (a) pattern",
-            "template": "org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga",
+            "template": "org.openprovenance.templates.triangles.Triangle3-AGA",
             "output": "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3a-aga",
             "bindings": "creating-template-triangle3a-aga.json",
             "formats": ["jsonld","provn", "png", "svg"],
@@ -30,7 +30,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle3-aga (b) pattern",
-            "template": "org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga",
+            "template": "org.openprovenance.templates.triangles.Triangle3-AGA",
             "output": "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3b-aga",
             "bindings": "creating-template-triangle3b-aga.json",
             "formats": ["jsonld","provn", "png", "svg"],
@@ -39,7 +39,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle3-aga (c) pattern",
-            "template": "org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga",
+            "template": "org.openprovenance.templates.triangles.Triangle3-AGA",
             "output": "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3c-aga",
             "bindings": "creating-template-triangle3c-aga.json",
             "formats": ["jsonld","provn", "png", "svg"],

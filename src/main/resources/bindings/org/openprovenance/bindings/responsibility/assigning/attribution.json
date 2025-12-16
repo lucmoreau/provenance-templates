@@ -1,49 +1,13 @@
 {
     "var": {
-        "entity": [
-            {
-                "@id": "var:e1"
-            }
-        ],
-
-        "agent": [
-            {
-                "@id": "var:ag1"
-            }
-
-        ],
-        "prop": [
-            [
-                {
-                    "@id": "prov:type"
-                },
-                {
-                    "@id": "var:attrprop"
-                }
-            ]
-        ],
-        "pvalue": [
-            [
-                {
-                    "@id": "var:attrType"
-                },
-                {
-                    "@id": "var:attrvalue"
-                }
-            ]
-        ],
-        "id": [
-            {
-                "@id": "var:attr"
-            }
-        ]
+        "entity":   [  {"@id": "var:e1"}],
+        "agent":    [  {"@id": "var:ag1"}],
+        "prop":     [[ {"@id": "prov:type"},   {"@id": "var:attrprops"}]],
+        "pvalue":   [[ {"@id": "var:attrType"},{"@id": "var:attrvalues"}]],
+        "id":       [  {"@id": "var:attr"}]
     },
     "vargen":  {
-        "b": [
-            {
-                "@id": "vargen:b"
-            }
-        ]
+        "b": [{"@id": "vargen:b"}]
     },
     "context": {
         "var" : "${var_ns}",

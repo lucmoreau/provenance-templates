@@ -4,7 +4,7 @@
         "responsible" :             [{"@id" : "var:organization"}],
         "input" :                   [{"@id" : "var:training_dataset"}],
         "output" :                  [{"@id" : "var:pipeline"}],
-        "activity" :                [{"@id" : "var:training"}],
+        "transforming" :            [{"@id" : "var:training"}],
         "agtype" :                  [[{"@id" : "plead:DataEngineer"},   {"@id" : "prov:Person"}]],
         "rtype" :                   [[{"@id" : "plead:CreditProvider"}, {"@id" : "prov:Organization"}]],
         "itype" :                   [[{"@id" : "plead:DataFile"},       {"@id" : "plead:CSVFile"}]],
@@ -17,7 +17,7 @@
         "oprop_values":             [[{"@id": "var:time"},        {"@id": "var:filename"},   {"@id": "var:path"}]]
     },
     "vargen" : {
-        "view" : [ {
+        "b" : [ {
             "@id" : "vargen:b"
         } ]
     },

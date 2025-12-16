@@ -5,6 +5,8 @@
     "prov_ns": "http://www.w3.org/ns/prov#",
     "provext_ns": "http://openprovenance.org/prov/extension#",
     "ptm_ns": "http://openprovenance.org/ns/ptm#",
+    "tmpl_ns": "http://openprovenance.org/tmpl#",
+
 
     "phys_ns": "http://openprovenance.org/ns/phys#",
     "resp_ns": "http://openprovenance.org/ns/responsibility#",
