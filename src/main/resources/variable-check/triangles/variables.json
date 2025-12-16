@@ -39,5 +39,6 @@
         "wasGeneratedBy": "(gvalues)\\d*",
         "specializationOf": "(svalues)\\d*",
         "used": "(uvalues)\\d*"
-    }
+    },
+    ".name": "triangles-variables"
 }

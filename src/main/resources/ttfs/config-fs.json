@@ -12,8 +12,9 @@
             "bindings": "file-transforming.json",
             "output": "org/openprovenance/templates/fs/file-transforming",
             "outputFullyQualifiedName": "org.openprovenance.templates.fs.FileTransforming",
-            "formats": ["jsonld", "provn", "png", "svg"],
-            "hasProvenance": "org/openprovenance/templates/fs/prov/prov-file-transforming.prov-csv"
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/fs/prov/prov-file-transforming.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/fs/variables.json"
         },
         {
             "type": "instantiate",
@@ -21,8 +22,9 @@
             "bindings": "file-filtering.json",
             "output": "org/openprovenance/templates/fs/file-filtering",
             "outputFullyQualifiedName": "org.openprovenance.templates.fs.FileFiltering",
-            "formats": ["jsonld", "provn", "png", "svg"],
-            "hasProvenance": "org/openprovenance/templates/fs/prov/prov-file-filtering.prov-csv"
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/fs/prov/prov-file-filtering.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/fs/variables.json"
         },
         {
             "type": "instantiate",
@@ -31,8 +33,9 @@
             "bindings": "file-approving.json",
             "output": "org/openprovenance/templates/fs/file-approving",
             "outputFullyQualifiedName": "org.openprovenance.templates.fs.FileApproving",
-            "formats": ["jsonld", "provn", "png", "svg"],
-            "hasProvenance": "org/openprovenance/templates/fs/prov/prov-file-approving.prov-csv"
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/fs/prov/prov-file-approving.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/fs/variables.json"
         },
         {
             "type": "instantiate",
@@ -41,8 +44,9 @@
             "bindings": "file-splitting.json",
             "output": "org/openprovenance/templates/fs/file-splitting",
             "outputFullyQualifiedName": "org.openprovenance.templates.fs.FileSplitting",
-            "formats": ["jsonld", "provn", "png", "svg"],
-            "hasProvenance": "org/openprovenance/templates/fs/prov/prov-file-splitting.prov-csv"
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/fs/prov/prov-file-splitting.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/fs/variables.json"
         },
         {
             "type": "instantiate",
@@ -51,8 +55,9 @@
             "bindings": "file-merging.json",
             "output": "org/openprovenance/templates/fs/file-merging",
             "outputFullyQualifiedName": "org.openprovenance.templates.fs.FileMerging",
-            "formats": ["jsonld", "provn", "png", "svg"],
-            "hasProvenance": "org/openprovenance/templates/fs/prov/prov-file-merging.prov-csv"
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/fs/prov/prov-file-merging.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/fs/variables.json"
         },
         {
             "type": "instantiate",
@@ -60,8 +65,9 @@
             "bindings": "file-validating.json",
             "output": "org/openprovenance/templates/fs/file-validating",
             "outputFullyQualifiedName": "org.openprovenance.templates.fs.FileValidating",
-            "formats": ["jsonld", "provn", "png", "svg"],
-            "hasProvenance": "org/openprovenance/templates/fs/prov/prov-validating.prov-csv"
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/fs/prov/prov-validating.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/fs/variables.json"
         },
         {
             "type": "instantiate",
@@ -69,8 +75,9 @@
             "bindings": "file-training.json",
             "output": "org/openprovenance/templates/fs/file-training",
             "outputFullyQualifiedName": "org.openprovenance.templates.fs.FileTraining",
-            "formats": ["jsonld", "provn", "png", "svg"],
-            "hasProvenance": "org/openprovenance/templates/fs/prov/prov-training.prov-csv"
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/fs/prov/prov-training.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/fs/variables.json"
         }
     ]
 

@@ -1,7 +1,7 @@
 {
-    "entity": "(consumed|produced)\\d*",
+    "entity": "(consumed|produced|input|output|plan)\\d*",
     "agent": "(agent)\\d*",
-    "activity": "(operation)\\d*$",
+    "activity": "(operation|activity)\\d*$",
 
     "entity.wasGeneratedBy": "(ag)\\d*",
     "entity.specializationOf": "(ag)\\d*",
@@ -25,7 +25,7 @@
     "time": "(start|end|time)\\d*",
 
     "attributes": {
-        "entity": "(oprops|pprops)\\d*",
+        "entity": "(oprops|iprops)\\d*",
         "activity": "(aprops)\\d*",
         "agent": "(agprops)\\d*",
         "wasGeneratedBy": "(gprops)\\d*",
@@ -33,9 +33,9 @@
         "used": "(uprops)\\d*"
     },
     "values": {
-        "entity": "(ovalues|pvalues)\\d*",
+        "entity": "(oprop_values|iprop_values)\\d*",
         "activity": "(avalues)\\d*",
-        "agent": "(agvalues)\\d*",
+        "agent": "(agprop_values)\\d*",
         "wasGeneratedBy": "(gvalues)\\d*",
         "specializationOf": "(svalues)\\d*",
         "used": "(uvalues)\\d*"
