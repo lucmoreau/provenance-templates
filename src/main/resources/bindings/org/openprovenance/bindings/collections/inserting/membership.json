@@ -1,6 +1,6 @@
 {
     "var": {
-        "mid":        [ {"@id": "var:mem0"}  ],
+        "mem":        [ {"@id": "var:mem0"}  ],
         "collection": [ {"@id": "var:coll1"} ],
         "entity":     [ {"@id": "var:item1"} ]
     },

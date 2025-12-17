@@ -12,7 +12,8 @@
             "output": "org/openprovenance/templates/ptm/ptm-expanding",
             "bindings": "ptm-expanding.json",
             "formats": ["provn", "png"],
-            "hasProvenance": "org/openprovenance/templates/ptm/prov/prov-ptm-expanding.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/ptm/prov/prov-ptm-expanding.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/ptm/variables.json"
         },
         {
             "type": "instantiate",
@@ -20,7 +21,9 @@
             "output": "org/openprovenance/templates/ptm/ptm-merging",
             "bindings": "ptm-merging.json",
             "formats": ["provn", "png"],
-            "hasProvenance": "org/openprovenance/templates/ptm/prov/prov-ptm-merging.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/ptm/prov/prov-ptm-merging.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/ptm/variables.json"
+
 
         },
         {
@@ -29,7 +32,9 @@
             "output": "org/openprovenance/templates/ptm/ptm-mexpanding",
             "bindings": "ptm-mexpanding.json",
             "formats": ["provn", "png"],
-            "hasProvenance": "org/openprovenance/templates/ptm/prov/prov-ptm-mexpanding.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/ptm/prov/prov-ptm-mexpanding.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/ptm/variables.json"
+
         }
     ]
 }

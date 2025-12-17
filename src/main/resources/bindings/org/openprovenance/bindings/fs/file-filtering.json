@@ -6,16 +6,21 @@
         "output" :                  [{"@id" : "var:filtered_file"}],
         "plan" :                    [{"@id" : "var:method"}],
         "transforming" :            [{"@id" : "var:filtering"}],
-        "agtype" :                  [[{"@id" : "plead:DataEngineer"},   {"@id" : "prov:Person"}]],
-        "rtype" :                   [[{"@id" : "plead:CreditProvider"}, {"@id" : "prov:Organization"}]],
-        "itype" :                   [[{"@id" : "plead:DataFile"},       {"@id" : "plead:CSVFile"}]],
-        "otype" :                   [[{"@id" : "plead:DataFile"},       {"@id" : "plead:CSVFile"}]],
-        "atype" :                   [[{"@id" : "plead:SelectingData"}]],
-        "ptype" :                   [[{"@id" : "plead:Method"}]],
+        "agtype" :                  [[{"@id" : "fs:DataEngineer"},   {"@id" : "prov:Person"}]],
+        "rtype" :                   [[{"@id" : "fs:CreditProvider"}, {"@id" : "prov:Organization"}]],
+        "itype" :                   [[{"@id" : "fs:DataFile"},       {"@id" : "fs:CSVFile"}]],
+        "otype" :                   [[{"@id" : "fs:DataFile"},       {"@id" : "fs:CSVFile"}]],
+        "atype" :                   [[{"@id" : "fs:SelectingData"}]],
+        "ptype" :                   [[{"@id" : "fs:Method"}]],
         "start" :                   [{"@id" : "var:startTime"}],
         "end" :                     [{"@id" : "var:endTime"}],
-        "oprops":                   [[{"@id": "plead:n_rows"}, {"@id" : "plead:n_cols"}, {"@id": "plead:filename"}, {"@id" : "plead:path"}]],
-        "oprop_values":             [[{"@id": "var:n_rows"},   {"@id" : "var:n_cols"},   {"@id": "var:filename"},   {"@id" : "var:path"}]]
+        "oprops":                   [[{"@id": "fs:n_rows"}, {"@id" : "fs:n_cols"}, {"@id": "fs:filename"}, {"@id" : "fs:path"}]],
+        "oprop_values":             [[{"@id": "var:n_rows"},   {"@id" : "var:n_cols"},   {"@id": "var:filename"},   {"@id" : "var:path"}]],
+
+
+        "asc":                      [{"@id" : null}],
+        "gen":                      [{"@id" : null}],
+        "attr":                     [{"@id" : null}]
     },
     "vargen" : {
         "b" : [ {
@@ -24,7 +29,7 @@
     },
     "linked": {"prop_values":  "props"},
     "context" : {
-        "plead":  "${plead_ns}",
+        "fs":     "${fs_ns}",
         "prov":   "${prov_ns}",
         "sk":     "${sk_ns}",
         "uuid" :  "${uuid_ns}",

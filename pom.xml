@@ -855,12 +855,45 @@
                                 <arg>src/main/resources/ttfs/config-generic-transforming.json</arg>
                                 <arg>src/main/resources/ttfs/config-generic.json</arg>
                                 <arg>src/main/resources/ttfs/config-simple.json</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>exec.process.templates.fs</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>validate-ttf</goal>
+                            <goal>execute-ttf</goal>
+                        </goals>
+                        <configuration>
+                            <debug>true</debug>
+                            <inputBaseDir>${project.basedir}</inputBaseDir>
+                            <outputBaseDir>${project.build.directory}</outputBaseDir>
+                            <args>
                                 <arg>src/main/resources/ttfs/config-fs.json</arg>
-                                <arg>src/main/resources/ttfs/config-ptm.json</arg>
                                 <arg>src/main/resources/ttfs/config-responsibility-assigning.json</arg>
                             </args>
                         </configuration>
                     </execution>
+
+                    <execution>
+                        <id>exec.process.templates.ptm</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>validate-ttf</goal>
+                            <goal>execute-ttf</goal>
+                        </goals>
+                        <configuration>
+                            <debug>true</debug>
+                            <inputBaseDir>${project.basedir}</inputBaseDir>
+                            <outputBaseDir>${project.build.directory}</outputBaseDir>
+                            <args>
+                                <arg>src/main/resources/ttfs/config-ptm.json</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
 
                     <execution>
                         <id>exec.process.templates.collections</id>

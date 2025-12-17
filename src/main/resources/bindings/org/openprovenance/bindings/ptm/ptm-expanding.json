@@ -8,7 +8,7 @@
         "agprop_values":            [[{"@id" : "var:email"}]],
         "plan":                     [{"@id" : null}],
         "responsible" :             [{"@id" : null}],
-        "activity" :                [{"@id" : "vargen:expanding"}],
+        "transforming" :            [{"@id" : "vargen:expanding"}],
         "oprops1" :                 [{"@id" : "ptm:createdAt"}],
         "oprop_values1" :           [[{"@id" : "var:time"}]],
         "oprops2" :                 [{"@id" : "ptm:createdAt"}],
