@@ -5,13 +5,12 @@
         "input" :                   [ {"@id" : "var:file"}],
         "output" :                  [ {"@id" : "var:transformed_file"}],
         "plan" :                    [ {"@id" : "var:method"}],
-        "transforming" :            [ {"@id" : "var:transforming"}],
+        "activity" :                [ {"@id" : "var:transforming"}],
         "oprops":                   [[{"@id" : "fs:createdAt"}, {"@id": "fs:filename"},  {"@id" : "fs:path"}]],
-        "ovalues":                  [[{"@id" : "var:time"},     {"@id": "var:filename"}, {"@id" : "var:path"}]],
+        "oprop_values":             [[{"@id" : "var:time"},     {"@id": "var:filename"}, {"@id" : "var:path"}]],
         "agtype" :                  [[{"@id" : "fs:DataEngineer"},   {"@id" : "prov:Person"}]],
-        "rtype" :                   [[{"@id" : "fs:CreditProvider"}, {"@id" : "prov:Organization"}]],
-        "itype" :                   [[{"@id" : "fs:DataFile"},       {"@id" : "fs:CSVFile"}]],
-        "otype" :                   [[{"@id" : "fs:DataFile"},       {"@id" : "fs:CSVFile"}]],
+        "itype" :                   [[{"@id" : "fs:DataFile"}]],
+        "otype" :                   [[{"@id" : "fs:DataFile"}]],
         "atype" :                   [[{"@id" : "fs:TransformingData"}]],
         "ptype" :                   [[{"@id" : "fs:Method"}]],
         "start" :                   [{"@id" : "var:startTime"}],
@@ -22,7 +21,7 @@
         "attr":                     [{"@id" : null}]
     },
     "vargen" : {
-        "b" : [ {
+        "view" : [ {
             "@id" : "vargen:b"
         } ]
     },

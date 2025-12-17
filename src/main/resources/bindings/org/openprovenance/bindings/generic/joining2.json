@@ -27,7 +27,7 @@
         "atype" :                   [[{"@id" : "var:atype"}]],
         "aprop_values":             [[{"@id" : "var:aprop_values"}]],
         "pprops":                   [[{"@id":  "var:pprops"}]],
-        "pprop_values":             [[{"@id":  "var:pprop_values"}]],
+        "pprop_values":             [[{"@id":  "var:pvalues"}]],
         "der":                      [{"@id" : "var:der1"},{"@id" : "var:der2"}],
         "usd":                      [{"@id" : "var:usd1"},{"@id" : "var:usd2"}]
     },

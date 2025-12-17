@@ -20,14 +20,14 @@
         "prop": [
             [
                 {
-                    "@id": "var:uprop"
+                    "@id": "var:uprops"
                 }
             ]
         ],
         "pvalue": [
             [
                 {
-                    "@id": "var:uvalue"
+                    "@id": "var:uvalues"
                 }
             ]
         ],

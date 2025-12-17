@@ -27,6 +27,7 @@ import static org.openprovenance.prov.template.compiler.common.Constants.OUTPUT;
 public class TemplatesToDot extends ProvToDot {
 
     private static final Logger logger = LogManager.getLogger(TemplatesToDot.class);
+    public static final String OUTPUT1 = "output";
     private final List<TemplateConnection> templateConnections;
     private final Map<String, Map<String, Map<String, String>>> ioMap;
     private final Map<String, Map<String, String>> baseTypes;
@@ -37,6 +38,9 @@ public class TemplatesToDot extends ProvToDot {
     private final Map<Integer, Object[]> id2array;
     private final Map<String, FileBuilder> documentBuilderDispatcher;
     private final Map<String, Map<String, Set<String>>> typeAssignment;
+    private final Map<String, Map<String, Set<String>>> fsTypeAssignment;
+    private final Map<String, FileBuilder> fsDocumentBuilderDispatcher;
+    private final Map<String, Map<String, List<String>>> fsSuccessors;
 
     HashMap<String,String> map=new HashMap<>() {{
         put("PROV_HOST", "example.org");
@@ -70,17 +74,26 @@ public class TemplatesToDot extends ProvToDot {
         this.templateConnections = templateConnections;
         this.templateConnections.forEach(tc -> { tc.in_id=abs(tc.in_id); tc.out_id=abs(tc.out_id);});
         this.ioMap = getIoMap(org.openprovenance.templates.catalogue.transport.client.logger.Logger.ioMap);
+        Map<String, Map<String, Map<String, String>>> fsIoMap = getIoMap(org.openprovenance.templates.catalogue.fs.client.logger.Logger.ioMap);
+        this.ioMap.get(INPUT).putAll(fsIoMap.get(INPUT));
+        this.ioMap.get(OUTPUT).putAll(fsIoMap.get(OUTPUT));
         this.style=style;
         this.principal=principal;
         this.id2array=id2array;
+
         this.documentBuilderDispatcher=initializeBeanTable(new TableConfiguratorWithMap(map,pf));
-        this.successors=initializeBeanTable(new TableConfiguratorForSuccessors(documentBuilderDispatcher));
+        this.successors=initializeBeanTable(new org.openprovenance.bookptm.TableConfiguratorForSuccessors(documentBuilderDispatcher));
         Map<String, String[]> propertyOrder = initializeBeanTable(new PropertyOrderConfigurator());
+
         this.typeAssignment = initializeBeanTable(new TableConfiguratorForTypesWithMap(new HashMap<>(), propertyOrder,this.documentBuilderDispatcher,null));
+        Map<String, String[]> fsPropertyOrder = org.openprovenance.templates.catalogue.fs.client.logger.Logger.initializeBeanTable(new org.openprovenance.templates.catalogue.fs.configurator.PropertyOrderConfigurator());
+        this.fsDocumentBuilderDispatcher = org.openprovenance.templates.catalogue.fs.client.logger.Logger.initializeBeanTable(new org.openprovenance.templates.catalogue.fs.configurator.TableConfiguratorWithMap(map,pf));
+        this.fsTypeAssignment = org.openprovenance.templates.catalogue.fs.client.logger.Logger.initializeBeanTable(new org.openprovenance.templates.catalogue.fs.configurator.TableConfiguratorForTypesWithMap(new HashMap<>(), fsPropertyOrder,this.fsDocumentBuilderDispatcher,null));
+        this.fsSuccessors=org.openprovenance.templates.catalogue.fs.client.logger.Logger.initializeBeanTable(new TableConfiguratorForSuccessorsFS(fsDocumentBuilderDispatcher));
+
+        this.documentBuilderDispatcher.putAll(this.fsDocumentBuilderDispatcher);
+        this.successors.putAll(this.fsSuccessors);
         this.baseTypes = getBaseTypes();
-
-
-
     }
 
     public Map<String, Map<String, String>> getBaseTypes() {
@@ -89,6 +102,7 @@ public class TemplatesToDot extends ProvToDot {
 
 
         typeAssignment.entrySet().removeIf(entry -> entry.getValue() ==null || entry.getValue().isEmpty());
+        fsTypeAssignment.entrySet().removeIf(entry -> entry.getValue() ==null || entry.getValue().isEmpty());
 
         Map<String,Map<String,String>> baseTypes
                 = typeAssignment
@@ -107,6 +121,24 @@ public class TemplatesToDot extends ProvToDot {
                                                                         .get(tpl)
                                                                         .getOrDefault(var, Collections.emptySet()))))));
 
+        Map<String,Map<String,String>> fsBaseTypes
+                = fsTypeAssignment
+                .keySet()
+                .stream()
+                .collect(Collectors
+                        .toMap(tpl -> tpl,
+                                tpl ->
+                                        fsTypeAssignment
+                                                .get(tpl)
+                                                .keySet()
+                                                .stream()
+                                                .collect(Collectors
+                                                        .toMap(var->var,
+                                                                var -> preferredType(fsTypeAssignment
+                                                                        .get(tpl)
+                                                                        .getOrDefault(var, Collections.emptySet()))))));
+
+        baseTypes.putAll(fsBaseTypes);
         return baseTypes;
     }
 
@@ -317,8 +349,8 @@ public class TemplatesToDot extends ProvToDot {
 
 
 
-        Map<String, Map<String, String>> inputs=ioMap.get("input"); //templateDispatcher.getInputs();
-        Map<String, Map<String, String>> outputs=ioMap.get("output"); //templateDispatcher.getOutputs();
+        Map<String, Map<String, String>> inputs=ioMap.get(INPUT); //templateDispatcher.getInputs();
+        Map<String, Map<String, String>> outputs=ioMap.get(OUTPUT); //templateDispatcher.getOutputs();
 
         // transform all keys in inputs, by retaining just the suffix following the last .
         inputs = trimKeys(inputs);
@@ -332,12 +364,16 @@ public class TemplatesToDot extends ProvToDot {
 
             String template = templateInfo.template;
             String templateId = templateInfo.templateId;
+
+          //  System.out.println("templateBaseTypes: " + baseTypes2);
             Map<String, String> templateBaseTypes = baseTypes2.get(template);
+
 
             List<String> inputsNames  = new ArrayList<>(inputs.getOrDefault(template,new HashMap<>()).keySet());
             List<String> inputPorts   = inputsNames.stream().map(s -> portName(template,templateId,s)).collect(Collectors.toList());
             List<String> inputsColors = inputsNames.stream().map(s -> provcolors.get(templateBaseTypes.get(s))).collect(Collectors.toList()); //inputPorts.stream().map(s -> "lightgreen").collect(Collectors.toList());
 
+          //  System.out.println("outputs: " + outputs + " for template " + template);
             List<String> outputsNames  = new ArrayList<>(outputs.get(template).keySet());
             List<String> outputsPorts  = outputsNames.stream().map(s -> portName(template, templateId,s)).collect(Collectors.toList());
             List<String> outputsColors = outputsNames.stream().map(s -> provcolors.get(templateBaseTypes.get(s))).collect(Collectors.toList()); //outputsPorts.stream().map(s -> "orange").collect(Collectors.toList());

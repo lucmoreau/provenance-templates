@@ -1,12 +1,6 @@
 {
     "var": {
-        "pvalue": [
-            [
-                {
-                    "@id": "var:avalue"
-                }
-            ]
-        ],
+
         "activity": [
             {
                 "@id": "var:activity"
@@ -16,7 +10,14 @@
         "prop": [
             [
                 {
-                    "@id": "var:aprop"
+                    "@id": "var:aprops"
+                }
+            ]
+        ],
+        "pvalue": [
+            [
+                {
+                    "@id": "var:avalues"
                 }
             ]
         ],

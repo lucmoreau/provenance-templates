@@ -8,7 +8,7 @@
     "tasks": [
         {
             "type": "instantiate",
-            "template": "org.openprovenance.templates.generic.Transforming1",
+            "template": "org.openprovenance.templates.generic.SimpleTransforming1",
             "bindings": "file-transforming.json",
             "output": "org/openprovenance/templates/fs/file-transforming",
             "outputFullyQualifiedName": "org.openprovenance.templates.fs.FileTransforming",

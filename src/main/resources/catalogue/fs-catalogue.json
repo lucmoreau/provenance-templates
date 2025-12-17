@@ -19,6 +19,15 @@
 
     "templates" : [
 
+        {
+            "@type": "simple",
+            "name": "file_init",
+            "fullyQualifiedName": "org.openprovenance.book.FileInit",
+            "package": "org.openprovenance.book.fs",
+            "template": "org/openprovenance/templates/general/entity-init/entity-location-init",
+            "cbindings": "org/openprovenance/cbindings/fs/fs-init.json"
+        },
+
 		{
 			"@type": "simple",
 			"name": "file_transforming",

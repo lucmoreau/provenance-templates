@@ -19,14 +19,14 @@
         "prop": [
             [
                 {
-                    "@id": "var:gprop"
+                    "@id": "var:gprops"
                 }
             ]
         ],
         "pvalue": [
             [
                 {
-                    "@id": "var:gvalue"
+                    "@id": "var:gvalues"
                 }
             ]
         ],

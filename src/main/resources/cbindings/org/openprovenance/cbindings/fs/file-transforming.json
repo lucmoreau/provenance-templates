@@ -61,26 +61,6 @@
                 "@sql.table": "activity"
             }
         ],
-        "n_rows": [
-            [
-                {
-                    "@value": "*",
-                    "@type": "xsd:int",
-                    "@documentation": "The number of rows in the file",
-                    "@input": "optional"
-                }
-            ]
-        ],
-        "n_cols": [
-            [
-                {
-                    "@value": "*",
-                    "@type": "xsd:int",
-                    "@documentation": "The number of columns in the file",
-                    "@input": "optional"
-                }
-            ]
-        ],
         "path": [
             [
                 {
