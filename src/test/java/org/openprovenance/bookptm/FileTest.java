@@ -13,10 +13,10 @@ import java.util.List;
 
 import static org.openprovenance.templates.catalogue.transport.Init.pf;
 
-public class File1Test extends TestCase {
+public class FileTest extends TestCase {
 
     private String url="http://localhost:8080";
-    public File1Test(String testName) {
+    public FileTest(String testName) {
         super(testName);
 
     }
@@ -60,12 +60,19 @@ public class File1Test extends TestCase {
                 templateInvoker,
                 fsTemplateInvoker,
                 16);
-
-
-
-
-
     }
+
+    public void testFile5() throws IOException {
+        LocalEnactor templateInvoker= new LocalEnactor();
+        FsLocalEnactor fsTemplateInvoker=new FsLocalEnactor(templateInvoker);
+        List<Object> inputs=new ArrayList<>();
+        List<Object> outputs=new ArrayList<>();
+        new FSWorkflow(fsTemplateInvoker,inputs, outputs).workflow("doc123", 1, 220, 222, 1, 50, "path",null,null);
+        // display outputs
+        System.out.println("Outputs: "+new ObjectMapper().writeValueAsString(outputs));
+      
+    }
+
 
     public void doTestFile(String out_prefix, Workflow workflow, LocalEnactor templateInvoker, FsLocalEnactor fsTemplateInvoker, int expected) throws IOException {
         List<Object> results= new ArrayList<>(workflow.run());
