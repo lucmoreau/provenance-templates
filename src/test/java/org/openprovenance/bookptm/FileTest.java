@@ -22,7 +22,7 @@ public class FileTest extends TestCase {
     }
 
     public void testFile1() throws IOException {
-        LocalEnactor templateInvoker = new LocalEnactor();
+        LocalEnactor templateInvoker = new LocalEnactor(false);
         FsLocalEnactor fsTemplateInvoker = new FsLocalEnactor(templateInvoker);
         doTestFile("target/workflow-fs1",
                 new File1Workflow(templateInvoker, fsTemplateInvoker, null),
@@ -32,7 +32,7 @@ public class FileTest extends TestCase {
     }
 
     public void testFile2() throws IOException {
-        LocalEnactor templateInvoker = new LocalEnactor();
+        LocalEnactor templateInvoker = new LocalEnactor(false);
         FsLocalEnactor fsTemplateInvoker = new FsLocalEnactor(templateInvoker);
         doTestFile("target/workflow-fs2",
                 new File2Workflow(templateInvoker, fsTemplateInvoker, null, File2Workflow.MarkerMode.SAME_MARKER, File2Workflow.MarkerMode.SAME_MARKER),
@@ -43,7 +43,7 @@ public class FileTest extends TestCase {
 
 
     public void testFile3() throws IOException {
-        LocalEnactor templateInvoker = new LocalEnactor();
+        LocalEnactor templateInvoker = new LocalEnactor(false);
         FsLocalEnactor fsTemplateInvoker = new FsLocalEnactor(templateInvoker);
         doTestFile("target/workflow-fs3",
                 new File2Workflow(templateInvoker, fsTemplateInvoker, null, File2Workflow.MarkerMode.DISTINCT_MARKERS, File2Workflow.MarkerMode.SAME_MARKER),
@@ -53,7 +53,7 @@ public class FileTest extends TestCase {
     }
 
     public void testFile4() throws IOException {
-        LocalEnactor templateInvoker= new LocalEnactor();
+        LocalEnactor templateInvoker= new LocalEnactor(false);
         FsLocalEnactor fsTemplateInvoker=new FsLocalEnactor(templateInvoker);
         doTestFile("target/workflow-fs4",
                 new File2Workflow(templateInvoker, fsTemplateInvoker,null, File2Workflow.MarkerMode.DISTINCT_MARKERS, File2Workflow.MarkerMode.DISTINCT_MARKERS),
@@ -63,7 +63,7 @@ public class FileTest extends TestCase {
     }
 
     public void testFile5() throws IOException {
-        LocalEnactor templateInvoker= new LocalEnactor();
+        LocalEnactor templateInvoker= new LocalEnactor(false);
         FsLocalEnactor fsTemplateInvoker=new FsLocalEnactor(templateInvoker);
         List<Object> inputs=new ArrayList<>();
         List<Object> outputs=new ArrayList<>();
@@ -105,6 +105,8 @@ public class FileTest extends TestCase {
         //new TemplatesToDot(workflow.connections, templateInvoker.getId2array(), "prov", pf, null).convert(null, new FileOutputStream("target/viz3.svg"), "template_connections");
 
         TemplatesToDot templateProcessing = new TemplatesToDot(workflow.getConnections(), templateInvoker.getId2array(), "prov", pf, null);
+        templateProcessing.setSign(templateInvoker.sign());
+        System.out.println("Using sign " + templateInvoker.sign());
         Document doc= templateProcessing.getDocument();
         new InteropFramework().writeDocument(out_prefix + "-viz3.provn",doc);
         templateProcessing.convert(null, new FileOutputStream(out_prefix + "-viz3.svg"), "template_connections");

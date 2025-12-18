@@ -42,6 +42,12 @@ public class TemplatesToDot extends ProvToDot {
     private final Map<String, FileBuilder> fsDocumentBuilderDispatcher;
     private final Map<String, Map<String, List<String>>> fsSuccessors;
 
+    int sign=-1;
+
+    public void setSign(int sign) {
+        this.sign = sign;
+    }
+
     HashMap<String,String> map=new HashMap<>() {{
         put("PROV_HOST", "example.org");
         put("PROV_API", "http://example.org/prov-api/");
@@ -271,7 +277,7 @@ public class TemplatesToDot extends ProvToDot {
             Integer simple = linked_record.key;
 
             //System.out.println("simple " + simple);
-            List<Object[]> simple_records = querySimple(linked_record.table, -simple, false, principal);
+            List<Object[]> simple_records = querySimple(linked_record.table, sign * simple, false, principal);
             the_records.addAll(simple_records);
         }
 

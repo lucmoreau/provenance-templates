@@ -17,7 +17,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class LocalEnactor extends BeanLocalEnactor2 {
 
-    private int counterInitialValue=-10000;
+    private final boolean negative;
+    private int counterInitialValue;
     private final Map<String, AtomicInteger> counterMap=new HashMap<>() ;
     private final Map<String, List<Integer>> recordedValues=new HashMap<>();
     private final List<Object> history=new LinkedList<>();
@@ -27,28 +28,33 @@ public class LocalEnactor extends BeanLocalEnactor2 {
     private final List<List<String>> cvsInputs=new LinkedList<>();
 
 
-    public LocalEnactor() {
+    public LocalEnactor(boolean negative) {
         super();
+        this.negative=negative;
+        this.counterInitialValue=sign()*10000;
     }
 
+    int sign() {
+        return negative ? -1 : 1;
+    }
 
     @Override
     public Integer newIdentifier(String field, String counter) {
         counterMap.computeIfAbsent(counter, k -> {
-            counterInitialValue=counterInitialValue-10000;
+            counterInitialValue=counterInitialValue + sign() * 10000;
             return new AtomicInteger(counterInitialValue);
         });
-        int newValue = counterMap.get(counter).getAndDecrement();
+        int newValue = negative? counterMap.get(counter).getAndDecrement(): counterMap.get(counter).getAndIncrement();;
         recordedValues.computeIfAbsent(field, k -> new java.util.LinkedList<>()).add(newValue);
         return newValue;
     }
 
     public String newSIdentifier(String field, String counter) {
         counterMap.computeIfAbsent(counter, k -> {
-            counterInitialValue=counterInitialValue-10000;
+            counterInitialValue=counterInitialValue + sign() *10000;
             return new AtomicInteger(counterInitialValue);
         });
-        Integer newValue = counterMap.get(counter).getAndDecrement();
+        Integer newValue = negative? counterMap.get(counter).getAndDecrement(): counterMap.get(counter).getAndIncrement();
         recordedValues.computeIfAbsent(field, k -> new java.util.LinkedList<>()).add(newValue);
         return String.valueOf(newValue);
     }
@@ -335,5 +341,9 @@ public class LocalEnactor extends BeanLocalEnactor2 {
 
     public List<List<String>> getCvsInputs() {
         return cvsInputs;
+    }
+
+    public boolean isNegative() {
+        return negative;
     }
 }

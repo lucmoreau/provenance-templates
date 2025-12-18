@@ -7,21 +7,20 @@ import org.openprovenance.book.fs.client.common.*;
 import org.openprovenance.book.fs.client.integrator.*;
 import org.openprovenance.templates.catalogue.fs.integrator.BeanLocalEnactor2;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class FsLocalEnactor extends BeanLocalEnactor2 {
 
-    private int counterInitialValue;
+    private final LocalEnactor templateInvoker;
     private final Map<String, AtomicInteger> counterMap ;
     private final Map<String, List<Integer>> recordedValues;
     final private List<Object> history;
     final private Map<Integer, Object> id2object;
     final private Map<Integer, Object []> id2array;
     final private List<String> csv;
-
+    final private boolean negative;
     final private List<List<String>> cvsInputs;
 
 
@@ -33,30 +32,22 @@ public class FsLocalEnactor extends BeanLocalEnactor2 {
         this.csv=templateInvoker.getCsv();
         this.counterMap=templateInvoker.getCounterMap();
         this.recordedValues=templateInvoker.getRecordedValues();
-        this.counterInitialValue=templateInvoker.getCounterInitialValue();
         this.cvsInputs=templateInvoker.getCvsInputs();
+        this.negative=templateInvoker.isNegative();
+        this.templateInvoker=templateInvoker;
     }
 
+    int sign() {
+        return negative ? -1 : 1;
+    }
 
     @Override
     public Integer newIdentifier(String field, String counter) {
-        counterMap.computeIfAbsent(counter, k -> {
-            counterInitialValue=counterInitialValue-10000;
-            return new AtomicInteger(counterInitialValue);
-        });
-        int newValue = counterMap.get(counter).getAndDecrement();
-        recordedValues.computeIfAbsent(field, k -> new LinkedList<>()).add(newValue);
-        return newValue;
+        return templateInvoker.newIdentifier(field, counter);
     }
 
     public String newSIdentifier(String field, String counter) {
-        counterMap.computeIfAbsent(counter, k -> {
-            counterInitialValue=counterInitialValue-10000;
-            return new AtomicInteger(counterInitialValue);
-        });
-        Integer newValue = counterMap.get(counter).getAndDecrement();
-        recordedValues.computeIfAbsent(field, k -> new LinkedList<>()).add(newValue);
-        return String.valueOf(newValue);
+        return  templateInvoker.newSIdentifier(field, counter);
     }
 
     @Override

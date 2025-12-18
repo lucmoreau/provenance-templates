@@ -18,7 +18,7 @@ public class BoxTest extends TestCase {
     private String url="http://localhost:8080";
    public BoxTest(String testName) {
         super(testName);
-        this.templateInvoker = new LocalEnactor();
+        this.templateInvoker = new LocalEnactor(true);
     }
 
     public void testBox() throws IOException {
@@ -49,6 +49,7 @@ public class BoxTest extends TestCase {
         //new TemplatesToDot(workflow.connections, templateInvoker.getId2array(), "prov", pf, null).convert(null, new FileOutputStream("target/viz3.svg"), "template_connections");
 
         TemplatesToDot templateProcessing = new TemplatesToDot(workflow.connections, templateInvoker.getId2array(), "prov", pf, null);
+        templateProcessing.setSign(templateInvoker.sign());
         Document doc= templateProcessing.getDocument();
         new InteropFramework().writeDocument("target/viz3.provn",doc);
         templateProcessing.convert(null, new FileOutputStream("target/viz3.svg"), "template_connections");
