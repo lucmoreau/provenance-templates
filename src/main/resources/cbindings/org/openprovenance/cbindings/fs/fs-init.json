@@ -2,7 +2,7 @@
     "var": {
         "entity": [
             {
-                "@id": "fs:*",
+                "@id": "file:*",
                 "@type": "xsd:int",
                 "@examplar": 14,
                 "@documentation": "The item in general",
@@ -13,7 +13,7 @@
         ],
         "entity0": [
             {
-                "@id": "fs:*",
+                "@id": "file:*",
                 "@type": "xsd:int",
                 "@examplar": 12,
                 "@documentation": "The item first instantiation",
@@ -76,7 +76,7 @@
         "doc": "${PROV_API}/live/doc/",
         "agent": "${PROV_API}/live/agent/",
         "loc": "${PROV_API}/live/location/",
-        "fs": "${PROV_API}/live/fs/",
+        "file": "${PROV_API}/live/file/",
         "trs": "https://openprovenance.org/transport/ns/#"
     },
     "template": "TODO template",

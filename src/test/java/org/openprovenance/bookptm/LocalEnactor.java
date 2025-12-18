@@ -20,10 +20,12 @@ public class LocalEnactor extends BeanLocalEnactor2 {
     private int counterInitialValue=-10000;
     private final Map<String, AtomicInteger> counterMap=new HashMap<>() ;
     private final Map<String, List<Integer>> recordedValues=new HashMap<>();
-    private List<Object> history=new LinkedList<>();
-    private Map<Integer, Object> id2object=new HashMap<>();
-    private Map<Integer, Object []> id2array=new HashMap<>();
-    private List<String> csv=new LinkedList<>();
+    private final List<Object> history=new LinkedList<>();
+    private final Map<Integer, Object> id2object=new HashMap<>();
+    private final Map<Integer, Object []> id2array=new HashMap<>();
+    private final List<String> csv=new LinkedList<>();
+    private final List<List<String>> cvsInputs=new LinkedList<>();
+
 
     public LocalEnactor() {
         super();
@@ -325,5 +327,13 @@ public class LocalEnactor extends BeanLocalEnactor2 {
 
     public List<String> getCsv() {
         return csv;
+    }
+
+    public int getCounterInitialValue() {
+        return counterInitialValue;
+    }
+
+    public List<List<String>> getCvsInputs() {
+        return cvsInputs;
     }
 }
