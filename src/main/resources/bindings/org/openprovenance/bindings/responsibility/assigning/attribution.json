@@ -2,8 +2,8 @@
     "var": {
         "entity":   [  {"@id": "var:e1"}],
         "agent":    [  {"@id": "var:ag1"}],
-        "prop":     [[ {"@id": "prov:type"},   {"@id": "var:attrprops"}]],
-        "pvalue":   [[ {"@id": "var:attrType"},{"@id": "var:attrvalues"}]],
+        "prop":     [[ {"@id": "prov:type"},   {"@id": "var:attrprops"},  { "@id": "provext:activity" }, { "@id": "provext:ederivation" },  { "@id": "provext:agderivation" } ]],
+        "pvalue":   [[ {"@id": "var:attrType"},{"@id": "var:attrvalues"}, { "@id": "var:assigning" },    { "@id": "var:der1" },             { "@id": "var:der2" }             ]],
         "id":       [  {"@id": "var:attr"}]
     },
     "vargen":  {
@@ -17,3 +17,4 @@
         "resp": "${resp_ns}"
     }
 }
+

@@ -1,9 +1,10 @@
 {
     "var" : {
-        "e0" :                      [{"@id" : "var:input"}],
-        "e1" :                      [{"@id" : "var:output"}],
-        "activity" :                [{"@id" : "var:transforming"}],
+        "e0" :                      [{"@id" : "var:input"}        ],
+        "e1" :                      [{"@id" : "var:output"}       ],
+        "activity" :                [{"@id" : "var:transforming"} ],
 
+        "gen" :                     [{"@id" : "var:gen"}          ],
         "gprops" :                  [[]],
         "gvalues":                  [[]],
 
