@@ -779,6 +779,7 @@
                                 <arg>src/main/resources/ttfs/config-triangle2-agent-sds.json</arg>
                                 <arg>src/main/resources/ttfs/config-triangle3-aga.json</arg>
                                 <arg>src/main/resources/ttfs/config-triangle4-aia.json</arg>
+                                <arg>src/main/resources/ttfs/config-triangle5-ggm.json</arg>
                                 <arg>src/main/resources/ttfs/config-triangle6-ugm.json</arg>
                                 <arg>src/main/resources/ttfs/config-inserting-into-collection.json</arg>
                                 <arg>src/main/resources/ttfs/config-insert-into-collection-old.json</arg>
@@ -833,6 +834,7 @@
                                 <arg>ttfs/config-triangle2-agent-sds.json</arg>
                                 <arg>ttfs/config-triangle3-aga.json</arg>
                                 <arg>ttfs/config-triangle4-aia.json</arg>
+                                <arg>ttfs/config-triangle5-ggm.json</arg>
                                 <arg>ttfs/config-triangle6-ugm.json</arg>
                                 <arg>ttfs/config-entity-init.json</arg>
                                 <arg>ttfs/config-responsibility-agent-init.json</arg>

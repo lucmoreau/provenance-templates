@@ -9,7 +9,7 @@
     "plan": "(p)\\d*",
     "plan.wasAssociatedWith": "(p)\\d*",
 
-    "collection": "(coll|container)\\d*",
+    "collection": "(coll|container|collection)\\d*",
 
     "bundle": "(b)\\d*",
 
@@ -22,7 +22,7 @@
     "hadMember": "(mem)\\d*",
     "specializationOf": "(spec)\\d*",
 
-    "time": "(time)\\d*",
+    "time": "(time|startTime|endTime)\\d*",
 
     "attributes": {
         "entity": "(cprops|iprops)\\d*",
