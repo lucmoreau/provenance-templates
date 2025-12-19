@@ -1,0 +1,24 @@
+{
+    "var": {
+        "item":       [  {"@id": "var:item1"}     ],
+        "collection": [  {"@id": "var:coll1"}     ],
+        "adding":     [  {"@id": "var:inserting"} ],
+        "gen0":       [  {"@id": "var:gen1"}      ],
+        "gen1":       [  {"@id": "var:gen0"}      ],
+        "mem":        [  {"@id": "var:mem"}       ]
+
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
+    }
+}

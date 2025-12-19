@@ -42,9 +42,9 @@
         {
             "type": "instantiate",
             "description": "Instantiating a membership pattern",
-            "template": "org.openprovenance.templates.primitive.Qualified-Membership0",
-            "output": "org/openprovenance/templates/collections/inserting/membership",
-            "bindings": "membership.json",
+            "template": "org.openprovenance.templates.triangles.Triangle5-GGM",
+            "output": "org/openprovenance/templates/collections/inserting/collection-insert-triangle5-ggm",
+            "bindings": "collection-insert-triangle5-ggm.json",
             "formats": ["jsonld", "provn","png", "svg"],
             "hasProvenance": "org/openprovenance/templates/collections/inserting/prov/prov-membership.prov-csv"
         },
@@ -57,7 +57,7 @@
                 "org/openprovenance/templates/collections/inserting/collection-insert-triangle1-ugd",
                 "org/openprovenance/templates/collections/inserting/collection-insert-triangle2-ugd",
                 "org/openprovenance/templates/collections/inserting/collection-insert-triangle3-ugd",
-                "org/openprovenance/templates/collections/inserting/membership"
+                "org/openprovenance/templates/collections/inserting/collection-insert-triangle5-ggm"
             ],
             "output": "org/openprovenance/templates/collections/inserting/collection-inserting",
             "formats": ["jsonld","provn", "png", "svg", "qualified.png"],

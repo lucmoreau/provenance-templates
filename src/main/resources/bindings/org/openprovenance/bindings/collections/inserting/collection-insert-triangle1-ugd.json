@@ -9,7 +9,7 @@
         "dprops":   [[ {"@id": "var:dprops1"},  {"@id": "prov:type"}                           ]],
         "dvalues":  [[ {"@id": "var:dvalues1"}, {"@id": "provext:InsertingItemIntoCollection"} ]],
         "uprops":   [[ {"@id": "var:uprops1"},  {"@id": "prov:role"}                           ]],
-        "uvalues":  [[ {"@id": "var:uvalues1"}, {"@id": "provext:asItem"}                      ]],
+        "uvalues":  [[ {"@id": "var:uvalues1"}, {"@id": "provext:asMember"}                    ]],
         "usd":      [  {"@id": "var:usd1"}      ],
         "gen":      [  {"@id": "var:gen0"}      ]
 
@@ -23,10 +23,9 @@
         ]
     },
     "context": {
-        "ex": "http://example.org/#",
-        "var" : "http://openprovenance.org/var#",
-        "vargen" : "http://openprovenance.org/vargen#",
-        "provext": "http://openprovenance.org/prov/extension#",
-        "prov": "http://www.w3.org/ns/prov#"
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
     }
 }

@@ -13,7 +13,7 @@
         "props1" :   [[ {"@id": "var:cprops0"},  {"@id": "prov:type"}             ]],
         "evalues1" : [[ {"@id": "var:cvalue0s"}, {"@id": "prov:Collection"}       ]],
         "gprops":    [[ {"@id": "var:gprops"},   {"@id": "prov:role"}             ]],
-        "gvalues":   [[ {"@id": "var:gvalues"},  {"@id": "provext:outCollection"} ]],
+        "gvalues":   [[ {"@id": "var:gvalues"},  {"@id": "provext:asCollection"}  ]],
         "usd":       [  {"@id": "var:usd2"}      ],
         "gen":       [  {"@id": "var:gen"}       ]
 

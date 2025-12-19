@@ -5,9 +5,9 @@
         "e1":       [  {"@id": "var:item1"}     ],
         "activity": [  {"@id": "var:removing"}  ],
         "dprops":   [[ {"@id": "prov:type"}]    ],
-        "dvalues":  [[ {"@id": "provext:RemovingElementFromCollection"}      ]],
-        "gprops":   [[ {"@id": "var:gprops2"},  {"@id": "prov:role"}         ]],
-        "gvalues":  [[ {"@id": "var:gvalues2"}, {"@id": "provext:outEntity"} ]],
+        "dvalues":  [[ {"@id": "provext:RemovingElementFromCollection"}     ]],
+        "gprops":   [[ {"@id": "var:gprops2"},  {"@id": "prov:role"}        ]],
+        "gvalues":  [[ {"@id": "var:gvalues2"}, {"@id": "provext:asMember"} ]],
         "usd":      [  {"@id": "var:usd1"}      ],
         "gen":      [  {"@id": "var:gen2"}      ]
 

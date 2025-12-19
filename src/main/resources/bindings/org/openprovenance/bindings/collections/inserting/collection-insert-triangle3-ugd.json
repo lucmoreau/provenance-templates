@@ -7,11 +7,11 @@
         "dprops":    [[ {"@id": "var:dprops3"},  {"@id": "prov:type"}                  ]],
         "dvalues":   [[ {"@id": "var:dvalues3"}, {"@id": "provext:InsertingInto_Item"} ]],
         "uprops":    [[ {"@id": "prov:role"}         ]],
-        "uvalues":   [[ {"@id": "provext:asEntity"}  ]],
+        "uvalues":   [[ {"@id": "provext:asMember"}  ]],
         "eprops1" :  [[ {"@id": "var:iprops1"}       ]],
         "evalues1" : [[ {"@id": "var:ivalues1"}      ]],
         "gprops":    [[ {"@id": "var:gprops1"},  {"@id": "prov:role"}                  ]],
-        "gvalues":   [[ {"@id": "var:gvalues1"}, {"@id": "provext:asItem"}             ]],
+        "gvalues":   [[ {"@id": "var:gvalues1"}, {"@id": "provext:asMember"}           ]],
         "usd":       [  {"@id": "var:usd1"}],
         "gen":       [  {"@id": "var:gen1"}]
 
@@ -20,10 +20,9 @@
         "b": [{"@id": "vargen:b"}]
     },
     "context": {
-        "ex": "http://example.org/#",
-        "var" : "http://openprovenance.org/var#",
-        "vargen" : "http://openprovenance.org/vargen#",
-        "provext": "http://openprovenance.org/prov/extension#",
-        "prov": "http://www.w3.org/ns/prov#"
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
     }
 }

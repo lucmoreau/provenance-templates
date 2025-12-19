@@ -8,7 +8,7 @@
         "dprops":   [[ {"@id": "var:dprops"},   {"@id": "prov:type"}                             ]],
         "dvalues":  [[ {"@id": "var:dvalues"},  {"@id": "provext:RemovingElement"}               ]],
         "uprops":   [[ {"@id": "var:uprops1"},  {"@id": "prov:role"}                             ]],
-        "uvalues":  [[ {"@id": "var:uvalues1"}, {"@id": "provext:asEntity"}                      ]],
+        "uvalues":  [[ {"@id": "var:uvalues1"}, {"@id": "provext:asMember"}                      ]],
         "usd":      [  {"@id": "var:usd1"}      ],
         "gen":      [  {"@id": "var:gen"}       ],
         "der":      [  {"@id": "var:der1"}      ]

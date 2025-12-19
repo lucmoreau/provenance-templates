@@ -20,6 +20,9 @@
             [
                 {
                     "@id": "var:gprops1"
+                },
+                {
+                    "@id": "prov:role"
                 }
             ]
         ],
@@ -27,6 +30,9 @@
             [
                 {
                     "@id": "var:gvalues1"
+                },
+                {
+                    "@id": "provext:asCollection"
                 }
             ]
         ],
