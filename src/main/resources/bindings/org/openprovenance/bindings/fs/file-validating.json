@@ -1,18 +1,14 @@
 {
     "var" : {
         "agent" :                   [{"@id" : "var:engineer"}],
-        "responsible" :             [{"@id" : "var:organization"}],
         "input" :                   [{"@id" : "var:testing_dataset"}],
         "output" :                  [{"@id" : "var:score"}],
         "transforming" :            [{"@id" : "var:validating"}],
-        "plan" :                    [{"@id" : null}],
-        "agtype" :                  [[{"@id" : "fs:DataEngineer"},   {"@id" : "prov:Person"}]],
-        "rtype" :                   [[{"@id" : "fs:CreditProvider"}, {"@id" : "prov:Organization"}]],
-        "itype" :                   [[{"@id" : "fs:DataFile"}]],
+        "plan" :                    [{"@id" : "var:method"}],
         "otype" :                   [[{"@id" : "fs:AccuracyScore"}]],
         "atype" :                   [[{"@id" : "fs:AssessingPerformance"}]],
-        "oprops":                   [[{"@id": "fs:createdAt"},{"@id": "prov:value"}]],
-        "ovalues":                  [[{"@id": "var:time"}, {"@id": "var:score_value"}]],
+        "oprops":                   [[{"@id": "fs:createdAt"},{"@id": "prov:value"},      {"@id" : "var:oprops"}]],
+        "ovalues":                  [[{"@id": "var:time"},    {"@id": "var:score_value"}, {"@id" : "var:ovalues"}]],
         "start" :                   [{"@id" : "var:startTime"}],
         "end" :                     [{"@id" : "var:endTime"}]
     },

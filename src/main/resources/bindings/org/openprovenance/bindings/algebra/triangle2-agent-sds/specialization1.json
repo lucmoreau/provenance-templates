@@ -10,15 +10,8 @@
                 "@id": "var:ag"
             }
         ],
-        "pvalue": [
-            [
-
-            ]
-        ],
-        "prop": [
-            [
-            ]
-        ],
+        "pvalue":null,
+        "prop":null,
 
         "id": [
             {

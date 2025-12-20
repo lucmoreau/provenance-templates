@@ -6,7 +6,7 @@ prefix provext <http://openprovenance.org/prov/extension#>
 bundle vargen:b
 prefix vargen <http://openprovenance.org/vargen#>
 prefix var <http://openprovenance.org/var#>
-prefix tmpl <http://openprovenance.org/template#>
+prefix tmpl <http://openprovenance.org/tmpl#>
 prefix provext <http://openprovenance.org/prov/extension#>
 
 

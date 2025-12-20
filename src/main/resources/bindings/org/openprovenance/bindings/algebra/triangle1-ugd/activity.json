@@ -2,9 +2,7 @@
     "var": {
         "activity":  [  {"@id": "var:activity"} ],
         "prop":      [[ {"@id": "var:aprops"}  ]],
-        "pvalue":    [[ {"@id": "var:avalues"} ]],
-        "startTime": [[ {"@id": "var:stime"}   ]],
-        "endTime":   [[ {"@id": "var:etime"}   ]]
+        "pvalue":    [[ {"@id": "var:avalues"} ]]
     },
     "vargen": {
         "b": [{"@id": "vargen:b"}]

@@ -3,7 +3,6 @@
         "e":        [{"@id": "var:item"}],
         "e0":       [{"@id": "var:item0"}],
         "e1":       [{"@id": "var:item1"}],
-	    "activity": [{"@id": "var:adding"}],
         "der":      [{"@id": "var:der3"}]
     },
     "vargen":  {

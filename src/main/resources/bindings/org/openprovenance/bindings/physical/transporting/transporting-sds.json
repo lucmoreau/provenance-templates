@@ -3,8 +3,7 @@
         "e":        [ {"@id": "var:item"}         ],
         "e0":       [ {"@id": "var:item0"}        ],
         "e1":       [ {"@id": "var:item1"}        ],
-        "activity": [ {"@id": "var:transporting"} ],
-	"der":      [ {"@id": "var:der1"}         ]
+        "der":      [ {"@id": "var:der1"}         ]
     },
     "vargen":  {
         "b": [{"@id": "vargen:b"}]

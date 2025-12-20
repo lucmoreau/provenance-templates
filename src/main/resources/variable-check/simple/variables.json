@@ -25,7 +25,7 @@
     "time": "(start|end|time)\\d*",
 
     "attributes": {
-        "entity": "(oprops|iprops)\\d*",
+        "entity": "(oprops|iprops|pprops)\\d*",
         "activity": "(aprops)\\d*",
         "agent": "(agprops)\\d*",
         "wasGeneratedBy": "(gprops)\\d*",
@@ -33,7 +33,7 @@
         "used": "(uprops)\\d*"
     },
     "values": {
-        "entity": "(oprop_values|iprop_values)\\d*",
+        "entity": "(oprop_values|iprop_values|pprop_values)\\d*",
         "activity": "(avalues)\\d*",
         "agent": "(agprop_values)\\d*",
         "wasGeneratedBy": "(gvalues)\\d*",

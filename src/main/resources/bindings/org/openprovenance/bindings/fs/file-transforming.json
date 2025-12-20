@@ -1,37 +1,27 @@
 {
     "var" : {
         "agent" :                   [ {"@id" : "var:engineer"}],
-        "responsible" :             [ {"@id" : "var:organization"}],
         "input" :                   [ {"@id" : "var:file"}],
         "output" :                  [ {"@id" : "var:transformed_file"}],
         "plan" :                    [ {"@id" : "var:method"}],
-        "activity" :                [ {"@id" : "var:transforming"}],
+        "transforming" :            [ {"@id" : "var:transforming"}],
         "oprops":                   [[{"@id" : "fs:createdAt"}, {"@id": "fs:filename"},  {"@id" : "fs:path"},  {"@id" : "var:oprops"}]],
-        "oprop_values":             [[{"@id" : "var:time"},     {"@id": "var:filename"}, {"@id" : "var:path"}, {"@id" : "var:ovalues"}]],
-        "agtype" :                  [[{"@id" : "fs:DataEngineer"},   {"@id" : "prov:Person"}]],
-        "itype" :                   [[{"@id" : "fs:DataFile"}]],
+        "ovalues":                  [[{"@id" : "var:time"},     {"@id": "var:filename"}, {"@id" : "var:path"}, {"@id" : "var:ovalues"}]],
         "otype" :                   [[{"@id" : "fs:DataFile"}]],
         "atype" :                   [[{"@id" : "fs:TransformingData"}]],
-        "ptype" :                   [[{"@id" : "fs:Method"}]],
         "start" :                   [{"@id" : "var:startTime"}],
         "end" :                     [{"@id" : "var:endTime"}],
 
-        "pprops":                   [{"@id" : "var:mprops"}],
-        "pprop_values":             [{"@id" : "var:mvalues"}],
-        "iprops":                   [{"@id" : "var:iprops"}],
-        "iprop_values":             [{"@id" : "var:ivalues"}],
+
         "aprops":                   [{"@id" : "var:aprops"}],
-        "aprop_values":             [{"@id" : "var:avalues"}],
-        "agprops":                   [{"@id" : "var:agprops"}],
-        "agprop_values":             [{"@id" : "var:agvalues"}],
+        "avalues":                  [{"@id" : "var:avalues"}],
 
-
-        "asc":                      [{"@id" : null}],
-        "gen":                      [{"@id" : null}],
-        "attr":                     [{"@id" : null}]
+        "asc":                      [ {"@id" : "var:asc"}  ],
+        "gen":                      [ {"@id" : "var:gen"}  ],
+        "attr":                     [ {"@id" : "var:attr"} ]
     },
     "vargen" : {
-        "view" : [ {
+        "b" : [ {
             "@id" : "vargen:b"
         } ]
     },

@@ -1,8 +1,8 @@
 {
     "var": {
         "agent":  [ {"@id": "var:ag"}],
-        "prop":   [[ ]],
-        "pvalue": [[ ]]
+        "prop":   null,
+        "pvalue": null
 
 
     },

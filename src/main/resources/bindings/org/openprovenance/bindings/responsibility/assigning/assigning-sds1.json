@@ -1,21 +1,19 @@
 {
     "var": {
-        "e": [{"@id": "var:e"}],
-        "e0": [{"@id": "var:e0"}],
-        "e1": [{"@id": "var:e1"}],
-        "activity": [{"@id": "var:assigning"}],
-        "der": [{"@id": "var:der1"}],
-        "spec0": [{"@id": "var:spec0"}],
-        "spec1": [{"@id": "var:spec1"}]
+        "e":        [{"@id": "var:e"}],
+        "e0":       [{"@id": "var:e0"}],
+        "e1":       [{"@id": "var:e1"}],
+        "der":      [{"@id": "var:der1"}],
+        "spec0":    [{"@id": "var:spec0"}],
+        "spec1":    [{"@id": "var:spec1"}]
     },
     "vargen":  {
         "b": [{"@id": "vargen:b"}]
     },
     "context": {
-        "var" : "${var_ns}",
+        "var" :    "${var_ns}",
         "vargen" : "${vargen_ns}",
-        "prov": "${prov_ns}",
-        "provext": "${provext_ns}",
-        "resp": "${resp_ns}"
+        "prov":    "${prov_ns}",
+        "provext": "${provext_ns}"
     }
 }

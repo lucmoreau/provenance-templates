@@ -1,6 +1,6 @@
 {
     "var": {
-        "id": [
+        "mem": [
             {
                 "@id": "var:mem"
             }
@@ -47,16 +47,6 @@
                     "@id": "var:usd"
                 }
             ]
-        ],
-        "usage": [
-            {
-                "@id": "var:usd"
-            }
-        ],
-        "generation": [
-            {
-                "@id": "var:gen"
-            }
         ]
     },
     "vargen":  {

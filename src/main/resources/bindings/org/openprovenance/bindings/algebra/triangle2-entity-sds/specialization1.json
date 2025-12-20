@@ -11,15 +11,8 @@
                 "@id": "var:e"
             }
         ],
-        "pvalue": [
-            [
-
-            ]
-        ],
-        "prop": [
-            [
-            ]
-        ],
+        "pvalue": null,
+        "prop":  null,
         "id": [
             {
                 "@id": "var:spec0"

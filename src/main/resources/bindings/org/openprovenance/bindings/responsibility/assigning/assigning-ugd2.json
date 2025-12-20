@@ -1,25 +1,27 @@
 {
     "var": {
-        "e0": [{"@id": "var:ag0"}],
-        "e1": [{"@id": "var:ag1"}],
-        "activity": [{"@id": "var:assigning"}],
-        "dprops": [[{"@id": "var:dprops2"},{"@id": "prov:type"}]],
-        "dvalues": [[{"@id": "var:dvalues2"},{"@id": "resp:Assigning"}]],
-        "uprops": [[{"@id": "var:uprops2"},{"@id": "prov:role"}]],
-        "uvalues": [[{"@id": "var:uvalues2"},{"@id": "var:asAgent"}]],
-        "usd": [{"@id": "var:usd2"}],
-        "gen": [{"@id": "var:gen2"}],
-        "der": [{"@id": "var:der2"}],
-        "gtime": [[{"@id": "var:time"}]]
+        "ag0":       [  {"@id": "var:ag0"}        ],
+        "ag1":       [  {"@id": "var:ag1"}        ],
+        "activity":  [  {"@id": "var:assigning"}  ],
+        "agprops1":  [[ {"@id": "var:agprops1"}  ]],
+        "agvalues1": [[ {"@id": "var:agvalues1"} ]],
+        "dprops":    [[ {"@id": "var:dprops2"},  {"@id": "prov:type"}      ]],
+        "dvalues":   [[ {"@id": "var:dvalues2"}, {"@id": "resp:Assigning"} ]],
+        "uprops":    [[ {"@id": "var:uprops2"},  {"@id": "prov:role"}      ]],
+        "uvalues":   [[ {"@id": "var:uvalues2"}, {"@id": "var:asAgent"}    ]],
+        "usd":       [  {"@id": "var:usd2"}  ],
+        "gen":       [  {"@id": "var:gen2"}  ],
+        "der":       [  {"@id": "var:der2"}  ],
+        "gtime":     [[ {"@id": "var:time"} ]]
     },
     "vargen":  {
         "b": [{"@id": "vargen:b"}]
     },
     "context": {
-        "var" : "${var_ns}",
+        "var" :    "${var_ns}",
         "vargen" : "${vargen_ns}",
-        "prov": "${prov_ns}",
+        "prov":    "${prov_ns}",
         "provext": "${provext_ns}",
-        "resp": "${resp_ns}"
+        "resp":    "${resp_ns}"
     }
 }

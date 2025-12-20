@@ -1,7 +1,7 @@
 {
     "entity": "(coll|item|collection)\\d*",
     "agent": "(ag)\\d*",
-    "activity": "(removing|inserting|activity)\\d*$",
+    "activity": "(removing|inserting|activity|adding)\\d*$",
 
     "entity.wasGeneratedBy": "(ag)\\d*",
     "entity.specializationOf": "(ag)\\d*",

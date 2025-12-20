@@ -58,6 +58,17 @@
                 "@sql.table": "score"
             }
         ],
+        "approval_method": [
+            {
+                "@id": "method:*",
+                "@type": "xsd:int",
+                "@examplar": 222,
+                "@documentation": "The method to transform the file",
+                "@input": "optional",
+                "@output": "false",
+                "@sql.table": "method"
+            }
+        ],
         "manager": [
             {
                 "@id": "ag:*",
@@ -137,7 +148,8 @@
         "act": "${PROV_API}/live/activity/",
         "file": "${PROV_API}/live/file/",
         "approval": "${PROV_API}/live/approval/",
-        "score": "${PROV_API}/live/score/"
+        "score": "${PROV_API}/live/score/",
+        "method": "${PROV_API}/live/method/"
     },
     "template": "TODO template",
     "@documentation": "TODO doc."

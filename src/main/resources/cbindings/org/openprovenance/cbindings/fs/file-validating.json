@@ -22,6 +22,17 @@
                 "@sql.table": "file"
             }
         ],
+        "method": [
+            {
+                "@id": "method:*",
+                "@type": "xsd:int",
+                "@examplar": 222,
+                "@documentation": "The method to transform the file",
+                "@input": "optional",
+                "@output": "false",
+                "@sql.table": "method"
+            }
+        ],
         "engineer": [
             {
                 "@id": "ag:*",
@@ -103,7 +114,8 @@
         "ag":  "${PROV_API}/live/agent/",
         "act": "${PROV_API}/live/activity/",
         "file": "${PROV_API}/live/file/",
-        "score": "${PROV_API}/live/score/"
+        "score": "${PROV_API}/live/score/",
+        "method": "${PROV_API}/live/method/"
     },
     "template": "TODO template",
     "@documentation": "TODO doc."

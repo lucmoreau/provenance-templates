@@ -1,28 +1,22 @@
 {
     "var" : {
         "agent" :                   [{"@id" : "var:manager"}],
-        "responsible" :             [{"@id" : "var:organization"}],
         "input1" :                  [{"@id" : "var:pipeline"}],
         "input2" :                  [{"@id" : "var:score"}],
         "output1" :                 [{"@id" : "var:approved_pipeline"}],
         "output2" :                 [{"@id" : "var:approval_record"}],
         "transforming" :            [{"@id" : "var:approving"}],
-        "plan" :                    [{"@id" : null}],
-        "agtype" :                  [[{"@id" : "fs:Manager"},   {"@id" : "prov:Person"}]],
-        "rtype" :                   [[{"@id" : "fs:CreditProvider"}, {"@id" : "prov:Organization"}]],
-        "itype1" :                  [[{"@id" : "sk:Pipeline"}]],
-        "itype2" :                  [[{"@id" : "fs:AccuracyScore"}]],
         "otype1" :                  [[{"@id" : "fs:ApprovedPipeline"}]],
         "otype2" :                  [[{"@id" : "fs:ApprovalRecord"}]],
         "atype" :                   [[{"@id" : "fs:ApprovingPipeline"}]],
         "start" :                   [{"@id" : "var:startTime"}],
         "end" :                     [{"@id" : "var:endTime"}],
-        "iprops1":                  [[{"@id" : "fs:path"}]],
-        "iprop_values1":            [[{"@id" : "var:path"}]],
-        "oprops1":                  [[{"@id": "fs:createdAt"}, {"@id" : "fs:path"},  {"@id" : "fs:pipeline"}]],
-        "oprop_values1":            [[{"@id": "var:time"},        {"@id" : "var:path"},    {"@id" : "var:filename"}]],
-        "oprops2":                  [[{"@id": "fs:createdAt"}, {"@id" : "fs:signature"},   {"@id" : "fs:pipeline"}]],
-        "oprop_values2":            [[{"@id": "var:time"},        {"@id" : "var:signature"},     {"@id" : "var:approved_pipeline"}]]
+        "oprops1":                  [[{"@id": "fs:createdAt"}, {"@id" : "fs:path"},  {"@id" : "fs:pipeline"}, {"@id" : "var:oprops1"}  ]],
+        "ovalues1":                 [[{"@id": "var:time"},        {"@id" : "var:path"},    {"@id" : "var:filename"}, {"@id" : "var:ovalues1"} ]],
+        "oprops2":                  [[{"@id": "fs:createdAt"}, {"@id" : "fs:signature"},   {"@id" : "fs:pipeline"}, {"@id" : "var:oprops2"}  ]],
+        "ovalues2":                 [[{"@id": "var:time"},        {"@id" : "var:signature"},     {"@id" : "var:approved_pipeline"}, {"@id" : "var:ovalues2"} ]],
+        "plan" :                    [{"@id" : "var:approval_method"}],
+        "der":                      null
     },
     "vargen" : {
         "b" : [ {

@@ -9,7 +9,7 @@
 
         {
             "type": "instantiate",
-            "template": "org.openprovenance.templates.generic.SimpleTransforming1",
+            "template": "org.openprovenance.templates.simple.Transforming1",
             "output": "org/openprovenance/templates/simple/joining2",
             "bindings": "simple-joining2.json",
             "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],

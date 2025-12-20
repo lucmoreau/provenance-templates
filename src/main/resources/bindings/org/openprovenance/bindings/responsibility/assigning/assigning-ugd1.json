@@ -3,8 +3,8 @@
         "e0":       [{"@id": "var:e0"}],
         "e1":       [{"@id": "var:e1"}],
         "activity": [{"@id": "var:assigning"}],
-        "props2":   [[{"@id": "var:eprops1"}]],
-        "evalues2": [[{"@id": "var:evalues1"}]],
+        "eprops1":   [[{"@id": "var:eprops1"}]],
+        "evalues1": [[{"@id": "var:evalues1"}]],
         "aprops":   [[{"@id": "var:aprops"},{"@id": "prov:type"}]],
         "avalues":  [[{"@id": "var:avalues"},{"@id": "resp:Assigning"}]],
         "dprops":   [[{"@id": "var:dprops1"},{"@id": "prov:type"}]],
@@ -20,10 +20,10 @@
         "b": [{"@id": "vargen:b"}]
     },
     "context": {
-        "var" : "${var_ns}",
+        "var" :    "${var_ns}",
         "vargen" : "${vargen_ns}",
-        "prov": "${prov_ns}",
+        "prov":    "${prov_ns}",
         "provext": "${provext_ns}",
-        "resp": "${resp_ns}"
+        "resp":    "${resp_ns}"
     }
 }

@@ -856,6 +856,22 @@
                             <args>
                                 <arg>src/main/resources/ttfs/config-generic-transforming.json</arg>
                                 <arg>src/main/resources/ttfs/config-generic.json</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>exec.process.templates.simple</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>validate-ttf</goal>
+                            <goal>execute-ttf</goal>
+                        </goals>
+                        <configuration>
+                            <debug>true</debug>
+                            <inputBaseDir>${project.basedir}</inputBaseDir>
+                            <outputBaseDir>${project.build.directory}</outputBaseDir>
+                            <args>
                                 <arg>src/main/resources/ttfs/config-simple.json</arg>
                             </args>
                         </configuration>
@@ -930,7 +946,7 @@
                             <inputBaseDir>${project.basedir}</inputBaseDir>
                             <outputBaseDir>${project.build.directory}</outputBaseDir>
                             <args>
-                                <args>src/main/resources/ttfs/config-transporting.json</args>
+                                <arg>src/main/resources/ttfs/config-transporting.json</arg>
                                 <arg>src/main/resources/ttfs/config-responsibility-handingover.json</arg>
                                 <arg>src/main/resources/ttfs/config-responsibility-examining.json</arg>
                                 <arg>src/main/resources/ttfs/config-weighing.json</arg>

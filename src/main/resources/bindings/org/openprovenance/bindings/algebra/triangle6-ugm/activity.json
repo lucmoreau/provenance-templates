@@ -20,20 +20,6 @@
                     "@id": "var:avalues"
                 }
             ]
-        ],
-        "startTime": [
-            [
-                {
-                    "@id": "var:stime"
-                }
-            ]
-        ],
-        "endTime": [
-            [
-                {
-                    "@id": "var:etime"
-                }
-            ]
         ]
     },
     "vargen":  {

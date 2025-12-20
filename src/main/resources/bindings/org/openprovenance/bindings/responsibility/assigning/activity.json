@@ -1,9 +1,8 @@
 {
     "var": {
-
         "activity": [{"@id": "var:assigning"}],
-        "aprops": [[{"@id": "prov:type"},{"@id": "var:aprops"}]],
-        "avalues": [[{"@id": "resp:Assigning"},{"@id": "var:avalues"}]]
+        "prop":     [[{"@id": "prov:type"},{"@id": "var:aprops"}]],
+        "pvalue":   [[{"@id": "resp:Assigning"},{"@id": "var:avalues"}]]
     },
     "vargen":  {
         "b": [{"@id": "vargen:b"}]
