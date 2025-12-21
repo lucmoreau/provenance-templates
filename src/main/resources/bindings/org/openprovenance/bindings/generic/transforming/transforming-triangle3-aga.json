@@ -8,6 +8,11 @@
         "gen":      [{"@id": "var:gen"}],
         "attr":     [{"@id": "var:attr"}],
 
+        "attrprops":  [[{"@id": "var:attrprops"}]],
+        "attrvalues": [[{"@id": "var:attrvalues"}]],
+        "ascprops":   [[{"@id": "var:ascprops"}]],
+        "ascvalues":  [[{"@id": "var:ascvalues"}]],
+
         "gtime":    null
     },
     "vargen":  {

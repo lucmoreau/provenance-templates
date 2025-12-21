@@ -8,19 +8,28 @@
         "transforming" :            [{"@id" : "var:transforming"}],
         "plan":                     [{"@id" : "var:plan"}],
 
-        "otype" :                   [[{"@id" : "var:otype1"}],        [{"@id" : "var:otype2"}]],
-        "oprops":                   [[{"@id": "var:oprops1"}],        [{"@id" : "var:oprops2"}]],
-        "ovalues":                  [[{"@id": "var:ovalues1"}],       [{"@id" : "var:ovalues2"}]],
-        "atype" :                   [[{"@id" : "var:atype"}]],
-        "aprops":                   [[{"@id": "var:aprops"}]],
-        "avalues":                  [[{"@id": "var:avalues"}]],
+        "otype" :                   [[ {"@id" : "var:otype1"}],        [{"@id" : "var:otype2"}]],
+        "oprops":                   [[ {"@id": "var:oprops1"}],        [{"@id" : "var:oprops2"}]],
+        "ovalues":                  [[ {"@id": "var:ovalues1"}],       [{"@id" : "var:ovalues2"}]],
+        "atype" :                   [[ {"@id" : "var:atype"}   ]],
+        "aprops":                   [[ {"@id": "var:aprops"}   ]],
+        "avalues":                  [[ {"@id": "var:avalues"}  ]],
 
-        "attr":                     [{"@id" : "var:attr1"},{"@id" : "var:attr2"}],
-        "usd":                      [{"@id" : "var:usd1"},{"@id" : "var:usd2"}],
-        "gen":                      [{"@id" : "var:gen1"},{"@id" : "var:gen2"}],
+        "uprops":                   [[ {"@id": "var:uprops1"}],       [{"@id" : "var:uprops2"}   ]],
+        "uvalues":                  [[ {"@id": "var:uvalues1"}],      [{"@id" : "var:uvalues2"}  ]],
+        "gprops" :                  [[ {"@id" : "var:gprops1"}],      [{"@id" : "var:gprops2"}  ]],
+        "gvalues":                  [[ {"@id" : "var:gvalues1"}],     [{"@id" : "var:gvalues2"} ]],
+        "attrprops":                [[ {"@id": "var:attrprops1"}],    [{"@id" : "var:attrprops2"}]],
+        "attrvalues":               [[ {"@id": "var:attrvalues1"}],   [{"@id" : "var:attrvalues2"}]],
+
+        "attr":                     [{"@id" : "var:attr1"}, {"@id" : "var:attr2"}],
+        "usd":                      [{"@id" : "var:usd1"},  {"@id" : "var:usd2"} ],
+        "gen":                      [{"@id" : "var:gen1"},  {"@id" : "var:gen2"} ] ,
         "asc":                      [{"@id" : "var:asc"}],
-        "der":                      null
+        "der":                      null,
 
+        "dprops":                   [[ {"@id" : "tmpl:ID"},  {"@id": "var:dprops1"}  ], [ {"@id" : "tmpl:ID"},  {"@id": "var:dprops2"}  ], [ {"@id" : "tmpl:ID"},  {"@id": "var:dprops3"}  ], [ {"@id" : "tmpl:ID"},  {"@id": "var:dprops4"}  ]],
+        "dvalues":                  [[ {"@id" : "var:der1"}, {"@id": "var:dvalues1"} ], [ {"@id" : "var:der2"}, {"@id": "var:dvalues2"} ], [ {"@id" : "var:der3"}, {"@id": "var:dvalues3"} ], [ {"@id" : "var:der4"}, {"@id": "var:dvalues4"} ]]
     },
     "vargen" : {
         "b" : [ {
@@ -37,7 +46,7 @@
         "uuid" :  "${uuid_ns}",
         "var":    "${var_ns}",
         "vargen": "${vargen_ns}",
-        "xsd":    "${xsd_ns}"
+        "tmpl":   "${tmpl_ns}"
     },
     "template" : null
 }

@@ -17,8 +17,17 @@
         "attr":                     [{"@id" : "var:attr1"},{"@id" : "var:attr2"}],
         "der":                      [{"@id" : "var:der1"},{"@id" : "var:der2"}],
         "gen":                      [{"@id" : "var:gen1"},{"@id" : "var:gen2"}],
-        "usd":                      [{"@id" : "var:usd"}]
-
+        "usd":                      [{"@id" : "var:usd"}],
+        "uprops" :                  [[ {"@id": "var:uprops"} ]],
+        "uvalues":                  [[ {"@id": "var:uvalues"} ]],
+        "gprops" :                  [[ {"@id" : "var:gprops1"}],      [{"@id" : "var:gprops2"}  ]],
+        "gvalues":                  [[ {"@id" : "var:gvalues1"}],     [{"@id" : "var:gvalues2"} ]],
+        "dprops" :                  [[ {"@id" : "var:dprops1"}],      [{"@id" : "var:dprops2"}  ]],
+        "dvalues":                  [[ {"@id" : "var:dvalues1"}],     [{"@id" : "var:dvalues2"} ]],
+        "attrprops":                [[ {"@id": "var:attrprops1"}],    [{"@id" : "var:attrprops2"}]],
+        "attrvalues":               [[ {"@id": "var:attrvalues1"}],   [{"@id" : "var:attrvalues2"}]],
+        "ascprops":                 [[ {"@id": "var:ascprops"}]],
+        "ascvalues":                [[ {"@id": "var:ascvalues"}]]
     },
     "vargen" : {
         "b" : [ {
@@ -26,10 +35,15 @@
         } ]
     },
     "linked": {
-        "ovalues":  "oprops",
-        "attr":     "output",
+        "attr":    "output",
         "der":     "output",
-        "gen":     "output"
+        "gen":     "output",
+        "ovalues":  "oprops",
+        "gprops": "output",
+        "gvalues":  "gprops",
+        "dprops": "output",
+        "dvalues":  "dprops",
+        "uvalues":  "uprops"
     },
     "context" : {
         "prov":   "${prov_ns}",

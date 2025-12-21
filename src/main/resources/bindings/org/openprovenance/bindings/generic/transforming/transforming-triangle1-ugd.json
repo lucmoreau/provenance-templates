@@ -11,9 +11,14 @@
         "aprops":                   [[ {"@id" : "var:aprops"}, {"@id" : "tmpl:startTime"}, {"@id" : "tmpl:endTime"}, {"@id":  "prov:type"} ]],
         "avalues":                  [[ {"@id" : "var:avalues"},{"@id" : "var:start"},      {"@id" : "var:end"},      {"@id":  "var:atype"} ]],
 
-        "gprops" :                  null,
-        "gvalues":                  null,
-        "der" :                     [ {"@id" : "var:der"} ],
+        "dprops":                   [[ {"@id" : "var:dprops"}  ]],
+        "dvalues":                  [[ {"@id" : "var:dvalues"} ]],
+        "gprops" :                  [[ {"@id" : "var:gprops"}  ]],
+        "gvalues":                  [[ {"@id" : "var:gvalues"} ]],
+        "uprops" :                  [[ {"@id" : "var:uprops"}  ]],
+        "uvalues":                  [[ {"@id" : "var:uvalues"} ]],
+
+        "der" :                     [ {"@id" : "var:der"}       ],
         "utime" :                   null,
         "gtime" :                   null,
         "usd":                      [ {"@id" : "var:usd"} ]
