@@ -4,9 +4,9 @@
         "ag":          [  {"@id": "var:receiver"}    ],
         "activity":    [  {"@id": "var:handingover"} ],
         "asc":         [  {"@id": "var:asc1"}        ],
-        "p":           [  {"@id": null}              ],
+        "p":           null,
         "ascprops":    [[ {"@id": "prov:role"}      ]],
-        "ascpvalues":  [[ {"@id": "var:role1"}      ]],
+        "ascvalues":   [[ {"@id": "var:role1"}      ]],
         "attrprops":   [[ {"@id": "prov:type"}      ]],
         "attrvalues":  [[ {"@id": "var:attrType"}   ]],
         "gen":         [  {"@id": "var:gen1"}        ],
@@ -16,10 +16,9 @@
         "b": [{"@id": "vargen:b"}]
     },
     "context":  {
-        "var" : "${var_ns}",
+        "var" :    "${var_ns}",
         "vargen" : "${vargen_ns}",
-        "prov": "${prov_ns}",
-        "provext": "${provext_ns}",
-        "phys": "${phys_ns}"
+        "prov":    "${prov_ns}",
+        "provext": "${provext_ns}"
     }
 }

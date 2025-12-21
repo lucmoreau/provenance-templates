@@ -5,26 +5,28 @@
         "item1":          [  {"@id": "var:item1"}                                  ],
         "item0":          [  {"@id": "var:item0"}                                  ],
         "inserting":      [  {"@id": "var:adding"}                                 ],
-        "cprops0":        [[ {"@id": "prov:type"}                                 ]],
-        "cvalues0":       [[ {"@id": "var:containerType"}                         ]],
         "cprops1":        [[ {"@id": "prov:type"},         {"@id": "phys:sealed"} ]],
         "cvalues1":       [[ {"@id": "var:containerType"}, {"@id": "var:sealed"}  ]],
         "iprops1":        [[ {"@id": "var:iprops1"}                               ]],
         "ivalues1":       [[ {"@id": "var:ivalues1"}                              ]],
-        "ExaminingType":  [[ {"@id": "phys:Weighing"}                             ]],
         "aprops":         [[ {"@id": "prov:type"}                                 ]],
         "avalues":        [[ {"@id": "phys:AddingItemToContainer"}                ]],
-	    "time":           [[ {"@id": "var:time"}                                  ]]
+        "der2":           [  {"@id": "var:der2"}  ],
+        "der3":           [  {"@id": "var:der3"}  ],
+        "der1":           [  {"@id": "var:der1"}  ],
+        "gen0":           [  {"@id": "var:gen0"}  ],
+        "gen1":           [  {"@id": "var:gen1"}  ],
+        "usd1":           [  {"@id": "var:usd1"}  ],
+        "usd2":           [  {"@id": "var:usd2"}  ]
     },
     "vargen":  {
         "b": [{"@id": "vargen:b"}]
     },
     "context": {
-        "var" : "${var_ns}",
+        "var" :    "${var_ns}",
         "vargen" : "${vargen_ns}",
-        "prov": "${prov_ns}",
+        "prov":    "${prov_ns}",
         "provext": "${provext_ns}",
-        "resp": "${resp_ns}",
-        "phys": "${phys_ns}"
+        "phys":    "${phys_ns}"
     }
 }

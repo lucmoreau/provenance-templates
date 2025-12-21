@@ -12,11 +12,11 @@
             "@id" : "vargen:b",
             "@graph" : [ {
                 "@type" : "Delegation",
-
+                "@id": "var:del",
                 "delegate": "var:agent1",
                 "responsible": "var:agent0",
                 "activity": "var:activity",
-                "var:delprop" : [ "var:delvalue" ]
+                "var:delprops" : [ "var:delvalues" ]
             }
 
             ]

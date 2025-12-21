@@ -3,8 +3,9 @@
         "e":        [{"@id": "var:container"}  ],
         "e0":       [{"@id": "var:container0"} ],
         "e1":       [{"@id": "var:container1"} ],
-        "der":      [{"@id": "var:der2"}       ]
-    },
+        "der":      [{"@id": "var:der2"}       ],
+        "spec0":    [ {"@id": "var:spec0"} ],
+        "spec1":    [ {"@id": "var:spec1"} ] },
     "vargen":  {
         "b": [{"@id": "vargen:b"}]
     },

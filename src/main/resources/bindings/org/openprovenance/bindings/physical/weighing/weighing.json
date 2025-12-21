@@ -34,7 +34,7 @@
             }
 
         ],
-        "eprop1": [
+        "eprops1": [
             [
                 {
                     "@id": "phys:lkw"
@@ -43,11 +43,11 @@
                     "@id": "phys:massUnit"
                 },
                 {
-                    "@id": "var:iprop1"
+                    "@id": "var:iprops1"
                 }
             ]
         ],
-        "evalue1": [
+        "evalues1": [
             [
                 {
                     "@id": "var:weight"
@@ -56,7 +56,7 @@
                     "@id": "var:unit"
                 },
                 {
-                    "@id": "var:ivalue1"
+                    "@id": "var:ivalues1"
                 }
             ]
         ],

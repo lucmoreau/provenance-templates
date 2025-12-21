@@ -1,16 +1,20 @@
 {
     "var": {
-        "coll1":         [  {"@id": "var:container1"}],
-        "coll0":         [  {"@id": "var:container0"}],
-        "item1":         [  {"@id": "var:item1"}],
-        "item0":         [  {"@id": "var:item0"}],
-        "removing":      [  {"@id": "var:removing"}],
-        "ExaminingType": [[ {"@id": "phys:Weighing"}]],
-        "aprops":        [[ {"@id": "prov:type"}]],
+        "coll1":         [  {"@id": "var:container1"} ],
+        "coll0":         [  {"@id": "var:container0"} ],
+        "item1":         [  {"@id": "var:item1"}      ],
+        "item0":         [  {"@id": "var:item0"}      ],
+        "removing":      [  {"@id": "var:removing"}   ],
+        "aprops":        [[ {"@id": "prov:type"}     ]],
         "avalues":       [[ {"@id": "phys:RemovingItemFromContainer"}]],
-        "time":          [[ {"@id": "var:time"}]],
-        "gen":           [  {"@id": "var:gen"}],
-        "gen2":          [  {"@id": "var:gen2"}]
+
+        "gen2":          [  {"@id": "var:gen2"} ],
+        "gen":           [  {"@id": "var:gen"}  ],
+        "der1":          [  {"@id": "var:der1"} ],
+        "der2":          [  {"@id": "var:der2"} ],
+        "der3":          [  {"@id": "var:der3"} ],
+        "usd1":          [  {"@id": "var:usd1"} ],
+        "usd2":          [  {"@id": "var:usd2"} ]
 
     },
     "vargen":  {

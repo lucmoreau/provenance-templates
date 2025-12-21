@@ -4,8 +4,6 @@
         "ag":        [  {"@id": "var:transporter"}  ],
         "activity":  [  {"@id": "var:transporting"} ],
         "p":         [  {"@id": "var:schedule"}     ],
-        "pprops":    [[ {"@id": "prov:type"}       ]],
-        "pvalues":   [[ {"@id": "phys:Schedule"}   ]],
         "asc":       [  {"@id": "var:asc1"}         ]
     },
     "vargen":  {

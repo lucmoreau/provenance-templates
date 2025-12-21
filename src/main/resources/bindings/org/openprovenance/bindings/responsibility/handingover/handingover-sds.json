@@ -3,7 +3,6 @@
         "e":        [{"@id": "var:item"}],
         "e0":       [{"@id": "var:item0"}],
         "e1":       [{"@id": "var:item1"}],
-        "activity": [{"@id": "var:handingover"}],
         "der":      [{"@id": "var:der1"}],
         "spec0":    [{"@id": "var:spec0"}],
         "spec1":    [{"@id": "var:spec1"}]
@@ -12,10 +11,10 @@
         "b": [{"@id": "vargen:b"}]
     },
     "context": {
-        "var" : "${var_ns}",
+        "var" :    "${var_ns}",
         "vargen" : "${vargen_ns}",
-        "prov": "${prov_ns}",
+        "prov":    "${prov_ns}",
         "provext": "${provext_ns}",
-        "resp": "${resp_ns}"
+        "resp":    "${resp_ns}"
     }
 }

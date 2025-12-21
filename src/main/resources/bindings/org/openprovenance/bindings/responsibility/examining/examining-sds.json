@@ -3,7 +3,6 @@
         "e":        [{"@id": "var:e"}],
         "e0":       [{"@id": "var:e0"}],
         "e1":       [{"@id": "var:e1"}],
-        "activity": [{"@id": "var:examining"}],
         "der":      [{"@id": "var:der1"}],
         "spec0":    [{"@id": "var:spec0"}],
         "spec1":    [{"@id": "var:spec1"}]
