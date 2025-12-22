@@ -73,7 +73,26 @@
                     "@id": "phys:Weighing"
                 }
             ]
-        ]
+        ],
+
+        "aprops": null,
+        "asc1": null,
+        "asc2": null,
+        "attr1": null,
+        "attr2": null,
+        "avalues": null,
+        "del": null,
+        "delprops": null,
+        "delvalues": null,
+        "der1": null,
+        "dprops": null,
+        "dvalues": null,
+        "gen1": null,
+        "spec0": null,
+        "spec1": null,
+        "uprops1": null,
+        "usd1": null,
+        "uvalues1": null
     },
     "vargen":  {
         "b": [

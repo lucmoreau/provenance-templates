@@ -17,7 +17,23 @@
         "gen0":           [  {"@id": "var:gen0"}  ],
         "gen1":           [  {"@id": "var:gen1"}  ],
         "usd1":           [  {"@id": "var:usd1"}  ],
-        "usd2":           [  {"@id": "var:usd2"}  ]
+        "usd2":           [  {"@id": "var:usd2"}  ],
+
+        "dprops1":       null,
+        "dprops2":       null,
+        "dprops3":       null,
+        "dvalues1":      null,
+        "dvalues2":      null,
+        "dvalues3":      null,
+        "gprops0":       null,
+        "gprops1":       null,
+        "gvalues0":      null,
+        "gvalues1":      null,
+        "mem":           null,
+        "uprops1":       null,
+        "uprops2":       null,
+        "uvalues1":      null,
+        "uvalues2":      null
     },
     "vargen":  {
         "b": [{"@id": "vargen:b"}]

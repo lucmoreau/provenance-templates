@@ -14,7 +14,29 @@
         "der2":          [  {"@id": "var:der2"} ],
         "der3":          [  {"@id": "var:der3"} ],
         "usd1":          [  {"@id": "var:usd1"} ],
-        "usd2":          [  {"@id": "var:usd2"} ]
+        "usd2":          [  {"@id": "var:usd2"} ],
+
+        "mprops":       null,
+        "cprops1":     null,
+        "mem0":        null,
+        "gprops":      null,
+        "uvalues2":    null,
+        "uvalues1":    null,
+        "gvalues":     null,
+        "gprops2":     null,
+        "mvalues":     null,
+        "uprops1":     null,
+        "uprops2":     null,
+        "dvalues1":    null,
+        "dprops1":     null,
+        "iprops1":     null,
+        "gvalues2":    null,
+        "dvalues3":    null,
+        "dprops2":     null,
+        "cvalues1":    null,
+        "ivalues1":    null,
+        "dvalues2":    null,
+        "dprops3":     null
 
     },
     "vargen":  {

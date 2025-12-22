@@ -12,7 +12,13 @@
         "uprops":   [[ {"@id": "var:uprops1"},  {"@id": "prov:role"}         ]],
         "uvalues":  [[ {"@id": "var:uvalues1"}, {"@id": "provext:asItem"}    ]],
         "usd":      [  {"@id": "var:usd1"}                                    ],
-        "der":      [  {"@id": "var:der1"}                                    ]
+        "der":      [  {"@id": "var:der1"}                                    ],
+
+        "utime":    null,
+        "gprops":   null,
+        "gvalues":  null,
+        "gen":      null,
+        "gtime":    null
     },
     "vargen":  {
         "b": [{"@id": "vargen:b"}]

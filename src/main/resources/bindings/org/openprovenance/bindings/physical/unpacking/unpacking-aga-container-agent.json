@@ -6,7 +6,22 @@
         "p":        null,
         "asc":      [{"@id": "var:asc"}],
         "gen":      [{"@id": "var:gen"}],
-        "attr":     [{"@id": "var:attr1"}]
+        "attr":     [{"@id": "var:attr1"}],
+
+
+        "aprops":   null,
+        "avalues":  null,
+        "gprops":   null,
+        "gvalues":  null,
+        "eprops":   null,
+        "evalues":  null,
+        "gtime":    null,
+        "attrprops": null,
+        "attrvalues": null,
+        "ascprops": null,
+        "ascvalues": null
+
+
     },
     "vargen":  {
         "b": [

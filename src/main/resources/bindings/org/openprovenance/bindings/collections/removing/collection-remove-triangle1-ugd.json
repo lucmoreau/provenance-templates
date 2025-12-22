@@ -11,7 +11,14 @@
         "uvalues":  [[ {"@id": "var:uvalues1"}, {"@id": "provext:asMember"}                      ]],
         "usd":      [  {"@id": "var:usd1"}      ],
         "gen":      [  {"@id": "var:gen"}       ],
-        "der":      [  {"@id": "var:der1"}      ]
+        "der":      [  {"@id": "var:der1"}      ],
+
+        "eprops1":   null,
+        "evalues1":  null,
+        "gprops":    null,
+        "gvalues":   null,
+        "gtime":     null,
+        "utime":     null
     },
     "vargen":  {
         "b": [{"@id": "vargen:b"}]

@@ -14,8 +14,31 @@
 
         "plan":                      [  {"@id" : "var:method"} ],
 
-        "aprops":                   [{"@id" : "var:aprops"}],
-        "avalues":                  [{"@id" : "var:avalues"}]
+        "aprops":                    [  {"@id" : "var:aprops"}],
+        "avalues":                   [  {"@id" : "var:avalues"}],
+
+
+        "gen":                       null,
+        "attr":                      null,
+        "asc":                       null,
+        "usd1":                      null,
+        "usd2":                      null,
+        "der1":                      null,
+        "der2":                      null,
+        "dprops1":                   null,
+        "dvalues1":                  null,
+        "dprops2":                   null,
+        "dvalues2":                  null,
+        "gprops" :                   null,
+        "gvalues":                   null,
+        "ascprops":                  null,
+        "ascvalues":                 null,
+        "uprops1":                   null,
+        "uvalues1":                  null,
+        "uprops2":                   null,
+        "uvalues2":                  null,
+        "attrprops":                 null,
+        "attrvalues":                null
     },
     "vargen" : {
         "b" : [ {

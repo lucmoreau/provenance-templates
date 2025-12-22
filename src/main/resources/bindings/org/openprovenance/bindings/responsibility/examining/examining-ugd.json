@@ -14,7 +14,11 @@
         "usd": [{"@id": "var:usd1"}],
         "der": [{"@id": "var:der1"}],
         "gen": [{"@id": "var:gen1"}],
-        "gtime": [[{"@id": "var:time"}]]
+        "gtime": [[{"@id": "var:time"}]],
+
+        "utime": null,
+        "gprops": null,
+        "gvalues": null
     },
     "vargen":  {
         "b": [{"@id": "vargen:b"}]

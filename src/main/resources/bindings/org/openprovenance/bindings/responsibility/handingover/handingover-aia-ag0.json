@@ -8,7 +8,17 @@
         "ascprops":    [[ {"@id": "prov:role"}]],
         "ascvalues":   [[ {"@id": "var:role0"}]],
         "attr":        [  {"@id": "var:attr0"}],
-        "inv":         [  {"@id": "var:inv0"}]
+        "inv":         [  {"@id": "var:inv0"}],
+
+        "aprops":   null,
+        "avalues":  null,
+        "eprops":   null,
+        "evalues":  null,
+        "invvalues": null,
+        "attrprop": null,
+        "attrvalue": null,
+        "invtime": null,
+        "invprops": null
 
     },
     "vargen":  {

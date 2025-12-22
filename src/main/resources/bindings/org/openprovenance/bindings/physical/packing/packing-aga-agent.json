@@ -5,7 +5,24 @@
         "activity": [ {"@id": "var:adding"}     ],
         "asc":      [ {"@id": "var:asc1"}       ],
         "gen":      [ {"@id": "var:gen0"}       ],
-        "p":        null
+        "p":        null,
+
+
+        "aprops":   null,
+        "avalues":  null,
+        "gprops":   null,
+        "gvalues":  null,
+        "eprops":   null,
+        "evalues":  null,
+        "gtime":    null,
+        "attrprops": null,
+        "attrvalues": null,
+        "ascprops": null,
+        "ascvalues": null,
+
+        "attr":      null
+
+
     },
     "vargen":  {
         "b": [{"@id": "vargen:b"}]

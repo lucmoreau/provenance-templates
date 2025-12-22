@@ -11,7 +11,14 @@
         "eprops1" : [[ {"@id": "var:iprops1"}  ]],
         "evalues1" :[[ {"@id": "var:ivalues1"} ]],
         "usd":      [  {"@id": "var:usd1"}      ],
-        "gen":      [  {"@id": "var:gen2"}      ]
+        "gen":      [  {"@id": "var:gen2"}      ],
+
+        "aprops":    null,
+        "avalues":   null,
+        "gtime":     null,
+        "utime":     null,
+        "uprops":    null,
+        "uvalues":   null
 
     },
     "vargen":  {

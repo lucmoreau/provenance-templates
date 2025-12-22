@@ -5,7 +5,15 @@
         "e1":       [ {"@id": "var:item1"} ],
         "der":      [ {"@id": "var:der3"}  ],
         "spec0":    [ {"@id": "var:spec2"} ],
-        "spec1":    [ {"@id": "var:spec3"} ]
+        "spec1":    [ {"@id": "var:spec3"} ],
+
+        "dprops":   null,
+        "dvalues":  null,
+        "sprops1":  null,
+        "svalues1": null,
+        "eprops1":  null,
+        "evalues1": null
+
     },
     "vargen":  {
         "b": [{"@id": "vargen:b"}]

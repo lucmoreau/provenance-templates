@@ -5,7 +5,23 @@
         "adding":     [  {"@id": "var:inserting"} ],
         "gen0":       [  {"@id": "var:gen1"}      ],
         "gen1":       [  {"@id": "var:gen0"}      ],
-        "mem":        [  {"@id": "var:mem"}       ]
+        "mem":        [  {"@id": "var:mem"}       ],
+
+        "cprops":     null,
+        "cvalues":    null,
+        "mprops":     null,
+        "mvalues":    null,
+        "aprops":     null,
+        "avalues":    null,
+        "iprops":     null,
+        "ivalues":    null,
+        "gvalues1":   null,
+        "gprops1":    null,
+        "gprops0":    null,
+        "gvalues0":   null,
+        "startTime":  null,
+        "endTime":    null,
+        "gtime":      null
 
     },
     "vargen":  {

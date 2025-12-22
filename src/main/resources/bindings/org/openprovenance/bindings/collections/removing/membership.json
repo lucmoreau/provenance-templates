@@ -1,8 +1,10 @@
 {
     "var": {
-        "mem":        [ {"@id": "var:mem0"}  ],
-        "collection": [ {"@id": "var:coll0"} ],
-        "entity":     [ {"@id": "var:item0"} ]
+        "mem":        [ {"@id": "var:mem0"}    ],
+        "collection": [ {"@id": "var:coll0"}   ],
+        "entity":     [ {"@id": "var:item0"}   ],
+        "mprop":      [ {"@id": "var:mprops"}  ],
+        "mvalue":     [ {"@id": "var:mvalues"} ]
     },
     "vargen":  {
         "b": [{"@id": "vargen:b"}]

@@ -7,8 +7,21 @@
         "p":         [  {"@id": null}],
         "ascprops":  [[ {"@id": "prov:role"}]],
         "ascvalues": [[ {"@id": "resp:asAgent"}]],
-	"attr":      [  {"@id": "var:attr1"}],
-        "gen":       [  {"@id": "var:gen1"}]
+        "attr":      [  {"@id": "var:attr1"}],
+        "gen":       [  {"@id": "var:gen1"}],
+
+
+        "aprops":   null,
+        "avalues":  null,
+        "gprops":   null,
+        "gvalues":  null,
+        "eprops":   null,
+        "evalues":  null,
+        "gtime":    null,
+        "attrprops": null,
+        "attrvalues": null
+
+
 
     },
     "vargen":  {

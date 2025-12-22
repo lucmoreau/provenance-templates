@@ -13,7 +13,23 @@
         "plan":                     [  {"@id" : "var:method"} ],
 
         "aprops":                   [{"@id" : "var:aprops"}],
-        "avalues":                  [{"@id" : "var:avalues"}]
+        "avalues":                  [{"@id" : "var:avalues"}],
+
+        "usd":                      null,
+        "der":                      null,
+        "gen":                      null,
+        "attr":                     null,
+        "asc":                      null,
+        "dprops":                   null,
+        "dvalues":                  null,
+        "gprops" :                  null,
+        "gvalues":                  null,
+        "ascprops":                 null,
+        "ascvalues":                null,
+        "uprops":                   null,
+        "uvalues":                  null,
+        "attrprops":                null,
+        "attrvalues":               null
 
     },
     "vargen" : {

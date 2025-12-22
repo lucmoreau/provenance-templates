@@ -1,25 +1,38 @@
 {
     "var": {
 
-        "e": [{"@id": "var:e1"}],
-        "ag": [{"@id": "var:instrument"}],
-        "activity": [{"@id": "var:examining"}],
-        "asc": [{"@id": "var:asc2"}],
-        "p": [{"@id": null}],
-        "ascprops": [[{"@id": "prov:role"}]],
-        "ascvalues": [[{"@id": "resp:asInstrument"}]],
-        "attr": [{"@id": "var:attr2"}],
-        "gen": [{"@id": "var:gen1"}]
+        "e":          [{"@id": "var:e1"}],
+        "ag":         [{"@id": "var:instrument"}],
+        "activity":   [{"@id": "var:examining"}],
+        "asc":        [{"@id": "var:asc2"}],
+        "p":          null,
+        "ascprops":   [[{"@id": "prov:role"}]],
+        "ascvalues":  [[{"@id": "resp:asInstrument"}]],
+        "attr":       [{"@id": "var:attr2"}],
+        "gen":        [{"@id": "var:gen1"}],
+
+
+        "aprops":   null,
+        "avalues":  null,
+        "gprops":   null,
+        "gvalues":  null,
+        "eprops":   null,
+        "evalues":  null,
+        "gtime":    null,
+        "attrprops": null,
+        "attrvalues": null
+
+
 
     },
     "vargen":  {
         "b": [{"@id": "vargen:b"}]
     },
     "context":  {
-        "var" : "${var_ns}",
+        "var" :    "${var_ns}",
         "vargen" : "${vargen_ns}",
-        "prov": "${prov_ns}",
+        "prov":    "${prov_ns}",
         "provext": "${provext_ns}",
-        "resp": "${resp_ns}"
+        "resp":    "${resp_ns}"
     }
 }

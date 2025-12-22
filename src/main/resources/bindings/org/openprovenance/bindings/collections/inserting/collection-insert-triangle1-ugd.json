@@ -11,7 +11,15 @@
         "uprops":   [[ {"@id": "var:uprops1"},  {"@id": "prov:role"}                           ]],
         "uvalues":  [[ {"@id": "var:uvalues1"}, {"@id": "provext:asMember"}                    ]],
         "usd":      [  {"@id": "var:usd1"}      ],
-        "gen":      [  {"@id": "var:gen0"}      ]
+        "gen":      [  {"@id": "var:gen0"}      ],
+
+        "eprops1":   null,
+        "evalues1":  null,
+        "gprops":    null,
+        "gvalues":   null,
+        "gtime":     null,
+        "utime":     null
+
 
 
     },

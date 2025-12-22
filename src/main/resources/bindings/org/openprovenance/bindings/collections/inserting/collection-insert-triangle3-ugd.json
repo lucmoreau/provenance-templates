@@ -13,7 +13,13 @@
         "gprops":    [[ {"@id": "var:gprops1"},  {"@id": "prov:role"}                  ]],
         "gvalues":   [[ {"@id": "var:gvalues1"}, {"@id": "provext:asMember"}           ]],
         "usd":       [  {"@id": "var:usd1"}],
-        "gen":       [  {"@id": "var:gen1"}]
+        "gen":       [  {"@id": "var:gen1"}],
+
+        "aprops":    null,
+        "avalues":   null,
+        "gtime":     null,
+        "utime":     null
+
 
     },
     "vargen":  {

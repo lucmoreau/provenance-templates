@@ -17,6 +17,9 @@
 
         "usd":                      null,
         "der":                      null,
+        "gen":                      null,
+        "attr":                     null,
+        "asc":                      null,
         "dprops":                   null,
         "dvalues":                  null,
         "gprops" :                  null,
