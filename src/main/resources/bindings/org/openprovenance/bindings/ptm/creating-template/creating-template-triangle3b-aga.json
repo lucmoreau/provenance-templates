@@ -21,31 +21,26 @@
                 "@id": "var:dc"
             }
         ],
-        "pprops": [
-            [
-                {
-                    "@id": "prov:value"
-                },
-                {
-                    "@id": "prov:type"
-                }
-            ]
-        ],
-        "pvalues": [
-            [
-                {
-                    "@id": "var:dcvalue"
-                },
-                {
-                    "@id": "ptm:DesignConsiderations"
-                }
-            ]
-        ],
         "asc": [
             {
                 "@id": "var:asc2"
             }
-        ]
+        ],
+
+
+        "aprops": null,
+        "ascprops": null,
+        "ascvalues": null,
+        "attr": null,
+        "attrprops": null,
+        "attrvalues": null,
+        "avalues": null,
+        "eprops": null,
+        "evalues": null,
+        "gen": null,
+        "gprops": null,
+        "gtime": null,
+        "gvalues": null
 
 
     },

@@ -150,6 +150,7 @@
                                 <arg>${bindings.dir}/org/openprovenance/bindings/examples/derivation-e0-e1.json</arg>
                                 <arg>${bindings.dir}/org/openprovenance/bindings/examples/derivation-e0-e2.json</arg>
 
+                                
                                 <arg>${bindings.dir}/org/openprovenance/bindings/ptm/creating-template/creating-template-triangle1-ugd.json</arg>
                                 <arg>${bindings.dir}/org/openprovenance/bindings/ptm/creating-template/creating-template-triangle3a-aga.json</arg>
                                 <arg>${bindings.dir}/org/openprovenance/bindings/ptm/creating-template/creating-template-triangle3b-aga.json</arg>

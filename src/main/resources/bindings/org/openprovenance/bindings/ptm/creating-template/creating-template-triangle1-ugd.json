@@ -85,7 +85,15 @@
 
                 }
             ]
-        ]
+        ],
+
+        "der": null,
+        "gen": null,
+        "gprops": null,
+        "gtime": null,
+        "gvalues": null,
+        "usd": null,
+        "utime": null
     },
     "vargen":  {
         "b": [
