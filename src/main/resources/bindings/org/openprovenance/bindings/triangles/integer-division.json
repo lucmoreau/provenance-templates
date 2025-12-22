@@ -1,91 +1,16 @@
 
 {
     "var": {
-        "e0": [
-            {
-                "@id": "var:dividend"
-            },
-            {
-                "@id": "var:divisor"
-            }
-        ],
-        "e1": [
-            {
-                "@id": "var:quotient"
-            },
-            {
-                "@id": "var:remainder"
-            }
-        ],"a": [
-            {
-                "@id": "var:division"
-            }
-        ],
-        "entityType0": [[
-            {
-                "@id": "xsd:int"
-            }
-        ],
-            [
-                {
-                    "@id": "xsd:int"
-                }
-            ]],
-        "eprop0": [[
-            {
-                "@id": "prov:value"
-            }
-        ],
-            [
-                {
-                    "@id": "prov:value"
-                }
-            ]],
-        "evalue0": [[
-            {
-                "@id": "var:v_dividend"
-            }
-        ],
-            [
-                {
-                    "@id": "var:v_divisor"
-                }
-            ]],
-        "entityType1": [[
-            {
-                "@id": "xsd:int"
-            }
-        ],
-            [
-                {
-                    "@id": "xsd:int"
-                }
-            ]],
-        "eprop1": [[
-            {
-                "@id": "prov:value"
-            }
-        ],
-            [
-                {
-                    "@id": "prov:value"
-                }
-            ]],
-        "evalue1": [[
-            {
-                "@id": "var:v_quotient"
-            }
-        ],
-            [
-                {
-                    "@id": "var:v_remainder"
-                }
-            ]],
-        "activityType": [[
-            {
-                "@id": "ex:IntegerDivision"
-            }
-        ]]
+        "e0": [{"@id": "var:dividend"}, {"@id": "var:divisor"}],
+        "e1": [{"@id": "var:quotient"}, {"@id": "var:remainder"}],
+        "a": [{"@id": "var:division"}],
+        "entityType0": [[{"@id": "xsd:int"}], [{"@id": "xsd:int"}]],
+        "eprop0": [[{"@id": "prov:value"}], [{"@id": "prov:value"}]],
+        "evalue0": [[{"@id": "var:v_dividend"}], [{"@id": "var:v_divisor"}]],
+        "entityType1": [[{"@id": "xsd:int"}], [{"@id": "xsd:int"}]],
+        "eprop1": [[{"@id": "prov:value"}], [{"@id": "prov:value"}]],
+        "evalue1": [[{"@id": "var:v_quotient"}], [{"@id": "var:v_remainder"}]],
+        "activityType": [[{"@id": "ex:IntegerDivision"}]]
     },
     "vargen": {
         "bundle": [{
