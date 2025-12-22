@@ -12,7 +12,10 @@
         "oprops":                    [[ {"@id": "fs:filename"},  {"@id" : "fs:path"},  {"@id" : "var:oprops"}  ]],
         "ovalues":                   [[ {"@id": "var:filename"}, {"@id" : "var:path"}, {"@id" : "var:ovalues"} ]],
 
-        "plan":                      [  {"@id" : "var:method"} ]
+        "plan":                      [  {"@id" : "var:method"} ],
+
+        "aprops":                   [{"@id" : "var:aprops"}],
+        "avalues":                  [{"@id" : "var:avalues"}]
     },
     "vargen" : {
         "b" : [ {

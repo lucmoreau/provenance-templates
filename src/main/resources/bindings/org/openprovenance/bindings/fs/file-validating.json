@@ -10,7 +10,23 @@
         "oprops":                   [[{"@id": "fs:createdAt"},{"@id": "prov:value"},      {"@id" : "var:oprops"}]],
         "ovalues":                  [[{"@id": "var:time"},    {"@id": "var:score_value"}, {"@id" : "var:ovalues"}]],
         "start" :                   [{"@id" : "var:startTime"}],
-        "end" :                     [{"@id" : "var:endTime"}]
+        "end" :                     [{"@id" : "var:endTime"}],
+
+        "aprops":                   [{"@id" : "var:aprops"}],
+        "avalues":                  [{"@id" : "var:avalues"}],
+
+        "usd":                      null,
+        "der":                      null,
+        "dprops":                   null,
+        "dvalues":                  null,
+        "gprops" :                  null,
+        "gvalues":                  null,
+        "ascprops":                 null,
+        "ascvalues":                null,
+        "uprops":                   null,
+        "uvalues":                  null,
+        "attrprops":                null,
+        "attrvalues":               null
     },
     "vargen" : {
         "b" : [ {

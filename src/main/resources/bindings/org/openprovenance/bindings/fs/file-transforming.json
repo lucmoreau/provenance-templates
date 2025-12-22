@@ -18,7 +18,20 @@
 
         "asc":                      [ {"@id" : "var:asc"}  ],
         "gen":                      [ {"@id" : "var:gen"}  ],
-        "attr":                     [ {"@id" : "var:attr"} ]
+        "attr":                     [ {"@id" : "var:attr"} ],
+
+        "usd":                      null,
+        "der":                      null,
+        "dprops":                   null,
+        "dvalues":                  null,
+        "gprops" :                  null,
+        "gvalues":                  null,
+        "ascprops":                 null,
+        "ascvalues":                null,
+        "uprops":                   null,
+        "uvalues":                  null,
+        "attrprops":                null,
+        "attrvalues":               null
     },
     "vargen" : {
         "b" : [ {

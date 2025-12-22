@@ -27,7 +27,8 @@
         "attrprops":                [[ {"@id": "var:attrprops1"}],    [{"@id" : "var:attrprops2"}]],
         "attrvalues":               [[ {"@id": "var:attrvalues1"}],   [{"@id" : "var:attrvalues2"}]],
         "ascprops":                 [[ {"@id": "var:ascprops"}]],
-        "ascvalues":                [[ {"@id": "var:ascvalues"}]]
+        "ascvalues":                [[ {"@id": "var:ascvalues"}]],
+        "asc":                      [{"@id" : "var:asc"}]
     },
     "vargen" : {
         "b" : [ {

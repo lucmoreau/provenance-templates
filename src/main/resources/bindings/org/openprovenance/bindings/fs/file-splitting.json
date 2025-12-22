@@ -14,7 +14,10 @@
         "ovalues1":                  [[ {"@id": "var:filename1"},  {"@id" : "var:path1"}, {"@id" : "var:ovalues1"} ]],
         "oprops2":                   [[ {"@id": "fs:filename"}, {"@id" : "fs:path"}, {"@id" : "var:oprops2"}  ]],
         "ovalues2":                  [[ {"@id": "var:filename2"},  {"@id" : "var:path2"},  {"@id" : "var:ovalues2"} ]],
-        "plan":                      [{"@id" : "var:method"}]
+        "plan":                      [{"@id" : "var:method"}],
+
+        "aprops":                   [{"@id" : "var:aprops"}],
+        "avalues":                  [{"@id" : "var:avalues"}]
     },
     "vargen" : {
         "b" : [ {

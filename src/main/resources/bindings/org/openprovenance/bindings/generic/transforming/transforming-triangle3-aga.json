@@ -13,6 +13,12 @@
         "ascprops":   [[{"@id": "var:ascprops"}]],
         "ascvalues":  [[{"@id": "var:ascvalues"}]],
 
+        "aprops":   null,
+        "avalues":  null,
+        "gprops":   null,
+        "gvalues":  null,
+        "eprops":   null,
+        "evalues":  null,
         "gtime":    null
     },
     "vargen":  {

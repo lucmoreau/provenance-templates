@@ -21,6 +21,8 @@
         "gvalues":                  [[ {"@id" : "var:gvalues1"}],     [{"@id" : "var:gvalues2"} ]],
         "attrprops":                [[ {"@id": "var:attrprops1"}],    [{"@id" : "var:attrprops2"}]],
         "attrvalues":               [[ {"@id": "var:attrvalues1"}],   [{"@id" : "var:attrvalues2"}]],
+        "ascprops":                 [[ {"@id": "var:ascprops"}]],
+        "ascvalues":                [[ {"@id": "var:ascvalues"}]],
 
         "attr":                     [{"@id" : "var:attr1"}, {"@id" : "var:attr2"}],
         "usd":                      [{"@id" : "var:usd1"},  {"@id" : "var:usd2"} ],

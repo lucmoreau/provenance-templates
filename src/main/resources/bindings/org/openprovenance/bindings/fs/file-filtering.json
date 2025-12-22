@@ -12,10 +12,25 @@
         "oprops":                   [[ {"@id": "fs:filename"},  {"@id" : "fs:path"},  {"@id" : "var:oprops"}  ]],
         "ovalues":                  [[ {"@id": "var:filename"}, {"@id" : "var:path"}, {"@id" : "var:ovalues"} ]],
 
+        "aprops":                   [{"@id" : "var:aprops"}],
+        "avalues":                  [{"@id" : "var:avalues"}],
 
         "asc":                      null,
         "gen":                      null,
-        "attr":                     null
+        "attr":                     null,
+
+        "usd":                      null,
+        "der":                      null,
+        "dprops":                   null,
+        "dvalues":                  null,
+        "gprops" :                  null,
+        "gvalues":                  null,
+        "ascprops":                 null,
+        "ascvalues":                null,
+        "uprops":                   null,
+        "uvalues":                  null,
+        "attrprops":                null,
+        "attrvalues":               null
     },
     "vargen" : {
         "b" : [ {

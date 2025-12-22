@@ -31,7 +31,9 @@
         "der":                      [{"@id" : "var:der1"},{"@id" : "var:der2"}],
         "usd":                      [{"@id" : "var:usd1"},{"@id" : "var:usd2"}],
         "gen":                      [{"@id" : "var:gen"}],
-        "attr":                     [{"@id" : "var:attr"}]
+        "attr":                     [{"@id" : "var:attr"}],
+        "asc":                      [{"@id" : "var:asc"}]
+
     },
     "vargen" : {
         "b" : [ {
