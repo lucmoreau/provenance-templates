@@ -6,7 +6,7 @@
         "input2" :                  [  {"@id" : "var:bindings"}],
         "agent" :                   [  {"@id" : "var:agent"}],
         "plan":                     null,
-        "transforming" :            [  {"@id" : "vargen:expanding"}],
+        "transforming" :            [  {"@id" : "vargen:instantiating"}],
         "oprops1" :                 [  {"@id" : "ptm:createdAt"}],
         "ovalues1" :                [[ {"@id" : "var:time"}]],
         "oprops2" :                 [  {"@id" : "ptm:createdAt"}],
@@ -48,8 +48,8 @@
         "uvalues2":                 null
     },
     "vargen" : {
-        "view" : [ {
-            "@id" : "vargen:view"
+        "b" : [ {
+            "@id" : "vargen:b"
         } ]
     },
     "linked": {"prop_values":  "props"},

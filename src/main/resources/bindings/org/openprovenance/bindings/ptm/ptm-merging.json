@@ -49,8 +49,8 @@
         "uvalues2":                 null
     },
     "vargen" : {
-        "view" : [ {
-            "@id" : "vargen:view"
+        "b" : [ {
+            "@id" : "vargen:b"
         } ]
     },
     "linked": {"prop_values":  "props"},
