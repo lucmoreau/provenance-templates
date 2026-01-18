@@ -94,8 +94,8 @@ public class File2Workflow implements Workflow {
 
 
         File_transforming_compositeInputs fileTransformingCompositeInputs=new File_transforming_compositeInputs();
-        fileTransformingCompositeInputs.__addElements(fileTransformingInputs3);
-        fileTransformingCompositeInputs.__addElements(fileTransformingInputs4);
+        fileTransformingCompositeInputs.addElements(fileTransformingInputs3);
+        fileTransformingCompositeInputs.addElements(fileTransformingInputs4);
         fileTransformingCompositeInputs.count=2;
 
         File_transforming_compositeOutputs fileTransformingCompositeOutputs=fs_templateInvoker.process(fileTransformingCompositeInputs);

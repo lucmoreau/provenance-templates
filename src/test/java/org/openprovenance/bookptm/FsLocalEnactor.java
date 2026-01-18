@@ -79,7 +79,7 @@ public class FsLocalEnactor extends BeanLocalEnactor2 {
         File_transforming_compositeBean fileTransformingCompositeBean=new File_transforming_compositeBean();
         for(File_transformingInputs_1 b: bean.__elements) {
             File_transformingBean fileTransformingBean=merge(b, null);
-            fileTransformingCompositeBean.__addElements(fileTransformingBean);
+            fileTransformingCompositeBean.addElements(fileTransformingBean);
         }
         fileTransformingCompositeBean.count=bean.__elements.size();
         fileTransformingCompositeBean.type=new File_transformingBean().isA;
@@ -133,12 +133,12 @@ public class FsLocalEnactor extends BeanLocalEnactor2 {
         if (fileTransformingOutputs==null) {
             Object[] fileIn= builder.aArgs2RecordConverter().process(in.transformed_file,in.filename,in.file,in.method,in.engineer, in.transforming,in.path,in.time,in.start,in.end);
             Object[] file = merge(fileIn, null);
-            return builder.toBean(file);
+            return builder.record2bean(file);
         } else {
             Object[] fileIn= in.process(builder.aArgs2RecordConverter());
             Object[] fileOut = fileTransformingOutputs.process(builder.aArgs2RecordConverter());
             Object[] file = merge(fileIn, fileOut);
-            return builder.toBean(file);
+            return builder.record2bean(file);
         }
     }
 
@@ -147,14 +147,14 @@ public class FsLocalEnactor extends BeanLocalEnactor2 {
         Object[] fileIn= fileTransformingInputs.process(builder.aArgs2RecordConverter());
         Object[] fileOut= fileTransformingOutputs.process(builder.aArgs2RecordConverter());
         Object[] file=merge(fileIn, fileOut);
-        return builder.toBean(file);
+        return builder.record2bean(file);
     }
     private File_initBean merge(File_initInputs fileInitInputs, File_initOutputs fileInitOutputs) {
         File_initBuilder builder=new File_initBuilder();
         Object[] fileIn= fileInitInputs.process(builder.aArgs2RecordConverter());
         Object[] fileOut= fileInitOutputs.process(builder.aArgs2RecordConverter());
         Object[] file=merge(fileIn, fileOut);
-        return builder.toBean(file);
+        return builder.record2bean(file);
     }
 
     private File_transforming_compositeBean merge(File_transforming_compositeInputs bean, File_transforming_compositeOutputs out) {
@@ -164,7 +164,7 @@ public class FsLocalEnactor extends BeanLocalEnactor2 {
             Object[] transformingIn = bean.__elements.get(i).process(build.aArgs2RecordConverter());
             Object[]transformingOut = out.__elements.get(i).process(build.aArgs2RecordConverter());
             Object[] transforming = merge(transformingIn, transformingOut);
-            res.__addElements(build.toBean(transforming));
+            res.addElements(build.record2bean(transforming));
         }
         res.count=bean.__elements.size();
         return res;

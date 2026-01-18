@@ -100,8 +100,8 @@ public class BoxWorkflow {
 
 
         Packing_compositeInputs packing_compositeInputs=new Packing_compositeInputs();
-        packing_compositeInputs.__addElements(packingInputs_1);
-        packing_compositeInputs.__addElements(packingInputs_2);
+        packing_compositeInputs.addElements(packingInputs_1);
+        packing_compositeInputs.addElements(packingInputs_2);
         packing_compositeInputs.count=2;
         Packing_compositeOutputs packing_compositeOutputs=templateInvoker.process(packing_compositeInputs);
         generateConnections(packing_compositeOutputs.__elements.get(0),5);  // note, process first 5 only
@@ -282,8 +282,8 @@ public class BoxWorkflow {
 
 
         Unpacking_compositeInputs unpacking_compositeInputs=new Unpacking_compositeInputs();
-        unpacking_compositeInputs.__addElements(unpackingInputs1);
-        unpacking_compositeInputs.__addElements(unpackingInputs2);
+        unpacking_compositeInputs.addElements(unpackingInputs1);
+        unpacking_compositeInputs.addElements(unpackingInputs2);
         unpacking_compositeInputs.count=2;
         Unpacking_compositeOutputs unpacking_compositeOutputs=templateInvoker.process(unpacking_compositeInputs);
         generateConnections(unpacking_compositeOutputs.__elements.get(0),4);  // note, process first 4 only
