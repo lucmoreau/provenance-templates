@@ -16,12 +16,8 @@
         "bundle": [{
             "@id": "vargen:bun"
         }],
-        "u": [{
-            "@id": null
-        }],
-        "g": [{
-            "@id": null
-        }]
+        "u": null,
+        "g": null
     },
     "context": {
         "ex": "http://example.org/#",
