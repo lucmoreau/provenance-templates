@@ -489,6 +489,24 @@
                     </execution>
 
                     <execution>
+                        <id>instantiate.primitive.attribution-nameless.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/primitive/attribution-nameless.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/primitive/attribution-with-id.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/attribution-with-id.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
                         <id>convert.primitive.attribution.svg</id>
                         <phase>test</phase>
                         <goals>
@@ -506,6 +524,24 @@
                     </execution>
 
                     <execution>
+                        <id>convert.primitive.attribution-nameless.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-qualified</arg>
+                                <arg>-infile</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/primitive/attribution-nameless.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/attribution-nameless.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+                    <execution>
                         <id>convert.primitive.attribution-with-optionality.svg</id>
                         <phase>test</phase>
                         <goals>
@@ -521,6 +557,24 @@
                             </args>
                         </configuration>
                     </execution>
+
+                    <execution>
+                        <id>convert.primitive.attribution-with-id.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-qualified</arg>
+                                <arg>-infile</arg>
+                                <arg>${project.build.directory}/attribution-with-id.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/attribution-with-id.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
 
                     <execution>
                         <id>instantiate.example.simple-derivation.e0-e1.jsonld</id>

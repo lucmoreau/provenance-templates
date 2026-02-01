@@ -11,11 +11,20 @@
     }, "http://openprovenance.org/prov.jsonld" ],
     "@id" : "vargen:b",
     "@graph" : [ {
+      "@type" : "Attribution",
+      "entity": "var:entity",
+      "agent": "var:agent",
+      "var:attrprops" : [ "var:attrvalues" ]
+    },
+    {
       "@type" : "Entity",
-      "@id" : "var:entity",
-      "type" : [ "var:tvalue" ],        
-      "var:eprops" : [ "var:evalues" ]
+      "@id" : "var:entity"
+    },
+    {
+      "@type" : "Agent",
+      "@id" : "var:agent"
     }
+
     ]
   }
   ]

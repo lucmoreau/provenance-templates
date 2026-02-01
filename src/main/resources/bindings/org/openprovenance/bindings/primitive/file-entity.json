@@ -12,14 +12,14 @@
                 "@id": "var:file"
             }
         ],
-        "prop": [
+        "eprops": [
             [
                 {
                     "@id": "ex:size"
                 }
             ]
         ],
-        "pvalue": [
+        "evalues": [
             [
                 {
                     "@id": "var:size"

@@ -1,12 +1,5 @@
 {
     "var": {
-        "id": [
-
-                {
-                    "@id": "var:id"
-                }
-
-        ],
         "entity": [
             {
                 "@id": "var:entity"
@@ -23,7 +16,7 @@
                     "@id": "var:attrprops"
                 },
                 {
-                    "@id": "tmpl:if"
+                    "@id": "tmpl:ID"
                 }
             ]
 
@@ -34,7 +27,7 @@
                     "@id": "var:attrvalues"
                 },
                 {
-                    "@id": "var:decision"
+                    "@id": "var:myId"
                 }
             ]
         ]
