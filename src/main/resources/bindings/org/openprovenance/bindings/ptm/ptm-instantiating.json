@@ -13,7 +13,7 @@
         "ovalues2" :                [[ {"@id" : "var:time"}]],
         "otype1" :                  [[ {"@id" : "ptm:ProvDocument"}]],
         "otype2" :                  [[ {"@id" : "ptm:CompactBindings"}]],
-        "atype" :                   [[ {"@id" : "ptm:ExpandingTemplate"}]],
+        "atype" :                   [[ {"@id" : "ptm:InstantiatingTemplate"}]],
 
         "aprops":                   null,
         "asc":                      null,

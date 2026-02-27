@@ -1329,10 +1329,22 @@
                                         <includes>[^/]+\.json$</includes> <!-- note this is a java regex *-->
                                     </includes>
                                 </schema>
+                                <schema>
+                                    <directory>${project.build.directory}/fs_template_library/fs_template_library_cli/src/main/resources</directory>
+                                    <includes>
+                                        <includes>[^/]+\.json$</includes> <!-- note this is a java regex *-->
+                                    </includes>
+                                </schema>
                             </schema>
                             <sql>
                                 <sql>
                                     <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources</directory>
+                                    <includes>
+                                        <includes>[^/]+\.sql</includes> <!-- note this is a java regex *-->
+                                    </includes>
+                                </sql>
+                                <sql>
+                                    <directory>${project.build.directory}/fs_template_library/fs_template_library_cli/src/main/resources</directory>
                                     <includes>
                                         <includes>[^/]+\.sql</includes> <!-- note this is a java regex *-->
                                     </includes>
@@ -1471,9 +1483,7 @@
                         </goals>
                         <configuration>
                             <target>
-                                <!--
-                                <mkdir dir="${project.build.directory}/generated-sources/transporting_template_library_cli/src/main/java"/> -->
-                                <move todir="${project.build.directory}/generated-sources/${package.name.cli}">
+                                 <move todir="${project.build.directory}/generated-sources/${package.name.cli}">
                                     <fileset dir="${project.build.directory}/transport_template_library/transport_template_library_cli/src/main/java">
                                         <include name="**/*" />
                                     </fileset>
