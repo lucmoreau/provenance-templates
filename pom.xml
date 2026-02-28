@@ -20,8 +20,10 @@
         <package.name.cli>${package.name}_cli</package.name.cli>
         <package.name.l2p>${package.name}_l2p</package.name.l2p>
 
+        <hardcoded.project.version>0.1.0</hardcoded.project.version>
+
         <meta-inf-prefix>META-INF/resources/webjars</meta-inf-prefix>
-        <meta-inf.webjars>${meta-inf-prefix}/${project.artifactId}/${project.version}</meta-inf.webjars>
+        <meta-inf.webjars>${meta-inf-prefix}/${project.artifactId}/${hardcoded.project.version}</meta-inf.webjars>
 
         <templates.dir>${project.basedir}/src/main/resources/templates</templates.dir>
         <bindings.dir>${project.basedir}/src/main/resources/bindings</bindings.dir>
@@ -1352,7 +1354,13 @@
                             </sql>
                             <html>
                                 <html>
-                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources/META-INF/resources/webjars/${package.name.cli}/${prov.toolbox.version}/html/</directory>
+                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources/META-INF/resources/webjars/${package.name.cli}/${hardcoded.project.version}/html/</directory>
+                                    <includes>
+                                        <includes>[^/]+\.html</includes> <!-- note this is a java regex *-->
+                                    </includes>
+                                </html>
+                                <html>
+                                    <directory>${project.build.directory}/fs_template_library/fs_template_library_cli/src/main/resources/META-INF/resources/webjars/fs_template_library_cli/${hardcoded.project.version}/html/</directory>
                                     <includes>
                                         <includes>[^/]+\.html</includes> <!-- note this is a java regex *-->
                                     </includes>
