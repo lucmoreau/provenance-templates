@@ -7,3 +7,10 @@ compile.ttf:
 
 test.py:
 	export PYTHONPATH=/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/target/generated-python/:/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/src/main/python:target/generated-python:src/test/python; python3 src/test/python/org/openprovenance/bookptm/run_box_workflow.py
+
+
+plead.py:
+	export PYTHONPATH=/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/target/generated-python/:/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/src/main/python:target/generated-python:src/test/python; python3 src/test/python/org/openprovenance/bookptm/run_plead_workflow.py
+
+plead.js:
+	node src/test/js/fs-workflow.js

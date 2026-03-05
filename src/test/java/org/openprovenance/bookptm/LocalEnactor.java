@@ -1,6 +1,10 @@
 package org.openprovenance.bookptm;
 
 
+import org.openprovenance.book.fs.client.common.File_initBean;
+import org.openprovenance.book.fs.client.common.File_initBuilder;
+import org.openprovenance.book.fs.client.integrator.File_initInputs;
+import org.openprovenance.book.fs.client.integrator.File_initOutputs;
 import org.openprovenance.templates.catalogue.transport.integrator.BeanLocalEnactor2;
 import org.openprovenance.book.physical.client.common.*;
 import org.openprovenance.book.physical.client.integrator.*;
@@ -224,7 +228,7 @@ public class LocalEnactor extends BeanLocalEnactor2 {
     }
 
 
-        private WeighingBean merge(WeighingInputs weighingInputs, WeighingOutputs weighingOutputs) {
+    private WeighingBean merge(WeighingInputs weighingInputs, WeighingOutputs weighingOutputs) {
         WeighingBuilder builder=new WeighingBuilder();
         Object[] weighingIn= weighingInputs.process(builder.aArgs2RecordConverter());
         Object[] weighingOut= weighingOutputs.process(builder.aArgs2RecordConverter());
@@ -247,6 +251,15 @@ public class LocalEnactor extends BeanLocalEnactor2 {
         Object[] item=merge(itemIn, itemOut);
         return builder.record2bean(item);
     }
+
+    private File_initBean merge(File_initInputs bean, File_initOutputs out) {
+        File_initBuilder builder=new File_initBuilder();
+        Object[] itemIn= bean.process(builder.aArgs2RecordConverter());
+        Object[] itemOut= out.process(builder.aArgs2RecordConverter());
+        Object[] item=merge(itemIn, itemOut);
+        return builder.record2bean(item);
+    }
+
 
 
     private TransportingBean merge(TransportingInputs transportingInputs, TransportingOutputs transportingOutputs) {
