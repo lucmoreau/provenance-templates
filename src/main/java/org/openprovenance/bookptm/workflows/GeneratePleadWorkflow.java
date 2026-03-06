@@ -199,45 +199,45 @@ public class GeneratePleadWorkflow {
     private void addTransformingBlock(Method method) {
         method.BODY(
                 DEFINITION(FILE_TRANSFORMING_INPUTS, VARIABLE("transformingInputs"),
-                        CONSTRUCTOR_CALL(FILE_TRANSFORMING_INPUTS, List.of())));
+                        CONSTRUCTOR_CALL(FILE_TRANSFORMING_INPUTS, List.of())),
 
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("transformingInputs"), "filename"),
-                BINARY_OP(VARIABLE("filenameRoot"), "+", CONSTANT("-transformed.csv"))));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("transformingInputs"), "filename"),
+                        BINARY_OP(VARIABLE("filenameRoot"), "+", CONSTANT("-transformed.csv"))),
 
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("transformingInputs"), "file"),
-                VARIABLE("oldFileId")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("transformingInputs"), "file"),
+                        VARIABLE("oldFileId")),
 
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("transformingInputs"), "method"),
-                VARIABLE("tmethod")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("transformingInputs"), "method"),
+                        VARIABLE("tmethod")),
 
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("transformingInputs"), "engineer"),
-                VARIABLE("engineer")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("transformingInputs"), "engineer"),
+                        VARIABLE("engineer")),
 
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("transformingInputs"), "path"),
-                VARIABLE("path")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("transformingInputs"), "path"),
+                        VARIABLE("path")),
 
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("transformingInputs"), "time"),
-                time()));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("transformingInputs"), "time"),
+                        time()),
 
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("transformingInputs"), "start"),
-                VARIABLE("start")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("transformingInputs"), "start"),
+                        VARIABLE("start")),
 
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("transformingInputs"), "end"),
-                VARIABLE("end")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("transformingInputs"), "end"),
+                        VARIABLE("end")),
 
-        method.BODY(nullGuardedAdd("inputs", "transformingInputs"));
+                nullGuardedAdd("inputs", "transformingInputs"),
 
-        method.BODY(process(FILE_TRANSFORMING_OUTPUTS, "transformingOutputs", "transformingInputs"));
+                process(FILE_TRANSFORMING_OUTPUTS, "transformingOutputs", "transformingInputs"),
 
-        method.BODY(nullGuardedAdd("outputs", "transformingOutputs"));
+                nullGuardedAdd("outputs", "transformingOutputs"));
     }
 
     // ---- filtering ----------------------------------------------------------
@@ -245,53 +245,53 @@ public class GeneratePleadWorkflow {
     private void addFilteringBlock(Method method) {
         method.BODY(
                 DEFINITION(FILE_FILTERING_INPUTS, VARIABLE("filteringInputs"),
-                        CONSTRUCTOR_CALL(FILE_FILTERING_INPUTS, List.of())));
+                        CONSTRUCTOR_CALL(FILE_FILTERING_INPUTS, List.of())),
 
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("filteringInputs"), "filename"),
-                BINARY_OP(VARIABLE("filenameRoot"), "+", CONSTANT("-filtered.csv"))));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("filteringInputs"), "filename"),
+                        BINARY_OP(VARIABLE("filenameRoot"), "+", CONSTANT("-filtered.csv"))),
 
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("filteringInputs"), "file"),
-                METHOD_CALL(VARIABLE("transformingOutputs"), "transformed_file")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("filteringInputs"), "file"),
+                        METHOD_CALL(VARIABLE("transformingOutputs"), "transformed_file")),
 
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("filteringInputs"), "method"),
-                VARIABLE("fmethod")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("filteringInputs"), "method"),
+                        VARIABLE("fmethod")),
 
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("filteringInputs"), "engineer"),
-                VARIABLE("engineer")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("filteringInputs"), "engineer"),
+                        VARIABLE("engineer")),
 
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("filteringInputs"), "n_rows"),
-                VARIABLE("n_rows")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("filteringInputs"), "n_rows"),
+                        VARIABLE("n_rows")),
 
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("filteringInputs"), "n_cols"),
-                VARIABLE("n_cols")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("filteringInputs"), "n_cols"),
+                        VARIABLE("n_cols")),
 
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("filteringInputs"), "path"),
-                VARIABLE("path")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("filteringInputs"), "path"),
+                        VARIABLE("path")),
 
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("filteringInputs"), "time"),
-                time()));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("filteringInputs"), "time"),
+                        time()),
 
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("filteringInputs"), "start"),
-                VARIABLE("start")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("filteringInputs"), "start"),
+                        VARIABLE("start")),
 
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("filteringInputs"), "end"),
-                VARIABLE("end")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("filteringInputs"), "end"),
+                        VARIABLE("end")),
 
-        method.BODY(nullGuardedAdd("inputs", "filteringInputs"));
+                nullGuardedAdd("inputs", "filteringInputs"),
 
-        method.BODY(process(FILE_FILTERING_OUTPUTS, "filteringOutputs", "filteringInputs"));
+                process(FILE_FILTERING_OUTPUTS, "filteringOutputs", "filteringInputs"),
 
-        method.BODY(nullGuardedAdd("outputs", "filteringOutputs"));
+                nullGuardedAdd("outputs", "filteringOutputs"));
     }
 
     // ---- splitting ----------------------------------------------------------
@@ -335,156 +335,117 @@ public class GeneratePleadWorkflow {
     // ---- training -----------------------------------------------------------
 
     private void addTrainingBlock(Method method) {
-        // File_trainingInputs trainingInputs = new File_trainingInputs();
         method.BODY(
                 DEFINITION(FILE_TRAINING_INPUTS, VARIABLE("trainingInputs"),
-                        CONSTRUCTOR_CALL(FILE_TRAINING_INPUTS, List.of())));
+                        CONSTRUCTOR_CALL(FILE_TRAINING_INPUTS, List.of())),
 
-        // trainingInputs.filename = filenameRoot + ".pipeline";
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("trainingInputs"), "filename"),
-                BINARY_OP(VARIABLE("filenameRoot"), "+", CONSTANT(".pipeline"))));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("trainingInputs"), "filename"),
+                        BINARY_OP(VARIABLE("filenameRoot"), "+", CONSTANT(".pipeline"))),
 
-        // trainingInputs.training_dataset = splittingOutputs.split_file1;
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("trainingInputs"), "training_dataset"),
-                METHOD_CALL(VARIABLE("splittingOutputs"), "split_file1")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("trainingInputs"), "training_dataset"),
+                        METHOD_CALL(VARIABLE("splittingOutputs"), "split_file1")),
 
-        // trainingInputs.engineer = engineer;
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("trainingInputs"), "engineer"),
-                VARIABLE("engineer")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("trainingInputs"), "engineer"),
+                        VARIABLE("engineer")),
 
-        // trainingInputs.path = path;
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("trainingInputs"), "path"),
-                VARIABLE("path")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("trainingInputs"), "path"),
+                        VARIABLE("path")),
 
-        // trainingInputs.time = pf.newTimeNow().toString();
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("trainingInputs"), "time"),
-                time()));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("trainingInputs"), "time"),
+                        time()),
 
-        // if (inputs!=null) inputs.add(trainingInputs);
-        method.BODY(nullGuardedAdd("inputs", "trainingInputs"));
+                nullGuardedAdd("inputs", "trainingInputs"),
 
-        // File_trainingOutputs trainingOutputs = templateInstantiation.process(trainingInputs);
-        method.BODY(process(FILE_TRAINING_OUTPUTS, "trainingOutputs", "trainingInputs"));
+                process(FILE_TRAINING_OUTPUTS, "trainingOutputs", "trainingInputs"),
 
-        // if (outputs!=null) outputs.add(trainingOutputs);
-        method.BODY(nullGuardedAdd("outputs", "trainingOutputs"));
+                nullGuardedAdd("outputs", "trainingOutputs"));
     }
 
     // ---- validating ---------------------------------------------------------
 
     private void addValidatingBlock(Method method) {
-        // File_validatingInputs validatingInputs = new File_validatingInputs();
         method.BODY(
                 DEFINITION(FILE_VALIDATING_INPUTS, VARIABLE("validatingInputs"),
-                        CONSTRUCTOR_CALL(FILE_VALIDATING_INPUTS, List.of())));
+                        CONSTRUCTOR_CALL(FILE_VALIDATING_INPUTS, List.of())),
 
-        // validatingInputs.score_value = Math.random();
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("validatingInputs"), "score_value"),
-                METHOD_CALL(MATH, "random", List.of())));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("validatingInputs"), "score_value"),
+                        METHOD_CALL(MATH, "random", List.of())),
 
-        // validatingInputs.testing_dataset = splittingOutputs.split_file2;
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("validatingInputs"), "testing_dataset"),
-                METHOD_CALL(VARIABLE("splittingOutputs"), "split_file2")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("validatingInputs"), "testing_dataset"),
+                        METHOD_CALL(VARIABLE("splittingOutputs"), "split_file2")),
 
-        // validatingInputs.engineer = engineer;
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("validatingInputs"), "engineer"),
-                VARIABLE("engineer")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("validatingInputs"), "engineer"),
+                        VARIABLE("engineer")),
 
-        // validatingInputs.path = path;
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("validatingInputs"), "path"),
-                VARIABLE("path")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("validatingInputs"), "path"),
+                        VARIABLE("path")),
 
-        // validatingInputs.time = pf.newTimeNow().toString();
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("validatingInputs"), "time"),
-                time()));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("validatingInputs"), "time"),
+                        time()),
 
-        // if (inputs!=null) inputs.add(validatingInputs);
-        method.BODY(nullGuardedAdd("inputs", "validatingInputs"));
+                nullGuardedAdd("inputs", "validatingInputs"),
 
-        // File_validatingOutputs validatingOutputs = templateInstantiation.process(validatingInputs);
-        method.BODY(process(FILE_VALIDATING_OUTPUTS, "validatingOutputs", "validatingInputs"));
+                process(FILE_VALIDATING_OUTPUTS, "validatingOutputs", "validatingInputs"),
 
-        // if (outputs!=null) outputs.add(validatingOutputs);
-        method.BODY(nullGuardedAdd("outputs", "validatingOutputs"));
+                nullGuardedAdd("outputs", "validatingOutputs"));
     }
 
     // ---- approving ----------------------------------------------------------
 
     private void addApprovingBlock(Method method) {
-        // File_approvingInputs approvingInputs = new File_approvingInputs();
         method.BODY(
                 DEFINITION(FILE_APPROVING_INPUTS, VARIABLE("approvingInputs"),
-                        CONSTRUCTOR_CALL(FILE_APPROVING_INPUTS, List.of())));
+                        CONSTRUCTOR_CALL(FILE_APPROVING_INPUTS, List.of())),
 
-        // approvingInputs.pipeline = trainingOutputs.pipeline;
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("approvingInputs"), "pipeline"),
-                METHOD_CALL(VARIABLE("trainingOutputs"), "pipeline")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("approvingInputs"), "pipeline"),
+                        METHOD_CALL(VARIABLE("trainingOutputs"), "pipeline")),
 
-        // approvingInputs.filename = filenameRoot + ".approved-pipeline";
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("approvingInputs"), "filename"),
-                BINARY_OP(VARIABLE("filenameRoot"), "+", CONSTANT(".approved-pipeline"))));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("approvingInputs"), "filename"),
+                        BINARY_OP(VARIABLE("filenameRoot"), "+", CONSTANT(".approved-pipeline"))),
 
-        // approvingInputs.score = validatingOutputs.score;
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("approvingInputs"), "score"),
-                METHOD_CALL(VARIABLE("validatingOutputs"), "score")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("approvingInputs"), "score"),
+                        METHOD_CALL(VARIABLE("validatingOutputs"), "score")),
 
-        // approvingInputs.signature = "signature";
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("approvingInputs"), "signature"),
-                CONSTANT("signature")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("approvingInputs"), "signature"),
+                        CONSTANT("signature")),
 
-        // approvingInputs.manager = manager;
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("approvingInputs"), "manager"),
-                VARIABLE("manager")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("approvingInputs"), "manager"),
+                        VARIABLE("manager")),
 
-        // approvingInputs.path = path;
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("approvingInputs"), "path"),
-                VARIABLE("path")));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("approvingInputs"), "path"),
+                        VARIABLE("path")),
 
-        // approvingInputs.time = pf.newTimeNow().toString();
-        method.BODY(ASSIGNMENT(
-                METHOD_CALL(VARIABLE("approvingInputs"), "time"),
-                time()));
+                ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("approvingInputs"), "time"),
+                        time()),
 
-        // if (inputs!=null) inputs.add(approvingInputs);
-        method.BODY(nullGuardedAdd("inputs", "approvingInputs"));
+                nullGuardedAdd("inputs", "approvingInputs"),
 
-        // File_approvingOutputs approvingOutputs = templateInstantiation.process(approvingInputs);
-        method.BODY(process(FILE_APPROVING_OUTPUTS, "approvingOutputs", "approvingInputs"));
+                process(FILE_APPROVING_OUTPUTS, "approvingOutputs", "approvingInputs"),
 
-        // if (outputs!=null) outputs.add(approvingOutputs);
-        method.BODY(nullGuardedAdd("outputs", "approvingOutputs"));
+                nullGuardedAdd("outputs", "approvingOutputs"));
     }
 
     // -----------------------------------------------------------------------
     // Helper builders
     // -----------------------------------------------------------------------
 
-    /**
-     * Builds the expression {@code pf.newTimeNow().toString()}.
-     *
-     * <ul>
-     *   <li>{@code METHOD_CALL(VARIABLE("pf"), "newTimeNow", List.of())}
-     *       → OPERATOR_VARIABLE → {@code pf.newTimeNow()}</li>
-     *   <li>{@code METHOD_CALL(above, "toString", List.of())}
-     *       → OBJECT_METHOD_CALL → {@code pf.newTimeNow().toString()}</li>
-     * </ul>
-     */
     private Expression time() {
         return METHOD_CALL(VARIABLE("this"), "time", List.of());
     }
