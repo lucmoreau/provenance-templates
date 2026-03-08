@@ -102,16 +102,10 @@ class LocalEnactor(BeanLocalEnactor2):
     def is_negative(self):
         return self.negative
 
-    # Override process methods to add history tracking
-    # We need to wrap the base implementation and call it directly
 
-    def process(self, bean, *args):
-        """
-        Override process to add history tracking.
-        Uses the parent's methdispatch mechanism and adds tracking.
-        """
+    def process_transportinginputs(self, bean):
         # Call the parent's process method to get the output
-        out = BeanLocalEnactor2.process(self, bean, *args)
+        out = BeanLocalEnactor2.process_transportinginputs(self, bean)
 
         # Add history tracking based on bean type
         bean_type = type(bean).__name__
@@ -119,5 +113,97 @@ class LocalEnactor(BeanLocalEnactor2):
 
         if hasattr(out, 'ID') and out.ID is not None:
             self.id2object[out.ID] = {'type': bean_type, 'output': out}
-
         return out
+        pass
+
+    def process_handingoverinputs(self, bean):
+        # Call the parent's process method to get the output
+        out = BeanLocalEnactor2.process_handingoverinputs(self, bean)
+
+        # Add history tracking based on bean type
+        bean_type = type(bean).__name__
+        self.history.append({'type': bean_type, 'input': bean, 'output': out})
+
+        if hasattr(out, 'ID') and out.ID is not None:
+            self.id2object[out.ID] = {'type': bean_type, 'output': out}
+        return out
+        pass
+
+    def process_weighinginputs(self, bean):
+        # Call the parent's process method to get the output
+        out = BeanLocalEnactor2.process_weighinginputs(self, bean)
+
+        # Add history tracking based on bean type
+        bean_type = type(bean).__name__
+        self.history.append({'type': bean_type, 'input': bean, 'output': out})
+
+        if hasattr(out, 'ID') and out.ID is not None:
+            self.id2object[out.ID] = {'type': bean_type, 'output': out}
+        return out
+        pass
+
+    def process_agent_initinputs(self, bean):
+        # Call the parent's process method to get the output
+        out = BeanLocalEnactor2.process_agent_initinputs(self, bean)
+
+        # Add history tracking based on bean type
+        bean_type = type(bean).__name__
+        self.history.append({'type': bean_type, 'input': bean, 'output': out})
+
+        if hasattr(out, 'ID') and out.ID is not None:
+            self.id2object[out.ID] = {'type': bean_type, 'output': out}
+        return out
+        pass
+
+
+    def process_item_initinputs(self, bean):
+        # Call the parent's process method to get the output
+        out = BeanLocalEnactor2.process_item_initinputs(self, bean)
+
+        # Add history tracking based on bean type
+        bean_type = type(bean).__name__
+        self.history.append({'type': bean_type, 'input': bean, 'output': out})
+
+        if hasattr(out, 'ID') and out.ID is not None:
+            self.id2object[out.ID] = {'type': bean_type, 'output': out}
+        return out
+        pass
+
+    def process_packinginputs(self, bean):
+        # Call the parent's process method to get the output
+        out = BeanLocalEnactor2.process_packinginputs(self, bean)
+
+        # Add history tracking based on bean type
+        bean_type = type(bean).__name__
+        self.history.append({'type': bean_type, 'input': bean, 'output': out})
+
+        if hasattr(out, 'ID') and out.ID is not None:
+            self.id2object[out.ID] = {'type': bean_type, 'output': out}
+        return out
+        pass
+
+    def process_packing_compositeinputs(self, bean):
+        # Call the parent's process method to get the output
+        out = BeanLocalEnactor2.process_packing_compositeinputs(self, bean)
+
+        # Add history tracking based on bean type
+        bean_type = type(bean).__name__
+        self.history.append({'type': bean_type, 'input': bean, 'output': out})
+
+        if hasattr(out, 'ID') and out.ID is not None:
+            self.id2object[out.ID] = {'type': bean_type, 'output': out}
+        return out
+        pass
+
+    def process_unpacking_compositeinputs(self, bean):
+        # Call the parent's process method to get the output
+        out = BeanLocalEnactor2.process_unpacking_compositeinputs(self, bean)
+
+        # Add history tracking based on bean type
+        bean_type = type(bean).__name__
+        self.history.append({'type': bean_type, 'input': bean, 'output': out})
+
+        if hasattr(out, 'ID') and out.ID is not None:
+            self.id2object[out.ID] = {'type': bean_type, 'output': out}
+        return out
+        pass

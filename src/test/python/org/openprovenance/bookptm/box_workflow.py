@@ -78,6 +78,7 @@ class BoxWorkflow:
 
     def flow_to_from(self, to_input_bean, to_property, from_template, from_property):
         # Get the value from from_template using getattr
+        print(from_template.toJSON(), from_property)
         from_property_value = getattr(from_template, from_property)
 
         # Set the value on to_input_bean
@@ -110,23 +111,23 @@ class BoxWorkflow:
         agent_init_inputs0.location = "London"
         agent_init_inputs0.type = "Person"
         agent_init_inputs0.time = self.agent1_time
-        agent_init_outputs0 = self.template_invoker.process(agent_init_inputs0)
+        agent_init_outputs0 = self.template_invoker.process_agent_initinputs(agent_init_inputs0)
 
         # Initialize box
         box_init_inputs = Item_initInputs()
         box_init_inputs.type = "Box"
         box_init_inputs.time = self.box_time
-        box_init_outputs = self.template_invoker.process(box_init_inputs)
+        box_init_outputs = self.template_invoker.process_item_initinputs(box_init_inputs)
 
         # First book
         book1_init_inputs = Item_initInputs()
         book1_init_inputs.type = "Book"
-        book1_init_outputs = self.template_invoker.process(book1_init_inputs)
+        book1_init_outputs = self.template_invoker.process_item_initinputs(book1_init_inputs)
 
         # Second book
         book2_init_inputs = Item_initInputs()
         book2_init_inputs.type = "Book"
-        book2_init_outputs = self.template_invoker.process(book2_init_inputs)
+        book2_init_outputs = self.template_invoker.process_item_initinputs(book2_init_inputs)
         print(book2_init_outputs.toJSON())
 
         # Composite pack
@@ -159,7 +160,7 @@ class BoxWorkflow:
         packing_composite_inputs.count = 2
         print(packing_composite_inputs)
 
-        packing_composite_outputs = self.template_invoker.process(packing_composite_inputs)
+        packing_composite_outputs = self.template_invoker.process_packing_compositeinputs(packing_composite_inputs)
         print("Packing composite outputs:")
         print(packing_composite_outputs)
         print(packing_composite_outputs.elements)
@@ -171,7 +172,7 @@ class BoxWorkflow:
         agent_init_inputs_s1.location = "London"
         agent_init_inputs_s1.type = "Scale"
         agent_init_inputs_s1.time = self.scale1_time
-        agent_init_outputs_s1 = self.template_invoker.process(agent_init_inputs_s1)
+        agent_init_outputs_s1 = self.template_invoker.process_agent_initinputs(agent_init_inputs_s1)
 
         # First weighing
         weighing_inputs1 = WeighingInputs()
@@ -182,7 +183,7 @@ class BoxWorkflow:
         self.flow_to_from(weighing_inputs1, "scale", agent_init_outputs_s1, "agent0")
         weighing_inputs1.weight = 10.0
         weighing_inputs1.time = self.weighing1_time
-        weighing_outputs1 = self.template_invoker.process(weighing_inputs1)
+        weighing_outputs1 = self.template_invoker.process_weighinginputs(weighing_inputs1)
         self.generate_connections(weighing_outputs1)
 
         # New agent-init for first transporter
@@ -190,7 +191,7 @@ class BoxWorkflow:
         agent_init_inputs1.location = "Oxford"
         agent_init_inputs1.type = "Person"
         agent_init_inputs1.time = self.agent2_time
-        agent_init_outputs1 = self.template_invoker.process(agent_init_inputs1)
+        agent_init_outputs1 = self.template_invoker.process_agent_initinputs(agent_init_inputs1)
 
         # First handover
         handingover_inputs = HandingoverInputs()
@@ -199,7 +200,7 @@ class BoxWorkflow:
         self.flow_to_from(handingover_inputs, "receiver", agent_init_outputs1, "agent0")
         self.flow_to_from(handingover_inputs, "giver", agent_init_outputs0, "agent0")
         handingover_inputs.time = self.pickup_time
-        handingover_outputs = self.template_invoker.process(handingover_inputs)
+        handingover_outputs = self.template_invoker.process_handingoverinputs(handingover_inputs)
         self.generate_connections(handingover_outputs)
 
         # First transporting
@@ -209,7 +210,7 @@ class BoxWorkflow:
         self.flow_to_from(transporting_inputs, "transporter", agent_init_outputs1, "agent0")
         transporting_inputs.transporter = agent_init_outputs1.agent0
         transporting_inputs.time = self.drop1_time
-        transporting_outputs = self.template_invoker.process(transporting_inputs)
+        transporting_outputs = self.template_invoker.process_transportinginputs(transporting_inputs)
         self.generate_connections(transporting_outputs)
 
         # New agent-init for depot manager
@@ -217,7 +218,7 @@ class BoxWorkflow:
         agent_init_inputs2.location = "London"
         agent_init_inputs2.type = "Person"
         agent_init_inputs2.time = self.agent2_time
-        agent_init_outputs2 = self.template_invoker.process(agent_init_inputs2)
+        agent_init_outputs2 = self.template_invoker.process_agent_initinputs(agent_init_inputs2)
 
         # Second handover
         handingover_inputs2 = HandingoverInputs()
@@ -226,7 +227,7 @@ class BoxWorkflow:
         self.flow_to_from(handingover_inputs2, "receiver", agent_init_outputs2, "agent0")
         self.flow_to_from(handingover_inputs2, "giver", agent_init_outputs1, "agent0")
         handingover_inputs2.time = self.handover_time
-        handingover_outputs2 = self.template_invoker.process(handingover_inputs2)
+        handingover_outputs2 = self.template_invoker.process_handingoverinputs(handingover_inputs2)
         self.generate_connections(handingover_outputs2)
 
         # New agent-init for scale 2
@@ -234,7 +235,7 @@ class BoxWorkflow:
         agent_init_inputs_s2.location = "London-Depot"
         agent_init_inputs_s2.type = "Scale"
         agent_init_inputs_s2.time = self.scale2_time
-        agent_init_outputs_s2 = self.template_invoker.process(agent_init_inputs_s2)
+        agent_init_outputs_s2 = self.template_invoker.process_agent_initinputs(agent_init_inputs_s2)
 
         # Second weighing
         weighing_inputs2 = WeighingInputs()
@@ -244,7 +245,7 @@ class BoxWorkflow:
         self.flow_to_from(weighing_inputs2, "scale", agent_init_outputs_s2, "agent0")
         weighing_inputs2.weight = 10.0
         weighing_inputs2.time = self.weighing2_time
-        weighing_outputs2 = self.template_invoker.process(weighing_inputs2)
+        weighing_outputs2 = self.template_invoker.process_weighinginputs(weighing_inputs2)
         self.generate_connections(weighing_outputs2)
 
         # New agent-init for second transporter
@@ -252,7 +253,7 @@ class BoxWorkflow:
         agent_init_inputs3.location = "Oxford"
         agent_init_inputs3.type = "Person"
         agent_init_inputs3.time = self.agent3_time
-        agent_init_outputs3 = self.template_invoker.process(agent_init_inputs3)
+        agent_init_outputs3 = self.template_invoker.process_agent_initinputs(agent_init_inputs3)
 
         # Third handover
         handingover_inputs3 = HandingoverInputs()
@@ -261,7 +262,7 @@ class BoxWorkflow:
         self.flow_to_from(handingover_inputs3, "receiver", agent_init_outputs3, "agent0")
         self.flow_to_from(handingover_inputs3, "giver", agent_init_outputs2, "agent0")
         handingover_inputs3.time = self.handover_time2
-        handingover_outputs3 = self.template_invoker.process(handingover_inputs3)
+        handingover_outputs3 = self.template_invoker.process_handingoverinputs(handingover_inputs3)
         self.generate_connections(handingover_outputs3)
 
         # Second transporting
@@ -270,7 +271,7 @@ class BoxWorkflow:
         self.flow_to_from(transporting_inputs2, "item", box_init_outputs, "entity")
         self.flow_to_from(transporting_inputs2, "transporter", agent_init_outputs3, "agent0")
         transporting_inputs2.time = self.delivery_time
-        transporting_outputs2 = self.template_invoker.process(transporting_inputs2)
+        transporting_outputs2 = self.template_invoker.process_transportinginputs(transporting_inputs2)
         self.generate_connections(transporting_outputs2)
         # at this point, the item is with the transporter
 
@@ -279,7 +280,7 @@ class BoxWorkflow:
         agent_init_inputs4.location = "Oxford"
         agent_init_inputs4.type = "Person"
         agent_init_inputs4.time = self.agent4_time
-        agent_init_outputs4 = self.template_invoker.process(agent_init_inputs4)
+        agent_init_outputs4 = self.template_invoker.process_agent_initinputs(agent_init_inputs4)
 
         # Fourth handover
         handingover_inputs4 = HandingoverInputs()
@@ -288,7 +289,7 @@ class BoxWorkflow:
         self.flow_to_from(handingover_inputs4, "receiver", agent_init_outputs4, "agent0")
         self.flow_to_from(handingover_inputs4, "giver", agent_init_outputs3, "agent0")
         handingover_inputs4.time = self.delivery_time
-        handingover_outputs4 = self.template_invoker.process(handingover_inputs4)
+        handingover_outputs4 = self.template_invoker.process_handingoverinputs(handingover_inputs4)
         self.generate_connections(handingover_outputs4)
         # at this point, the item is with the recipient
 
@@ -297,7 +298,7 @@ class BoxWorkflow:
         agent_init_inputs_s3.location = "Brighton"
         agent_init_inputs_s3.type = "Scale"
         agent_init_inputs_s3.time = self.scale3_time
-        agent_init_outputs_s3 = self.template_invoker.process(agent_init_inputs_s3)
+        agent_init_outputs_s3 = self.template_invoker.process_agent_initinputs(agent_init_inputs_s3)
 
         # Recipient weighing item
         weighing_inputs3 = WeighingInputs()
@@ -307,7 +308,7 @@ class BoxWorkflow:
         self.flow_to_from(weighing_inputs3, "scale", agent_init_outputs_s3, "agent0")
         weighing_inputs3.weight = 15.0
         weighing_inputs3.time = self.delivery_time
-        weighing_outputs3 = self.template_invoker.process(weighing_inputs3)
+        weighing_outputs3 = self.template_invoker.process_weighinginputs(weighing_inputs3)
         self.generate_connections(weighing_outputs3)
         # item should weigh 10.0, so this is a discrepancy
 
@@ -332,7 +333,7 @@ class BoxWorkflow:
         unpacking_composite_inputs.addElements(unpacking_inputs1)
         unpacking_composite_inputs.addElements(unpacking_inputs2)
         unpacking_composite_inputs.count = 2
-        unpacking_composite_outputs = self.template_invoker.process(unpacking_composite_inputs)
+        unpacking_composite_outputs = self.template_invoker.process_unpacking_compositeinputs(unpacking_composite_inputs)
         self.generate_connections(unpacking_composite_outputs.elements.get(0), 4)  # note, process first 4 only
         self.generate_connections(unpacking_composite_outputs.elements.get(1))
 
