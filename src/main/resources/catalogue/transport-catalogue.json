@@ -114,5 +114,12 @@
             "id": "SERIAL",
             "created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
         }
+    },
+    "past-generators": {
+        "box": {
+            "class": "org.openprovenance.bookptm.workflows.GenerateBoxWorkflow",
+            "parameters": {},
+            "classpath": ["target/classes"]
+        }
     }
 }

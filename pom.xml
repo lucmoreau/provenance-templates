@@ -157,24 +157,6 @@
                         </configuration>
                     </execution>
 
-
-                    <execution>
-                        <id>tmp-generate-workflows</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>generate-workflows</goal>
-                        </goals>
-                        <configuration>
-                            <clazzName>org.openprovenance.bookptm.workflows.GeneratePleadWorkflow</clazzName>
-                            <args>
-                                <!--<arg>${project.build.directory}/fs_template_library/fs_template_library_cli/src/main/java/</arg>-->
-                                <arg>${project.build.directory}/generated-workflows</arg>
-                                <arg>${project.build.directory}/generated-python</arg>
-                            </args>
-                        </configuration>
-
-                    </execution>
-
                     <execution>
                         <id>convert.triangles.usage.generation.derivation.svg</id>
                         <phase>test</phase>
@@ -1516,9 +1498,6 @@
                                 </move>
                                 <move todir="${project.build.directory}/generated-sources/${package.name.cli}">
                                     <fileset dir="${project.build.directory}/fs_template_library/fs_template_library_cli/src/main/java">
-                                        <include name="**/*" />
-                                    </fileset>
-                                    <fileset dir="${project.build.directory}/generated-workflows/">
                                         <include name="**/*" />
                                     </fileset>
                                 </move>

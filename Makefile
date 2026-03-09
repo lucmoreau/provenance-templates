@@ -14,3 +14,8 @@ plead.py:
 
 plead.js:
 	node src/test/js/fs-workflow.js
+
+cat:
+	mvn compiler:compile@compile-source
+	mvn prov:compile-catalogue@compile.catalogue
+

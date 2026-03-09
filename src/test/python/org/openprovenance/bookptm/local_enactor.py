@@ -103,9 +103,9 @@ class LocalEnactor(BeanLocalEnactor2):
         return self.negative
 
 
-    def process_transportinginputs(self, bean):
+    def process_transporting_inputs(self, bean):
         # Call the parent's process method to get the output
-        out = BeanLocalEnactor2.process_transportinginputs(self, bean)
+        out = BeanLocalEnactor2.process_transporting_inputs(self, bean)
 
         # Add history tracking based on bean type
         bean_type = type(bean).__name__
@@ -116,9 +116,9 @@ class LocalEnactor(BeanLocalEnactor2):
         return out
         pass
 
-    def process_handingoverinputs(self, bean):
+    def process_handingover_inputs(self, bean):
         # Call the parent's process method to get the output
-        out = BeanLocalEnactor2.process_handingoverinputs(self, bean)
+        out = BeanLocalEnactor2.process_handingover_inputs(self, bean)
 
         # Add history tracking based on bean type
         bean_type = type(bean).__name__
@@ -129,9 +129,9 @@ class LocalEnactor(BeanLocalEnactor2):
         return out
         pass
 
-    def process_weighinginputs(self, bean):
+    def process_weighing_inputs(self, bean):
         # Call the parent's process method to get the output
-        out = BeanLocalEnactor2.process_weighinginputs(self, bean)
+        out = BeanLocalEnactor2.process_weighing_inputs(self, bean)
 
         # Add history tracking based on bean type
         bean_type = type(bean).__name__
@@ -142,9 +142,9 @@ class LocalEnactor(BeanLocalEnactor2):
         return out
         pass
 
-    def process_agent_initinputs(self, bean):
+    def process_agent_init_inputs(self, bean):
         # Call the parent's process method to get the output
-        out = BeanLocalEnactor2.process_agent_initinputs(self, bean)
+        out = BeanLocalEnactor2.process_agent_init_inputs(self, bean)
 
         # Add history tracking based on bean type
         bean_type = type(bean).__name__
@@ -156,9 +156,9 @@ class LocalEnactor(BeanLocalEnactor2):
         pass
 
 
-    def process_item_initinputs(self, bean):
+    def process_item_init_inputs(self, bean):
         # Call the parent's process method to get the output
-        out = BeanLocalEnactor2.process_item_initinputs(self, bean)
+        out = BeanLocalEnactor2.process_item_init_inputs(self, bean)
 
         # Add history tracking based on bean type
         bean_type = type(bean).__name__
@@ -169,9 +169,9 @@ class LocalEnactor(BeanLocalEnactor2):
         return out
         pass
 
-    def process_packinginputs(self, bean):
+    def process_packing_inputs(self, bean):
         # Call the parent's process method to get the output
-        out = BeanLocalEnactor2.process_packinginputs(self, bean)
+        out = BeanLocalEnactor2.process_packing_inputs(self, bean)
 
         # Add history tracking based on bean type
         bean_type = type(bean).__name__
@@ -182,9 +182,9 @@ class LocalEnactor(BeanLocalEnactor2):
         return out
         pass
 
-    def process_packing_compositeinputs(self, bean):
+    def process_packing_composite_inputs(self, bean):
         # Call the parent's process method to get the output
-        out = BeanLocalEnactor2.process_packing_compositeinputs(self, bean)
+        out = BeanLocalEnactor2.process_packing_composite_inputs(self, bean)
 
         # Add history tracking based on bean type
         bean_type = type(bean).__name__
@@ -195,9 +195,9 @@ class LocalEnactor(BeanLocalEnactor2):
         return out
         pass
 
-    def process_unpacking_compositeinputs(self, bean):
+    def process_unpacking_composite_inputs(self, bean):
         # Call the parent's process method to get the output
-        out = BeanLocalEnactor2.process_unpacking_compositeinputs(self, bean)
+        out = BeanLocalEnactor2.process_unpacking_composite_inputs(self, bean)
 
         # Add history tracking based on bean type
         bean_type = type(bean).__name__
