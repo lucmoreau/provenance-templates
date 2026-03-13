@@ -115,7 +115,7 @@
 		}
 	},
     "past-generators": {
-        "plead": {
+        "PleadWorkflow": {
             "class": "org.openprovenance.bookptm.workflows.GeneratePleadWorkflow",
             "classpath": ["target/classes"]
         }

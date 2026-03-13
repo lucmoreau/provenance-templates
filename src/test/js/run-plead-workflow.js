@@ -1,4 +1,3 @@
-
 const fs = require('fs');
 
 const j4ts = require('../resources/j4ts-bundle.js');
@@ -21,10 +20,19 @@ var inputs0=new java.util.LinkedList();
 var outputs0=new java.util.LinkedList();
 
 var url="http://localhost:7075/book/provapi/statements";
-var accessToken = fs.readFileSync('/Users/luc/.keycloak_token', 'utf8').trim();
 
+const mode = (process.argv[2] || 'notdefined').toLowerCase();
+let templateInstantion2;
 
-var templateInstantion2=new WebTemplateInvoker(url, accessToken);
+if (mode === 'local') {
+    templateInstantion2 = new LocalEnactor();
+} else if (mode === 'remote') {
+    var accessToken = fs.readFileSync('/Users/luc/.keycloak_token', 'utf8').trim();
+    templateInstantion2 = new WebTemplateInvoker(url, accessToken);
+} else {
+    console.error('Usage: node run-plead-workflow.js [local|remote]');
+    process.exit(1);
+}
 
 
 class ThisWorkflow extends org.openprovenance.book.workflows.PleadWorkflow {

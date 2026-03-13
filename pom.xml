@@ -1471,6 +1471,73 @@
                             </arguments>
                         </configuration>
                     </execution>
+
+                    <execution>
+                        <id>python-fs-run-workflow</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>python3</executable>
+                            <environmentVariables>
+                                <PYTHONPATH>/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/target/generated-python/:/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/src/main/python:${project.build.directory}/generated-python:${project.basedir}/src/test/python</PYTHONPATH>
+                            </environmentVariables>
+                            <arguments>
+                                <argument>src/test/python/org/openprovenance/bookptm/fs_run_workflow.py</argument>
+                                <argument>local</argument>
+                            </arguments>
+                            <workingDirectory>${project.basedir}</workingDirectory>
+                            <!-- fail the build if the script exits non-zero -->
+                            <successCodes>
+                                <successCode>0</successCode>
+                            </successCodes>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>python-box-run-workflow</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>python3</executable>
+                            <environmentVariables>
+                                <PYTHONPATH>/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/target/generated-python/:/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/src/main/python:${project.build.directory}/generated-python:${project.basedir}/src/test/python</PYTHONPATH>
+                            </environmentVariables>
+                            <arguments>
+                                <argument>src/test/python/org/openprovenance/bookptm/box_run_workflow.py</argument>
+                                <argument>local</argument>
+                            </arguments>
+                            <workingDirectory>${project.basedir}</workingDirectory>
+                            <!-- fail the build if the script exits non-zero -->
+                            <successCodes>
+                                <successCode>0</successCode>
+                            </successCodes>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>js-fs-run-workflow</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>node</executable>
+
+                            <arguments>
+                                <argument>src/test/js/run-plead-workflow.js</argument>
+                                <argument>local</argument>
+                            </arguments>
+                            <workingDirectory>${project.basedir}</workingDirectory>
+                            <!-- fail the build if the script exits non-zero -->
+                            <successCodes>
+                                <successCode>0</successCode>
+                            </successCodes>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
 
@@ -1593,6 +1660,7 @@
 
                 </executions>
             </plugin>
+
 
             <!--
                    <execution>

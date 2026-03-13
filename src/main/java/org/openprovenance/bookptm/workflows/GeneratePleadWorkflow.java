@@ -1,10 +1,10 @@
 package org.openprovenance.bookptm.workflows;
 
 
+import org.apache.commons.lang3.tuple.Pair;
 import org.openprovenance.prov.template.compiler.CompilerUtil;
 import org.openprovenance.prov.template.compiler.GeneratorInvoker;
 import org.openprovenance.prov.template.compiler.configuration.Locations;
-import org.openprovenance.prov.template.compiler.configuration.SpecificationFile;
 import org.openprovenance.prov.template.compiler.configuration.TemplatesProjectConfiguration;
 import org.openprovenance.prov.template.compiler.past.*;
 import org.openprovenance.prov.template.compiler.past.Class;
@@ -13,14 +13,9 @@ import org.openprovenance.prov.template.compiler.past.type.ParameterizedType;
 import org.openprovenance.prov.vanilla.ProvFactory;
 
 import javax.lang.model.element.Modifier;
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Supplier;
 
-import static org.openprovenance.prov.template.compiler.configuration.SpecificationFile.generateJava;
-import static org.openprovenance.prov.template.compiler.configuration.SpecificationFile.generatePython;
 import static org.openprovenance.prov.template.compiler.past.Assignment.ASSIGNMENT;
 import static org.openprovenance.prov.template.compiler.past.BinaryOp.BINARY_OP;
 import static org.openprovenance.prov.template.compiler.past.Constant.CONSTANT;
@@ -57,10 +52,6 @@ public class GeneratePleadWorkflow implements GeneratorInvoker {
     /** {@code InputOutputProcessor} – the template-instantiation service. */
     private static final ClassName INPUT_OUTPUT_PROCESSOR =
             ClassName.get("InputOutputProcessor", PROCESSOR_PACKAGE);
-
-    /** {@code java.lang.Math} – needed for {@code Math.random()}. */
-    private static final ClassName MATH =
-            ClassName.get("Math", "java.lang");
 
     // Bean types (generated integrator beans)
     private static final ClassName FILE_TRANSFORMING_INPUTS  =
@@ -186,14 +177,32 @@ public class GeneratePleadWorkflow implements GeneratorInvoker {
                 .PARAMETER(STRING,  "path")
                 .PARAMETER(STRING,  "start")
                 .PARAMETER(STRING,  "end");
+
+        addComment("Transforming", workflowMethod);
         addTransformingBlock(workflowMethod);
+
+        addComment("Filtering", workflowMethod);
         addFilteringBlock(workflowMethod);
+
+        addComment("Splitting", workflowMethod);
         addSplittingBlock(workflowMethod);
+
+        addComment("Training", workflowMethod);
         addTrainingBlock(workflowMethod);
+
+        addComment("Validating", workflowMethod);
         addValidatingBlock(workflowMethod);
+
+        addComment("Approving", workflowMethod);
         addApprovingBlock(workflowMethod);
 
         pastClass.METHOD(workflowMethod);
+    }
+
+    private void addComment(String text, Method workflowMethod) {
+        workflowMethod.BODY(new Comment(""));
+        workflowMethod.BODY(new Comment(text));
+        workflowMethod.BODY(new Comment(""));
     }
 
 
@@ -377,8 +386,7 @@ public class GeneratePleadWorkflow implements GeneratorInvoker {
                         CONSTRUCTOR_CALL(FILE_VALIDATING_INPUTS, List.of())),
 
                 ASSIGNMENT(
-                        METHOD_CALL(VARIABLE("validatingInputs"), "score_value"),
-                        METHOD_CALL(MATH, "random", List.of())),
+                        METHOD_CALL(VARIABLE("validatingInputs"), "score_value"), CONSTANT(0.123d)),
 
                 ASSIGNMENT(
                         METHOD_CALL(VARIABLE("validatingInputs"), "testing_dataset"),
@@ -478,97 +486,25 @@ public class GeneratePleadWorkflow implements GeneratorInvoker {
                 METHOD_CALL(METHOD_CALL(VARIABLE("this"),"templateInstantiation"), "process", List.of(VARIABLE(inputVar))));
     }
 
-    // -----------------------------------------------------------------------
-    // Java generation via Poet
-    // -----------------------------------------------------------------------
 
     /**
-     * Generates the Java source file for {@code PleadWorkflow} and writes it
-     * into {@code outputDirectory}.
-     *
-     * <p>JavaPoet places the file at the correct sub-path, so pass the root
-     * source directory (e.g. {@code src/main/java}).  The result is:</p>
-     * <pre>
-     *   outputDirectory/org/openprovenance/bookptm/PleadWorkflow.java
-     * </pre>
-     *
-     * @param outputDirectory root source directory to write into
-     * @return
-     * @throws IOException if the file cannot be written
+     * Generates the PAST class and StrackTraceElement
      */
-    public SpecificationFile generateAndCompilePast(String filename, String javaRootDirectory, String pythonOutputDirectory) {
+    public Pair<Class, StackTraceElement> generateAndCompilePast(String filename, String javaRootDirectory, String pythonOutputDirectory) {
         StackTraceElement stackTraceElement = compilerUtil.thisMethodAndLine();
         // Build the PAST tree.
         Class pastClass = generatePleadWorkflow();
-
-        //
-        TemplatesProjectConfiguration configs = new TemplatesProjectConfiguration();
-        configs.name = "PleadWorkflow";
-
-        String packageName = GENERATED_PACKAGE;
-        javaRootDirectory = javaRootDirectory.endsWith("/") ? javaRootDirectory : javaRootDirectory + "/";
-
-        String javaOutputDirectory= javaRootDirectory + packageName.replace(".", "/") + "/";
-
-        Supplier<Boolean> pythonGenerator = () -> generatePython(pastClass, packageName, pythonOutputDirectory, stackTraceElement);
-        //Supplier<Boolean> javaGenerator = () -> generateJava(pastClass, packageName, configs, filename + ".java", javaOutputDirectory, stackTraceElement, compilerUtil);
-        Supplier<Boolean> javaGenerator = () -> {
-            System.out.println("Generating Java code for " + pastClass.name + "...");
-            return generateJava(pastClass, packageName, configs, filename + ".java", javaOutputDirectory, stackTraceElement, compilerUtil);
-        };
-        SpecificationFile specFile = new SpecificationFile(javaGenerator, pythonGenerator);
-        return specFile;
-
-
-    }
-
-    /**
-     * Convenience entry point.  Accepts an optional output directory as the
-     * first argument; defaults to {@code src/main/java}.
-     *
-     * <p>Example:</p>
-     * <pre>
-     *   java org.openprovenance.bookptm.GeneratePleadWorkflow target/generated-sources/past
-     * </pre>
-     */
-    public static void main(String[] args) throws IOException {
-        String javaOutputDirectory = (args.length > 0)
-                ? args[0]
-                : "target/generated-sources";
-        if (!javaOutputDirectory.endsWith("/")) {
-            javaOutputDirectory = javaOutputDirectory + "/";
-        }
-        new File(javaOutputDirectory).mkdirs();
-
-        String pythonOutputDirectory = (args.length > 1)
-                ? args[1]
-                : "target/generated-python";
-        if (!pythonOutputDirectory.endsWith("/")) {
-            pythonOutputDirectory = pythonOutputDirectory + "/";
-        }
-        new File(pythonOutputDirectory).mkdirs();
-
-        String filename = "PleadWorkflow";
-
-        new GeneratePleadWorkflow().generateAndCompilePast(filename, javaOutputDirectory,pythonOutputDirectory);
-        System.out.println("Generated PleadWorkflow.java → "
-                + new File(javaOutputDirectory,
-                "org/openprovenance/bookptm/PleadWorkflow.java")
-                             .getAbsolutePath());
+        return Pair.of(pastClass,stackTraceElement);
     }
 
     @Override
-    public SpecificationFile generate(org.openprovenance.prov.model.ProvFactory provFactory, TemplatesProjectConfiguration configs, Locations locations, String s, Map<String, Object> map) {
+    public Pair<Class, StackTraceElement> generate(org.openprovenance.prov.model.ProvFactory provFactory, TemplatesProjectConfiguration configs, Locations locations, String s, Map<String, Object> map) {
 
         String filename = "PleadWorkflow";
         String pythonOutputDirectory=locations.python_dir;
         String javaOutputDirectory=locations.getCli_src_dir();
 
-        System.out.println("Generating PleadWorkflow.java → "
-                +javaOutputDirectory);
-
-
-
+        System.out.println("Generating PleadWorkflow.java → " +javaOutputDirectory);
 
         return new GeneratePleadWorkflow().generateAndCompilePast(filename, javaOutputDirectory, pythonOutputDirectory);
 

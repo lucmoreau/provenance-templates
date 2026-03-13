@@ -47,7 +47,7 @@ export PYTHONPATH=/Users/luc/git-papers/papers/book-ptm/project/template-intro1/
 cd /Users/luc/git-papers/papers/book-ptm/project/template-intro1/src/test/python/org/openprovenance/bookptm
 
 # Run the example
-python3 run_box_workflow.py
+python3 box_run_workflow.py
 ```
 
 ## What the Workflow Does

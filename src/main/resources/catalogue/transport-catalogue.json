@@ -116,7 +116,7 @@
         }
     },
     "past-generators": {
-        "box": {
+        "BoxWorkflow": {
             "class": "org.openprovenance.bookptm.workflows.GenerateBoxWorkflow",
             "parameters": {},
             "classpath": ["target/classes"]
