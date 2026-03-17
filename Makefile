@@ -48,3 +48,5 @@ cat:
 	mvn exec:exec@python-box-run-workflow
 	mvn exec:exec@js-fs-run-workflow
 
+fs.local.js:
+	export NODE_PATH=`pwd`/target/generated-js; node src/test/js/fs_run_workflow.js local
