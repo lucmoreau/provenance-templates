@@ -49,8 +49,12 @@ def main():
     print("Creating BoxWorkflow...")
 
     workflow = BoxWorkflow(
-        templateInvoker=template_instantiator
+        templateInvoker=template_instantiator,
+        inputs=inputs,
+        outputs=outputs
     )
+
+
 
     workflow.run()
 

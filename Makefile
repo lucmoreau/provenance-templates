@@ -50,3 +50,6 @@ cat:
 
 fs.local.js:
 	export NODE_PATH=`pwd`/target/generated-js; node src/test/js/fs_run_workflow.js local
+
+box.local.js:
+	export NODE_PATH=`pwd`/target/generated-js; node src/test/js/box_run_workflow.js local

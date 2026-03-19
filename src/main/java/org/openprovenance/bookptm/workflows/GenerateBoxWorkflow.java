@@ -22,10 +22,13 @@ import java.util.function.Supplier;
 import static org.openprovenance.prov.template.compiler.configuration.SpecificationFile.generateJava;
 import static org.openprovenance.prov.template.compiler.configuration.SpecificationFile.generatePython;
 import static org.openprovenance.prov.template.compiler.past.Assignment.ASSIGNMENT;
+import static org.openprovenance.prov.template.compiler.past.BinaryOp.BINARY_OP;
 import static org.openprovenance.prov.template.compiler.past.Constant.CONSTANT;
+import static org.openprovenance.prov.template.compiler.past.Constant.getNull;
 import static org.openprovenance.prov.template.compiler.past.Constructor.CONSTRUCTOR;
 import static org.openprovenance.prov.template.compiler.past.Definition.DEFINITION;
 import static org.openprovenance.prov.template.compiler.past.Field.FIELD;
+import static org.openprovenance.prov.template.compiler.past.IfStatement.IF;
 import static org.openprovenance.prov.template.compiler.past.Method.METHOD;
 import static org.openprovenance.prov.template.compiler.past.MethodCall.CONSTRUCTOR_CALL;
 import static org.openprovenance.prov.template.compiler.past.MethodCall.METHOD_CALL;
@@ -176,6 +179,12 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 FIELD("templateInvoker", INPUT_OUTPUT_PROCESSOR)
                         .MODIFIERS(Modifier.PRIVATE, Modifier.FINAL),
 
+                FIELD("inputs", LIST_OF_OBJECT)
+                        .MODIFIERS(Modifier.PRIVATE, Modifier.FINAL),
+
+                FIELD("outputs", LIST_OF_OBJECT)
+                        .MODIFIERS(Modifier.PRIVATE, Modifier.FINAL),
+
                 FIELD("agent1Time", STRING).INITIALIZER(CONSTANT("2024-09-01T10:00:00Z")),
                 FIELD("agent2Time", STRING).INITIALIZER(CONSTANT("2024-09-01T10:00:00Z")),
                 FIELD("agent3Time", STRING).INITIALIZER(CONSTANT("2024-08-01T10:00:00Z")),
@@ -204,11 +213,20 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
         Constructor constructor = CONSTRUCTOR()
                 .MODIFIERS(Modifier.PUBLIC)
                 .PARAMETER(INPUT_OUTPUT_PROCESSOR, "templateInvoker")
+                .PARAMETER(LIST_OF_OBJECT, "inputs")
+                .PARAMETER(LIST_OF_OBJECT, "outputs")
                 .BODY(
                         ASSIGNMENT(
                                 METHOD_CALL(VARIABLE("this"), "templateInvoker"),
-                                VARIABLE("templateInvoker"))
+                                VARIABLE("templateInvoker")),
+                        ASSIGNMENT(
+                                METHOD_CALL(VARIABLE("this"), "inputs"),
+                                VARIABLE("inputs")),
+                        ASSIGNMENT(
+                                METHOD_CALL(VARIABLE("this"), "outputs"),
+                                VARIABLE("outputs"))
                 );
+
         pastClass.CONSTRUCTOR(constructor);
     }
 
@@ -291,7 +309,10 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputs0"), "location"), CONSTANT("London")),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputs0"), "type"),     CONSTANT("Person")),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputs0"), "time"),     thisField("agent1Time")),
-                process(AGENT_INIT_OUTPUTS, "agent_initOutputs0", "agent_initInputs0")
+                nullGuardedAdd("inputs", "agent_initInputs0"),
+                process(AGENT_INIT_OUTPUTS, "agent_initOutputs0", "agent_initInputs0"),
+                nullGuardedAdd("outputs", "agent_initOutputs0")
+
         );
     }
 
@@ -303,8 +324,11 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                         CONSTRUCTOR_CALL(ITEM_INIT_INPUTS, List.of())),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("box_initInputs"), "type"), CONSTANT("Box")),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("box_initInputs"), "time"), thisField("boxTime")),
-                process(ITEM_INIT_OUTPUTS, "box_initOutputs", "box_initInputs")
-        );
+                nullGuardedAdd("inputs", "box_initInputs"),
+                process(ITEM_INIT_OUTPUTS, "box_initOutputs", "box_initInputs"),
+                nullGuardedAdd("outputs", "box_initOutputs")
+
+                );
     }
 
     // ---- book1_init ---------------------------------------------------------
@@ -314,8 +338,11 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 DEFINITION(ITEM_INIT_INPUTS, VARIABLE("book1_initInputs"),
                         CONSTRUCTOR_CALL(ITEM_INIT_INPUTS, List.of())),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("book1_initInputs"), "type"), CONSTANT("Book")),
-                process(ITEM_INIT_OUTPUTS, "book1_initOutputs", "book1_initInputs")
-        );
+                nullGuardedAdd("inputs", "book1_initInputs"),
+                process(ITEM_INIT_OUTPUTS, "book1_initOutputs", "book1_initInputs"),
+                nullGuardedAdd("outputs", "book1_initOutputs")
+
+                );
     }
 
     // ---- book2_init ---------------------------------------------------------
@@ -325,7 +352,9 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 DEFINITION(ITEM_INIT_INPUTS, VARIABLE("book2_initInputs"),
                         CONSTRUCTOR_CALL(ITEM_INIT_INPUTS, List.of())),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("book2_initInputs"), "type"), CONSTANT("Book")),
-                process(ITEM_INIT_OUTPUTS, "book2_initOutputs", "book2_initInputs")
+                nullGuardedAdd("inputs", "book2_initInputs"),
+                process(ITEM_INIT_OUTPUTS, "book2_initOutputs", "book2_initInputs"),
+                nullGuardedAdd("outputs", "book2_initOutputs")
         );
     }
 
@@ -367,8 +396,11 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 METHOD_CALL(VARIABLE("packing_compositeInputs"), "addElements",
                         List.of(VARIABLE("packingInputs_2"))),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("packing_compositeInputs"), "count"), CONSTANT(2)),
-                process(PACKING_COMPOSITE_OUTPUTS, "packing_compositeOutputs", "packing_compositeInputs")
-        );
+                nullGuardedAdd("inputs", "packing_compositeInputs"),
+                process(PACKING_COMPOSITE_OUTPUTS, "packing_compositeOutputs", "packing_compositeInputs"),
+                nullGuardedAdd("outputs", "packing_compositeOutputs")
+
+                );
     }
 
     // ---- scale agent init 1 (agent_initInputsS1 / agent_initOutputsS1) ---------
@@ -380,8 +412,11 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputsS1"), "location"), CONSTANT("London")),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputsS1"), "type"),     CONSTANT("Scale")),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputsS1"), "time"),     thisField("scale1Time")),
-                process(AGENT_INIT_OUTPUTS, "agent_initOutputsS1", "agent_initInputsS1")
-        );
+                nullGuardedAdd("inputs", "agent_initInputsS1"),
+                process(AGENT_INIT_OUTPUTS, "agent_initOutputsS1", "agent_initInputsS1"),
+                nullGuardedAdd("outputs", "agent_initOutputsS1")
+
+                );
     }
 
     // ---- weighing 1 (weighingInputs1 / weighingOutputs1) ----------------------
@@ -403,8 +438,11 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 flowToFrom("weighingInputs1", "scale", "agent_initOutputsS1", "agent0"),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("weighingInputs1"), "weight"), CONSTANT(10.0d)),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("weighingInputs1"), "time"),   thisField("weighing1Time")),
-                process(WEIGHING_OUTPUTS, "weighingOutputs1", "weighingInputs1")
-        );
+                nullGuardedAdd("inputs", "weighingInputs1"),
+                process(WEIGHING_OUTPUTS, "weighingOutputs1", "weighingInputs1"),
+                nullGuardedAdd("outputs", "weighingOutputs1")
+
+                );
     }
 
     // ---- first transporter agent init (agent_initInputs1 / agent_initOutputs1) --
@@ -416,8 +454,10 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputs1"), "location"), CONSTANT("Oxford")),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputs1"), "type"),     CONSTANT("Person")),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputs1"), "time"),     thisField("agent2Time")),
-                process(AGENT_INIT_OUTPUTS, "agent_initOutputs1", "agent_initInputs1")
-        );
+                nullGuardedAdd("inputs", "agent_initInputs1"),
+                process(AGENT_INIT_OUTPUTS, "agent_initOutputs1", "agent_initInputs1"),
+                nullGuardedAdd("outputs", "agent_initOutputs1")
+                );
     }
 
     // ---- handingover 1 (handingoverInputs / handingoverOutputs) ----------------
@@ -431,8 +471,11 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 flowToFrom("handingoverInputs", "receiver", "agent_initOutputs1", "agent0"),
                 flowToFrom("handingoverInputs", "giver",    "agent_initOutputs0", "agent0"),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("handingoverInputs"), "time"), thisField("pickupTime")),
-                process(HANDING_OVER_OUTPUTS, "handingoverOutputs", "handingoverInputs")
-        );
+                nullGuardedAdd("inputs", "handingoverInputs"),
+                process(HANDING_OVER_OUTPUTS, "handingoverOutputs", "handingoverInputs"),
+                nullGuardedAdd("outputs", "handingoverOutputs")
+
+                );
     }
 
     // ---- transporting 1 (transportingInputs / transportingOutputs) -------------
@@ -449,8 +492,11 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                         METHOD_CALL(VARIABLE("transportingInputs"), "transporter"),
                         METHOD_CALL(VARIABLE("agent_initOutputs1"), "agent0")),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("transportingInputs"), "time"), thisField("drop1Time")),
-                process(TRANSPORTING_OUTPUTS, "transportingOutputs", "transportingInputs")
-        );
+                nullGuardedAdd("inputs", "transportingInputs"),
+                process(TRANSPORTING_OUTPUTS, "transportingOutputs", "transportingInputs"),
+                nullGuardedAdd("outputs", "transportingOutputs")
+
+                );
     }
 
     // ---- depot manager agent init (agent_initInputs2 / agent_initOutputs2) -----
@@ -462,8 +508,11 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputs2"), "location"), CONSTANT("London")),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputs2"), "type"),     CONSTANT("Person")),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputs2"), "time"),     thisField("agent2Time")),
-                process(AGENT_INIT_OUTPUTS, "agent_initOutputs2", "agent_initInputs2")
-        );
+                nullGuardedAdd("inputs", "agent_initInputs2"),
+                process(AGENT_INIT_OUTPUTS, "agent_initOutputs2", "agent_initInputs2"),
+                nullGuardedAdd("outputs", "agent_initOutputs2")
+
+                );
     }
 
     // ---- handingover 2 (handingoverInputs2 / handingoverOutputs2) --------------
@@ -477,8 +526,11 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 flowToFrom("handingoverInputs2", "receiver", "agent_initOutputs2",   "agent0"),
                 flowToFrom("handingoverInputs2", "giver",    "agent_initOutputs1",   "agent0"),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("handingoverInputs2"), "time"), thisField("handoverTime")),
-                process(HANDING_OVER_OUTPUTS, "handingoverOutputs2", "handingoverInputs2")
-        );
+                nullGuardedAdd("inputs", "handingoverInputs2"),
+                process(HANDING_OVER_OUTPUTS, "handingoverOutputs2", "handingoverInputs2"),
+                nullGuardedAdd("outputs", "handingoverOutputs2")
+
+                );
     }
 
     // ---- scale agent init 2 (agent_initInputsS2 / agent_initOutputsS2) ---------
@@ -490,8 +542,11 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputsS2"), "location"), CONSTANT("London-Depot")),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputsS2"), "type"),     CONSTANT("Scale")),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputsS2"), "time"),     thisField("scale2Time")),
-                process(AGENT_INIT_OUTPUTS, "agent_initOutputsS2", "agent_initInputsS2")
-        );
+                nullGuardedAdd("inputs", "agent_initInputsS2"),
+                process(AGENT_INIT_OUTPUTS, "agent_initOutputsS2", "agent_initInputsS2"),
+                nullGuardedAdd("outputs", "agent_initOutputsS2")
+
+                );
     }
 
     // ---- weighing 2 (weighingInputs2 / weighingOutputs2) ----------------------
@@ -506,8 +561,10 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 flowToFrom("weighingInputs2", "scale",  "agent_initOutputsS2",  "agent0"),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("weighingInputs2"), "weight"), CONSTANT(10.0d)),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("weighingInputs2"), "time"),   thisField("weighing2Time")),
-                process(WEIGHING_OUTPUTS, "weighingOutputs2", "weighingInputs2")
-        );
+                nullGuardedAdd("inputs", "weighingInputs2"),
+                process(WEIGHING_OUTPUTS, "weighingOutputs2", "weighingInputs2"),
+                nullGuardedAdd("outputs", "weighingOutputs2")
+                );
     }
 
     // ---- second transporter agent init (agent_initInputs3 / agent_initOutputs3) -
@@ -519,8 +576,11 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputs3"), "location"), CONSTANT("Oxford")),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputs3"), "type"),     CONSTANT("Person")),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputs3"), "time"),     thisField("agent3Time")),
-                process(AGENT_INIT_OUTPUTS, "agent_initOutputs3", "agent_initInputs3")
-        );
+                nullGuardedAdd("inputs", "agent_initInputs3"),
+                process(AGENT_INIT_OUTPUTS, "agent_initOutputs3", "agent_initInputs3"),
+                nullGuardedAdd("outputs", "agent_initOutputs3")
+
+                );
     }
 
     // ---- handingover 3 (handingoverInputs3 / handingoverOutputs3) --------------
@@ -534,8 +594,11 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 flowToFrom("handingoverInputs3", "receiver", "agent_initOutputs3",  "agent0"),
                 flowToFrom("handingoverInputs3", "giver",    "agent_initOutputs2",  "agent0"),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("handingoverInputs3"), "time"), thisField("handoverTime2")),
-                process(HANDING_OVER_OUTPUTS, "handingoverOutputs3", "handingoverInputs3")
-        );
+                nullGuardedAdd("inputs", "handingoverInputs3"),
+                process(HANDING_OVER_OUTPUTS, "handingoverOutputs3", "handingoverInputs3"),
+                nullGuardedAdd("outputs", "handingoverOutputs3")
+
+                );
     }
 
     // ---- transporting 2 (transportingInputs2 / transportingOutputs2) -----------
@@ -548,8 +611,11 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 flowToFrom("transportingInputs2", "item",        "box_initOutputs",      "entity"),
                 flowToFrom("transportingInputs2", "transporter", "agent_initOutputs3",   "agent0"),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("transportingInputs2"), "time"), thisField("deliveryTime")),
-                process(TRANSPORTING_OUTPUTS, "transportingOutputs2", "transportingInputs2")
-        );
+                nullGuardedAdd("inputs", "transportingInputs2"),
+                process(TRANSPORTING_OUTPUTS, "transportingOutputs2", "transportingInputs2"),
+                nullGuardedAdd("outputs", "transportingOutputs2")
+
+                );
     }
 
     // ---- recipient agent init (agent_initInputs4 / agent_initOutputs4) ---------
@@ -561,8 +627,10 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputs4"), "location"), CONSTANT("Oxford")),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputs4"), "type"),     CONSTANT("Person")),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputs4"), "time"),     thisField("agent4Time")),
-                process(AGENT_INIT_OUTPUTS, "agent_initOutputs4", "agent_initInputs4")
-        );
+                nullGuardedAdd("inputs", "agent_initInputs4"),
+                process(AGENT_INIT_OUTPUTS, "agent_initOutputs4", "agent_initInputs4"),
+                nullGuardedAdd("outputs", "agent_initOutputs4")
+                );
     }
 
     // ---- handingover 4 (handingoverInputs4 / handingoverOutputs4) --------------
@@ -576,8 +644,11 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 flowToFrom("handingoverInputs4", "receiver", "agent_initOutputs4",   "agent0"),
                 flowToFrom("handingoverInputs4", "giver",    "agent_initOutputs3",   "agent0"),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("handingoverInputs4"), "time"), thisField("deliveryTime")),
-                process(HANDING_OVER_OUTPUTS, "handingoverOutputs4", "handingoverInputs4")
-        );
+                nullGuardedAdd("inputs", "handingoverInputs4"),
+                process(HANDING_OVER_OUTPUTS, "handingoverOutputs4", "handingoverInputs4"),
+                nullGuardedAdd("outputs", "handingoverOutputs4")
+
+                );
     }
 
     // ---- scale agent init 3 (agent_initInputsS3 / agent_initOutputsS3) ---------
@@ -589,8 +660,11 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputsS3"), "location"), CONSTANT("Brighton")),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputsS3"), "type"),     CONSTANT("Scale")),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("agent_initInputsS3"), "time"),     thisField("scale3Time")),
-                process(AGENT_INIT_OUTPUTS, "agent_initOutputsS3", "agent_initInputsS3")
-        );
+                nullGuardedAdd("inputs", "agent_initInputsS3"),
+                process(AGENT_INIT_OUTPUTS, "agent_initOutputsS3", "agent_initInputsS3"),
+                nullGuardedAdd("outputs", "agent_initOutputsS3")
+
+                );
     }
 
     // ---- weighing 3 – recipient weighs item (weighingInputs3 / weighingOutputs3) -
@@ -605,8 +679,11 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 flowToFrom("weighingInputs3", "scale",  "agent_initOutputsS3",  "agent0"),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("weighingInputs3"), "weight"), CONSTANT(15.0d)),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("weighingInputs3"), "time"),   thisField("deliveryTime")),
-                process(WEIGHING_OUTPUTS, "weighingOutputs3", "weighingInputs3")
-        );
+                nullGuardedAdd("inputs", "weighingInputs3"),
+                process(WEIGHING_OUTPUTS, "weighingOutputs3", "weighingInputs3"),
+                nullGuardedAdd("outputs", "weighingOutputs3")
+
+                );
     }
 
     // ---- composite unpacking (unpackingInputs1, unpackingInputs2, composite) ---
@@ -641,8 +718,11 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 METHOD_CALL(VARIABLE("unpacking_compositeInputs"), "addElements",
                         List.of(VARIABLE("unpackingInputs2"))),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("unpacking_compositeInputs"), "count"), CONSTANT(2)),
-                process(UNPACKING_COMPOSITE_OUTPUTS, "unpacking_compositeOutputs", "unpacking_compositeInputs")
-        );
+                nullGuardedAdd("inputs", "unpacking_compositeInputs"),
+                process(UNPACKING_COMPOSITE_OUTPUTS, "unpacking_compositeOutputs", "unpacking_compositeInputs"),
+                nullGuardedAdd("outputs", "unpacking_compositeOutputs")
+
+                );
     }
 
     // ---- return Arrays.asList(...) ------------------------------------------
@@ -823,4 +903,16 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
 
 
     }
+
+    /**
+     * Builds {@code if (listVar != null) listVar.add(elementVar);}.
+     *
+     * @param listVar    name of the {@code List<Object>} field ({@code "inputs"} or {@code "outputs"})
+     * @param elementVar name of the bean local variable to add
+     */
+    private IfStatement nullGuardedAdd(String listVar, String elementVar) {
+        return IF(BINARY_OP(METHOD_CALL(VARIABLE("this"),listVar), "!=", getNull()))
+                .THEN(METHOD_CALL(METHOD_CALL(VARIABLE("this"),listVar), "add", List.of(VARIABLE(elementVar))));
+    }
+
 }

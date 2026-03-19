@@ -1,14 +1,17 @@
 
 
 
-const { BeanLocalEnactor2 } = require('org/openprovenance/templates/catalogue/fs/integrator/BeanLocalEnactor2.js');
-const { File_transformingBuilder } = require('org/openprovenance/book/fs/client/common/File_transformingBuilder.js');
-const { File_filteringBuilder } = require('org/openprovenance/book/fs/client/common/File_filteringBuilder.js');
-const { File_trainingBuilder } = require('org/openprovenance/book/fs/client/common/File_trainingBuilder.js');
-const { File_approvingBuilder } = require('org/openprovenance/book/fs/client/common/File_approvingBuilder.js');
-const { File_validatingBuilder } = require('org/openprovenance/book/fs/client/common/File_validatingBuilder.js');
-const { File_splittingBuilder } = require('org/openprovenance/book/fs/client/common/File_splittingBuilder.js');
-
+const { BeanLocalEnactor2 } = require('org/openprovenance/templates/catalogue/transport/integrator/BeanLocalEnactor2.js');
+const { TransportingBuilder } = require('org/openprovenance/book/physical/client/common/TransportingBuilder.js');
+const { WeighingBuilder } = require('org/openprovenance/book/physical/client/common/WeighingBuilder.js');
+const { HandingoverBuilder } = require('org/openprovenance/book/responsibility/client/common/HandingoverBuilder.js');
+const { Agent_initBuilder } = require('org/openprovenance/book/physical/client/common/Agent_initBuilder.js');
+const { Item_initBuilder } = require('org/openprovenance/book/physical/client/common/Item_initBuilder.js');
+const { PackingBuilder } = require('org/openprovenance/book/physical/client/common/PackingBuilder.js');
+const { Packing_compositeBuilder } = require('org/openprovenance/book/physical/client/common/Packing_compositeBuilder.js');
+const { Packing_compositeBean } = require('org/openprovenance/book/physical/client/common/Packing_compositeBean.js');
+const { Unpacking_compositeBean } = require('org/openprovenance/book/physical/client/common/Unpacking_compositeBean.js');
+const { UnpackingBuilder } = require('org/openprovenance/book/physical/client/common/UnpackingBuilder.js');
 
 class LocalEnactor extends BeanLocalEnactor2 {
     constructor() {
@@ -39,9 +42,9 @@ class LocalEnactor extends BeanLocalEnactor2 {
     }
 
 
-    process_file_transforming_inputs(bean) {
-        const out = super.process_file_transforming_inputs(bean);
-        const builder = new File_transformingBuilder();
+    process_transporting_inputs(bean) {
+        const out = super.process_transporting_inputs(bean);
+        const builder = new TransportingBuilder();
         const itemIn = bean.process(builder.aArgs2RecordConverter());
         const itemOut = out.process(builder.aArgs2RecordConverter());
         const item = this.merge_array(itemIn, itemOut);
@@ -50,9 +53,9 @@ class LocalEnactor extends BeanLocalEnactor2 {
         return out;
     }
 
-    process_file_filtering_inputs(bean) {
-        const out = super.process_file_filtering_inputs(bean);
-        const builder = new File_filteringBuilder();
+    process_handingover_inputs(bean) {
+        const out = super.process_handingover_inputs(bean);
+        const builder = new HandingoverBuilder();
         const itemIn = bean.process(builder.aArgs2RecordConverter());
         const itemOut = out.process(builder.aArgs2RecordConverter());
         const item = this.merge_array(itemIn, itemOut);
@@ -61,9 +64,9 @@ class LocalEnactor extends BeanLocalEnactor2 {
         return out;
     }
 
-    process_file_splitting_inputs(bean) {
-        const out = super.process_file_splitting_inputs(bean);
-        const builder = new File_splittingBuilder();
+    process_weighing_inputs(bean) {
+        const out = super.process_weighing_inputs(bean);
+        const builder = new WeighingBuilder();
         const itemIn = bean.process(builder.aArgs2RecordConverter());
         const itemOut = out.process(builder.aArgs2RecordConverter());
         const item = this.merge_array(itemIn, itemOut);
@@ -72,9 +75,9 @@ class LocalEnactor extends BeanLocalEnactor2 {
         return out;
     }
 
-    process_file_validating_inputs(bean) {
-        const out = super.process_file_validating_inputs(bean);
-        const builder = new File_validatingBuilder();
+    process_agent_init_inputs(bean) {
+        const out = super.process_agent_init_inputs(bean);
+        const builder = new Agent_initBuilder();
         const itemIn = bean.process(builder.aArgs2RecordConverter());
         const itemOut = out.process(builder.aArgs2RecordConverter());
         const item = this.merge_array(itemIn, itemOut);
@@ -83,9 +86,9 @@ class LocalEnactor extends BeanLocalEnactor2 {
         return out;
     }
 
-    process_file_training_inputs(bean) {
-        const out = super.process_file_training_inputs(bean);
-        const builder = new File_trainingBuilder();
+    process_item_init_inputs(bean) {
+        const out = super.process_item_init_inputs(bean);
+        const builder = new Item_initBuilder();
         const itemIn = bean.process(builder.aArgs2RecordConverter());
         const itemOut = out.process(builder.aArgs2RecordConverter());
         const item = this.merge_array(itemIn, itemOut);
@@ -94,8 +97,8 @@ class LocalEnactor extends BeanLocalEnactor2 {
         return out;
     }
 
-    process_file_approving_inputs(bean) {
-        const out = super.process_file_approving_inputs(bean);
+    process_packing_inputs(bean) {
+        const out = super.process_packing_inputs(bean);
         const builder = new File_approvingBuilder();
         const itemIn = bean.process(builder.aArgs2RecordConverter());
         const itemOut = out.process(builder.aArgs2RecordConverter());
@@ -105,21 +108,21 @@ class LocalEnactor extends BeanLocalEnactor2 {
         return out;
     }
 
-    process_file_transforming_composite_inputs(bean) {
-        const out = super.process_file_transforming_composite_inputs(bean);
-        const file_transforming_compositeBean = merge_composite(bean, out);
-        this.history.add(unpackingCompositeBean);
+    process_packing_composite_inputs(bean) {
+        const out = super.process_packing_composite_inputs(bean);
+        const packing_compositeBean = this.merge_packing_composite(bean, out);
+        this.history.add(packing_compositeBean);
         return out;
     }
 
-    merge_composite (bean, out) {
-        const res = new Unpacking_compositeBean();
-        let build = new UnpackingBuilder();
+    merge_packing_composite (bean, out) {
+        const res = new Packing_compositeBean();
+        let build = new PackingBuilder();
         for (let i = 0; i < bean.__elements.size(); i++) {
-            let unpackingIn = bean.__elements.get(i).process(build.aArgs2RecordConverter());
-            let unpackingOut = out.__elements.get(i).process(build.aArgs2RecordConverter());
-            const unpacking = this.merge_array(unpackingIn, unpackingOut);
-            res.addElements(build.record2bean(unpacking));
+            let packingIn = bean.__elements.get(i).process(build.aArgs2RecordConverter());
+            let packingOut = out.__elements.get(i).process(build.aArgs2RecordConverter());
+            const packing = this.merge_array(packingIn, packingOut);
+            res.addElements(build.record2bean(packing));
         }
         return res;
     }
