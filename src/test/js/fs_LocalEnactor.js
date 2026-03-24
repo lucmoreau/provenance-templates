@@ -2,26 +2,17 @@
 
 
 const { BeanLocalEnactor2 } = require('org/openprovenance/templates/catalogue/fs/integrator/BeanLocalEnactor2.js');
-const { File_transformingBuilder } = require('org/openprovenance/book/fs/client/common/File_transformingBuilder.js');
-const { File_filteringBuilder } = require('org/openprovenance/book/fs/client/common/File_filteringBuilder.js');
-const { File_trainingBuilder } = require('org/openprovenance/book/fs/client/common/File_trainingBuilder.js');
-const { File_approvingBuilder } = require('org/openprovenance/book/fs/client/common/File_approvingBuilder.js');
-const { File_validatingBuilder } = require('org/openprovenance/book/fs/client/common/File_validatingBuilder.js');
-const { File_splittingBuilder } = require('org/openprovenance/book/fs/client/common/File_splittingBuilder.js');
+const { BeanHistory } = require('org/openprovenance/templates/catalogue/fs/integrator/BeanHistory.js');
 
 
-class LocalEnactor extends BeanLocalEnactor2 {
-    constructor() {
+
+class BeanLocalEnactor3 extends BeanLocalEnactor2 {
+    constructor(counterMap, recordedValues) {
         super();
         this.negative = false;
         this.counterInitialValue = this.sign() * 10000;
-        this.counterMap = new Map();
-        this.recordedValues = new Map();
-        this.history = [];
-    }
-
-    sign() {
-        return this.negative ? -1 : 1;
+        this.counterMap = counterMap;
+        this.recordedValues =recordedValues;
     }
 
     newIdentifier(field, counter) {
@@ -35,108 +26,32 @@ class LocalEnactor extends BeanLocalEnactor2 {
             this.recordedValues.set(field, []);
         }
         this.recordedValues.get(field).push(newValue);
+        console.log("newIdentifier " + field + " " + counter + " " + newValue)
         return newValue;
     }
-
-
-    process_file_transforming_inputs(bean) {
-        const out = super.process_file_transforming_inputs(bean);
-        const builder = new File_transformingBuilder();
-        const itemIn = bean.process(builder.aArgs2RecordConverter());
-        const itemOut = out.process(builder.aArgs2RecordConverter());
-        const item = this.merge_array(itemIn, itemOut);
-        const file_transformingBean = builder.record2bean(item);
-        this.history.push(file_transformingBean);
-        return out;
+    sign() {
+        return this.negative ? -1 : 1;
+    }
+    getCounterMap() {
+        return this.counterMap
+    }
+    getRecordedValues(){
+        return this.recordedValues
     }
 
-    process_file_filtering_inputs(bean) {
-        const out = super.process_file_filtering_inputs(bean);
-        const builder = new File_filteringBuilder();
-        const itemIn = bean.process(builder.aArgs2RecordConverter());
-        const itemOut = out.process(builder.aArgs2RecordConverter());
-        const item = this.merge_array(itemIn, itemOut);
-        const file_filteringBean = builder.record2bean(item);
-        this.history.push(file_filteringBean);
-        return out;
+}
+
+class LocalEnactor extends BeanHistory {
+    constructor() {
+        super(new BeanLocalEnactor3(new Map(),new Map()), []);
     }
 
-    process_file_splitting_inputs(bean) {
-        const out = super.process_file_splitting_inputs(bean);
-        const builder = new File_splittingBuilder();
-        const itemIn = bean.process(builder.aArgs2RecordConverter());
-        const itemOut = out.process(builder.aArgs2RecordConverter());
-        const item = this.merge_array(itemIn, itemOut);
-        const file_splittingBean = builder.record2bean(item);
-        this.history.push(file_splittingBean);
-        return out;
+    getCounterMap() {
+        return super.getDelegator().getCounterMap();
     }
-
-    process_file_validating_inputs(bean) {
-        const out = super.process_file_validating_inputs(bean);
-        const builder = new File_validatingBuilder();
-        const itemIn = bean.process(builder.aArgs2RecordConverter());
-        const itemOut = out.process(builder.aArgs2RecordConverter());
-        const item = this.merge_array(itemIn, itemOut);
-        const file_validatingBean = builder.record2bean(item);
-        this.history.push(file_validatingBean);
-        return out;
+    getRecordedValues() {
+        return super.getDelegator().getRecordedValues();
     }
-
-    process_file_training_inputs(bean) {
-        const out = super.process_file_training_inputs(bean);
-        const builder = new File_trainingBuilder();
-        const itemIn = bean.process(builder.aArgs2RecordConverter());
-        const itemOut = out.process(builder.aArgs2RecordConverter());
-        const item = this.merge_array(itemIn, itemOut);
-        const file_trainingBean = builder.record2bean(item);
-        this.history.push(file_trainingBean);
-        return out;
-    }
-
-    process_file_approving_inputs(bean) {
-        const out = super.process_file_approving_inputs(bean);
-        const builder = new File_approvingBuilder();
-        const itemIn = bean.process(builder.aArgs2RecordConverter());
-        const itemOut = out.process(builder.aArgs2RecordConverter());
-        const item = this.merge_array(itemIn, itemOut);
-        const file_approvingBean = builder.record2bean(item);
-        this.history.push(file_approvingBean);
-        return out;
-    }
-
-    process_file_transforming_composite_inputs(bean) {
-        const out = super.process_file_transforming_composite_inputs(bean);
-        const file_transforming_compositeBean = merge_composite(bean, out);
-        this.history.add(unpackingCompositeBean);
-        return out;
-    }
-
-    merge_composite (bean, out) {
-        const res = new Unpacking_compositeBean();
-        let build = new UnpackingBuilder();
-        for (let i = 0; i < bean.__elements.size(); i++) {
-            let unpackingIn = bean.__elements.get(i).process(build.aArgs2RecordConverter());
-            let unpackingOut = out.__elements.get(i).process(build.aArgs2RecordConverter());
-            const unpacking = this.merge_array(unpackingIn, unpackingOut);
-            res.addElements(build.record2bean(unpacking));
-        }
-        return res;
-    }
-
-
-    merge_array(itemIn, itemOut) {
-        const item = new Array(itemIn.length);
-        for (let i = 0; i < itemIn.length; i++) {
-            if (itemIn[i] != null) item[i] = itemIn[i];
-        }
-        for (let i = 0; i < itemOut.length; i++) {
-            if (itemOut[i] != null) item[i] = itemOut[i];
-        }
-        return item;
-    }
-
-
 }
 
 

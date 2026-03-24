@@ -1,18 +1,5 @@
 const fs = require('fs');
 
-/*
-const j4ts = require('../resources/j4ts-bundle.js');
-global.java = j4ts.java;
-global.javaemul = j4ts.javaemul;
-
-const provfs = require('../../../target/js/bundle.js');
-
-var org = provfs.org;
-*/
-
-//const { LocalEnactor } = require('./LocalEnactor');
-
-//const { WebTemplateInvoker } = require('./WebTemplateInvoker');
 past={};
 past.util={}
 global.past = past;
@@ -91,8 +78,13 @@ outputs0.forEach(o => {
     outputs.push(o);
 });
 
-console.log(templateInstantion2.history);
+console.log(templateInstantion2.getHistory());
 
 // last element of outputs
 
+//console.log(outputs)
+
 console.log("ID of last element in history " + outputs[outputs.length-1].ID);
+
+console.log(templateInstantion2.getCounterMap());
+console.log(templateInstantion2.getRecordedValues());

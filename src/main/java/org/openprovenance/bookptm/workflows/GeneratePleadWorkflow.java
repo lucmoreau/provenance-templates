@@ -8,6 +8,7 @@ import org.openprovenance.prov.template.compiler.configuration.Locations;
 import org.openprovenance.prov.template.compiler.configuration.TemplatesProjectConfiguration;
 import org.openprovenance.prov.template.compiler.past.*;
 import org.openprovenance.prov.template.compiler.past.Class;
+import org.openprovenance.prov.template.compiler.past.annotations.NoSerialization;
 import org.openprovenance.prov.template.compiler.past.type.ClassName;
 import org.openprovenance.prov.template.compiler.past.type.ParameterizedType;
 import org.openprovenance.prov.vanilla.ProvFactory;
@@ -112,7 +113,8 @@ public class GeneratePleadWorkflow implements GeneratorInvoker {
 
         Class pastClass = new PastFactory()
                 .CLASS("PleadWorkflow")
-                .MODIFIERS(Modifier.PUBLIC, Modifier.ABSTRACT);
+                .MODIFIERS(Modifier.PUBLIC, Modifier.ABSTRACT)
+                .ANNOTATION(NoSerialization.NAME);
 
         addFields(pastClass);
         addConstructor(pastClass);
@@ -490,7 +492,7 @@ public class GeneratePleadWorkflow implements GeneratorInvoker {
     /**
      * Generates the PAST class and StrackTraceElement
      */
-    public Pair<Class, StackTraceElement> generateAndCompilePast(String filename, String javaRootDirectory, String pythonOutputDirectory) {
+    public Pair<Class, StackTraceElement> generateAndCompilePast() {
         StackTraceElement stackTraceElement = compilerUtil.thisMethodAndLine();
         // Build the PAST tree.
         Class pastClass = generatePleadWorkflow();
@@ -500,13 +502,9 @@ public class GeneratePleadWorkflow implements GeneratorInvoker {
     @Override
     public Pair<Class, StackTraceElement> generate(org.openprovenance.prov.model.ProvFactory provFactory, TemplatesProjectConfiguration configs, Locations locations, String s, Map<String, Object> map) {
 
-        String filename = "PleadWorkflow";
-        String pythonOutputDirectory=locations.python_dir;
-        String javaOutputDirectory=locations.getCli_src_dir();
+        System.out.println("*** Generating PleadWorkflow *** ");
 
-        System.out.println("Generating PleadWorkflow.java → " +javaOutputDirectory);
-
-        return new GeneratePleadWorkflow().generateAndCompilePast(filename, javaOutputDirectory, pythonOutputDirectory);
+        return new GeneratePleadWorkflow().generateAndCompilePast();
 
 
     }

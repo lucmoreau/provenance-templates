@@ -4,10 +4,10 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.openprovenance.prov.template.compiler.CompilerUtil;
 import org.openprovenance.prov.template.compiler.GeneratorInvoker;
 import org.openprovenance.prov.template.compiler.configuration.Locations;
-import org.openprovenance.prov.template.compiler.configuration.SpecificationFile;
 import org.openprovenance.prov.template.compiler.configuration.TemplatesProjectConfiguration;
 import org.openprovenance.prov.template.compiler.past.*;
 import org.openprovenance.prov.template.compiler.past.Class;
+import org.openprovenance.prov.template.compiler.past.annotations.NoSerialization;
 import org.openprovenance.prov.template.compiler.past.type.ClassName;
 import org.openprovenance.prov.template.compiler.past.type.ParameterizedType;
 import org.openprovenance.prov.vanilla.ProvFactory;
@@ -17,10 +17,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Supplier;
 
 import static org.openprovenance.prov.template.compiler.configuration.SpecificationFile.generateJava;
-import static org.openprovenance.prov.template.compiler.configuration.SpecificationFile.generatePython;
 import static org.openprovenance.prov.template.compiler.past.Assignment.ASSIGNMENT;
 import static org.openprovenance.prov.template.compiler.past.BinaryOp.BINARY_OP;
 import static org.openprovenance.prov.template.compiler.past.Constant.CONSTANT;
@@ -160,7 +158,8 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
     public Class generateBoxWorkflow() {
         Class pastClass = new PastFactory()
                 .CLASS("BoxWorkflow")
-                .MODIFIERS(Modifier.PUBLIC);
+                .MODIFIERS(Modifier.PUBLIC)
+                .ANNOTATION(NoSerialization.NAME);
 
         addInstanceFields(pastClass);
         addConstructor(pastClass);
@@ -811,43 +810,15 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
      * Generates the Java (and Python) source file for {@code BoxWorkflow} and writes it
      * into {@code javaRootDirectory} / {@code pythonOutputDirectory}.
      *
-     * @param filename              simple class name (without {@code .java})
-     * @param javaRootDirectory     root source directory for Java output
-     * @param pythonOutputDirectory root directory for Python output
      * @return
      * @throws IOException if the file cannot be written
      */
-    public Pair<Class, StackTraceElement> generateAndCompilePast(String filename,
-                                                                 String javaRootDirectory,
-                                                                 String pythonOutputDirectory){
+    public Pair<Class, StackTraceElement> generateAndCompilePast(){
         StackTraceElement stackTraceElement = compilerUtil.thisMethodAndLine();
 
         // Build the PAST tree.
         Class pastClass = generateBoxWorkflow();
         return Pair.of(pastClass, stackTraceElement);
-/*
-        TemplatesProjectConfiguration configs = new TemplatesProjectConfiguration();
-        configs.name = "BoxWorkflow";
-
-        String packageName = GENERATED_PACKAGE;
-        javaRootDirectory = javaRootDirectory.endsWith("/") ? javaRootDirectory : javaRootDirectory + "/";
-        String javaOutputDirectory = javaRootDirectory + packageName.replace(".", "/") + "/";
-
-        Supplier<Boolean> pythonGenerator = () ->
-                generatePython(pastClass, packageName, pythonOutputDirectory, stackTraceElement);
-        Supplier<Boolean> javaGenerator = () -> {
-            System.out.println("Generating Java code for " + pastClass.name + "...");
-            return generateJava(pastClass, packageName, configs,
-                    filename + ".java", javaOutputDirectory, stackTraceElement, compilerUtil);
-        };
-
-        SpecificationFile specFile = new SpecificationFile(javaGenerator, pythonGenerator);
-       // specFile.save();
-       // SpecificationFile.finalizeTypeChecking();
-       // SpecificationFile.finalizeCodeGeneration();
-        return specFile;
-
- */
     }
 
     // -----------------------------------------------------------------------
@@ -879,8 +850,8 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
 
         String filename = "BoxWorkflow";
 
-        new GenerateBoxWorkflow().generateAndCompilePast(filename,
-                javaOutputDirectory, pythonOutputDirectory);
+        new GenerateBoxWorkflow().generateAndCompilePast(
+        );
 
         System.out.println("Generated BoxWorkflow.java → "
                 + new File(javaOutputDirectory,
@@ -892,14 +863,10 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
     @Override
     public Pair<Class, StackTraceElement> generate(org.openprovenance.prov.model.ProvFactory provFactory, TemplatesProjectConfiguration configs, Locations locations, String s, Map<String, Object> map) {
 
-        String filename = "BoxWorkflow";
-        String pythonOutputDirectory=locations.python_dir;
-        String javaOutputDirectory=locations.getCli_src_dir();
-
-        System.out.println("Generating BoxWorkflow.java → " +javaOutputDirectory);
+        System.out.println("*** Generating BoxWorkflow ***");
 
 
-        return new GenerateBoxWorkflow().generateAndCompilePast(filename, javaOutputDirectory, pythonOutputDirectory);
+        return new GenerateBoxWorkflow().generateAndCompilePast();
 
 
     }

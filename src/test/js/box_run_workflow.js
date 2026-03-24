@@ -114,10 +114,15 @@ outputs0.forEach(o => {
     outputs.push(o);
 });
 
-console.log(templateInstantion2.history);
+console.log(templateInstantion2.getHistory());
 
 // last element of outputs
 
 console.log("Outputs: " + outputs);
 
 console.log("ID of last element in history " + outputs[outputs.length-1].ID);
+
+
+
+console.log(templateInstantion2.getCounterMap());
+console.log(templateInstantion2.getRecordedValues());
