@@ -53,17 +53,29 @@ Array.prototype.get = function (i){
 Array.prototype.add = function (x){
     this.push(x);
 }
+global.AtomicInteger=class AtomicInteger {
+    constructor(value) {
+        this.value=value;
+    }
+    getAndIncrement() {
+        let tmp=this.value
+        this.value=tmp+1;
+        return tmp
+    }
+    getAndDecrement() {
+        let tmp=this.value
+        this.value=tmp-1;
+        return tmp
+    }
+}
 
 
-
-
-    console.log(new Map())
 
 console.log("luc1")
 const { BoxWorkflow } = require('org/openprovenance/book/workflows/BoxWorkflow.js');
 
 console.log("luc2")
-const { LocalEnactor } = require('./box_LocalEnactor.js');
+const { LocalEnactor } = require('org/openprovenance/templates/catalogue/transport/integrator/LocalEnactor.js');
 
 //var templateInstantion=new LocalEnactor();
 var inputs0=[];
@@ -75,7 +87,7 @@ const mode = (process.argv[2] || 'notdefined').toLowerCase();
 let templateInstantion2;
 
 if (mode === 'local') {
-    templateInstantion2 = new LocalEnactor();
+    templateInstantion2 = new LocalEnactor(false);
 } else if (mode === 'remote') {
     var accessToken = fs.readFileSync('/Users/luc/.keycloak_token', 'utf8').trim();
     templateInstantion2 = new WebTemplateInvoker(url, accessToken);

@@ -19,14 +19,40 @@ past.util.StringBuilder = class StringBuilder {
 Map.prototype.put = function (x,y){
     this.set(x,y)
 }
+Map.prototype.containsKey = function (x){
+    return this.has(x)
+}
 
-console.log(new Map())
+Array.prototype.size = function (){
+    return this.length;
+}
+Array.prototype.get = function (i){
+    return this[i];
+}
+Array.prototype.add = function (x){
+    this.push(x);
+}
+global.AtomicInteger=class AtomicInteger {
+    constructor(value) {
+        this.value=value;
+    }
+    getAndIncrement() {
+        let tmp=this.value
+        this.value=tmp+1;
+        return tmp
+    }
+    getAndDecrement() {
+        let tmp=this.value
+        this.value=tmp-1;
+        return tmp
+    }
+}
 
-console.log("luc1")
+
+
 const { PleadWorkflow } = require('org/openprovenance/book/workflows/PleadWorkflow.js');
 
-console.log("luc2")
-const { LocalEnactor } = require('./fs_LocalEnactor.js');
+const { LocalEnactor } = require('org/openprovenance/templates/catalogue/fs/integrator/LocalEnactor.js');
 
 //var templateInstantion=new LocalEnactor();
 var inputs0=[];
@@ -38,7 +64,7 @@ const mode = (process.argv[2] || 'notdefined').toLowerCase();
 let templateInstantion2;
 
 if (mode === 'local') {
-    templateInstantion2 = new LocalEnactor();
+    templateInstantion2 = new LocalEnactor(false);
 } else if (mode === 'remote') {
     var accessToken = fs.readFileSync('/Users/luc/.keycloak_token', 'utf8').trim();
     templateInstantion2 = new WebTemplateInvoker(url, accessToken);

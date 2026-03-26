@@ -3,40 +3,23 @@
 
 const { BeanLocalEnactor2 } = require('org/openprovenance/templates/catalogue/transport/integrator/BeanLocalEnactor2.js');
 const { BeanHistory } = require('org/openprovenance/templates/catalogue/transport/integrator/BeanHistory.js');
+const {IdentifierRegistry} = require("./IdentifierRegistry");
 
 
 
 class BeanLocalEnactor3 extends BeanLocalEnactor2 {
     constructor(counterMap, recordedValues) {
         super();
-        this.negative = false;
-        this.counterInitialValue = this.sign() * 10000;
-        this.counterMap = counterMap;
-        this.recordedValues =recordedValues;
+        this.identifierRegistry=new IdentifierRegistry(counterMap, recordedValues);
     }
-
     newIdentifier(field, counter) {
-        if (!this.counterMap.has(counter)) {
-            this.counterInitialValue = this.counterInitialValue + this.sign() * 10000;
-            this.counterMap.set(counter, {value: this.counterInitialValue});
-        }
-        const entry = this.counterMap.get(counter);
-        const newValue = this.negative ? entry.value-- : entry.value++;
-        if (!this.recordedValues.has(field)) {
-            this.recordedValues.set(field, []);
-        }
-        this.recordedValues.get(field).push(newValue);
-        console.log("newIdentifier " + field + " " + counter + " " + newValue)
-        return newValue;
-    }
-    sign() {
-        return this.negative ? -1 : 1;
+        return this.identifierRegistry.newIdentifier(field, counter);
     }
     getCounterMap() {
-        return this.counterMap
+        return this.identifierRegistry.counterMap
     }
     getRecordedValues(){
-        return this.recordedValues
+        return this.identifierRegistry.recordedValues
     }
 
 }
