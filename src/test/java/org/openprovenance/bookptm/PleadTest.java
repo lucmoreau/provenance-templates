@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import junit.framework.TestCase;
 import org.openprovenance.templates.catalogue.fs.integrator.InputOutputProcessor;
+import org.openprovenance.templates.catalogue.fs.integrator.LocalEnactor;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -28,9 +29,9 @@ public class PleadTest extends TestCase {
         }};
 
         LocalEnactor templateInvoker= new LocalEnactor(false);
-        FsLocalEnactor fsTemplateInvoker=new FsLocalEnactor(templateInvoker);
+        //FsLocalEnactor fsTemplateInvoker=new FsLocalEnactor(templateInvoker);
 
-        this.templateInvoker = fsTemplateInvoker;
+        this.templateInvoker = templateInvoker;
     }
 
     public void testPlead1() {

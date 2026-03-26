@@ -32,9 +32,13 @@ fs.remote.jsweet.js:
 
 
 local:
+	make fs.local.js
+	make box.local.js
+	make fs.local.rs
 	make fs.local.py
 	make box.local.py
 	make fs.local.jsweet.js
+
 
 remote:
 	make fs.remote.py
@@ -53,3 +57,6 @@ fs.local.js:
 
 box.local.js:
 	export NODE_PATH=`pwd`/target/generated-js; node src/test/js/box_run_workflow.js local
+
+fs.local.rs:
+	cd target/generated-rust; cargo run
