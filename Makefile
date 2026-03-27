@@ -39,6 +39,12 @@ local:
 	make box.local.py
 	make fs.local.jsweet.js
 
+fs.all.js:
+	make fs.local.js
+	make fs.local.jsweet.js
+	make fs.remote.js
+	make fs.remote.jsweet.js
+
 
 fs.remote:
 	make fs.remote.py
@@ -59,8 +65,6 @@ fs.local.js:
 	export NODE_PATH=`pwd`/target/generated-js; node src/test/js/fs_run_workflow.js local
 fs.remote.js:
 	export NODE_PATH=`pwd`/target/generated-js; node src/test/js/fs_run_workflow.js remote
-fs.remote2.js:
-	export NODE_PATH=`pwd`/target/generated-js; node src/test/js/fs_run_workflow.js remote2
 
 box.local.js:
 	export NODE_PATH=`pwd`/target/generated-js; node src/test/js/box_run_workflow.js local

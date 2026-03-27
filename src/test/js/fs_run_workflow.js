@@ -66,27 +66,21 @@ global.AtomicInteger=class AtomicInteger {
 
 const { PleadWorkflow } = require('org/openprovenance/book/workflows/PleadWorkflow.js');
 const { LocalEnactor } = require('org/openprovenance/templates/catalogue/fs/integrator/LocalEnactor.js');
+const { RemoteEnactor } = require('./fs_remoteEnactor.js');
 
-var inputs0=[];
-var outputs0=[];
 
 var url="http://localhost:7075/book/provapi/statements";
 
 const mode = (process.argv[2] || 'notdefined').toLowerCase();
-let templateInstantion2;
+let templateInstantion;
 
 if (mode === 'local') {
-    templateInstantion2 = new LocalEnactor(false);
+    templateInstantion = new LocalEnactor(false);
 } else if (mode === 'remote') {
-    const { WebTemplateInvoker } = require('./fs_WebTemplateInvoker.js');
-    var accessToken = fs.readFileSync('/Users/luc/.keycloak_token', 'utf8').trim();
-    templateInstantion2 = new WebTemplateInvoker(url, accessToken);
-} else if (mode === 'remote2') {
-    const { RemoteEnactor } = require('./fs_remoteEnactor.js');
     var accessToken2 = fs.readFileSync('/Users/luc/.keycloak_token', 'utf8').trim();
-    templateInstantion2 = new RemoteEnactor(url, accessToken2);
+    templateInstantion = new RemoteEnactor(url, accessToken2);
 } else {
-    console.error('Usage: node run-plead-workflow.js [local|remote]');
+    console.error('Usage: node run-fs-workflow.js [local|remote]');
     process.exit(1);
 }
 
@@ -101,36 +95,19 @@ class ThisWorkflow extends PleadWorkflow {
     }
 }
 
-const pleadWorkflow=new ThisWorkflow(templateInstantion2,inputs0,outputs0);
+let inputs=[];
+let outputs=[];
+
+const pleadWorkflow=new ThisWorkflow(templateInstantion,inputs,outputs);
 
 pleadWorkflow.workflow(111,333,"inputfile", 123, 56, 78, 456, 768,'/home/bob',"2026-03-01T09:03:51.168987Z", "2026-03-01T09:03:51.168987Z");
 
 
-
-
-
-var inputs=[];
-var outputs=[];
-
-
-
-inputs0.forEach(i => {
-    inputs.push(i);
-});
-outputs0.forEach(o => {
-    outputs.push(o);
-});
-
-console.log(templateInstantion2.getHistory());
-
-// last element of outputs
-
-//console.log(outputs)
-
+console.log(templateInstantion.getHistory());
 console.log("ID of last element in history " + outputs[outputs.length-1].ID);
 console.log("last element in history: "); console.log(outputs[outputs.length-1]);
 
 if (mode === 'local') {
-    console.log(templateInstantion2.getCounterMap());
-    console.log(templateInstantion2.getRecordedValues());
+    console.log(templateInstantion.getCounterMap());
+    console.log(templateInstantion.getRecordedValues());
 }
