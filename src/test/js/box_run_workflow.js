@@ -36,6 +36,13 @@ past.exception.UnsupportedOperationException = class UnsupportedOperationExcepti
         this.name = "UnsupportedOperationException";
     }
 }
+past.exception.IllegalArgumentException = class IllegalArgumentException extends Error {
+    constructor(message) {
+        super(message);
+        this.name = "IllegalArgumentException";
+    }
+}
+
 
 Map.prototype.put = function (x,y){
     this.set(x,y)

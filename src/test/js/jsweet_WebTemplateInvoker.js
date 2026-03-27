@@ -27,9 +27,6 @@ class ServiceInvoker {
 }
 
 
-
-
-
 class WebTemplateInvoker extends org.openprovenance.templates.catalogue.fs.integrator.TemplateInvoker {
     constructor(url,token) {
         super();
@@ -43,14 +40,10 @@ class WebTemplateInvoker extends org.openprovenance.templates.catalogue.fs.integ
     }
 
     generic_post_and_return(cl, inputs0, completer) {
-        //console.log("Invoking " + cl.constructor.name + " with inputs: " + inputs0);
-        //console.log(inputs0);
+
         let result0 = this.si.postInstructionsInOut(this.url, inputs0, this.accessToken);
         let result1 = result0[0];
-        //console.log("Received raw response: ");
-        //console.log(result1);
 
-        // convert to java map to work with the transpiler code
         let map=new java.util.HashMap();
         // for all keys in result1, add to map
         for (let key in result1) {
@@ -58,10 +51,8 @@ class WebTemplateInvoker extends org.openprovenance.templates.catalogue.fs.integ
                 map.put(key, result1[key]);
             }
         }
-        let val=completer(map, new cl());
-        //console.log("Received response: ");
-        //console.log(val);
-        //console.log("After postInstructionsInOut call");
+        let val=completer(map, cl);
+
         return val;
     }
 

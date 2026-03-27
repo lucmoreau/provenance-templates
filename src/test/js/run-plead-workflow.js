@@ -9,9 +9,9 @@ const provfs = require('../../../target/js/bundle.js');
 var org = provfs.org;
 
 
-const { LocalEnactor } = require('./jsweet-LocalEnactor');
+const { LocalEnactor } = require('./jsweet_LocalEnactor');
 
-const { WebTemplateInvoker } = require('./WebTemplateInvoker');
+const { WebTemplateInvoker } = require('./jsweet_WebTemplateInvoker');
 
 
 

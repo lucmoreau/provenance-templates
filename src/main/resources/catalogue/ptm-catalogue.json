@@ -8,6 +8,8 @@
     "script": "ptm_run",
     "script_dir": "target/bin",
     "python_dir": "target/generated-python",
+    "javascript_dir": "target/generated-js",
+    "rust_dir": "target/generated-rust/src",
     "integrator": true,
     "jsweet": true,
     "jsonschema": "schema-ptm.json",

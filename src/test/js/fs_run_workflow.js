@@ -2,6 +2,7 @@ const fs = require('fs');
 
 past={};
 past.util={}
+past.exception={}
 global.past = past;
 
 past.util.StringBuilder = class StringBuilder {
@@ -15,6 +16,19 @@ past.util.StringBuilder = class StringBuilder {
         return this.contents.join("");
     }
 }
+past.exception.UnsupportedOperationException = class UnsupportedOperationException extends Error {
+    constructor(message) {
+        super(message);
+        this.name = "UnsupportedOperationException";
+    }
+}
+past.exception.IllegalArgumentException = class IllegalArgumentException extends Error {
+    constructor(message) {
+        super(message);
+        this.name = "IllegalArgumentException";
+    }
+}
+
 
 Map.prototype.put = function (x,y){
     this.set(x,y)
@@ -51,10 +65,8 @@ global.AtomicInteger=class AtomicInteger {
 
 
 const { PleadWorkflow } = require('org/openprovenance/book/workflows/PleadWorkflow.js');
-
 const { LocalEnactor } = require('org/openprovenance/templates/catalogue/fs/integrator/LocalEnactor.js');
 
-//var templateInstantion=new LocalEnactor();
 var inputs0=[];
 var outputs0=[];
 
@@ -66,8 +78,13 @@ let templateInstantion2;
 if (mode === 'local') {
     templateInstantion2 = new LocalEnactor(false);
 } else if (mode === 'remote') {
+    const { WebTemplateInvoker } = require('./fs_WebTemplateInvoker.js');
     var accessToken = fs.readFileSync('/Users/luc/.keycloak_token', 'utf8').trim();
     templateInstantion2 = new WebTemplateInvoker(url, accessToken);
+} else if (mode === 'remote2') {
+    const { RemoteEnactor } = require('./fs_remoteEnactor.js');
+    var accessToken2 = fs.readFileSync('/Users/luc/.keycloak_token', 'utf8').trim();
+    templateInstantion2 = new RemoteEnactor(url, accessToken2);
 } else {
     console.error('Usage: node run-plead-workflow.js [local|remote]');
     process.exit(1);
@@ -111,6 +128,9 @@ console.log(templateInstantion2.getHistory());
 //console.log(outputs)
 
 console.log("ID of last element in history " + outputs[outputs.length-1].ID);
+console.log("last element in history: "); console.log(outputs[outputs.length-1]);
 
-console.log(templateInstantion2.getCounterMap());
-console.log(templateInstantion2.getRecordedValues());
+if (mode === 'local') {
+    console.log(templateInstantion2.getCounterMap());
+    console.log(templateInstantion2.getRecordedValues());
+}
