@@ -1,18 +1,6 @@
 const fs = require('fs');
+const path = require('path');
 
-/*
-const j4ts = require('../resources/j4ts-bundle.js');
-global.java = j4ts.java;
-global.javaemul = j4ts.javaemul;
-
-const provfs = require('../../../target/js/bundle.js');
-
-var org = provfs.org;
-*/
-
-//const { LocalEnactor } = require('./LocalEnactor');
-
-//const { WebTemplateInvoker } = require('./WebTemplateInvoker');
 past={};
 past.util={}
 past.exception={}
@@ -78,11 +66,9 @@ global.AtomicInteger=class AtomicInteger {
 
 
 
-console.log("luc1")
 const { BoxWorkflow } = require('org/openprovenance/book/workflows/BoxWorkflow.js');
-
-console.log("luc2")
 const { LocalEnactor } = require('org/openprovenance/templates/catalogue/transport/integrator/LocalEnactor.js');
+const { RemoteEnactor } = require('./box_remoteEnactor.js');
 
 //var templateInstantion=new LocalEnactor();
 var inputs0=[];
@@ -97,7 +83,7 @@ if (mode === 'local') {
     templateInstantion2 = new LocalEnactor(false);
 } else if (mode === 'remote') {
     var accessToken = fs.readFileSync('/Users/luc/.keycloak_token', 'utf8').trim();
-    templateInstantion2 = new WebTemplateInvoker(url, accessToken);
+    templateInstantion2 = new RemoteEnactor(url, accessToken);
 } else {
     console.error('Usage: node run-plead-workflow.js [local|remote]');
     process.exit(1);
@@ -133,15 +119,25 @@ outputs0.forEach(o => {
     outputs.push(o);
 });
 
-console.log(templateInstantion2.getHistory());
+const history = templateInstantion2.getHistory();
+
+try {
+    let outfile = "target/box-js-workflow-" + mode + ".json"
+    fs.mkdirSync(path.dirname(outfile), { recursive: true });
+    fs.writeFileSync(outfile, JSON.stringify(history, null, 2), 'utf8');
+    console.log(`Results saved to: ${outfile}`);
+} catch (err) {
+    console.error('Failed to save history to', outfile, err);
+}
 
 // last element of outputs
 
-console.log("Outputs: " + outputs);
-
 console.log("ID of last element in history " + outputs[outputs.length-1].ID);
+console.log("- last element in history: " );
+console.log( outputs[outputs.length-1]);
 
 
-
-console.log(templateInstantion2.getCounterMap());
-console.log(templateInstantion2.getRecordedValues());
+if (mode === 'local') {
+    console.log(templateInstantion2.getCounterMap());
+    console.log(templateInstantion2.getRecordedValues());
+}

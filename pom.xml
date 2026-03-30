@@ -1761,6 +1761,11 @@
                 <filtering>true</filtering>
                 <targetPath>${project.build.directory}/config-merge</targetPath>
             </resource>
+            <resource>
+                <directory>src/test/rust/</directory>
+                <filtering>false</filtering>
+                <targetPath>${project.build.directory}/generated-rust/src</targetPath>
+            </resource>
         </resources>
 
     </build>

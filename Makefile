@@ -68,6 +68,8 @@ fs.remote.js:
 
 box.local.js:
 	export NODE_PATH=`pwd`/target/generated-js; node src/test/js/box_run_workflow.js local
+box.remote.js:
+	export NODE_PATH=`pwd`/target/generated-js; node src/test/js/box_run_workflow.js remote
 
 fs.local.rs:
 	cd target/generated-rust; cargo run

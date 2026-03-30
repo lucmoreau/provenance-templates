@@ -3,7 +3,10 @@ const { Worker, isMainThread, workerData } = require('worker_threads');
 if (isMainThread) {
 
     class FetchWorker {
-        post(url, array, token) {
+        post(url, array, token, debug) {
+            if (debug) {
+                console.log(JSON.stringify(array))
+            }
             const sharedBuffer = new SharedArrayBuffer(4);
             const sharedInt   = new Int32Array(sharedBuffer);
             const resultBuffer = new SharedArrayBuffer(4 * 1024 * 1024); // 4 MB
@@ -15,6 +18,10 @@ if (isMainThread) {
 
             const length = Atomics.load(sharedInt, 0);
             const text   = Buffer.from(resultBytes.subarray(0, Math.abs(length))).toString();
+            if (debug) {
+                console.log("  -> " + text)
+            }
+
             const parsed = JSON.parse(text);
 
             if (length < 0) throw new Error('Fetch failed: ' + parsed.__error);

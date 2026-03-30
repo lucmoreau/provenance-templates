@@ -179,10 +179,10 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                         .MODIFIERS(Modifier.PRIVATE, Modifier.FINAL),
 
                 FIELD("inputs", LIST_OF_OBJECT)
-                        .MODIFIERS(Modifier.PRIVATE, Modifier.FINAL),
+                        .MODIFIERS(Modifier.PUBLIC, Modifier.FINAL),
 
                 FIELD("outputs", LIST_OF_OBJECT)
-                        .MODIFIERS(Modifier.PRIVATE, Modifier.FINAL),
+                        .MODIFIERS(Modifier.PUBLIC, Modifier.FINAL),
 
                 FIELD("agent1Time", STRING).INITIALIZER(CONSTANT("2024-09-01T10:00:00Z")),
                 FIELD("agent2Time", STRING).INITIALIZER(CONSTANT("2024-09-01T10:00:00Z")),
@@ -427,15 +427,15 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 // flowToFrom(weighingInputs1,"item0", packing_compositeOutputs.__elements.get(0), "container1")
                 ASSIGNMENT(
                         METHOD_CALL(VARIABLE("weighingInputs1"), "item0"),
-                        METHOD_CALL(elementGet("packing_compositeOutputs", 0), "container1")),
+                        METHOD_CALL(elementGet("packing_compositeOutputs", 0), "item1")),
                 // flowToFrom(weighingInputs1,"item0", packing_compositeOutputs.__elements.get(1), "container1")
                 ASSIGNMENT(
                         METHOD_CALL(VARIABLE("weighingInputs1"), "item0"),
-                        METHOD_CALL(elementGet("packing_compositeOutputs", 1), "container1")),
+                        METHOD_CALL(elementGet("packing_compositeOutputs", 1), "item1")),
                 flowToFrom("weighingInputs1", "item",  "box_initOutputs",     "entity"),
                 flowToFrom("weighingInputs1", "agent", "agent_initOutputs0",  "agent0"),
                 flowToFrom("weighingInputs1", "scale", "agent_initOutputsS1", "agent0"),
-                ASSIGNMENT(METHOD_CALL(VARIABLE("weighingInputs1"), "weight"), CONSTANT(10.0d)),
+                ASSIGNMENT(METHOD_CALL(VARIABLE("weighingInputs1"), "weight"), CONSTANT(10.01d)),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("weighingInputs1"), "time"),   thisField("weighing1Time")),
                 nullGuardedAdd("inputs", "weighingInputs1"),
                 process(WEIGHING_OUTPUTS, "weighingOutputs1", "weighingInputs1"),
@@ -558,7 +558,7 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 flowToFrom("weighingInputs2", "item",   "box_initOutputs",      "entity"),
                 flowToFrom("weighingInputs2", "agent",  "agent_initOutputs2",   "agent0"),
                 flowToFrom("weighingInputs2", "scale",  "agent_initOutputsS2",  "agent0"),
-                ASSIGNMENT(METHOD_CALL(VARIABLE("weighingInputs2"), "weight"), CONSTANT(10.0d)),
+                ASSIGNMENT(METHOD_CALL(VARIABLE("weighingInputs2"), "weight"), CONSTANT(10.02d)),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("weighingInputs2"), "time"),   thisField("weighing2Time")),
                 nullGuardedAdd("inputs", "weighingInputs2"),
                 process(WEIGHING_OUTPUTS, "weighingOutputs2", "weighingInputs2"),
@@ -676,7 +676,7 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 flowToFrom("weighingInputs3", "item",   "box_initOutputs",      "entity"),
                 flowToFrom("weighingInputs3", "agent",  "agent_initOutputs4",   "agent0"),
                 flowToFrom("weighingInputs3", "scale",  "agent_initOutputsS3",  "agent0"),
-                ASSIGNMENT(METHOD_CALL(VARIABLE("weighingInputs3"), "weight"), CONSTANT(15.0d)),
+                ASSIGNMENT(METHOD_CALL(VARIABLE("weighingInputs3"), "weight"), CONSTANT(15.03d)),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("weighingInputs3"), "time"),   thisField("deliveryTime")),
                 nullGuardedAdd("inputs", "weighingInputs3"),
                 process(WEIGHING_OUTPUTS, "weighingOutputs3", "weighingInputs3"),
