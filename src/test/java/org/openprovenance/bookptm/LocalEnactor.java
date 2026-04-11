@@ -207,8 +207,8 @@ public class LocalEnactor extends BeanLocalEnactor2 {
         Packing_compositeBean res = new Packing_compositeBean();
         PackingBuilder build = new PackingBuilder();
         for (int i = 0; i < bean.__elements.size(); i++) {
-            Object[] packingIn = bean.__elements.get(i).process(build.aArgs2RecordConverter());
-            Object[] packingOut = out.__elements.get(i).process(build.aArgs2RecordConverter());
+            Object[] packingIn = bean.__elements.get(i).process(build.getIntegrator().processorInputConverter(x -> x));
+            Object[] packingOut = out.__elements.get(i).process(build.getIntegrator().processorOutputConverter(x -> x));
             Object[] packing = merge(packingIn, packingOut);
             res.addElements(build.record2bean(packing));
         }
@@ -219,8 +219,8 @@ public class LocalEnactor extends BeanLocalEnactor2 {
         Unpacking_compositeBean res = new Unpacking_compositeBean();
         UnpackingBuilder build = new UnpackingBuilder();
         for (int i = 0; i < bean.__elements.size(); i++) {
-            Object[] unpackingIn = bean.__elements.get(i).process(build.aArgs2RecordConverter());
-            Object[] unpackingOut = out.__elements.get(i).process(build.aArgs2RecordConverter());
+            Object[] unpackingIn = bean.__elements.get(i).process(build.getIntegrator().processorInputConverter(x -> x));
+            Object[] unpackingOut = out.__elements.get(i).process(build.getIntegrator().processorOutputConverter(x -> x));
             Object[] unpacking = merge(unpackingIn, unpackingOut);
             res.addElements(build.record2bean(unpacking));
         }
@@ -230,32 +230,32 @@ public class LocalEnactor extends BeanLocalEnactor2 {
 
     private WeighingBean merge(WeighingInputs weighingInputs, WeighingOutputs weighingOutputs) {
         WeighingBuilder builder=new WeighingBuilder();
-        Object[] weighingIn= weighingInputs.process(builder.aArgs2RecordConverter());
-        Object[] weighingOut= weighingOutputs.process(builder.aArgs2RecordConverter());
+        Object[] weighingIn= weighingInputs.process(builder.getIntegrator().processorInputConverter(x -> x));
+        Object[] weighingOut= weighingOutputs.process(builder.getIntegrator().processorOutputConverter(x -> x));
         Object[] weighing=merge(weighingIn, weighingOut);
         return builder.record2bean(weighing);
     }
 
     private Agent_initBean merge(Agent_initInputs bean, Agent_initOutputs out) {
         Agent_initBuilder builder=new Agent_initBuilder();
-        Object[] agentIn= bean.process(builder.aArgs2RecordConverter());
-        Object[] agentOut= out.process(builder.aArgs2RecordConverter());
+        Object[] agentIn= bean.process(builder.getIntegrator().processorInputConverter(x -> x));
+        Object[] agentOut= out.process(builder.getIntegrator().processorOutputConverter(x -> x));
         Object[] agent=merge(agentIn, agentOut);
         return builder.record2bean(agent);
     }
 
     private Item_initBean merge(Item_initInputs bean, Item_initOutputs out) {
         Item_initBuilder builder=new Item_initBuilder();
-        Object[] itemIn= bean.process(builder.aArgs2RecordConverter());
-        Object[] itemOut= out.process(builder.aArgs2RecordConverter());
+        Object[] itemIn= bean.process(builder.getIntegrator().processorInputConverter(x -> x));
+        Object[] itemOut= out.process(builder.getIntegrator().processorOutputConverter(x -> x));
         Object[] item=merge(itemIn, itemOut);
         return builder.record2bean(item);
     }
 
     private File_initBean merge(File_initInputs bean, File_initOutputs out) {
         File_initBuilder builder=new File_initBuilder();
-        Object[] itemIn= bean.process(builder.aArgs2RecordConverter());
-        Object[] itemOut= out.process(builder.aArgs2RecordConverter());
+        Object[] itemIn= bean.process(builder.getIntegrator().processorInputConverter(x -> x));
+        Object[] itemOut= out.process(builder.getIntegrator().processorOutputConverter(x -> x));
         Object[] item=merge(itemIn, itemOut);
         return builder.record2bean(item);
     }
@@ -264,40 +264,40 @@ public class LocalEnactor extends BeanLocalEnactor2 {
 
     private TransportingBean merge(TransportingInputs transportingInputs, TransportingOutputs transportingOutputs) {
         TransportingBuilder builder=new TransportingBuilder();
-        Object[] transportingIn= transportingInputs.process(builder.aArgs2RecordConverter());
-        Object[] transportingOut= transportingOutputs.process(builder.aArgs2RecordConverter());
+        Object[] transportingIn= transportingInputs.process(builder.getIntegrator().processorInputConverter(x -> x));
+        Object[] transportingOut= transportingOutputs.process(builder.getIntegrator().processorOutputConverter(x -> x));
         Object[] transporting=merge(transportingIn, transportingOut);
         return builder.record2bean(transporting);
     }
 
     private HandingoverBean merge(HandingoverInputs handoverInputs, HandingoverOutputs handoverOutputs) {
         HandingoverBuilder builder=new HandingoverBuilder();
-        Object[] handoverIn= handoverInputs.process(builder.aArgs2RecordConverter());
-        Object[] handoverOut= handoverOutputs.process(builder.aArgs2RecordConverter());
+        Object[] handoverIn= handoverInputs.process(builder.getIntegrator().processorInputConverter(x -> x));
+        Object[] handoverOut= handoverOutputs.process(builder.getIntegrator().processorOutputConverter(x -> x));
         Object[] handover=merge(handoverIn, handoverOut);
         return builder.record2bean(handover);
     }
 
     private PackingBean merge(PackingInputs packingInputs, PackingOutputs packingOutputs) {
         PackingBuilder builder=new PackingBuilder();
-        Object[] packingIn= packingInputs.process(builder.aArgs2RecordConverter());
-        Object[] packingOut= packingOutputs.process(builder.aArgs2RecordConverter());
+        Object[] packingIn= packingInputs.process(builder.getIntegrator().processorInputConverter(x -> x));
+        Object[] packingOut= packingOutputs.process(builder.getIntegrator().processorOutputConverter(x -> x));
         Object[] packing=merge(packingIn, packingOut);
         return builder.record2bean(packing);
     }
 
     private PackingBean merge(PackingInputs_1 packingInputs, PackingOutputs packingOutputs) {
         PackingBuilder builder = new PackingBuilder();
-        Object[] packingIn = packingInputs.process(builder.aArgs2RecordConverter());
-        Object[] packingOut = packingOutputs.process(builder.aArgs2RecordConverter());
+        Object[] packingIn = packingInputs.process(builder.getIntegrator().processorInputConverter(x -> x));
+        Object[] packingOut = packingOutputs.process(builder.getIntegrator().processorOutputConverter(x -> x));
         Object[] packing = merge(packingIn, packingOut);
         return builder.record2bean(packing);
     }
 
     private UnpackingBean merge(UnpackingInputs unpackingInputs, UnpackingOutputs unpackingOutputs) {
         UnpackingBuilder builder=new UnpackingBuilder();
-        Object[] unpackingIn= unpackingInputs.process(builder.aArgs2RecordConverter());
-        Object[] unpackingOut= unpackingOutputs.process(builder.aArgs2RecordConverter());
+        Object[] unpackingIn= unpackingInputs.process(builder.getIntegrator().processorInputConverter(x -> x));
+        Object[] unpackingOut= unpackingOutputs.process(builder.getIntegrator().processorOutputConverter(x -> x));
         Object[] unpacking=merge(unpackingIn, unpackingOut);
         return builder.record2bean(unpacking);
     }
@@ -305,8 +305,8 @@ public class LocalEnactor extends BeanLocalEnactor2 {
 
     private UnpackingBean merge(UnpackingInputs_1 unpackingInputs, UnpackingOutputs unpackingOutputs) {
         UnpackingBuilder builder=new UnpackingBuilder();
-        Object[] unpackingIn= unpackingInputs.process(builder.aArgs2RecordConverter());
-        Object[] unpackingOut= unpackingOutputs.process(builder.aArgs2RecordConverter());
+        Object[] unpackingIn= unpackingInputs.process(builder.getIntegrator().processorInputConverter(x -> x));
+        Object[] unpackingOut= unpackingOutputs.process(builder.getIntegrator().processorOutputConverter(x -> x));
         Object[] unpacking=merge(unpackingIn, unpackingOut);
         return builder.record2bean(unpacking);
     }

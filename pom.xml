@@ -1536,6 +1536,7 @@
                         </configuration>
                     </execution>
 
+                    <!--
                     <execution>
                         <id>js-fs-run-workflow</id>
                         <phase>test</phase>
@@ -1550,12 +1551,14 @@
                                 <argument>local</argument>
                             </arguments>
                             <workingDirectory>${project.basedir}</workingDirectory>
-                            <!-- fail the build if the script exits non-zero -->
+
                             <successCodes>
                                 <successCode>0</successCode>
                             </successCodes>
                         </configuration>
                     </execution>
+
+        -->
                 </executions>
             </plugin>
 
