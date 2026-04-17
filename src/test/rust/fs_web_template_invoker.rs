@@ -47,7 +47,7 @@ use crate::org::openprovenance::book::fs::client::integrator::{
 use crate::org::openprovenance::templates::catalogue::fs::integrator::{
     bean_completer2::BeanCompleter2,
     bean_history::BeanHistory,
-    composite_bean_completer2::CompositeBeanCompleter2,
+    bean_completer2_composite::BeanCompleter2Composite,
     input_output_processor::InputOutputProcessor,
 };
 
@@ -276,7 +276,7 @@ impl InputOutputProcessor for FsWebTemplateInvoker {
             bean,
             |m, mut o| {
                 o.elements = Vec::new();
-                CompositeBeanCompleter2::new(m).process(o)
+                BeanCompleter2Composite::new(m).process(o)
             },
         )
     }

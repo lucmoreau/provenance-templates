@@ -9,13 +9,29 @@ const provfs = require('../../../target/js/bundle.js');
 var org = provfs.org;
 
 
-const { LocalEnactor } = require('./jsweet_LocalEnactor');
+java.util.concurrent={};
+java.util.concurrent.atomic={};
+java.util.concurrent.atomic.AtomicInteger=class AtomicInteger {
+    constructor(value) {
+        this.value=value;
+    }
+    getAndIncrement() {
+        let v=this.value;
+        this.value++;
+        return v;
+    }
+    getAndDecrement() {
+        let v=this.value;
+        this.value--;
+        return v;
+    }
+}
 
-const { WebTemplateInvoker } = require('./jsweet_WebTemplateInvoker');
+//const { WebTemplateInvoker } = require('./jsweet_WebTemplateInvoker');
+const { RemoteEnactor } = require('./jsweet_RemoteEnactor.js');
 
 
 
-var templateInstantion=new LocalEnactor();
 var inputs0=new java.util.LinkedList();
 var outputs0=new java.util.LinkedList();
 
@@ -25,12 +41,12 @@ const mode = (process.argv[2] || 'notdefined').toLowerCase();
 let templateInstantion2;
 
 if (mode === 'local') {
-    templateInstantion2 = new LocalEnactor();
+    templateInstantion2 = new org.openprovenance.templates.catalogue.fs.integrator.LocalEnactor(false);
 } else if (mode === 'remote') {
     var accessToken = fs.readFileSync('/Users/luc/.keycloak_token', 'utf8').trim();
-    templateInstantion2 = new WebTemplateInvoker(url, accessToken);
+    templateInstantion2 = new RemoteEnactor(url, accessToken);
 } else {
-    console.error('Usage: node run-plead-workflow.js [local|remote]');
+    console.error('Usage: node jsweet_run_workflow.js [local|remote]');
     process.exit(1);
 }
 
@@ -47,6 +63,7 @@ class ThisWorkflow extends org.openprovenance.book.workflows.PleadWorkflow {
 
 const pleadWorkflow=new ThisWorkflow(templateInstantion2,inputs0,outputs0);
 
+//  workflow(engineer, manager, filenameRoot, oldFileId, tmethod, fmethod, n_rows, n_cols, path, start, end)
 pleadWorkflow.workflow(111,333,"inputfile", 123, 56, 78, 456, 768,'/home/bob',"2026-03-01T09:03:51.168987Z", "2026-03-01T09:03:51.168987Z");
 
 

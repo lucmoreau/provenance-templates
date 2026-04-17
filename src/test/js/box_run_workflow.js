@@ -85,7 +85,7 @@ if (mode === 'local') {
     var accessToken = fs.readFileSync('/Users/luc/.keycloak_token', 'utf8').trim();
     templateInstantion2 = new RemoteEnactor(url, accessToken);
 } else {
-    console.error('Usage: node run-plead-workflow.js [local|remote]');
+    console.error('Usage: node jsweet_run_workflow.js [local|remote]');
     process.exit(1);
 }
 

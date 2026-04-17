@@ -1547,7 +1547,7 @@
                             <executable>node</executable>
 
                             <arguments>
-                                <argument>src/test/js/run-plead-workflow.js</argument>
+                                <argument>src/test/js/jsweet_run_workflow.js</argument>
                                 <argument>local</argument>
                             </arguments>
                             <workingDirectory>${project.basedir}</workingDirectory>

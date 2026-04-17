@@ -14,30 +14,44 @@ test.py:
 
 fs.local.py:
 	@export PYTHONPATH=$(PY_PATH); python3 src/test/python/org/openprovenance/bookptm/fs_run_workflow.py local
-
 fs.remote.py:
 	@export PYTHONPATH=$(PY_PATH); python3 src/test/python/org/openprovenance/bookptm/fs_run_workflow.py remote
 
 box.local.py:
 	@export PYTHONPATH=$(PY_PATH); python3 src/test/python/org/openprovenance/bookptm/box_run_workflow.py local
-
 box.remote.py:
 	@export PYTHONPATH=$(PY_PATH); python3 src/test/python/org/openprovenance/bookptm/box_run_workflow.py remote
 
 fs.local.jsweet.js:
-	node src/test/js/run-plead-workflow.js local
-
+	node src/test/js/jsweet_run_workflow.js local
 fs.remote.jsweet.js:
-	node src/test/js/run-plead-workflow.js remote
+	node src/test/js/jsweet_run_workflow.js remote
+
+
+fs.local.js:
+	export NODE_PATH=`pwd`/target/generated-js; node src/test/js/fs_run_workflow.js local
+fs.remote.js:
+	export NODE_PATH=`pwd`/target/generated-js; node src/test/js/fs_run_workflow.js remote
+
+box.local.js:
+	export NODE_PATH=`pwd`/target/generated-js; node src/test/js/box_run_workflow.js local
+box.remote.js:
+	export NODE_PATH=`pwd`/target/generated-js; node src/test/js/box_run_workflow.js remote
+
+fs.local.rs:
+	cd target/generated-rust; cargo run fs local
+box.local.rs:
+	cd target/generated-rust; cargo run box local
 
 
 local:
 	make fs.local.js
-	make box.local.js
-	make fs.local.rs
 	make fs.local.py
-	make box.local.py
 	make fs.local.jsweet.js
+	make fs.local.rs
+	make box.local.js
+	make box.local.py
+	make box.local.rs
 
 fs.all.js:
 	make fs.local.js
@@ -60,16 +74,3 @@ cat:
 	mvn exec:exec@python-fs-run-workflow
 	mvn exec:exec@python-box-run-workflow
 	mvn exec:exec@js-fs-run-workflow
-
-fs.local.js:
-	export NODE_PATH=`pwd`/target/generated-js; node src/test/js/fs_run_workflow.js local
-fs.remote.js:
-	export NODE_PATH=`pwd`/target/generated-js; node src/test/js/fs_run_workflow.js remote
-
-box.local.js:
-	export NODE_PATH=`pwd`/target/generated-js; node src/test/js/box_run_workflow.js local
-box.remote.js:
-	export NODE_PATH=`pwd`/target/generated-js; node src/test/js/box_run_workflow.js remote
-
-fs.local.rs:
-	cd target/generated-rust; cargo run

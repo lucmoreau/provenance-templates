@@ -44,6 +44,8 @@ class LocalEnactor extends org.openprovenance.templates.catalogue.fs.integrator.
         const itemIn = bean.process(builder.aArgs2RecordConverter());
         const itemOut = out.process(builder.aArgs2RecordConverter());
         const item = this.merge_array(itemIn, itemOut);
+
+
         const file_transformingBean = builder.record2bean(item);
         this.history.push(file_transformingBean);
         return out;

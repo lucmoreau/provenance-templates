@@ -2,7 +2,7 @@
 //!
 //! This is the transport-catalogue counterpart of `fs_web_template_invoker` (which covers
 //! the fs/file-system catalogue).  The structure is identical; only the bean types,
-//! `BeanCompleter2`, `CompositeBeanCompleter2`, `BeanHistory` and `InputOutputProcessor`
+//! `BeanCompleter2`, `BeanCompleter2Composite`, `BeanHistory` and `InputOutputProcessor`
 //! are swapped for their transport equivalents under
 //! `org::openprovenance::templates::catalogue::transport`.
 //!
@@ -38,7 +38,7 @@ use crate::org::openprovenance::book::responsibility::client::integrator::{
 use crate::org::openprovenance::templates::catalogue::transport::integrator::{
     bean_completer2::BeanCompleter2,
     bean_history::BeanHistory,
-    composite_bean_completer2::CompositeBeanCompleter2,
+    bean_completer2_composite::BeanCompleter2Composite,
     input_output_processor::InputOutputProcessor,
 };
 
@@ -258,7 +258,7 @@ impl InputOutputProcessor for BoxWebTemplateInvoker {
             bean,
             |m, mut o| {
                 o.elements = Vec::new();
-                CompositeBeanCompleter2::new(m).process_packing_composite_outputs(o)
+                BeanCompleter2Composite::new(m).process_packing_composite_outputs(o)
             },
         )
     }
@@ -280,7 +280,7 @@ impl InputOutputProcessor for BoxWebTemplateInvoker {
             bean,
             |m, mut o| {
                 o.elements = Vec::new();
-                CompositeBeanCompleter2::new(m).process_unpacking_composite_outputs(o)
+                BeanCompleter2Composite::new(m).process_unpacking_composite_outputs(o)
             },
         )
     }
