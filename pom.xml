@@ -1379,6 +1379,15 @@
                                     </includes>
                                 </html>
                             </html>
+                            <icon>
+                                <icon>
+                                    <directory>${project.basedir}/src/main/resources/icons</directory>
+                                    <includes>
+                                        <includes>[^/]+\.json</includes> <!-- note this is a java regex *-->
+                                        <includes>[^/]+\.svg</includes> <!-- note this is a java regex *-->
+                                    </includes>
+                                </icon>
+                            </icon>
                         </configuration>
                     </execution>
                 </executions>

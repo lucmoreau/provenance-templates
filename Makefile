@@ -6,7 +6,9 @@ PY_PATH=/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-libra
 
 compile.ttf:
 	$(PROVCONVERT) -inputBaseDir `pwd`/template-intro1 -outputBaseDir `pwd`/template-intro1  -templatebuilder `pwd`/template-intro1/src/main/resources/catalogue/transport-catalogue.json -templateLibrary `pwd`/template-intro1/src/main/resources/templates -templateLibrary `pwd`/template-intro1/target/generated-templates
-
+icons:
+	@./src/main/script/extract-svg-symbols.sh src/main/resources/icons/file-icons.svg src/main/resources/icons/file-icons.json
+	@./src/main/script/extract-svg-symbols.sh src/main/resources/icons/physical-icons.svg src/main/resources/icons/physical-icons.json
 
 test.py:
 	export PYTHONPATH=$(PY_PATH); python3 src/test/python/org/openprovenance/bookptm/run_box_workflow.py
