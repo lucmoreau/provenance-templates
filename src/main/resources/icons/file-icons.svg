@@ -23,7 +23,7 @@
 <!-- 1. icon-file-init
      Meaning: creating a new file.
      File base (indigo) + green "+" badge at (40,9). -->
-<symbol id="file_init" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<symbol id="icon-org.openprovenance.book.fs.FileInit" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
   <!-- File body -->
   <polygon points="6,4 32,4 38,10 38,44 6,44"
            fill="#EEF2FF" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
@@ -46,7 +46,7 @@
 <!-- 2. icon-file-transforming
      Meaning: transforming/processing a file (format conversion, enrichment).
      File base + amber ↺ circular-arrow badge. -->
-<symbol id="icon-file-transforming" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<symbol id="icon-org.openprovenance.book.fs.FileTransforming" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
   <!-- File body -->
   <polygon points="6,4 32,4 38,10 38,44 6,44"
            fill="#EEF2FF" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
@@ -68,7 +68,7 @@
 <!-- 3. icon-file-filtering
      Meaning: filtering / subsetting data.
      File base + funnel badge inside white circle at (40,9). -->
-<symbol id="icon-file-filtering" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<symbol id="icon-org.openprovenance.book.fs.FileFiltering" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
   <!-- File body -->
   <polygon points="6,4 32,4 38,10 38,44 6,44"
            fill="#EEF2FF" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
@@ -91,7 +91,7 @@
 <!-- 4. icon-file-training
      Meaning: training a model on file data.
      File base + tiny neural-network badge (3-node triangle). -->
-<symbol id="icon-file-training" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<symbol id="icon-org.openprovenance.book.fs.FileTraining" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
   <!-- File body -->
   <polygon points="6,4 32,4 38,10 38,44 6,44"
            fill="#EEF2FF" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
@@ -115,7 +115,7 @@
 <!-- 5. icon-file-validating
      Meaning: validating file contents (automated check).
      File base + checkmark badge. -->
-<symbol id="icon-file-validating" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<symbol id="icon-org.openprovenance.book.fs.FileValidating" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
   <!-- File body -->
   <polygon points="6,4 32,4 38,10 38,44 6,44"
            fill="#EEF2FF" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
@@ -135,7 +135,7 @@
 <!-- 6. icon-file-approving
      Meaning: human approval of a file.
      File base + shield-with-checkmark badge. -->
-<symbol id="icon-file-approving" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<symbol id="icon-org.openprovenance.book.fs.FileApproving" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
   <!-- File body -->
   <polygon points="6,4 32,4 38,10 38,44 6,44"
            fill="#EEF2FF" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
@@ -159,7 +159,7 @@
 <!-- 7. icon-file-splitting
      Meaning: splitting one file into multiple.
      One file on left → diverging arrows → two smaller files on right. No badge. -->
-<symbol id="icon-file-splitting" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<symbol id="icon-org.openprovenance.book.fs.FileSplitting" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
   <!-- Source file (left, ~70% scale, shifted left) -->
   <polygon points="1,8 17,8 22,13 22,42 1,42"
            fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.8" stroke-linejoin="round"/>
@@ -199,7 +199,7 @@
      Meaning: multiple input files → one transformed output file (many-to-one).
      Two small input files (left) → convergence arrows → one larger output file (right).
      No badge. -->
-<symbol id="icon-file-transforming-composite" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<symbol id="icon-org.openprovenance.book.fs.FileTransformingComposite" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
   <!-- Input file 1 (top-left, small) -->
   <polygon points="1,4 13,4 17,8 17,22 1,22"
            fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5" stroke-linejoin="round"/>
@@ -247,10 +247,10 @@
 </text>
 
 <!-- Row 1: file-init, file-transforming, file-filtering, file-training -->
-<use href="#icon-file-init"          x="10"  y="34" width="60" height="60"/>
-<use href="#icon-file-transforming"  x="150" y="34" width="60" height="60"/>
-<use href="#icon-file-filtering"     x="290" y="34" width="60" height="60"/>
-<use href="#icon-file-training"      x="430" y="34" width="60" height="60"/>
+<use href="#icon-org.openprovenance.book.fs.FileInit"          x="10"  y="34" width="60" height="60"/>
+<use href="#icon-org.openprovenance.book.fs.FileTransforming"  x="150" y="34" width="60" height="60"/>
+<use href="#icon-org.openprovenance.book.fs.FileFiltering"     x="290" y="34" width="60" height="60"/>
+<use href="#icon-org.openprovenance.book.fs.FileTraining"      x="430" y="34" width="60" height="60"/>
 
 <text x="40"  y="106" text-anchor="middle" font-family="monospace" font-size="9.5" fill="#374151">file-init</text>
 <text x="180" y="106" text-anchor="middle" font-family="monospace" font-size="9" fill="#374151">file-transforming</text>
@@ -258,10 +258,10 @@
 <text x="460" y="106" text-anchor="middle" font-family="monospace" font-size="9.5" fill="#374151">file-training</text>
 
 <!-- Row 2: file-validating, file-approving, file-splitting, file-transforming-composite -->
-<use href="#icon-file-validating"              x="10"  y="164" width="60" height="60"/>
-<use href="#icon-file-approving"               x="150" y="164" width="60" height="60"/>
-<use href="#icon-file-splitting"               x="290" y="164" width="60" height="60"/>
-<use href="#icon-file-transforming-composite"  x="430" y="164" width="60" height="60"/>
+<use href="#icon-org.openprovenance.book.fs.FileValidating"              x="10"  y="164" width="60" height="60"/>
+<use href="#icon-org.openprovenance.book.fs.FileApproving"               x="150" y="164" width="60" height="60"/>
+<use href="#icon-org.openprovenance.book.fs.FileSplitting"               x="290" y="164" width="60" height="60"/>
+<use href="#icon-org.openprovenance.book.fs.FileTransformingComposite"  x="430" y="164" width="60" height="60"/>
 
 <text x="40"  y="236" text-anchor="middle" font-family="monospace" font-size="9.5" fill="#374151">file-validating</text>
 <text x="180" y="236" text-anchor="middle" font-family="monospace" font-size="9.5" fill="#374151">file-approving</text>
