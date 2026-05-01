@@ -2,7 +2,7 @@
     "var": {
         "id": [
             {
-                "@id": null
+                "@id": "var:gen"
             }
         ],
         "activity": [

@@ -13,7 +13,7 @@
 #   input  — /Users/luc/git-papers/papers/book-ptm/project/template-intro1/src/main/resources/icons/file-icons.svg
 #   output — symbols.json  (written next to the input file)
 #
-# Dependencies: xmllint (libxml2), jq
+# Dependencies: xmllint (libxml2), jq, rsvg-convert (librsvg)
 #
 # Output shape:
 #   {
@@ -37,7 +37,7 @@ SVG_FILE="${1:-src/main/resources/icons/file-icons.svg}"
 OUTPUT_FILE="${2:-$(dirname "$SVG_FILE")/file-icons.json}"
 
 # ── Dependency check ──────────────────────────────────────────────────────────
-for cmd in xmllint jq; do
+for cmd in xmllint jq rsvg-convert; do
     command -v "$cmd" >/dev/null 2>&1 \
         || { echo "Error: '$cmd' not found — please install it first." >&2; exit 1; }
 done
@@ -88,6 +88,49 @@ IDS=$(printf '%s' "$RAW_IDS" | grep -oE '"[^"]+"' | tr -d '"')
     done <<< "$IDS"
 } | jq -s 'add' > "$OUTPUT_FILE"
 
+# ── Convert individual SVG icons to PNG ──────────────────────────────────────
+ICON_DIR="$(dirname "$SVG_FILE")"
+png_count=0
+
+while IFS= read -r id; do
+    [[ -z "$id" ]] && continue
+    # Strip the "icon-" prefix to get the fully-qualified name used as filename
+    fqn="${id#icon-}"
+    svg_path="$ICON_DIR/${fqn}.svg"
+    png_path="$ICON_DIR/${fqn}.png"
+
+    # Generate individual SVG from the symbol if it doesn't exist yet
+    if [[ ! -f "$svg_path" ]]; then
+        symbol=$(xmllint \
+            --xpath "//*[local-name()='symbol'][@id='${id}']" \
+            "$SVG_FILE" 2>/dev/null || true)
+
+        if [[ -z "$symbol" ]]; then
+            echo "Warning: could not extract symbol for id='${id}'" >&2
+            continue
+        fi
+
+        viewbox=$(xmllint \
+            --xpath "string(//*[local-name()='symbol'][@id='${id}']/@viewBox)" \
+            "$SVG_FILE" 2>/dev/null || echo "0 0 48 48")
+
+        cat > "$svg_path" <<EOF
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="${viewbox}">
+<defs>
+${symbol}
+</defs>
+<use href="#${id}" xlink:href="#${id}" width="50" height="50"/>
+</svg>
+EOF
+        echo "  Generated SVG: $(basename "$svg_path")"
+    fi
+
+    rsvg-convert -w 50 -h 50 "$svg_path" -o "$png_path"
+    echo "  → $(basename "$png_path")"
+    (( png_count++ )) || true
+done <<< "$IDS"
+
 # ── Summary ───────────────────────────────────────────────────────────────────
 count=$(printf '%s\n' "$IDS" | grep -c .)
 echo "Extracted $count symbol(s) from $(basename "$SVG_FILE") → $OUTPUT_FILE"
+echo "Converted $png_count SVG icon(s) to PNG in $ICON_DIR"
