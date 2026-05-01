@@ -1,0 +1,17 @@
+
+{
+    "name": "the name of the template",
+    "author": ["the author’s name"],
+    "authorIRI": ["an IRI to identify the author, such as an Orcid identifier"],
+    "namespaceIRI": "the IRI of the namespace where the template is declared",
+    "version": "the template’s version; combined with Namespace IRI and Name, it forms a unique IRI for the template",
+    "wasRevisionOf": "the IRI of the previous version of the template",
+    "purpose": "a situation the template describes and what its description aims to achieve",
+    "context": "the circumstances in which the situation may occur and why it is important to model that situation",
+    "solution": "the provenance template, provided graphically and in a PROV-serialisable format",
+    "design_considerations": "the factors that influenced the design of the template",
+    "automatically_derived_by": "the template task file used to automatically derive the template, if any",
+    "influenced_by": "a statement describing how the template was constructed, if it was manually composed",
+    "bindings_schemas": "the bindings schemas associated with this template",
+    "comments": "any additional comments; note that variable descriptions can be left to the bindings schemas"
+}

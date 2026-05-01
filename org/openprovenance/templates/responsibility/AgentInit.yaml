@@ -1,0 +1,13 @@
+Name: AgentInit
+Fully Qualified Name: org.openprovenance.templates.responsibility.AgentInit
+IRI: <https://openprovenance.org/templates/responsibility/AgentInit>
+Purpose: This template describes how an agent is initially created.
+Context: The template describes a registration activity, which results in a generated agent and an optional specialisation.
+Design considerations: The template allows for new attributes for the agent and its specialisation to be defined following registration; in particular, a specific location can be defined for the specialisation.
+Automation: (ttfs/config-responsibility-agent-init.json)(project/template-intro1/src/main/resources/ttfs/config-responsibility-agent-init.json)
+Figure: (org.openprovenance.templates.responsibility.AgentInit)(project/template-intro1/target/generated-templates/org/openprovenance/templates/responsibility/agent-init/agent-location-init.png){#fig:org.openprovenance.templates.responsibility.AgentInit}
+Details: |-
+  The template does not assume the existence of any entity or agent. It allows a new agent to be defined without a specific provenance, thereby enabling the "bootstrapping" of provenance.
+  Some registration activity generates an agent and its specialisation agent0. There are placeholders for a type and agprop attributes for agent. There is an opportunity to specify a location and other attributes agprop0 for agent0.
+  The intent is that type and agprop attributes are inherited by all specialisations agent0, whereas location and agprop0 may change as specialisations evolve (using Triangle2-Agent-SDS).
+  The type RegisteringAgent is used for the activity.

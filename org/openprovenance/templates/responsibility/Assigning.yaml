@@ -1,0 +1,22 @@
+Name: Assigning
+Fully Qualified Name: org.openprovenance.templates.responsibility.Assigning
+IRI: <https://openprovenance.org/templates/responsibility/Assigning>
+Purpose: This template describes how an entity is attributed to an agent.
+Context: The template describes an 'assigning' activity, which results in a generated entity linked to an agent by an attribution link; before the 'assigning' activity, there was no attribution link.
+Design considerations: The template allows for new attributes for this entity and agent to be assigned following assignment.
+Automation: (ttfs/config-responsibility-assigning.json)(project/template-intro1/src/main/resources/ttfs/config-responsibility-assigning.json)
+Figure: (org.openprovenance.templates.responsibility.Assigning)(project/template-intro1/target/generated-templates/org/openprovenance/templates/responsibility/assigning/assigning.qualified.png){#fig:org.openprovenance.templates.responsibility.Assigning}
+Details: |-
+  Initially, there is an entity e and its specialisation e0, with no attributes specified in this template. An activity assigning uses entity e0. After this operation, there is an entity e1 with a new attribute eprops1 and value evalues1, determined by the activity assigning. All other attributes of e and e0 are expected to remain unchanged.
+  At the start, there is also an agent ag and its specialisation ag0, with no attributes specified in the template. After the assigning activity, there is an agent ag1 with a new attribute agprops1 set to agvalues1. All other attributes of ag and ag0 remain unchanged.
+
+  The template results from merging four instantiated templates and a further attribution relation.
+  - Triangle1-Entity-UGD describing the entity e0 evolving to e1, enriched with the attribute-value pair eprops1-evalues1. All other aspects of the entity e0 remain unchanged.
+  - Triangle1-Agent-UGD describing the agent ag0 evolving to ag1, enriched with the attribute-value pair agprops1-agvalues1. All other aspects of the entity ag0 remain unchanged. Note that ag0 is not associated with the activity, but is 'used' by the activity, meaning that it must exist and be available for assignment.
+  - Triangle2-Entity-SDS describes how the entities e0 and e1 are specialisations of a more general entity e.
+  - Triangle2-Agent-SDS describes how the agents ag0 and ag1 are specialisations of a more general agent ag.
+  - Finally, an attribution relation links e1 with ag1.
+  Before the activity, e0 and ag0 were not linked by an attribution relation; after the activity, e1 has an attribution to ag1. Once e1 is generated, e0 reaches the end of its lifetime; likewise, once ag1 is generated, ag0 ceases to exist. The template's intent is to convey this information, but it does not explicitly encode it. If this information is critical for a given application context, it may be captured explicitly by an invalidation link.
+  To recognise this activity assigning, we introduce a type resp:Assigning, which is used in the activity and attribution descriptions. To characterise the assignment of responsibility due to the activity assigning, new attributes in the provenance extensibility namespace are introduced, provext:activity, provext:ederivation1, provext:agderivation link to assigning, the entity derivation der1 and the agent derivation der2.
+
+  This template does not specify the agent responsible for this assignment. It could be a self-assignment (by ag0) or a third-party assignment, in which case the agent would need to be explicitly encoded. It may be that there was no agent responsible for the item before the activity assigning. The following section introduces a variant of this template that transfers responsibility from one agent to another.

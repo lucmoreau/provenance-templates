@@ -1,0 +1,13 @@
+Name: FileTransforming
+Fully Qualified Name: org.openprovenance.book.fs.FileTransforming
+IRI: <https://openprovenance.org/book/fs/FileTransforming>
+Purpose: The template FileTransforming describes the transformation of a file into another.
+Context: The template is useful for describing a general operation on files in a file system.
+Design considerations: The ability to identify the file (before and after transformation), whether the transformation is in place or generates a new file.
+Automation: (ttfs/config-fs.json)(project/template-intro1/src/main/resources/ttfs/config-fs.json)
+Figure: (org.openprovenance.book.fs.FileTransforming)(project/template-intro1/target/generated-templates/org/openprovenance/templates/fs/file-transforming.svg){#fig:org.openprovenance.templates.fs.FileTransforming}
+Details: |-
+  At the start, there is a file; after the activity transforming, there is an item transformed_file. An agent engineer is involved in the transforming activity and uses a plan method (such as a script or programme) to drive it.
+  Some pre-defined, self-explanatory attributes have been adopted, such as filename and path.
+  This template can be used to describe how applying the Unix command gzip file{.sh} results in a compressed file.
+  This template serves as a running example throughout the book.

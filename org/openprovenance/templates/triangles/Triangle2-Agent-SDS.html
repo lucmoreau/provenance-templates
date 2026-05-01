@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>tmp</title>
+  <style>
+html {
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+body {
+margin: 0 auto;
+max-width: 36em;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 50px;
+padding-bottom: 50px;
+hyphens: auto;
+overflow-wrap: break-word;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+}
+@media (max-width: 600px) {
+body {
+font-size: 0.9em;
+padding: 12px;
+}
+h1 {
+font-size: 1.8em;
+}
+}
+@media print {
+html {
+background-color: white;
+}
+body {
+background-color: transparent;
+color: black;
+font-size: 12pt;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3, h4 {
+page-break-after: avoid;
+}
+}
+p {
+margin: 1em 0;
+}
+a {
+color: #1a1a1a;
+}
+a:visited {
+color: #1a1a1a;
+}
+img {
+max-width: 100%;
+}
+svg {
+height: auto;
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 1.4em;
+}
+h5, h6 {
+font-size: 1em;
+font-style: italic;
+}
+h6 {
+font-weight: normal;
+}
+ol, ul {
+padding-left: 1.7em;
+margin-top: 1em;
+}
+li > ol, li > ul {
+margin-top: 0;
+}
+blockquote {
+margin: 1em 0 1em 1.7em;
+padding-left: 1em;
+border-left: 2px solid #e6e6e6;
+color: #606060;
+}
+code {
+font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+font-size: 85%;
+margin: 0;
+hyphens: manual;
+}
+pre {
+margin: 1em 0;
+overflow: auto;
+}
+pre code {
+padding: 0;
+overflow: visible;
+overflow-wrap: normal;
+}
+.sourceCode {
+background-color: transparent;
+overflow: visible;
+}
+hr {
+border: none;
+border-top: 1px solid #1a1a1a;
+height: 1px;
+margin: 1em 0;
+}
+table {
+margin: 1em 0;
+border-collapse: collapse;
+width: 100%;
+overflow-x: auto;
+display: block;
+font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+margin-bottom: 0.75em;
+}
+tbody {
+margin-top: 0.5em;
+border-top: 1px solid #1a1a1a;
+border-bottom: 1px solid #1a1a1a;
+}
+th {
+border-top: 1px solid #1a1a1a;
+padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+margin-bottom: 4em;
+text-align: center;
+}
+#TOC li {
+list-style: none;
+}
+#TOC ul {
+padding-left: 1.3em;
+}
+#TOC > ul {
+padding-left: 0;
+}
+#TOC a:not(:hover) {
+text-decoration: none;
+}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style>
+
+.columns :first-child {margin-top: 0;}
+.column-span + * {margin-top: 0;}
+</style>
+</head>
+<body>
+<ul>
+<li><strong>Name</strong>: <code>Triangle2-Agent-SDS</code></li>
+<li><strong>Fully Qualified Name</strong>:
+<code>org.openprovenance.templates.triangles.Triangle2-Agent-SDS</code></li>
+<li><strong>IRI</strong>: <a href="https://openprovenance.org/templates/triangles/Triangle2-Agent-SDS" class="uri">https://openprovenance.org/templates/triangles/Triangle2-Agent-SDS</a></li>
+<li><strong>Purpose</strong>: This template describes how an agent
+evolves through derivation, while remaining a specialisation of a more
+general agent.</li>
+<li><strong>Context</strong>: The template describes a situation in
+which an agent’s aspects change (e.g., new location, new qualification),
+resulting in a new agent instance; the agent instance before the
+derivation, and the agent instance after the derivation are both
+specialisations of a more general agent.</li>
+<li><strong>Design considerations</strong>: The ability to assert new
+attributes for this agent.</li>
+<li><strong>Automation</strong>: <a href="file:project/template-intro1/src/main/resources/ttfs/config-triangle2-agent-sds.json">ttfs/config-triangle2-agent-sds.json</a></li>
+</ul>
+<figure id="fig:org.openprovenance.templates.triangles.Triangle2-Agent-SDS">
+<img role="img" aria-label="Figure 1: org.openprovenance.templates.triangles.Triangle-Agent-SDS" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8IS0tIEdlbmVyYXRlZCBieSBncmFwaHZpeiB2ZXJzaW9uIDE0LjEuNSAoMjAyNjA0MTEuMjMzMSkKIC0tPgo8IS0tIFRpdGxlOiB0aXRsZSBQYWdlczogMSAtLT4KPHN2ZyB3aWR0aD0iMTYwcHQiIGhlaWdodD0iMzE3cHQiCiB2aWV3Qm94PSIwLjAwIDAuMDAgMTYwLjAwIDMxNy4wMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CjxnIGlkPSJncmFwaDAiIGNsYXNzPSJncmFwaCIgdHJhbnNmb3JtPSJzY2FsZSgxIDEpIHJvdGF0ZSgwKSB0cmFuc2xhdGUoNCAzMTIuNSkiPgo8dGl0bGU+dGl0bGU8L3RpdGxlPgo8cG9seWdvbiBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSJub25lIiBwb2ludHM9Ii00LDQgLTQsLTMxMi41IDE1NiwtMzEyLjUgMTU2LDQgLTQsNCIvPgo8ZyBpZD0iY2x1c3QxIiBjbGFzcz0iY2x1c3RlciI+Cjx0aXRsZT5jbHVzdGVyaHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXJnZW4jYjwvdGl0bGU+CjxnIGlkPSJhX2NsdXN0MSI+PGEgeGxpbms6aHJlZj0iaHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXJnZW4jYiIgeGxpbms6dGl0bGU9ImIiPgo8cG9seWdvbiBmaWxsPSJub25lIiBzdHJva2U9ImJsYWNrIiBwb2ludHM9IjgsLTggOCwtMzAwLjUgMTQ0LC0zMDAuNSAxNDQsLTggOCwtOCIvPgo8dGV4dCB4bWw6c3BhY2U9InByZXNlcnZlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB4PSI3NiIgeT0iLTE1LjIiIGZvbnQtZmFtaWx5PSJUaW1lcyxzZXJpZiIgZm9udC1zaXplPSIxNC4wMCI+YjwvdGV4dD4KPC9hPgo8L2c+CjwvZz4KPCEtLSBodHRwOi8vb3BlbnByb3ZlbmFuY2Uub3JnL3ZhciNhZzAgLS0+CjwhLS0gUFJPVl9BR0VOVCB2YXI6YWcwIC0tPgo8ZyBpZD0ibm9kZTEiIGNsYXNzPSJub2RlIj4KPHRpdGxlPmh0dHA6Ly9vcGVucHJvdmVuYW5jZS5vcmcvdmFyI2FnMDwvdGl0bGU+CjxnIGlkPSJhX25vZGUxIj48YSB4bGluazpocmVmPSJodHRwOi8vb3BlbnByb3ZlbmFuY2Uub3JnL3ZhciNhZzAiIHhsaW5rOnRpdGxlPSJhZzAiPgo8cG9seWdvbiBmaWxsPSIjZmRiMjY2IiBzdHJva2U9ImJsYWNrIiBwb2ludHM9IjkwLjk0LC0yMDguMDYgNjEsLTIyMC41IDMxLjA2LC0yMDguMDYgMzEuMDgsLTE4Ny45NCA5MC45MiwtMTg3Ljk0IDkwLjk0LC0yMDguMDYiLz4KPHRleHQgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iNjEiIHk9Ii0xOTcuNDUiIGZvbnQtZmFtaWx5PSJUaW1lcyxzZXJpZiIgZm9udC1zaXplPSIxNC4wMCI+YWcwPC90ZXh0Pgo8L2E+CjwvZz4KPC9nPgo8IS0tIGh0dHA6Ly9vcGVucHJvdmVuYW5jZS5vcmcvdmFyI2FnIC0tPgo8IS0tIFBST1ZfQUdFTlQgdmFyOmFnIC0tPgo8ZyBpZD0ibm9kZTIiIGNsYXNzPSJub2RlIj4KPHRpdGxlPmh0dHA6Ly9vcGVucHJvdmVuYW5jZS5vcmcvdmFyI2FnPC90aXRsZT4KPGcgaWQ9ImFfbm9kZTIiPjxhIHhsaW5rOmhyZWY9Imh0dHA6Ly9vcGVucHJvdmVuYW5jZS5vcmcvdmFyI2FnIiB4bGluazp0aXRsZT0iYWciPgo8cG9seWdvbiBmaWxsPSIjZmRiMjY2IiBzdHJva2U9ImJsYWNrIiBwb2ludHM9IjEwNCwtMjgwLjA2IDc3LC0yOTIuNSA1MCwtMjgwLjA2IDUwLjAzLC0yNTkuOTQgMTAzLjk3LC0yNTkuOTQgMTA0LC0yODAuMDYiLz4KPHRleHQgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iNzciIHk9Ii0yNjkuNDUiIGZvbnQtZmFtaWx5PSJUaW1lcyxzZXJpZiIgZm9udC1zaXplPSIxNC4wMCI+YWc8L3RleHQ+CjwvYT4KPC9nPgo8L2c+CjwhLS0gaHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXIjYWcwJiM0NTsmZ3Q7aHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXIjYWcgLS0+CjwhLS0gUFJPVl9TUEVDSUFMSVpBVElPTiBfOl8gLS0+CjxnIGlkPSJlZGdlNCIgY2xhc3M9ImVkZ2UiPgo8dGl0bGU+aHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXIjYWcwJiM0NTsmZ3Q7aHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXIjYWc8L3RpdGxlPgo8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9ImJsYWNrIiBkPSJNNjQuNjMsLTIxOS4zOEM2Ni42LC0yMjcuOTkgNjkuMDcsLTIzOC44MSA3MS4yOSwtMjQ4LjUyIi8+Cjxwb2x5Z29uIGZpbGw9ImJsYWNrIiBzdHJva2U9ImJsYWNrIiBwb2ludHM9IjY3Ljg0LC0yNDkuMTMgNzMuNDgsLTI1OC4xIDc0LjY2LC0yNDcuNTcgNjcuODQsLTI0OS4xMyIvPgo8dGV4dCB4bWw6c3BhY2U9InByZXNlcnZlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB4PSI3OC45NyIgeT0iLTIyMS4wOCIgZm9udC1mYW1pbHk9IlRpbWVzLHNlcmlmIiBmb250LXNpemU9IjguMDAiPnNwZTwvdGV4dD4KPC9nPgo8IS0tIGh0dHA6Ly9vcGVucHJvdmVuYW5jZS5vcmcvdmFyI2FnMSAtLT4KPCEtLSBQUk9WX0FHRU5UIHZhcjphZzEgLS0+CjxnIGlkPSJub2RlMyIgY2xhc3M9Im5vZGUiPgo8dGl0bGU+aHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXIjYWcxPC90aXRsZT4KPGcgaWQ9ImFfbm9kZTMiPjxhIHhsaW5rOmhyZWY9Imh0dHA6Ly9vcGVucHJvdmVuYW5jZS5vcmcvdmFyI2FnMSIgeGxpbms6dGl0bGU9ImFnMSI+Cjxwb2x5Z29uIGZpbGw9IiNmZGIyNjYiIHN0cm9rZT0iYmxhY2siIHBvaW50cz0iMTA1Ljk0LC0xMzYuMDYgNzYsLTE0OC41IDQ2LjA2LC0xMzYuMDYgNDYuMDgsLTExNS45NCAxMDUuOTIsLTExNS45NCAxMDUuOTQsLTEzNi4wNiIvPgo8dGV4dCB4bWw6c3BhY2U9InByZXNlcnZlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB4PSI3NiIgeT0iLTEyNS40NSIgZm9udC1mYW1pbHk9IlRpbWVzLHNlcmlmIiBmb250LXNpemU9IjE0LjAwIj5hZzE8L3RleHQ+CjwvYT4KPC9nPgo8L2c+CjwhLS0gaHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXIjYWcxJiM0NTsmZ3Q7aHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXIjYWcwIC0tPgo8IS0tIFBST1ZfREVSSVZBVElPTiBfOl8gLS0+CjxnIGlkPSJlZGdlMiIgY2xhc3M9ImVkZ2UiPgo8dGl0bGU+aHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXIjYWcxJiM0NTsmZ3Q7aHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXIjYWcwPC90aXRsZT4KPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgZD0iTTcyLjYsLTE0Ny4zOEM3MC43NSwtMTU1Ljk5IDY4LjQzLC0xNjYuODEgNjYuMzUsLTE3Ni41MiIvPgo8cG9seWdvbiBmaWxsPSJibGFjayIgc3Ryb2tlPSJibGFjayIgcG9pbnRzPSI2Mi45NywtMTc1LjU4IDY0LjMsLTE4Ni4wOSA2OS44MiwtMTc3LjA1IDYyLjk3LC0xNzUuNTgiLz4KPHRleHQgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iODMuNzMiIHk9Ii0xNTQuNzEiIGZvbnQtZmFtaWx5PSJUaW1lcyxzZXJpZiIgZm9udC1zaXplPSI4LjAwIj5kZXI8L3RleHQ+CjwvZz4KPCEtLSBodHRwOi8vb3BlbnByb3ZlbmFuY2Uub3JnL3ZhciNhZzEmIzQ1OyZndDtodHRwOi8vb3BlbnByb3ZlbmFuY2Uub3JnL3ZhciNhZyAtLT4KPCEtLSBQUk9WX1NQRUNJQUxJWkFUSU9OIF86XyAtLT4KPGcgaWQ9ImVkZ2UzIiBjbGFzcz0iZWRnZSI+Cjx0aXRsZT5odHRwOi8vb3BlbnByb3ZlbmFuY2Uub3JnL3ZhciNhZzEmIzQ1OyZndDtodHRwOi8vb3BlbnByb3ZlbmFuY2Uub3JnL3ZhciNhZzwvdGl0bGU+CjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iYmxhY2siIGQ9Ik04NC4yNCwtMTQ1LjMzQzg5LjkyLC0xNTUuNzEgOTYuOTcsLTE3MC40OCAxMDAsLTE4NC41IDEwMy4zOCwtMjAwLjE0IDEwMy4yNSwtMjA0LjgzIDEwMCwtMjIwLjUgOTcuOTYsLTIzMC4zMSA5NC4wMiwtMjQwLjUyIDg5Ljk2LC0yNDkuMzQiLz4KPHBvbHlnb24gZmlsbD0iYmxhY2siIHN0cm9rZT0iYmxhY2siIHBvaW50cz0iODYuODQsLTI0Ny43NSA4NS41NywtMjU4LjI3IDkzLjEyLC0yNTAuODQgODYuODQsLTI0Ny43NSIvPgo8dGV4dCB4bWw6c3BhY2U9InByZXNlcnZlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB4PSI5OS4yMyIgeT0iLTE0My4wNiIgZm9udC1mYW1pbHk9IlRpbWVzLHNlcmlmIiBmb250LXNpemU9IjguMDAiPnNwZTwvdGV4dD4KPC9nPgo8IS0tICYjNDU7YXR0cnMwIC0tPgo8ZyBpZD0ibm9kZTQiIGNsYXNzPSJub2RlIj4KPHRpdGxlPiYjNDU7YXR0cnMwPC90aXRsZT4KPHBvbHlnb24gZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBwb2ludHM9IjEyOS43NSwtNzYuNSAxNi4yNSwtNzYuNSAxNi4yNSwtNDAuNSAxMzUuNzUsLTQwLjUgMTM1Ljc1LC03MC41IDEyOS43NSwtNzYuNSIvPgo8cG9seWxpbmUgZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBwb2ludHM9IjEyOS43NSwtNzYuNSAxMjkuNzUsLTcwLjUiLz4KPHBvbHlsaW5lIGZpbGw9Im5vbmUiIHN0cm9rZT0iZ3JheSIgcG9pbnRzPSIxMzUuNzUsLTcwLjUgMTI5Ljc1LC03MC41Ii8+Cjx0ZXh0IHhtbDpzcGFjZT0icHJlc2VydmUiIHRleHQtYW5jaG9yPSJzdGFydCIgeD0iMjYuMjUiIHk9Ii01NS4xMiIgZm9udC1mYW1pbHk9IlRpbWVzLHNlcmlmIiBmb250LXNpemU9IjEwLjAwIj5hZ3Byb3BzMTo8L3RleHQ+Cjx0ZXh0IHhtbDpzcGFjZT0icHJlc2VydmUiIHRleHQtYW5jaG9yPSJzdGFydCIgeD0iNjguNzUiIHk9Ii01NS4xMiIgZm9udC1mYW1pbHk9IlRpbWVzLHNlcmlmIiBmb250LXNpemU9IjEwLjAwIj52YXI6YWd2YWx1ZXMxPC90ZXh0Pgo8L2c+CjwhLS0gJiM0NTthdHRyczAmIzQ1OyZndDtodHRwOi8vb3BlbnByb3ZlbmFuY2Uub3JnL3ZhciNhZzEgLS0+CjwhLS0gbnVsbCBfOl8gLS0+CjxnIGlkPSJlZGdlMSIgY2xhc3M9ImVkZ2UiPgo8dGl0bGU+JiM0NTthdHRyczAmIzQ1OyZndDtodHRwOi8vb3BlbnByb3ZlbmFuY2Uub3JnL3ZhciNhZzE8L3RpdGxlPgo8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9ImdyYXkiIHN0cm9rZS1kYXNoYXJyYXk9IjUsMiIgZD0iTTc2LC03Ni44Qzc2LC04OC43OSA3NiwtMTA0LjUzIDc2LC0xMTUuNjgiLz4KPC9nPgo8L2c+Cjwvc3ZnPgo=" alt="Figure 1: org.openprovenance.templates.triangles.Triangle-Agent-SDS" />
+<figcaption aria-hidden="true">Figure 1:
+org.openprovenance.templates.triangles.Triangle-Agent-SDS</figcaption>
+</figure>
+<ul>
+<li><p><strong>Details</strong>:</p>
+<p>In PROV, agents can be entities, meaning that they can be generated,
+used, and derived from other agents, and also be specialisations of
+other agents. This pattern is a variant of
+<code>Triangle2-Entity-SDS</code> (Section
+<strong>¿sec:triangle2.entity.sds?</strong>), with <code>ag</code>,
+<code>ag0</code> and <code>ag1</code> replacing <code>e</code>,
+<code>e0</code> and <code>e1</code>, respectively. All other
+considerations apply here.</p>
+<p>The template <code>Triangle2-Agent-SDS</code> is a convenience
+pattern that preserves precise typing information (agent rather than
+entity).</p></li>
+</ul>
+</body>
+</html>

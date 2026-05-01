@@ -1,0 +1,28 @@
+
+
+- **Name**: `Triangle4-AIA`
+- **Fully Qualified Name**: `org.openprovenance.templates.triangles.Triangle4-AIA`
+- **IRI**: <https://openprovenance.org/templates/triangles/Triangle4-AIA>
+- **Purpose**: This template describes how the end of an entity (its invalidation in PROV terminology) is attributed to an agent, indicating the agent's responsibility for the entity's end of life following the agent's association with the activity that invalidated the entity.
+- **Context**: The template describes the link between the attribution and the activity, the agent's association with the activity and the entity's invalidation by the activity.
+- **Design considerations**: The ability to assert new attributes for the invalidated entity, as well as attributes for the invalidation and activity.
+- **Automation**: [ttfs/config-triangle4-aia.json](file:project/template-intro1/src/main/resources/ttfs/config-triangle4-aia.json)
+
+
+![org.openprovenance.templates.triangles.Triangle4-AIA](project/template-intro1/target/generated-templates/org/openprovenance/templates/triangles/triangle4-aia/triangle4-aia.qualified.png){#fig:org.openprovenance.templates.triangles.Triangle4-AIA}
+
+- **Details**:
+
+    In some cases, an entity's attribution to an agent results from the agent's association with the activity that destroyed or terminated the entity (in PROV, this is called invalidation). For instance, a building demolisher is associated with the act of destroying (invalidating) the building. The taster of a food sample is involved in the tasting activity, which (for the purpose of this example) fully consumes the sample. To support this kind of description, we introduce the Triangle4-AIA (Association-Invalidation-Attribution) template.
+
+    In PROV, Invalidation is the counterpart of Generation. Both link an entity to an activity. Generation links the entity to the activity that created it, whereas Invalidation connects the entity to the activity that terminated, destroyed, or invalidated it. Thus, Triangle4-AIA is to Invalidation what Triangle3-AGA is to Generation.
+
+    The template Triangle4-AIA (Association-Invalidation-Attribution) involves an entity `e`, an activity `activity`, an agent `ag` and a plan `p`. The activity `activity` was associated with the agent and the plan, and it invalidated the entity `e`. The template asserts an attribution from the entity to the agent.
+
+    The template Triangle4-AIA asserts an attribution link from the entity `e` to the agent `ag`, which can be annotated with further information using the attributes `provext:activity`, `provext:association` and `provext:invalidation` to refer to the activity, association and invalidation. We note that these attributes are not predefined in PROV, so we rely on the namespace denoted by the prefix `provext`.
+
+    To ensure extensibility, the attributes `var:aprops` (for the `activity`), `var:attrprops` (for the attribution `attr`), `var:eprops` (for the entity `e`),  `var:ascprops` (for the association `asc`), and `var:invprops` (for the invalidation `inv`) allow application- or domain-specific properties to be added. 
+
+
+According to PROV, an entity is a thing with fixed aspects, which may be described using attribute-value pairs. These aspects must remain fixed for the entity’s entire lifetime. Thus, the ability to enrich the description of the invalidated entity `e` with additional attribute-value pairs should be exercised with caution. New attributes should not change or override existing attributes; whatever attribute is asserted should remain fixed for the lifetime of an entity. The advice is that such attributes must be the entity's final characteristics, such as its final position or the time of invalidation. Such last characteristics are valid and fixed descriptors for the whole lifetime, as they always remain the *last* values of these characteristics. For instance, a food taster tasting a food sample can assert its rating or quality at the time of its consumption and invalidation. The attribution link here is particularly important, as it defines the asserter of those characteristics.
+ 

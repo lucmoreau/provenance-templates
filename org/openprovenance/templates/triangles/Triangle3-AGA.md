@@ -1,0 +1,27 @@
+
+
+- **Name**: `Triangle3-AGA`
+- **Fully Qualified Name**: `org.openprovenance.templates.triangles.Triangle3-AGA`
+- **IRI**: <https://openprovenance.org/templates/triangles/Triangle3-AGA>
+- **Purpose**:  This template describes how an entity is attributed to an agent, thereby marking the agent's responsibility for the entity, in the situation where the agent is associated with the activity that generated the entity.
+- **Context**: The template describes the link between the attribution and the activity, the agent's association with the activity and the entity's generation by the activity.
+- **Design considerations**: The ability to assert new attributes for the generated entity, as well as for the attribution and activity, possibly including their type.
+- **Automation**: [ttfs/config-triangle3-aga.json](file:project/template-intro1/src/main/resources/ttfs/config-triangle3-aga.json)
+
+
+![org.openprovenance.templates.triangles.Triangle3-AGA](project/template-intro1/target/generated-templates/org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga.qualified.png){#fig:org.openprovenance.templates.triangles.Triangle3-AGA}
+
+- **Details**:
+
+    In some cases, an entity's attribution to an agent results from the agent's association with the activity that generated the entity. For instance, the author of a book was associated with the act of writing it. To support this description, we introduce the template Triangle3-AGA (Association-Generation-Attribution).
+
+    The template involves an entity `e`, an activity `activity`, an agent `ag` and a plan `p`. The activity `activity` was associated with the agent and the plan, and generated entity `e`.  The template allows for the assertion of an attribution from the entity to the agent.
+
+    Triangle1-Entity-UGD allows the specification of the activity that underpins a derivation, along with the corresponding usage and generation.  PROV provides the attributes `prov:activity`, `prov:usage` and `prov:generation` to capture these values.  PROV, however, defines the concept of attribution independently of any activity. 
+    
+    The template Triangle3-AGA asserts an attribution link from entity `e` to agent `ag`, which is annotated with further information, `provext:activity`, `provext:association`, and `provext:generation`, to refer to the activity, association, and generation.   We note that these attributes are not predefined in PROV, so we rely on the extension namespace denoted by the prefix `provext`.
+
+
+    It must be noted that not all attributions follow this pattern. Ownership of a car, modelled by attributing it to an agent, is not linked to the car manufacturer that produced it. The provenance designer must determine which form of attribution applies to their situation. [Section @sec:the.template.library.responsibility.templates] describes other forms of responsibility.
+
+    To ensure extensibility, attributes `var:aprops` (for the `activity`), `var:attrprops` (for the attribution `attr`), `var:eprops` (for the entity `e`), `var:ascprops` (for the association `asc`) and `var:attprops` (for the attribution `attr`) allow application or domain-specific typing to be added.
