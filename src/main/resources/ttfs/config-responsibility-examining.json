@@ -72,6 +72,7 @@
                 "org/openprovenance/templates/responsibility/examining/examining-delegation"
             ],
             "output": "org/openprovenance/templates/responsibility/examining/examining",
+            "outputFullyQualifiedName": "org.openprovenance.templates.responsibility.Examining",
             "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
             "hasProvenance": "org/openprovenance/templates/responsibility/examining/prov/prov-examining.prov-csv",
             "variableCheck": "src/main/resources/variable-check/responsibility/variables.json"

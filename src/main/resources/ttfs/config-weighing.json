@@ -12,10 +12,10 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle1-ugd pattern",
-            "template": "org/openprovenance/templates/responsibility/examining/examining",
+            "template": "org.openprovenance.templates.responsibility.Examining",
             "bindings": "weighing.json",
             "output": "org/openprovenance/templates/physical/weighing/weighing",
-            "outputFullyQualifiedName": "org.openprovenance.templates.physical.Weighing",
+            "outputFullyQualifiedName": "org.openprovenance.templates.transport.Weighing",
             "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
             "hasProvenance": "org/openprovenance/templates/physical/weighing/prov/prov-weighing.prov-csv"
         }

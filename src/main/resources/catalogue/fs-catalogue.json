@@ -24,16 +24,16 @@
         {
             "@type": "simple",
             "name": "file_init",
-            "fullyQualifiedName": "org.openprovenance.book.fs.FileInit",
+            "fullyQualifiedName": "org.openprovenance.templates.fs.FileInit",
             "package": "org.openprovenance.book.fs",
-            "template": "org/openprovenance/templates/general/entity-init/entity-location-init",
+            "template": "org.openprovenance.templates.responsibility.EntityLocationInit",
             "cbindings": "org/openprovenance/cbindings/fs/fs-init.json"
         },
 
 		{
 			"@type": "simple",
 			"name": "file_transforming",
-            "fullyQualifiedName": "org.openprovenance.book.fs.FileTransforming",
+            "fullyQualifiedName": "org.openprovenance.templates.fs.FileTransforming",
 			"package": "org.openprovenance.book.fs",
             "template": "org.openprovenance.templates.fs.FileTransforming",
             "cbindings": "org/openprovenance/cbindings/fs/file-transforming.json"
@@ -42,7 +42,7 @@
 		{
 			"@type": "simple",
 			"name": "file_filtering",
-            "fullyQualifiedName": "org.openprovenance.book.fs.FileFiltering",
+            "fullyQualifiedName": "org.openprovenance.templates.fs.FileFiltering",
 			"package": "org.openprovenance.book.fs",
             "template": "org.openprovenance.templates.fs.FileFiltering",
             "cbindings": "org/openprovenance/cbindings/fs/file-filtering.json"
@@ -50,7 +50,7 @@
 		{
 			"@type": "simple",
 			"name": "file_training",
-            "fullyQualifiedName": "org.openprovenance.book.fs.FileTraining",
+            "fullyQualifiedName": "org.openprovenance.templates.fs.FileTraining",
             "package": "org.openprovenance.book.fs",
             "template": "org.openprovenance.templates.fs.FileTraining",
 			"cbindings": "org/openprovenance/cbindings/fs/file-training.json"
@@ -58,7 +58,7 @@
 		{
 			"@type": "simple",
 			"name": "file_validating",
-            "fullyQualifiedName": "org.openprovenance.book.fs.FileValidating",
+            "fullyQualifiedName": "org.openprovenance.templates.fs.FileValidating",
             "package": "org.openprovenance.book.fs",
             "template": "org.openprovenance.templates.fs.FileValidating",
 			"cbindings": "org/openprovenance/cbindings/fs/file-validating.json"
@@ -66,7 +66,7 @@
 		{
 			"@type": "simple",
 			"name": "file_approving",
-            "fullyQualifiedName": "org.openprovenance.book.fs.FileApproving",
+            "fullyQualifiedName": "org.openprovenance.templates.fs.FileApproving",
             "package": "org.openprovenance.book.fs",
             "template": "org.openprovenance.templates.fs.FileApproving",
 			"cbindings": "org/openprovenance/cbindings/fs/file-approving.json"
@@ -74,7 +74,7 @@
 		{
 			"@type": "simple",
 			"name": "file_splitting",
-            "fullyQualifiedName": "org.openprovenance.book.fs.FileSplitting",
+            "fullyQualifiedName": "org.openprovenance.templates.fs.FileSplitting",
             "package": "org.openprovenance.book.fs",
             "template": "org.openprovenance.templates.fs.FileSplitting",
 			"cbindings": "org/openprovenance/cbindings/fs/file-splitting.json"
@@ -83,9 +83,9 @@
 		{
 			"@type": "composite",
 			"name": "file_transforming_composite",
-            "fullyQualifiedName": "org.openprovenance.book.fs.FileTransformingComposite",
+            "fullyQualifiedName": "org.openprovenance.templates.fs.FileTransformingComposite",
             "package": "org.openprovenance.book.fs",
-            "consistsOf": "org.openprovenance.book.fs.FileTransforming",
+            "consistsOf": "org.openprovenance.templates.fs.FileTransforming",
 			"sharing": ["transformed_file", "transforming"]
 		}
 	],

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 48 48">
+<defs>
+<symbol id="icon-org.openprovenance.templates.fs.FileApproving" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+  <!-- File body -->
+  <polygon points="6,4 32,4 38,10 38,44 6,44" fill="#EEF2FF" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
+  <polyline points="32,4 32,10 38,10" fill="none" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="10" y1="18" x2="34" y2="18" stroke="#A5B4FC" stroke-width="1.5"/>
+  <line x1="10" y1="24" x2="34" y2="24" stroke="#A5B4FC" stroke-width="1.5"/>
+  <line x1="10" y1="30" x2="28" y2="30" stroke="#A5B4FC" stroke-width="1.5"/>
+  <!-- Badge background (larger to accommodate shield) -->
+  <circle cx="40" cy="9" r="6" fill="white" stroke="#1E40AF" stroke-width="1.5"/>
+  <!-- Shield outline -->
+  <path d="M40,4 L44,6 L44,10 Q44,13 40,15 Q36,13 36,10 L36,6 Z" fill="white" stroke="#1E40AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Tiny checkmark inside shield -->
+  <polyline points="37.5,9.5 39.5,11.5 43,7" fill="none" stroke="#1E40AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+</defs>
+<use href="#icon-org.openprovenance.templates.fs.FileApproving" xlink:href="#icon-org.openprovenance.templates.fs.FileApproving" width="50" height="50"/>
+</svg>

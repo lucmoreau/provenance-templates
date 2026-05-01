@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 48 48">
+<defs>
+<symbol id="icon-org.openprovenance.templates.transport.UnpackingComposite" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+  <!-- Box body -->
+  <rect x="5" y="22" width="30" height="20" rx="2" fill="#FFFBEB" stroke="#D97706" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Open lid flaps -->
+  <line x1="5" y1="22" x2="2" y2="14" stroke="#D97706" stroke-width="2"/>
+  <line x1="35" y1="22" x2="38" y2="14" stroke="#D97706" stroke-width="2"/>
+  <!-- Three items above the box (destinations) -->
+  <rect x="4" y="4" width="8" height="7" rx="1" fill="#FDE68A" stroke="#D97706" stroke-width="1.5"/>
+  <rect x="16" y="4" width="8" height="7" rx="1" fill="#FDE68A" stroke="#D97706" stroke-width="1.5"/>
+  <rect x="28" y="4" width="8" height="7" rx="1" fill="#FDE68A" stroke="#D97706" stroke-width="1.5"/>
+  <!-- Diverging arrows from box up to each item -->
+  <line x1="16" y1="21" x2="8" y2="12" stroke="#374151" stroke-width="1.5" stroke-linecap="round"/>
+  <polyline points="5,14 8,11 11,14" fill="none" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="20" y1="21" x2="20" y2="12" stroke="#374151" stroke-width="1.5" stroke-linecap="round"/>
+  <polyline points="17,14 20,11 23,14" fill="none" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="24" y1="21" x2="32" y2="12" stroke="#374151" stroke-width="1.5" stroke-linecap="round"/>
+  <polyline points="29,14 32,11 35,14" fill="none" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+</defs>
+<use href="#icon-org.openprovenance.templates.transport.UnpackingComposite" xlink:href="#icon-org.openprovenance.templates.transport.UnpackingComposite" width="50" height="50"/>
+</svg>

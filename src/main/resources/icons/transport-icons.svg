@@ -26,7 +26,7 @@
 <!-- 1. icon-transporting
      Meaning: generic transport of a physical object (not goods-specific).
      Same amber box with rightward arrow, plus three speed-lines to the left. -->
-<symbol id="icon-org.openprovenance.book.Transporting" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<symbol id="icon-org.openprovenance.templates.transport.Transporting" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
   <!-- Speed / motion lines (left of box) -->
   <line x1="1" y1="22" x2="5" y2="22" stroke="#D97706" stroke-width="1.5" stroke-dasharray="2 2"/>
   <line x1="1" y1="26" x2="5" y2="26" stroke="#D97706" stroke-width="1.5" stroke-dasharray="2 2"/>
@@ -52,7 +52,7 @@
      Meaning: transfer of custody between two agents.
      Two person silhouettes facing each other, small object between them,
      rightward arrow indicating handover. -->
-<symbol id="icon-org.openprovenance.book.HandingOver" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<symbol id="icon-org.openprovenance.templates.transport.HandingOver" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
   <!-- Left person: head -->
   <circle cx="9" cy="13" r="4" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
   <!-- Left person: shoulders (arc) -->
@@ -75,7 +75,7 @@
 <!-- 3. icon-weighing
      Meaning: weighing on a scale / balance.
      Central post, horizontal beam, two hanging chains, two pans, triangle pointer. -->
-<symbol id="icon-org.openprovenance.book.Weighing" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<symbol id="icon-org.openprovenance.templates.transport.Weighing" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
   <!-- Central post -->
   <line x1="24" y1="14" x2="24" y2="40" stroke="#0369A1" stroke-width="2"/>
   <!-- Base of post -->
@@ -99,7 +99,7 @@
 <!-- 4. icon-agent-init
      Meaning: initialising an agent (person entity).
      Person silhouette (head + shoulders) + green "+" badge. -->
-<symbol id="icon-org.openprovenance.book.AgentInit" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<symbol id="icon-org.openprovenance.templates.transport.AgentInit" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
   <!-- Person head (centred-left) -->
   <circle cx="18" cy="14" r="7" fill="#F9FAFB" stroke="#374151" stroke-width="2"/>
   <!-- Person shoulders arc -->
@@ -116,7 +116,7 @@
 <!-- 5. icon-entity-init
      Meaning: initialising a generic entity.
      Rounded rect (PROV entity) + green "+" badge. -->
-<symbol id="icon-org.openprovenance.book.EntityInit" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<symbol id="icon-org.openprovenance.templates.transport.EntityInit" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
   <!-- Entity rectangle -->
   <rect x="6" y="16" width="28" height="20" rx="4"
         fill="#F5F3FF" stroke="#7C3AED" stroke-width="2"/>
@@ -135,7 +135,7 @@
 <!-- 6. icon-packing
      Meaning: packing one item into a box.
      Open-lid box (flaps) + single item above + downward arrow. -->
-<symbol id="icon-org.openprovenance.book.Packing" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<symbol id="icon-org.openprovenance.templates.transport.Packing" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
   <!-- Box body (open top — no lid crease, just box walls) -->
   <rect x="5" y="20" width="30" height="22" rx="2"
         fill="#FFFBEB" stroke="#D97706" stroke-width="2"
@@ -156,7 +156,7 @@
 <!-- 7. icon-packing-composite
      Meaning: packing multiple items into one box.
      Open-lid box + three small items above + three converging arrows. -->
-<symbol id="icon-org.openprovenance.book.PackingComposite" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<symbol id="icon-org.openprovenance.templates.transport.PackingComposite" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
   <!-- Box body -->
   <rect x="5" y="22" width="30" height="20" rx="2"
         fill="#FFFBEB" stroke="#D97706" stroke-width="2"
@@ -189,7 +189,7 @@
 <!-- 8. icon-unpacking
      Meaning: unpacking one item from a box.
      Open-lid box + single item above + upward arrow. Reverse of packing. -->
-<symbol id="icon-org.openprovenance.templates.physical.Unpacking" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<symbol id="icon-org.openprovenance.templates.transport.Unpacking" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
   <!-- Box body -->
   <rect x="5" y="20" width="30" height="22" rx="2"
         fill="#FFFBEB" stroke="#D97706" stroke-width="2"
@@ -210,7 +210,7 @@
 <!-- 9. icon-unpacking-composite
      Meaning: unpacking multiple items from one box.
      Open-lid box + three items above + three diverging upward arrows. Reverse of packing-composite. -->
-<symbol id="icon-org.openprovenance.book.UnpackingComposite" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<symbol id="icon-org.openprovenance.templates.transport.UnpackingComposite" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
   <!-- Box body -->
   <rect x="5" y="22" width="30" height="20" rx="2"
         fill="#FFFBEB" stroke="#D97706" stroke-width="2"
@@ -249,31 +249,31 @@
 
 <rect width="560" height="380" fill="#F9FAFB"/>
 <text x="12" y="22" font-family="monospace" font-size="13" fill="#111827" font-weight="bold">
-  Physical / logistics template icons
+  Transport / logistics template icons
 </text>
 
 <!-- Row 1: transporting, handing-over, weighing -->
-<use href="#icon-org.openprovenance.book.Transporting"  x="18"  y="34" width="64" height="64"/>
-<use href="#icon-org.openprovenance.book.HandingOver"  x="188" y="34" width="64" height="64"/>
-<use href="#icon-org.openprovenance.book.Weighing"      x="358" y="34" width="64" height="64"/>
+<use href="#icon-org.openprovenance.templates.transport.Transporting"  x="18"  y="34" width="64" height="64"/>
+<use href="#icon-org.openprovenance.templates.transport.HandingOver"  x="188" y="34" width="64" height="64"/>
+<use href="#icon-org.openprovenance.templates.transport.Weighing"      x="358" y="34" width="64" height="64"/>
 
 <text x="50"  y="112" text-anchor="middle" font-family="monospace" font-size="9.5" fill="#374151">transporting</text>
 <text x="220" y="112" text-anchor="middle" font-family="monospace" font-size="9.5" fill="#374151">handing-over</text>
 <text x="390" y="112" text-anchor="middle" font-family="monospace" font-size="9.5" fill="#374151">weighing</text>
 
 <!-- Row 2: agent-init, entity-init, packing -->
-<use href="#icon-org.openprovenance.book.AgentInit"   x="18"  y="144" width="64" height="64"/>
-<use href="#icon-org.openprovenance.book.EntityInit"  x="188" y="144" width="64" height="64"/>
-<use href="#icon-org.openprovenance.book.Packing"      x="358" y="144" width="64" height="64"/>
+<use href="#icon-org.openprovenance.templates.transport.AgentInit"   x="18"  y="144" width="64" height="64"/>
+<use href="#icon-org.openprovenance.templates.transport.EntityInit"  x="188" y="144" width="64" height="64"/>
+<use href="#icon-org.openprovenance.templates.transport.Packing"      x="358" y="144" width="64" height="64"/>
 
 <text x="50"  y="222" text-anchor="middle" font-family="monospace" font-size="9.5" fill="#374151">agent-init</text>
 <text x="220" y="222" text-anchor="middle" font-family="monospace" font-size="9.5" fill="#374151">entity-init</text>
 <text x="390" y="222" text-anchor="middle" font-family="monospace" font-size="9.5" fill="#374151">packing</text>
 
 <!-- Row 3: packing-composite, unpacking, unpacking-composite -->
-<use href="#icon-org.openprovenance.book.PackingComposite"   x="18"  y="254" width="64" height="64"/>
-<use href="#icon-org.openprovenance.templates.physical.Unpacking"           x="188" y="254" width="64" height="64"/>
-<use href="#icon-org.openprovenance.book.UnpackingComposite" x="358" y="254" width="64" height="64"/>
+<use href="#icon-org.openprovenance.templates.transport.PackingComposite"   x="18"  y="254" width="64" height="64"/>
+<use href="#icon-org.openprovenance.templates.transport.Unpacking"           x="188" y="254" width="64" height="64"/>
+<use href="#icon-org.openprovenance.templates.transport.UnpackingComposite" x="358" y="254" width="64" height="64"/>
 
 <text x="50"  y="332" text-anchor="middle" font-family="monospace" font-size="9" fill="#374151">packing</text>
 <text x="50"  y="343" text-anchor="middle" font-family="monospace" font-size="9" fill="#374151">-composite</text>

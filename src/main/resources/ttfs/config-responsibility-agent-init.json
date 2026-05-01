@@ -64,6 +64,7 @@
                 "org/openprovenance/templates/responsibility/agent-init/generation"
             ],
             "output": "org/openprovenance/templates/responsibility/agent-init/agent-init",
+            "outputFullyQualifiedName": "org.openprovenance.templates.tr.AgentLocation",
             "formats": ["jsonld", "provn", "png", "svg"],
             "hasProvenance": "org/openprovenance/templates/responsibility/agent-init/prov/prov-agent-init.prov-csv"
         },
@@ -78,6 +79,7 @@
                 "org/openprovenance/templates/responsibility/agent-init/generation"
             ],
             "output": "org/openprovenance/templates/responsibility/agent-init/agent-location-init",
+            "outputFullyQualifiedName": "org.openprovenance.templates.responsibility.AgentLocationInit",
             "formats": ["jsonld", "provn", "png", "svg"],
             "hasProvenance": "org/openprovenance/templates/responsibility/agent-init/prov/prov-agent-location-init.prov-csv"
         }

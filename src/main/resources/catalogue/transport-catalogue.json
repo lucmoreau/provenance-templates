@@ -25,15 +25,15 @@
         {
             "@type": "simple",
             "name": "transporting",
-            "fullyQualifiedName": "org.openprovenance.book.Transporting",
+            "fullyQualifiedName": "org.openprovenance.templates.transport.Transporting",
             "package": "org.openprovenance.book.physical",
-            "template": "org.openprovenance.templates.physical.Transporting",
+            "template": "org.openprovenance.templates.transport.Transporting",
             "cbindings": "org/openprovenance/cbindings/physical/transporting.json"
         },
         {
             "@type": "simple",
             "name": "handingover",
-            "fullyQualifiedName": "org.openprovenance.book.HandingOver",
+            "fullyQualifiedName": "org.openprovenance.templates.transport.HandingOver",
             "package": "org.openprovenance.book.responsibility",
             "template": "org.openprovenance.templates.responsibility.HandingOver",
             "cbindings": "org/openprovenance/cbindings/responsibility/handingover.json"
@@ -41,40 +41,40 @@
         {
             "@type": "simple",
             "name": "weighing",
-            "fullyQualifiedName": "org.openprovenance.book.Weighing",
+            "fullyQualifiedName": "org.openprovenance.templates.transport.Weighing",
             "package": "org.openprovenance.book.physical",
-            "template": "org.openprovenance.templates.physical.Weighing",
+            "template": "org.openprovenance.templates.transport.Weighing",
             "cbindings": "org/openprovenance/cbindings/physical/weighing.json"
         },
         {
             "@type": "simple",
             "name": "agent_init",
-            "fullyQualifiedName": "org.openprovenance.book.AgentInit",
+            "fullyQualifiedName": "org.openprovenance.templates.responsibility.AgentInit",
             "package": "org.openprovenance.book.physical",
-            "template": "org/openprovenance/templates/responsibility/agent-init/agent-location-init",
+            "template": "org.openprovenance.templates.responsibility.AgentLocationInit",
             "cbindings": "org/openprovenance/cbindings/responsibility/agent-location-init.json"
         },
         {
             "@type": "simple",
             "name": "item_init",
-            "fullyQualifiedName": "org.openprovenance.book.EntityInit",
+            "fullyQualifiedName": "org.openprovenance.templates.transport.EntityInit",
             "package": "org.openprovenance.book.physical",
-            "template": "org/openprovenance/templates/general/entity-init/entity-location-init",
+            "template": "org.openprovenance.templates.responsibility.EntityLocationInit",
             "cbindings": "org/openprovenance/cbindings/physical/item-location-init.json"
         },
         {
             "@type": "simple",
             "name": "packing",
-            "fullyQualifiedName": "org.openprovenance.book.Packing",
+            "fullyQualifiedName": "org.openprovenance.templates.transport.Packing",
             "package": "org.openprovenance.book.physical",
-            "template": "org.openprovenance.templates.physical.Packing",
+            "template": "org.openprovenance.templates.transport.Packing",
             "cbindings": "org/openprovenance/cbindings/physical/packing.json"
         },
         {
             "@type": "composite",
             "name": "packing_composite",
-            "fullyQualifiedName": "org.openprovenance.book.PackingComposite",
-            "consistsOf": "org.openprovenance.book.Packing",
+            "fullyQualifiedName": "org.openprovenance.templates.transport.PackingComposite",
+            "consistsOf": "org.openprovenance.templates.transport.Packing",
             "package": "org.openprovenance.book.physical",
             "sharing": ["container1", "adding"]
         },
@@ -82,17 +82,17 @@
         {
             "@type": "simple",
             "name": "unpacking",
-            "fullyQualifiedName": "org.openprovenance.templates.physical.Unpacking",
+            "fullyQualifiedName": "org.openprovenance.templates.transport.Unpacking",
             "package": "org.openprovenance.book.physical",
-            "template": "org.openprovenance.templates.physical.Unpacking",
+            "template": "org.openprovenance.templates.transport.Unpacking",
             "cbindings": "org/openprovenance/cbindings/physical/unpacking.json"
         },
         {
             "@type": "composite",
             "name": "unpacking_composite",
-            "fullyQualifiedName": "org.openprovenance.book.UnpackingComposite",
+            "fullyQualifiedName": "org.openprovenance.templates.transport.UnpackingComposite",
             "package": "org.openprovenance.book.physical",
-            "consistsOf": "org.openprovenance.templates.physical.Unpacking",
+            "consistsOf": "org.openprovenance.templates.transport.Unpacking",
             "sharing": ["container1", "removing"]
         }
 
