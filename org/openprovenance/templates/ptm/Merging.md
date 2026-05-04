@@ -1,7 +1,7 @@
 
 - **Name**: `Merging`
 - **Fully Qualified Name**: `org.openprovenance.templates.ptm.Merging`
-- **IRI**: <https://openprovenance.org/templates/ptm/Merging>
+- **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/ptm/Merging>
 - **Purpose**: The template `Merging` describes the merging of two templates. 
 - **Context**: The template describes one of the two key operations in provenance template management.
 - **Design considerations**: The ability to trace the creation of provenance templates.

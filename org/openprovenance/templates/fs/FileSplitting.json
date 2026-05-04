@@ -1,7 +1,7 @@
 {
   "Name": "FileSplitting",
   "Fully Qualified Name": "org.openprovenance.templates.fs.FileSplitting",
-  "IRI": "<https://openprovenance.org/templates/fs/FileSplitting>",
+  "IRI": "<https://openprovenance.org/templates/org/openprovenance/templates/fs/FileSplitting>",
   "Purpose": "The template FileSplitting describes the transformation of a file into two files.",
   "Context": "The template is useful for describing operations in a file system.",
   "Design considerations": "The ability to identify the files (before and after splitting).",

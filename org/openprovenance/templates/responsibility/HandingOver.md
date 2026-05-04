@@ -3,7 +3,7 @@
 
 - **Name**: `HandingOver`
 - **Fully Qualified Name**: `org.openprovenance.templates.responsibility.HandingOver`
-- **IRI**: <https://openprovenance.org/templates/responsibility/HandingOver>
+- **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/responsibility/HandingOver>
 - **Purpose**: This template describes how responsibility over an entity is passed from one agent to another.
 - **Context**: The template describes the operation in which an agent hands over an item to another agent, in effect passing on responsibility, or custody, of this item to the other agent. 
 - **Design considerations**: The ability to assert new attributes for this entity following the handover.

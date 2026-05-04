@@ -5,7 +5,7 @@
 
 - **Name**: `Examining`
 - **Fully Qualified Name**: `org.openprovenance.templates.responsibility.Examining`
-- **IRI**: <https://openprovenance.org/templates/responsibility/Examining>
+- **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/responsibility/Examining>
 - **Purpose**: This template describes how an entity is examined, observed or assessed, resulting in a new attribute for this entity.
 - **Context**: The template describes a common operation in many circumstances, when the status of an object is checked, when its weight is determined, when its content is validated; a person, an automated agent, or an instrument under the control of an agent can carry out the operation. 
 - **Design considerations**: The ability to assert new attributes for this entity following some observation, measurement or analysis.

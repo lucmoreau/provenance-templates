@@ -3,7 +3,7 @@
 
 - **Name**: `Parallel2`
 - **Fully Qualified Name**: `org.openprovenance.templates.generic.Parallel2`
-- **IRI**: <https://openprovenance.org/templates/generic/Parallel2>
+- **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/generic/Parallel2>
 - **Purpose**: The template `Parallel2` describes the parallel transformation of two inputs by a single activity.
 - **Context**: The template demonstrates parallel processing in which multiplicity for inputs and outputs is introduced, but each output remains derived from a single input.
 - **Design considerations**: Ensuring a given output is derived from a single input.

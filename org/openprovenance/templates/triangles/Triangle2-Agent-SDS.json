@@ -1,7 +1,7 @@
 {
   "Name": "Triangle2-Agent-SDS",
   "Fully Qualified Name": "org.openprovenance.templates.triangles.Triangle2-Agent-SDS",
-  "IRI": "<https://openprovenance.org/templates/triangles/Triangle2-Agent-SDS>",
+  "IRI": "<https://openprovenance.org/templates/org/openprovenance/templates/triangles/Triangle2-Agent-SDS>",
   "Purpose": "This template describes how an agent evolves through derivation, while remaining a specialisation of a more general agent.",
   "Context": "The template describes a situation in which an agent's aspects change (e.g., new location, new qualification), resulting in a new agent instance; the agent instance before the derivation, and the agent instance after the derivation are both specialisations of a more general agent.",
   "Design considerations": "The ability to assert new attributes for this agent.",

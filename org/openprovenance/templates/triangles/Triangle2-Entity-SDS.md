@@ -2,7 +2,7 @@
 
 - **Name**: `Triangle-Entity-SDS`
 - **Fully Qualified Name**: `org.openprovenance.templates.triangles.Triangle2-Entity-SDS`
-- **IRI**: <https://openprovenance.org/templates/triangles/Triangle2-Agent-SDS>
+- **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/triangles/Triangle2-Agent-SDS>
 - **Purpose**: This template describes how an entity evolves through derivation, while retaining its identity through specialisation of a more general entity.
 - **Context**: The template describes a situation in which an entity's aspects change (e.g., a new location, a new weight, a new format), resulting in a new entity that captures the new aspects while remaining the same "thing"; the entity before the derivation and the one after the derivation are both specialisations of a more general entity. 
 - **Design considerations**: The ability to assert new attributes for this entity.

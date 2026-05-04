@@ -3,7 +3,7 @@
 
 - **Name**: `Unpacking`
 - **Fully Qualified Name**: `org.openprovenance.templates.physical.Unpacking`
-- **IRI**: <https://openprovenance.org/templates/physical/Unpacking>
+- **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/physical/Unpacking>
 - **Purpose**: The template `Unpacking` describes the evolution of a container as an item is removed to it
 - **Context**: the template helps describe common situations in the physical world involving containers such as boxes, palettes, etc. 
 - **Design considerations**: The ability to describe the state of the container (before and after inserting an item) and the state of the item (before being in the container or after).

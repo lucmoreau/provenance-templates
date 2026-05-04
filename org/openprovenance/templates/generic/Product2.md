@@ -3,7 +3,7 @@
 
 - **Name**: `Product2-2`
 - **Fully Qualified Name**: `org.openprovenance.templates.generic.Product2-2`
-- **IRI**: <https://openprovenance.org/templates/generic/Product2-2>
+- **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/generic/Product2-2>
 - **Purpose**: The template `Product2-2` describes the transformation of two inputs resulting in two distinct outputs.
 - **Context**: It is a general transformation applicable to many different contexts.
 - **Design considerations**: Built on some triangles, using multiplicity to accommodate multiple inputs and outputs, with explicit dependencies. 

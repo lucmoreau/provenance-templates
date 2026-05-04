@@ -2,7 +2,7 @@
 
 - **Name**: `Triangle1-Agent-UGD`
 - **Fully Qualified Name**: `org.openprovenance.templates.triangles.Triangle1-Agent-UGD`
-- **IRI**: <https://openprovenance.org/templates/triangles/Triangle1-Agent-UGD>
+- **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/triangles/Triangle1-Agent-UGD>
 - **Purpose**: This template describes how an agent evolves into another agent through derivation.
 - **Context**: The template explicitly links the derivation and underpinning activity, usage and generation. 
 - **Design considerations**: Extensibility through the ability to assert new attributes for the generated agent, as well as for the derivation and activity, possibly specifying their type.

@@ -1,7 +1,7 @@
 {
   "Name": "FileTransforming",
   "Fully Qualified Name": "org.openprovenance.book.fs.FileTransforming",
-  "IRI": "<https://openprovenance.org/book/fs/FileTransforming>",
+  "IRI": "<https://openprovenance.org/templates/org/openprovenance/templates/fs/FileTransforming>",
   "Purpose": "The template FileTransforming describes the transformation of a file into another.",
   "Context": "The template is useful for describing a general operation on files in a file system.",
   "Design considerations": "The ability to identify the file (before and after transformation), whether the transformation is in place or generates a new file.",

@@ -7,7 +7,7 @@
 
 - **Name**: `Joining2`
 - **Fully Qualified Name**: `org.openprovenance.templates.generic.Joining2`
-- **IRI**: <https://openprovenance.org/templates/generic/Joining2>
+- **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/generic/Joining2>
 - **Purpose**: The template `Joining2` describes the transformation of two inputs resulting in a single output.
 - **Context**: It is a general transformation applicable to many different contexts.
 - **Design considerations**: Relations rigorously linking nodes using pre-defined triangles.

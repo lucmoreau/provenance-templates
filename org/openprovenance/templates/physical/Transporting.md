@@ -1,7 +1,7 @@
 
 - **Name**: `Transporting`
 - **Fully Qualified Name**: `org.openprovenance.templates.physical.Transporting`
-- **IRI**: <https://openprovenance.org/templates/physical/Transporting>
+- **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/physical/Transporting>
 - **Purpose**: The template `Transporting` describes the transportation of an object to a new location.
 - **Context**: The template is useful to describe transportation in a logistics context.
 - **Design considerations**: The ability to identify the item (before and after transportation), the location of the item after being transported, the agent involved in the transportation, and the dispatch schedule.

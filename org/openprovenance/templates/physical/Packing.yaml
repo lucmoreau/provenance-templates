@@ -1,6 +1,6 @@
 Name: Packing
 Fully Qualified Name: org.openprovenance.templates.physical.Packing
-IRI: <https://openprovenance.org/templates/physical/Packing>
+IRI: <https://openprovenance.org/templates/org/openprovenance/templates/physical/Packing>
 Purpose: The template Packing describes the evolution of a container as an item is added to it.
 Context: the template helps describe common situations in the physical world, involving containers such as boxes or palettes.
 Design considerations: The ability to describe the state of the container (before and after inserting an item) and the state of the item (before being packed in the container or after).

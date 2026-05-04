@@ -1,6 +1,4 @@
 
-help:
-	echo "help"
 
 
 
@@ -59,13 +57,20 @@ go1:
 	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/fs/FileFiltering do.file1
 	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/fs/FileSplitting do.file1
 	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/fs/FileMerging do.file1
+	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/generic/Forking2 do.file1
+	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/generic/Joining2 do.file1
+	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/generic/Parallel2 do.file1
+	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/generic/Product2 do.file1
+	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/generic/Transforming1 do.file1
+	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/ptm/Instantiating do.file1
+	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/ptm/Merging do.file1
 
 
 do.file1:
 	@echo $(FILE)
 	@cp $(FILE).md tmp.md
 	@pandoc -F pandoc-crossref -F mermaid-filter -L filters/columns.lua --toc --toc-depth=3  --lof  -V papersize:a4  --metadata  linkReferences=true --bibliography fullbib.bib --citeproc --embed-resources --standalone --syntax-definition highlight/sparql.xml tmp.md > $(FILE).html
-	@rm $(FILE)
+	@rm -f $(FILE)
 	@ln -s $(FILE).html $(FILE)
 	@sed 's/**//g' $(FILE).md | sed 's/`//g' | sed 's/!\[/- Figure: (/g' | sed 's/\[@/(/g'  | sed 's/\[/(/g' | sed 's/\]/)/g' | yq -o json -p yaml - | jq 'add' > $(FILE).json
 	@yq -o yaml -p json $(FILE).json > $(FILE).yaml

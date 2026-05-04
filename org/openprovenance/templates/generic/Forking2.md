@@ -3,7 +3,7 @@
 
 - **Name**: `Forking2`
 - **Fully Qualified Name**: `org.openprovenance.templates.generic.Forking2`
-- **IRI**: <https://openprovenance.org/templates/generic/Forking2>
+- **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/generic/Forking2>
 - **Purpose**: The template `Forking2` describes the transformation of an input resulting in two distinct outputs.
 - **Context**: It is a general transformation applicable to many different contexts.
 - **Design considerations**:  Relations rigorously linking nodes using pre-defined triangles.

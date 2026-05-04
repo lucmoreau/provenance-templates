@@ -1,6 +1,6 @@
 Name: Assigning
 Fully Qualified Name: org.openprovenance.templates.responsibility.Assigning
-IRI: <https://openprovenance.org/templates/responsibility/Assigning>
+IRI: <https://openprovenance.org/templates/org/openprovenance/templates/responsibility/Assigning>
 Purpose: This template describes how an entity is attributed to an agent.
 Context: The template describes an 'assigning' activity, which results in a generated entity linked to an agent by an attribution link; before the 'assigning' activity, there was no attribution link.
 Design considerations: The template allows for new attributes for this entity and agent to be assigned following assignment.

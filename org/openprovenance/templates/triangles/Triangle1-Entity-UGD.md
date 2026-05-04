@@ -2,7 +2,7 @@
 
 - **Name**: `Triangle1-Entity-UGD`
 - **Fully Qualified Name**: `org.openprovenance.templates.triangles.Triangle1-Entity-UGD`
-- **IRI**: <https://openprovenance.org/templates/triangles/Triangle1-Entity-UGD>
+- **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/triangles/Triangle1-Entity-UGD>
 - **Purpose**: This template describes how an entity evolves into another entity through derivation.
 - **Context**: The template explicitly links the derivation to the underpinning activity, usage and generation. 
 - **Design considerations**: Extensibility through the ability to assert new attributes for the generated entity, as well as for the derivation and activity, possibly specifying their type.

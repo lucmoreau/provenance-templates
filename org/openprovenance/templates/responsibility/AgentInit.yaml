@@ -1,6 +1,6 @@
 Name: AgentInit
 Fully Qualified Name: org.openprovenance.templates.responsibility.AgentInit
-IRI: <https://openprovenance.org/templates/responsibility/AgentInit>
+IRI: <https://openprovenance.org/templates/org/openprovenance/templates/responsibility/AgentInit>
 Purpose: This template describes how an agent is initially created.
 Context: The template describes a registration activity, which results in a generated agent and an optional specialisation.
 Design considerations: The template allows for new attributes for the agent and its specialisation to be defined following registration; in particular, a specific location can be defined for the specialisation.

@@ -3,7 +3,7 @@
 
 - **Name**: `FileFiltering`
 - **Fully Qualified Name**: `org.openprovenance.templates.fs.FileFiltering`
-- **IRI**: <https://openprovenance.org/templates/fs/FileFiltering>
+- **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/fs/FileFiltering>
 - **Purpose**: The template `FileFiltering` describes a filtering operation selecting parts (e.g, lines) of a file.
 - **Context**: The template is useful to describe operations in a file system.
 - **Design considerations**: The ability to identify the file (before and after filtering), whether the filtering is in place or generates a new file.

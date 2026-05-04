@@ -1,7 +1,7 @@
 
 - **Name**: `Instantiating`
 - **Fully Qualified Name**: `org.openprovenance.templates.ptm.Instantiating`
-- **IRI**: <https://openprovenance.org/templates/ptm/Instantiating>
+- **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/ptm/Instantiating>
 - **Purpose**: The template `Instantiating` describes the instantiation process of a template with a set of bindings.
 - **Context**: The template describes one of the two key operations in provenance template management.
 - **Design considerations**: The ability to trace the creation of provenance templates.

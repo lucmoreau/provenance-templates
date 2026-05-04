@@ -3,7 +3,7 @@
 
 - **Name**: `Weighing`
 - **Fully Qualified Name**: `org.openprovenance.templates.physical.Weighing`
-- **IRI**: <https://openprovenance.org/templates/physical/Weighing>
+- **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/physical/Weighing>
 - **Purpose**: This template describes how an item was weighed.
 - **Context**: The template describes a common operation in logistics, determining the weight of goods being transported. 
 - **Design considerations**: The ability to describe the item with its weight as well as the scale involved, and the operator of the scale.

@@ -2,7 +2,7 @@
 
 - **Name**: `Triangle4-AIA`
 - **Fully Qualified Name**: `org.openprovenance.templates.triangles.Triangle4-AIA`
-- **IRI**: <https://openprovenance.org/templates/triangles/Triangle4-AIA>
+- **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/triangles/Triangle4-AIA>
 - **Purpose**: This template describes how the end of an entity (its invalidation in PROV terminology) is attributed to an agent, indicating the agent's responsibility for the entity's end of life following the agent's association with the activity that invalidated the entity.
 - **Context**: The template describes the link between the attribution and the activity, the agent's association with the activity and the entity's invalidation by the activity.
 - **Design considerations**: The ability to assert new attributes for the invalidated entity, as well as attributes for the invalidation and activity.

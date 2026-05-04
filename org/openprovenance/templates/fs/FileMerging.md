@@ -3,7 +3,7 @@
 
 - **Name**: `FileMerging`
 - **Fully Qualified Name**: `org.openprovenance.templates.fs.FileMerging`
-- **IRI**: <https://openprovenance.org/templates/fs/FileMerging>
+- **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/fs/FileMerging>
 - **Purpose**: The template `FileMerging` describes the transformation of two files into a single file.
 - **Context**: The template is useful for describing operations in a file system.
 - **Design considerations**: The ability to identify the files (before and after merging).

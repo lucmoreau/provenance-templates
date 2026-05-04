@@ -2,7 +2,7 @@
 
 - **Name**: `Transforming1`
 - **Fully Qualified Name**: `org.openprovenance.templates.generic.Transforming1`
-- **IRI**: <https://openprovenance.org/templates/generic/Transforming1>
+- **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/generic/Transforming1>
 - **Purpose**: The template `Transforming1` describes the transformation of an input into an output.
 - **Context**: It is intended to be a general form of transformation, with a single input and a single output.
 - **Design considerations**: Relations rigorously linking nodes using pre-defined triangles.
