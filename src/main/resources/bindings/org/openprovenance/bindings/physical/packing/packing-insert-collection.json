@@ -1,5 +1,6 @@
 {
     "var": {
+        "agent":          [  {"@id": "var:packer"}                                 ],
         "coll1":          [  {"@id": "var:container1"}                             ],
         "coll0":          [  {"@id": "var:container0"}                             ],
         "item1":          [  {"@id": "var:item1"}                                  ],
@@ -33,7 +34,10 @@
         "uprops1":       null,
         "uprops2":       null,
         "uvalues1":      null,
-        "uvalues2":      null
+        "uvalues2":      null,
+        "asc":           null,
+        "attr1":         null,
+        "attr2":         null
     },
     "vargen":  {
         "b": [{"@id": "vargen:b"}]

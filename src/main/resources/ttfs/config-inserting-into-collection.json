@@ -50,6 +50,44 @@
         },
 
         {
+            "type": "instantiate",
+            "description": "Instantiating an agent pattern",
+            "template": "org.openprovenance.templates.primitive.Agent0",
+            "output": "org/openprovenance/templates/collections/inserting/agent",
+            "bindings": "agent.json",
+            "formats": ["jsonld"],
+            "hasProvenance": "org/openprovenance/templates/collections/inserting/prov/prov-agent.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a attribution pattern",
+            "template": "org.openprovenance.templates.primitive.Attribution0",
+            "output": "org/openprovenance/templates/collections/inserting/attribution1",
+            "bindings": "attribution1.json",
+            "formats": ["jsonld"],
+            "hasProvenance": "oorg/openprovenance/templates/collections/inserting/prov/prov-attribution1.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a attribution pattern",
+            "template": "org.openprovenance.templates.primitive.Attribution0",
+            "output": "org/openprovenance/templates/collections/inserting/attribution2",
+            "bindings": "attribution2.json",
+            "formats": ["jsonld"],
+            "hasProvenance": "oorg/openprovenance/templates/collections/inserting/prov/prov-attribution2.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating an association pattern",
+            "template": "org.openprovenance.templates.primitive.Association0",
+            "output": "org/openprovenance/templates/collections/inserting/association",
+            "bindings": "association.json",
+            "formats": ["jsonld"],
+            "hasProvenance": "org/openprovenance/templates/collections/inserting/prov/prov-association.prov-csv"
+        },
+
+
+        {
             "type": "merge",
             "description": "Merging the above templates into a single template",
             "addOutputDirToInputPath": true,
@@ -57,7 +95,11 @@
                 "org/openprovenance/templates/collections/inserting/collection-insert-triangle1-ugd",
                 "org/openprovenance/templates/collections/inserting/collection-insert-triangle2-ugd",
                 "org/openprovenance/templates/collections/inserting/collection-insert-triangle3-ugd",
-                "org/openprovenance/templates/collections/inserting/collection-insert-triangle5-ggm"
+                "org/openprovenance/templates/collections/inserting/collection-insert-triangle5-ggm",
+                "org/openprovenance/templates/collections/inserting/agent",
+                "org/openprovenance/templates/collections/inserting/attribution1",
+                "org/openprovenance/templates/collections/inserting/attribution2",
+                "org/openprovenance/templates/collections/inserting/association"
             ],
             "output": "org/openprovenance/templates/collections/inserting/collection-inserting",
             "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
