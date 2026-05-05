@@ -65,7 +65,7 @@
             "output": "org/openprovenance/templates/collections/inserting/attribution1",
             "bindings": "attribution1.json",
             "formats": ["jsonld"],
-            "hasProvenance": "oorg/openprovenance/templates/collections/inserting/prov/prov-attribution1.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/collections/inserting/prov/prov-attribution1.prov-csv"
         },
         {
             "type": "instantiate",
@@ -74,7 +74,7 @@
             "output": "org/openprovenance/templates/collections/inserting/attribution2",
             "bindings": "attribution2.json",
             "formats": ["jsonld"],
-            "hasProvenance": "oorg/openprovenance/templates/collections/inserting/prov/prov-attribution2.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/collections/inserting/prov/prov-attribution2.prov-csv"
         },
         {
             "type": "instantiate",
