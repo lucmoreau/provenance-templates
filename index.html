@@ -9,8 +9,8 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #0f0f13;
-      color: #e8e8f0;
+      background: #ffffff;
+      color: #1a1a2e;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -21,9 +21,9 @@
 
     .badge {
       display: inline-block;
-      background: rgba(99, 102, 241, 0.15);
-      border: 1px solid rgba(99, 102, 241, 0.4);
-      color: #a5b4fc;
+      background: rgba(99, 102, 241, 0.10);
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      color: #4f52cc;
       font-size: 0.75rem;
       font-weight: 600;
       letter-spacing: 0.1em;
@@ -39,7 +39,7 @@
       letter-spacing: -0.02em;
       line-height: 1.1;
       text-align: center;
-      background: linear-gradient(135deg, #e8e8f0 30%, #a5b4fc 100%);
+      background: linear-gradient(135deg, #1a1a2e 30%, #6366f1 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -48,7 +48,7 @@
 
     p.subtitle {
       font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: #9090aa;
+      color: #555570;
       text-align: center;
       max-width: 540px;
       line-height: 1.65;
@@ -82,8 +82,8 @@
 
     .btn-secondary {
       background: transparent;
-      border: 1px solid rgba(255,255,255,0.15);
-      color: #e8e8f0;
+      border: 1px solid rgba(0,0,0,0.15);
+      color: #1a1a2e;
     }
 
     .features {
@@ -95,8 +95,8 @@
     }
 
     .feature-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.08);
       border-radius: 12px;
       padding: 1.5rem;
     }
@@ -109,21 +109,71 @@
     .feature-card h3 {
       font-size: 0.95rem;
       font-weight: 700;
-      color: #e8e8f0;
+      color: #1a1a2e;
       margin-bottom: 0.4rem;
     }
 
     .feature-card p {
       font-size: 0.85rem;
-      color: #7070888;
-      color: #888899;
+      color: #555570;
       line-height: 1.55;
+    }
+
+    .library {
+      max-width: 860px;
+      width: 100%;
+      margin-top: 3rem;
+    }
+
+    .library-heading {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .category {
+      margin-bottom: 1.5rem;
+    }
+
+    .category-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #6366f1;
+      margin-bottom: 0.5rem;
+    }
+
+    .category ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .category ul li a {
+      display: inline-block;
+      padding: 0.3rem 0.85rem;
+      background: rgba(99,102,241,0.07);
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: #4f52cc;
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .category ul li a:hover {
+      background: rgba(99,102,241,0.15);
+      border-color: rgba(99,102,241,0.4);
     }
 
     footer {
       margin-top: 5rem;
       font-size: 0.8rem;
-      color: #44445a;
+      color: #aaaabc;
       text-align: center;
     }
   </style>
@@ -166,6 +216,80 @@
       <p>Compose and extend templates to fit your exact use-case.</p>
     </div>
   </div>
+
+  <section class="library">
+    <h2 class="library-heading">Template Library</h2>
+
+    <div class="category">
+      <h3 class="category-title">Generic</h3>
+      <ul>
+        <li><a href="org/openprovenance/templates/generic/Transforming1">Transforming1</a></li>
+        <li><a href="org/openprovenance/templates/generic/Forking2">Forking2</a></li>
+        <li><a href="org/openprovenance/templates/generic/Joining2">Joining2</a></li>
+        <li><a href="org/openprovenance/templates/generic/Parallel2">Parallel2</a></li>
+        <li><a href="org/openprovenance/templates/generic/Product2">Product2</a></li>
+      </ul>
+    </div>
+
+    <div class="category">
+      <h3 class="category-title">Triangles</h3>
+      <ul>
+        <li><a href="org/openprovenance/templates/triangles/Triangle1-Agent-UGD">Triangle1-Agent-UGD</a></li>
+        <li><a href="org/openprovenance/templates/triangles/Triangle1-Entity-UGD">Triangle1-Entity-UGD</a></li>
+        <li><a href="org/openprovenance/templates/triangles/Triangle2-Agent-SDS">Triangle2-Agent-SDS</a></li>
+        <li><a href="org/openprovenance/templates/triangles/Triangle2-Entity-SDS">Triangle2-Entity-SDS</a></li>
+        <li><a href="org/openprovenance/templates/triangles/Triangle3-AGA">Triangle3-AGA</a></li>
+        <li><a href="org/openprovenance/templates/triangles/Triangle4-AIA">Triangle4-AIA</a></li>
+        <li><a href="org/openprovenance/templates/triangles/Triangle5-GGM">Triangle5-GGM</a></li>
+      </ul>
+    </div>
+
+    <div class="category">
+      <h3 class="category-title">Responsibility</h3>
+      <ul>
+        <li><a href="org/openprovenance/templates/responsibility/AgentInit">AgentInit</a></li>
+        <li><a href="org/openprovenance/templates/responsibility/Assigning">Assigning</a></li>
+        <li><a href="org/openprovenance/templates/responsibility/Examining">Examining</a></li>
+        <li><a href="org/openprovenance/templates/responsibility/HandingOver">HandingOver</a></li>
+      </ul>
+    </div>
+
+    <div class="category">
+      <h3 class="category-title">Physical</h3>
+      <ul>
+        <li><a href="org/openprovenance/templates/physical/Packing">Packing</a></li>
+        <li><a href="org/openprovenance/templates/physical/Transporting">Transporting</a></li>
+        <li><a href="org/openprovenance/templates/physical/Unpacking">Unpacking</a></li>
+        <li><a href="org/openprovenance/templates/physical/Weighing">Weighing</a></li>
+      </ul>
+    </div>
+
+    <div class="category">
+      <h3 class="category-title">Collections</h3>
+      <ul>
+        <li><a href="org/openprovenance/templates/collections/InsertingIntoCollection">InsertingIntoCollection</a></li>
+        <li><a href="org/openprovenance/templates/collections/RemovingFromCollection">RemovingFromCollection</a></li>
+      </ul>
+    </div>
+
+    <div class="category">
+      <h3 class="category-title">File System</h3>
+      <ul>
+        <li><a href="org/openprovenance/templates/fs/FileFiltering">FileFiltering</a></li>
+        <li><a href="org/openprovenance/templates/fs/FileMerging">FileMerging</a></li>
+        <li><a href="org/openprovenance/templates/fs/FileSplitting">FileSplitting</a></li>
+        <li><a href="org/openprovenance/templates/fs/FileTransforming">FileTransforming</a></li>
+      </ul>
+    </div>
+
+    <div class="category">
+      <h3 class="category-title">PTM</h3>
+      <ul>
+        <li><a href="org/openprovenance/templates/ptm/Instantiating">Instantiating</a></li>
+        <li><a href="org/openprovenance/templates/ptm/Merging">Merging</a></li>
+      </ul>
+    </div>
+  </section>
 
   <footer>
     &copy; 2026 Provenance Template Library &mdash; Under Construction
