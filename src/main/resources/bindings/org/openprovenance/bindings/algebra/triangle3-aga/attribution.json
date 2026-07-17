@@ -1,0 +1,18 @@
+{
+    "var": {
+        "entity": [  {"@id": "var:e"}     ],
+        "agent":  [  {"@id": "var:ag"}    ],
+        "prop":   [[ {"@id": "var:attrprops"}, {"@id": "provext:association"},{"@id": "provext:generation"},{"@id": "provext:activity"} ]],
+        "pvalue": [[ {"@id": "var:attrvalues"},{"@id": "var:asc"},{           "@id": "var:gen"},            {"@id": "var:activity"}     ]],
+        "id":     [  {"@id": "var:attr"}  ]
+    },
+    "vargen":  {
+        "b": [{"@id": "vargen:b"}]
+    },
+    "context": {
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
+    }
+}

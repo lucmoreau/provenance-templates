@@ -1,0 +1,25 @@
+{
+    "@context" : [ {
+        "xsd" : "http://www.w3.org/2001/XMLSchema#",
+        "provext" : "http://openprovenance.org/prov/extension#",
+        "prov" : "http://www.w3.org/ns/prov#",
+        "var": "http://openprovenance.org/var#",
+        "vargen": "http://openprovenance.org/vargen#",
+        "tmpl": "http://openprovenance.org/templates/tmpl#"
+    }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+    "@graph" : [ {
+        "@type" : "Activity",
+        "@id" : "var:a",
+        "type" : [ "var:activityType" ]
+    }, {
+        "@type" : "Agent",
+        "@id" : "var:ag",
+        "type" : [ "var:agentType" ]
+    }, {
+        "@type" : "Association",
+        "activity" : "var:a",
+        "agent" : "var:ag",
+        "role" : [ "var:role" ]
+    }
+    ]
+}

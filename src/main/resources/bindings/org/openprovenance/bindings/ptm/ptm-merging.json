@@ -1,0 +1,67 @@
+{
+    "var" : {
+        "output1" :                 [{"@id" : "var:document"}],
+        "output2" :                 [{"@id" : "var:provenance"}],
+        "input1" :                  [{"@id" : "var:template1"}],
+        "input2" :                  [{"@id" : "var:template2"}],
+        "agent" :                   [{"@id" : "var:agent"}],
+        "plan":                     [{"@id" : null}],
+        "transforming" :            [{"@id" : "vargen:merging"}],
+        "oprops1" :                 [{"@id" : "ptm:createdAt"}],
+        "ovalues1" :                [[{"@id" : "var:time"}]],
+        "oprops2" :                 [{"@id" : "ptm:createdAt"}],
+        "ovalues2" :                [[{"@id" : "var:time"}]],
+        "otype1" :                  [[{"@id" : "ptm:ProvDocument"}]],
+        "otype2" :                  [[{"@id" : "ptm:CompactBindings"}]],
+        "atype" :                   [[{"@id" : "ptm:MergingTemplates"}]],
+
+        "aprops":                   null,
+        "asc":                      null,
+        "ascprops":                 null,
+        "ascvalues":                null,
+        "attr1":                    null,
+        "attr2":                    null,
+        "attrprops1":               null,
+        "attrprops2":               null,
+        "attrvalues1":              null,
+        "attrvalues2":              null,
+        "avalues":                  null,
+        "der1":                     null,
+        "der2":                     null,
+        "dprops1":                  null,
+        "dprops2":                  null,
+        "dvalues1":                 null,
+        "dvalues2":                 null,
+        "end":                      null,
+        "gen1":                     null,
+        "gen2":                     null,
+        "gprops1":                  null,
+        "gprops2":                  null,
+        "gvalues1":                 null,
+        "gvalues2":                 null,
+
+        "start":                    null,
+        "uprops1":                  null,
+        "uprops2":                  null,
+        "usd1":                     null,
+        "usd2":                     null,
+        "uvalues1":                 null,
+        "uvalues2":                 null
+    },
+    "vargen" : {
+        "b" : [ {
+            "@id" : "vargen:b"
+        } ]
+    },
+    "linked": {"prop_values":  "props"},
+    "context" : {
+        "prov":   "${prov_ns}",
+        "ptm":    "${ptm_ns}",
+        "uuid" :  "${uuid_ns}",
+        "var":    "${var_ns}",
+        "vargen": "${vargen_ns}",
+        "xsd":    "${xsd_ns}",
+        "schema": "${schema_ns}"
+    },
+    "template" : null
+}

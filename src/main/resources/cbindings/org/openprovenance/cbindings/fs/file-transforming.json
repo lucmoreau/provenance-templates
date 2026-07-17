@@ -1,0 +1,117 @@
+{
+    "var": {
+        "transformed_file": [
+            {
+                "@id": "file:*",
+                "@type": "xsd:int",
+                "@examplar": 122,
+                "@documentation": "The file resulting from transformation",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "file"
+            }
+        ],
+        "filename": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:string",
+                    "@documentation": "The name of the transformed file",
+                    "@input": "compulsory",
+                    "@sql.type":  "nonNullableTEXT"
+                }
+            ]
+        ],
+        "file": [
+            {
+                "@id": "file:*",
+                "@type": "xsd:int",
+                "@examplar": 121,
+                "@documentation": "The file before transformation",
+                "@input": "compulsory",
+                "@sql.table": "file"
+            }
+        ],
+        "method": [
+            {
+                "@id": "method:*",
+                "@type": "xsd:int",
+                "@examplar": 222,
+                "@documentation": "The method to transform the file",
+                "@input": "optional",
+                "@output": "false",
+                "@sql.table": "method"
+            }
+        ],
+        "engineer": [
+            {
+                "@id": "ag:*",
+                "@type": "xsd:int",
+                "@documentation": "The engineer developing the ML pipeline",
+                "@input": "optional",
+                "@sql.table": "agent"
+            }
+        ],
+        "transforming": [
+            {
+                "@id": "act:*",
+                "@type": "xsd:int",
+                "@documentation": "The activity of transforming the file",
+                "@output": "true",
+                "@sql.table": "activity"
+            }
+        ],
+        "path": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:string",
+                    "@documentation": "The actual path of the file",
+                    "@input": "optional",
+                    "@sql.type":  "nullableTEXT"
+                }
+            ]
+        ],
+        "time": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:dateTime",
+                    "@documentation": "Time when the transformed file is created",
+                    "@input": "optional",
+                    "@sql.type":  "timestamptz"
+                }
+            ]
+        ],
+        "start": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:dateTime",
+                    "@documentation": "Time when the transformation starts",
+                    "@input": "optional",
+                    "@sql.type":  "timestamptz"
+                }
+            ]
+        ],
+        "end": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:dateTime",
+                    "@documentation": "Time when the transformation ends",
+                    "@input": "optional",
+                    "@sql.type":  "timestamptz"
+                }
+            ]
+        ]
+    },
+    "context": {
+        "ag":  "${PROV_API}/live/agent/",
+        "act": "${PROV_API}/live/activity/",
+        "file": "${PROV_API}/live/file/",
+        "method": "${PROV_API}/live/method/"
+    },
+    "template": "TODO template",
+    "@documentation": "Template describing the transformation of a file."
+}

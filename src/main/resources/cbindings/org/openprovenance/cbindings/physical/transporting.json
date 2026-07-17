@@ -1,0 +1,97 @@
+{
+    "var": {
+        "item1": [
+            {
+                "@id": "item:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The item at destination",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "item"
+            }
+        ],
+        "item0": [
+            {
+                "@id": "item:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The item at source",
+                "@input": "compulsory",
+                "@output": "false",
+                "@sql.table": "item"
+            }
+        ],
+        "item": [
+            {
+                "@id": "item:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The item generic entity",
+                "@input": "optional",
+                "@output": "false",
+                "@sql.table": "item"
+            }
+        ],
+        "transporter": [
+            {
+                "@id": "people:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The agent transporter",
+                "@input": "optional",
+                "@output": "false",
+                "@sql.table": "people"
+            }
+        ],
+        "schedule": [
+            {
+                "@id": "doc:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The schedule",
+                "@input": "optional",
+                "@output": "false",
+                "@sql.table": "document"
+            }
+        ],
+        "transporting": [
+            {
+                "@id": "act:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The activity of transporting",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "activity"
+            }
+        ],
+        "ilocation": [[{
+            "@value": "*",
+            "@type": "xsd:string",
+            "@examplar": "ilocation property ",
+            "@documentation": "ilocation property",
+            "@input": "optional"
+        }]],
+        "time": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:dateTime",
+                    "@documentation": "Time when the transformed file is created",
+                    "@input": "optional",
+                    "@sql.type":  "timestamptz"
+                }
+            ]
+        ],
+        "avalue": null
+    },
+    "context": {
+        "people":  "${PROV_API}/live/agent/",
+        "act": "${PROV_API}/live/activity/",
+        "doc": "${PROV_API}/live/doc/",
+        "item": "${PROV_API}/live/item/"
+    },
+    "template": "TODO template",
+    "@documentation": "TODO doc."
+}

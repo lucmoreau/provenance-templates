@@ -1,0 +1,125 @@
+{
+	"group": "org.openprovenance.book.fs",
+	"name": "fs_template_library",
+	"destination": "target",
+	"description": "PROV templates for plead ML pipeline",
+	"version": "0.1.0",
+	"root_package": "org.openprovenance.templates.catalogue.fs",
+	"search": ["activity", "file", "agent", "method", "score", "approval_record"],
+	"script": "ptm_file_run",
+	"script_dir": "target/bin",
+	"python_dir": "target/generated-python",
+	"javascript_dir": "target/generated-js",
+	"rust_dir": "target/generated-rust/src",
+	"integrator": true,
+	"jsweet": true,
+	"jsonschema": "schema-fs.json",
+	"documentation": "doc-fs.html",
+	"sqlFile": "prov-template-library-fs.sql",
+
+    "variableCheck": "src/main/resources/variable-check/fs/variables.json",
+
+    "templates" : [
+
+        {
+            "@type": "simple",
+            "name": "file_init",
+            "fullyQualifiedName": "org.openprovenance.templates.fs.FileInit",
+            "package": "org.openprovenance.book.fs",
+            "template": "org.openprovenance.templates.responsibility.EntityLocationInit",
+            "cbindings": "org/openprovenance/cbindings/fs/fs-init.json"
+        },
+
+		{
+			"@type": "simple",
+			"name": "file_transforming",
+            "fullyQualifiedName": "org.openprovenance.templates.fs.FileTransforming",
+			"package": "org.openprovenance.book.fs",
+            "template": "org.openprovenance.templates.fs.FileTransforming",
+            "cbindings": "org/openprovenance/cbindings/fs/file-transforming.json"
+		},
+
+		{
+			"@type": "simple",
+			"name": "file_filtering",
+            "fullyQualifiedName": "org.openprovenance.templates.fs.FileFiltering",
+			"package": "org.openprovenance.book.fs",
+            "template": "org.openprovenance.templates.fs.FileFiltering",
+            "cbindings": "org/openprovenance/cbindings/fs/file-filtering.json"
+		},
+		{
+			"@type": "simple",
+			"name": "file_training",
+            "fullyQualifiedName": "org.openprovenance.templates.fs.FileTraining",
+            "package": "org.openprovenance.book.fs",
+            "template": "org.openprovenance.templates.fs.FileTraining",
+			"cbindings": "org/openprovenance/cbindings/fs/file-training.json"
+		},
+		{
+			"@type": "simple",
+			"name": "file_validating",
+            "fullyQualifiedName": "org.openprovenance.templates.fs.FileValidating",
+            "package": "org.openprovenance.book.fs",
+            "template": "org.openprovenance.templates.fs.FileValidating",
+			"cbindings": "org/openprovenance/cbindings/fs/file-validating.json"
+		},
+		{
+			"@type": "simple",
+			"name": "file_approving",
+            "fullyQualifiedName": "org.openprovenance.templates.fs.FileApproving",
+            "package": "org.openprovenance.book.fs",
+            "template": "org.openprovenance.templates.fs.FileApproving",
+			"cbindings": "org/openprovenance/cbindings/fs/file-approving.json"
+		},
+		{
+			"@type": "simple",
+			"name": "file_splitting",
+            "fullyQualifiedName": "org.openprovenance.templates.fs.FileSplitting",
+            "package": "org.openprovenance.book.fs",
+            "template": "org.openprovenance.templates.fs.FileSplitting",
+			"cbindings": "org/openprovenance/cbindings/fs/file-splitting.json"
+		},
+
+		{
+			"@type": "composite",
+			"name": "file_transforming_composite",
+            "fullyQualifiedName": "org.openprovenance.templates.fs.FileTransformingComposite",
+            "package": "org.openprovenance.book.fs",
+            "consistsOf": "org.openprovenance.templates.fs.FileTransforming",
+			"sharing": ["transformed_file", "transforming"]
+		}
+	],
+	"sql.tables":  {
+		"file": {
+			"id": "SERIAL",
+			"created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+		},
+		"agent": {
+			"id": "SERIAL",
+			"created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+		},
+		"score": {
+			"id": "SERIAL",
+			"created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+		},
+		"approval_record": {
+			"id": "SERIAL",
+			"created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+		},
+		"activity": {
+			"id": "SERIAL",
+			"created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+		},
+		"method": {
+			"id": "SERIAL",
+			"serial": "INT",
+			"created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+		}
+	},
+    "past-generators": {
+        "PleadWorkflow": {
+            "class": "org.openprovenance.bookptm.workflows.GeneratePleadWorkflow",
+            "classpath": ["target/classes"]
+        }
+    }
+}

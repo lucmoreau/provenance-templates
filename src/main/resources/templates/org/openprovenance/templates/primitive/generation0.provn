@@ -1,0 +1,11 @@
+document
+prefix vargen <http://openprovenance.org/vargen#>
+prefix var <http://openprovenance.org/var#>
+bundle vargen:b
+prefix vargen <http://openprovenance.org/vargen#>
+prefix var <http://openprovenance.org/var#>
+prefix tmpl <http://openprovenance.org/template#>
+
+wasGeneratedBy(var:id;var:entity,var:activity,-,[var:prop = 'var:pvalue', tmpl:time='var:time'])
+endBundle
+endDocument

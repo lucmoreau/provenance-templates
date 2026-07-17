@@ -1,0 +1,1803 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.openprovenance.bookptm</groupId>
+        <artifactId>book-ptm</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>template-intro1</artifactId>
+    <packaging>jar</packaging>
+
+    <name>|-- template-intro1</name>
+    <description>templates for book</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <package.name>transport_template_library</package.name>
+        <package.name.cli>${package.name}_cli</package.name.cli>
+        <package.name.l2p>${package.name}_l2p</package.name.l2p>
+
+        <hardcoded.project.version>0.1.0</hardcoded.project.version>
+
+        <meta-inf-prefix>META-INF/resources/webjars</meta-inf-prefix>
+        <meta-inf.webjars>${meta-inf-prefix}/${project.artifactId}/${hardcoded.project.version}</meta-inf.webjars>
+
+        <templates.dir>${project.basedir}/src/main/resources/templates</templates.dir>
+        <bindings.dir>${project.basedir}/src/main/resources/bindings</bindings.dir>
+        <cbindings.dir>${project.basedir}/src/main/resources/cbindings</cbindings.dir>
+
+        <generated.templates.dir>${project.build.directory}/generated-templates</generated.templates.dir>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.openprovenance.prov</groupId>
+            <artifactId>prov-model</artifactId>
+            <version>${prov.toolbox.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openprovenance.prov</groupId>
+            <artifactId>prov-interop</artifactId>
+            <version>${prov.toolbox.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openprovenance.prov</groupId>
+            <artifactId>prov-template-compiler</artifactId>
+            <version>${prov.toolbox.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>${commons.text.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openprovenance.prov</groupId>
+            <artifactId>prov-dot</artifactId>
+            <version>${prov.toolbox.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons.io.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>7.0.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>7.0.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webflux</artifactId>
+            <version>7.0.1</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>16</source>
+                    <target>16</target>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>compile-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                        <configuration>
+                            <source>16</source>
+                            <target>16</target>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>two</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                        <configuration>
+                            <source>16</source>
+                            <target>16</target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.openprovenance.prov</groupId>
+                <artifactId>prov-toolbox-plugin</artifactId>
+                <version>${prov.toolbox.version}</version>
+                <executions>
+                    <execution>
+                        <id>validate.bindings</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>validate-bindings</goal>
+                        </goals>
+                        <configuration>
+                            <warning>false</warning>
+                            <args>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/add1.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/triangles/integer-division.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/division-121-4.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/generic/file-compression.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/primitive/file-entity.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/primitive/attribution-with-optionality.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/derivation-e2-e0.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/derivation-e0-e1.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/derivation-e0-e1.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/derivation-e0-e2.json</arg>
+
+                                
+                                <arg>${bindings.dir}/org/openprovenance/bindings/ptm/creating-template/creating-template-triangle1-ugd.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/ptm/creating-template/creating-template-triangle3a-aga.json</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/ptm/creating-template/creating-template-triangle3b-aga.json</arg>
+
+                                <arg>${cbindings.dir}/org/openprovenance/cbindings/ptm/ptm-creating.json</arg>
+
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.triangles.usage.generation.derivation.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-qualified</arg>
+                                <arg>-infile</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/triangles/usage-generation-derivation.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/usage-generation-derivation.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>instantiate.examples.add1.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/triangles/usage-generation-derivation.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/add1.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/add1.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>convert.examples.add1.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-qualified</arg>
+                                <arg>-infile</arg>
+                                <arg>${project.build.directory}/add1.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/add1.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+                    <execution>
+                        <id>instantiate.triangles.integer.division.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/triangles/usage-generation-derivation.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/triangles/integer-division.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/integer-division.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>convert.triangles.integer.division.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${project.build.directory}/integer-division.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/integer-division.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+
+                    <execution>
+                        <id>instantiate.examples.division.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${project.build.directory}/integer-division.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/division-121-4.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/division-121-4.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>convert.examples.division.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${project.build.directory}/division-121-4.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/division-121-4.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+                    <execution>
+                        <id>convert.generic.unary.operation.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/generic/unary-operation-with-agent.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/unary-operation-with-agent.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>instantiate.generic.file.compression.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/generic/unary-operation-with-agent.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/generic/file-compression.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/file-compression.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>convert.generic.file.compression.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${project.build.directory}/file-compression.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/file-compression.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>instantiate.example.file.compression.no.agent.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${project.build.directory}/file-compression.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/file-compression-no-agent-no-prop.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/file-compression-no-agent-no-prop.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.example.file.compression.no.agent.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${project.build.directory}/file-compression-no-agent-no-prop.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/file-compression-no-agent-no-prop.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+
+                    <execution>
+                        <id>instantiate.generic.file.compression.no.agent.no.prop.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${project.build.directory}/file-compression.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/file-compression-no-agent-no-prop.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/file-compression-no-agent-no-prop.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+
+                    <execution>
+                        <id>instantiate.primitive.entity.file.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/primitive/entity-with-attribute.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/primitive/file-entity.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/file-entity.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.primitive.entity.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/primitive/entity-with-attribute.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/entity-with-attribute.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+                    <execution>
+                        <id>instantiate.example.entity.file100Gb.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${project.build.directory}/file-entity.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/file-100Gb.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/file-100Gb.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.primitive.entity.file.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${project.build.directory}/file-entity.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/file-entity.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.example.entity.file100Gb.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${project.build.directory}/file-100Gb.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/file-100Gb.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>instantiate.primitive.attribution-with-optionality.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/primitive/attribution.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/primitive/attribution-with-optionality.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/attribution-with-optionality.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>instantiate.primitive.attribution-nameless.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/primitive/attribution-nameless.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/primitive/attribution-with-id.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/attribution-with-id.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.primitive.attribution.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-qualified</arg>
+                                <arg>-infile</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/primitive/attribution.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/attribution.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.primitive.attribution-nameless.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-qualified</arg>
+                                <arg>-infile</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/primitive/attribution-nameless.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/attribution-nameless.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+                    <execution>
+                        <id>convert.primitive.attribution-with-optionality.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-qualified</arg>
+                                <arg>-infile</arg>
+                                <arg>${project.build.directory}/attribution-with-optionality.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/attribution-with-optionality.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.primitive.attribution-with-id.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-qualified</arg>
+                                <arg>-infile</arg>
+                                <arg>${project.build.directory}/attribution-with-id.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/attribution-with-id.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+                    <execution>
+                        <id>instantiate.example.simple-derivation.e0-e1.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/primitive/simple-derivation.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/derivation-e0-e1.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/derivation-e0-e1.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>instantiate.example.simple-derivation.e2-e0.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/primitive/simple-derivation.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/derivation-e2-e0.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/derivation-e2-e0.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>instantiate.example.simple-derivation.e0-e2.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/primitive/simple-derivation.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/derivation-e0-e2.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/derivation-e0-e2.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>instantiate.example.simple-derivation.e3-e2.jsonld</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates//primitive/simple-derivation.jsonld</arg>
+                                <arg>-bindings</arg>
+                                <arg>${bindings.dir}/org/openprovenance/bindings/examples/derivation-e3-e2.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/derivation-e3-e2.jsonld</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.example.simple-derivation.e0-e1.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${project.build.directory}/derivation-e0-e1.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/derivation-e0-e1.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.example.simple-derivation.e0-e2.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${project.build.directory}/derivation-e0-e2.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/derivation-e0-e2.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+
+                    <execution>
+                        <id>convert.example.simple-derivation.e2-e0.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${project.build.directory}/derivation-e2-e0.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/derivation-e2-e0.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+                    <execution>
+                        <id>convert.example.simple-derivation.e3-e2.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${project.build.directory}/derivation-e3-e2.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/derivation-e3-e2.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+
+                    <execution>
+                        <id>merge1.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-merge</arg>
+                                <arg>${project.build.directory}/config-merge/merge1.txt</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/merge1.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>merge2.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-merge</arg>
+                                <arg>${project.build.directory}/config-merge/merge2.txt</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/merge2.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                            <id>merge3.svg</id>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>provconvert</goal>
+                            </goals>
+                            <configuration>
+                                <args>
+                                    <arg>-merge</arg>
+                                    <arg>${project.build.directory}/config-merge/merge3.txt</arg>
+                                    <arg>-outfile</arg>
+                                    <arg>${project.build.directory}/merge3.svg</arg>
+                                </args>
+                            </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>merge4.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-merge</arg>
+                                <arg>${project.build.directory}/config-merge/merge4.txt</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/merge4.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                            <id>merge5.svg</id>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>provconvert</goal>
+                            </goals>
+                            <configuration>
+                                <args>
+                                    <arg>-merge</arg>
+                                    <arg>${project.build.directory}/config-merge/merge5.txt</arg>
+                                    <arg>-outfile</arg>
+                                    <arg>${project.build.directory}/merge5.svg</arg>
+                                </args>
+                            </configuration>
+                    </execution>
+
+                    <execution>
+                            <id>merge6.svg</id>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>provconvert</goal>
+                            </goals>
+                            <configuration>
+                                <args>
+                                    <arg>-merge</arg>
+                                    <arg>${project.build.directory}/config-merge/merge6.txt</arg>
+                                    <arg>-outfile</arg>
+                                    <arg>${project.build.directory}/merge6.svg</arg>
+                                </args>
+                            </configuration>
+                    </execution>
+
+
+                    <execution>
+                        <id>test.ttf.schema</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>validate-ttf</goal>
+                        </goals>
+
+                        <configuration>
+                            <inputBaseDir>${project.basedir}</inputBaseDir>
+                            <args>
+                                <arg>src/main/resources/ttfs/config-generic-transforming.json</arg>
+                                <arg>src/main/resources/ttfs/config-generic.json</arg>
+                                <arg>src/main/resources/ttfs/config-simple.json</arg>
+                                <arg>src/main/resources/ttfs/config-fs.json</arg>
+                                <arg>src/main/resources/ttfs/config-ptm.json</arg>
+
+                                <arg>src/main/resources/ttfs/config-triangle1-ugd.json</arg>
+                                <arg>src/main/resources/ttfs/config-triangle1-agent-ugd.json</arg>
+                                <arg>src/main/resources/ttfs/config-triangle2-entity-sds.json</arg>
+                                <arg>src/main/resources/ttfs/config-triangle2-agent-sds.json</arg>
+                                <arg>src/main/resources/ttfs/config-triangle3-aga.json</arg>
+                                <arg>src/main/resources/ttfs/config-triangle4-aia.json</arg>
+                                <arg>src/main/resources/ttfs/config-triangle5-ggm.json</arg>
+                                <arg>src/main/resources/ttfs/config-triangle6-ugm.json</arg>
+                                <arg>src/main/resources/ttfs/config-inserting-into-collection.json</arg>
+                                <arg>src/main/resources/ttfs/config-insert-into-collection-old.json</arg>
+                                <arg>src/main/resources/ttfs/config-removing-from-collection.json</arg>
+
+                                <arg>src/main/resources/ttfs/config-ptm-creating-template.json</arg>
+                                <arg>src/main/resources/ttfs/config-transporting.json</arg>
+                                <arg>src/main/resources/ttfs/config-responsibility-handingover.json</arg>
+                                <arg>src/main/resources/ttfs/config-responsibility-examining.json</arg>
+                                <arg>src/main/resources/ttfs/config-weighing.json</arg>
+                                <arg>src/main/resources/ttfs/config-packing.json</arg>
+                                <arg>src/main/resources/ttfs/config-unpacking.json</arg>
+
+                                <arg>src/main/resources/ttfs/config-entity-init.json</arg>
+                                <arg>src/main/resources/ttfs/config-responsibility-agent-init.json</arg>
+                                <arg>src/main/resources/ttfs/config-responsibility-assigning.json</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>entity0.svg</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${templates.dir}/org/openprovenance/templates/primitive/entity0.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/entity0.provn</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>exec.process.templates.triangles</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>validate-ttf</goal>
+                            <goal>execute-ttf</goal>
+                        </goals>
+                        <configuration>
+                            <debug>true</debug>
+                            <inputBaseDir>${project.basedir}/src/main/resources</inputBaseDir>
+                            <outputBaseDir>${project.build.directory}</outputBaseDir>
+                            <args>
+                                <arg>ttfs/config-triangle1-ugd.json</arg>
+                                <arg>ttfs/config-triangle1-agent-ugd.json</arg>
+                                <arg>ttfs/config-triangle2-entity-sds.json</arg>
+                                <arg>ttfs/config-triangle2-agent-sds.json</arg>
+                                <arg>ttfs/config-triangle3-aga.json</arg>
+                                <arg>ttfs/config-triangle4-aia.json</arg>
+                                <arg>ttfs/config-triangle5-ggm.json</arg>
+                                <arg>ttfs/config-triangle6-ugm.json</arg>
+                                <arg>ttfs/config-entity-init.json</arg>
+                                <arg>ttfs/config-responsibility-agent-init.json</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>exec.process.templates.generic</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>validate-ttf</goal>
+                            <goal>execute-ttf</goal>
+                        </goals>
+                        <configuration>
+                            <debug>true</debug>
+                            <inputBaseDir>${project.basedir}</inputBaseDir>
+                            <outputBaseDir>${project.build.directory}</outputBaseDir>
+                            <args>
+                                <arg>src/main/resources/ttfs/config-generic-transforming.json</arg>
+                                <arg>src/main/resources/ttfs/config-generic.json</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>exec.process.templates.simple</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>validate-ttf</goal>
+                            <goal>execute-ttf</goal>
+                        </goals>
+                        <configuration>
+                            <debug>true</debug>
+                            <inputBaseDir>${project.basedir}</inputBaseDir>
+                            <outputBaseDir>${project.build.directory}</outputBaseDir>
+                            <args>
+                                <arg>src/main/resources/ttfs/config-simple.json</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>exec.process.templates.fs</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>validate-ttf</goal>
+                            <goal>execute-ttf</goal>
+                        </goals>
+                        <configuration>
+                            <debug>true</debug>
+                            <inputBaseDir>${project.basedir}</inputBaseDir>
+                            <outputBaseDir>${project.build.directory}</outputBaseDir>
+                            <args>
+                                <arg>src/main/resources/ttfs/config-fs.json</arg>
+                                <arg>src/main/resources/ttfs/config-responsibility-assigning.json</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>exec.process.templates.ptm</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>validate-ttf</goal>
+                            <goal>execute-ttf</goal>
+                        </goals>
+                        <configuration>
+                            <debug>true</debug>
+                            <inputBaseDir>${project.basedir}</inputBaseDir>
+                            <outputBaseDir>${project.build.directory}</outputBaseDir>
+                            <args>
+                                <arg>src/main/resources/ttfs/config-ptm.json</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+                    <execution>
+                        <id>exec.process.templates.collections</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>validate-ttf</goal>
+                            <goal>execute-ttf</goal>
+                        </goals>
+                        <configuration>
+                            <debug>true</debug>
+                            <inputBaseDir>${project.basedir}</inputBaseDir>
+                            <outputBaseDir>${project.build.directory}</outputBaseDir>
+                            <args>
+                                <arg>src/main/resources/ttfs/config-inserting-into-collection.json</arg>
+                               <!-- <config>src/main/resources/ttfs/config-insert-into-collection-old.json</config>-->
+                                <arg>src/main/resources/ttfs/config-removing-from-collection.json</arg>
+
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+                    <execution>
+                        <id>exec.process.templates.physical</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>validate-ttf</goal>
+                            <goal>execute-ttf</goal>
+                        </goals>
+                        <configuration>
+                            <debug>true</debug>
+                            <inputBaseDir>${project.basedir}</inputBaseDir>
+                            <outputBaseDir>${project.build.directory}</outputBaseDir>
+                            <args>
+                                <arg>src/main/resources/ttfs/config-transporting.json</arg>
+                                <arg>src/main/resources/ttfs/config-responsibility-handingover.json</arg>
+                                <arg>src/main/resources/ttfs/config-responsibility-examining.json</arg>
+                                <arg>src/main/resources/ttfs/config-weighing.json</arg>
+                                <arg>src/main/resources/ttfs/config-packing.json</arg>
+                                <arg>src/main/resources/ttfs/config-unpacking.json</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+
+                    <execution>
+                        <id>convert.new.triangle1.ugd.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-qualified</arg>
+                                <arg>-infile</arg>
+                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle1-ugd/triangle1-ugd.provn</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/triangle1-ugd.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>log2prov.ugd.all</id>
+                        <phase>test</phase> <!-- later than concat-csv -->
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle1-ugd/prov/all.prov-csv</arg>
+                                <arg>-log2prov</arg>
+                                <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/triangle1-ugd-all.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+                    <execution>
+                        <id>log2prov.aga.all</id>
+                        <phase>test</phase> <!-- later than concat-csv -->
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle3-aga/prov/all.prov-csv</arg>
+                                <arg>-log2prov</arg>
+                                <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/triangle3-aga-all.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>log2prov.entity.sds.all</id>
+                        <phase>test</phase> <!-- later than concat-csv -->
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-entity-sds/prov/all.prov-csv</arg>
+                                <arg>-log2prov</arg>
+                                <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/triangle2-entity-sds-all.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>log2prov.agent.sds.all</id>
+                        <phase>test</phase> <!-- later than concat-csv -->
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-agent-sds/prov/all.prov-csv</arg>
+                                <arg>-log2prov</arg>
+                                <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/triangle2-agent-sds-all.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>log2prov.ugm.all</id>
+                        <phase>test</phase> <!-- later than concat-csv -->
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle6-ugm/prov/all.prov-csv</arg>
+                                <arg>-log2prov</arg>
+                                <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/triangle6-ugm-all.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>exec.ttf.ptm.creating.template</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>validate-ttf</goal>
+                            <goal>execute-ttf</goal>
+                        </goals>
+                        <configuration>
+                            <debug>true</debug>
+                            <inputBaseDir>${project.basedir}</inputBaseDir>
+                            <outputBaseDir>${project.build.directory}</outputBaseDir>
+                            <args>
+                                <args>src/main/resources/ttfs/config-ptm-creating-template.json</args>
+                            </args>
+                        </configuration>
+                    </execution>
+
+
+                    <execution>
+                        <id>convert.new.triangle3.aga.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-qualified</arg>
+                                <arg>-infile</arg>
+                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga.provn</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/triangle3-aga.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.new.triangle2.entity.sds.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-qualified</arg>
+                                <arg>-infile</arg>
+                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-entity-sds/triangle2-entity-sds.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/triangle2-entity-sds.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.new.triangle2.agent.sds.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-qualified</arg>
+                                <arg>-infile</arg>
+                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-agent-sds/triangle2-agent-sds.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/triangle2-agent-sds.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>convert.new.triangle4.aia.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-qualified</arg>
+                                <arg>-infile</arg>
+                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle4-aia/triangle4-aia.provn</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/triangle4-aia.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>convert.new.triangle6.ugm.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-qualified</arg>
+                                <arg>-infile</arg>
+                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle6-ugm/triangle6-ugm.jsonld</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/triangle6-ugm.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>log2prov.aia.all</id>
+                        <phase>test</phase> <!-- later than concat-csv -->
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle4-aia/prov/all.prov-csv</arg>
+                                <arg>-log2prov</arg>
+                                <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
+                                <arg>-outfile</arg>
+                                <arg>${project.build.directory}/triangle4-aia-all.svg</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>validate.catalogue</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>validate-catalogue</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>${project.basedir}/src/main/resources/catalogue/transport-catalogue.json</arg>
+                                <arg>${project.basedir}/src/main/resources/catalogue/fs-catalogue.json</arg>
+                                <arg>${project.basedir}/src/main/resources/catalogue/ptm-catalogue.json</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>compile.catalogue</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>compile-catalogue</goal>
+                        </goals>
+                        <configuration>
+                            <inputBaseDir>${project.basedir}</inputBaseDir>
+                            <cbindingsBaseDir>${project.basedir}/src/main/resources/cbindings</cbindingsBaseDir>
+                            <outputBaseDir>${project.basedir}</outputBaseDir>
+                            <templateLibrary>
+                                <templateLibrary>${project.basedir}/src/main/resources/templates</templateLibrary>
+                                <templateLibrary>${project.basedir}/target/generated-templates</templateLibrary>
+                            </templateLibrary>
+                            <configs>
+                                <config>${project.basedir}/src/main/resources/catalogue/transport-catalogue.json</config>
+                                <config>${project.basedir}/src/main/resources/catalogue/fs-catalogue.json</config>
+                                <config>${project.basedir}/src/main/resources/catalogue/ptm-catalogue.json</config>
+                            </configs>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>prepare.webjar</id>
+                        <goals>
+                            <goal>prepare-webjar</goal>
+                        </goals>
+                        <phase>process-resources</phase>
+                        <configuration>
+                            <warning>true</warning>
+                            <templates>
+                                <template>
+                                    <directory>${project.basedir}/src/main/resources/templates</directory>
+                                </template>
+                                <template>
+                                    <directory>${project.basedir}/target/generated-templates</directory>
+                                </template>
+                            </templates>
+                            <bindings>
+                                <bindings>
+                                    <directory>${project.basedir}/src/main/resources/bindings</directory>
+                                </bindings>
+                            </bindings>
+                            <cbindings>
+                                <cbindings>
+                                    <directory>${project.basedir}/src/main/resources/cbindings</directory>
+                                </cbindings>
+                            </cbindings>
+                            <js>
+                                <js>
+                                    <directory>${project.build.directory}/js</directory>
+                                </js>
+                                <js>
+                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/js</directory>
+                                </js>
+                            </js>
+                            <css>
+                                <css>
+                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/css</directory>
+                                </css>
+                            </css>
+                            <ts>
+                                <ts>
+                                    <directory>${project.build.directory}/ts</directory>
+                                </ts>
+                            </ts>
+                            <schema>
+                                <schema>
+                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources</directory>
+                                    <includes>
+                                        <includes>[^/]+\.json$</includes> <!-- note this is a java regex *-->
+                                    </includes>
+                                </schema>
+                                <schema>
+                                    <directory>${project.build.directory}/fs_template_library/fs_template_library_cli/src/main/resources</directory>
+                                    <includes>
+                                        <includes>[^/]+\.json$</includes> <!-- note this is a java regex *-->
+                                    </includes>
+                                </schema>
+                            </schema>
+                            <sql>
+                                <sql>
+                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources</directory>
+                                    <includes>
+                                        <includes>[^/]+\.sql</includes> <!-- note this is a java regex *-->
+                                    </includes>
+                                </sql>
+                                <sql>
+                                    <directory>${project.build.directory}/fs_template_library/fs_template_library_cli/src/main/resources</directory>
+                                    <includes>
+                                        <includes>[^/]+\.sql</includes> <!-- note this is a java regex *-->
+                                    </includes>
+                                </sql>
+                            </sql>
+                            <html>
+                                <html>
+                                    <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources/META-INF/resources/webjars/${package.name.cli}/${hardcoded.project.version}/html/</directory>
+                                    <includes>
+                                        <includes>[^/]+\.html</includes> <!-- note this is a java regex *-->
+                                    </includes>
+                                </html>
+                                <html>
+                                    <directory>${project.build.directory}/fs_template_library/fs_template_library_cli/src/main/resources/META-INF/resources/webjars/fs_template_library_cli/${hardcoded.project.version}/html/</directory>
+                                    <includes>
+                                        <includes>[^/]+\.html</includes> <!-- note this is a java regex *-->
+                                    </includes>
+                                </html>
+                            </html>
+                            <icon>
+                                <icon>
+                                    <directory>${project.basedir}/src/main/resources/icons</directory>
+                                    <includes>
+                                        <includes>[^/]+\.png</includes> <!-- note this is a java regex *-->
+                                        <includes>[^/]+\.json</includes> <!-- note this is a java regex *-->
+                                        <includes>[^/]+\.svg</includes> <!-- note this is a java regex *-->
+                                    </includes>
+                                </icon>
+                            </icon>
+                        </configuration>
+                    </execution>
+                </executions>
+
+                <dependencies> <!-- dependency added to support -log2prov use of class
+                                    org.openprovenance.prov.template.library.ptm.Init -->
+                    <dependency>
+                        <groupId>org.openprovenance.prov</groupId>
+                        <artifactId>prov-template-library</artifactId>
+                        <version>${prov.toolbox.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <!-- exec plugin to cat all files in target/generated-templates/prov-*.prov-csv into target/generated-templates/all.prov-csv -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>concat.ugd.csv</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>bash</executable>
+                            <arguments>
+                                <argument>-c</argument>
+                                <argument>cat ${generated.templates.dir}/org/openprovenance/templates/triangles/triangle1-ugd/prov/prov-*.prov-csv &gt; ${generated.templates.dir}/org/openprovenance/templates/triangles/triangle1-ugd/prov/all.prov-csv</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>concat.aga.csv</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>bash</executable>
+                            <arguments>
+                                <argument>-c</argument>
+                                <argument>cat ${generated.templates.dir}/org/openprovenance/templates/triangles/triangle3-aga/prov/prov-*.prov-csv &gt; ${generated.templates.dir}/org/openprovenance/templates/triangles/triangle3-aga/prov/all.prov-csv</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>concat.entity.sds.csv</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>bash</executable>
+                            <arguments>
+                                <argument>-c</argument>
+                                <argument>cat ${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-entity-sds/prov/prov-*.prov-csv &gt; ${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-entity-sds/prov/all.prov-csv</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>concat.agent.sds.csv</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>bash</executable>
+                            <arguments>
+                                <argument>-c</argument>
+                                <argument>cat ${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-agent-sds/prov/prov-*.prov-csv &gt; ${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-agent-sds/prov/all.prov-csv</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+
+                    <execution>
+                        <id>concat.aia.csv</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>bash</executable>
+                            <arguments>
+                                <argument>-c</argument>
+                                <argument>cat ${generated.templates.dir}/org/openprovenance/templates/triangles/triangle4-aia/prov/prov-*.prov-csv &gt; ${generated.templates.dir}/org/openprovenance/templates/triangles/triangle4-aia/prov/all.prov-csv</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>concat.ugm.csv</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>bash</executable>
+                            <arguments>
+                                <argument>-c</argument>
+                                <argument>cat ${generated.templates.dir}/org/openprovenance/templates/triangles/triangle6-ugm/prov/prov-*.prov-csv &gt; ${generated.templates.dir}/org/openprovenance/templates/triangles/triangle6-ugm/prov/all.prov-csv</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>python-fs-run-workflow</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>python3</executable>
+                            <environmentVariables>
+                                <PYTHONPATH>/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/target/generated-python/:/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/src/main/python:${project.build.directory}/generated-python:${project.basedir}/src/test/python</PYTHONPATH>
+                            </environmentVariables>
+                            <arguments>
+                                <argument>src/test/python/org/openprovenance/bookptm/fs_run_workflow.py</argument>
+                                <argument>local</argument>
+                            </arguments>
+                            <workingDirectory>${project.basedir}</workingDirectory>
+                            <!-- fail the build if the script exits non-zero -->
+                            <successCodes>
+                                <successCode>0</successCode>
+                            </successCodes>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>python-box-run-workflow</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>python3</executable>
+                            <environmentVariables>
+                                <PYTHONPATH>/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/target/generated-python/:/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/src/main/python:${project.build.directory}/generated-python:${project.basedir}/src/test/python</PYTHONPATH>
+                            </environmentVariables>
+                            <arguments>
+                                <argument>src/test/python/org/openprovenance/bookptm/box_run_workflow.py</argument>
+                                <argument>local</argument>
+                            </arguments>
+                            <workingDirectory>${project.basedir}</workingDirectory>
+                            <!-- fail the build if the script exits non-zero -->
+                            <successCodes>
+                                <successCode>0</successCode>
+                            </successCodes>
+                        </configuration>
+                    </execution>
+
+                    <!--
+                    <execution>
+                        <id>js-fs-run-workflow</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>node</executable>
+
+                            <arguments>
+                                <argument>src/test/js/jsweet_run_workflow.js</argument>
+                                <argument>local</argument>
+                            </arguments>
+                            <workingDirectory>${project.basedir}</workingDirectory>
+
+                            <successCodes>
+                                <successCode>0</successCode>
+                            </successCodes>
+                        </configuration>
+                    </execution>
+
+        -->
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>${antrun.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                 <move todir="${project.build.directory}/generated-sources/${package.name.cli}">
+                                    <fileset dir="${project.build.directory}/transport_template_library/transport_template_library_cli/src/main/java">
+                                        <include name="**/*" />
+                                    </fileset>
+                                </move>
+                                <move todir="${project.build.directory}/generated-sources/${package.name.l2p}">
+                                    <fileset dir="${project.build.directory}/transport_template_library/transport_template_library_l2p/src/main/java">
+                                        <include name="**/*" />
+                                    </fileset>
+                                </move>
+                                <move todir="${project.build.directory}/generated-sources/${package.name.cli}">
+                                    <fileset dir="${project.build.directory}/fs_template_library/fs_template_library_cli/src/main/java">
+                                        <include name="**/*" />
+                                    </fileset>
+                                </move>
+                                <move todir="${project.build.directory}/generated-sources/${package.name.l2p}">
+                                    <fileset dir="${project.build.directory}/fs_template_library/fs_template_library_l2p/src/main/java">
+                                        <include name="**/*" />
+                                    </fileset>
+                                </move>
+
+                                <move todir="${project.build.directory}/generated-sources/${package.name.cli}">
+                                    <fileset dir="${project.build.directory}/ptm_template_library/ptm_template_library_cli/src/main/java">
+                                        <include name="**/*" />
+                                    </fileset>
+                                </move>
+                                <move todir="${project.build.directory}/generated-sources/${package.name.l2p}">
+                                    <fileset dir="${project.build.directory}/ptm_template_library/ptm_template_library_l2p/src/main/java">
+                                        <include name="**/*" />
+                                    </fileset>
+                                </move>
+                            </target>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>check-java12-exists</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <available file="${java12.home}" type="dir" property="java12Exists" />
+                            </target>
+                            <exportAntProperties>true</exportAntProperties>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>antrun-jsweet</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <echo message="Running JSweet Maven build with MAVEN_OPTS" />
+                                <exec executable="mvn">
+                                    <env key="MAVEN_OPTS" value="--add-opens jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED  --add-opens jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED  --add-opens jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED  --add-opens jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED  --add-opens jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED"/>
+                                    <arg value="-f" />
+                                    <arg value="pom-jsweet.xml" />
+                                    <arg value="jsweet:jsweet" />
+                                </exec>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>${build.helper.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>sources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources/${package.name.cli}</source>
+                                <source>${project.build.directory}/generated-sources/${package.name.l2p}</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>add-resource</goal>
+                        </goals>
+                        <configuration>
+                            <resources>
+                                <resource>
+                                    <directory>${project.build.directory}/META-INF-STAGING</directory>
+                                    <targetPath>${meta-inf.webjars}</targetPath>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+
+                </executions>
+            </plugin>
+
+
+            <!--
+                   <execution>
+                       <id>resources</id>
+                       <phase>generate-sources</phase>
+                       <goals>
+                           <goal>add-resource</goal>
+                       </goals>
+                       <configuration>
+                           <resources>
+                               <resource>
+                                   <directory>${project.build.directory}/resources</directory>
+                                   <targetPath />
+                               </resource>
+
+                               <resource>
+                                   <directory>${project.build.directory}/js</directory>
+                                   <targetPath>${meta-inf.webjars}/js</targetPath>
+                               </resource>
+                               <resource>
+                                   <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/js</directory>
+                                   <targetPath>${meta-inf.webjars}/js</targetPath>
+                               </resource>
+                               <resource>
+                                   <directory>${project.build.directory}/ts</directory>
+                                   <targetPath>${meta-inf.webjars}/ts</targetPath>
+                               </resource>
+                               <resource>
+                                   <directory>${project.build.directory}/bindings</directory>
+                                   <targetPath>${meta-inf.webjars}/bindings</targetPath>
+                               </resource>
+                               <resource>
+                                   <directory>${project.build.directory}/prov-template-library/templates</directory>
+                                   <targetPath>${meta-inf.webjars}/templates</targetPath>
+                               </resource>
+                               <resource>
+                                   <directory>${project.build.directory}/prov-template-library/mbindings</directory>
+                                   <targetPath>${meta-inf.webjars}/mbindings</targetPath>
+                               </resource>
+
+                               <resource>
+                                   <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/css</directory>
+                                   <targetPath>${meta-inf.webjars}/css</targetPath>
+                                   <includes>
+                                       <include>*.css</include>
+                                   </includes>
+                               </resource>
+
+                               <resource>
+                                   <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources</directory>
+                                   <targetPath>${meta-inf.webjars}/schema</targetPath>
+                                   <includes>
+                                       <include>*.json</include>
+                                   </includes>
+                               </resource>
+
+                               <resource>
+                                   <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources</directory>
+                                   <targetPath>${meta-inf.webjars}/sql</targetPath>
+                                   <includes>
+                                       <include>*.sql</include>
+                                   </includes>
+                               </resource>
+
+
+                               <resource>
+                                   <directory>${project.build.directory}/${package.name}/${package.name.cli}/src/main/resources/${meta-inf-prefix}/${package.name.cli}/${prov.toolbox.version}/html</directory>
+                                   <targetPath>${meta-inf.webjars}/html</targetPath>
+                                   <includes>
+                                       <include>*.html</include>
+                                   </includes>
+                               </resource>
+
+         </resources>
+     </configuration>
+ </execution>
+ -->
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources/config</directory>
+                <filtering>true</filtering>
+                <targetPath>${project.build.directory}/config-merge</targetPath>
+            </resource>
+            <resource>
+                <directory>src/test/rust/</directory>
+                <filtering>false</filtering>
+                <targetPath>${project.build.directory}/generated-rust/src</targetPath>
+            </resource>
+        </resources>
+
+    </build>
+</project>

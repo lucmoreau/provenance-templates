@@ -1,0 +1,36 @@
+{
+    "var": {
+
+        "specificEntity": [
+            {
+                "@id": "var:e0"
+            }
+        ],
+        "generalEntity": [
+            {
+                "@id": "var:e"
+            }
+        ],
+        "pvalue": null,
+        "prop":  null,
+        "id": [
+            {
+                "@id": "var:spec0"
+            }
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov": "${prov_ns}",
+        "provext": "${provext_ns}"
+
+    }
+}

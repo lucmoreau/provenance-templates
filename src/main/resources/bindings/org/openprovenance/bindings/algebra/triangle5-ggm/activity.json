@@ -1,0 +1,53 @@
+{
+    "var": {
+
+        "activity": [
+            {
+                "@id": "var:adding"
+            }
+
+        ],
+        "prop": [
+            [
+                {
+                    "@id": "var:aprops"
+                },
+                {
+                    "@id": "tmpl:startTime"
+                },
+                {
+                    "@id": "tmpl:endTime"
+                }
+
+            ]
+        ],
+        "pvalue": [
+            [
+                {
+                    "@id": "var:avalues"
+                },
+                {
+                    "@id": "var:startTime"
+                },
+                {
+                    "@id": "var:endTime"
+                }
+            ]
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+
+    "context": {
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "tmpl":     "${tmpl_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
+    }
+}

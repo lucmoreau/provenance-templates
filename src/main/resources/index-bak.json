@@ -1,0 +1,894 @@
+{
+  "org/openprovenance/templates/general/entity-init/entity-location" : {
+    "jsonld" : "org/openprovenance/templates/general/entity-init/entity-location.jsonld",
+    "provn" : "org/openprovenance/templates/general/entity-init/entity-location.provn",
+    "png" : "org/openprovenance/templates/general/entity-init/entity-location.png",
+    "svg" : "org/openprovenance/templates/general/entity-init/entity-location.svg"
+  },
+  "org/openprovenance/templates/fs/prov-file-splitting" : {
+    "provCsv" : "org/openprovenance/templates/fs/prov-file-splitting.prov-csv"
+  },
+  "org/openprovenance/templates/collections/inserting/prov-membership" : {
+    "provCsv" : "org/openprovenance/templates/collections/inserting/prov-membership.prov-csv"
+  },
+  "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3a-aga" : {
+    "jsonld" : "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3a-aga.jsonld",
+    "provn" : "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3a-aga.provn",
+    "png" : "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3a-aga.png",
+    "svg" : "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3a-aga.svg",
+    "provCsv" : "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3a-aga.prov-csv"
+  },
+  "org/openprovenance/templates/responsibility/handingover/handingover-aga-ag1" : {
+    "jsonld" : "org/openprovenance/templates/responsibility/handingover/handingover-aga-ag1.jsonld",
+    "provn" : "org/openprovenance/templates/responsibility/handingover/handingover-aga-ag1.provn",
+    "png" : "org/openprovenance/templates/responsibility/handingover/handingover-aga-ag1.png",
+    "svg" : "org/openprovenance/templates/responsibility/handingover/handingover-aga-ag1.svg"
+  },
+  "org/openprovenance/templates/collections/insert-old/prov-collection-insert-triangle2-ugd" : {
+    "provCsv" : "org/openprovenance/templates/collections/insert-old/prov-collection-insert-triangle2-ugd.prov-csv"
+  },
+  "org/openprovenance/templates/responsibility/examining/examining-delegation" : {
+    "jsonld" : "org/openprovenance/templates/responsibility/examining/examining-delegation.jsonld",
+    "provn" : "org/openprovenance/templates/responsibility/examining/examining-delegation.provn",
+    "png" : "org/openprovenance/templates/responsibility/examining/examining-delegation.png",
+    "svg" : "org/openprovenance/templates/responsibility/examining/examining-delegation.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle2-sds/derivation" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle2-sds/derivation.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle2-sds/derivation.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle2-sds/derivation.svg"
+  },
+  "org/openprovenance/templates/physical/packing/prov-packing" : {
+    "provCsv" : "org/openprovenance/templates/physical/packing/prov-packing.prov-csv"
+  },
+  "org/openprovenance/templates/physical/unpacking/prov-unpacking-sds-container" : {
+    "provCsv" : "org/openprovenance/templates/physical/unpacking/prov-unpacking-sds-container.prov-csv"
+  },
+  "org/openprovenance/templates/general/entity-init/specialization" : {
+    "jsonld" : "org/openprovenance/templates/general/entity-init/specialization.jsonld",
+    "provn" : "org/openprovenance/templates/general/entity-init/specialization.provn",
+    "png" : "org/openprovenance/templates/general/entity-init/specialization.png",
+    "svg" : "org/openprovenance/templates/general/entity-init/specialization.svg"
+  },
+  "org/openprovenance/templates/generic/product2-2" : {
+    "jsonld" : "org/openprovenance/templates/generic/product2-2.jsonld",
+    "provn" : "org/openprovenance/templates/generic/product2-2.provn",
+    "png" : "org/openprovenance/templates/generic/product2-2.png",
+    "svg" : "org/openprovenance/templates/generic/product2-2.svg"
+  },
+  "org/openprovenance/templates/physical/unpacking/prov-unpacking-aga-container-agent" : {
+    "provCsv" : "org/openprovenance/templates/physical/unpacking/prov-unpacking-aga-container-agent.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle3-aga/prov-generation" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle3-aga/prov-generation.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle6-ugm/generation" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle6-ugm/generation.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle6-ugm/generation.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle6-ugm/generation.svg"
+  },
+  "org/openprovenance/templates/physical/weighing/prov-weighing" : {
+    "provCsv" : "org/openprovenance/templates/physical/weighing/prov-weighing.prov-csv"
+  },
+  "org/openprovenance/templates/physical/transporting/transporting-sds" : {
+    "jsonld" : "org/openprovenance/templates/physical/transporting/transporting-sds.jsonld",
+    "provn" : "org/openprovenance/templates/physical/transporting/transporting-sds.provn",
+    "png" : "org/openprovenance/templates/physical/transporting/transporting-sds.png",
+    "svg" : "org/openprovenance/templates/physical/transporting/transporting-sds.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle1-ugd/prov-usage" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle1-ugd/prov-usage.prov-csv"
+  },
+  "org/openprovenance/templates/collections/inserting/collection-insert-triangle3-ugd" : {
+    "jsonld" : "org/openprovenance/templates/collections/inserting/collection-insert-triangle3-ugd.jsonld",
+    "provn" : "org/openprovenance/templates/collections/inserting/collection-insert-triangle3-ugd.provn",
+    "png" : "org/openprovenance/templates/collections/inserting/collection-insert-triangle3-ugd.png",
+    "svg" : "org/openprovenance/templates/collections/inserting/collection-insert-triangle3-ugd.svg"
+  },
+  "org/openprovenance/templates/ptm/prov-ptm-mexpanding" : {
+    "provCsv" : "org/openprovenance/templates/ptm/prov-ptm-mexpanding.prov-csv"
+  },
+  "org/openprovenance/templates/physical/packing/packing-aga-agent" : {
+    "jsonld" : "org/openprovenance/templates/physical/packing/packing-aga-agent.jsonld",
+    "provn" : "org/openprovenance/templates/physical/packing/packing-aga-agent.provn",
+    "png" : "org/openprovenance/templates/physical/packing/packing-aga-agent.png",
+    "svg" : "org/openprovenance/templates/physical/packing/packing-aga-agent.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle1-ugd/derivation" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle1-ugd/derivation.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle1-ugd/derivation.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle1-ugd/derivation.svg"
+  },
+  "org/openprovenance/templates/physical/packing/packing-insert-collection" : {
+    "jsonld" : "org/openprovenance/templates/physical/packing/packing-insert-collection.jsonld",
+    "provn" : "org/openprovenance/templates/physical/packing/packing-insert-collection.provn",
+    "png" : "org/openprovenance/templates/physical/packing/packing-insert-collection.png",
+    "svg" : "org/openprovenance/templates/physical/packing/packing-insert-collection.svg"
+  },
+  "org/openprovenance/templates/responsibility/examining/prov-examining-delegation" : {
+    "provCsv" : "org/openprovenance/templates/responsibility/examining/prov-examining-delegation.prov-csv"
+  },
+  "org/openprovenance/templates/responsibility/handingover/prov-handingover-sds" : {
+    "provCsv" : "org/openprovenance/templates/responsibility/handingover/prov-handingover-sds.prov-csv"
+  },
+  "org/openprovenance/templates/physical/unpacking/unpacking-remove-collection" : {
+    "jsonld" : "org/openprovenance/templates/physical/unpacking/unpacking-remove-collection.jsonld",
+    "provn" : "org/openprovenance/templates/physical/unpacking/unpacking-remove-collection.provn",
+    "png" : "org/openprovenance/templates/physical/unpacking/unpacking-remove-collection.png",
+    "svg" : "org/openprovenance/templates/physical/unpacking/unpacking-remove-collection.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle3-aga/attribution" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle3-aga/attribution.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle3-aga/attribution.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle3-aga/attribution.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle4-aia/entity" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle4-aia/entity.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle4-aia/entity.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle4-aia/entity.svg"
+  },
+  "org/openprovenance/templates/general/entity-init/entity" : {
+    "jsonld" : "org/openprovenance/templates/general/entity-init/entity.jsonld",
+    "provn" : "org/openprovenance/templates/general/entity-init/entity.provn",
+    "png" : "org/openprovenance/templates/general/entity-init/entity.png",
+    "svg" : "org/openprovenance/templates/general/entity-init/entity.svg"
+  },
+  "org/openprovenance/templates/fs/prov-file-transforming" : {
+    "provCsv" : "org/openprovenance/templates/fs/prov-file-transforming.prov-csv"
+  },
+  "org/openprovenance/templates/physical/packing/packing" : {
+    "jsonld" : "org/openprovenance/templates/physical/packing/packing.jsonld",
+    "provn" : "org/openprovenance/templates/physical/packing/packing.provn",
+    "png" : "org/openprovenance/templates/physical/packing/packing.png",
+    "svg" : "org/openprovenance/templates/physical/packing/packing.svg"
+  },
+  "org/openprovenance/templates/responsibility/handingover/prov-handingover-ugd" : {
+    "provCsv" : "org/openprovenance/templates/responsibility/handingover/prov-handingover-ugd.prov-csv"
+  },
+  "org/openprovenance/templates/responsibility/examining/prov-examining-aga-agent" : {
+    "provCsv" : "org/openprovenance/templates/responsibility/examining/prov-examining-aga-agent.prov-csv"
+  },
+  "org/openprovenance/templates/fs/file-validating" : {
+    "jsonld" : "org/openprovenance/templates/fs/file-validating.jsonld",
+    "provn" : "org/openprovenance/templates/fs/file-validating.provn",
+    "png" : "org/openprovenance/templates/fs/file-validating.png"
+  },
+  "org/openprovenance/templates/triangles/triangle6-ugm/triangle6-ugm" : {
+    "jsonld" : "org/openprovenance/templates/triangles/triangle6-ugm/triangle6-ugm.jsonld",
+    "provn" : "org/openprovenance/templates/triangles/triangle6-ugm/triangle6-ugm.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle6-ugm/triangle6-ugm.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle6-ugm/triangle6-ugm.svg"
+  },
+  "org/openprovenance/templates/responsibility/agent-init/agent-location" : {
+    "jsonld" : "org/openprovenance/templates/responsibility/agent-init/agent-location.jsonld",
+    "provn" : "org/openprovenance/templates/responsibility/agent-init/agent-location.provn",
+    "png" : "org/openprovenance/templates/responsibility/agent-init/agent-location.png",
+    "svg" : "org/openprovenance/templates/responsibility/agent-init/agent-location.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle4-aia/association" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle4-aia/association.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle4-aia/association.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle4-aia/association.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle4-aia/prov-attribution" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle4-aia/prov-attribution.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle2-sds/prov-triangle2-sds" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle2-sds/prov-triangle2-sds.prov-csv"
+  },
+  "org/openprovenance/templates/responsibility/handingover/prov-handingover" : {
+    "provCsv" : "org/openprovenance/templates/responsibility/handingover/prov-handingover.prov-csv"
+  },
+  "org/openprovenance/templates/fs/file-approving" : {
+    "jsonld" : "org/openprovenance/templates/fs/file-approving.jsonld",
+    "provn" : "org/openprovenance/templates/fs/file-approving.provn",
+    "png" : "org/openprovenance/templates/fs/file-approving.png"
+  },
+  "org/openprovenance/templates/responsibility/handingover/handingover-aia-ag0" : {
+    "jsonld" : "org/openprovenance/templates/responsibility/handingover/handingover-aia-ag0.jsonld",
+    "provn" : "org/openprovenance/templates/responsibility/handingover/handingover-aia-ag0.provn",
+    "png" : "org/openprovenance/templates/responsibility/handingover/handingover-aia-ag0.png",
+    "svg" : "org/openprovenance/templates/responsibility/handingover/handingover-aia-ag0.svg"
+  },
+  "org/openprovenance/templates/physical/unpacking/prov-unpacking-aga-item-agent" : {
+    "provCsv" : "org/openprovenance/templates/physical/unpacking/prov-unpacking-aga-item-agent.prov-csv"
+  },
+  "org/openprovenance/templates/physical/unpacking/unpacking" : {
+    "jsonld" : "org/openprovenance/templates/physical/unpacking/unpacking.jsonld",
+    "provn" : "org/openprovenance/templates/physical/unpacking/unpacking.provn",
+    "png" : "org/openprovenance/templates/physical/unpacking/unpacking.png",
+    "svg" : "org/openprovenance/templates/physical/unpacking/unpacking.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle6-ugm/prov-entities" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle6-ugm/prov-entities.prov-csv"
+  },
+  "org/openprovenance/templates/physical/unpacking/prov-unpacking" : {
+    "provCsv" : "org/openprovenance/templates/physical/unpacking/prov-unpacking.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle1-ugd/prov-entities" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle1-ugd/prov-entities.prov-csv"
+  },
+  "org/openprovenance/templates/collections/removing/collection-removing" : {
+    "jsonld" : "org/openprovenance/templates/collections/removing/collection-removing.jsonld",
+    "provn" : "org/openprovenance/templates/collections/removing/collection-removing.provn",
+    "png" : "org/openprovenance/templates/collections/removing/collection-removing.png",
+    "svg" : "org/openprovenance/templates/collections/removing/collection-removing.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle3-aga/generation" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle3-aga/generation.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle3-aga/generation.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle3-aga/generation.svg"
+  },
+  "org/openprovenance/templates/responsibility/handingover/handingover-ugd" : {
+    "jsonld" : "org/openprovenance/templates/responsibility/handingover/handingover-ugd.jsonld",
+    "provn" : "org/openprovenance/templates/responsibility/handingover/handingover-ugd.provn",
+    "png" : "org/openprovenance/templates/responsibility/handingover/handingover-ugd.png",
+    "svg" : "org/openprovenance/templates/responsibility/handingover/handingover-ugd.svg"
+  },
+  "org/openprovenance/templates/general/entity-init/prov-generation" : {
+    "provCsv" : "org/openprovenance/templates/general/entity-init/prov-generation.prov-csv"
+  },
+  "org/openprovenance/templates/physical/unpacking/prov-unpacking-sds-item" : {
+    "provCsv" : "org/openprovenance/templates/physical/unpacking/prov-unpacking-sds-item.prov-csv"
+  },
+  "org/openprovenance/templates/general/entity-init/prov-specialization" : {
+    "provCsv" : "org/openprovenance/templates/general/entity-init/prov-specialization.prov-csv"
+  },
+  "org/openprovenance/templates/collections/insert-old/collection-insert-triangle1-ugm" : {
+    "jsonld" : "org/openprovenance/templates/collections/insert-old/collection-insert-triangle1-ugm.jsonld",
+    "provn" : "org/openprovenance/templates/collections/insert-old/collection-insert-triangle1-ugm.provn",
+    "png" : "org/openprovenance/templates/collections/insert-old/collection-insert-triangle1-ugm.png",
+    "svg" : "org/openprovenance/templates/collections/insert-old/collection-insert-triangle1-ugm.svg"
+  },
+  "org/openprovenance/templates/responsibility/agent-init/prov-agent" : {
+    "provCsv" : "org/openprovenance/templates/responsibility/agent-init/prov-agent.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle1-ugd/generation" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle1-ugd/generation.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle1-ugd/generation.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle1-ugd/generation.svg"
+  },
+  "org.openprovenance.templates.triangles.Triangle1-UGD" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle1-ugd/triangle1-ugd.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle1-ugd/triangle1-ugd.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle1-ugd/triangle1-ugd.svg"
+  },
+  "org/openprovenance/templates/physical/transporting/transporting-aga-agent" : {
+    "jsonld" : "org/openprovenance/templates/physical/transporting/transporting-aga-agent.jsonld",
+    "provn" : "org/openprovenance/templates/physical/transporting/transporting-aga-agent.provn",
+    "png" : "org/openprovenance/templates/physical/transporting/transporting-aga-agent.png",
+    "svg" : "org/openprovenance/templates/physical/transporting/transporting-aga-agent.svg"
+  },
+  "org/openprovenance/templates/generic/prov-product2-2" : {
+    "provCsv" : "org/openprovenance/templates/generic/prov-product2-2.prov-csv"
+  },
+  "org/openprovenance/templates/ptm/creating-template/creating-template" : {
+    "jsonld" : "org/openprovenance/templates/ptm/creating-template/creating-template.jsonld",
+    "provn" : "org/openprovenance/templates/ptm/creating-template/creating-template.provn",
+    "png" : "org/openprovenance/templates/ptm/creating-template/creating-template.png",
+    "svg" : "org/openprovenance/templates/ptm/creating-template/creating-template.svg"
+  },
+  "org/openprovenance/templates/general/entity-init/prov-entity" : {
+    "provCsv" : "org/openprovenance/templates/general/entity-init/prov-entity.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle4-aia/prov-association" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle4-aia/prov-association.prov-csv"
+  },
+  "org/openprovenance/templates/generic/transforming1" : {
+    "jsonld" : "org/openprovenance/templates/generic/transforming1.jsonld"
+  },
+  "org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga.svg"
+  },
+  "org/openprovenance/templates/collections/insert-old/prov-collection-insert" : {
+    "provCsv" : "org/openprovenance/templates/collections/insert-old/prov-collection-insert.prov-csv"
+  },
+  "org/openprovenance/templates/responsibility/agent-init/agent-init" : {
+    "jsonld" : "org/openprovenance/templates/responsibility/agent-init/agent-init.jsonld",
+    "provn" : "org/openprovenance/templates/responsibility/agent-init/agent-init.provn",
+    "png" : "org/openprovenance/templates/responsibility/agent-init/agent-init.png",
+    "svg" : "org/openprovenance/templates/responsibility/agent-init/agent-init.svg"
+  },
+  "org/openprovenance/templates/responsibility/agent-init/prov-agent-location-init" : {
+    "provCsv" : "org/openprovenance/templates/responsibility/agent-init/prov-agent-location-init.prov-csv"
+  },
+  "org/openprovenance/templates/collections/inserting/prov-collection-inserting" : {
+    "provCsv" : "org/openprovenance/templates/collections/inserting/prov-collection-inserting.prov-csv"
+  },
+  "org/openprovenance/templates/general/entity-init/prov-activity" : {
+    "provCsv" : "org/openprovenance/templates/general/entity-init/prov-activity.prov-csv"
+  },
+  "org/openprovenance/templates/ptm/ptm-expanding" : {
+    "provn" : "org/openprovenance/templates/ptm/ptm-expanding.provn",
+    "png" : "org/openprovenance/templates/ptm/ptm-expanding.png"
+  },
+  "org/openprovenance/templates/triangles/triangle3-aga/activity" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle3-aga/activity.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle3-aga/activity.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle3-aga/activity.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle3-aga/prov-entity" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle3-aga/prov-entity.prov-csv"
+  },
+  "org/openprovenance/templates/responsibility/agent-init/prov-specialization" : {
+    "provCsv" : "org/openprovenance/templates/responsibility/agent-init/prov-specialization.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle6-ugm/prov-triangle6-ugm" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle6-ugm/prov-triangle6-ugm.prov-csv"
+  },
+  "org/openprovenance/templates/collections/removing/prov-collection-remove-triangle3-ugd" : {
+    "provCsv" : "org/openprovenance/templates/collections/removing/prov-collection-remove-triangle3-ugd.prov-csv"
+  },
+  "org/openprovenance/templates/collections/removing/collection-remove-triangle3-ugd" : {
+    "jsonld" : "org/openprovenance/templates/collections/removing/collection-remove-triangle3-ugd.jsonld",
+    "provn" : "org/openprovenance/templates/collections/removing/collection-remove-triangle3-ugd.provn",
+    "png" : "org/openprovenance/templates/collections/removing/collection-remove-triangle3-ugd.png",
+    "svg" : "org/openprovenance/templates/collections/removing/collection-remove-triangle3-ugd.svg"
+  },
+  "org/openprovenance/templates/responsibility/agent-init/agent-location-init" : {
+    "jsonld" : "org/openprovenance/templates/responsibility/agent-init/agent-location-init.jsonld",
+    "provn" : "org/openprovenance/templates/responsibility/agent-init/agent-location-init.provn",
+    "png" : "org/openprovenance/templates/responsibility/agent-init/agent-location-init.png",
+    "svg" : "org/openprovenance/templates/responsibility/agent-init/agent-location-init.svg"
+  },
+  "org/openprovenance/templates/responsibility/examining/examining-aga-instrument" : {
+    "jsonld" : "org/openprovenance/templates/responsibility/examining/examining-aga-instrument.jsonld",
+    "provn" : "org/openprovenance/templates/responsibility/examining/examining-aga-instrument.provn",
+    "png" : "org/openprovenance/templates/responsibility/examining/examining-aga-instrument.png",
+    "svg" : "org/openprovenance/templates/responsibility/examining/examining-aga-instrument.svg"
+  },
+  "org/openprovenance/templates/physical/packing/packing-sds" : {
+    "jsonld" : "org/openprovenance/templates/physical/packing/packing-sds.jsonld",
+    "provn" : "org/openprovenance/templates/physical/packing/packing-sds.provn",
+    "png" : "org/openprovenance/templates/physical/packing/packing-sds.png",
+    "svg" : "org/openprovenance/templates/physical/packing/packing-sds.svg"
+  },
+  "org/openprovenance/templates/responsibility/agent-init/activity" : {
+    "jsonld" : "org/openprovenance/templates/responsibility/agent-init/activity.jsonld",
+    "provn" : "org/openprovenance/templates/responsibility/agent-init/activity.provn",
+    "png" : "org/openprovenance/templates/responsibility/agent-init/activity.png",
+    "svg" : "org/openprovenance/templates/responsibility/agent-init/activity.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle2-sds/prov-derivation" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle2-sds/prov-derivation.prov-csv"
+  },
+  "org/openprovenance/templates/responsibility/handingover/handingover-sds" : {
+    "jsonld" : "org/openprovenance/templates/responsibility/handingover/handingover-sds.jsonld",
+    "provn" : "org/openprovenance/templates/responsibility/handingover/handingover-sds.provn",
+    "png" : "org/openprovenance/templates/responsibility/handingover/handingover-sds.png",
+    "svg" : "org/openprovenance/templates/responsibility/handingover/handingover-sds.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle6-ugm/prov-usage" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle6-ugm/prov-usage.prov-csv"
+  },
+  "org/openprovenance/templates/ptm/ptm-merging" : {
+    "provn" : "org/openprovenance/templates/ptm/ptm-merging.provn",
+    "png" : "org/openprovenance/templates/ptm/ptm-merging.png"
+  },
+  "org/openprovenance/templates/physical/transporting/transporting-ugd" : {
+    "jsonld" : "org/openprovenance/templates/physical/transporting/transporting-ugd.jsonld",
+    "provn" : "org/openprovenance/templates/physical/transporting/transporting-ugd.provn",
+    "png" : "org/openprovenance/templates/physical/transporting/transporting-ugd.png",
+    "svg" : "org/openprovenance/templates/physical/transporting/transporting-ugd.svg"
+  },
+  "org/openprovenance/templates/general/entity-init/entity-init" : {
+    "jsonld" : "org/openprovenance/templates/general/entity-init/entity-init.jsonld",
+    "provn" : "org/openprovenance/templates/general/entity-init/entity-init.provn",
+    "png" : "org/openprovenance/templates/general/entity-init/entity-init.png",
+    "svg" : "org/openprovenance/templates/general/entity-init/entity-init.svg"
+  },
+  "org/openprovenance/templates/physical/transporting/transporting" : {
+    "jsonld" : "org/openprovenance/templates/physical/transporting/transporting.jsonld",
+    "provn" : "org/openprovenance/templates/physical/transporting/transporting.provn",
+    "png" : "org/openprovenance/templates/physical/transporting/transporting.png",
+    "svg" : "org/openprovenance/templates/physical/transporting/transporting.svg"
+  },
+  "org/openprovenance/templates/collections/inserting/prov-collection-insert-triangle3-ugd" : {
+    "provCsv" : "org/openprovenance/templates/collections/inserting/prov-collection-insert-triangle3-ugd.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle3-aga/prov-association" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle3-aga/prov-association.prov-csv"
+  },
+  "org/openprovenance/templates/fs/prov-file-approving" : {
+    "provCsv" : "org/openprovenance/templates/fs/prov-file-approving.prov-csv"
+  },
+  "org/openprovenance/templates/responsibility/examining/examining" : {
+    "jsonld" : "org/openprovenance/templates/responsibility/examining/examining.jsonld",
+    "provn" : "org/openprovenance/templates/responsibility/examining/examining.provn",
+    "png" : "org/openprovenance/templates/responsibility/examining/examining.png",
+    "svg" : "org/openprovenance/templates/responsibility/examining/examining.svg"
+  },
+  "org/openprovenance/templates/responsibility/agent-init/generation" : {
+    "jsonld" : "org/openprovenance/templates/responsibility/agent-init/generation.jsonld",
+    "provn" : "org/openprovenance/templates/responsibility/agent-init/generation.provn",
+    "png" : "org/openprovenance/templates/responsibility/agent-init/generation.png",
+    "svg" : "org/openprovenance/templates/responsibility/agent-init/generation.svg"
+  },
+  "org/openprovenance/templates/physical/unpacking/unpacking-aga-item-agent" : {
+    "jsonld" : "org/openprovenance/templates/physical/unpacking/unpacking-aga-item-agent.jsonld",
+    "provn" : "org/openprovenance/templates/physical/unpacking/unpacking-aga-item-agent.provn",
+    "png" : "org/openprovenance/templates/physical/unpacking/unpacking-aga-item-agent.png",
+    "svg" : "org/openprovenance/templates/physical/unpacking/unpacking-aga-item-agent.svg"
+  },
+  "org/openprovenance/templates/general/entity-init/generation" : {
+    "jsonld" : "org/openprovenance/templates/general/entity-init/generation.jsonld",
+    "provn" : "org/openprovenance/templates/general/entity-init/generation.provn",
+    "png" : "org/openprovenance/templates/general/entity-init/generation.png",
+    "svg" : "org/openprovenance/templates/general/entity-init/generation.svg"
+  },
+  "org/openprovenance/templates/physical/weighing/weighing" : {
+    "jsonld" : "org/openprovenance/templates/physical/weighing/weighing.jsonld",
+    "provn" : "org/openprovenance/templates/physical/weighing/weighing.provn",
+    "png" : "org/openprovenance/templates/physical/weighing/weighing.png",
+    "svg" : "org/openprovenance/templates/physical/weighing/weighing.svg"
+  },
+  "org/openprovenance/templates/collections/insert-old/collection-insert-triangle2-ugd" : {
+    "jsonld" : "org/openprovenance/templates/collections/insert-old/collection-insert-triangle2-ugd.jsonld",
+    "provn" : "org/openprovenance/templates/collections/insert-old/collection-insert-triangle2-ugd.provn",
+    "png" : "org/openprovenance/templates/collections/insert-old/collection-insert-triangle2-ugd.png",
+    "svg" : "org/openprovenance/templates/collections/insert-old/collection-insert-triangle2-ugd.svg"
+  },
+  "org/openprovenance/templates/physical/packing/prov-packing-insert-collection" : {
+    "provCsv" : "org/openprovenance/templates/physical/packing/prov-packing-insert-collection.prov-csv"
+  },
+  "org/openprovenance/templates/fs/prov-file-filtering" : {
+    "provCsv" : "org/openprovenance/templates/fs/prov-file-filtering.prov-csv"
+  },
+  "org/openprovenance/templates/ptm/creating-template/creating-template-triangle1-ugd" : {
+    "jsonld" : "org/openprovenance/templates/ptm/creating-template/creating-template-triangle1-ugd.jsonld",
+    "provn" : "org/openprovenance/templates/ptm/creating-template/creating-template-triangle1-ugd.provn",
+    "png" : "org/openprovenance/templates/ptm/creating-template/creating-template-triangle1-ugd.png",
+    "svg" : "org/openprovenance/templates/ptm/creating-template/creating-template-triangle1-ugd.svg",
+    "provCsv" : "org/openprovenance/templates/ptm/creating-template/creating-template-triangle1-ugd.prov-csv"
+  },
+  "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3b-aga" : {
+    "jsonld" : "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3b-aga.jsonld",
+    "provn" : "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3b-aga.provn",
+    "png" : "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3b-aga.png",
+    "svg" : "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3b-aga.svg",
+    "provCsv" : "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3b-aga.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle1-ugd/prov-generation" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle1-ugd/prov-generation.prov-csv"
+  },
+  "org/openprovenance/templates/fs/prov-file-training" : {
+    "provCsv" : "org/openprovenance/templates/fs/prov-file-training.prov-csv"
+  },
+  "org/openprovenance/templates/fs/file-training" : {
+    "jsonld" : "org/openprovenance/templates/fs/file-training.jsonld",
+    "provn" : "org/openprovenance/templates/fs/file-training.provn",
+    "png" : "org/openprovenance/templates/fs/file-training.png"
+  },
+  "org/openprovenance/templates/physical/transporting/prov-transporting-aga-agent" : {
+    "provCsv" : "org/openprovenance/templates/physical/transporting/prov-transporting-aga-agent.prov-csv"
+  },
+  "org/openprovenance/templates/collections/inserting/collection-inserting" : {
+    "jsonld" : "org/openprovenance/templates/collections/inserting/collection-inserting.jsonld",
+    "provn" : "org/openprovenance/templates/collections/inserting/collection-inserting.provn",
+    "png" : "org/openprovenance/templates/collections/inserting/collection-inserting.png",
+    "svg" : "org/openprovenance/templates/collections/inserting/collection-inserting.svg"
+  },
+  "org/openprovenance/templates/physical/unpacking/unpacking-sds-container" : {
+    "jsonld" : "org/openprovenance/templates/physical/unpacking/unpacking-sds-container.jsonld",
+    "provn" : "org/openprovenance/templates/physical/unpacking/unpacking-sds-container.provn",
+    "png" : "org/openprovenance/templates/physical/unpacking/unpacking-sds-container.png",
+    "svg" : "org/openprovenance/templates/physical/unpacking/unpacking-sds-container.svg"
+  },
+  "org/openprovenance/templates/generic/forking2" : {
+    "jsonld" : "org/openprovenance/templates/generic/forking2.jsonld",
+    "provn" : "org/openprovenance/templates/generic/forking2.provn",
+    "png" : "org/openprovenance/templates/generic/forking2.png",
+    "svg" : "org/openprovenance/templates/generic/forking2.svg"
+  },
+  "org/openprovenance/templates/ptm/prov-ptm-expanding" : {
+    "provCsv" : "org/openprovenance/templates/ptm/prov-ptm-expanding.prov-csv"
+  },
+  "org/openprovenance/templates/collections/removing/prov-membership" : {
+    "provCsv" : "org/openprovenance/templates/collections/removing/prov-membership.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle4-aia/attribution" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle4-aia/attribution.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle4-aia/attribution.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle4-aia/attribution.svg"
+  },
+  "org/openprovenance/templates/ptm/ptm-mexpanding" : {
+    "provn" : "org/openprovenance/templates/ptm/ptm-mexpanding.provn",
+    "png" : "org/openprovenance/templates/ptm/ptm-mexpanding.png"
+  },
+  "org/openprovenance/templates/responsibility/agent-init/prov-agent-init" : {
+    "provCsv" : "org/openprovenance/templates/responsibility/agent-init/prov-agent-init.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle4-aia/triangle4-aia" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle4-aia/triangle4-aia.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle4-aia/triangle4-aia.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle4-aia/triangle4-aia.svg"
+  },
+  "org/openprovenance/templates/fs/prov-file-validating" : {
+    "provCsv" : "org/openprovenance/templates/fs/prov-file-validating.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle2-sds/prov-specialization2" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle2-sds/prov-specialization2.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle4-aia/prov-triangle4-aia" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle4-aia/prov-triangle4-aia.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle2-sds/prov-specialization1" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle2-sds/prov-specialization1.prov-csv"
+  },
+  "org/openprovenance/templates/responsibility/examining/examining-aga-agent" : {
+    "jsonld" : "org/openprovenance/templates/responsibility/examining/examining-aga-agent.jsonld",
+    "provn" : "org/openprovenance/templates/responsibility/examining/examining-aga-agent.provn",
+    "png" : "org/openprovenance/templates/responsibility/examining/examining-aga-agent.png",
+    "svg" : "org/openprovenance/templates/responsibility/examining/examining-aga-agent.svg"
+  },
+  "org/openprovenance/templates/generic/prov-forking2" : {
+    "provCsv" : "org/openprovenance/templates/generic/prov-forking2.prov-csv"
+  },
+  "org/openprovenance/templates/ptm/prov-ptm-merging" : {
+    "provCsv" : "org/openprovenance/templates/ptm/prov-ptm-merging.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle4-aia/agent" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle4-aia/agent.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle4-aia/agent.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle4-aia/agent.svg"
+  },
+  "org/openprovenance/templates/responsibility/agent-init/prov-activity" : {
+    "provCsv" : "org/openprovenance/templates/responsibility/agent-init/prov-activity.prov-csv"
+  },
+  "org/openprovenance/templates/physical/unpacking/unpacking-aga-container-agent" : {
+    "jsonld" : "org/openprovenance/templates/physical/unpacking/unpacking-aga-container-agent.jsonld",
+    "provn" : "org/openprovenance/templates/physical/unpacking/unpacking-aga-container-agent.provn",
+    "png" : "org/openprovenance/templates/physical/unpacking/unpacking-aga-container-agent.png",
+    "svg" : "org/openprovenance/templates/physical/unpacking/unpacking-aga-container-agent.svg"
+  },
+  "org/openprovenance/templates/collections/removing/membership" : {
+    "jsonld" : "org/openprovenance/templates/collections/removing/membership.jsonld",
+    "provn" : "org/openprovenance/templates/collections/removing/membership.provn",
+    "png" : "org/openprovenance/templates/collections/removing/membership.png",
+    "svg" : "org/openprovenance/templates/collections/removing/membership.svg"
+  },
+  "org/openprovenance/templates/collections/removing/prov-collection-remove-triangle2-ugd" : {
+    "provCsv" : "org/openprovenance/templates/collections/removing/prov-collection-remove-triangle2-ugd.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle3-aga/prov-triangle3-aga" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle3-aga/prov-triangle3-aga.prov-csv"
+  },
+  "org/openprovenance/templates/collections/removing/collection-remove-triangle2-ugd" : {
+    "jsonld" : "org/openprovenance/templates/collections/removing/collection-remove-triangle2-ugd.jsonld",
+    "provn" : "org/openprovenance/templates/collections/removing/collection-remove-triangle2-ugd.provn",
+    "png" : "org/openprovenance/templates/collections/removing/collection-remove-triangle2-ugd.png",
+    "svg" : "org/openprovenance/templates/collections/removing/collection-remove-triangle2-ugd.svg"
+  },
+  "org/openprovenance/templates/responsibility/examining/prov-examining-sds" : {
+    "provCsv" : "org/openprovenance/templates/responsibility/examining/prov-examining-sds.prov-csv"
+  },
+  "org/openprovenance/templates/responsibility/examining/examining-ugd" : {
+    "jsonld" : "org/openprovenance/templates/responsibility/examining/examining-ugd.jsonld",
+    "provn" : "org/openprovenance/templates/responsibility/examining/examining-ugd.provn",
+    "png" : "org/openprovenance/templates/responsibility/examining/examining-ugd.png",
+    "svg" : "org/openprovenance/templates/responsibility/examining/examining-ugd.svg"
+  },
+  "org/openprovenance/templates/generic/parallel2" : {
+    "jsonld" : "org/openprovenance/templates/generic/parallel2.jsonld",
+    "provn" : "org/openprovenance/templates/generic/parallel2.provn",
+    "png" : "org/openprovenance/templates/generic/parallel2.png",
+    "svg" : "org/openprovenance/templates/generic/parallel2.svg"
+  },
+  "org/openprovenance/templates/physical/packing/prov-packing-sds-item" : {
+    "provCsv" : "org/openprovenance/templates/physical/packing/prov-packing-sds-item.prov-csv"
+  },
+  "org/openprovenance/templates/responsibility/agent-init/specialization" : {
+    "jsonld" : "org/openprovenance/templates/responsibility/agent-init/specialization.jsonld",
+    "provn" : "org/openprovenance/templates/responsibility/agent-init/specialization.provn",
+    "png" : "org/openprovenance/templates/responsibility/agent-init/specialization.png",
+    "svg" : "org/openprovenance/templates/responsibility/agent-init/specialization.svg"
+  },
+  "org/openprovenance/templates/collections/insert-old/prov-collection-insert-triangle1-ugm" : {
+    "provCsv" : "org/openprovenance/templates/collections/insert-old/prov-collection-insert-triangle1-ugm.prov-csv"
+  },
+  "org/openprovenance/templates/general/entity-init/prov-entity-init" : {
+    "provCsv" : "org/openprovenance/templates/general/entity-init/prov-entity-init.prov-csv"
+  },
+  "org/openprovenance/templates/physical/packing/prov-packing-aga-agent" : {
+    "provCsv" : "org/openprovenance/templates/physical/packing/prov-packing-aga-agent.prov-csv"
+  },
+  "org/openprovenance/templates/collections/inserting/membership" : {
+    "jsonld" : "org/openprovenance/templates/collections/inserting/membership.jsonld",
+    "provn" : "org/openprovenance/templates/collections/inserting/membership.provn",
+    "png" : "org/openprovenance/templates/collections/inserting/membership.png",
+    "svg" : "org/openprovenance/templates/collections/inserting/membership.svg"
+  },
+  "org/openprovenance/templates/responsibility/examining/examining-sds" : {
+    "jsonld" : "org/openprovenance/templates/responsibility/examining/examining-sds.jsonld",
+    "provn" : "org/openprovenance/templates/responsibility/examining/examining-sds.provn",
+    "png" : "org/openprovenance/templates/responsibility/examining/examining-sds.png",
+    "svg" : "org/openprovenance/templates/responsibility/examining/examining-sds.svg"
+  },
+  "org/openprovenance/templates/responsibility/examining/prov-examining-ugd" : {
+    "provCsv" : "org/openprovenance/templates/responsibility/examining/prov-examining-ugd.prov-csv"
+  },
+  "org.openprovenance.templates.triangles.Triangle2-SDS" : {
+    "jsonld" : "org/openprovenance/templates/triangles/triangle2-sds/triangle2-sds.jsonld",
+    "provn" : "org/openprovenance/templates/triangles/triangle2-sds/triangle2-sds.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle2-sds/triangle2-sds.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle2-sds/triangle2-sds.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle3-aga/agent" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle3-aga/agent.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle3-aga/agent.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle3-aga/agent.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle6-ugm/prov-activity" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle6-ugm/prov-activity.prov-csv"
+  },
+  "org/openprovenance/templates/generic/joining2" : {
+    "jsonld" : "org/openprovenance/templates/generic/joining2.jsonld",
+    "provn" : "org/openprovenance/templates/generic/joining2.provn",
+    "png" : "org/openprovenance/templates/generic/joining2.png",
+    "svg" : "org/openprovenance/templates/generic/joining2.svg"
+  },
+  "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3c-aga" : {
+    "jsonld" : "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3c-aga.jsonld",
+    "provn" : "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3c-aga.provn",
+    "png" : "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3c-aga.png",
+    "svg" : "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3c-aga.svg",
+    "provCsv" : "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3c-aga.prov-csv"
+  },
+  "org/openprovenance/templates/collections/insert-old/collection-insert" : {
+    "jsonld" : "org/openprovenance/templates/collections/insert-old/collection-insert.jsonld",
+    "provn" : "org/openprovenance/templates/collections/insert-old/collection-insert.provn",
+    "png" : "org/openprovenance/templates/collections/insert-old/collection-insert.png",
+    "svg" : "org/openprovenance/templates/collections/insert-old/collection-insert.svg"
+  },
+  "org/openprovenance/templates/physical/transporting/prov-transporting-sds" : {
+    "provCsv" : "org/openprovenance/templates/physical/transporting/prov-transporting-sds.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle6-ugm/prov-generation" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle6-ugm/prov-generation.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle3-aga/prov-activity" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle3-aga/prov-activity.prov-csv"
+  },
+  "org/openprovenance/templates/fs/file-filtering" : {
+    "jsonld" : "org/openprovenance/templates/fs/file-filtering.jsonld",
+    "provn" : "org/openprovenance/templates/fs/file-filtering.provn",
+    "png" : "org/openprovenance/templates/fs/file-filtering.png"
+  },
+  "org/openprovenance/templates/triangles/triangle1-ugd/prov-triangle1-ugd" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle1-ugd/prov-triangle1-ugd.prov-csv"
+  },
+  "org/openprovenance/templates/physical/unpacking/prov-unpacking-remove-collection" : {
+    "provCsv" : "org/openprovenance/templates/physical/unpacking/prov-unpacking-remove-collection.prov-csv"
+  },
+  "org/openprovenance/templates/collections/inserting/prov-collection-insert-triangle2-ugd" : {
+    "provCsv" : "org/openprovenance/templates/collections/inserting/prov-collection-insert-triangle2-ugd.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle3-aga/prov-agent" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle3-aga/prov-agent.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle6-ugm/usage" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle6-ugm/usage.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle6-ugm/usage.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle6-ugm/usage.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle4-aia/prov-invalidation" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle4-aia/prov-invalidation.prov-csv"
+  },
+  "org/openprovenance/templates/physical/packing/prov-packing-sds" : {
+    "provCsv" : "org/openprovenance/templates/physical/packing/prov-packing-sds.prov-csv"
+  },
+  "org/openprovenance/templates/responsibility/handingover/prov-handingover-aga-ag1" : {
+    "provCsv" : "org/openprovenance/templates/responsibility/handingover/prov-handingover-aga-ag1.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle1-ugd/entities" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle1-ugd/entities.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle1-ugd/entities.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle1-ugd/entities.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle4-aia/prov-entity" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle4-aia/prov-entity.prov-csv"
+  },
+  "org/openprovenance/templates/responsibility/agent-init/agent" : {
+    "jsonld" : "org/openprovenance/templates/responsibility/agent-init/agent.jsonld",
+    "provn" : "org/openprovenance/templates/responsibility/agent-init/agent.provn",
+    "png" : "org/openprovenance/templates/responsibility/agent-init/agent.png",
+    "svg" : "org/openprovenance/templates/responsibility/agent-init/agent.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle4-aia/prov-activity" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle4-aia/prov-activity.prov-csv"
+  },
+  "org/openprovenance/templates/responsibility/agent-init/prov-agent-location" : {
+    "provCsv" : "org/openprovenance/templates/responsibility/agent-init/prov-agent-location.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle6-ugm/prov-membership" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle6-ugm/prov-membership.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle1-ugd/usage" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle1-ugd/usage.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle1-ugd/usage.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle1-ugd/usage.svg"
+  },
+  "org/openprovenance/templates/physical/transporting/prov-transporting-ugd" : {
+    "provCsv" : "org/openprovenance/templates/physical/transporting/prov-transporting-ugd.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle1-ugd/prov-derivation" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle1-ugd/prov-derivation.prov-csv"
+  },
+  "org/openprovenance/templates/fs/file-transforming" : {
+    "jsonld" : "org/openprovenance/templates/fs/file-transforming.jsonld",
+    "provn" : "org/openprovenance/templates/fs/file-transforming.provn",
+    "png" : "org/openprovenance/templates/fs/file-transforming.png"
+  },
+  "org/openprovenance/templates/triangles/triangle3-aga/prov-attribution" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle3-aga/prov-attribution.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle1-ugd/prov-activity" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle1-ugd/prov-activity.prov-csv"
+  },
+  "org/openprovenance/templates/generic/binaryop" : {
+    "provn" : "org/openprovenance/templates/generic/binaryop.provn",
+    "png" : "org/openprovenance/templates/generic/binaryop.png",
+    "svg" : "org/openprovenance/templates/generic/binaryop.svg"
+  },
+  "org/openprovenance/templates/physical/unpacking/unpacking-sds-item" : {
+    "jsonld" : "org/openprovenance/templates/physical/unpacking/unpacking-sds-item.jsonld",
+    "provn" : "org/openprovenance/templates/physical/unpacking/unpacking-sds-item.provn",
+    "png" : "org/openprovenance/templates/physical/unpacking/unpacking-sds-item.png",
+    "svg" : "org/openprovenance/templates/physical/unpacking/unpacking-sds-item.svg"
+  },
+  "org/openprovenance/templates/responsibility/handingover/prov-handingover-aia-ag0" : {
+    "provCsv" : "org/openprovenance/templates/responsibility/handingover/prov-handingover-aia-ag0.prov-csv"
+  },
+  "org/openprovenance/templates/generic/prov-binaryop" : {
+    "provCsv" : "org/openprovenance/templates/generic/prov-binaryop.prov-csv"
+  },
+  "org/openprovenance/templates/collections/inserting/collection-insert-triangle2-ugd" : {
+    "jsonld" : "org/openprovenance/templates/collections/inserting/collection-insert-triangle2-ugd.jsonld",
+    "provn" : "org/openprovenance/templates/collections/inserting/collection-insert-triangle2-ugd.provn",
+    "png" : "org/openprovenance/templates/collections/inserting/collection-insert-triangle2-ugd.png",
+    "svg" : "org/openprovenance/templates/collections/inserting/collection-insert-triangle2-ugd.svg"
+  },
+  "org/openprovenance/templates/responsibility/handingover/handingover" : {
+    "jsonld" : "org/openprovenance/templates/responsibility/handingover/handingover.jsonld",
+    "provn" : "org/openprovenance/templates/responsibility/handingover/handingover.provn",
+    "png" : "org/openprovenance/templates/responsibility/handingover/handingover.png",
+    "svg" : "org/openprovenance/templates/responsibility/handingover/handingover.svg"
+  },
+  "org/openprovenance/templates/fs/file-splitting" : {
+    "jsonld" : "org/openprovenance/templates/fs/file-splitting.jsonld",
+    "provn" : "org/openprovenance/templates/fs/file-splitting.provn",
+    "png" : "org/openprovenance/templates/fs/file-splitting.png"
+  },
+  "org/openprovenance/templates/responsibility/examining/prov-examining-aga-instrument" : {
+    "provCsv" : "org/openprovenance/templates/responsibility/examining/prov-examining-aga-instrument.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle6-ugm/entities" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle6-ugm/entities.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle6-ugm/entities.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle6-ugm/entities.svg"
+  },
+  "org/openprovenance/templates/collections/inserting/prov-collection-insert-triangle1-ugd" : {
+    "provCsv" : "org/openprovenance/templates/collections/inserting/prov-collection-insert-triangle1-ugd.prov-csv"
+  },
+  "org/openprovenance/templates/collections/inserting/collection-insert-triangle1-ugd" : {
+    "jsonld" : "org/openprovenance/templates/collections/inserting/collection-insert-triangle1-ugd.jsonld",
+    "provn" : "org/openprovenance/templates/collections/inserting/collection-insert-triangle1-ugd.provn",
+    "png" : "org/openprovenance/templates/collections/inserting/collection-insert-triangle1-ugd.png",
+    "svg" : "org/openprovenance/templates/collections/inserting/collection-insert-triangle1-ugd.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle4-aia/invalidation" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle4-aia/invalidation.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle4-aia/invalidation.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle4-aia/invalidation.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle1-ugd/activity" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle1-ugd/activity.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle1-ugd/activity.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle1-ugd/activity.svg"
+  },
+  "org/openprovenance/templates/physical/transporting/prov-transporting" : {
+    "provCsv" : "org/openprovenance/templates/physical/transporting/prov-transporting.prov-csv"
+  },
+  "org/openprovenance/templates/collections/removing/prov-collection-remove-triangle1-ugd" : {
+    "provCsv" : "org/openprovenance/templates/collections/removing/prov-collection-remove-triangle1-ugd.prov-csv"
+  },
+  "org/openprovenance/templates/ptm/creating-template/ptm-creating-template" : {
+    "provCsv" : "org/openprovenance/templates/ptm/creating-template/ptm-creating-template.prov-csv"
+  },
+  "org/openprovenance/templates/general/entity-init/entity-location-init" : {
+    "jsonld" : "org/openprovenance/templates/general/entity-init/entity-location-init.jsonld",
+    "provn" : "org/openprovenance/templates/general/entity-init/entity-location-init.provn",
+    "png" : "org/openprovenance/templates/general/entity-init/entity-location-init.png",
+    "svg" : "org/openprovenance/templates/general/entity-init/entity-location-init.svg"
+  },
+  "org/openprovenance/templates/collections/removing/collection-remove-triangle1-ugd" : {
+    "jsonld" : "org/openprovenance/templates/collections/removing/collection-remove-triangle1-ugd.jsonld",
+    "provn" : "org/openprovenance/templates/collections/removing/collection-remove-triangle1-ugd.provn",
+    "png" : "org/openprovenance/templates/collections/removing/collection-remove-triangle1-ugd.png",
+    "svg" : "org/openprovenance/templates/collections/removing/collection-remove-triangle1-ugd.svg"
+  },
+  "org/openprovenance/templates/physical/packing/packing-sds-item" : {
+    "jsonld" : "org/openprovenance/templates/physical/packing/packing-sds-item.jsonld",
+    "provn" : "org/openprovenance/templates/physical/packing/packing-sds-item.provn",
+    "png" : "org/openprovenance/templates/physical/packing/packing-sds-item.png",
+    "svg" : "org/openprovenance/templates/physical/packing/packing-sds-item.svg"
+  },
+  "org/openprovenance/templates/general/entity-init/prov-entity-location-init" : {
+    "provCsv" : "org/openprovenance/templates/general/entity-init/prov-entity-location-init.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle4-aia/activity" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle4-aia/activity.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle4-aia/activity.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle4-aia/activity.svg"
+  },
+  "org/openprovenance/templates/responsibility/agent-init/prov-generation" : {
+    "provCsv" : "org/openprovenance/templates/responsibility/agent-init/prov-generation.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle4-aia/prov-agent" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle4-aia/prov-agent.prov-csv"
+  },
+  "org/openprovenance/templates/general/entity-init/activity" : {
+    "jsonld" : "org/openprovenance/templates/general/entity-init/activity.jsonld",
+    "provn" : "org/openprovenance/templates/general/entity-init/activity.provn",
+    "png" : "org/openprovenance/templates/general/entity-init/activity.png",
+    "svg" : "org/openprovenance/templates/general/entity-init/activity.svg"
+  },
+  "org/openprovenance/templates/responsibility/examining/prov-examining" : {
+    "provCsv" : "org/openprovenance/templates/responsibility/examining/prov-examining.prov-csv"
+  },
+  "org/openprovenance/templates/collections/removing/prov-collection-removing" : {
+    "provCsv" : "org/openprovenance/templates/collections/removing/prov-collection-removing.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle3-aga/association" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle3-aga/association.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle3-aga/association.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle3-aga/association.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle2-sds/entity" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle2-sds/entity.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle2-sds/entity.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle2-sds/entity.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle6-ugm/activity" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle6-ugm/activity.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle6-ugm/activity.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle6-ugm/activity.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle2-sds/prov-entity" : {
+    "provCsv" : "org/openprovenance/templates/triangles/triangle2-sds/prov-entity.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle2-sds/specialization2" : {
+    "jsonld" : "org/openprovenance/templates/triangles/triangle2-sds/specialization2.jsonld",
+    "provn" : "org/openprovenance/templates/triangles/triangle2-sds/specialization2.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle2-sds/specialization2.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle2-sds/specialization2.svg"
+  },
+  "org/openprovenance/templates/generic/prov-parallel2" : {
+    "provCsv" : "org/openprovenance/templates/generic/prov-parallel2.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle6-ugm/membership" : {
+    "jsonld" : "org/openprovenance/templates/triangles/triangle6-ugm/membership.jsonld",
+    "provn" : "org/openprovenance/templates/triangles/triangle6-ugm/membership.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle6-ugm/membership.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle6-ugm/membership.svg"
+  },
+  "org/openprovenance/templates/triangles/triangle2-sds/specialization1" : {
+    "jsonld" : "org/openprovenance/templates/triangles/triangle2-sds/specialization1.jsonld",
+    "provn" : "org/openprovenance/templates/triangles/triangle2-sds/specialization1.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle2-sds/specialization1.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle2-sds/specialization1.svg"
+  },
+  "org/openprovenance/templates/generic/prov-joining2" : {
+    "provCsv" : "org/openprovenance/templates/generic/prov-joining2.prov-csv"
+  },
+  "org/openprovenance/templates/general/entity-init/prov-entity-location" : {
+    "provCsv" : "org/openprovenance/templates/general/entity-init/prov-entity-location.prov-csv"
+  },
+  "org/openprovenance/templates/triangles/triangle3-aga/entity" : {
+    "provn" : "org/openprovenance/templates/triangles/triangle3-aga/entity.provn",
+    "png" : "org/openprovenance/templates/triangles/triangle3-aga/entity.png",
+    "svg" : "org/openprovenance/templates/triangles/triangle3-aga/entity.svg"
+  }
+}

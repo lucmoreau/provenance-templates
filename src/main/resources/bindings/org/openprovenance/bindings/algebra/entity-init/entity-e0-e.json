@@ -1,0 +1,49 @@
+{
+    "var": {
+
+        "entity": [
+            {
+                "@id": "var:entity"
+            },
+            {
+                "@id": "var:entity0"
+            }
+
+        ],
+        "prop": [
+            [
+                {
+                    "@id": "var:eprop"
+                }
+            ],
+            [
+                {
+                    "@id": "var:eprop0"
+                }
+            ]
+        ],
+        "pvalue": [
+            [
+                {
+                    "@id": "var:evalue"
+                }
+            ],
+            [
+                {
+                    "@id": "var:evalue0"
+                }
+            ]
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}"
+    }
+}

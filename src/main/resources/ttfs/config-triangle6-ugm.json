@@ -1,0 +1,73 @@
+{
+    "template_path": ["templates"],
+    "bindings_path": ["bindings/org/openprovenance/bindings/algebra/triangle6-ugm"],
+    "output_dir": "generated-templates",
+    "variableMaps": ["./common-ns.json"],
+
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating an entity pattern",
+            "template": "org.openprovenance.templates.primitive.Entity0",
+            "output": "org/openprovenance/templates/triangles/triangle6-ugm/entities",
+            "bindings": "entity-e0-e1.json",
+            "formats": ["provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle6-ugm/prov/prov-entities.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating an activity pattern",
+            "template": "org.openprovenance.templates.primitive.Activity0",
+            "output": "org/openprovenance/templates/triangles/triangle6-ugm/activity",
+            "bindings": "activity.json",
+            "formats": ["provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle6-ugm/prov/prov-activity.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a membership pattern",
+            "template": "org.openprovenance.templates.primitive.Qualified-Membership0",
+            "output": "org/openprovenance/templates/triangles/triangle6-ugm/membership",
+            "bindings": "membership.json",
+            "formats": ["jsonld", "provn","png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle6-ugm/prov/prov-membership.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a usage pattern",
+            "template": "org.openprovenance.templates.primitive.Usage0",
+            "output": "org/openprovenance/templates/triangles/triangle6-ugm/usage",
+            "bindings": "usage.json",
+            "formats": ["provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle6-ugm/prov/prov-usage.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a generation pattern",
+            "template": "org.openprovenance.templates.primitive.Generation0",
+            "output": "org/openprovenance/templates/triangles/triangle6-ugm/generation",
+            "bindings": "generation.json",
+            "formats": ["provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle6-ugm/prov/prov-generation.prov-csv"
+        },
+
+        {
+            "type": "merge",
+            "description": "Merging the above templates into a single template",
+            "addOutputDirToInputPath": true,
+            "inputs": [
+                "org/openprovenance/templates/triangles/triangle6-ugm/entities",
+                "org/openprovenance/templates/triangles/triangle6-ugm/activity",
+                "org/openprovenance/templates/triangles/triangle6-ugm/membership",
+                "org/openprovenance/templates/triangles/triangle6-ugm/usage",
+                "org/openprovenance/templates/triangles/triangle6-ugm/generation"
+            ],
+            "output": "org/openprovenance/templates/triangles/triangle6-ugm/triangle6-ugm",
+            "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle6-ugm/prov/prov-triangle6-ugm.prov-csv",
+            "variableCheck": "variable-check/collections/variables.json"
+        }
+
+    ]
+}

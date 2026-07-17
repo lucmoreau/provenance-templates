@@ -1,0 +1,119 @@
+{
+    "var": {
+        "pipeline": [
+            {
+                "@id": "file:*",
+                "@type": "xsd:int",
+                "@examplar": 122,
+                "@documentation": "The pipeline resulting from the training",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "file"
+            }
+        ],
+        "filename": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:string",
+                    "@examplar": "file/123b.csv",
+                    "@documentation": "The pipeline filename resulting from the training",
+                    "@input": "compulsory",
+                    "@output": "false",
+                    "@sql.type":  "nonNullableTEXT"
+                }
+            ]
+        ],
+        "training_dataset": [
+            {
+                "@id": "file:*",
+                "@type": "xsd:int",
+                "@examplar": 121,
+                "@documentation": "The dataset used in the training",
+                "@input": "compulsory",
+                "@sql.table": "file"
+            }
+        ],
+        "method": [
+            {
+                "@id": "method:*",
+                "@type": "xsd:int",
+                "@examplar": 222,
+                "@documentation": "The method to transform the file",
+                "@input": "optional",
+                "@output": "false",
+                "@sql.table": "method"
+            }
+        ],
+        "engineer": [
+            {
+                "@id": "ag:*",
+                "@type": "xsd:int",
+                "@documentation": "The engineer developing the ML pipeline",
+                "@input": "optional",
+                "@sql.table": "agent"
+            }
+        ],
+        "training": [
+            {
+                "@id": "act:*",
+                "@type": "xsd:int",
+                "@documentation": "The activity of transforming the file",
+                "@output": "true",
+                "@sql.table": "activity"
+            }
+        ],
+        "path": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:string",
+                    "@documentation": "The actual path of the file",
+                    "@input": "optional",
+                    "@sql.type":  "nullableTEXT"
+                }
+            ]
+        ],
+        "time": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:dateTime",
+                    "@documentation": "Time when the pipeline is created",
+                    "@input": "optional",
+                    "@sql.type":  "timestamptz"
+                }
+            ]
+        ],
+        "start": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:dateTime",
+                    "@documentation": "Time when the transformation starts",
+                    "@input": "optional",
+                    "@sql.type":  "timestamptz"
+                }
+            ]
+        ],
+        "end": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:dateTime",
+                    "@documentation": "Time when the transformation ends",
+                    "@input": "optional",
+                    "@sql.type":  "timestamptz"
+                }
+            ]
+        ]
+    },
+    "context": {
+        "ag":  "${PROV_API}/live/agent/",
+        "act": "${PROV_API}/live/activity/",
+        "file": "${PROV_API}/live/file/",
+        "method": "${PROV_API}/live/method/"
+    },
+    "template": "TODO template",
+    "@documentation": "TODO doc."
+}

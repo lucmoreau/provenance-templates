@@ -1,0 +1,44 @@
+{
+    "var": {
+
+        "activity": [
+            {
+                "@id": "var:activity"
+            }
+
+        ],
+        "prop": [
+            [
+                {
+                    "@id": "var:aprops"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "pvalue": [
+            [
+                {
+                    "@id": "var:avalues"
+                },
+                {
+                    "@id": "phys:RegisteringEntity"
+                }
+            ]
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov": "${prov_ns}",
+        "phys" : "${phys_ns}"
+    }
+}

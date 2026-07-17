@@ -1,0 +1,13 @@
+{
+    "isA": "ptm_creating",
+    "template1": "file/template123-456.provn",
+    "template0": "file/template123-450.provn",
+    "ttf": "file/ttf-839.json",
+    "dc": 14,
+    "context": 24,
+    "creator": "test2_creator",
+    "creating": 12345,
+    "dcvalue": "1 ugd triangle, and 3 instances of aga triangles",
+    "cvalue": "Auditing the creation of provenance templates\nxxx yyy\nzzz",
+    "ppath": "/path/to/some/file"
+}

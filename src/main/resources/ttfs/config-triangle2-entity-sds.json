@@ -1,0 +1,63 @@
+{
+    "template_path": ["templates"],
+    "bindings_path": ["bindings/org/openprovenance/bindings/algebra/triangle2-entity-sds"],
+    "output_dir": "generated-templates",
+    "variableMaps": ["./common-ns.json"],
+
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating an entity pattern",
+            "template": "org.openprovenance.templates.primitive.Entity0",
+            "output": "org/openprovenance/templates/triangles/triangle2-entity-sds/entity",
+            "bindings": "entity-e0-e1-e2.json",
+            "formats": ["provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle2-entity-sds/prov/prov-entity.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a derivation pattern",
+            "template": "org.openprovenance.templates.primitive.Derivation0",
+            "output": "org/openprovenance/templates/triangles/triangle2-entity-sds/derivation",
+            "bindings": "derivation.json",
+            "formats": ["provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle2-entity-sds/prov/prov-derivation.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a specialization pattern",
+            "template": "org.openprovenance.templates.primitive.Qualified-Specialization0",
+            "bindings": "specialization1.json",
+            "output": "org/openprovenance/templates/triangles/triangle2-entity-sds/specialization1",
+            "formats": ["jsonld", "provn","png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle2-entity-sds/prov/prov-specialization1.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a specialization pattern",
+            "template": "org.openprovenance.templates.primitive.Qualified-Specialization0",
+            "bindings": "specialization2.json",
+            "output": "org/openprovenance/templates/triangles/triangle2-entity-sds/specialization2",
+            "formats": ["jsonld", "provn","png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle2-entity-sds/prov/prov-specialization2.prov-csv"
+        },
+
+        {
+            "type": "merge",
+            "description": "Merging the above templates into a single template",
+            "addOutputDirToInputPath": true,
+            "inputs": [
+                "org/openprovenance/templates/triangles/triangle2-entity-sds/entity",
+                "org/openprovenance/templates/triangles/triangle2-entity-sds/derivation",
+                "org/openprovenance/templates/triangles/triangle2-entity-sds/specialization1",
+                "org/openprovenance/templates/triangles/triangle2-entity-sds/specialization2"],
+            "output": "org/openprovenance/templates/triangles/triangle2-entity-sds/triangle2-entity-sds",
+            "outputFullyQualifiedName": "org.openprovenance.templates.triangles.Triangle2-Entity-SDS",
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle2-entity-sds/prov/prov-triangle2-entity-sds.prov-csv",
+            "variableCheck": "variable-check/triangles/variables.json"
+        }
+
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "var" : {
+        "agent" :                   [{"@id" : "var:agent"}],
+        "input1" :                  [{"@id" : "var:consumed1"}],
+        "input2" :                  [{"@id" : "var:consumed2"}],
+        "output" :                  [{"@id" : "var:produced"}],
+        "activity" :                [{"@id" : "var:operation"}],
+        "plan":                     null,
+
+
+        "atype" :                   [[{"@id" : "var:operation_type"}]],
+        "otype" :                   [[{"@id" : "var:produced_type"}]],
+        "oprops" :                  [[{"@id" : "prov:value"}]],
+        "oprop_values":             [[{"@id" : "var:produced_value"}]],
+        "iprops1":                  [[{"@id" : "prov:value"}]],
+        "iprop_values1":            [[{"@id" : "var:consumed_value1"}]],
+        "iprops2":                  [[{"@id" : "prov:value"}]],
+        "iprop_values2":            [[{"@id" : "var:consumed_value2"}]],
+
+        "agprop_values":           null,
+        "agprops":                 null,
+        "agtype":                  null,
+        "end":                     null,
+        "itype1":                  null,
+        "itype2":                  null,
+        "start":                   null
+
+    },
+    "vargen" : {
+        "b" : [ {
+            "@id" : "vargen:b"
+        } ]
+    },
+    "linked": {"ovalues":  "oprops"},
+    "context" : {
+        "prov":   "${prov_ns}",
+        "uuid" :  "${uuid_ns}",
+        "var":    "${var_ns}",
+        "vargen": "${vargen_ns}",
+        "xsd":    "${xsd_ns}"
+    },
+    "template" : null
+}

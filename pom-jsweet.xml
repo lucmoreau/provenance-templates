@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.openprovenance.bookptm</groupId>
+        <artifactId>book-ptm</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>template-intro1</artifactId>
+    <packaging>jar</packaging>
+    <name> |-- template-intro1</name>
+    <description>templates for book</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jsweet</groupId>
+            <artifactId>j4ts</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <meta.inf.webjars>META-INF/resources/webjars</meta.inf.webjars>
+        <package.name>transport_template_library</package.name>
+        <package.name.cli>${package.name}_cli</package.name.cli>
+        <package.name.l2p>${package.name}_l2p</package.name.l2p>
+    </properties>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jsweet</groupId>
+                <artifactId>jsweet-maven-plugin</artifactId>
+                <version>${jsweet.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>generate-js</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>jsweet</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <compileSourceRootsOverride>${project.build.directory}/generated-sources/${package.name}_cli</compileSourceRootsOverride>
+                    <verbose>false</verbose>
+                    <outDir>${project.build.directory}/js</outDir>
+                    <tsOut>${project.build.directory}/ts</tsOut>
+                    <candiesJsOut>target/webapp/candies</candiesJsOut>
+                    <excludes>
+                        <exclude>**/node_modules/**</exclude>
+                        <exclude>**/node/**</exclude>
+                    </excludes>
+                    <targetVersion>ES6</targetVersion>
+                    <module>commonjs</module>
+                    <!--<moduleResolutio>classic</moduleResolutio>-->
+                    <bundle>true</bundle>
+                    <declaration>true</declaration>
+                    <dtsOut>${project.build.directory}/resources/src/typings/${project.artifactId}/${project.version}</dtsOut>
+
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

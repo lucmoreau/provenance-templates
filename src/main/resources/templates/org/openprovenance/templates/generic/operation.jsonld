@@ -1,0 +1,54 @@
+{
+  "@context" : [ {
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "vargen" : "http://openprovenance.org/vargen#",
+    "tmpl" : "http://openprovenance.org/tmpl#",
+    "prov" : "http://www.w3.org/ns/prov#",
+    "var" : "http://openprovenance.org/var#"
+  }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+  "@graph" : [ {
+    "@type" : "Bundle",
+    "@context" : [ {
+      "xsd" : "http://www.w3.org/2001/XMLSchema#",
+      "prov" : "http://www.w3.org/ns/prov#"
+    }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+    "@id" : "var:b",
+    "@graph" : [ {
+      "@type" : "Activity",
+      "@id" : "var:block_instance",
+      "tmpl:startTime" : [ "var:starttime" ],
+      "tmpl:endTime" : [ "var:endtime" ],
+      "type" : [ "var:block_type" ],
+      "tmpl:label" : [ "var:block_label" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "var:consumed",
+      "type" : [ "var:consumed_type" ],
+      "tmpl:label" : [ "var:consumed_label" ],
+      "var:cprops" : [ "var:cprop_values" ]
+    }, {
+      "@type" : "Usage",
+      "activity" : "var:block_instance",
+      "entity" : "var:consumed",
+      "role" : [ "var:consumed_role" ],
+      "tmpl:time" : [ "var:consumed_at" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "var:produced",
+      "type" : [ "var:produced_type" ],
+      "tmpl:label" : [ "var:produced_label" ],
+      "var:pprops" : [ "var:pprop_values" ]
+    }, {
+      "@type" : "Generation",
+      "entity" : "var:produced",
+      "activity" : "var:block_instance",
+      "role" : [ "var:produced_role" ],
+      "tmpl:time" : [ "var:produced_at" ]
+    }, {
+      "@type" : "Derivation",
+      "generatedEntity" : "var:produced",
+      "usedEntity" : "var:consumed",
+      "activity" : "var:block_instance"
+    } ]
+  } ]
+}

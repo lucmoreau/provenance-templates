@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://openprovenance.org/schemas/templates-index.json",
+    "title": "Templates index",
+    "type": "object",
+    "description": "Mapping from template identifier to available resource file paths.",
+    "propertyNames": {
+        "type": "string",
+        "minLength": 1
+    },
+    "patternProperties": {
+        "^.+$": {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": false,
+            "properties": {
+                "jsonld": {
+                    "type": "string",
+                    "description": "Relative path to a .jsonld file",
+                    "pattern": "^[^\\r\\n]+$"
+                },
+                "provn": {
+                    "type": "string",
+                    "description": "Relative path to a .provn file",
+                    "pattern": "^[^\\r\\n]+$"
+                },
+                "png": {
+                    "type": "string",
+                    "description": "Relative path to a .png file",
+                    "pattern": "^[^\\r\\n]+$"
+                },
+                "svg": {
+                    "type": "string",
+                    "description": "Relative path to a .svg file",
+                    "pattern": "^[^\\r\\n]+$"
+                }
+            }
+        }
+    },
+    "additionalProperties": false
+}

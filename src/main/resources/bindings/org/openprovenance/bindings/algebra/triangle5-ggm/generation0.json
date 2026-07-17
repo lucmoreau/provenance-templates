@@ -1,0 +1,60 @@
+{
+    "var": {
+        "id": [
+            {
+                "@id": "var:gen0"
+            }
+        ],
+        "activity": [
+            {
+                "@id": "var:adding"
+            }
+
+        ],
+        "entity": [
+            {
+                "@id": "var:item"
+            }
+        ],
+        "prop": [
+            [
+                {
+                    "@id": "var:gprops0"
+                },
+                {
+                    "@id": "prov:role"
+                }
+            ]
+        ],
+        "pvalue": [
+            [
+                {
+                    "@id": "var:gvalues0"
+                },
+                {
+                    "@id": "provext:asMember"
+                }
+            ]
+        ],
+        "time": [
+            [
+                {
+                    "@id": "var:gtime"
+                }
+            ]
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
+    }
+}

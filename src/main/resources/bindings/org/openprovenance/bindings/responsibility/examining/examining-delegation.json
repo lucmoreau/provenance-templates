@@ -1,0 +1,19 @@
+{
+    "var": {
+        "agent1":       [  {"@id": "var:instrument"} ],
+        "agent0":       [  {"@id": "var:agent"}      ],
+        "activity":     [  {"@id": "var:examining"}  ],
+        "del":          [  {"@id": "var:del"}        ],
+        "delprops":     [[ {"@id": "var:delprops"}  ]],
+        "delvalues":    [[ {"@id": "var:delvalues"} ]]
+    },
+    "vargen":  {
+        "b": [{"@id": "vargen:b"}]
+    },
+    "context":  {
+        "var" :    "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov":    "${prov_ns}",
+        "provext": "${provext_ns}"
+    }
+}

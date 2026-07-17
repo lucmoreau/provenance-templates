@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 48 48">
+<defs>
+<symbol id="icon-org.openprovenance.templates.transport.Weighing" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+  <!-- Central post -->
+  <line x1="24" y1="14" x2="24" y2="40" stroke="#0369A1" stroke-width="2"/>
+  <!-- Base of post -->
+  <line x1="18" y1="40" x2="30" y2="40" stroke="#0369A1" stroke-width="2"/>
+  <!-- Horizontal beam -->
+  <line x1="10" y1="20" x2="38" y2="20" stroke="#0369A1" stroke-width="2"/>
+  <!-- Left chain -->
+  <line x1="10" y1="20" x2="10" y2="28" stroke="#0369A1" stroke-width="1.5"/>
+  <!-- Right chain -->
+  <line x1="38" y1="20" x2="38" y2="28" stroke="#0369A1" stroke-width="1.5"/>
+  <!-- Left pan (semi-circle arc) -->
+  <path d="M6,28 Q10,36 14,28" fill="#EFF6FF" stroke="#0369A1" stroke-width="1.5"/>
+  <!-- Right pan (semi-circle arc) -->
+  <path d="M34,28 Q38,36 42,28" fill="#EFF6FF" stroke="#0369A1" stroke-width="1.5"/>
+  <!-- Triangle pointer at top of post -->
+  <polygon points="22,14 26,14 24,10" fill="#0369A1" stroke="none"/>
+  <!-- Pivot dot -->
+  <circle cx="24" cy="20" r="2" fill="#0369A1" stroke="none"/>
+</symbol>
+</defs>
+<use href="#icon-org.openprovenance.templates.transport.Weighing" xlink:href="#icon-org.openprovenance.templates.transport.Weighing" width="50" height="50"/>
+</svg>

@@ -1,0 +1,2 @@
+${templates.dir}/org/openprovenance/templates/primitive/simple-derivation.jsonld
+${project.build.directory}/derivation-e0-e2.jsonld

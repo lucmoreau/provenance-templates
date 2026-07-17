@@ -1,0 +1,16 @@
+{
+    "var": {
+        "pvalue": [[ {"@id": "var:evalues"}],[  ]],
+        "prop":   [[ {"@id": "var:eprops"}], [  ]],
+        "entity": [  {"@id": "var:e"},        {"@id": "var:p"}         ]
+    },
+    "vargen":  {
+        "b": [{"@id": "vargen:b"}]
+    },
+    "context": {
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
+    }
+}

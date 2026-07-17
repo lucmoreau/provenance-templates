@@ -1,0 +1,20 @@
+{
+    "var": {
+        "entity":   [  {"@id": "var:e1"}],
+        "agent":    [  {"@id": "var:ag1"}],
+        "prop":     [[ {"@id": "prov:type"},      {"@id": "var:attrprops"},  { "@id": "provext:activity" }, { "@id": "provext:ederivation" },  { "@id": "provext:agderivation" } ]],
+        "pvalue":   [[ {"@id": "resp:Assigning"}, {"@id": "var:attrvalues"}, { "@id": "var:assigning" },    { "@id": "var:der1" },             { "@id": "var:der2" }             ]],
+        "id":       [  {"@id": "var:attr"}]
+    },
+    "vargen":  {
+        "b": [{"@id": "vargen:b"}]
+    },
+    "context": {
+        "var" :    "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov":    "${prov_ns}",
+        "provext": "${provext_ns}",
+        "resp":    "${resp_ns}"
+    }
+}
+

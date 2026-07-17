@@ -1,0 +1,57 @@
+{
+    "template_path": [
+        "target/generated-templates"
+    ],
+    "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/physical/transporting"],
+    "output_dir": "generated-templates",
+    "variableMaps": ["./common-ns.json"],
+
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle1-ugd pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
+            "output": "org/openprovenance/templates/physical/transporting/transporting-ugd",
+            "bindings": "transporting-ugd.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/physical/transporting/prov/prov-transporting-ugd.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle3-aga (a) pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle3-AGA",
+            "output": "org/openprovenance/templates/physical/transporting/transporting-aga-agent",
+            "bindings": "transporting-aga-agent.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/physical/transporting/prov/prov-transporting-aga-agent.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle2-sds pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle2-Entity-SDS",
+            "output": "org/openprovenance/templates/physical/transporting/transporting-sds",
+            "bindings": "transporting-sds.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/physical/transporting/prov/prov-transporting-sds.prov-csv"
+        },
+
+        {
+            "type": "merge",
+            "description": "Merging all temporary transporting outputs",
+            "addOutputDirToInputPath": true,
+            "inputs": [
+                "org/openprovenance/templates/physical/transporting/transporting-ugd",
+                "org/openprovenance/templates/physical/transporting/transporting-aga-agent",
+                "org/openprovenance/templates/physical/transporting/transporting-sds"
+            ],
+            "output": "org/openprovenance/templates/physical/transporting/transporting",
+            "outputFullyQualifiedName": "org.openprovenance.templates.transport.Transporting",
+            "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/physical/transporting/prov/prov-transporting.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/physical/variables.json"
+        }
+    ]
+}

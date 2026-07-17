@@ -1,0 +1,73 @@
+{
+    "template_path": ["templates"],
+    "bindings_path": ["bindings/org/openprovenance/bindings/algebra/triangle1-agent-ugd"],
+    "output_dir": "generated-templates",
+    "variableMaps": ["./common-ns.json"],
+
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating an entity pattern",
+            "template": "org.openprovenance.templates.primitive.Agent0",
+            "output": "org/openprovenance/templates/triangles/triangle1-agent-ugd/agents",
+            "bindings": "agent-ag0-ag1.json",
+            "formats": ["provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle1-ugd/prov/prov-entities.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating an activity pattern",
+            "template": "org.openprovenance.templates.primitive.Activity0",
+            "output": "org/openprovenance/templates/triangles/triangle1-agent-ugd/activity",
+            "bindings": "activity.json",
+            "formats": ["provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle1-agent-ugd/prov/prov-activity.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a derivation pattern",
+            "template": "org.openprovenance.templates.primitive.Derivation0",
+            "output": "org/openprovenance/templates/triangles/triangle1-agent-ugd/derivation",
+            "bindings": "derivation.json",
+            "formats": ["provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle1-agent-ugd/prov/prov-derivation.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a usage pattern",
+            "template": "org.openprovenance.templates.primitive.Usage0",
+            "output": "org/openprovenance/templates/triangles/triangle1-agent-ugd/usage",
+            "bindings": "usage.json",
+            "formats": ["provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle1-agent-ugd/prov/prov-usage.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a generation pattern",
+            "template": "org.openprovenance.templates.primitive.Generation0",
+            "output": "org/openprovenance/templates/triangles/triangle1-agent-ugd/generation",
+            "bindings": "generation.json",
+            "formats": ["provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle1-agent-ugd/prov/prov-generation.prov-csv"
+        },
+
+        {
+            "type": "merge",
+            "description": "Merging the above templates into a single template",
+            "addOutputDirToInputPath": true,
+            "inputs": [
+                "org/openprovenance/templates/triangles/triangle1-agent-ugd/agents",
+                "org/openprovenance/templates/triangles/triangle1-agent-ugd/activity",
+                "org/openprovenance/templates/triangles/triangle1-agent-ugd/derivation",
+                "org/openprovenance/templates/triangles/triangle1-agent-ugd/usage",
+                "org/openprovenance/templates/triangles/triangle1-agent-ugd/generation"],
+            "output": "org/openprovenance/templates/triangles/triangle1-agent-ugd/triangle1-agent-ugd",
+            "outputFullyQualifiedName": "org.openprovenance.templates.triangles.Triangle1-Agent-UGD",
+            "formats": ["provn", "png", "svg", "jsonld", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle1-agent-ugd/prov/prov-triangle1-agent-ugd.prov-csv",
+            "variableCheck": "variable-check/triangles/variables-agent.json"
+        }
+
+    ]
+}

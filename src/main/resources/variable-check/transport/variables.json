@@ -1,0 +1,43 @@
+{
+    "entity": "(e|entity|item|container|schedule)\\d*",
+    "agent": "(ag|agent|instrument|scale|unpacker|packer|transporter|giver|receiver)\\d*",
+    "activity": "((a|activity)\\d*)|(.*ing)$|(.*ingover)$",
+
+    "entity.wasGeneratedBy": "(ag|agent)\\d*",
+    "entity.specializationOf": "(ag|agent)\\d*",
+
+    "plan": "(e|entity|p|plan|schedule)\\d*",
+    "collection": "(coll|container)\\d*",
+
+    "bundle": "(b|bundle)\\d*",
+
+    "used": "(u|usd)\\d*",
+    "wasAttributedTo": "(attr)\\d*",
+    "wasAssociatedWith": "(asc)\\d*",
+    "wasGeneratedBy": "(g|gen)\\d*",
+    "wasDerivedFrom": "(der)\\d*",
+    "actedOnBehalfOf": "(aobo|del)\\d*",
+    "hadMember": "(mem)\\d*",
+    "specializationOf": "(spec)\\d*",
+
+    "time": "(time)\\d*",
+
+    "attributes": {
+        "entity": "(eprop|iprops)\\d*",
+        "activity": "(aprops)\\d*",
+        "agent": "(agprop)\\d*",
+        "wasGeneratedBy": "(gprop)\\d*",
+        "specializationOf": "(sprop)\\d*",
+        "used": "(uprops)\\d*"
+    },
+    "values": {
+        "entity": "(evalue|ivalues)\\d*",
+        "activity": "(avalues)\\d*",
+        "agent": "(agvalue)\\d*",
+        "wasGeneratedBy": "(gvalue)\\d*",
+        "specializationOf": "(svalue)\\d*",
+        "used": "(uvalues)\\d*"
+    },
+    ".name": "transport-variables"
+
+}

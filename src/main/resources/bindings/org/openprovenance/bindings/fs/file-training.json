@@ -1,0 +1,50 @@
+{
+    "var" : {
+        "agent" :                   [  {"@id" : "var:engineer"}],
+        "input" :                   [  {"@id" : "var:training_dataset"}],
+        "output" :                  [  {"@id" : "var:pipeline"}],
+        "transforming" :            [  {"@id" : "var:training"}],
+        "otype" :                   [[ {"@id" : "fs:Pipeline"}]],
+        "atype" :                   [[ {"@id" : "fs:FittingData"}]],
+        "start" :                   [  {"@id" : "var:startTime"}],
+        "end" :                     [  {"@id" : "var:endTime"}],
+        "oprops":                   [[ {"@id": "fs:createdAt"}, {"@id": "fs:filename"}, {"@id": "fs:path"},  {"@id" : "var:oprops"}  ]],
+        "ovalues":                  [[ {"@id": "var:time"},     {"@id": "var:filename"},{"@id": "var:path"}, {"@id" : "var:ovalues"} ]],
+        "plan":                     [  {"@id" : "var:method"} ],
+
+        "aprops":                   [{"@id" : "var:aprops"}],
+        "avalues":                  [{"@id" : "var:avalues"}],
+
+        "usd":                      null,
+        "der":                      null,
+        "gen":                      null,
+        "attr":                     null,
+        "asc":                      null,
+        "dprops":                   null,
+        "dvalues":                  null,
+        "gprops" :                  null,
+        "gvalues":                  null,
+        "ascprops":                 null,
+        "ascvalues":                null,
+        "uprops":                   null,
+        "uvalues":                  null,
+        "attrprops":                null,
+        "attrvalues":               null
+
+    },
+    "vargen" : {
+        "b" : [ {
+            "@id" : "vargen:b"
+        } ]
+    },
+    "linked": {"prop_values":  "props"},
+    "context" : {
+        "fs":     "${fs_ns}",
+        "prov":   "${prov_ns}",
+        "uuid" :  "${uuid_ns}",
+        "var":    "${var_ns}",
+        "vargen": "${vargen_ns}",
+        "xsd":    "${xsd_ns}"
+    },
+    "template" : null
+}

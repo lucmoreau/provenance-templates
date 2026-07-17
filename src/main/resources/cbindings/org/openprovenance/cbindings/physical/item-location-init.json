@@ -1,0 +1,84 @@
+{
+    "var": {
+        "entity": [
+            {
+                "@id": "item:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The item in general",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "item"
+            }
+        ],
+        "entity0": [
+            {
+                "@id": "item:*",
+                "@type": "xsd:int",
+                "@examplar": 12,
+                "@documentation": "The item first instantiation",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "item"
+            }
+        ],
+
+
+        "activity": [
+            {
+                "@id": "act:*",
+                "@type": "xsd:int",
+                "@examplar": 14,
+                "@documentation": "The activity of creating the item",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "activity"
+            }
+        ],
+        "time": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:dateTime",
+                    "@documentation": "Time when the item was created",
+                    "@input": "optional",
+                    "@sql.type":  "timestamptz"
+                }
+            ]
+        ],
+        "type": [
+
+                {
+                    "@id": "trs:*",
+                    "@type": "xsd:string",
+                    "@documentation": "Type of item",
+                    "@input": "compulsory",
+                    "@sql.type": "nonNullableTEXT"
+                }
+
+        ],
+        "location": [
+            [
+                {
+                    "@value": "loc:*",
+                    "@type": "xsd:string",
+                    "@documentation": "Item Location",
+                    "@input": "optional",
+                    "@sql.type": "nullableTEXT"
+                }
+            ]
+        ],
+        "avalue": null
+    },
+    "context": {
+        "people":  "${PROV_API}/live/agent/",
+        "act": "${PROV_API}/live/activity/",
+        "doc": "${PROV_API}/live/doc/",
+        "agent": "${PROV_API}/live/agent/",
+        "loc": "${PROV_API}/live/location/",
+        "item": "${PROV_API}/live/item/",
+        "trs": "https://openprovenance.org/transport/ns/#"
+    },
+    "template": "TODO template",
+    "@documentation": "TODO doc."
+}

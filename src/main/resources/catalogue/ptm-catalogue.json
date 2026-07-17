@@ -1,0 +1,55 @@
+{
+    "group": "org.openprovenance.templates.ptm",
+    "name": "ptm_template_library",
+    "destination": "target",
+    "description": "PROV templates for prov template management",
+    "version": "0.1.0",
+    "root_package": "org.openprovenance.templates.catalogue.ptm",
+    "script": "ptm_run",
+    "script_dir": "target/bin",
+    "python_dir": "target/generated-python",
+    "javascript_dir": "target/generated-js",
+    "rust_dir": "target/generated-rust/src",
+    "integrator": true,
+    "jsweet": true,
+    "jsonschema": "schema-ptm.json",
+    "documentation": "doc-ptm.html",
+    "sqlFile": "prov-template-library-ptm.sql",
+    "templates" : [
+
+
+        {
+            "@type": "simple",
+            "name": "ptm_creating",
+            "fullyQualifiedName": "org.openprovenance.templates.ptm.CreatingTemplate",
+            "template": "org/openprovenance/templates/ptm/creating-template/creating-template",
+            "package": "org.openprovenance.templates.ptm",
+            "cbindings": "org/openprovenance/cbindings/ptm/ptm-creating.json"
+        }
+
+
+    ],
+    "sql.tables":  {
+        "activity": {
+            "id": "SERIAL",
+            "created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+        },
+        "file": {
+            "id": "SERIAL",
+            "created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+        },
+        "ctxt": {
+            "id": "SERIAL",
+            "created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+        },
+        "dc": {
+            "id": "SERIAL",
+            "created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+        },
+        "assoc": {
+            "id": "SERIAL",
+            "created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+        }
+
+    }
+}

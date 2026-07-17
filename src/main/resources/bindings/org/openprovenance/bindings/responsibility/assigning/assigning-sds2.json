@@ -1,0 +1,27 @@
+{
+    "var": {
+        "ag":       [{"@id": "var:ag"}],
+        "ag0":      [{"@id": "var:ag0"}],
+        "ag1":      [{"@id": "var:ag1"}],
+        "der":      [{"@id": "var:der2"}],
+        "spec0":    [{"@id": "var:spec2"}],
+        "spec1":    [{"@id": "var:spec3"}],
+
+
+        "dprops":   null,
+        "dvalues":  null,
+        "sprops1":  null,
+        "svalues1": null,
+        "agprops1":  null,
+        "agvalues1": null
+    },
+    "vargen":  {
+        "b": [{"@id": "vargen:b"}]
+    },
+    "context": {
+        "var" :    "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov":    "${prov_ns}",
+        "provext": "${provext_ns}"
+    }
+}

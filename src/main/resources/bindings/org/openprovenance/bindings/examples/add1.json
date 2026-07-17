@@ -1,0 +1,62 @@
+
+{
+    "var": {
+        "e0": [
+            {
+                "@id": "ex:counter/1"
+            }
+        ],
+        "e1": [
+            {
+                "@id": "ex:counter/2"
+            }
+        ],
+        "a": [
+            {
+                "@id": "ex:activity123"
+            }
+        ],
+        "entityType0": [[
+            {
+                "@id": "xsd:int"
+            }
+        ]],
+        "eprop0": [[
+            {
+                "@id": "prov:value"
+            }
+        ]],
+        "evalue0": [[
+            {
+                "@type": "xsd:int",
+                "@value": "134"
+            }
+        ]],
+        "entityType1": [[
+            {
+                "@id": "xsd:int"
+            }
+        ]],
+        "eprop1": [[
+            {
+                "@id": "prov:value"
+            }
+        ]],
+        "evalue1": [[
+            {
+                "@type": "xsd:int",
+                "@value": "135"
+            }
+        ]],
+        "activityType": [[
+            {
+                "@id": "ex:Incrementing"
+            }
+        ]]
+    },
+    "context": {
+        "ex": "http://example.org/#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "prov": "http://www.w3.org/ns/prov#"
+    }
+}

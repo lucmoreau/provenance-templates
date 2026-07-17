@@ -1,0 +1,65 @@
+{
+    "var": {
+        "specificEntity": [
+            {
+                "@id": "var:ag1"
+            }
+        ],
+        "generalEntity": [
+            {
+                "@id": "var:ag"
+            }
+        ],
+        "pvalue": [
+            [
+                {
+                    "@id": "var:svalues1"
+                },
+                {
+                    "@id": "var:der"
+                },
+                {
+                    "@id": "var:ag0"
+                },
+                {
+                    "@id": "var:spec0"
+                }
+            ]
+        ],
+        "prop": [
+            [
+                {
+                    "@id": "var:sprops1"
+                },
+                {
+                    "@id": "provext:derivation"
+                },
+                {
+                    "@id": "provext:entity"
+                },
+                {
+                    "@id": "provext:specialization"
+                }
+            ]
+        ],
+
+        "id": [
+            {
+                "@id": "var:spec1"
+            }
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
+    }
+}

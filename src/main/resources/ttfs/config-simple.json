@@ -1,0 +1,34 @@
+{
+    "template_path": ["src/main/resources/templates", "target/generated-templates"],
+    "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/simple"],
+    "output_dir": "generated-templates",
+
+    "variableMaps": ["./common-ns.json"],
+
+    "tasks": [
+
+        {
+            "type": "instantiate",
+            "template": "org.openprovenance.templates.simple.Transforming1",
+            "output": "org/openprovenance/templates/simple/joining2",
+            "bindings": "simple-joining2.json",
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/simple/prov/prov-joining2.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/simple/variables.json"
+        },
+        {
+            "type": "instantiate",
+            "template": "org/openprovenance/templates/simple/joining2",
+            "output": "org/openprovenance/templates/simple/binaryop",
+            "bindings": "simple-binaryop.json",
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/simple/prov/prov-binaryop.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/simple/variables.json"
+
+        }
+    ]
+
+
+}
+
+

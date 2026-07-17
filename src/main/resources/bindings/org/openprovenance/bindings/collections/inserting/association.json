@@ -1,0 +1,21 @@
+{
+    "var": {
+
+        "activity": [  {"@id": "var:inserting"}   ],
+        "agent":    [  {"@id": "var:agent"}       ],
+        "plan":     null,
+        "prop":     null,
+        "pvalue":   null,
+        "asc":      [  {"@id": "var:asc"}        ]
+
+    },
+    "vargen":  {
+        "b": [{"@id": "vargen:b"}]
+    },
+    "context": {
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "template_path": [
+        "src/main/resources/templates",
+        "target/generated-templates/"
+    ],
+    "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/physical/weighing"],
+    "output_dir": "generated-templates",
+    "variableMaps": ["./common-ns.json"],
+
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle1-ugd pattern",
+            "template": "org.openprovenance.templates.responsibility.Examining",
+            "bindings": "weighing.json",
+            "output": "org/openprovenance/templates/physical/weighing/weighing",
+            "outputFullyQualifiedName": "org.openprovenance.templates.transport.Weighing",
+            "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/physical/weighing/prov/prov-weighing.prov-csv"
+        }
+    ]
+}

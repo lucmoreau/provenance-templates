@@ -1,0 +1,51 @@
+{
+    "var": {
+
+        "entity": [
+            {
+                "@id": "var:item"
+            },
+            {
+                "@id": "var:collection"
+            }
+
+        ],
+        "prop": [
+            [
+                {
+                    "@id": "var:iprops1"
+                }
+            ],
+            [
+                {
+                    "@id": "var:cprops2"
+                }
+            ]
+        ],
+        "pvalue": [
+            [
+                {
+                    "@id": "var:ivalues1"
+                }
+            ],
+            [
+                {
+                    "@id": "var:ivalues2"
+                }
+            ]
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
+    }
+}

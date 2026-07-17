@@ -1,0 +1,33 @@
+{
+    "var": {
+        "e":         [  {"@id": "var:item1"}        ],
+        "ag":        [  {"@id": "var:transporter"}  ],
+        "activity":  [  {"@id": "var:transporting"} ],
+        "p":         [  {"@id": "var:schedule"}     ],
+        "asc":       [  {"@id": "var:asc1"}         ],
+
+        "aprops":    null,
+        "avalues":   null,
+        "gprops":    null,
+        "gvalues":   null,
+        "gen":       null,
+        "ascprops":  null,
+        "ascvalues": null,
+        "eprops":    null,
+        "evalues":   null,
+        "gtime":     null,
+        "attrprops": null,
+        "attrvalues":null,
+        "attr":      null
+    },
+    "vargen":  {
+        "b": [{"@id": "vargen:b"}]
+    },
+    "context":  {
+        "var" :    "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov":    "${prov_ns}",
+        "provext": "${provext_ns}",
+        "phys":    "${phys_ns}"
+    }
+}

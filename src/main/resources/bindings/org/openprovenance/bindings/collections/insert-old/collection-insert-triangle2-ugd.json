@@ -1,0 +1,131 @@
+{
+    "var": {
+        "id": [
+            {
+                "@id": "var:wdf2"
+            }
+        ],
+        "e0": [
+            {
+                "@id": "var:coll0"
+            }
+        ],
+        "e1": [
+            {
+                "@id": "var:coll1"
+            }
+        ],
+        "activity": [
+            {
+                "@id": "var:insert"
+            }
+
+        ],
+        "dprop": [
+            [
+                {
+                    "@id": "var:type"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "dvalue": [
+            [
+                {
+                    "@id": "provext:Membership"
+                },
+                {
+                    "@id": "provext:InsertingIntoCollection"
+                }
+            ]
+        ],
+        "uprop": [
+            [
+                {
+                    "@id": "var:uprop2"
+                },
+                {
+                    "@id": "prov:role"
+                }
+            ]
+        ],
+        "uvalue": [
+            [
+                {
+                    "@id": "var:uvalue2"
+
+                },
+                {
+                    "@id": "provext:asCollection"
+                }
+            ]
+        ],
+        "prop2" : [
+            [
+                {
+                    "@id": "var:prop1"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "evalue2" : [
+            [
+                {
+                    "@id": "var:value1"
+                },
+                {
+                    "@id": "prov:Collection"
+                }
+            ]
+        ],
+        "prop1" : [
+            [
+                {
+                    "@id": "var:prop0"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "evalue1" : [
+            [
+                {
+                    "@id": "var:value0"
+                },
+                {
+                    "@id": "prov:Collection"
+                }
+            ]
+        ],
+        "u": [
+            {
+                "@id": "var:usd2"
+            }
+        ],
+        "g": [
+            {
+                "@id": "var:gen"
+            }
+        ]
+
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "ex": "http://example.org/#",
+        "var" : "http://openprovenance.org/var#",
+        "vargen" : "http://openprovenance.org/vargen#",
+        "provext": "http://openprovenance.org/prov/extension#",
+        "prov": "http://www.w3.org/ns/prov#"
+    }
+}

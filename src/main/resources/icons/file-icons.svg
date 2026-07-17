@@ -1,0 +1,272 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="320">
+<!--
+  File / data processing template icons
+  ========================================
+  One <symbol> per semantic template type.
+  All symbols use viewBox="0 0 48 48".
+
+  Colour palette
+  ──────────────
+  File base  : indigo  — stroke #4F46E5, fill #EEF2FF / #C7D2FE / #A5B4FC (content lines)
+  Badge circle at (40,9) r=6 — same corner as template-icons.svg
+  Badge colours vary by action type (see individual symbols)
+-->
+
+<defs>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     FILE BASE SHAPE (reused across all eight symbols)
+     Polygon with dog-ear at top-right (x=32,y=4 → x=38,y=10)
+     Three faint content lines inside.
+     ═══════════════════════════════════════════════════════════════════ -->
+
+<!-- 1. icon-file-init
+     Meaning: creating a new file.
+     File base (indigo) + green "+" badge at (40,9). -->
+<symbol id="icon-org.openprovenance.templates.fs.FileInit" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+  <!-- File body -->
+  <polygon points="6,4 32,4 38,10 38,44 6,44"
+           fill="#EEF2FF" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Dog-ear fold -->
+  <polyline points="32,4 32,10 38,10"
+            fill="none" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Content lines -->
+  <line x1="10" y1="18" x2="34" y2="18" stroke="#A5B4FC" stroke-width="1.5"/>
+  <line x1="10" y1="24" x2="34" y2="24" stroke="#A5B4FC" stroke-width="1.5"/>
+  <line x1="10" y1="30" x2="28" y2="30" stroke="#A5B4FC" stroke-width="1.5"/>
+  <!-- Badge background -->
+  <circle cx="40" cy="9" r="6" fill="white" stroke="#15803D" stroke-width="1.5"/>
+  <!-- + (creation) -->
+  <line x1="37" y1="9" x2="43" y2="9"
+        stroke="#15803D" stroke-width="2" stroke-linecap="round"/>
+  <line x1="40" y1="6" x2="40" y2="12"
+        stroke="#15803D" stroke-width="2" stroke-linecap="round"/>
+</symbol>
+
+<!-- 2. icon-file-transforming
+     Meaning: transforming/processing a file (format conversion, enrichment).
+     File base + amber ↺ circular-arrow badge. -->
+<symbol id="icon-org.openprovenance.templates.fs.FileTransforming" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+  <!-- File body -->
+  <polygon points="6,4 32,4 38,10 38,44 6,44"
+           fill="#EEF2FF" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
+  <polyline points="32,4 32,10 38,10"
+            fill="none" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="10" y1="18" x2="34" y2="18" stroke="#A5B4FC" stroke-width="1.5"/>
+  <line x1="10" y1="24" x2="34" y2="24" stroke="#A5B4FC" stroke-width="1.5"/>
+  <line x1="10" y1="30" x2="28" y2="30" stroke="#A5B4FC" stroke-width="1.5"/>
+  <!-- Badge background -->
+  <circle cx="40" cy="9" r="6" fill="white" stroke="#92400E" stroke-width="1.5"/>
+  <!-- ↺ circular transform arrow (amber, same as goods-transforming) -->
+  <path d="M 40,3 A 6,6 0 1,1 34.2,11.5"
+        fill="none" stroke="#92400E" stroke-width="2" stroke-linecap="round"/>
+  <polyline points="31.5,9.5 34.2,11.5 36.5,9"
+            fill="none" stroke="#92400E" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<!-- 3. icon-file-filtering
+     Meaning: filtering / subsetting data.
+     File base + funnel badge inside white circle at (40,9). -->
+<symbol id="icon-org.openprovenance.templates.fs.FileFiltering" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+  <!-- File body -->
+  <polygon points="6,4 32,4 38,10 38,44 6,44"
+           fill="#EEF2FF" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
+  <polyline points="32,4 32,10 38,10"
+            fill="none" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="10" y1="18" x2="34" y2="18" stroke="#A5B4FC" stroke-width="1.5"/>
+  <line x1="10" y1="24" x2="34" y2="24" stroke="#A5B4FC" stroke-width="1.5"/>
+  <line x1="10" y1="30" x2="28" y2="30" stroke="#A5B4FC" stroke-width="1.5"/>
+  <!-- Badge background -->
+  <circle cx="40" cy="9" r="6" fill="white" stroke="#0D9488" stroke-width="1.5"/>
+  <!-- Funnel: trapezoid top -->
+  <polygon points="35,5 45,5 42,9 38,9"
+           fill="none" stroke="#0D9488" stroke-width="1.5"
+           stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Funnel: spout -->
+  <line x1="40" y1="9" x2="40" y2="14"
+        stroke="#0D9488" stroke-width="1.5" stroke-linecap="round"/>
+</symbol>
+
+<!-- 4. icon-file-training
+     Meaning: training a model on file data.
+     File base + tiny neural-network badge (3-node triangle). -->
+<symbol id="icon-org.openprovenance.templates.fs.FileTraining" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+  <!-- File body -->
+  <polygon points="6,4 32,4 38,10 38,44 6,44"
+           fill="#EEF2FF" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
+  <polyline points="32,4 32,10 38,10"
+            fill="none" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="10" y1="18" x2="34" y2="18" stroke="#A5B4FC" stroke-width="1.5"/>
+  <line x1="10" y1="24" x2="34" y2="24" stroke="#A5B4FC" stroke-width="1.5"/>
+  <line x1="10" y1="30" x2="28" y2="30" stroke="#A5B4FC" stroke-width="1.5"/>
+  <!-- Badge background -->
+  <circle cx="40" cy="9" r="6" fill="white" stroke="#7C3AED" stroke-width="1.5"/>
+  <!-- Neural net: 3 nodes forming a triangle -->
+  <circle cx="37" cy="7"  r="1.5" fill="#7C3AED" stroke="none"/>
+  <circle cx="43" cy="7"  r="1.5" fill="#7C3AED" stroke="none"/>
+  <circle cx="40" cy="13" r="1.5" fill="#7C3AED" stroke="none"/>
+  <!-- Connections between all three -->
+  <line x1="37" y1="7"  x2="43" y2="7"  stroke="#7C3AED" stroke-width="1" stroke-linecap="round"/>
+  <line x1="37" y1="7"  x2="40" y2="13" stroke="#7C3AED" stroke-width="1" stroke-linecap="round"/>
+  <line x1="43" y1="7"  x2="40" y2="13" stroke="#7C3AED" stroke-width="1" stroke-linecap="round"/>
+</symbol>
+
+<!-- 5. icon-file-validating
+     Meaning: validating file contents (automated check).
+     File base + checkmark badge. -->
+<symbol id="icon-org.openprovenance.templates.fs.FileValidating" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+  <!-- File body -->
+  <polygon points="6,4 32,4 38,10 38,44 6,44"
+           fill="#EEF2FF" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
+  <polyline points="32,4 32,10 38,10"
+            fill="none" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="10" y1="18" x2="34" y2="18" stroke="#A5B4FC" stroke-width="1.5"/>
+  <line x1="10" y1="24" x2="34" y2="24" stroke="#A5B4FC" stroke-width="1.5"/>
+  <line x1="10" y1="30" x2="28" y2="30" stroke="#A5B4FC" stroke-width="1.5"/>
+  <!-- Badge background -->
+  <circle cx="40" cy="9" r="6" fill="white" stroke="#15803D" stroke-width="1.5"/>
+  <!-- Checkmark / tick -->
+  <polyline points="36.5,9 39,11.5 43.5,6"
+            fill="none" stroke="#15803D" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<!-- 6. icon-file-approving
+     Meaning: human approval of a file.
+     File base + shield-with-checkmark badge. -->
+<symbol id="icon-org.openprovenance.templates.fs.FileApproving" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+  <!-- File body -->
+  <polygon points="6,4 32,4 38,10 38,44 6,44"
+           fill="#EEF2FF" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
+  <polyline points="32,4 32,10 38,10"
+            fill="none" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="10" y1="18" x2="34" y2="18" stroke="#A5B4FC" stroke-width="1.5"/>
+  <line x1="10" y1="24" x2="34" y2="24" stroke="#A5B4FC" stroke-width="1.5"/>
+  <line x1="10" y1="30" x2="28" y2="30" stroke="#A5B4FC" stroke-width="1.5"/>
+  <!-- Badge background (larger to accommodate shield) -->
+  <circle cx="40" cy="9" r="6" fill="white" stroke="#1E40AF" stroke-width="1.5"/>
+  <!-- Shield outline -->
+  <path d="M40,4 L44,6 L44,10 Q44,13 40,15 Q36,13 36,10 L36,6 Z"
+        fill="white" stroke="#1E40AF" stroke-width="1.5"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Tiny checkmark inside shield -->
+  <polyline points="37.5,9.5 39.5,11.5 43,7"
+            fill="none" stroke="#1E40AF" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<!-- 7. icon-file-splitting
+     Meaning: splitting one file into multiple.
+     One file on left → diverging arrows → two smaller files on right. No badge. -->
+<symbol id="icon-org.openprovenance.templates.fs.FileSplitting" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+  <!-- Source file (left, ~70% scale, shifted left) -->
+  <polygon points="1,8 17,8 22,13 22,42 1,42"
+           fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.8" stroke-linejoin="round"/>
+  <polyline points="17,8 17,13 22,13"
+            fill="none" stroke="#4F46E5" stroke-width="1.8" stroke-linejoin="round"/>
+  <line x1="4"  y1="19" x2="19" y2="19" stroke="#A5B4FC" stroke-width="1.2"/>
+  <line x1="4"  y1="24" x2="19" y2="24" stroke="#A5B4FC" stroke-width="1.2"/>
+  <line x1="4"  y1="29" x2="15" y2="29" stroke="#A5B4FC" stroke-width="1.2"/>
+  <!-- Diverging arrows -->
+  <!-- Upper arrow: left file → top-right file -->
+  <line x1="22" y1="20" x2="29" y2="16" stroke="#EA580C" stroke-width="1.8" stroke-linecap="round"/>
+  <polyline points="27,14 29,17 26,18"
+            fill="none" stroke="#EA580C" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Lower arrow: left file → bottom-right file -->
+  <line x1="22" y1="30" x2="29" y2="34" stroke="#EA580C" stroke-width="1.8" stroke-linecap="round"/>
+  <polyline points="26,32 29,35 27,37"
+            fill="none" stroke="#EA580C" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Output file 1 (top-right, ~55% scale) -->
+  <polygon points="29,7 40,7 44,11 44,27 29,27"
+           fill="#C7D2FE" stroke="#4F46E5" stroke-width="1.5" stroke-linejoin="round"/>
+  <polyline points="40,7 40,11 44,11"
+            fill="none" stroke="#4F46E5" stroke-width="1.5" stroke-linejoin="round"/>
+  <line x1="32" y1="15" x2="41" y2="15" stroke="#A5B4FC" stroke-width="1"/>
+  <line x1="32" y1="19" x2="41" y2="19" stroke="#A5B4FC" stroke-width="1"/>
+  <!-- Output file 2 (bottom-right, ~55% scale) -->
+  <polygon points="29,31 40,31 44,35 44,47 29,47"
+           fill="#C7D2FE" stroke="#4F46E5" stroke-width="1.5" stroke-linejoin="round"/>
+  <polyline points="40,31 40,35 44,35"
+            fill="none" stroke="#4F46E5" stroke-width="1.5" stroke-linejoin="round"/>
+  <line x1="32" y1="39" x2="41" y2="39" stroke="#A5B4FC" stroke-width="1"/>
+  <line x1="32" y1="43" x2="38" y2="43" stroke="#A5B4FC" stroke-width="1"/>
+</symbol>
+
+<!-- 8. icon-file-transforming-composite
+     Meaning: multiple input files → one transformed output file (many-to-one).
+     Two small input files (left) → convergence arrows → one larger output file (right).
+     No badge. -->
+<symbol id="icon-org.openprovenance.templates.fs.FileTransformingComposite" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+  <!-- Input file 1 (top-left, small) -->
+  <polygon points="1,4 13,4 17,8 17,22 1,22"
+           fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5" stroke-linejoin="round"/>
+  <polyline points="13,4 13,8 17,8"
+            fill="none" stroke="#4F46E5" stroke-width="1.5" stroke-linejoin="round"/>
+  <line x1="4"  y1="12" x2="14" y2="12" stroke="#A5B4FC" stroke-width="1"/>
+  <line x1="4"  y1="16" x2="14" y2="16" stroke="#A5B4FC" stroke-width="1"/>
+  <!-- Input file 2 (bottom-left, small) -->
+  <polygon points="1,28 13,28 17,32 17,46 1,46"
+           fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5" stroke-linejoin="round"/>
+  <polyline points="13,28 13,32 17,32"
+            fill="none" stroke="#4F46E5" stroke-width="1.5" stroke-linejoin="round"/>
+  <line x1="4"  y1="36" x2="14" y2="36" stroke="#A5B4FC" stroke-width="1"/>
+  <line x1="4"  y1="40" x2="11" y2="40" stroke="#A5B4FC" stroke-width="1"/>
+  <!-- Convergence arrows -->
+  <line x1="17" y1="13" x2="25" y2="22"
+        stroke="#374151" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="17" y1="37" x2="25" y2="28"
+        stroke="#374151" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="25" y1="25" x2="28" y2="25"
+        stroke="#374151" stroke-width="1.5" stroke-linecap="round"/>
+  <polyline points="24,22 27,25 24,28"
+            fill="none" stroke="#374151" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Output file (right, larger, deeper fill to signal transformed) -->
+  <polygon points="28,10 42,10 48,16 48,44 28,44"
+           fill="#C7D2FE" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
+  <polyline points="42,10 42,16 48,16"
+            fill="none" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="32" y1="22" x2="44" y2="22" stroke="#818CF8" stroke-width="1.5"/>
+  <line x1="32" y1="28" x2="44" y2="28" stroke="#818CF8" stroke-width="1.5"/>
+  <line x1="32" y1="34" x2="40" y2="34" stroke="#818CF8" stroke-width="1.5"/>
+</symbol>
+
+</defs>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PREVIEW SHEET — 2 rows × 4 columns
+     Cell width ~130px, cell height ~130px
+     ══════════════════════════════════════════════════════════════════ -->
+
+<rect width="560" height="320" fill="#F9FAFB"/>
+<text x="12" y="22" font-family="monospace" font-size="13" fill="#111827" font-weight="bold">
+  File / data template icons
+</text>
+
+<!-- Row 1: file-init, file-transforming, file-filtering, file-training -->
+<use href="#icon-org.openprovenance.templates.fs.FileInit"          x="10"  y="34" width="60" height="60"/>
+<use href="#icon-org.openprovenance.templates.fs.FileTransforming"  x="150" y="34" width="60" height="60"/>
+<use href="#icon-org.openprovenance.templates.fs.FileFiltering"     x="290" y="34" width="60" height="60"/>
+<use href="#icon-org.openprovenance.templates.fs.FileTraining"      x="430" y="34" width="60" height="60"/>
+
+<text x="40"  y="106" text-anchor="middle" font-family="monospace" font-size="9.5" fill="#374151">file-init</text>
+<text x="180" y="106" text-anchor="middle" font-family="monospace" font-size="9" fill="#374151">file-transforming</text>
+<text x="320" y="106" text-anchor="middle" font-family="monospace" font-size="9.5" fill="#374151">file-filtering</text>
+<text x="460" y="106" text-anchor="middle" font-family="monospace" font-size="9.5" fill="#374151">file-training</text>
+
+<!-- Row 2: file-validating, file-approving, file-splitting, file-transforming-composite -->
+<use href="#icon-org.openprovenance.templates.fs.FileValidating"              x="10"  y="164" width="60" height="60"/>
+<use href="#icon-org.openprovenance.templates.fs.FileApproving"               x="150" y="164" width="60" height="60"/>
+<use href="#icon-org.openprovenance.templates.fs.FileSplitting"               x="290" y="164" width="60" height="60"/>
+<use href="#icon-org.openprovenance.templates.fs.FileTransformingComposite"  x="430" y="164" width="60" height="60"/>
+
+<text x="40"  y="236" text-anchor="middle" font-family="monospace" font-size="9.5" fill="#374151">file-validating</text>
+<text x="180" y="236" text-anchor="middle" font-family="monospace" font-size="9.5" fill="#374151">file-approving</text>
+<text x="320" y="236" text-anchor="middle" font-family="monospace" font-size="9.5" fill="#374151">file-splitting</text>
+<text x="460" y="236" text-anchor="middle" font-family="monospace" font-size="9" fill="#374151">file-transforming</text>
+<text x="460" y="247" text-anchor="middle" font-family="monospace" font-size="9" fill="#374151">-composite</text>
+
+</svg>

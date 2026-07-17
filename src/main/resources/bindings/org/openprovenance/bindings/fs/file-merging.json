@@ -1,0 +1,59 @@
+{
+    "var" : {
+        "agent" :                    [  {"@id" : "var:engineer"}],
+        "output" :                   [  {"@id" : "var:outfile"}],
+        "input1" :                   [  {"@id" : "var:infile1"}],
+        "input2" :                   [  {"@id" : "var:infile2"}],
+        "transforming" :             [  {"@id" : "var:merging"}],
+        "otype" :                    [[ {"@id" : "fs:DataFile"}]],
+        "atype" :                    [[ {"@id" : "fs:MergingData"}]],
+        "start" :                    [  {"@id" : "var:startTime"}],
+        "end" :                      [  {"@id" : "var:endTime"}],
+        "oprops":                    [[ {"@id": "fs:filename"},  {"@id" : "fs:path"},  {"@id" : "var:oprops"}  ]],
+        "ovalues":                   [[ {"@id": "var:filename"}, {"@id" : "var:path"}, {"@id" : "var:ovalues"} ]],
+
+        "plan":                      [  {"@id" : "var:method"} ],
+
+        "aprops":                    [  {"@id" : "var:aprops"}],
+        "avalues":                   [  {"@id" : "var:avalues"}],
+
+
+        "gen":                       null,
+        "attr":                      null,
+        "asc":                       null,
+        "usd1":                      null,
+        "usd2":                      null,
+        "der1":                      null,
+        "der2":                      null,
+        "dprops1":                   null,
+        "dvalues1":                  null,
+        "dprops2":                   null,
+        "dvalues2":                  null,
+        "gprops" :                   null,
+        "gvalues":                   null,
+        "ascprops":                  null,
+        "ascvalues":                 null,
+        "uprops1":                   null,
+        "uvalues1":                  null,
+        "uprops2":                   null,
+        "uvalues2":                  null,
+        "attrprops":                 null,
+        "attrvalues":                null
+    },
+    "vargen" : {
+        "b" : [ {
+            "@id" : "vargen:b"
+        } ]
+    },
+    "linked": {"prop_values":  "props"},
+    "context" : {
+        "fs":     "${fs_ns}",
+        "prov":   "${prov_ns}",
+        "sk":     "${sk_ns}",
+        "uuid" :  "${uuid_ns}",
+        "var":    "${var_ns}",
+        "vargen": "${vargen_ns}",
+        "xsd":    "${xsd_ns}"
+    },
+    "template" : null
+}

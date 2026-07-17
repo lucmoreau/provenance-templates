@@ -1,0 +1,21 @@
+{
+    "var": {
+
+        "activity": [  {"@id": "var:activity"}   ],
+        "agent":    [  {"@id": "var:ag"}         ],
+        "plan":     [  {"@id": "var:p"}         ],
+        "prop":     [[ {"@id": "var:ascprops"}  ]],
+        "pvalue":   [[ {"@id": "var:ascvalues"} ]],
+        "asc":      [  {"@id": "var:asc"}        ]
+
+    },
+    "vargen":  {
+        "b": [{"@id": "vargen:b"}]
+    },
+    "context": {
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
+    }
+}

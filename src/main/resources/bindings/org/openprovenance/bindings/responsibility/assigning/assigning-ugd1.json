@@ -1,0 +1,33 @@
+{
+    "var": {
+        "e0":       [  {"@id": "var:e0"}          ],
+        "e1":       [  {"@id": "var:e1"}          ],
+        "activity": [  {"@id": "var:assigning"}   ],
+        "eprops1":  [[ {"@id": "var:eprops1"}    ]],
+        "evalues1": [[ {"@id": "var:evalues1"}   ]],
+        "aprops":   [[ {"@id": "var:aprops"},   {"@id": "prov:type"}       ]],
+        "avalues":  [[ {"@id": "var:avalues"},  {"@id": "resp:Assigning"}  ]],
+        "dprops":   [[ {"@id": "var:dprops1"},  {"@id": "prov:type"}       ]],
+        "dvalues":  [[ {"@id": "var:dvalues1"}, {"@id": "resp:Assigning"}  ]],
+        "uprops":   [[ {"@id": "var:uprops1"},  {"@id": "prov:role"}       ]],
+        "uvalues":  [[ {"@id": "var:uvalues1"}, {"@id": "provext:asItem"}  ]],
+        "usd":      [  {"@id": "var:usd1"}        ],
+        "gen":      [  {"@id": "var:gen1"}        ],
+        "der":      [  {"@id": "var:der1"}        ],
+        "gtime":    [[ {"@id": "var:time"}       ]],
+
+        "utime":    null,
+        "gprops":   null,
+        "gvalues":  null
+    },
+    "vargen":  {
+        "b": [{"@id": "vargen:b"}]
+    },
+    "context": {
+        "var" :    "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov":    "${prov_ns}",
+        "provext": "${provext_ns}",
+        "resp":    "${resp_ns}"
+    }
+}

@@ -1,0 +1,156 @@
+{
+    "var": {
+
+        "approved_pipeline": [
+            {
+                "@id": "file:*",
+                "@type": "xsd:int",
+                "@examplar": 130,
+                "@documentation": "The approved pipeline",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "file"
+            }
+        ],
+        "filename": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:string",
+                    "@examplar": "file/130-approved.pipeline",
+                    "@documentation": "The filename of the approved pipeline",
+                    "@input": "compulsory",
+                    "@output": "false",
+                    "@sql.type":  "nonNullableTEXT"
+                }
+            ]
+        ],
+        "pipeline": [
+                {
+                    "@id": "file:*",
+                    "@type": "xsd:int",
+                    "@examplar": 118,
+                    "@documentation": "The pipeline before approval",
+                    "@input": "compulsory",
+                    "@output": "false",
+                    "@sql.table": "file"
+                }
+        ],
+        "approval_record": [
+            {
+                "@id": "approval:*",
+                "@type": "xsd:int",
+                "@examplar": 9885,
+                "@documentation": "The approval record",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "approval_record"
+            }
+        ],
+        "score": [
+            {
+                "@id": "score:*",
+                "@type": "xsd:int",
+                "@examplar": 356,
+                "@documentation": "The score obtained through validation",
+                "@input": "compulsory",
+                "@output": "false",
+                "@sql.table": "score"
+            }
+        ],
+        "approval_method": [
+            {
+                "@id": "method:*",
+                "@type": "xsd:int",
+                "@examplar": 222,
+                "@documentation": "The method to transform the file",
+                "@input": "optional",
+                "@output": "false",
+                "@sql.table": "method"
+            }
+        ],
+        "manager": [
+            {
+                "@id": "ag:*",
+                "@type": "xsd:int",
+                "@documentation": "The manager approving the ML pipeline",
+                "@input": "optional",
+                "@sql.table": "agent"
+            }
+        ],
+        "approving": [
+            {
+                "@id": "act:*",
+                "@type": "xsd:int",
+                "@documentation": "The activity of approving the pipeline",
+                "@output": "true",
+                "@sql.table": "activity"
+            }
+        ],
+        "signature": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:string",
+                    "@documentation": "The approval's signature",
+                    "@input": "optional",
+                    "@sql.type":  "nullableTEXT"
+                }
+            ]
+        ],
+        "path": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:string",
+                    "@documentation": "The actual path of the file",
+                    "@input": "optional",
+                    "@sql.type":  "nullableTEXT"
+                }
+            ]
+        ],
+        "time": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:dateTime",
+                    "@documentation": "Time when the filtered file is created",
+                    "@input": "optional",
+                    "@sql.type":  "timestamptz"
+                }
+            ]
+        ],
+        "start": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:dateTime",
+                    "@documentation": "Time when the transformation starts",
+                    "@input": "optional",
+                    "@sql.type":  "timestamptz"
+                }
+            ]
+        ],
+        "end": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:dateTime",
+                    "@documentation": "Time when the transformation ends",
+                    "@input": "optional",
+                    "@sql.type":  "timestamptz"
+                }
+            ]
+        ]
+    },
+    "context": {
+        "ag":  "${PROV_API}/live/agent/",
+        "act": "${PROV_API}/live/activity/",
+        "file": "${PROV_API}/live/file/",
+        "approval": "${PROV_API}/live/approval/",
+        "score": "${PROV_API}/live/score/",
+        "method": "${PROV_API}/live/method/"
+    },
+    "template": "TODO template",
+    "@documentation": "TODO doc."
+}

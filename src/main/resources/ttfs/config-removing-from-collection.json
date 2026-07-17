@@ -1,0 +1,71 @@
+{
+    "template_path": [
+        "src/main/resources/templates",
+        "target/generated-templates"],
+    "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/collections/removing"],
+    "output_dir": "generated-templates",
+    "variableMaps": ["./common-ns.json"],
+
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle1-ugd pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
+            "output": "org/openprovenance/templates/collections/removing/collection-remove-triangle1-ugd",
+            "bindings": "collection-remove-triangle1-ugd.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/collections/removing/prov/prov-collection-remove-triangle1-ugd.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle1-ugd pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
+            "output": "org/openprovenance/templates/collections/removing/collection-remove-triangle2-ugd",
+            "bindings": "collection-remove-triangle2-ugd.json",
+            "formats": ["jsonld" ,"provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/collections/removing/prov/prov-collection-remove-triangle2-ugd.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle1-ugd pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
+            "output": "org/openprovenance/templates/collections/removing/collection-remove-triangle3-ugd",
+            "bindings": "collection-remove-triangle3-ugd.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/collections/removing/prov/prov-collection-remove-triangle3-ugd.prov-csv"
+        },
+
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating a membership pattern",
+            "template": "org.openprovenance.templates.primitive.Qualified-Membership0",
+            "output": "org/openprovenance/templates/collections/removing/membership",
+            "bindings": "membership.json",
+            "formats": ["jsonld", "provn","png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/collections/removing/prov/prov-membership.prov-csv"
+        },
+
+        {
+            "type": "merge",
+            "description": "Merging the above templates into a single template",
+            "addOutputDirToInputPath": true,
+            "inputs": [
+                "org/openprovenance/templates/collections/removing/collection-remove-triangle1-ugd",
+                "org/openprovenance/templates/collections/removing/collection-remove-triangle2-ugd",
+                "org/openprovenance/templates/collections/removing/collection-remove-triangle3-ugd",
+                "org/openprovenance/templates/collections/removing/membership"
+            ],
+            "output": "org/openprovenance/templates/collections/removing/collection-removing",
+            "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/collections/removing/prov/prov-collection-removing.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/collections/variables.json"
+
+        }
+
+
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "var": {
+        "entity":   [  {"@id": "var:e1"}       ],
+        "activity": [  {"@id": "var:activity"} ],
+        "prop":     [[ {"@id": "var:gprops"}  ]],
+        "pvalue":   [[ {"@id": "var:gvalues"} ]],
+        "id":       [  {"@id": "var:gen"}      ],
+        "time":     [[ {"@id": "var:gtime"}   ]]
+    },
+    "vargen":  {
+        "b": [{"@id": "vargen:b"}]
+    },
+    "context": {
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
+    }
+}

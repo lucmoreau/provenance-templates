@@ -1,0 +1,57 @@
+{
+    "var" : {
+        "start" :                   [{"@id" : "var:start"}],
+        "end" :                     [{"@id" : "var:end"}],
+        "agent" :                   [{"@id" : "var:agent"}],
+        "input" :                   [{"@id" : "var:input1"},{"@id" : "var:input2"}],
+        "output" :                  [{"@id" : "var:output"}],
+        "transforming" :            [{"@id" : "var:transforming"}],
+        "plan":                     [{"@id" : "var:plan"}],
+
+
+
+        "otype" :                   [[ {"@id" : "var:otype"}]],
+        "oprops" :                  [[ {"@id" : "var:oprops"}]],
+        "ovalues":                  [[ {"@id" : "var:ovalues"}]],
+        "atype" :                   [[ {"@id" : "var:atype"}]],
+        "aprops":                   [[ {"@id" : "var:aprops"}]],
+        "avalues":                  [[ {"@id" : "var:avalues"}]],
+        "uprops":                   [[ {"@id": "var:uprops1"}],       [{"@id" : "var:uprops2"}   ]],
+        "uvalues":                  [[ {"@id": "var:uvalues1"}],      [{"@id" : "var:uvalues2"}  ]],
+        "dprops":                   [[ {"@id": "var:dprops1"}],       [{"@id" : "var:dprops2"}   ]],
+        "dvalues":                  [[ {"@id": "var:dvalues1"}],      [{"@id" : "var:dvalues2"}  ]],
+        "gprops" :                  [[ {"@id" : "var:gprops"}  ]],
+        "gvalues":                  [[ {"@id" : "var:gvalues"} ]],
+        "attrprops":                [[ {"@id": "var:attrprops"}]],
+        "attrvalues":               [[ {"@id": "var:attrvalues"}]],
+        "ascprops":                 [[ {"@id": "var:ascprops"}]],
+        "ascvalues":                [[ {"@id": "var:ascvalues"}]],
+
+
+        "der":                      [{"@id" : "var:der1"},{"@id" : "var:der2"}],
+        "usd":                      [{"@id" : "var:usd1"},{"@id" : "var:usd2"}],
+        "gen":                      [{"@id" : "var:gen"}],
+        "attr":                     [{"@id" : "var:attr"}],
+        "asc":                      [{"@id" : "var:asc"}]
+
+    },
+    "vargen" : {
+        "b" : [ {
+            "@id" : "vargen:b"
+        } ]
+    },
+    "linked": {
+        "der":     "input",
+        "usd":     "input",
+        "uprops":  "usd",
+        "uvalues": "usd"
+    },
+    "context" : {
+        "prov":   "${prov_ns}",
+        "uuid" :  "${uuid_ns}",
+        "var":    "${var_ns}",
+        "vargen": "${vargen_ns}",
+        "xsd":    "${xsd_ns}"
+    },
+    "template" : null
+}

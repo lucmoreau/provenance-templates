@@ -1,0 +1,112 @@
+{
+    "var": {
+
+        "e0": [
+            {
+                "@id": "var:template0"
+            }
+        ],
+        "e1": [
+            {
+                "@id": "var:template1"
+            }
+        ],
+        "activity": [
+            {
+                "@id": "var:creating"
+            }
+        ],
+        "eprops1": [
+            [
+                {
+                    "@id": "var:tprops"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "evalues1": [
+            [
+                {
+                    "@id": "var:tvalues"
+                },
+                {
+                    "@id": "ptm:ProvenanceTemplate"
+                }
+            ]
+        ],
+        "aprops": [
+            [
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "avalues": [
+            [
+                {
+                    "@id": "ptm:CreatingTemplate"
+                }
+            ]
+        ],
+        "dprops": [
+            [
+                {
+                    "@id": "var:dprops"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "dvalues": [
+            [
+                {
+                    "@id": "var:dvalues"
+                },
+                {
+                    "@id": "prov:Revision"
+                }
+            ]
+        ],
+
+        "uprops": [
+            [
+                {
+                    "@id": "var:uprops1"
+                }
+            ]
+        ],
+        "uvalues": [
+            [
+                {
+                    "@id": "var:uvalues1"
+
+                }
+            ]
+        ],
+
+        "der": null,
+        "gen": null,
+        "gprops": null,
+        "gtime": null,
+        "gvalues": null,
+        "usd": null,
+        "utime": null
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "provext": "${provext_ns}",
+        "ptm": "${ptm_ns}",
+        "prov": "${prov_ns}"
+    }
+}

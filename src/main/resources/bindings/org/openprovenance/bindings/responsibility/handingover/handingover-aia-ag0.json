@@ -1,0 +1,33 @@
+{
+    "var": {
+        "e":           [  {"@id": "var:item0"}],
+        "ag":          [  {"@id": "var:giver"}],
+        "activity":    [  {"@id": "var:handingover"}],
+        "asc":         [  {"@id": "var:asc0"}],
+        "p":           null,
+        "ascprops":    [[ {"@id": "prov:role"}]],
+        "ascvalues":   [[ {"@id": "var:role0"}]],
+        "attr":        [  {"@id": "var:attr0"}],
+        "inv":         [  {"@id": "var:inv0"}],
+
+        "aprops":   null,
+        "avalues":  null,
+        "eprops":   null,
+        "evalues":  null,
+        "invvalues": null,
+        "attrprop": null,
+        "attrvalue": null,
+        "invtime": null,
+        "invprops": null
+
+    },
+    "vargen":  {
+        "b": [{"@id": "vargen:b"}]
+    },
+    "context":  {
+        "var" :    "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov":    "${prov_ns}",
+        "provext": "${provext_ns}"
+    }
+}

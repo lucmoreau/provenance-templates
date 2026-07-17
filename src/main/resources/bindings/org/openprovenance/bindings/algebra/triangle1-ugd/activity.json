@@ -1,0 +1,15 @@
+{
+    "var": {
+        "activity":  [  {"@id": "var:activity"} ],
+        "prop":      [[ {"@id": "var:aprops"}  ]],
+        "pvalue":    [[ {"@id": "var:avalues"} ]]
+    },
+    "vargen": {
+        "b": [{"@id": "vargen:b"}]
+    },
+    "context": {
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
+    }}

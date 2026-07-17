@@ -1,0 +1,16 @@
+{
+    "var": {
+        "mem":        [ {"@id": "var:mem0"}  ],
+        "collection": [ {"@id": "var:coll1"} ],
+        "entity":     [ {"@id": "var:item1"} ]
+    },
+    "vargen":  {
+        "b": [{"@id": "vargen:b"}]
+    },
+    "context": {
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
+    }
+}

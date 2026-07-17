@@ -1,0 +1,112 @@
+{
+    "var": {
+        "item1": [
+            {
+                "@id": "item:*",
+                "@type": "xsd:int",
+                "@examplar": 104,
+                "@documentation": "The item after weighing",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "item"
+            }
+        ],
+        "item0": [
+            {
+                "@id": "item:*",
+                "@type": "xsd:int",
+                "@examplar": 100,
+                "@documentation": "The item before weighing",
+                "@input": "compulsory",
+                "@output": "false",
+                "@sql.table": "item"
+            }
+        ],
+        "item": [
+            {
+                "@id": "item:*",
+                "@type": "xsd:int",
+                "@examplar": 10,
+                "@documentation": "The item generic entity",
+                "@input": "optional",
+                "@output": "false",
+                "@sql.table": "item"
+            }
+        ],
+        "agent": [
+            {
+                "@id": "people:*",
+                "@type": "xsd:int",
+                "@examplar": 12,
+                "@documentation": "The agent manipulating the scale",
+                "@input": "optional",
+                "@output": "false",
+                "@sql.table": "people"
+            }
+        ],
+        "scale": [
+            {
+                "@id": "instrument:*",
+                "@type": "xsd:int",
+                "@examplar": 12,
+                "@documentation": "The scale",
+                "@input": "optional",
+                "@output": "false",
+                "@sql.table": "people"
+            }
+        ],
+        "weighing": [
+            {
+                "@id": "act:*",
+                "@type": "xsd:int",
+                "@examplar": 1114,
+                "@documentation": "The activity of weighing",
+                "@input": "false",
+                "@output": "true",
+                "@sql.table": "activity"
+            }
+        ],
+        "weight": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:double",
+                    "@examplar": 1.23,
+                    "@documentation": "weight (unit specified separately, if unit absent, assume kg)",
+                    "@input": "compulsory",
+                    "@sql.type": "double precision"
+                }
+            ]],
+        "unit": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:string",
+                    "@examplar": "kg",
+                    "@documentation": "unit of weight",
+                    "@input": "optional"
+                }
+            ]],
+        "time": [
+            [
+                {
+                    "@value": "*",
+                    "@type": "xsd:dateTime",
+                    "@documentation": "Time when the transformed file is created",
+                    "@input": "optional",
+                    "@sql.type":  "timestamptz"
+                }
+            ]
+        ],
+        "avalue": null
+    },
+    "context": {
+        "people":  "${PROV_API}/live/agent/",
+        "act": "${PROV_API}/live/activity/",
+        "doc": "${PROV_API}/live/doc/",
+        "item": "${PROV_API}/live/item/",
+        "instrument": "${PROV_API}/live/agent/"
+    },
+    "template": "TODO template",
+    "@documentation": "TODO doc."
+}

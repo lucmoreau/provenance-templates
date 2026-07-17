@@ -1,0 +1,69 @@
+{
+    "template_path": [
+        "src/main/resources/templates",
+        "target/generated-templates"
+    ],
+    "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/physical/packing"],
+    "output_dir": "generated-templates",
+    "variableMaps": ["./common-ns.json"],
+
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating a collection-insert pattern",
+            "template": "org/openprovenance/templates/collections/inserting/collection-inserting",
+            "output": "org/openprovenance/templates/physical/packing/packing-insert-collection",
+            "bindings": "packing-insert-collection.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/physical/packing/prov/prov-packing-insert-collection.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle3-aga (a) pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle3-AGA",
+            "output": "org/openprovenance/templates/physical/packing/packing-aga-agent",
+            "bindings": "packing-aga-agent.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/physical/packing/prov/prov-packing-aga-agent.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle2-sds pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle2-Entity-SDS",
+            "output": "org/openprovenance/templates/physical/packing/packing-sds",
+            "bindings": "packing-sds.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/physical/packing/prov/prov-packing-sds.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle2-sds pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle2-Entity-SDS",
+            "output": "org/openprovenance/templates/physical/packing/packing-sds-item",
+            "bindings": "packing-sds-item.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/physical/packing/prov/prov-packing-sds-item.prov-csv"
+        },
+
+        {
+            "type": "merge",
+            "description": "Merging all temporary packing outputs",
+            "addOutputDirToInputPath": true,
+            "inputs": [
+                "org/openprovenance/templates/physical/packing/packing-insert-collection",
+                "org/openprovenance/templates/physical/packing/packing-aga-agent",
+                "org/openprovenance/templates/physical/packing/packing-sds",
+                "org/openprovenance/templates/physical/packing/packing-sds-item"
+            ],
+            "output": "org/openprovenance/templates/physical/packing/packing",
+            "outputFullyQualifiedName": "org.openprovenance.templates.transport.Packing",
+            "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/physical/packing/prov/prov-packing.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/physical/variables.json"
+
+        }
+    ]
+}

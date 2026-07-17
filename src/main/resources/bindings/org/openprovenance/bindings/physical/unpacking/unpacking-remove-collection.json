@@ -1,0 +1,53 @@
+{
+    "var": {
+        "coll1":         [  {"@id": "var:container1"} ],
+        "coll0":         [  {"@id": "var:container0"} ],
+        "item1":         [  {"@id": "var:item1"}      ],
+        "item0":         [  {"@id": "var:item0"}      ],
+        "removing":      [  {"@id": "var:removing"}   ],
+        "aprops":        [[ {"@id": "prov:type"}     ]],
+        "avalues":       [[ {"@id": "phys:RemovingItemFromContainer"}]],
+
+        "gen2":          [  {"@id": "var:gen2"} ],
+        "gen":           [  {"@id": "var:gen"}  ],
+        "der1":          [  {"@id": "var:der1"} ],
+        "der2":          [  {"@id": "var:der2"} ],
+        "der3":          [  {"@id": "var:der3"} ],
+        "usd1":          [  {"@id": "var:usd1"} ],
+        "usd2":          [  {"@id": "var:usd2"} ],
+
+        "mprops":       null,
+        "cprops1":     null,
+        "mem0":        null,
+        "gprops":      null,
+        "uvalues2":    null,
+        "uvalues1":    null,
+        "gvalues":     null,
+        "gprops2":     null,
+        "mvalues":     null,
+        "uprops1":     null,
+        "uprops2":     null,
+        "dvalues1":    null,
+        "dprops1":     null,
+        "iprops1":     null,
+        "gvalues2":    null,
+        "dvalues3":    null,
+        "dprops2":     null,
+        "cvalues1":    null,
+        "ivalues1":    null,
+        "dvalues2":    null,
+        "dprops3":     null
+
+    },
+    "vargen":  {
+        "b": [{"@id": "vargen:b"}]
+    },
+    "context": {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov": "${prov_ns}",
+        "provext": "${provext_ns}",
+        "resp": "${resp_ns}",
+        "phys": "${phys_ns}"
+    }
+}

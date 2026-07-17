@@ -1,0 +1,27 @@
+{
+    "var": {
+        "e":        [ {"@id": "var:container"}  ],
+        "e0":       [ {"@id": "var:container0"} ],
+        "e1":       [ {"@id": "var:container1"} ],
+        "der":      [ {"@id": "var:der2"} ],
+        "spec0":    [ {"@id": "var:spec0"} ],
+        "spec1":    [ {"@id": "var:spec1"} ],
+
+        "dprops":   null,
+        "dvalues":  null,
+        "sprops1":  null,
+        "svalues1": null,
+        "eprops1":  null,
+        "evalues1": null
+
+    },
+    "vargen":  {
+        "b": [{"@id": "vargen:b"}]
+    },
+    "context": {
+        "var" :     "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov":    "${prov_ns}",
+        "provext": "${provext_ns}"
+    }
+}

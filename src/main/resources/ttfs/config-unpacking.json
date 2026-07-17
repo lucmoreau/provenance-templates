@@ -1,0 +1,79 @@
+{
+    "template_path": [
+        "src/main/resources/templates",
+        "target/generated-templates"],
+    "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/physical/unpacking"],
+    "output_dir": "generated-templates",
+    "variableMaps": ["./common-ns.json"],
+
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating a collection-remove pattern",
+            "template": "org/openprovenance/templates/collections/removing/collection-removing",
+            "output": "org/openprovenance/templates/physical/unpacking/unpacking-remove-collection",
+            "bindings": "unpacking-remove-collection.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/physical/unpacking/prov/prov-unpacking-remove-collection.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle3-aga (a) pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle3-AGA",
+            "output": "org/openprovenance/templates/physical/unpacking/unpacking-aga-container-agent",
+            "bindings": "unpacking-aga-container-agent.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/physical/unpacking/prov/prov-unpacking-aga-container-agent.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle3-aga (b) pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle3-AGA",
+            "output": "org/openprovenance/templates/physical/unpacking/unpacking-aga-item-agent",
+            "bindings": "unpacking-aga-item-agent.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/physical/unpacking/prov/prov-unpacking-aga-item-agent.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle2-sds pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle2-Entity-SDS",
+            "output": "org/openprovenance/templates/physical/unpacking/unpacking-sds-container",
+            "bindings": "unpacking-sds-container.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/physical/unpacking/prov/prov-unpacking-sds-container.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle2-sds pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle2-Entity-SDS",
+
+            "output": "org/openprovenance/templates/physical/unpacking/unpacking-sds-item",
+            "bindings": "unpacking-sds-item.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/physical/unpacking/prov/prov-unpacking-sds-item.prov-csv"
+        },
+
+        {
+            "type": "merge",
+            "description": "Merging all temporary unpacking outputs",
+            "addOutputDirToInputPath": true,
+            "inputs": [
+                "org/openprovenance/templates/physical/unpacking/unpacking-remove-collection",
+                "org/openprovenance/templates/physical/unpacking/unpacking-aga-container-agent",
+                "org/openprovenance/templates/physical/unpacking/unpacking-aga-item-agent",
+                "org/openprovenance/templates/physical/unpacking/unpacking-sds-container",
+                "org/openprovenance/templates/physical/unpacking/unpacking-sds-item"
+            ],
+            "output": "org/openprovenance/templates/physical/unpacking/unpacking",
+            "outputFullyQualifiedName": "org.openprovenance.templates.transport.Unpacking",
+            "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/physical/unpacking/prov/prov-unpacking.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/physical/variables.json"
+        }
+    ]
+}

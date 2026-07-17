@@ -1,0 +1,83 @@
+{
+    "org.openprovenance.templates.triangles.Association-Generation-Attribution": {
+        "jsonld": "org/openprovenance/templates/triangles/association-generation-attribution.jsonld"
+    },
+    "org.openprovenance.templates.triangles.Usage-Generation-Derivation": {
+        "jsonld": "org/openprovenance/templates/triangles/usage-generation-derivation.jsonld"
+    },
+    "org.openprovenance.templates.primitive.Derivation0": {
+        "provn": "org/openprovenance/templates/primitive/derivation0.provn",
+        "jsonld": "org/openprovenance/templates/primitive/derivation0.jsonld"
+    },
+    "org.openprovenance.templates.primitive.Association0": {
+        "provn": "org/openprovenance/templates/primitive/association0.provn"
+    },
+    "org.openprovenance.templates.primitive.Generation0": {
+        "provn": "org/openprovenance/templates/primitive/generation0.provn"
+    },
+    "org.openprovenance.templates.primitive.Activity0": {
+        "provn": "org/openprovenance/templates/primitive/activity0.provn",
+        "jsonld": "org/openprovenance/templates/primitive/activity0.jsonld"
+    },
+    "org.openprovenance.templates.primitive.Simple-Derivation": {
+        "jsonld": "org/openprovenance/templates/primitive/simple-derivation.jsonld"
+    },
+    "org.openprovenance.templates.primitive.Entity0": {
+        "jsonld": "org/openprovenance/templates/primitive/entity0.jsonld",
+        "provn": "org/openprovenance/templates/primitive/entity0.provn"
+    },
+    "org.openprovenance.templates.primitive.Entity-With-Attribute": {
+        "jsonld": "org/openprovenance/templates/primitive/entity-with-attribute.jsonld"
+    },
+    "org.openprovenance.templates.primitive.Usage0": {
+        "provn": "org/openprovenance/templates/primitive/usage0.provn"
+    },
+    "org.openprovenance.templates.primitive.Delegation0": {
+        "jsonld": "org/openprovenance/templates/primitive/delegation0.jsonld"
+    },
+    "org.openprovenance.templates.primitive.Agent0": {
+        "provn": "org/openprovenance/templates/primitive/agent0.provn"
+    },
+    "org.openprovenance.templates.primitive.Invalidation0": {
+        "provn": "org/openprovenance/templates/primitive/invalidation0.provn"
+    },
+    "org.openprovenance.templates.primitive.Qualified-Membership0": {
+        "jsonld": "org/openprovenance/templates/primitive/qualified-membership0.jsonld"
+    },
+    "org.openprovenance.templates.primitive.Qualified-Specialization0": {
+        "jsonld": "org/openprovenance/templates/primitive/qualified-specialization0.jsonld",
+        "provn": "org/openprovenance/templates/primitive/qualified-specialization0.provn"
+    },
+    "org.openprovenance.templates.primitive.Attribution": {
+        "jsonld": "org/openprovenance/templates/primitive/attribution.jsonld"
+    },
+    "org.openprovenance.templates.primitive.Attribution0": {
+        "jsonld": "org/openprovenance/templates/primitive/attribution0.jsonld",
+        "provn": "org/openprovenance/templates/primitive/attribution0.provn"
+    },
+    "org.openprovenance.templates.generic.Operation": {
+        "jsonld": "org/openprovenance/templates/generic/operation.jsonld",
+        "provn": "org/openprovenance/templates/generic/operation.provn",
+        "png": "org/openprovenance/templates/generic/operation.png"
+    },
+    "org.openprovenance.templates.generic.Unary-Operation-With-Agent": {
+        "jsonld": "org/openprovenance/templates/generic/unary-operation-with-agent.jsonld",
+        "png": "org/openprovenance/templates/generic/unary-operation-with-agent.png",
+        "svg": "org/openprovenance/templates/generic/unary-operation-with-agent.svg"
+    },
+    "org.openprovenance.templates.simple.Transforming1": {
+        "jsonld": "org/openprovenance/templates/simple/simple-transforming1.jsonld",
+        "provn": "org/openprovenance/templates/simple/simple-transforming1.provn",
+        "png": "org/openprovenance/templates/simple/simple-transforming1.png",
+        "svg": "org/openprovenance/templates/simple/simple-transforming1.svg"
+    },
+    "org.openprovenance.templates.generic.Transforming1-Old": {
+        "provn": "org/openprovenance/templates/generic/old/transforming1-old.provn"
+    },
+    "org.openprovenance.templates.generic.Updating-Entity": {
+        "jsonld": "org/openprovenance/templates/generic/updating-entity.jsonld",
+        "provn": "org/openprovenance/templates/generic/updating-entity.provn",
+        "png": "org/openprovenance/templates/generic/updating-entity.png"
+    }
+
+}

@@ -1,0 +1,52 @@
+{
+    "var" : {
+        "start" :                   [  {"@id" : "var:start"}        ],
+        "end" :                     [  {"@id" : "var:end"}          ],
+        "agent" :                   [  {"@id" : "var:agent"}        ],
+        "input" :                   [  {"@id" : "var:input1"}, {"@id" : "var:input2"}],
+        "output" :                  [  {"@id" : "var:output1"},{"@id" : "var:output2"}],
+        "transforming" :            [  {"@id" : "var:transforming"} ],
+        "plan":                     [  {"@id" : "var:plan"}         ],
+
+        "atype" :                   [[ {"@id" : "var:atype"}  ]],
+        "aprops":                   [[ {"@id": "var:aprops"}  ]],
+        "avalues":                  [[ {"@id": "var:avalues"} ]],
+        "otype" :                   [[ {"@id" : "var:otype1"}],       [{"@id" : "var:otype2"}    ]],
+        "oprops":                   [[ {"@id": "var:oprops1"}],       [{"@id" : "var:oprops2"}   ]],
+        "ovalues":                  [[ {"@id": "var:ovalues1"}],      [{"@id" : "var:ovalues2"}  ]],
+        "uprops":                   [[ {"@id": "var:uprops1"}],       [{"@id" : "var:uprops2"}   ]],
+        "uvalues":                  [[ {"@id": "var:uvalues1"}],      [{"@id" : "var:uvalues2"}  ]],
+        "gprops" :                  [[ {"@id" : "var:gprops1"}],      [{"@id" : "var:gprops2"}  ]],
+        "gvalues":                  [[ {"@id" : "var:gvalues1"}],     [{"@id" : "var:gvalues2"} ]],
+        "dprops" :                  [[ {"@id" : "var:dprops1"}],      [{"@id" : "var:dprops2"}  ]],
+        "dvalues":                  [[ {"@id" : "var:dvalues1"}],     [{"@id" : "var:dvalues2"} ]],
+        "attrprops":                [[ {"@id": "var:attrprops1"}],    [{"@id" : "var:attrprops2"}]],
+        "attrvalues":               [[ {"@id": "var:attrvalues1"}],   [{"@id" : "var:attrvalues2"}]],
+        "ascprops":                 [[ {"@id": "var:ascprops"}]],
+        "ascvalues":                [[ {"@id": "var:ascvalues"}]],
+
+        "attr":                     [  {"@id" : "var:attr1"},{"@id" : "var:attr2" }  ],
+        "usd":                      [  {"@id" : "var:usd1"}, {"@id" : "var:usd2"}    ],
+        "gen":                      [  {"@id" : "var:gen1"}, {"@id" : "var:gen2"}    ],
+        "der":                      [  {"@id" : "var:der1"}, {"@id" : "var:der2"}    ],
+        "asc":                      [  {"@id" : "var:asc"}]
+    },
+    "vargen" : {
+        "b" : [ {"@id" : "vargen:b"} ]
+    },
+    "linked": {
+        "input":  "output",
+        "usd":     "input",
+        "gen":     "output",
+        "attr":     "output",
+        "der":     "output"
+    },
+    "context" : {
+        "prov":   "${prov_ns}",
+        "uuid" :  "${uuid_ns}",
+        "var":    "${var_ns}",
+        "vargen": "${vargen_ns}",
+        "xsd":    "${xsd_ns}"
+    },
+    "template" : null
+}

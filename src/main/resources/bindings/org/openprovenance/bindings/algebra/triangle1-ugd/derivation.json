@@ -1,0 +1,21 @@
+{
+    "var": {
+        "entity1":    [  {"@id": "var:e1"}       ],
+        "entity0":    [  {"@id": "var:e0"}       ],
+        "prop":       [[ {"@id": "var:dprops"}  ]],
+        "pvalue":     [[ {"@id": "var:dvalues"} ]],
+        "activity":   [  {"@id": "var:activity"} ],
+        "der":        [  {"@id": "var:der"}      ],
+        "usage":      [  {"@id": "var:usd"}      ],
+        "generation": [  {"@id": "var:gen"}      ]
+    },
+    "vargen":  {
+        "b":          [  {"@id": "vargen:b"}     ]
+    },
+    "context": {
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
+    }
+}

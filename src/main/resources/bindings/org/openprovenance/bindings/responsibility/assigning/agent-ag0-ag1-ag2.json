@@ -1,0 +1,17 @@
+{
+    "var": {
+        "agent":  [{"@id": "var:ag"},{"@id": "var:ag0"},{"@id": "var:ag1"}],
+        "prop":   [[],[],[{"@id": "var:agprops1"}]],
+        "pvalue": [[],[],[{"@id": "var:agvalues1"}]]
+    },
+    "vargen":  {
+        "b": [{"@id": "vargen:b"}]
+    },
+    "context": {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "prov": "${prov_ns}",
+        "provext": "${provext_ns}",
+        "resp": "${resp_ns}"
+    }
+}

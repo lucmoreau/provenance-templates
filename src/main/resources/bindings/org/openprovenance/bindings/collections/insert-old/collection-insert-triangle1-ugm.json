@@ -1,0 +1,108 @@
+{
+    "var": {
+
+        "der": [
+            {
+                "@id": "var:der1"
+            }
+        ],
+        "item": [
+            {
+                "@id": "var:item"
+            }
+        ],
+        "collection": [
+            {
+                "@id": "var:coll1"
+            }
+        ],
+
+        "activity": [
+            {
+                "@id": "var:insert"
+            }
+
+        ],
+        "aprop": [
+            [
+                {
+                    "@id": "var:aprop"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "avalue": [
+            [
+                {
+                    "@id": "var:avalue"
+                },
+                {
+                    "@id": "provext:InsertingIntoElement"
+                }
+            ]
+        ],
+        "dprop": [
+            [
+                {
+                    "@id": "var:dprop"
+                },
+                {
+                    "@id": "prov:type"
+                }
+            ]
+        ],
+        "dvalue": [
+            [
+                {
+                    "@id": "var:dvalue"
+                },
+                {
+                    "@id": "provext:InsertingIntoElement"
+                }
+            ]
+        ],
+
+        "uprop": [
+            [
+                {
+                    "@id": "var:uprop1"
+                },
+                {
+                    "@id": "prov:role"
+                }
+            ]
+        ],
+        "uvalue": [
+            [
+                {
+                    "@id": "var:uvalue1"
+
+                },
+                {
+                    "@id": "provext:asEntity"
+                }
+            ]
+        ],
+        "usd": [
+            {
+                "@id": "var:usd1"
+            }
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "ex": "http://example.org/#",
+        "var" : "http://openprovenance.org/var#",
+        "vargen" : "http://openprovenance.org/vargen#",
+        "provext": "http://openprovenance.org/prov/extension#",
+        "prov": "http://www.w3.org/ns/prov#"
+    }
+}

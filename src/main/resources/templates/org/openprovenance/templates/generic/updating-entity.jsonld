@@ -1,0 +1,83 @@
+{
+  "@context" : [ {
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "dot" : "http://openprovenance.org/provtoolbox/dot/ns#",
+    "vargen" : "http://openprovenance.org/vargen#",
+    "tmpl" : "http://openprovenance.org/tmpl#",
+    "prov" : "http://www.w3.org/ns/prov#",
+    "var" : "http://openprovenance.org/var#"
+  }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+  "@graph" : [ {
+    "@type" : "Bundle",
+    "@context" : [ {
+      "xsd" : "http://www.w3.org/2001/XMLSchema#",
+      "prov" : "http://www.w3.org/ns/prov#"
+    }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+    "@id" : "vargen:view",
+    "@graph" : [ {
+      "@type" : "Agent",
+      "@id" : "var:agent",
+      "var:agprops" : [ "var:agprop_values" ],
+      "type" : [ "var:agtype" ]
+    }, {
+      "@type" : "Agent",
+      "@id" : "var:responsible",
+      "var:rprops" : [ "var:rprop_values" ],
+      "type" : [ "var:rtype" ]
+    }, {
+      "@type" : "Delegation",
+      "delegate" : "var:agent",
+      "responsible" : "var:responsible",
+      "activity" : "var:activity"
+    }, {
+      "@type" : "Entity",
+      "@id" : "var:plan",
+      "type" : [ "var:ptype" ],
+      "var:pprops" : [ "var:pprop_values" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "var:entity",
+      "type" : [ "var:etype" ],
+      "var:eprops" : [ "var:eprop_values" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "var:entity0",
+      "type" : [ "var:etype" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "var:entity1",
+      "var:e1props" : [ "var:e1prop_values" ],
+      "type" : [ "var:etype" ]
+    }, {
+      "@type" : "Activity",
+      "@id" : "var:activity",
+      "var:aprops" : [ "var:aprop_values" ],
+      "type" : [ "var:atype" ]
+    }, {
+      "@type" : "Derivation",
+      "generatedEntity" : "var:entity1",
+      "usedEntity" : "var:entity0"
+    }, {
+      "@type" : "Usage",
+      "activity" : "var:activity",
+      "entity" : "var:entity0"
+    }, {
+      "@type" : "Generation",
+      "entity" : "var:entity1",
+      "activity" : "var:activity"
+    }, {
+      "@type" : "Association",
+      "activity" : "var:activity",
+      "agent" : "var:agent",
+      "plan" : "var:plan"
+    }, {
+      "@type" : "Specialization",
+      "specificEntity" : "var:entity0",
+      "generalEntity" : "var:entity"
+    }, {
+      "@type" : "Specialization",
+      "specificEntity" : "var:entity1",
+      "generalEntity" : "var:entity"
+    } ]
+  } ]
+}

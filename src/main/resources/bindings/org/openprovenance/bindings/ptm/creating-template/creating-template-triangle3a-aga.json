@@ -1,0 +1,59 @@
+{
+    "var": {
+
+        "e": [
+            {
+                "@id": "var:template1"
+            }
+        ],
+        "ag": [
+            {
+                "@id": "var:creator"
+            }
+        ],
+        "activity": [
+            {
+                "@id": "var:creating"
+            }
+        ],
+        "p": [
+            {
+                "@id": "var:ttf"
+            }
+        ],
+        "asc": [
+            {
+                "@id": "var:asc1"
+            }
+        ],
+
+        "aprops": null,
+        "ascprops": null,
+        "ascvalues": null,
+        "attr": null,
+        "attrprops": null,
+        "attrvalues": null,
+        "avalues": null,
+        "eprops": null,
+        "evalues": null,
+        "gen": null,
+        "gprops": null,
+        "gtime": null,
+        "gvalues": null
+
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context":  {
+        "var" : "${var_ns}",
+        "vargen" : "${vargen_ns}",
+        "provext": "${provext_ns}",
+        "ptm": "${ptm_ns}",
+        "prov": "${prov_ns}"
+    }
+}

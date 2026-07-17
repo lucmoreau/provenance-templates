@@ -1,0 +1,65 @@
+{
+    "var": {
+        "mem": [
+            {
+                "@id": "var:mem"
+            }
+        ],
+
+        "collection": [
+            {
+                "@id": "var:collection"
+            }
+        ],
+        "entity": [
+            {
+                "@id": "var:item"
+            }
+        ],
+        "mprop": [
+            [
+                {
+                    "@id": "var:mprops"
+                },
+                {
+                    "@id": "provext:activity"
+                },
+                {
+                    "@id": "provext:igeneration"
+                },
+                {
+                    "@id": "provext:cgeneration"
+                }
+            ]
+        ],
+        "mvalue": [
+            [
+                {
+                    "@id": "var:mvalues"
+                },
+                {
+                    "@id": "var:adding"
+                },
+                {
+                    "@id": "var:gen0"
+                },
+                {
+                    "@id": "var:gen1"
+                }
+            ]
+        ]
+    },
+    "vargen":  {
+        "b": [
+            {
+                "@id": "vargen:b"
+            }
+        ]
+    },
+    "context": {
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
+    }
+}

@@ -1,0 +1,81 @@
+{
+    "template_path": [
+        "src/main/resources/templates",
+        "target/generated-templates"],
+    "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/responsibility/examining"],
+    "output_dir": "generated-templates",
+    "variableMaps": ["./common-ns.json"],
+
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle1-ugd pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
+            "output": "org/openprovenance/templates/responsibility/examining/examining-ugd",
+            "bindings": "examining-ugd.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/examining/prov/prov-examining-ugd.prov-csv"
+        },
+
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle2-sds pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle2-Entity-SDS",
+            "output": "org/openprovenance/templates/responsibility/examining/examining-sds",
+            "bindings": "examining-sds.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/examining/prov/prov-examining-sds.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle3-aga (a) pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle3-AGA",
+            "output": "org/openprovenance/templates/responsibility/examining/examining-aga-agent",
+            "bindings": "examining-aga-agent.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/examining/prov/prov-examining-aga-agent.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle3-aga (b) pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle3-AGA",
+            "output": "org/openprovenance/templates/responsibility/examining/examining-aga-instrument",
+            "bindings": "examining-aga-instrument.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/examining/prov/prov-examining-aga-instrument.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an delegation0 pattern",
+            "template": "org.openprovenance.templates.primitive.Delegation0",
+            "output": "org/openprovenance/templates/responsibility/examining/examining-delegation",
+            "bindings": "examining-delegation.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/examining/prov/prov-examining-delegation.prov-csv"
+        },
+
+
+        {
+            "type": "merge",
+            "description": "Merging all temporary examining outputs",
+            "addOutputDirToInputPath": true,
+            "inputs": [
+                "org/openprovenance/templates/responsibility/examining/examining-ugd",
+                "org/openprovenance/templates/responsibility/examining/examining-sds",
+                "org/openprovenance/templates/responsibility/examining/examining-aga-agent",
+                "org/openprovenance/templates/responsibility/examining/examining-aga-instrument",
+                "org/openprovenance/templates/responsibility/examining/examining-delegation"
+            ],
+            "output": "org/openprovenance/templates/responsibility/examining/examining",
+            "outputFullyQualifiedName": "org.openprovenance.templates.responsibility.Examining",
+            "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/examining/prov/prov-examining.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/responsibility/variables.json"
+        }
+    ]
+}

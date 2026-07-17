@@ -1,0 +1,45 @@
+{
+  "@context" : [ "http://openprovenance.org/prov.jsonld" ],
+  "@graph" : [ {
+    "@type" : "Bundle",
+    "@context" : [ {
+      "xsd" : "http://www.w3.org/2001/XMLSchema#",
+      "prov" : "http://www.w3.org/ns/prov#",
+      "var" : "http://openprovenance.org/var#",
+      "vargen" : "http://openprovenance.org/vargen#"
+    }, "http://openprovenance.org/prov.jsonld" ],
+    "@id" : "vargen:b",
+    "@graph" : [ {
+      "@type" : "Activity",
+      "@id" : "var:act"
+    }, {
+      "@type" : "Entity",
+      "@id" : "var:input",
+      "var:iprop" : [ "var:ivalue" ]      
+    }, {
+      "@type" : "Entity",
+      "@id" : "var:output",
+      "var:oprop" : [ "var:ovalue" ]      
+    }, {
+      "@type" : "Agent",
+      "@id" : "var:ag",
+      "var:aprop" : [ "var:avalue" ]      
+    }, {
+      "@type" : "Association",
+      "activity" : "var:act",
+      "agent" : "var:ag"
+    }, {
+      "@type" : "Generation",
+      "activity" : "var:act",
+      "entity" : "var:output"
+    }, {
+      "@type" : "Usage",
+      "activity" : "var:act",
+      "entity" : "var:input"
+    }, {
+      "@type" : "Derivation",
+      "generatedEntity" : "var:output",
+      "usedEntity" : "var:input"
+    }]
+  } ]
+}

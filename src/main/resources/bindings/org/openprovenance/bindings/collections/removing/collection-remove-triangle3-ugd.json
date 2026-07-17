@@ -1,0 +1,33 @@
+{
+    "var": {
+        "der":      [  {"@id": "var:der3"}      ],
+        "e0":       [  {"@id": "var:item0"}     ],
+        "e1":       [  {"@id": "var:item1"}     ],
+        "activity": [  {"@id": "var:removing"}  ],
+        "dprops":   [[ {"@id": "var:dprops3"},  {"@id": "prov:type"}                             ]],
+        "dvalues":  [[ {"@id": "var:dvalues3"}, {"@id": "provext:RemovingElementFromCollection"} ]],
+        "gprops":   [[ {"@id": "var:gprops2"},  {"@id": "prov:role"}        ]],
+        "gvalues":  [[ {"@id": "var:gvalues2"}, {"@id": "provext:asMember"} ]],
+        "eprops1" : [[ {"@id": "var:iprops1"}  ]],
+        "evalues1" :[[ {"@id": "var:ivalues1"} ]],
+        "usd":      [  {"@id": "var:usd1"}      ],
+        "gen":      [  {"@id": "var:gen2"}      ],
+
+        "aprops":    null,
+        "avalues":   null,
+        "gtime":     null,
+        "utime":     null,
+        "uprops":    null,
+        "uvalues":   null
+
+    },
+    "vargen":  {
+        "b": [{"@id": "vargen:b"}]
+    },
+    "context": {
+        "var":      "${var_ns}",
+        "vargen" :  "${vargen_ns}",
+        "prov":     "${prov_ns}",
+        "provext":  "${provext_ns}"
+    }
+}

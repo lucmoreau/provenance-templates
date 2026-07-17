@@ -1,0 +1,15 @@
+document
+prefix vargen <http://openprovenance.org/vargen#>
+prefix var <http://openprovenance.org/var#>
+prefix provext <http://openprovenance.org/prov/extension#>
+
+bundle vargen:b
+prefix vargen <http://openprovenance.org/vargen#>
+prefix var <http://openprovenance.org/var#>
+prefix tmpl <http://openprovenance.org/tmpl#>
+prefix provext <http://openprovenance.org/prov/extension#>
+
+
+provext:specializationOf(var:id;var:entity2,var:entity1,[var:prop = 'var:pvalue', provext:entity='var:entity', provext:derivation='var:derivation', provext:specialization='var:spec0'])
+endBundle
+endDocument

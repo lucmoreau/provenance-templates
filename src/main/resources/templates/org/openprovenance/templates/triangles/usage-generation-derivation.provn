@@ -1,0 +1,15 @@
+document
+prefix provext <http://openprovenance.org/prov/extension#>
+bundle vargen:bundle
+prefix vargen <http://openprovenance.org/vargen#>
+prefix tmpl <http://openprovenance.org/templates/tmpl#>
+prefix var <http://openprovenance.org/var#>
+
+activity(var:a,-,-,[prov:type = 'var:activityType', var:aprop = 'var:avalue'])
+entity(var:e0,[prov:type = 'var:entityType0', var:eprop0 = 'var:evalue0'])
+entity(var:e1,[prov:type = 'var:entityType1', var:eprop1 = 'var:evalue1'])
+used(vargen:u;var:a,var:e0,-,[tmpl:time = 'var:time0'])
+wasGeneratedBy(vargen:g;var:e1,var:a,-,[tmpl:time = 'var:time1'])
+wasDerivedFrom(var:e1, var:e0, var:a, vargen:g, vargen:u)
+endBundle
+endDocument

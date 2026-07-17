@@ -1,0 +1,70 @@
+{
+    "template_path": [
+        "src/main/resources/templates",
+        "target/generated-templates"],
+    "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/responsibility/handingover"],
+    "output_dir": "generated-templates",
+    "variableMaps": ["./common-ns.json"],
+
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle1-ugd pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
+            "output": "org/openprovenance/templates/responsibility/handingover/handingover-ugd",
+            "bindings": "handingover-ugd.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/handingover/prov/prov-handingover-ugd.prov-csv"
+        },
+
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle2-sds pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle2-Entity-SDS",
+            "output": "org/openprovenance/templates/responsibility/handingover/handingover-sds",
+            "bindings": "handingover-sds.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/handingover/prov/prov-handingover-sds.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle3-aga (a) pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle3-AGA",
+            "output": "org/openprovenance/templates/responsibility/handingover/handingover-aga-ag1",
+            "bindings": "handingover-aga-ag1.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/handingover/prov/prov-handingover-aga-ag1.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle4-agi (a) pattern",
+            "template": "org/openprovenance/templates/triangles/triangle4-aia/triangle4-aia",
+            "output": "org/openprovenance/templates/responsibility/handingover/handingover-aia-ag0",
+            "bindings": "handingover-aia-ag0.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/handingover/prov/prov-handingover-aia-ag0.prov-csv"
+        },
+
+
+        {
+            "type": "merge",
+            "description": "Merging all temporary handingover outputs",
+            "addOutputDirToInputPath": true,
+            "inputs": [
+                "org/openprovenance/templates/responsibility/handingover/handingover-ugd",
+                "org/openprovenance/templates/responsibility/handingover/handingover-sds",
+                "org/openprovenance/templates/responsibility/handingover/handingover-aga-ag1",
+                "org/openprovenance/templates/responsibility/handingover/handingover-aia-ag0"
+            ],
+            "output": "org/openprovenance/templates/responsibility/handingover/handingover",
+            "outputFullyQualifiedName": "org.openprovenance.templates.responsibility.HandingOver",
+            "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/responsibility/handingover/prov/prov-handingover.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/physical/variables.json"
+        }
+    ]
+}

@@ -1,0 +1,112 @@
+{
+    "template_path": [
+        "src/main/resources/templates",
+        "target/generated-templates"],
+    "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/collections/inserting"],
+    "output_dir": "generated-templates",
+    "variableMaps": ["./common-ns.json"],
+
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle1-ugd pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
+            "output": "org/openprovenance/templates/collections/inserting/collection-insert-triangle1-ugd",
+            "bindings": "collection-insert-triangle1-ugd.json",
+            "formats": ["jsonld","provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/collections/inserting/prov/prov-collection-insert-triangle1-ugd.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle1-ugd pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
+            "output": "org/openprovenance/templates/collections/inserting/collection-insert-triangle2-ugd",
+            "bindings": "collection-insert-triangle2-ugd.json",
+            "formats": ["jsonld" ,"provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/collections/inserting/prov/prov-collection-insert-triangle2-ugd.prov-csv"
+        },
+
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an triangle1-ugd pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
+            "output": "org/openprovenance/templates/collections/inserting/collection-insert-triangle3-ugd",
+            "bindings": "collection-insert-triangle3-ugd.json",
+            "formats": ["jsonld" ,"provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/collections/inserting/prov/prov-collection-insert-triangle3-ugd.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating a membership pattern",
+            "template": "org.openprovenance.templates.triangles.Triangle5-GGM",
+            "output": "org/openprovenance/templates/collections/inserting/collection-insert-triangle5-ggm",
+            "bindings": "collection-insert-triangle5-ggm.json",
+            "formats": ["jsonld", "provn","png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/collections/inserting/prov/prov-membership.prov-csv"
+        },
+
+        {
+            "type": "instantiate",
+            "description": "Instantiating an agent pattern",
+            "template": "org.openprovenance.templates.primitive.Agent0",
+            "output": "org/openprovenance/templates/collections/inserting/agent",
+            "bindings": "agent.json",
+            "formats": ["jsonld"],
+            "hasProvenance": "org/openprovenance/templates/collections/inserting/prov/prov-agent.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a attribution pattern",
+            "template": "org.openprovenance.templates.primitive.Attribution0",
+            "output": "org/openprovenance/templates/collections/inserting/attribution1",
+            "bindings": "attribution1.json",
+            "formats": ["jsonld"],
+            "hasProvenance": "org/openprovenance/templates/collections/inserting/prov/prov-attribution1.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating a attribution pattern",
+            "template": "org.openprovenance.templates.primitive.Attribution0",
+            "output": "org/openprovenance/templates/collections/inserting/attribution2",
+            "bindings": "attribution2.json",
+            "formats": ["jsonld"],
+            "hasProvenance": "org/openprovenance/templates/collections/inserting/prov/prov-attribution2.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating an association pattern",
+            "template": "org.openprovenance.templates.primitive.Association0",
+            "output": "org/openprovenance/templates/collections/inserting/association",
+            "bindings": "association.json",
+            "formats": ["jsonld"],
+            "hasProvenance": "org/openprovenance/templates/collections/inserting/prov/prov-association.prov-csv"
+        },
+
+
+        {
+            "type": "merge",
+            "description": "Merging the above templates into a single template",
+            "addOutputDirToInputPath": true,
+            "inputs": [
+                "org/openprovenance/templates/collections/inserting/collection-insert-triangle1-ugd",
+                "org/openprovenance/templates/collections/inserting/collection-insert-triangle2-ugd",
+                "org/openprovenance/templates/collections/inserting/collection-insert-triangle3-ugd",
+                "org/openprovenance/templates/collections/inserting/collection-insert-triangle5-ggm",
+                "org/openprovenance/templates/collections/inserting/agent",
+                "org/openprovenance/templates/collections/inserting/attribution1",
+                "org/openprovenance/templates/collections/inserting/attribution2",
+                "org/openprovenance/templates/collections/inserting/association"
+            ],
+            "output": "org/openprovenance/templates/collections/inserting/collection-inserting",
+            "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/collections/inserting/prov/prov-collection-inserting.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/collections/variables.json"
+        }
+
+
+    ]
+}

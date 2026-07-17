@@ -1,0 +1,45 @@
+{
+    "template_path": ["src/main/resources/templates", "target/generated-templates"],
+    "bindings_path": ["src/main/resources/bindings/org/openprovenance/bindings/generic/transforming"],
+    "output_dir": "generated-templates",
+
+    "variableMaps": ["./common-ns.json"],
+
+    "tasks": [
+        {
+            "type": "instantiate",
+            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
+            "output": "org/openprovenance/templates/generic/transforming/transforming-triangle1-ugd",
+            "bindings": "transforming-triangle1-ugd.json",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/generic/transforming/prov/prov-transforming-triangle1-ugd.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "template": "org.openprovenance.templates.triangles.Triangle3-AGA",
+            "output": "org/openprovenance/templates/generic/transforming/transforming-triangle3-aga",
+            "bindings": "transforming-triangle3-aga.json",
+            "formats": ["jsonld", "provn", "png", "svg"],
+            "hasProvenance": "org/openprovenance/templates/generic/transforming/prov/prov-transforming-triangle3-aga.prov-csv"
+        },
+
+        {
+            "type": "merge",
+            "description": "Merging all temporary transforming outputs",
+            "addOutputDirToInputPath": true,
+            "inputs": [
+                "org/openprovenance/templates/generic/transforming/transforming-triangle1-ugd",
+                "org/openprovenance/templates/generic/transforming/transforming-triangle3-aga"
+            ],
+            "output": "org/openprovenance/templates/generic/transforming/transforming1",
+            "outputFullyQualifiedName": "org.openprovenance.templates.generic.Transforming1",
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
+            "hasProvenance": "org/openprovenance/templates/generic/transforming/prov/prov-transforming1.prov-csv",
+            "variableCheck": "src/main/resources/variable-check/generic/variables.json"
+        }
+    ]
+
+
+}
+
+
