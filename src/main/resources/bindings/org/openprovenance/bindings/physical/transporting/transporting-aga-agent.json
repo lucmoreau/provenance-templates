@@ -5,12 +5,12 @@
         "activity":  [  {"@id": "var:transporting"} ],
         "p":         [  {"@id": "var:schedule"}     ],
         "asc":       [  {"@id": "var:asc1"}         ],
+        "gen":       [  {"@id": "var:gen1"}         ],
 
         "aprops":    null,
         "avalues":   null,
         "gprops":    null,
         "gvalues":   null,
-        "gen":       null,
         "ascprops":  null,
         "ascvalues": null,
         "eprops":    null,

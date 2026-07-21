@@ -10,14 +10,14 @@
         "dprops":   [[ {"@id": "var:dprops"},   {"@id": "prov:type"}         ]],
         "dvalues":  [[ {"@id": "var:dvalues"},  {"@id": "phys:Transporting"} ]],
         "uprops":   [[ {"@id": "var:uprops1"},  {"@id": "prov:role"}         ]],
-        "uvalues":  [[ {"@id": "var:uvalues1"}, {"@id": "provext:asItem"}    ]],
+        "uvalues":  [[ {"@id": "var:uvalues1"}, {"@id": "var:role"}          ]],
+        "gprops":   [[ {"@id": "var:gprops1"},  {"@id": "prov:role"}         ]],
+        "gvalues":  [[ {"@id": "var:gvalues1"}, {"@id": "var:role"}          ]],
         "usd":      [  {"@id": "var:usd1"}                                    ],
         "der":      [  {"@id": "var:der1"}                                    ],
+        "gen":      [  {"@id": "var:gen1"}                                    ],
 
         "utime":    null,
-        "gprops":   null,
-        "gvalues":  null,
-        "gen":      null,
         "gtime":    null
     },
     "vargen":  {

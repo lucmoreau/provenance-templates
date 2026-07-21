@@ -1,20 +1,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.openprovenance.bookptm</groupId>
-        <artifactId>book-ptm</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
-    </parent>
 
     <artifactId>template-intro1</artifactId>
     <packaging>jar</packaging>
-
+    <groupId>org.openprovenance.bookptm</groupId>
+    <version>0.1.0-SNAPSHOT</version>
+    
     <name>|-- template-intro1</name>
     <description>templates for book</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <timestamp>${maven.build.timestamp}</timestamp>
+        <maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
+
+        <!-- provtoolbox -->
+
+        <prov.toolbox.version>2.2.4-SNAPSHOT</prov.toolbox.version>
 
         <package.name>transport_template_library</package.name>
         <package.name.cli>${package.name}_cli</package.name.cli>
@@ -30,6 +34,15 @@
         <cbindings.dir>${project.basedir}/src/main/resources/cbindings</cbindings.dir>
 
         <generated.templates.dir>${project.build.directory}/generated-templates</generated.templates.dir>
+
+        <commons.text.version>1.14.0</commons.text.version>
+        <commons.io.version>2.21.0</commons.io.version>  <!-- 2.15.1, 2.8.0 -->
+
+        <jackson.version>2.19.4</jackson.version><!--2.17.0, 2.15.2, 2.14.2, 2.11.2, 2.9.9 -->
+        <antrun.plugin.version>3.1.0</antrun.plugin.version> <!-- 3.1.0 -->
+        <build.helper.plugin.version>3.5.0</build.helper.plugin.version> <!-- 3.0.0 -->
+        <junit.version>4.13.2</junit.version>
+
     </properties>
 
     <dependencies>
@@ -98,6 +111,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webflux</artifactId>
             <version>7.0.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -1800,4 +1819,5 @@
         </resources>
 
     </build>
+
 </project>
