@@ -6,7 +6,7 @@
 - **Purpose**:  This template describes how an entity is attributed to an agent, thereby marking the agent's responsibility for the entity, in the situation where the agent is associated with the activity that generated the entity.
 - **Context**: The template describes the link between the attribution and the activity, the agent's association with the activity and the entity's generation by the activity.
 - **Design considerations**: The ability to assert new attributes for the generated entity, as well as for the attribution and activity, possibly including their type.
-- **Automation**: [ttfs/config-triangle3-aga.json](project/template-intro1/src/main/resources/ttfs/config-triangle3-aga.json)
+- **Automation**: [ttfs/config-triangle3-aga.json](https://github.com/lucmoreau/provenance-templates/blob/src/main/resources/ttfs/config-triangle3-aga.json)
 
 
 ![org.openprovenance.templates.triangles.Triangle3-AGA](project/template-intro1/target/generated-templates/org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga.qualified.png){#fig:org.openprovenance.templates.triangles.Triangle3-AGA}

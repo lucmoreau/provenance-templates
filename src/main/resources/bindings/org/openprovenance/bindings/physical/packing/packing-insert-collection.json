@@ -6,8 +6,8 @@
         "item1":          [  {"@id": "var:item1"}                                  ],
         "item0":          [  {"@id": "var:item0"}                                  ],
         "inserting":      [  {"@id": "var:adding"}                                 ],
-        "cprops1":        [[ {"@id": "prov:type"},         {"@id": "phys:sealed"} ]],
-        "cvalues1":       [[ {"@id": "var:containerType"}, {"@id": "var:sealed"}  ]],
+        "cprops1":        [[ {"@id": "prov:type"},         {"@id": "phys:sealed"}, {"@id": "var:cprops1"} ]],
+        "cvalues1":       [[ {"@id": "var:containerType"}, {"@id": "var:sealed"},  {"@id": "var:cvalues1"}  ]],
         "iprops1":        [[ {"@id": "var:iprops1"}                               ]],
         "ivalues1":       [[ {"@id": "var:ivalues1"}                              ]],
         "aprops":         [[ {"@id": "prov:type"}                                 ]],
@@ -36,8 +36,9 @@
         "uvalues1":      null,
         "uvalues2":      null,
         "asc":           null,
-        "attr1":         null,
-        "attr2":         null
+        "attr1":         [  {"@id": "var:attr1"}  ],
+        "attr2":         [  {"@id": "var:attr2"}  ]
+
     },
     "vargen":  {
         "b": [{"@id": "vargen:b"}]

@@ -5,6 +5,7 @@
         "activity": [ {"@id": "var:adding"}     ],
         "asc":      [ {"@id": "var:asc1"}       ],
         "gen":      [ {"@id": "var:gen0"}       ],
+        "attr":     [ {"@id": "var:attr1"}      ],
         "p":        null,
 
 
@@ -18,9 +19,8 @@
         "attrprops": null,
         "attrvalues": null,
         "ascprops": null,
-        "ascvalues": null,
+        "ascvalues": null
 
-        "attr":      null
 
 
     },
