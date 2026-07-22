@@ -3,6 +3,9 @@ PROVCONVERT=$(PROVTOOLBOX_DIR)/modules-executable/toolbox/target/appassembler/bi
 
 PY_PATH=/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/target/generated-python/:/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/src/main/python:target/generated-python:src/test/python
 
+# regenerate online pages
+onl:
+	 make -f template-pages/Makefile go
 
 compile.ttf:
 	$(PROVCONVERT) -inputBaseDir `pwd`/template-intro1 -outputBaseDir `pwd`/template-intro1  -templatebuilder `pwd`/template-intro1/src/main/resources/catalogue/transport-catalogue.json -templateLibrary `pwd`/template-intro1/src/main/resources/templates -templateLibrary `pwd`/template-intro1/target/generated-templates

@@ -7,7 +7,9 @@ Design considerations: The template allows for new attributes for the agent and 
 Automation: (ttfs/config-responsibility-agent-init.json)(project/template-intro1/src/main/resources/ttfs/config-responsibility-agent-init.json)
 Figure: (org.openprovenance.templates.responsibility.AgentInit)(project/template-intro1/target/generated-templates/org/openprovenance/templates/responsibility/agent-init/agent-location-init.png){#fig:org.openprovenance.templates.responsibility.AgentInit}
 Details: |-
-  The template does not assume the existence of any entity or agent. It allows a new agent to be defined without a specific provenance, thereby enabling the "bootstrapping" of provenance.
-  Some registration activity generates an agent and its specialisation agent0. There are placeholders for a type and agprop attributes for agent. There is an opportunity to specify a location and other attributes agprop0 for agent0.
+  The template does not assume the existence of any entity or agent. It allows a new agent to be defined without specifying its provenance, thereby enabling the "bootstrapping" of provenance.
+  Some registration activity generates an agent and its specialisation agent0. Placeholders are provided for the type and agprop attributes of agent. It is also possible to specify a location and other attributes agprop0 for agent0.
   The intent is that type and agprop attributes are inherited by all specialisations agent0, whereas location and agprop0 may change as specialisations evolve (using Triangle2-Agent-SDS).
-  The type RegisteringAgent is used for the activity.
+  Given that aspects of a PROV entity are intended to remain constant during its lifetime, we cannot claim (or enforce) that an entity's location does not change during its lifetime (and similarly for agents). Therefore, we adopt the attribute 'last known location', abbreviated phys:lkl, as the attribute to which we assign an entity's location. If the entity changes location without being observed, its last known location remains unchanged. A new observation of the location produces another entity with the latest location.
+
+  The activity is annotated with the type RegisteringAgent to provide an unambiguous way to recognise this template by its activity type; this type can then be used in queries.

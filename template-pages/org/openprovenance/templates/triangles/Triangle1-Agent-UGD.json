@@ -5,7 +5,7 @@
   "Purpose": "This template describes how an agent evolves into another agent through derivation.",
   "Context": "The template explicitly links the derivation and underpinning activity, usage and generation.",
   "Design considerations": "Extensibility through the ability to assert new attributes for the generated agent, as well as for the derivation and activity, possibly specifying their type.",
-  "Automation": "(ttfs/config-triangle1-agent-ugd.json)(file:project/template-intro1/src/main/resources/ttfs/config-triangle1-agent-ugd.json)",
+  "Automation": "(ttfs/config-triangle1-agent-ugd.json)(https://github.com/lucmoreau/provenance-templates/blob/src/main/resources/ttfs/config-triangle1-agent-ugd.json)",
   "Figure": "(org.openprovenance.templates.triangles.Triangle1-Agent-UGD)(project/template-intro1/target/generated-templates/org/openprovenance/templates/triangles/triangle1-agent-ugd/triangle1-agent-ugd.qualified.png){#fig:org.openprovenance.templates.triangles.Triangle1-Agent-UGD}",
   "Details": "In PROV, agents can be entities, meaning that they can be generated, used, and derived from other agents. This pattern is a variant of Triangle1-Entity-UGD ((Section @sec:triangle1.entity.ugd)), with ag0 and ag1 replacing e0 and e1, respectively. All other considerations apply here.\nThe template Triangle1-Agent-UGD is a convenience pattern that preserves precise typing information (agent rather than entity)."
 }

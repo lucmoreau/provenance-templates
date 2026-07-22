@@ -9,4 +9,4 @@ Figure: (org.openprovenance.templates.fs.FileSplitting)(project/template-intro1/
 Details: |-
   At the start, there is a file; after the activity splitting, there are two files split_file1 and split_file2. An agent engineer controls the splitting activity and uses a method (such as a script or programme).
   Some pre-defined, self-explanatory attributes have been adopted, such as filename1, filename2, path1 and path2.
-  This template can describe the Unix command,  split -n 2 file{.sh}, which reads the given file and breaks it up into two files (named xaa and xab).
+  This template can describe the Unix command,  split -n 2 file{.sh}, which reads the given file and breaks it up into two files (named xaa and xab); note that the command does not make the output files explicit, as the pipe redirection cannot be used given the multiple outputs that need to be generated.

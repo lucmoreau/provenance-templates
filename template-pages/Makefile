@@ -1,33 +1,36 @@
 
-
+BOOK_DIR=/Users/luc/git-papers/papers/book-ptm
+PAGES_DIR=`pwd`/template-pages
 
 
 go:
-	@$(MAKE) FILE=org/openprovenance/templates/collections/InsertingIntoCollection do.file
-	@$(MAKE) FILE=org/openprovenance/templates/collections/RemovingFromCollection do.file
-	@$(MAKE) FILE=org/openprovenance/templates/physical/Packing do.file
-	@$(MAKE) FILE=org/openprovenance/templates/physical/Unpacking do.file
-	@$(MAKE) FILE=org/openprovenance/templates/physical/Weighing do.file
-	@$(MAKE) FILE=org/openprovenance/templates/physical/Transporting do.file
-	@$(MAKE) FILE=org/openprovenance/templates/triangles/Triangle1-Entity-UGD do.file
-	@$(MAKE) FILE=org/openprovenance/templates/triangles/Triangle1-Agent-UGD do.file
-	@$(MAKE) FILE=org/openprovenance/templates/triangles/Triangle2-Entity-SDS do.file
-	@$(MAKE) FILE=org/openprovenance/templates/triangles/Triangle2-Agent-SDS do.file
-	@$(MAKE) FILE=org/openprovenance/templates/triangles/Triangle3-AGA do.file
-	@$(MAKE) FILE=org/openprovenance/templates/triangles/Triangle4-AIA do.file
-	@$(MAKE) FILE=org/openprovenance/templates/triangles/Triangle5-GGM do.file
-	@$(MAKE) FILE=org/openprovenance/templates/responsibility/HandingOver do.file
-	@$(MAKE) FILE=org/openprovenance/templates/responsibility/Assigning do.file
-	@$(MAKE) FILE=org/openprovenance/templates/responsibility/Examining do.file
-	@$(MAKE) FILE=org/openprovenance/templates/responsibility/AgentInit do.file
-	@$(MAKE) FILE=org/openprovenance/templates/fs/FileTransforming do.file
-	@$(MAKE) FILE=org/openprovenance/templates/fs/FileFiltering do.file
-	@$(MAKE) FILE=org/openprovenance/templates/fs/FileSplitting do.file
-	@$(MAKE) FILE=org/openprovenance/templates/fs/FileMerging do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/collections/InsertingIntoCollection do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/collections/RemovingFromCollection do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/physical/Packing do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/physical/Unpacking do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/physical/Weighing do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/physical/Transporting do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/triangles/Triangle1-Entity-UGD do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/triangles/Triangle1-Agent-UGD do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/triangles/Triangle2-Entity-SDS do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/triangles/Triangle2-Agent-SDS do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/triangles/Triangle3-AGA do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/triangles/Triangle4-AIA do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/triangles/Triangle5-GGM do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/responsibility/HandingOver do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/responsibility/Assigning do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/responsibility/Examining do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/responsibility/AgentInit do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/fs/FileTransforming do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/fs/FileFiltering do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/fs/FileSplitting do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/fs/FileMerging do.file
 
+TMP_TMPLATE=/tmp/tmplate.md
 
 do.file:
-	@pandoc -F pandoc-crossref -F mermaid-filter -L ../filters/columns.lua --toc --toc-depth=3  --lof  -V papersize:a4 --metadata linkReferences=true --citeproc --embed-resources --standalone --syntax-definition ../highlight/sparql.xml $(FILE).md > $(FILE).html
+	@cat  $(FILE).md | sed 's/(project\/template\-intro1/(\/Users\/luc\/IdeaProjects\/provenance\-templates/g' > $(TMP_TMPLATE)
+	@pandoc -F pandoc-crossref -F mermaid-filter -L $(BOOK_DIR)/filters/columns.lua --toc --toc-depth=3  --lof  -V papersize:a4 --metadata linkReferences=true --citeproc --embed-resources --standalone --syntax-definition $(BOOK_DIR)/highlight/sparql.xml $(TMP_TMPLATE) > $(FILE).html
 	@sed 's/**//g' $(FILE).md | sed 's/`//g' | sed 's/!\[/- Figure: (/g' | sed 's/\[@/(/g'  | sed 's/\[/(/g' | sed 's/\]/)/g' | yq -o json -p yaml - | jq 'add' > $(FILE).json
 	@yq -o yaml -p json $(FILE).json > $(FILE).yaml
 	@yq $(FILE).json
