@@ -1,4 +1,5 @@
 target/
+attic/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -17,3 +18,4 @@ buildNumber.properties
 .classpath
 .idea
 mermaid-filter.err
+__pycache__
