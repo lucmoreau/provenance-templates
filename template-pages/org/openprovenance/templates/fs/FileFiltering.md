@@ -7,7 +7,7 @@
 - **Purpose**: The template `FileFiltering` describes a filtering operation selecting parts (e.g, lines) of a file.
 - **Context**: The template is useful to describe operations in a file system.
 - **Design considerations**: The ability to identify the file (before and after filtering), whether the filtering is in place or generates a new file.
-- **Automation**: [ttfs/config-fs.json](project/template-intro1/src/main/resources/ttfs/config-fs.json)
+- **Automation**: [ttfs/config-fs.json](https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-fs.json)
 
 
 ![org.openprovenance.templates.fs.FileFiltering](project/template-intro1/target/generated-templates/org/openprovenance/templates/fs/file-filtering.svg){#fig:org.openprovenance.templates.fs.FileFiltering}

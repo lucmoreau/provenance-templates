@@ -5,7 +5,7 @@
 - **Purpose**: The template `Transporting` describes the transportation of a physical object to a new location.
 - **Context**: The template is useful to describe transportation in a logistics context.
 - **Design considerations**: The ability to identify the item (before and after transport), the item's location after transport, the agent involved in the transport, and the dispatch schedule.
-- **Automation**: [ttfs/config-transporting.json](project/template-intro1/src/main/resources/ttfs/config-transporting.json)
+- **Automation**: [ttfs/config-transporting.json](https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-transporting.json)
 
 
 ![org.openprovenance.templates.physical.Transporting](project/template-intro1/target/generated-templates/org/openprovenance/templates/physical/transporting/transporting.qualified.png){#fig:org.openprovenance.templates.physical.Transporting}

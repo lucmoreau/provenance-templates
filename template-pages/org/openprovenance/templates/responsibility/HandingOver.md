@@ -7,7 +7,7 @@
 - **Purpose**: This template describes how responsibility over an entity is passed from one agent to another.
 - **Context**: The template describes the operation in which an agent hands over an item to another agent, in effect passing on responsibility, or custody, of this item to the other agent. 
 - **Design considerations**: The ability to assert new attributes for this entity following the handover.
-- **Automation**: [ttfs/config-responsibility-handingover.json](project/template-intro1/src/main/resources/ttfs/config-responsibility-handingover.json)
+- **Automation**: [ttfs/config-responsibility-handingover.json](https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-responsibility-handingover.json)
 
 ![org.openprovenance.templates.responsibility.HandingOver](project/template-intro1/target/generated-templates/org/openprovenance/templates/responsibility/handingover/handingover.qualified.png){#fig:org.openprovenance.templates.responsibility.HandingOver}
 

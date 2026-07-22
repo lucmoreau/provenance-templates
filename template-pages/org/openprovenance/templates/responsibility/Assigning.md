@@ -6,7 +6,7 @@
 - **Purpose**: This template describes how an entity is attributed to an agent.
 - **Context**: The template describes an 'assigning' activity, which results in a generated entity linked to an agent by an attribution link; before the 'assigning' activity, there was no attribution link. 
 - **Design considerations**: The template allows for new attributes for this entity and agent to be assigned following assignment.
-- **Automation**: [ttfs/config-responsibility-assigning.json](project/template-intro1/src/main/resources/ttfs/config-responsibility-assigning.json)
+- **Automation**: [ttfs/config-responsibility-assigning.json](https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-responsibility-assigning.json)
 
 ![org.openprovenance.templates.responsibility.Assigning](project/template-intro1/target/generated-templates/org/openprovenance/templates/responsibility/assigning/assigning.qualified.png){#fig:org.openprovenance.templates.responsibility.Assigning}
 

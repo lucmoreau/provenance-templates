@@ -7,7 +7,7 @@
 - **Purpose**: The template `Forking2` describes the transformation of an input resulting in two distinct outputs.
 - **Context**: It is a general transformation applicable to many different contexts.
 - **Design considerations**:  Relations rigorously linking nodes using pre-defined triangles.
-- **Automation**: [ttfs/config-generic.json](project/template-intro1/src/main/resources/ttfs/config-generic.json)
+- **Automation**: [ttfs/config-generic.json](https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-generic.json)
 
 ![org.openprovenance.templates.generic.Forking2](project/template-intro1/target/generated-templates/org/openprovenance/templates/generic/forking2.qualified.png){#fig:org.openprovenance.templates.generic.Forking2}
 
