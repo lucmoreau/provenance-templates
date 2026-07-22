@@ -7,7 +7,7 @@
 - **Purpose**: The template `InsertingIntoCollection` describes the evolution of a collection as an item is added to it.
 - **Context**: The template helps describe common situations involving collections, such as adding a row to a table, a file to a zip archive, a book to a shelf, or a box to a palette.
 - **Design considerations**: The ability to describe the state of the collection (before and after inserting an element) and the state of the element (before being in the collection or after).
-- **Automation**: [ttfs/config-insert-into-collection.json](project/template-intro1/src/main/resources/ttfs/config-inserting-into-collection.json)
+- **Automation**: [ttfs/config-insert-into-collection.json](https://github.com/lucmoreau/provenance-templates/blob/src/src/main/resources/ttfs/config-inserting-into-collection.json)
 
 ![org.openprovenance.templates.collections.InsertingIntoCollection](project/template-intro1/target/generated-templates/org/openprovenance/templates/collections/inserting/collection-inserting.qualified.png){#fig:org.openprovenance.templates.collections.InsertingIntoCollection}
 
