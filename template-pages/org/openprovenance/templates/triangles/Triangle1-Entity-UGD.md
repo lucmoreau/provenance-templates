@@ -6,7 +6,7 @@
 - **Purpose**: This template describes how an entity evolves into another entity through derivation.
 - **Context**: The template explicitly links the derivation to the underpinning activity, usage and generation. 
 - **Design considerations**: Extensibility through the ability to assert new attributes for the generated entity, as well as for the derivation and activity, possibly specifying their type.
-- **Automation**: [ttfs/config-triangle1-ugd.json](https://github.com/lucmoreau/provenance-templates/blob/src/main/resources/ttfs/config-triangle1-ugd.json)
+- **Automation**: [ttfs/config-triangle1-ugd.json](https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-triangle1-ugd.json)
 
 
 ![org.openprovenance.templates.triangles.Triangle1-Entity-UGD](project/template-intro1/target/generated-templates/org/openprovenance/templates/triangles/triangle1-ugd/triangle1-ugd.qualified.png){#fig:org.openprovenance.templates.triangles.Triangle1-Entity-UGD}
