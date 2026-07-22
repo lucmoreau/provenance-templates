@@ -13,6 +13,7 @@ go:
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/generic/Joining2 do.file
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/generic/Parallel2 do.file
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/generic/Product2 do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/generic/Transforming1 do.file
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/physical/Packing do.file
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/physical/Transporting do.file
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/physical/Unpacking do.file
