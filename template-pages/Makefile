@@ -28,8 +28,8 @@ go:
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/triangles/Triangle3-AGA do.file
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/triangles/Triangle4-AIA do.file
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/triangles/Triangle5-GGM do.file
-	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/ptm/Instantiating
-	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/ptm/Merging
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/ptm/Instantiating do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/ptm/Merging do.file
 
 
 TMP_TMPLATE=/tmp/tmplate.md
