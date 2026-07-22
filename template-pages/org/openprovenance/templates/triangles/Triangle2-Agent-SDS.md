@@ -7,7 +7,7 @@
 - **Purpose**: This template describes how an agent evolves through derivation, while remaining a specialisation of a more general agent.
 - **Context**: The template describes a situation in which an agent's aspects change (e.g., new location, new qualification), resulting in a new agent instance; the agent instance before the derivation and the agent instance after the derivation are both specialisations of a more general agent. 
 - **Design considerations**: The ability to assert changing attribute-value pairs (either updated or new) in the new agent.
-- **Automation**:   [ttfs/config-triangle2-agent-sds.json](https://github.com/lucmoreau/provenance-templates/blob/src/main/resources/ttfs/config-triangle2-agent-sds.json)
+- **Automation**:   [ttfs/config-triangle2-agent-sds.json](https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-triangle2-agent-sds.json)
 
 ![org.openprovenance.templates.triangles.Triangle-Agent-SDS](project/template-intro1/target/generated-templates/org/openprovenance/templates/triangles/triangle2-agent-sds/triangle2-agent-sds.svg){#fig:org.openprovenance.templates.triangles.Triangle2-Agent-SDS}
 
