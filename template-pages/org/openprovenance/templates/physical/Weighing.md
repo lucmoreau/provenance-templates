@@ -15,16 +15,16 @@
 
 - **Details**:
 
-    Initially, there is an item `item0` with an unspecified weight. After this operation, there is an item `item1` with a weight.
+    Initially, there is an item `item0` with an unspecified weight. After this operation, there is an item `item1` with a defined weight attribute.
 
-    The template is the result of instantiating a single template, `org.openprovenance.templates.responsibility.Examining`, describing how an item evolves from its initial state `item0` to the state `item1`, with an explicit weight property (and optional mass units, by default kilograms).
+    The template is the result of instantiating a single template, `org.openprovenance.templates.responsibility.Examining`, which describes how an item evolves from its initial state `item0` to the state `item1`, with an explicit weight attribute and optional mass units, defaulting to kilograms.
 
-    Given that aspects of a PROV entity are intended to remain constant, we cannot claim (or enforce) that an entity's weight does not change during its lifetime. Therefore, we adopt the attribute 'last known weight', abbreviated `phys:lkw` as the attribute to which we assign the weight measured by the scale.  If the entity changes weight without being observed by another weighing operation, its last known weight remains constant. Another weighing operation produces another entity with the latest mass.  
+    Given that aspects of a PROV entity are intended to remain constant, we cannot claim (or enforce) that an entity's weight does not change during its lifetime. Therefore, we adopt the attribute 'last known weight', abbreviated `phys:lkw`, as the attribute to which we assign the weight measured by the scale. If the entity changes weight without being observed by another weighing operation, its last known weight remains unchanged. Another weighing operation produces another entity with the latest mass.  
     
-    By default, we expect the mass to be expressed in Kg. It is permitted to adopt another mass unit, provided it is specified, via the variable `var:unit` using the symbols defined by the International System of Units.
+    By default, we expect the mass to be expressed in kg. It is permitted to use another mass unit, provided it is specified via the variable `var:unit` using the symbols defined by the International System of Units.
 
-    In addition, the scale and the agent operating it can be specified, allowing responsibility for the measurement to be tracked. In particular, the provenance of the scale may indicate whether it was recently calibrated and its precision. The agent's provenance may indicate whether they are certified or have been trained.
+    In addition, the scale and the agent operating it can be specified, allowing responsibility for the measurement to be tracked. In particular, the scale's provenance may indicate whether it was recently calibrated and its precision. The agent's provenance may indicate whether they are certified or have been trained.
 
-    In this template, the variable `scale` denotes an instrument that measures weight, as described by the activity type `Weighing`. An alternative design could relax these assumptions (while mostly preserving the topology), allowing the weight to be estimated using computational methods, or read from a product description.
+    In this template, the variable `scale` denotes an instrument for measuring weight, as specified by the activity type `Weighing`. An alternative design could relax these assumptions (while largely preserving the topology), allowing the weight to be estimated computationally or read from a product description.
 
 

@@ -22,7 +22,7 @@
       to the state `coll1` with a new member. All other aspects of the collection remain 
       unchanged, meaning that all pre-existing members remain members.
 
-    - Triangle1-Entity-UGD describes the item `item0` initially not a member of the collection 
+    - Triangle1-Entity-UGD describes the item `item0` initially absent from the collection 
       and becoming item `item1` included in the collection, with all other aspects of the 
       item unchanged.  
 

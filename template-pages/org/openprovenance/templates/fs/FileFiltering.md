@@ -16,8 +16,8 @@
 - **Details**:
 
 
-    At the start, there is a `file`; after the `filtering` activity, there is a `filtered_file`. An agent `engineer` controls the `filtering` activity and uses a method (such as a script or programme).
+    Filtering is a special kind of file transformation. At the start, there is a `file`; after the `filtering` activity, there is a `filtered_file`. An agent `engineer` controls the `filtering` activity and uses a method (such as a script or programme).
 
     Some pre-defined, self-explanatory attributes have been adopted, such as `filename` and `path`.
 
-    An example is a filtering method, e.g., `egrep '(bindings|template) file > filtered_file'`{.sh}, which selects lines containing the words `bindings` or `template` in `file`.
+    An example is a Unix filtering command, e.g., `egrep '(bindings|template)' file > filtered_file`{.sh}, which selects lines containing the words `bindings` or `template` in `file`.

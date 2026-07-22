@@ -1,7 +1,7 @@
 
 
 - **Name**: `FileTransforming`
-- **Fully Qualified Name**: `org.openprovenance.book.fs.FileTransforming`
+- **Fully Qualified Name**: `org.openprovenance.templates.fs.FileTransforming`
 - **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/fs/FileTransforming>
 - **Purpose**: The template `FileTransforming` describes the transformation of a file into another.
 - **Context**: The template is useful for describing a general operation on files in a file system.
@@ -9,7 +9,7 @@
 - **Automation**: [ttfs/config-fs.json](project/template-intro1/src/main/resources/ttfs/config-fs.json)
 
 
-![org.openprovenance.book.fs.FileTransforming](project/template-intro1/target/generated-templates/org/openprovenance/templates/fs/file-transforming.svg){#fig:org.openprovenance.templates.fs.FileTransforming}
+![org.openprovenance.templates.fs.FileTransforming](project/template-intro1/target/generated-templates/org/openprovenance/templates/fs/file-transforming.svg){#fig:org.openprovenance.templates.fs.FileTransforming}
 
 
 
