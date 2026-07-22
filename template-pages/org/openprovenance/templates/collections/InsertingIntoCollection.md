@@ -7,7 +7,6 @@
 - **Purpose**: The template `InsertingIntoCollection` describes the evolution of a collection as an item is added to it.
 - **Context**: The template helps describe common situations involving collections, such as adding a row to a table, a file to a zip archive, a book to a shelf, or a box to a palette.
 - **Design considerations**: The ability to describe the state of the collection (before and after inserting an element) and the state of the element (before being in the collection or after).
-- **Automation**: [ttfs/config-insert-into-collection.json](https://github.com/lucmoreau/provenance-templates/blob/src/src/main/resources/ttfs/config-inserting-into-collection.json)
 
 ![org.openprovenance.templates.collections.InsertingIntoCollection](project/template-intro1/target/generated-templates/org/openprovenance/templates/collections/inserting/collection-inserting.qualified.png){#fig:org.openprovenance.templates.collections.InsertingIntoCollection}
 
@@ -16,7 +15,7 @@
 
     To begin with, there is a collection `coll0` and an item `item0`. An activity `inserting` has added the item `item1` to the extended collection `coll1`. 
 
-    The template is the result of merging four instantiated templates. 
+    The template is the result of merging four instantiated templates.  
 
     - Triangle1-Entity-UGD describes the collection evolving from its initial state `coll0`
       to the state `coll1` with a new member. All other aspects of the collection remain 
