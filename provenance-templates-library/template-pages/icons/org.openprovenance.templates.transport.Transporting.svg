@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 48 48">
+<defs>
+<symbol id="icon-org.openprovenance.templates.transport.Transporting" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+  <!-- Speed / motion lines (left of box) -->
+  <line x1="1" y1="22" x2="5" y2="22" stroke="#D97706" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <line x1="1" y1="26" x2="5" y2="26" stroke="#D97706" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <line x1="1" y1="30" x2="5" y2="30" stroke="#D97706" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <!-- Box body (shifted right slightly) -->
+  <rect x="6" y="18" width="28" height="22" rx="2" fill="#FFFBEB" stroke="#D97706" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Lid crease -->
+  <line x1="6" y1="26" x2="34" y2="26" stroke="#D97706" stroke-width="2"/>
+  <!-- Centre seam -->
+  <line x1="20" y1="18" x2="20" y2="40" stroke="#D97706" stroke-width="1.5" stroke-dasharray="3 2"/>
+  <!-- Transport arrow (right) -->
+  <line x1="35" y1="29" x2="46" y2="29" stroke="#374151" stroke-width="2.5" stroke-linecap="round"/>
+  <polyline points="40,23 46,29 40,35" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+</defs>
+<use href="#icon-org.openprovenance.templates.transport.Transporting" xlink:href="#icon-org.openprovenance.templates.transport.Transporting" width="50" height="50"/>
+</svg>

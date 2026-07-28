@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 48 48">
+<defs>
+<symbol id="icon-org.openprovenance.templates.fs.FileMerging" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<!-- Input file 1 (top-left, ~55% scale) -->
+  <polygon points="4,7 15,7 19,11 19,27 4,27" fill="#C7D2FE" stroke="#4F46E5" stroke-width="1.5" stroke-linejoin="round"/>
+  <polyline points="15,7 15,11 19,11" fill="none" stroke="#4F46E5" stroke-width="1.5" stroke-linejoin="round"/>
+  <line x1="7" y1="15" x2="16" y2="15" stroke="#A5B4FC" stroke-width="1"/>
+  <line x1="7" y1="19" x2="16" y2="19" stroke="#A5B4FC" stroke-width="1"/>
+  <!-- Input file 2 (bottom-left, ~55% scale) -->
+  <polygon points="4,31 15,31 19,35 19,47 4,47" fill="#C7D2FE" stroke="#4F46E5" stroke-width="1.5" stroke-linejoin="round"/>
+  <polyline points="15,31 15,35 19,35" fill="none" stroke="#4F46E5" stroke-width="1.5" stroke-linejoin="round"/>
+  <line x1="7" y1="39" x2="16" y2="39" stroke="#A5B4FC" stroke-width="1"/>
+  <!-- Converging arrows -->
+  <line x1="19" y1="17" x2="26" y2="21" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round"/>
+  <polyline points="23,19 27,21 24,23" fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="19" y1="37" x2="26" y2="33" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round"/>
+  <polyline points="24,31 27,33 23,35" fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Merged file (right, ~70% scale) -->
+  <polygon points="27,8 42,8 47,13 47,42 27,42" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.8" stroke-linejoin="round"/>
+  <polyline points="42,8 42,13 47,13" fill="none" stroke="#4F46E5" stroke-width="1.8" stroke-linejoin="round"/>
+  <line x1="30" y1="19" x2="44" y2="19" stroke="#A5B4FC" stroke-width="1.2"/>
+  <line x1="30" y1="24" x2="44" y2="24" stroke="#A5B4FC" stroke-width="1.2"/>
+  <line x1="30" y1="29" x2="41" y2="29" stroke="#A5B4FC" stroke-width="1.2"/>
+</symbol>
+</defs>
+<use href="#icon-org.openprovenance.templates.fs.FileMerging" xlink:href="#icon-org.openprovenance.templates.fs.FileMerging" width="50" height="50"/>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 48 48">
+<defs>
+<symbol id="icon-org.openprovenance.templates.triangles.Triangle2-Entity-SDS" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+  <!-- entity derived from entity, both specialisations of a general entity -->
+  <ellipse cx="24" cy="9" rx="7.5" ry="5.5" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1.8"/>
+  <ellipse cx="10" cy="39" rx="7" ry="5" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1.8"/>
+  <ellipse cx="38" cy="39" rx="7" ry="5" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1.8"/>
+  <line x1="12.5" y1="32.5" x2="20" y2="14.5" stroke="#374151" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="3 2.4"/>
+  <polyline points="20.2,18.7 20,14.5 16.8,17.3" fill="none" stroke="#374151" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="35.5" y1="32.5" x2="28" y2="14.5" stroke="#374151" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="3 2.4"/>
+  <polyline points="31.2,17.3 28,14.5 27.8,18.7" fill="none" stroke="#374151" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="30" y1="39" x2="18.5" y2="39" stroke="#374151" stroke-width="1.8" stroke-linecap="round"/>
+  <polyline points="22.3,37.2 18.5,39 22.3,40.8" fill="none" stroke="#374151" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+</defs>
+<use href="#icon-org.openprovenance.templates.triangles.Triangle2-Entity-SDS" xlink:href="#icon-org.openprovenance.templates.triangles.Triangle2-Entity-SDS" width="50" height="50"/>
+</svg>

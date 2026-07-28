@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 48 48">
+<defs>
+<symbol id="icon-org.openprovenance.templates.transport.AgentInit" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+  <!-- Person head (centred-left) -->
+  <circle cx="18" cy="14" r="7" fill="#F9FAFB" stroke="#374151" stroke-width="2"/>
+  <!-- Person shoulders arc -->
+  <path d="M6,38 Q18,28 30,38" fill="none" stroke="#374151" stroke-width="2"/>
+  <!-- Badge background (green "+") -->
+  <circle cx="40" cy="9" r="7" fill="white" stroke="#15803D" stroke-width="1.5"/>
+  <!-- + (creation) -->
+  <line x1="37" y1="9" x2="43" y2="9" stroke="#15803D" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="40" y1="6" x2="40" y2="12" stroke="#15803D" stroke-width="2.5" stroke-linecap="round"/>
+</symbol>
+</defs>
+<use href="#icon-org.openprovenance.templates.transport.AgentInit" xlink:href="#icon-org.openprovenance.templates.transport.AgentInit" width="50" height="50"/>
+</svg>

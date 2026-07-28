@@ -154,7 +154,9 @@
     }
 
     .category ul li a {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
       padding: 0.3rem 0.85rem;
       background: rgba(99,102,241,0.07);
       border: 1px solid rgba(99,102,241,0.2);
@@ -163,6 +165,13 @@
       color: #4f52cc;
       text-decoration: none;
       transition: background 0.15s, border-color 0.15s;
+    }
+
+    .tpl-icon {
+      height: 1.15rem;
+      width: 1.15rem;
+      display: block;
+      flex-shrink: 0;
     }
 
     .category ul li a:hover {
@@ -218,62 +227,70 @@
     <div class="category">
       <h3 class="category-title">Generic</h3>
       <ul>
-        <li><a href="org/openprovenance/templates/generic/Transforming1">Transforming1</a></li>
-        <li><a href="org/openprovenance/templates/generic/Forking2">Forking2</a></li>
-        <li><a href="org/openprovenance/templates/generic/Joining2">Joining2</a></li>
-        <li><a href="org/openprovenance/templates/generic/Parallel2">Parallel2</a></li>
-        <li><a href="org/openprovenance/templates/generic/Product2">Product2</a></li>
+        <li><a href="org/openprovenance/templates/generic/Forking2"><img class="tpl-icon" src="icons/org.openprovenance.templates.generic.Forking2.svg" alt="" />Forking2</a></li>
+        <li><a href="org/openprovenance/templates/generic/Joining2"><img class="tpl-icon" src="icons/org.openprovenance.templates.generic.Joining2.svg" alt="" />Joining2</a></li>
+        <li><a href="org/openprovenance/templates/generic/Parallel2"><img class="tpl-icon" src="icons/org.openprovenance.templates.generic.Parallel2.svg" alt="" />Parallel2</a></li>
+        <li><a href="org/openprovenance/templates/generic/Product2"><img class="tpl-icon" src="icons/org.openprovenance.templates.generic.Product2.svg" alt="" />Product2</a></li>
+        <li><a href="org/openprovenance/templates/generic/Transforming1"><img class="tpl-icon" src="icons/org.openprovenance.templates.generic.Transforming1.svg" alt="" />Transforming1</a></li>
       </ul>
     </div>
 
     <div class="category">
       <h3 class="category-title">Triangles</h3>
       <ul>
-        <li><a href="org/openprovenance/templates/triangles/Triangle1-Agent-UGD">Triangle1-Agent-UGD</a></li>
-        <li><a href="org/openprovenance/templates/triangles/Triangle1-Entity-UGD">Triangle1-Entity-UGD</a></li>
-        <li><a href="org/openprovenance/templates/triangles/Triangle2-Agent-SDS">Triangle2-Agent-SDS</a></li>
-        <li><a href="org/openprovenance/templates/triangles/Triangle2-Entity-SDS">Triangle2-Entity-SDS</a></li>
-        <li><a href="org/openprovenance/templates/triangles/Triangle3-AGA">Triangle3-AGA</a></li>
-        <li><a href="org/openprovenance/templates/triangles/Triangle4-AIA">Triangle4-AIA</a></li>
-        <li><a href="org/openprovenance/templates/triangles/Triangle5-GGM">Triangle5-GGM</a></li>
+        <li><a href="org/openprovenance/templates/triangles/Triangle1-Agent-UGD"><img class="tpl-icon" src="icons/org.openprovenance.templates.triangles.Triangle1-Agent-UGD.svg" alt="" />Triangle1-Agent-UGD</a></li>
+        <li><a href="org/openprovenance/templates/triangles/Triangle1-Entity-UGD"><img class="tpl-icon" src="icons/org.openprovenance.templates.triangles.Triangle1-Entity-UGD.svg" alt="" />Triangle1-Entity-UGD</a></li>
+        <li><a href="org/openprovenance/templates/triangles/Triangle2-Agent-SDS"><img class="tpl-icon" src="icons/org.openprovenance.templates.triangles.Triangle2-Agent-SDS.svg" alt="" />Triangle2-Agent-SDS</a></li>
+        <li><a href="org/openprovenance/templates/triangles/Triangle2-Entity-SDS"><img class="tpl-icon" src="icons/org.openprovenance.templates.triangles.Triangle2-Entity-SDS.svg" alt="" />Triangle2-Entity-SDS</a></li>
+        <li><a href="org/openprovenance/templates/triangles/Triangle3-AGA"><img class="tpl-icon" src="icons/org.openprovenance.templates.triangles.Triangle3-AGA.svg" alt="" />Triangle3-AGA</a></li>
+        <li><a href="org/openprovenance/templates/triangles/Triangle4-AIA"><img class="tpl-icon" src="icons/org.openprovenance.templates.triangles.Triangle4-AIA.svg" alt="" />Triangle4-AIA</a></li>
+        <li><a href="org/openprovenance/templates/triangles/Triangle5-GGM"><img class="tpl-icon" src="icons/org.openprovenance.templates.triangles.Triangle5-GGM.svg" alt="" />Triangle5-GGM</a></li>
       </ul>
     </div>
 
     <div class="category">
       <h3 class="category-title">Responsibility</h3>
       <ul>
-        <li><a href="org/openprovenance/templates/responsibility/AgentInit">AgentInit</a></li>
-        <li><a href="org/openprovenance/templates/responsibility/Assigning">Assigning</a></li>
-        <li><a href="org/openprovenance/templates/responsibility/Examining">Examining</a></li>
-        <li><a href="org/openprovenance/templates/responsibility/HandingOver">HandingOver</a></li>
+        <li><a href="org/openprovenance/templates/responsibility/AgentInit"><img class="tpl-icon" src="icons/org.openprovenance.templates.transport.AgentInit.svg" alt="" />AgentInit</a></li>
+        <li><a href="org/openprovenance/templates/responsibility/Assigning"><img class="tpl-icon" src="icons/org.openprovenance.templates.responsibility.Assigning.svg" alt="" />Assigning</a></li>
+        <li><a href="org/openprovenance/templates/responsibility/Examining"><img class="tpl-icon" src="icons/org.openprovenance.templates.responsibility.Examining.svg" alt="" />Examining</a></li>
+        <li><a href="org/openprovenance/templates/responsibility/HandingOver"><img class="tpl-icon" src="icons/org.openprovenance.templates.transport.HandingOver.svg" alt="" />HandingOver</a></li>
       </ul>
     </div>
 
     <div class="category">
       <h3 class="category-title">Physical</h3>
       <ul>
-        <li><a href="org/openprovenance/templates/physical/Packing">Packing</a></li>
-        <li><a href="org/openprovenance/templates/physical/Transporting">Transporting</a></li>
-        <li><a href="org/openprovenance/templates/physical/Unpacking">Unpacking</a></li>
-        <li><a href="org/openprovenance/templates/physical/Weighing">Weighing</a></li>
+        <li><a href="org/openprovenance/templates/physical/EntityInit"><img class="tpl-icon" src="icons/org.openprovenance.templates.transport.EntityInit.svg" alt="" />EntityInit</a></li>
+        <li><a href="org/openprovenance/templates/physical/Packing"><img class="tpl-icon" src="icons/org.openprovenance.templates.transport.Packing.svg" alt="" />Packing</a></li>
+        <li><a href="org/openprovenance/templates/physical/PackingComposite"><img class="tpl-icon" src="icons/org.openprovenance.templates.transport.PackingComposite.svg" alt="" />PackingComposite</a></li>
+        <li><a href="org/openprovenance/templates/physical/Transporting"><img class="tpl-icon" src="icons/org.openprovenance.templates.transport.Transporting.svg" alt="" />Transporting</a></li>
+        <li><a href="org/openprovenance/templates/physical/Unpacking"><img class="tpl-icon" src="icons/org.openprovenance.templates.transport.Unpacking.svg" alt="" />Unpacking</a></li>
+        <li><a href="org/openprovenance/templates/physical/UnpackingComposite"><img class="tpl-icon" src="icons/org.openprovenance.templates.transport.UnpackingComposite.svg" alt="" />UnpackingComposite</a></li>
+        <li><a href="org/openprovenance/templates/physical/Weighing"><img class="tpl-icon" src="icons/org.openprovenance.templates.transport.Weighing.svg" alt="" />Weighing</a></li>
       </ul>
     </div>
 
     <div class="category">
       <h3 class="category-title">Collections</h3>
       <ul>
-        <li><a href="org/openprovenance/templates/collections/InsertingIntoCollection">InsertingIntoCollection</a></li>
-        <li><a href="org/openprovenance/templates/collections/RemovingFromCollection">RemovingFromCollection</a></li>
+        <li><a href="org/openprovenance/templates/collections/InsertingIntoCollection"><img class="tpl-icon" src="icons/org.openprovenance.templates.collections.InsertingIntoCollection.svg" alt="" />InsertingIntoCollection</a></li>
+        <li><a href="org/openprovenance/templates/collections/RemovingFromCollection"><img class="tpl-icon" src="icons/org.openprovenance.templates.collections.RemovingFromCollection.svg" alt="" />RemovingFromCollection</a></li>
       </ul>
     </div>
 
     <div class="category">
       <h3 class="category-title">File System</h3>
       <ul>
-        <li><a href="org/openprovenance/templates/fs/FileFiltering">FileFiltering</a></li>
-        <li><a href="org/openprovenance/templates/fs/FileMerging">FileMerging</a></li>
-        <li><a href="org/openprovenance/templates/fs/FileSplitting">FileSplitting</a></li>
-        <li><a href="org/openprovenance/templates/fs/FileTransforming">FileTransforming</a></li>
+        <li><a href="org/openprovenance/templates/fs/FileApproving"><img class="tpl-icon" src="icons/org.openprovenance.templates.fs.FileApproving.svg" alt="" />FileApproving</a></li>
+        <li><a href="org/openprovenance/templates/fs/FileFiltering"><img class="tpl-icon" src="icons/org.openprovenance.templates.fs.FileFiltering.svg" alt="" />FileFiltering</a></li>
+        <li><a href="org/openprovenance/templates/fs/FileInit"><img class="tpl-icon" src="icons/org.openprovenance.templates.fs.FileInit.svg" alt="" />FileInit</a></li>
+        <li><a href="org/openprovenance/templates/fs/FileMerging"><img class="tpl-icon" src="icons/org.openprovenance.templates.fs.FileMerging.svg" alt="" />FileMerging</a></li>
+        <li><a href="org/openprovenance/templates/fs/FileSplitting"><img class="tpl-icon" src="icons/org.openprovenance.templates.fs.FileSplitting.svg" alt="" />FileSplitting</a></li>
+        <li><a href="org/openprovenance/templates/fs/FileTraining"><img class="tpl-icon" src="icons/org.openprovenance.templates.fs.FileTraining.svg" alt="" />FileTraining</a></li>
+        <li><a href="org/openprovenance/templates/fs/FileTransforming"><img class="tpl-icon" src="icons/org.openprovenance.templates.fs.FileTransforming.svg" alt="" />FileTransforming</a></li>
+        <li><a href="org/openprovenance/templates/fs/FileTransformingComposite"><img class="tpl-icon" src="icons/org.openprovenance.templates.fs.FileTransformingComposite.svg" alt="" />FileTransformingComposite</a></li>
+        <li><a href="org/openprovenance/templates/fs/FileValidating"><img class="tpl-icon" src="icons/org.openprovenance.templates.fs.FileValidating.svg" alt="" />FileValidating</a></li>
       </ul>
     </div>
 

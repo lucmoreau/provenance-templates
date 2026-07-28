@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 48 48">
+<defs>
+<symbol id="icon-org.openprovenance.templates.collections.RemovingFromCollection" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<!-- Collection: a group with a member and the removed member's gap -->
+  <rect x="5" y="26" width="38" height="17" rx="3" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/>
+  <rect x="10" y="31" width="9" height="7" rx="1" fill="#BAE6FD" stroke="#0284C7" stroke-width="1.5"/>
+  <rect x="29" y="31" width="9" height="7" rx="1" fill="none" stroke="#0284C7" stroke-width="1.2" stroke-dasharray="2.5 2"/>
+  <!-- Removed item above the collection -->
+  <rect x="19" y="3" width="10" height="8" rx="1" fill="#BAE6FD" stroke="#0284C7" stroke-width="1.5"/>
+  <!-- Upward arrow: removal -->
+  <line x1="24" y1="23" x2="24" y2="15" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+  <polyline points="21,17 24,13 27,17" fill="none" stroke="#374151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+</defs>
+<use href="#icon-org.openprovenance.templates.collections.RemovingFromCollection" xlink:href="#icon-org.openprovenance.templates.collections.RemovingFromCollection" width="50" height="50"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 48 48">
+<defs>
+<symbol id="icon-org.openprovenance.templates.responsibility.Assigning" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<!-- Item (left) being assigned -->
+  <rect x="5" y="22" width="9" height="9" rx="1" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.5"/>
+  <!-- Arrow from item to the assignee -->
+  <line x1="17" y1="26" x2="25" y2="26" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+  <polyline points="22,23 25,26 22,29" fill="none" stroke="#374151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Assignee: head -->
+  <circle cx="36" cy="14" r="6" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+  <!-- Assignee: shoulders (arc) -->
+  <path d="M26,36 Q36,26 46,36" fill="none" stroke="#0D9488" stroke-width="1.5"/>
+</symbol>
+</defs>
+<use href="#icon-org.openprovenance.templates.responsibility.Assigning" xlink:href="#icon-org.openprovenance.templates.responsibility.Assigning" width="50" height="50"/>
+</svg>

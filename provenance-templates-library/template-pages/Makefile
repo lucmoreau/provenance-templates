@@ -1,9 +1,16 @@
 
 BOOK_DIR=/Users/luc/git-papers/papers/book-ptm
 PAGES_DIR=`pwd`/template-pages
+ICONS_DIR=`pwd`/src/main/resources/icons
 
+# copy the per-template icons from their maven-resource home into the
+# web-accessible space: template-pages is the web root, so everything the
+# pages reference must live beneath it
+icons:
+	@mkdir -p $(PAGES_DIR)/icons
+	@cp $(ICONS_DIR)/org.openprovenance.templates.*.svg $(PAGES_DIR)/icons/
 
-go:
+go: icons
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/collections/InsertingIntoCollection do.file
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/collections/RemovingFromCollection do.file
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/fs/FileFiltering do.file

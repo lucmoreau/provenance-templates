@@ -16,7 +16,7 @@
     {
       "name": "prov-jsweet-candy-java",
       "version": "2.2.5-SNAPSHOT",
-      "lastUpdateTimestamp": 1785236478000,
+      "lastUpdateTimestamp": 1785242750000,
       "modelVersion": "unknown",
       "transpilerVersion": "${jsweet.transpiler.version}",
       "jsOutputDirPath": "/Users/luc/IdeaProjects/provenance-templates/provenance-templates-library/target/webapp/candies",

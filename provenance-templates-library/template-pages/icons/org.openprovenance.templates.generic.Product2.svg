@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 48 48">
+<defs>
+<symbol id="icon-org.openprovenance.templates.generic.Product2" viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<!-- two input entities combined (product) into one entity -->
+  <ellipse cx="7" cy="10" rx="6" ry="4.5" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1.8"/>
+  <ellipse cx="7" cy="38" rx="6" ry="4.5" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1.8"/>
+  <line x1="14" y1="13" x2="18" y2="20" stroke="#374151" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="14" y1="35" x2="18" y2="28" stroke="#374151" stroke-width="1.8" stroke-linecap="round"/>
+  <rect x="19" y="17" width="10" height="14" rx="1" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.8"/>
+  <!-- product mark -->
+  <line x1="21.5" y1="21.5" x2="26.5" y2="26.5" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="26.5" y1="21.5" x2="21.5" y2="26.5" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="30" y1="24" x2="33" y2="24" stroke="#374151" stroke-width="1.8" stroke-linecap="round"/>
+  <polyline points="31,21 34,24 31,27" fill="none" stroke="#374151" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="41" cy="24" rx="6" ry="4.5" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1.8"/>
+</symbol>
+</defs>
+<use href="#icon-org.openprovenance.templates.generic.Product2" xlink:href="#icon-org.openprovenance.templates.generic.Product2" width="50" height="50"/>
+</svg>
