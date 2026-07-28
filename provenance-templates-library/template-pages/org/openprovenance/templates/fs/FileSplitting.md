@@ -6,7 +6,7 @@
 - **Purpose**: The template `FileSplitting` describes the transformation of a file into two files.
 - **Context**: The template is useful for describing operations in a file system.
 - **Design considerations**: The ability to identify the files (before and after splitting).
-- **Automation**: [ttfs/config-fs.json](https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-fs.json)
+- **Automation**: [ttfs/config-fs.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-fs.json)
 
 
 ![org.openprovenance.templates.fs.FileSplitting](project/template-intro1/target/generated-templates/org/openprovenance/templates/fs/file-splitting.svg){#fig:org.openprovenance.templates.fs.FileSplitting}

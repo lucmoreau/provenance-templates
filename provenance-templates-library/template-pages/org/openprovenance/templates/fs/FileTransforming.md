@@ -6,7 +6,7 @@
 - **Purpose**: The template `FileTransforming` describes the transformation of a file into another.
 - **Context**: The template is useful for describing a general operation on files in a file system.
 - **Design considerations**: The ability to identify the file (before and after transformation), whether the transformation is in place or generates a new file.
-- **Automation**: [ttfs/config-fs.json](https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-fs.json)
+- **Automation**: [ttfs/config-fs.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-fs.json)
 
 
 ![org.openprovenance.templates.fs.FileTransforming](project/template-intro1/target/generated-templates/org/openprovenance/templates/fs/file-transforming.svg){#fig:org.openprovenance.templates.fs.FileTransforming}

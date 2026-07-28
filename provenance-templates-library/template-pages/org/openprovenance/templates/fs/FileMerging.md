@@ -7,7 +7,7 @@
 - **Purpose**: The template `FileMerging` describes the transformation of two files into a single file.
 - **Context**: The template is useful for describing operations in a file system.
 - **Design considerations**: The ability to identify the files (before and after merging).
-- **Automation**: [ttfs/config-fs.json](https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-fs.json)
+- **Automation**: [ttfs/config-fs.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-fs.json)
 
 ![org.openprovenance.templates.fs.FileMerging](project/template-intro1/target/generated-templates/org/openprovenance/templates/fs/file-merging.svg){#fig:org.openprovenance.templates.fs.FileMerging}
 
