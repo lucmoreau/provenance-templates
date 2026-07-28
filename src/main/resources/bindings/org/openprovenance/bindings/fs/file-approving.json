@@ -47,12 +47,12 @@
         "gprops2":                  null,
         "gvalues1":                 null,
         "gvalues2":                 null,
-        "uprops1":                  null,
-        "uprops2":                  null,
+        "uprops1":                  [[ {"@id":  "prov:role"}]],
+        "uprops2":                  [[ {"@id":  "prov:role"}]],
         "usd1":                     null,
         "usd2":                     null,
-        "uvalues1":                 null,
-        "uvalues2":                 null
+        "uvalues1":                 [[ {"@id":  "fs:asFile"}]],
+        "uvalues2":                 [[ {"@id":  "fs:asScore"}]]
     },
     "vargen" : {
         "b" : [ {

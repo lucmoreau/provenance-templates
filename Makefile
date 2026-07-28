@@ -79,3 +79,6 @@ cat:
 	mvn exec:exec@python-fs-run-workflow
 	mvn exec:exec@python-box-run-workflow
 	mvn exec:exec@js-fs-run-workflow
+
+check.urls:
+	python3 scripts/crawl_templates.py https://openprovenance.org/templates/
