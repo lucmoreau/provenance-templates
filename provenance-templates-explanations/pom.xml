@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>provenance-templates-explanations</artifactId>
+    <packaging>jar</packaging>
+    <groupId>org.openprovenance.templates</groupId>
+    <version>0.1.0-SNAPSHOT</version>
+
+    <name>Provenance Templates Explanations</name>
+    <description>Explanation plans (x-plans), dictionaries and profiles for the Open Provenance Templates library</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <skipTests>false</skipTests>
+        <exec.plugin.version>3.1.0</exec.plugin.version>
+    </properties>
+
+
+    <build>
+        <resources>
+            <resource>
+                <!-- xplan JSON files packed at xplain/nlg/tr, fs, .../ in the jar -->
+                <directory>src/main/resources/xplain/nlg</directory>
+                <targetPath>xplain/nlg</targetPath>
+                <includes>
+                    <include>**/*.json</include>
+                </includes>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>${exec.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <!-- generate all explanations from the test provenance documents,
+                             checking every x-plan against its expected sentences;
+                             skipped with -DskipTests -->
+                        <id>xp-all</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <skip>${skipTests}</skip>
+                            <executable>make</executable>
+                            <arguments>
+                                <argument>xp.all</argument>
+                            </arguments>
+                            <workingDirectory>${project.basedir}</workingDirectory>
+                            <successCodes>
+                                <successCode>0</successCode>
+                            </successCodes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

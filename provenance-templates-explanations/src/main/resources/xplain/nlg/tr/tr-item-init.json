@@ -1,0 +1,108 @@
+{
+    "select": { "act": { "@type": "prov:Activity" } },
+
+    "query": [
+        "prefix phys <http://openprovenance.org/ns/phys#>",
+        "select * from spec a provext:SpecializationOf",
+        "from item a prov:Entity",
+        " join spec.generalEntity = item.id",
+        "from version a prov:Entity",
+        " join spec.specificEntity = version.id",
+        "from wgb a prov:WasGeneratedBy",
+        " join item.id = wgb.entity",
+        "from act a prov:Activity",
+        " join wgb.activity = act.id",
+        "from wgbv a prov:WasGeneratedBy",
+        " optional join version.id = wgbv.entity",
+        "where act[prov:type] >= 'phys:RegisteringEntity'"
+    ],
+
+    "sentence": {
+        "type": "clause",
+        "object": {
+            "type": "noun_phrase",
+            "determiner": "a",
+            "head": {
+                "type": "@funcall",
+                "@object": "item",
+                "@property": "prov:type",
+                "@function": "lookup-type-with-default",
+                "@arg1": "noun_phrase",
+                "@arg2": "item"
+            },
+            "post-modifiers": [
+                {
+                    "type": "adjective_phrase",
+                    "head": {
+                        "type": "@funcall",
+                        "@object": "item",
+                        "@field": "id",
+                        "@function": "noun+identity",
+                        "@arg1": ""
+                    }
+                }
+            ],
+            "features": { "number": "singular" }
+        },
+        "verb": "register",
+        "modifiers": [
+            {
+                "type": "preposition_phrase",
+                "preposition": "alongside",
+                "noun": {
+                    "type": "noun_phrase",
+                    "determiner": "its",
+                    "pre-modifiers": [
+                        { "type": "adjective_phrase", "head": "first" }
+                    ],
+                    "head": "version",
+                    "post-modifiers": [
+                        {
+                            "type": "adjective_phrase",
+                            "head": {
+                                "type": "@funcall",
+                                "@object": "version",
+                                "@field": "id",
+                                "@function": "noun+identity",
+                                "@arg1": ""
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "preposition_phrase",
+                "preposition": "in",
+                "noun": {
+                    "type": "@funcall",
+                    "@object": "version",
+                    "@property": "phys:lkl",
+                    "@function": "string",
+                    "@optional": "true"
+                }
+            },
+            {
+                "type": "preposition_phrase",
+                "preposition": "on",
+                "noun": {
+                    "type": "@funcall",
+                    "@object": "wgbv",
+                    "@field": "time",
+                    "@optional": "true",
+                    "@function": "friendly_timestring"
+                }
+            }
+        ],
+        "features": {
+            "tense": "past",
+            "passive": "true"
+        }
+    },
+
+    "context": {
+        "trs":     "https://openprovenance.org/transport/ns/#",
+        "phys":    "http://openprovenance.org/ns/phys#",
+        "resp":    "http://openprovenance.org/ns/responsibility#",
+        "provext": "http://openprovenance.org/prov/extension#"
+    }
+}

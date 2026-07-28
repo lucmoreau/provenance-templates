@@ -6,7 +6,7 @@
       "lastUpdateTimestamp": 1608232696000,
       "modelVersion": "unknown",
       "transpilerVersion": "3.0.0",
-      "jsOutputDirPath": "/Users/luc/IdeaProjects/provenance-templates/target/webapp/candies",
+      "jsOutputDirPath": "/Users/luc/IdeaProjects/provenance-templates/provenance-templates-library/target/webapp/candies",
       "jsDirPath": "META-INF/resources/webjars/j4ts/2.0.0",
       "jsFilesPaths": [
         "META-INF/resources/webjars/j4ts/2.0.0/bundle.js",

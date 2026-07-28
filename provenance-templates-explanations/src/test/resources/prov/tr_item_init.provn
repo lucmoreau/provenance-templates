@@ -1,0 +1,13 @@
+// Real instance (empty location, no generation time): A book (item:7942) was registered alongside its first version (item:7943).
+document
+prefix trs <https://openprovenance.org/transport/ns/#>
+prefix act <http://localhost:7075/book/provapi/live/activity/>
+prefix phys <http://openprovenance.org/ns/phys#>
+prefix item <http://localhost:7075/book/provapi/live/item/>
+entity(item:7943,[phys:lkl = "" %% xsd:string])
+entity(item:7942,[prov:type = 'trs:Book'])
+activity(act:5943,-,-,[prov:type = 'phys:RegisteringEntity'])
+wasGeneratedBy(item:7942,act:5943,-)
+wasGeneratedBy(item:7943,act:5943,-)
+specializationOf(item:7943,item:7942)
+endDocument

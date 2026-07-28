@@ -1,0 +1,13 @@
+// Record item_init#624 enriched with a location: A box (item:7938) was registered alongside its first version (item:7939) in Southampton on 14 September 2024 at 11:00.
+document
+prefix trs <https://openprovenance.org/transport/ns/#>
+prefix act <http://localhost:7075/book/provapi/live/activity/>
+prefix phys <http://openprovenance.org/ns/phys#>
+prefix item <http://localhost:7075/book/provapi/live/item/>
+entity(item:7939,[phys:lkl = "Southampton" %% xsd:string])
+entity(item:7938,[prov:type = 'trs:Box'])
+activity(act:5941,-,-,[prov:type = 'phys:RegisteringEntity'])
+wasGeneratedBy(item:7938,act:5941,-)
+wasGeneratedBy(item:7939,act:5941,2024-09-14T11:00:00+01:00)
+specializationOf(item:7939,item:7938)
+endDocument
