@@ -5,7 +5,7 @@
   "Purpose": "The template FileSplitting describes the transformation of a file into two files.",
   "Context": "The template is useful for describing operations in a file system.",
   "Design considerations": "The ability to identify the files (before and after splitting).",
-  "Automation": "(ttfs/config-fs.json)(https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-fs.json)",
+  "Automation": "(ttfs/config-fs.json)(https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-fs.json)",
   "Figure": "(org.openprovenance.templates.fs.FileSplitting)(project/template-intro1/target/generated-templates/org/openprovenance/templates/fs/file-splitting.svg){#fig:org.openprovenance.templates.fs.FileSplitting}",
   "Details": "At the start, there is a file; after the activity splitting, there are two files split_file1 and split_file2. An agent engineer controls the splitting activity and uses a method (such as a script or programme).\nSome pre-defined, self-explanatory attributes have been adopted, such as filename1, filename2, path1 and path2.\nThis template can describe the Unix command,  split -n 2 file{.sh}, which reads the given file and breaks it up into two files (named xaa and xab); note that the command does not make the output files explicit, as the pipe redirection cannot be used given the multiple outputs that need to be generated."
 }

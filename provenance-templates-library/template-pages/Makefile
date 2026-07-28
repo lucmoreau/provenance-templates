@@ -10,7 +10,7 @@ icons:
 	@mkdir -p $(PAGES_DIR)/icons
 	@cp $(ICONS_DIR)/org.openprovenance.templates.*.svg $(PAGES_DIR)/icons/
 
-go: icons
+go:
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/collections/InsertingIntoCollection do.file
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/collections/RemovingFromCollection do.file
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/fs/FileFiltering do.file
@@ -43,7 +43,7 @@ go: icons
 TMP_TMPLATE=/tmp/tmplate.md
 
 do.file:
-	@cat  $(FILE).md | sed 's/(project\/template\-intro1/(\/Users\/luc\/IdeaProjects\/provenance\-templates/g' > $(TMP_TMPLATE)
+	@cat  $(FILE).md | sed 's/(project\/template\-intro1/(\/Users\/luc\/IdeaProjects\/provenance\-templates\/provenance\-templates\-library/g' > $(TMP_TMPLATE)
 	@pandoc -F pandoc-crossref -F mermaid-filter -L $(BOOK_DIR)/filters/columns.lua --toc --toc-depth=3  --lof  -V papersize:a4 --metadata linkReferences=true --citeproc --embed-resources --standalone --syntax-definition $(BOOK_DIR)/highlight/sparql.xml $(TMP_TMPLATE) > $(FILE).html
 	@sed 's/**//g' $(FILE).md | sed 's/`//g' | sed 's/!\[/- Figure: (/g' | sed 's/\[@/(/g'  | sed 's/\[/(/g' | sed 's/\]/)/g' | yq -o json -p yaml - | jq 'add' > $(FILE).json
 	@yq -o yaml -p json $(FILE).json > $(FILE).yaml
