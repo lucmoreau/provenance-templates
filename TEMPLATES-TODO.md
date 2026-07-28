@@ -1,6 +1,6 @@
 # TEMPLATES-TODO — Outstanding Work
 
-> **🔢 LAST ALLOCATED TASK NUMBER: T-3** — the highest task id ever assigned (whether still open here
+> **🔢 LAST ALLOCATED TASK NUMBER: T-4** — the highest task id ever assigned (whether still open here
 > or retired to `TEMPLATES-DONE.md`). **When allocating a new task, take the NEXT number and bump this
 > line.** Do NOT reuse a number freed by retirement — a retired task is gone from the index but its
 > number is still taken.
@@ -28,6 +28,7 @@ one-line summary *only*; all narrative (context, findings, design, evidence) bel
 | T-1 | Create the missing template documentation pages (`.md`) for nine templates (fs ×5, generic ×1, physical ×3). | 🟡 MEDIUM | Documentation | [T-1 section](#-t-1-create-the-missing-template-documentation-pages) |
 | T-2 | Check all URLs of the published template pages with the crawler script. | 🔵 LOW | Quality / Web | [T-2 section](#-t-2-check-all-urls-of-the-published-template-pages) |
 | T-3 | Change the package in which Java code is generated — remove `bookptm`. | 🟡 MEDIUM | Build / Naming | [T-3 section](#-t-3-change-the-package-in-which-java-code-is-generated--remove-bookptm) |
+| T-4 | Add a "How to use the template library" page to the template web site, referring to the workflows and the book. | 🟡 MEDIUM | Documentation | [T-4 section](#-t-4-add-a-how-to-use-the-template-library-page-to-the-template-web-site) |
 
 ---
 
@@ -153,3 +154,42 @@ with the ProvToolbox archetype defaults if in scope.
 (`grep -r bookptm src/ target/generated-sources/` empty), the library builds green, and — if the
 groupId changes — the ProvToolbox archetype builds a working book service against the new
 coordinates.
+
+---
+
+### 🟡 T-4: Add a "How to use the template library" page to the template web site
+
+**Status**: OPEN (created 2026-07-28).
+**Priority**: 🟡 MEDIUM. **Category**: Documentation.
+
+**Goal.** The template web site (`template-pages/`, published at
+`https://openprovenance.org/templates/`) currently offers only the per-template pages reached
+from `index.html`; there is no page explaining *how to use the library as a whole*. Create a new
+"How to use the template library" page that walks a newcomer through the library: what the
+template families are, how to pick a template, how to instantiate it (bindings), and how the
+generated code (beans/builders) is consumed from an application.
+
+**Two sources to draw on and link to:**
+- **The workflows** — the generator workflows in
+  `src/main/java/org/openprovenance/bookptm/workflows/` (`GenerateBoxWorkflow`,
+  `GeneratePleadWorkflow`): explain their role as worked end-to-end examples of composing
+  library templates into an application workflow, and reference them from the page.
+  (Package paths will change under T-3 — write the page so the rename only touches links.)
+- **The book** — the book-PTM material (`BOOK_DIR=/Users/luc/git-papers/papers/book-ptm` in
+  `template-pages/Makefile`): refer the reader to the book (relevant chapters) for the
+  underlying provenance template method, and reuse/adapt its expository material where
+  appropriate rather than writing from scratch.
+
+**Work items.**
+1. Write the page as `.md` under `template-pages/` (top level, alongside `index.html` — it is
+   site-wide, not per-template), following the pandoc pipeline of the existing pages.
+2. Add a `do.file` line for it in `template-pages/Makefile`'s `go` target so it renders to
+   `.html`/`.json`/`.yaml` like the template pages.
+3. Link it prominently from `index.html` (e.g. an intro/"Getting started" link above the
+   category buttons).
+4. Cross-reference: the workflows (with links to the sources or rendered listings), the book
+   (chapter references), and a few representative template pages as running examples.
+
+**DoD.** The page renders through `do.file` without pandoc errors, is reachable from
+`index.html`, and contains working references to both the workflows and the book (the T-2
+crawler run should pick it up and report no broken links from it).
