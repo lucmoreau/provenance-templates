@@ -18,7 +18,7 @@
 
         <!-- provtoolbox -->
 
-        <prov.toolbox.version>2.2.4</prov.toolbox.version>
+        <prov.toolbox.version>2.2.5-SNAPSHOT</prov.toolbox.version>
 
         <package.name>transport_template_library</package.name>
         <package.name.cli>${package.name}_cli</package.name.cli>
