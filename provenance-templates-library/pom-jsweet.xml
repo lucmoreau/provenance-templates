@@ -8,6 +8,9 @@
         <groupId>org.openprovenance.bookptm</groupId>
         <artifactId>book-ptm</artifactId>
         <version>0.1.0-SNAPSHOT</version>
+        <!-- resolve the parent from the repository: the directory above holds the
+             provenance-templates aggregator, not book-ptm -->
+        <relativePath/>
     </parent>
 
     <artifactId>template-intro1</artifactId>
@@ -21,10 +24,18 @@
             <artifactId>j4ts</artifactId>
             <version>2.0.0</version>
         </dependency>
+        <dependency>
+            <!-- candy supplying java.util.concurrent.atomic (and other classes
+                 absent from j4ts) to the transpiled sources -->
+            <groupId>org.openprovenance.prov</groupId>
+            <artifactId>prov-jsweet-candy-java</artifactId>
+            <version>${prov.toolbox.candy.version}</version>
+        </dependency>
     </dependencies>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <prov.toolbox.candy.version>2.2.5-SNAPSHOT</prov.toolbox.candy.version>
         <meta.inf.webjars>META-INF/resources/webjars</meta.inf.webjars>
         <package.name>transport_template_library</package.name>
         <package.name.cli>${package.name}_cli</package.name.cli>

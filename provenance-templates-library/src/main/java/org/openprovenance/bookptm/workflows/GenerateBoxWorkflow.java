@@ -810,8 +810,7 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
      * Generates the Java (and Python) source file for {@code BoxWorkflow} and writes it
      * into {@code javaRootDirectory} / {@code pythonOutputDirectory}.
      *
-     * @return
-     * @throws IOException if the file cannot be written
+     * @return a pair of the generated Java class and the stack trace element of the caller
      */
     public Pair<Class, StackTraceElement> generateAndCompilePast(){
         StackTraceElement stackTraceElement = compilerUtil.thisMethodAndLine();
