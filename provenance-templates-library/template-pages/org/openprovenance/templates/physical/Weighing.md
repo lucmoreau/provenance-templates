@@ -7,7 +7,7 @@
 - **Purpose**: This template describes how an item was weighed.
 - **Context**: The template describes a common operation in logistics, determining the weight of goods being transported. 
 - **Design considerations**: The ability to describe the item with its weight as well as the scale involved, and the operator of the scale.
-- **Automation**: [ttfs/config-weighing.json](https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-weighing.json)
+- **Automation**: [ttfs/config-weighing.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-weighing.json)
 
 ![org.openprovenance.templates.physical.Weighing](project/template-intro1/target/generated-templates/org/openprovenance/templates/physical/weighing/weighing.qualified.png){#fig:org.openprovenance.templates.physical.Weighing}
 

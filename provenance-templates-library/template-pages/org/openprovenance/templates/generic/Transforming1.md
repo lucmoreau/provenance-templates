@@ -7,7 +7,7 @@
 - **Context**: It is intended to be a general form of transformation, with a single input and a single output.
 - **Design considerations**: Relations rigorously linking nodes using pre-defined triangles.
 
-- **Automation**: [ttfs/config-generic-transforming.json](https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-generic-transforming.json)
+- **Automation**: [ttfs/config-generic-transforming.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-generic-transforming.json)
 
 
 ![org.openprovenance.templates.generic.Transforming1](project/template-intro1/target/generated-templates/org/openprovenance/templates/generic/transforming/transforming1.qualified.png){#fig:org.openprovenance.templates.generic.Transforming1}

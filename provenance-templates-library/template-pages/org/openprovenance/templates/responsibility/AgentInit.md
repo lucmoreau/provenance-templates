@@ -6,7 +6,7 @@
 - **Purpose**: This template describes how an agent is initially created.
 - **Context**: The template describes a registration activity, which results in a generated agent and an optional specialisation.
 - **Design considerations**: The template allows for new attributes for the agent and its specialisation to be defined following registration; in particular, a specific location can be defined for the specialisation.
-- **Automation**: [ttfs/config-responsibility-agent-init.json](https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-responsibility-agent-init.json)
+- **Automation**: [ttfs/config-responsibility-agent-init.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-responsibility-agent-init.json)
 
 ![org.openprovenance.templates.responsibility.AgentInit](project/template-intro1/target/generated-templates/org/openprovenance/templates/responsibility/agent-init/agent-location-init.png){#fig:org.openprovenance.templates.responsibility.AgentInit}
 

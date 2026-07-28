@@ -6,7 +6,7 @@
 - **Purpose**: This template describes how an agent evolves into another agent through derivation.
 - **Context**: The template explicitly links the derivation and underpinning activity, usage and generation. 
 - **Design considerations**: Extensibility through the ability to assert new attributes for the generated agent, as well as for the derivation and activity, possibly specifying their type.
-- **Automation**:   [ttfs/config-triangle1-agent-ugd.json](https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-triangle1-agent-ugd.json)
+- **Automation**:   [ttfs/config-triangle1-agent-ugd.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-triangle1-agent-ugd.json)
 
 
 ![org.openprovenance.templates.triangles.Triangle1-Agent-UGD](project/template-intro1/target/generated-templates/org/openprovenance/templates/triangles/triangle1-agent-ugd/triangle1-agent-ugd.qualified.png){#fig:org.openprovenance.templates.triangles.Triangle1-Agent-UGD}

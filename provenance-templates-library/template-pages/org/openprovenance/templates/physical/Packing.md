@@ -5,7 +5,7 @@
 - **Purpose**: The template `Packing` describes the evolution of a container as an item is added to it.
 - **Context**: The template helps describe common situations in the physical world, involving containers such as boxes or pallets. 
 - **Design considerations**: The ability to describe the state of the container (before and after inserting an item) and the state of the item (before being packed in the container or after).
-- **Automation**: [ttfs/config-packing.json](https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-packing.json)
+- **Automation**: [ttfs/config-packing.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-packing.json)
 
 
 ![org.openprovenance.templates.physical.Packing](project/template-intro1/target/generated-templates/org/openprovenance/templates/physical/packing/packing.qualified.png){#fig:org.openprovenance.templates.physical.Packing}

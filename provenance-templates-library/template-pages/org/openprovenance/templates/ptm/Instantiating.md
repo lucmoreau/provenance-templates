@@ -5,7 +5,7 @@
 - **Purpose**: The template `Instantiating` describes the instantiation process of a template with a set of bindings.
 - **Context**: The template describes one of the two key operations in provenance template management.
 - **Design considerations**: The ability to trace the creation of provenance templates.
-- **Automation**: [ttfs/config-ptm.json](https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-ptm.json)
+- **Automation**: [ttfs/config-ptm.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-ptm.json)
 
 
 ![org.openprovenance.templates.ptm.Instantiating](project/template-intro1/target/generated-templates/org/openprovenance/templates/ptm/ptm-instantiating.png){#fig:org.openprovenance.templates.ptm.Instantiating}

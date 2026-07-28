@@ -6,7 +6,7 @@
 - **Purpose**: This template describes how an entity evolves through derivation, while retaining its identity through specialisation of a more general entity.
 - **Context**: The template describes a situation in which an entity's aspects change (e.g., a new location, a new weight, a new format), resulting in a new entity that captures the new aspects while remaining the same "thing"; the entity before the derivation and the one after the derivation are both specialisations of a more general entity. 
 - **Design considerations**: The ability to assert changing attribute-value pairs (either updated or new) in the new entity.
-- **Automation**: [ttfs/config-triangle2-entity-sds.json](https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-triangle2-entity-sds.json)
+- **Automation**: [ttfs/config-triangle2-entity-sds.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-triangle2-entity-sds.json)
 
 
 ![org.openprovenance.templates.triangles.Triangle-Entity-SDS](project/template-intro1/target/generated-templates/org/openprovenance/templates/triangles/triangle2-entity-sds/triangle2-entity-sds.qualified.png){#fig:org.openprovenance.templates.triangles.Triangle-Entity-SDS}

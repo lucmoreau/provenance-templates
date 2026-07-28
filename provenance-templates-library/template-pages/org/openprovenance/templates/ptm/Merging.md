@@ -5,7 +5,7 @@
 - **Purpose**: The template `Merging` describes the merging of two templates. 
 - **Context**: The template describes one of the two key operations in provenance template management.
 - **Design considerations**: The ability to trace the creation of provenance templates.
-- **Automation**: [ttfs/config-ptm.json](https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-ptm.json)
+- **Automation**: [ttfs/config-ptm.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-ptm.json)
 
 
 ![org.openprovenance.templates.ptm.Merging](project/template-intro1/target/generated-templates/org/openprovenance/templates/ptm/ptm-merging.png){#fig:org.openprovenance.templates.ptm.Merging}

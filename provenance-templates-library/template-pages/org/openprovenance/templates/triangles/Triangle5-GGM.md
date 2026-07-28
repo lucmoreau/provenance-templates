@@ -6,7 +6,7 @@
 - **Purpose**: This template describes the situation resulting from an activity that adds an element to a collection.
 - **Context**: The template describes the membership link between a collection and an item after the item was added to the collection, with the potential (in combination with other patterns) to distinguish the item and the collection before and after the item was added. 
 - **Design considerations**: The ability to assert new attributes for the membership, the collection and the item, as well as for the activity.
-- **Automation**: [ttfs/config-triangle5-ggm.json](https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-triangle5-ggm.json)
+- **Automation**: [ttfs/config-triangle5-ggm.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-triangle5-ggm.json)
 
 
 ![org.openprovenance.templates.triangles.Triangle5-GGM](project/template-intro1/target/generated-templates/org/openprovenance/templates/triangles/triangle5-ggm/triangle5-ggm.qualified.png){#fig:org.openprovenance.templates.triangles.Triangle5-GGM}

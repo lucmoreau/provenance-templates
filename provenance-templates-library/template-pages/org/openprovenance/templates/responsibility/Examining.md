@@ -9,7 +9,7 @@
 - **Purpose**: This template describes how an entity is examined, observed or assessed, resulting in a new attribute for this entity.
 - **Context**: The template describes a common operation that occurs in many circumstances, such as when the status of an object is checked, when its weight is determined, or when its content is validated; a person, an automated agent, or an instrument under the control of an agent can carry out the operation. 
 - **Design considerations**: The ability to assert new attributes for this entity following some observation, measurement or analysis.
-- **Automation**: [ttfs/config-responsibility-examining.json](https://github.com/lucmoreau/provenance-templates/blob/main/src/main/resources/ttfs/config-responsibility-examining.json)
+- **Automation**: [ttfs/config-responsibility-examining.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-responsibility-examining.json)
 
 ![org.openprovenance.templates.responsibility.Examining](project/template-intro1/target/generated-templates/org/openprovenance/templates/responsibility/examining/examining.qualified.png){#fig:org.openprovenance.templates.responsibility.Examining}
 
