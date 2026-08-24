@@ -14,3 +14,10 @@ Build everything with:
 ```
 mvn clean install
 ```
+
+## Guides
+
+- [HOWTO: exactly-once statement submissions with
+  `Idempotency-Key`](HOWTO-IDEMPOTENT-SUBMISSIONS.md) — retry statement POSTs
+  safely against a generated store, illustrated with `curl` and the transport
+  library's `item_init` and `transporting` templates.
