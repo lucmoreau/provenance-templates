@@ -8,7 +8,7 @@
 - **Design considerations**: The template allows for new attributes for the agent and its specialisation to be defined following registration; in particular, a specific location can be defined for the specialisation.
 - **Automation**: [ttfs/config-responsibility-agent-init.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-responsibility-agent-init.json)
 
-![org.openprovenance.templates.responsibility.AgentInit](project/template-intro1/target/generated-templates/org/openprovenance/templates/responsibility/agent-init/agent-location-init.png){#fig:org.openprovenance.templates.responsibility.AgentInit}
+![org.openprovenance.templates.responsibility.AgentInit](project/template-intro1/target/generated-templates/org/openprovenance/templates/responsibility/agent-init/agent-location-init.svg){#fig:org.openprovenance.templates.responsibility.AgentInit}
 
 
 

@@ -11,7 +11,7 @@
             "template": "org/openprovenance/templates/generic/parallel2",
             "output": "org/openprovenance/templates/ptm/ptm-instantiating",
             "bindings": "ptm-instantiating.json",
-            "formats": ["jsonld", "provn", "png"],
+            "formats": ["jsonld", "provn", "png", "svg"],
             "hasProvenance": "org/openprovenance/templates/ptm/prov/prov-ptm-instiating.prov-csv",
             "variableCheck": "src/main/resources/variable-check/ptm/variables.json"
         },
@@ -20,7 +20,7 @@
             "template": "org/openprovenance/templates/generic/parallel2",
             "output": "org/openprovenance/templates/ptm/ptm-merging",
             "bindings": "ptm-merging.json",
-            "formats": ["jsonld", "provn", "png"],
+            "formats": ["jsonld", "provn", "png", "svg"],
             "hasProvenance": "org/openprovenance/templates/ptm/prov/prov-ptm-merging.prov-csv",
             "variableCheck": "src/main/resources/variable-check/ptm/variables.json"
 

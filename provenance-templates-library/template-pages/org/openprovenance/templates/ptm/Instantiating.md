@@ -8,7 +8,7 @@
 - **Automation**: [ttfs/config-ptm.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-ptm.json)
 
 
-![org.openprovenance.templates.ptm.Instantiating](project/template-intro1/target/generated-templates/org/openprovenance/templates/ptm/ptm-instantiating.png){#fig:org.openprovenance.templates.ptm.Instantiating}
+![org.openprovenance.templates.ptm.Instantiating](project/template-intro1/target/generated-templates/org/openprovenance/templates/ptm/ptm-instantiating.svg){#fig:org.openprovenance.templates.ptm.Instantiating}
 
 
 
