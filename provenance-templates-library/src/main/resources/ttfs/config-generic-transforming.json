@@ -33,7 +33,7 @@
             ],
             "output": "org/openprovenance/templates/generic/transforming/transforming1",
             "outputFullyQualifiedName": "org.openprovenance.templates.generic.Transforming1",
-            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png", "qualified.svg"],
             "hasProvenance": "org/openprovenance/templates/generic/transforming/prov/prov-transforming1.prov-csv",
             "variableCheck": "src/main/resources/variable-check/generic/variables.json"
         }

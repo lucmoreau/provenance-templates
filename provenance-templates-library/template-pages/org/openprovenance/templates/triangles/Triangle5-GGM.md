@@ -9,7 +9,7 @@
 - **Automation**: [ttfs/config-triangle5-ggm.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-triangle5-ggm.json)
 
 
-![org.openprovenance.templates.triangles.Triangle5-GGM](project/template-intro1/target/generated-templates/org/openprovenance/templates/triangles/triangle5-ggm/triangle5-ggm.qualified.png){#fig:org.openprovenance.templates.triangles.Triangle5-GGM}
+![org.openprovenance.templates.triangles.Triangle5-GGM](project/template-intro1/target/generated-templates/org/openprovenance/templates/triangles/triangle5-ggm/triangle5-ggm.qualified.svg){#fig:org.openprovenance.templates.triangles.Triangle5-GGM}
 
 - **Details**:
 

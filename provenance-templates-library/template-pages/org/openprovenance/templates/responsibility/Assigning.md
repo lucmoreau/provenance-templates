@@ -8,7 +8,7 @@
 - **Design considerations**: The template allows for new attributes for this entity and agent to be assigned following assignment.
 - **Automation**: [ttfs/config-responsibility-assigning.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-responsibility-assigning.json)
 
-![org.openprovenance.templates.responsibility.Assigning](project/template-intro1/target/generated-templates/org/openprovenance/templates/responsibility/assigning/assigning.qualified.png){#fig:org.openprovenance.templates.responsibility.Assigning}
+![org.openprovenance.templates.responsibility.Assigning](project/template-intro1/target/generated-templates/org/openprovenance/templates/responsibility/assigning/assigning.qualified.svg){#fig:org.openprovenance.templates.responsibility.Assigning}
 
 
 

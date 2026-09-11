@@ -10,7 +10,7 @@
 - **Automation**: [ttfs/config-generic-transforming.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-generic-transforming.json)
 
 
-![org.openprovenance.templates.generic.Transforming1](project/template-intro1/target/generated-templates/org/openprovenance/templates/generic/transforming/transforming1.qualified.png){#fig:org.openprovenance.templates.generic.Transforming1}
+![org.openprovenance.templates.generic.Transforming1](project/template-intro1/target/generated-templates/org/openprovenance/templates/generic/transforming/transforming1.qualified.svg){#fig:org.openprovenance.templates.generic.Transforming1}
 
 
 - **Details**:

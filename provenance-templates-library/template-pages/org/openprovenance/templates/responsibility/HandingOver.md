@@ -9,7 +9,7 @@
 - **Design considerations**: The ability to assert new attributes for this entity following the handover.
 - **Automation**: [ttfs/config-responsibility-handingover.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-responsibility-handingover.json)
 
-![org.openprovenance.templates.responsibility.HandingOver](project/template-intro1/target/generated-templates/org/openprovenance/templates/responsibility/handingover/handingover.qualified.png){#fig:org.openprovenance.templates.responsibility.HandingOver}
+![org.openprovenance.templates.responsibility.HandingOver](project/template-intro1/target/generated-templates/org/openprovenance/templates/responsibility/handingover/handingover.qualified.svg){#fig:org.openprovenance.templates.responsibility.HandingOver}
 
 
 - **Details**:

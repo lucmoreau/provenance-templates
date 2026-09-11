@@ -11,7 +11,7 @@
             "template": "org.openprovenance.templates.generic.Transforming1",
             "output": "org/openprovenance/templates/generic/forking2",
             "bindings": "forking2.json",
-            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png", "qualified.svg"],
             "hasProvenance": "org/openprovenance/templates/generic/prov/prov-forking2.prov-csv",
             "variableCheck": "src/main/resources/variable-check/generic/variables.json"
         },
@@ -20,7 +20,7 @@
             "template": "org.openprovenance.templates.generic.Transforming1",
             "output": "org/openprovenance/templates/generic/joining2",
             "bindings": "joining2.json",
-            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png", "qualified.svg"],
             "hasProvenance": "org/openprovenance/templates/generic/prov/prov-joining2.prov-csv",
             "variableCheck": "src/main/resources/variable-check/generic/variables.json"
         },
@@ -29,7 +29,7 @@
             "template": "org.openprovenance.templates.generic.Transforming1",
             "output": "org/openprovenance/templates/generic/parallel2",
             "bindings": "parallel2.json",
-            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png", "qualified.svg"],
             "hasProvenance": "org/openprovenance/templates/generic/prov/prov-parallel2.prov-csv",
             "variableCheck": "src/main/resources/variable-check/generic/variables.json"
         },
@@ -38,7 +38,7 @@
             "template": "org.openprovenance.templates.generic.Transforming1",
             "output": "org/openprovenance/templates/generic/product2-2",
             "bindings": "product2-2.json",
-            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png", "qualified.svg"],
             "hasProvenance": "org/openprovenance/templates/generic/prov/prov-product2-2.prov-csv",
             "variableCheck": "src/main/resources/variable-check/generic/variables.json"
 

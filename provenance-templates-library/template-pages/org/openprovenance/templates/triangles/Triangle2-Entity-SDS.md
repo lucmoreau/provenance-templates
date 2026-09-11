@@ -9,7 +9,7 @@
 - **Automation**: [ttfs/config-triangle2-entity-sds.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-triangle2-entity-sds.json)
 
 
-![org.openprovenance.templates.triangles.Triangle-Entity-SDS](project/template-intro1/target/generated-templates/org/openprovenance/templates/triangles/triangle2-entity-sds/triangle2-entity-sds.qualified.png){#fig:org.openprovenance.templates.triangles.Triangle-Entity-SDS}
+![org.openprovenance.templates.triangles.Triangle-Entity-SDS](project/template-intro1/target/generated-templates/org/openprovenance/templates/triangles/triangle2-entity-sds/triangle2-entity-sds.qualified.svg){#fig:org.openprovenance.templates.triangles.Triangle-Entity-SDS}
 
 - **Details**:
 

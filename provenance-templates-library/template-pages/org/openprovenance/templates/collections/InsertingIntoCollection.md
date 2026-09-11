@@ -9,7 +9,7 @@
 - **Design considerations**: The ability to describe the state of the collection (before and after inserting an element) and the state of the element (before being in the collection or after).
 - **Automation**: [ttfs/config-inserting-into-collection.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-inserting-into-collection.json)
 
-![org.openprovenance.templates.collections.InsertingIntoCollection](project/template-intro1/target/generated-templates/org/openprovenance/templates/collections/inserting/collection-inserting.qualified.png){#fig:org.openprovenance.templates.collections.InsertingIntoCollection}
+![org.openprovenance.templates.collections.InsertingIntoCollection](project/template-intro1/target/generated-templates/org/openprovenance/templates/collections/inserting/collection-inserting.qualified.svg){#fig:org.openprovenance.templates.collections.InsertingIntoCollection}
 
 
 - **Details**:

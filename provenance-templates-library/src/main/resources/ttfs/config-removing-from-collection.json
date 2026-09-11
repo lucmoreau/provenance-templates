@@ -60,7 +60,7 @@
                 "org/openprovenance/templates/collections/removing/membership"
             ],
             "output": "org/openprovenance/templates/collections/removing/collection-removing",
-            "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
+            "formats": ["jsonld","provn", "png", "svg", "qualified.png", "qualified.svg"],
             "hasProvenance": "org/openprovenance/templates/collections/removing/prov/prov-collection-removing.prov-csv",
             "variableCheck": "src/main/resources/variable-check/collections/variables.json"
 

@@ -8,7 +8,7 @@
 - **Automation**: [ttfs/config-transporting.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-transporting.json)
 
 
-![org.openprovenance.templates.physical.Transporting](project/template-intro1/target/generated-templates/org/openprovenance/templates/physical/transporting/transporting.qualified.png){#fig:org.openprovenance.templates.physical.Transporting}
+![org.openprovenance.templates.physical.Transporting](project/template-intro1/target/generated-templates/org/openprovenance/templates/physical/transporting/transporting.qualified.svg){#fig:org.openprovenance.templates.physical.Transporting}
 
 
 

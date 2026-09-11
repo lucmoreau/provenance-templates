@@ -64,7 +64,7 @@
                 "org/openprovenance/templates/triangles/triangle6-ugm/generation"
             ],
             "output": "org/openprovenance/templates/triangles/triangle6-ugm/triangle6-ugm",
-            "formats": ["jsonld","provn", "png", "svg", "qualified.png"],
+            "formats": ["jsonld","provn", "png", "svg", "qualified.png", "qualified.svg"],
             "hasProvenance": "org/openprovenance/templates/triangles/triangle6-ugm/prov/prov-triangle6-ugm.prov-csv",
             "variableCheck": "variable-check/collections/variables.json"
         }

@@ -5,7 +5,7 @@ Purpose: This template describes how an entity is attributed to an agent.
 Context: The template describes an 'assigning' activity, which results in a generated entity linked to an agent by an attribution link; before the 'assigning' activity, there was no attribution link.
 Design considerations: The template allows for new attributes for this entity and agent to be assigned following assignment.
 Automation: (ttfs/config-responsibility-assigning.json)(https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-responsibility-assigning.json)
-Figure: (org.openprovenance.templates.responsibility.Assigning)(project/template-intro1/target/generated-templates/org/openprovenance/templates/responsibility/assigning/assigning.qualified.png){#fig:org.openprovenance.templates.responsibility.Assigning}
+Figure: (org.openprovenance.templates.responsibility.Assigning)(project/template-intro1/target/generated-templates/org/openprovenance/templates/responsibility/assigning/assigning.qualified.svg){#fig:org.openprovenance.templates.responsibility.Assigning}
 Details: |-
   Initially, there is an entity e and its specialisation e0, with no attributes specified in this template. An activity assigning uses entity e0. After this operation, there is an entity e1 with a new attribute eprops1 and value evalues1, determined by the activity assigning. All other attributes of e and e0 are expected to remain unchanged.
   At the start, there is also an agent ag and its specialisation ag0, with no attributes specified in the template. After the assigning activity, there is an agent ag1 with a new attribute agprops1 set to agvalues1. All other attributes of ag and ag0 remain unchanged.

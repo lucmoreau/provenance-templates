@@ -10,7 +10,7 @@
 - **Automation**: [ttfs/config-removing-from-collection.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-removing-from-collection.json)
 
 
-![org.openprovenance.templates.collections.RemovingFromCollection](project/template-intro1/target/generated-templates/org/openprovenance/templates/collections/removing/collection-removing.qualified.png){#fig:org.openprovenance.templates.collections.RemovingFromCollection}
+![org.openprovenance.templates.collections.RemovingFromCollection](project/template-intro1/target/generated-templates/org/openprovenance/templates/collections/removing/collection-removing.qualified.svg){#fig:org.openprovenance.templates.collections.RemovingFromCollection}
 
 
 

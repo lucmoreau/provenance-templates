@@ -9,7 +9,7 @@
 - **Design considerations**: Built on some triangles, using multiplicity to accommodate multiple inputs and outputs, with explicit dependencies. 
 - **Automation**: [ttfs/config-generic.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-generic.json)
 
-![org.openprovenance.templates.generic.Product2-2](project/template-intro1/target/generated-templates/org/openprovenance/templates/generic/product2-2.qualified.png){#fig:org.openprovenance.templates.generic.Product2-2}
+![org.openprovenance.templates.generic.Product2-2](project/template-intro1/target/generated-templates/org/openprovenance/templates/generic/product2-2.qualified.svg){#fig:org.openprovenance.templates.generic.Product2-2}
 
 
 - **Details**:

@@ -9,7 +9,7 @@
 - **Automation**: [ttfs/config-triangle4-aia.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-triangle4-aia.json)
 
 
-![org.openprovenance.templates.triangles.Triangle4-AIA](project/template-intro1/target/generated-templates/org/openprovenance/templates/triangles/triangle4-aia/triangle4-aia.qualified.png){#fig:org.openprovenance.templates.triangles.Triangle4-AIA}
+![org.openprovenance.templates.triangles.Triangle4-AIA](project/template-intro1/target/generated-templates/org/openprovenance/templates/triangles/triangle4-aia/triangle4-aia.qualified.svg){#fig:org.openprovenance.templates.triangles.Triangle4-AIA}
 
 - **Details**:
 

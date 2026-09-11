@@ -12,7 +12,7 @@
             "template": "org.openprovenance.templates.simple.Transforming1",
             "output": "org/openprovenance/templates/simple/joining2",
             "bindings": "simple-joining2.json",
-            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png", "qualified.svg"],
             "hasProvenance": "org/openprovenance/templates/simple/prov/prov-joining2.prov-csv",
             "variableCheck": "src/main/resources/variable-check/simple/variables.json"
         },
@@ -21,7 +21,7 @@
             "template": "org/openprovenance/templates/simple/joining2",
             "output": "org/openprovenance/templates/simple/binaryop",
             "bindings": "simple-binaryop.json",
-            "formats": ["jsonld", "provn", "png", "svg", "qualified.png"],
+            "formats": ["jsonld", "provn", "png", "svg", "qualified.png", "qualified.svg"],
             "hasProvenance": "org/openprovenance/templates/simple/prov/prov-binaryop.prov-csv",
             "variableCheck": "src/main/resources/variable-check/simple/variables.json"
 

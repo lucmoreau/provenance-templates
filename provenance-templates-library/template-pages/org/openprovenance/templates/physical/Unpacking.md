@@ -9,7 +9,7 @@
 - **Design considerations**: The ability to describe the state of the container (before and after inserting an item) and the state of the item (before being in the container or after).
 - **Automation**: [ttfs/config-unpacking.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-unpacking.json)
 
-![org.openprovenance.templates.physical.Unpacking](project/template-intro1/target/generated-templates/org/openprovenance/templates/physical/unpacking/unpacking.qualified.png){#fig:org.openprovenance.templates.physical.Unpacking}
+![org.openprovenance.templates.physical.Unpacking](project/template-intro1/target/generated-templates/org/openprovenance/templates/physical/unpacking/unpacking.qualified.svg){#fig:org.openprovenance.templates.physical.Unpacking}
 
 
 

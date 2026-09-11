@@ -11,7 +11,7 @@
 - **Design considerations**: The ability to assert new attributes for this entity following some observation, measurement or analysis.
 - **Automation**: [ttfs/config-responsibility-examining.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-responsibility-examining.json)
 
-![org.openprovenance.templates.responsibility.Examining](project/template-intro1/target/generated-templates/org/openprovenance/templates/responsibility/examining/examining.qualified.png){#fig:org.openprovenance.templates.responsibility.Examining}
+![org.openprovenance.templates.responsibility.Examining](project/template-intro1/target/generated-templates/org/openprovenance/templates/responsibility/examining/examining.qualified.svg){#fig:org.openprovenance.templates.responsibility.Examining}
 
 - **Details**:
 

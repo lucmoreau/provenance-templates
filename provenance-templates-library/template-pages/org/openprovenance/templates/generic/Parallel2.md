@@ -9,7 +9,7 @@
 - **Design considerations**: Ensuring a given output is derived from a single input.
 - **Automation**: [ttfs/config-generic.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-generic.json)
 
-![org.openprovenance.templates.generic.Parallel2](project/template-intro1/target/generated-templates/org/openprovenance/templates/generic/parallel2.qualified.png){#fig:org.openprovenance.templates.generic.Parallel2}
+![org.openprovenance.templates.generic.Parallel2](project/template-intro1/target/generated-templates/org/openprovenance/templates/generic/parallel2.qualified.svg){#fig:org.openprovenance.templates.generic.Parallel2}
 
 
 - **Details**:

@@ -45,7 +45,10 @@ TMP_TMPLATE=/tmp/tmplate.md
 do.file:
 	@cat  $(FILE).md | sed 's/(project\/template\-intro1/(\/Users\/luc\/IdeaProjects\/provenance\-templates\/provenance\-templates\-library/g' > $(TMP_TMPLATE)
 	@pandoc -F pandoc-crossref -F mermaid-filter -L $(BOOK_DIR)/filters/columns.lua --toc --toc-depth=3  --lof  -V papersize:a4 --metadata linkReferences=true --citeproc --embed-resources --standalone --syntax-definition $(BOOK_DIR)/highlight/sparql.xml $(TMP_TMPLATE) > $(FILE).html
-	@sed 's/**//g' $(FILE).md | sed 's/`//g' | sed 's/!\[/- Figure: (/g' | sed 's/\[@/(/g'  | sed 's/\[/(/g' | sed 's/\]/)/g' | yq -o json -p yaml - | jq 'add' > $(FILE).json
+	@sed 's/**//g' $(FILE).md | sed 's/`//g' | sed 's/!\[/- Figure: (/g' | sed 's/\[@/(/g'  | sed 's/\[/(/g' | sed 's/\]/)/g' \
+	  | awk -f $(PAGES_DIR)/details.awk | yq -o json -p yaml - | jq 'add' > $(FILE).json.tmp \
+	  && [ -s $(FILE).json.tmp ] && mv $(FILE).json.tmp $(FILE).json \
+	  || { rm -f $(FILE).json.tmp; echo "$(FILE).md: yaml conversion failed, $(FILE).json left as it was" >&2; exit 1; }
 	@yq -o yaml -p json $(FILE).json > $(FILE).yaml
 	@yq $(FILE).json
 	@yq $(FILE).yaml

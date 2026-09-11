@@ -13,7 +13,7 @@
 - **Design considerations**: Relations rigorously linking nodes using pre-defined triangles.
 - **Automation**: [ttfs/config-generic.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-generic.json)
 
-![org.openprovenance.templates.generic.Joining2](project/template-intro1/target/generated-templates/org/openprovenance/templates/generic/joining2.qualified.png){#fig:org.openprovenance.templates.generic.Joining2}
+![org.openprovenance.templates.generic.Joining2](project/template-intro1/target/generated-templates/org/openprovenance/templates/generic/joining2.qualified.svg){#fig:org.openprovenance.templates.generic.Joining2}
 
 - **Details**:
    

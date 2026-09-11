@@ -9,7 +9,7 @@
 - **Design considerations**: The ability to describe the item with its weight as well as the scale involved, and the operator of the scale.
 - **Automation**: [ttfs/config-weighing.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-weighing.json)
 
-![org.openprovenance.templates.physical.Weighing](project/template-intro1/target/generated-templates/org/openprovenance/templates/physical/weighing/weighing.qualified.png){#fig:org.openprovenance.templates.physical.Weighing}
+![org.openprovenance.templates.physical.Weighing](project/template-intro1/target/generated-templates/org/openprovenance/templates/physical/weighing/weighing.qualified.svg){#fig:org.openprovenance.templates.physical.Weighing}
 
 
 

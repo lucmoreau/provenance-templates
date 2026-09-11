@@ -8,7 +8,7 @@
 - **Automation**: [ttfs/config-packing.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-packing.json)
 
 
-![org.openprovenance.templates.physical.Packing](project/template-intro1/target/generated-templates/org/openprovenance/templates/physical/packing/packing.qualified.png){#fig:org.openprovenance.templates.physical.Packing}
+![org.openprovenance.templates.physical.Packing](project/template-intro1/target/generated-templates/org/openprovenance/templates/physical/packing/packing.qualified.svg){#fig:org.openprovenance.templates.physical.Packing}
 
 
 
