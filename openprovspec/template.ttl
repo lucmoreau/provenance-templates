@@ -14,6 +14,7 @@
     rdf:type owl:Ontology ;
     rdfs:label "Provenance template vocabulary"@en ;
     rdfs:comment "The reserved attributes of provenance templates. A template is a PROV document whose placeholders are variables, qualified names in the var namespace (http://openprovenance.org/var#), or in the vargen namespace (http://openprovenance.org/vargen#) for identifiers the instantiation generates when the bindings leave them unbound. A variable can stand where PROV admits a qualified name: an identifier, an attribute, a value. Where PROV constrains the syntax of a value — a label is a string, a time an xsd:dateTime — a template writes a tmpl attribute paired with a variable instead, and the instantiation writes the PROV attribute; further tmpl attributes make a statement conditional, give a relation an identifier, or tie the expansion of two statements together. Every tmpl attribute is consumed by the instantiation: none survives into an instantiated document."@en ;
+    rdfs:seeAlso <https://openprovenance.org/ns/tmpl.html> ;
     rdfs:seeAlso <https://openprovenance.org/ns/openprov> ;
     rdfs:seeAlso <https://lucmoreau.github.io/ProvToolbox/> .
 

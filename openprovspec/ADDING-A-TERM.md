@@ -116,7 +116,8 @@ attributes of provenance templates, served at https://openprovenance.org/ns/tmpl
 through `template-pages/ns/tmpl.ttl`. Its terms are ProvToolbox's
 (`InstantiateUtil` in prov-template: `label`, `time`, `startTime`, `endTime`,
 `ID`, `linked`; `if` in the compiler); a new one is added there, with its
-handling, and here. `template.html` is its specification page; `make html`
+handling, and here. `template.html` is its specification page, served at
+https://openprovenance.org/ns/tmpl.html; `make html`
 refreshes the generated block from `template.ttl`
 (`script/template-ttl-to-html.py`), which presents the terms in the groups
 the script names (`GROUPS`) — a term outside them shows under "Other
