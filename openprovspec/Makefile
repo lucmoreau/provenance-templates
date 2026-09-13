@@ -1,14 +1,16 @@
 # The OpenProv specification: index.html is the hand-written ReSpec document;
 # `make html` refreshes the two generated blocks inside it -- the ontology,
 # from openprov.ttl, and the JSON-LD context, from openprov.jsonld -- at
-# their placeholders (see script/inject.py).  Rerun after either source changes.
+# their placeholders (see script/inject.py), and the one block of
+# template.html, the template vocabulary, from template.ttl.  Rerun after
+# any source changes.
 #
-#   make html        refresh the generated blocks in index.html
+#   make html        refresh the generated blocks in index.html and template.html
 #   make schema      openprov-schema.json, the PROV-JSONLD schema extended
 #                    with the context's terms by reference (fetches the
 #                    published schema; see script/schema-extend.py)
-#   make standalone  openprov.html and context.html, the same content as
-#                    self-contained pages, for checking the generators
+#   make standalone  openprov.html, context.html and tmpl.html, the same
+#                    content as self-contained pages, for checking the generators
 
 .PHONY: all html schema standalone
 
@@ -17,10 +19,12 @@ all: html schema
 html:
 	python3 script/ttl-to-html.py openprov.ttl --inject index.html
 	python3 script/context-to-html.py openprov.jsonld --inject index.html
+	python3 script/template-ttl-to-html.py template.ttl --inject template.html
 
 standalone:
 	python3 script/ttl-to-html.py openprov.ttl openprov.html
 	python3 script/context-to-html.py openprov.jsonld context.html
+	python3 script/template-ttl-to-html.py template.ttl tmpl.html
 
 SPEC_SCHEMA=https://openprovenance.org/prov-jsonld/schema.json
 

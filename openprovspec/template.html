@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>The Provenance Template Extensions to PROV</title>
+  <script src='https://www.w3.org/Tools/respec/respec-w3c' class='remove' async></script>
+  <script class='remove'>
+    var respecConfig = {
+      specStatus: "unofficial",
+      edDraftURI: "https://openprovenance.org/ns/openprov.html",
+      group: "webapps",
+
+      editors: [{
+        name: "Luc Moreau",
+        url: "https://openprovenance.susx.ac.uk/people/luc.moreau/",
+      }],
+      shortName: "prov-jsonld",
+      localBiblio: {
+        "PROV-JSON": {
+          title: "The PROV-JSON Serialization. A JSON Representation for the PROV Data Model",
+          href: "http://www.w3.org/Submission/prov-json/",
+          status: "W3C Member Submission 24 April 2013",
+          publisher: "W3C",
+        },
+        "PROV-JSONLD": {
+          title: "The PROV-JSONLD Serialization. A JSON-LD Representation for the PROV Data Model",
+          href: "http://www.w3.org/Submission/prov-jsonld/",
+          status: "W3C Member Submission 25 August 2024",
+          publisher: "W3C",
+        },
+        "JSON-SCHEMA": {
+          title: "JSON Schema: A Media Type for Describing JSON Documents",
+          author: "A. Wright, H. Andrews, B. Hutton",
+          href: "https://tools.ietf.org/html/draft-handrews-json-schema-02",
+          status: "Internet-Draft",
+          publisher: "IETF"
+        }
+      }
+
+    };
+  </script>
+  <style type="text/css">
+    .frame {
+      border-style: solid;
+      border-width: 1pt;
+    }
+
+  </style>
+
+  <style type="text/css">
+    .note { font-size:small; margin-left:50px }
+
+    .diamond {
+      font-weight: normal;
+      font-style: normal;
+      font-size:100%;
+      font-family: sans-serif;
+    }
+
+    table.thinborder {
+      border-width: 1px;
+      border-spacing: 0px;
+      border-style: none;
+      border-color: gray;
+      border-collapse: collapse;
+    }
+
+    table.thinborder th {
+      border-width: 1px;
+      padding: 0px;
+      border-style: solid;
+      border-color: gray;
+    }
+
+    table.thinborder td {
+      border-width: 1px;
+      padding: 2px;
+      border-style: solid;
+      border-color: gray;
+    }
+  </style>
+</head>
+<body>
+<section id='abstract'>
+  <p>
+   OpenProv
+  </p>
+  <p>The following files are available:
+  </p><ul>
+  <li>The JSON Schema for PROV-JSONLD <a href="openprov-schema.json">openprov-schema.json</a></li>
+  <li>The JSONLD Context for PROV-JSONLD <a href="openprov.jsonld">openprov.jsonld</a></li>
+  <li>OWL Ontology Extension to support PROV-JSONLD <a href="openprov.ttl">openprov.ttl</a></li>
+</ul>
+
+</section>
+<section id='sotd'>
+  <!--      <p>
+          This is document is a member submission by King's College London.
+        </p>
+  -->
+</section>
+
+<section id='conformance'>
+  <p>
+    This is required for specifications that contain normative material.
+  </p>
+</section>
+
+<section id='Introduction'>
+  <h2>Introduction</h2>
+  <p>
+
+
+  <section id="namespace">
+    <h3>Namespace</h3>
+
+    <p>  The following namespaces prefixes are used throughout this document.  </p>
+
+    <div style="text-align: left;">
+      <table class="thinborder" style="margin-left: auto; margin-right: auto; background-color: #f9f9f9;">
+        <div id="namespace-table" class="caption">Table 1: Prefix and Namespaces used in this specification</caption></div>
+        <tbody><tr><td><b>prefix</b></td><td><b>namespace IRI</b></td> <td><b>definition</b></td></tr>
+        <tr><td>prov</td><td>http://www.w3.org/ns/prov#</td><td>The PROV namespace [[PROV-DM]]</td></tr>
+        <tr><td>openprov</td><td>https://openprovenance.org/ns/openprov#</td><td>The OpenProv namespace defined by this specification</td></tr>
+        <tr><td>provext</td><td>https://openprovenance.org/ns/provext#</td><td>Extension  namespace for PROV used in the [[PROV-JSONLD]] specification</td></tr>
+        <tr><td>xsd</td><td>http://www.w3.org/2000/10/XMLSchema#</td><td>XML Schema Namespace [[XMLSCHEMA11-2]]]</td></tr>
+        <tr><td>rdf</td><td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td><td>The RDF namespace  [[RDF-CONCEPTS]]</td></tr>
+        <tr><td>(others)</td><td>(various)</td><td>All other namespace prefixes are used in examples only. <br> In particular, IRIs starting with "http://example.com" represent some application-dependent IRI [[RFC3987]]</td></tr>
+        </tbody></table>
+    </div>
+  </section>
+
+</section>
+
+<section id='ontology'>
+  <h2>Provenance Template Ontology</h2>
+
+  <p>In this section, we provide details about OpenProv Ontology ... . </p>
+
+  <!-- insert here auto generated html describing the ontology -->
+<!-- BEGIN generated: ontology (template-ttl-to-html.py from template.ttl) -->
+<style>
+.term { background: #e8f0fe; color: #222; border-left: 3px solid #4285f4; border-radius: 3px;
+        padding: 0.8em 1em; margin: 1em 0; }
+.term a { color: #1a73e8; }
+.term code { color: inherit; }
+.term .term-name { font-size: 1.1em; margin: 0 0 0.5em; color: #1a73e8; font-weight: bold; }
+.term .term-name dfn { font-style: normal; }
+.term .term-iri { font-size: 0.85em; color: #555; font-weight: normal; margin-left: 0.6em; }
+.term table { border-collapse: collapse; width: 100%; font-size: 0.93em; margin: 0; }
+.term table.facts th { text-align: left; vertical-align: top; white-space: nowrap; width: 160px;
+        padding: 0.2em 0.8em 0.2em 0; color: #555; font-weight: normal; font-style: italic;
+        border: none; background: none; }
+.term table.keys th { text-align: left; padding: 0.2em 0.8em 0.2em 0; color: #555;
+        font-weight: normal; font-style: italic; border: none; border-bottom: 1px solid #4285f4;
+        background: none; }
+.term td { padding: 0.2em 0.8em 0.2em 0; border: none; vertical-align: top; }
+.term td code { word-break: break-all; }
+p.group { font-style: italic; color: #444; margin: 1.5em 0 0.3em; }
+</style>
+<p>The vocabulary is identified by <code>http://openprovenance.org/ns/tmpl#</code>; its terms are in the
+namespace <code>http://openprovenance.org/ns/tmpl#</code>, prefix <code>tmpl</code>.
+The reserved attributes of provenance templates. A template is a PROV document whose placeholders are variables, qualified names in the var namespace (http://openprovenance.org/var#), or in the vargen namespace (http://openprovenance.org/vargen#) for identifiers the instantiation generates when the bindings leave them unbound. A variable can stand where PROV admits a qualified name: an identifier, an attribute, a value. Where PROV constrains the syntax of a value — a label is a string, a time an xsd:dateTime — a template writes a tmpl attribute paired with a variable instead, and the instantiation writes the PROV attribute; further tmpl attributes make a statement conditional, give a relation an identifier, or tie the expansion of two statements together. Every tmpl attribute is consumed by the instantiation: none survives into an instantiated document.</p>
+<p>Each term is declared as <code>rdf:Property</code>: an attribute a template pairs with a variable,
+and which the instantiation consumes.</p>
+
+<section id="tmpl-syntax">
+  <h3>Syntax-constrained attributes</h3>
+  <p>Paired with a variable in the template; the instantiation writes the PROV attribute — <code>prov:label</code>, <code>prov:time</code>, <code>prov:startTime</code>, <code>prov:endTime</code> — with the bound value in its place, since PROV admits no qualified name there.</p>
+    <div class="term" id="label">
+      <div class="term-name"><dfn class="export">tmpl:label</dfn><span class="term-iri"><a href="http://openprovenance.org/ns/tmpl#label">http://openprovenance.org/ns/tmpl#label</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>label</td></tr>
+      <tr><th>rdfs:comment</th><td>Instantiates prov:label on the statement: the variable&#x27;s bound string, or one prov:label per string when the variable is bound to several.</td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:string</code></td></tr>
+      <tr><th>rdfs:seeAlso</th><td><code>prov:label</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="time">
+      <div class="term-name"><dfn class="export">tmpl:time</dfn><span class="term-iri"><a href="http://openprovenance.org/ns/tmpl#time">http://openprovenance.org/ns/tmpl#time</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>time</td></tr>
+      <tr><th>rdfs:comment</th><td>Instantiates prov:time on a usage, generation, invalidation, start or end: the variable&#x27;s bound xsd:dateTime. A single value; a variable bound to several is ignored.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>prov:Usage ∪ prov:Generation ∪ prov:Invalidation ∪ prov:Start ∪ prov:End</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:dateTime</code></td></tr>
+      <tr><th>rdfs:seeAlso</th><td><code>prov:atTime</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="startTime">
+      <div class="term-name"><dfn class="export">tmpl:startTime</dfn><span class="term-iri"><a href="http://openprovenance.org/ns/tmpl#startTime">http://openprovenance.org/ns/tmpl#startTime</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>start time</td></tr>
+      <tr><th>rdfs:comment</th><td>Instantiates prov:startTime on an activity: the variable&#x27;s bound xsd:dateTime. A single value.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>prov:Activity</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:dateTime</code></td></tr>
+      <tr><th>rdfs:seeAlso</th><td><code>prov:startedAtTime</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="endTime">
+      <div class="term-name"><dfn class="export">tmpl:endTime</dfn><span class="term-iri"><a href="http://openprovenance.org/ns/tmpl#endTime">http://openprovenance.org/ns/tmpl#endTime</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>end time</td></tr>
+      <tr><th>rdfs:comment</th><td>Instantiates prov:endTime on an activity: the variable&#x27;s bound xsd:dateTime. A single value.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>prov:Activity</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:dateTime</code></td></tr>
+      <tr><th>rdfs:seeAlso</th><td><code>prov:endedAtTime</code></td></tr>
+      </table>
+    </div>
+</section>
+
+<section id="tmpl-conditional">
+  <h3>Conditional instantiation</h3>
+  <p>Whether the statement is instantiated at all depends on the variable being bound.</p>
+    <div class="term" id="if">
+      <div class="term-name"><dfn class="export">tmpl:if</dfn><span class="term-iri"><a href="http://openprovenance.org/ns/tmpl#if">http://openprovenance.org/ns/tmpl#if</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>if</td></tr>
+      <tr><th>rdfs:comment</th><td>The statement is instantiated only if the variable is bound; unbound, the statement is left out of the instantiated document. A variable bound to a sequence of values counts as bound.</td></tr>
+      </table>
+    </div>
+    <div class="term" id="notif">
+      <div class="term-name"><dfn class="export">tmpl:notif</dfn><span class="term-iri"><a href="http://openprovenance.org/ns/tmpl#notif">http://openprovenance.org/ns/tmpl#notif</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>not if</td></tr>
+      <tr><th>rdfs:comment</th><td>The statement is instantiated only if the variable is not bound; bound, to a value or to a sequence, the statement is left out. The complement of tmpl:if.</td></tr>
+      </table>
+    </div>
+</section>
+
+<section id="tmpl-expansion">
+  <h3>Identifiers and expansion</h3>
+  <p>An identifier for a relation written without one, and the pairing of variables that expand in step.</p>
+    <div class="term" id="ID">
+      <div class="term-name"><dfn class="export">tmpl:ID</dfn><span class="term-iri"><a href="http://openprovenance.org/ns/tmpl#ID">http://openprovenance.org/ns/tmpl#ID</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>identifier</td></tr>
+      <tr><th>rdfs:comment</th><td>On a relation written without an identifier: the variable&#x27;s bound qualified name becomes the relation&#x27;s identifier, so that instantiations of the same relation can be told apart and referred to. Ignored when the value is not a qualified name, when the relation already has an identifier, or on a node.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>prov:Influence</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:anyURI</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="linked">
+      <div class="term-name"><dfn class="export">tmpl:linked</dfn><span class="term-iri"><a href="http://openprovenance.org/ns/tmpl#linked">http://openprovenance.org/ns/tmpl#linked</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>linked</td></tr>
+      <tr><th>rdfs:comment</th><td>On a statement whose identifier is a variable: names another variable whose expansion this statement follows. Variables bound to sequences of values expand a statement once per value; two variables linked, directly or through a chain of tmpl:linked, expand in step, the i-th value of one with the i-th value of the other, rather than as a product. The link is symmetric, and may also be declared in the bindings. Not a free variable of the statement: it binds nothing itself.</td></tr>
+      </table>
+    </div>
+</section>
+<!-- END generated: ontology -->
+
+
+
+
+</section>
+
+
+
+</body>
+
+</html>

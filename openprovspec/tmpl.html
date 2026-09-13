@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Provenance template vocabulary</title>
+  <style>
+\
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #222;
+      background: #fff;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2em 1.5em 4em;
+    }
+    h1 { font-size: 2em; border-bottom: 2px solid #4285f4; padding-bottom: 0.3em; }
+    h2 { font-size: 1.4em; border-bottom: 1px solid #ccc; padding-bottom: 0.2em; margin-top: 2em; }
+    p.subtitle { font-size: 0.95em; color: #555; margin-top: -0.5em; }
+    code { font-family: monospace; font-size: 0.95em; background: #f5f5f5; padding: 0.1em 0.3em; border-radius: 3px; }
+    a { color: #1a73e8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    nav#toc { background: #f8f9fa; border: 1px solid #ddd; padding: 1em 1.5em; margin: 1.5em 0; display: inline-block; min-width: 200px; }
+    nav#toc h2 { margin-top: 0; border: none; font-size: 1.1em; }
+    nav#toc ul { margin: 0; padding-left: 1.2em; }
+    nav#toc ul ul { font-size: 0.9em; }
+    nav#toc li { margin: 0.2em 0; }
+    section { margin-top: 2em; }
+    section > p { margin-top: 0.3em; color: #444; font-size: 0.95em; }
+    table.prefixes td { padding: 0.1em 1em 0.1em 0; }
+  </style>
+</head>
+<body>
+  <h1>Provenance template vocabulary</h1>
+  <p class="subtitle">Namespace: <code>http://openprovenance.org/ns/tmpl#</code> &nbsp; Prefix: <code>tmpl</code></p>
+  <nav id="toc">
+    <h2>Table of Contents</h2>
+    <ul>
+      <li><a href="#tmpl-syntax">Syntax-constrained attributes</a><ul>
+        <li><a href="#label">tmpl:label</a></li>
+        <li><a href="#time">tmpl:time</a></li>
+        <li><a href="#startTime">tmpl:startTime</a></li>
+        <li><a href="#endTime">tmpl:endTime</a></li>
+      </ul></li>
+      <li><a href="#tmpl-conditional">Conditional instantiation</a><ul>
+        <li><a href="#if">tmpl:if</a></li>
+        <li><a href="#notif">tmpl:notif</a></li>
+      </ul></li>
+      <li><a href="#tmpl-expansion">Identifiers and expansion</a><ul>
+        <li><a href="#ID">tmpl:ID</a></li>
+        <li><a href="#linked">tmpl:linked</a></li>
+      </ul></li>
+    </ul>
+  </nav>
+<style>
+.term { background: #e8f0fe; color: #222; border-left: 3px solid #4285f4; border-radius: 3px;
+        padding: 0.8em 1em; margin: 1em 0; }
+.term a { color: #1a73e8; }
+.term code { color: inherit; }
+.term .term-name { font-size: 1.1em; margin: 0 0 0.5em; color: #1a73e8; font-weight: bold; }
+.term .term-name dfn { font-style: normal; }
+.term .term-iri { font-size: 0.85em; color: #555; font-weight: normal; margin-left: 0.6em; }
+.term table { border-collapse: collapse; width: 100%; font-size: 0.93em; margin: 0; }
+.term table.facts th { text-align: left; vertical-align: top; white-space: nowrap; width: 160px;
+        padding: 0.2em 0.8em 0.2em 0; color: #555; font-weight: normal; font-style: italic;
+        border: none; background: none; }
+.term table.keys th { text-align: left; padding: 0.2em 0.8em 0.2em 0; color: #555;
+        font-weight: normal; font-style: italic; border: none; border-bottom: 1px solid #4285f4;
+        background: none; }
+.term td { padding: 0.2em 0.8em 0.2em 0; border: none; vertical-align: top; }
+.term td code { word-break: break-all; }
+p.group { font-style: italic; color: #444; margin: 1.5em 0 0.3em; }
+</style>
+<p>The vocabulary is identified by <code>http://openprovenance.org/ns/tmpl#</code>; its terms are in the
+namespace <code>http://openprovenance.org/ns/tmpl#</code>, prefix <code>tmpl</code>.
+The reserved attributes of provenance templates. A template is a PROV document whose placeholders are variables, qualified names in the var namespace (http://openprovenance.org/var#), or in the vargen namespace (http://openprovenance.org/vargen#) for identifiers the instantiation generates when the bindings leave them unbound. A variable can stand where PROV admits a qualified name: an identifier, an attribute, a value. Where PROV constrains the syntax of a value — a label is a string, a time an xsd:dateTime — a template writes a tmpl attribute paired with a variable instead, and the instantiation writes the PROV attribute; further tmpl attributes make a statement conditional, give a relation an identifier, or tie the expansion of two statements together. Every tmpl attribute is consumed by the instantiation: none survives into an instantiated document.</p>
+<p>Each term is declared as <code>rdf:Property</code>: an attribute a template pairs with a variable,
+and which the instantiation consumes.</p>
+
+<section id="tmpl-syntax">
+  <h2>Syntax-constrained attributes</h2>
+  <p>Paired with a variable in the template; the instantiation writes the PROV attribute — <code>prov:label</code>, <code>prov:time</code>, <code>prov:startTime</code>, <code>prov:endTime</code> — with the bound value in its place, since PROV admits no qualified name there.</p>
+    <div class="term" id="label">
+      <div class="term-name"><dfn class="export">tmpl:label</dfn><span class="term-iri"><a href="http://openprovenance.org/ns/tmpl#label">http://openprovenance.org/ns/tmpl#label</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>label</td></tr>
+      <tr><th>rdfs:comment</th><td>Instantiates prov:label on the statement: the variable&#x27;s bound string, or one prov:label per string when the variable is bound to several.</td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:string</code></td></tr>
+      <tr><th>rdfs:seeAlso</th><td><code>prov:label</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="time">
+      <div class="term-name"><dfn class="export">tmpl:time</dfn><span class="term-iri"><a href="http://openprovenance.org/ns/tmpl#time">http://openprovenance.org/ns/tmpl#time</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>time</td></tr>
+      <tr><th>rdfs:comment</th><td>Instantiates prov:time on a usage, generation, invalidation, start or end: the variable&#x27;s bound xsd:dateTime. A single value; a variable bound to several is ignored.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>prov:Usage ∪ prov:Generation ∪ prov:Invalidation ∪ prov:Start ∪ prov:End</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:dateTime</code></td></tr>
+      <tr><th>rdfs:seeAlso</th><td><code>prov:atTime</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="startTime">
+      <div class="term-name"><dfn class="export">tmpl:startTime</dfn><span class="term-iri"><a href="http://openprovenance.org/ns/tmpl#startTime">http://openprovenance.org/ns/tmpl#startTime</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>start time</td></tr>
+      <tr><th>rdfs:comment</th><td>Instantiates prov:startTime on an activity: the variable&#x27;s bound xsd:dateTime. A single value.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>prov:Activity</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:dateTime</code></td></tr>
+      <tr><th>rdfs:seeAlso</th><td><code>prov:startedAtTime</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="endTime">
+      <div class="term-name"><dfn class="export">tmpl:endTime</dfn><span class="term-iri"><a href="http://openprovenance.org/ns/tmpl#endTime">http://openprovenance.org/ns/tmpl#endTime</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>end time</td></tr>
+      <tr><th>rdfs:comment</th><td>Instantiates prov:endTime on an activity: the variable&#x27;s bound xsd:dateTime. A single value.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>prov:Activity</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:dateTime</code></td></tr>
+      <tr><th>rdfs:seeAlso</th><td><code>prov:endedAtTime</code></td></tr>
+      </table>
+    </div>
+</section>
+
+<section id="tmpl-conditional">
+  <h2>Conditional instantiation</h2>
+  <p>Whether the statement is instantiated at all depends on the variable being bound.</p>
+    <div class="term" id="if">
+      <div class="term-name"><dfn class="export">tmpl:if</dfn><span class="term-iri"><a href="http://openprovenance.org/ns/tmpl#if">http://openprovenance.org/ns/tmpl#if</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>if</td></tr>
+      <tr><th>rdfs:comment</th><td>The statement is instantiated only if the variable is bound; unbound, the statement is left out of the instantiated document. A variable bound to a sequence of values counts as bound.</td></tr>
+      </table>
+    </div>
+    <div class="term" id="notif">
+      <div class="term-name"><dfn class="export">tmpl:notif</dfn><span class="term-iri"><a href="http://openprovenance.org/ns/tmpl#notif">http://openprovenance.org/ns/tmpl#notif</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>not if</td></tr>
+      <tr><th>rdfs:comment</th><td>The statement is instantiated only if the variable is not bound; bound, to a value or to a sequence, the statement is left out. The complement of tmpl:if.</td></tr>
+      </table>
+    </div>
+</section>
+
+<section id="tmpl-expansion">
+  <h2>Identifiers and expansion</h2>
+  <p>An identifier for a relation written without one, and the pairing of variables that expand in step.</p>
+    <div class="term" id="ID">
+      <div class="term-name"><dfn class="export">tmpl:ID</dfn><span class="term-iri"><a href="http://openprovenance.org/ns/tmpl#ID">http://openprovenance.org/ns/tmpl#ID</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>identifier</td></tr>
+      <tr><th>rdfs:comment</th><td>On a relation written without an identifier: the variable&#x27;s bound qualified name becomes the relation&#x27;s identifier, so that instantiations of the same relation can be told apart and referred to. Ignored when the value is not a qualified name, when the relation already has an identifier, or on a node.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>prov:Influence</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:anyURI</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="linked">
+      <div class="term-name"><dfn class="export">tmpl:linked</dfn><span class="term-iri"><a href="http://openprovenance.org/ns/tmpl#linked">http://openprovenance.org/ns/tmpl#linked</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>linked</td></tr>
+      <tr><th>rdfs:comment</th><td>On a statement whose identifier is a variable: names another variable whose expansion this statement follows. Variables bound to sequences of values expand a statement once per value; two variables linked, directly or through a chain of tmpl:linked, expand in step, the i-th value of one with the i-th value of the other, rather than as a product. The link is symmetric, and may also be declared in the bindings. Not a free variable of the statement: it binds nothing itself.</td></tr>
+      </table>
+    </div>
+</section>
+
+</body>
+</html>
