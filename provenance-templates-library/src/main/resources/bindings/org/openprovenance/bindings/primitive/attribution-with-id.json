@@ -43,6 +43,6 @@
         "ex": "http://example.org/#",
         "var" : "http://openprovenance.org/var#",
         "vargen" : "http://openprovenance.org/vargen#",
-        "tmpl" : "http://openprovenance.org/tmpl#"
+        "tmpl" : "http://openprovenance.org/ns/tmpl#"
     }
 }

@@ -108,3 +108,14 @@ Branch `development2_0`, module `modules-core`:
    ProvToolbox's PROV-JSONLD output cites, so processors resolve the new term
    only once this step is done — and https://openprovenance.org/ns/openprov-schema.json.
 3. Push ProvToolbox.
+
+## The template vocabulary (`template.ttl`)
+
+`template.ttl` defines `http://openprovenance.org/ns/tmpl#`, the reserved
+attributes of provenance templates, served at https://openprovenance.org/ns/tmpl
+through `template-pages/ns/tmpl.ttl`. Its terms are ProvToolbox's
+(`InstantiateUtil` in prov-template: `label`, `time`, `startTime`, `endTime`,
+`ID`, `linked`; `if` in the compiler); a new one is added there, with its
+handling, and here. The namespace was `http://openprovenance.org/tmpl#` until
+2026-09-13; ProvToolbox accepts that on input (`LEGACY_TMPL_NS`) and never
+writes it.

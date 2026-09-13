@@ -4,7 +4,7 @@
         "prov" : "http://www.w3.org/ns/prov#",
         "var": "http://openprovenance.org/var#",
         "vargen": "http://openprovenance.org/vargen#",
-        "tmpl": "http://openprovenance.org/tmpl#"
+        "tmpl": "http://openprovenance.org/ns/tmpl#"
     }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
     "@graph" : [ {
         "@type" : "Activity",
