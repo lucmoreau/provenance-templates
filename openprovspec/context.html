@@ -78,6 +78,20 @@ p.group { font-style: italic; color: #444; margin: 1.5em 0 0.3em; }
       </table>
     </div>
 
+    <div class="term" id="context-Communication">
+      <div class="term-name"><code>Communication</code><span class="term-iri">stands for <code>prov:Communication</code></span></div>
+      <table class="keys">
+        <thead><tr><th>key</th><th>IRI</th><th>mapping</th><th>@type</th></tr></thead>
+        <tbody>
+      <tr><td><code>informed</code></td><td><code>prov:qualifiedCommunication</code></td><td>reverse property</td><td><code>@id</code></td></tr>
+      <tr><td><code>informant</code></td><td><code>prov:activity</code></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>entity</code></td><td><a href="#hadEntity"><code>openprov:hadEntity</code></a></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>generation</code></td><td><a href="#hadGeneration"><code>openprov:hadGeneration</code></a></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>usage</code></td><td><a href="#hadUsage"><code>openprov:hadUsage</code></a></td><td>property</td><td><code>@id</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
 <pre class="example" title="The context, openprov.jsonld">
 {
   &quot;@context&quot;: [
@@ -120,6 +134,17 @@ p.group { font-style: italic; color: #444; margin: 1.5em 0 0.3em; }
           &quot;previousEntity&quot;: { &quot;@id&quot;: &quot;openprov:hadPreviousEntity&quot;,           &quot;@type&quot;: &quot;@id&quot; },
           &quot;derivation&quot;:     { &quot;@id&quot;: &quot;openprov:hadDerivation&quot;,               &quot;@type&quot;: &quot;@id&quot; },
           &quot;specialization&quot;: { &quot;@id&quot;: &quot;openprov:hadSpecialization&quot;,           &quot;@type&quot;: &quot;@id&quot; }
+        }
+      },
+
+      &quot;Communication&quot;: {
+        &quot;@id&quot;: &quot;prov:Communication&quot;,
+        &quot;@context&quot;: {
+          &quot;informed&quot;:   { &quot;@reverse&quot;: &quot;prov:qualifiedCommunication&quot;, &quot;@type&quot;: &quot;@id&quot; },
+          &quot;informant&quot;:  { &quot;@id&quot;: &quot;prov:activity&quot;,                    &quot;@type&quot;: &quot;@id&quot; },
+          &quot;entity&quot;:     { &quot;@id&quot;: &quot;openprov:hadEntity&quot;,               &quot;@type&quot;: &quot;@id&quot; },
+          &quot;generation&quot;: { &quot;@id&quot;: &quot;openprov:hadGeneration&quot;,           &quot;@type&quot;: &quot;@id&quot; },
+          &quot;usage&quot;:      { &quot;@id&quot;: &quot;openprov:hadUsage&quot;,                &quot;@type&quot;: &quot;@id&quot; }
         }
       }
     }

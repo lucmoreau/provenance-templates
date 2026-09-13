@@ -40,6 +40,17 @@
           "derivation":     { "@id": "openprov:hadDerivation",               "@type": "@id" },
           "specialization": { "@id": "openprov:hadSpecialization",           "@type": "@id" }
         }
+      },
+
+      "Communication": {
+        "@id": "prov:Communication",
+        "@context": {
+          "informed":   { "@reverse": "prov:qualifiedCommunication", "@type": "@id" },
+          "informant":  { "@id": "prov:activity",                    "@type": "@id" },
+          "entity":     { "@id": "openprov:hadEntity",               "@type": "@id" },
+          "generation": { "@id": "openprov:hadGeneration",           "@type": "@id" },
+          "usage":      { "@id": "openprov:hadUsage",                "@type": "@id" }
+        }
       }
     }
   ]
