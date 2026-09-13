@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenProvenance vocabulary</title>
+  <style>
+\
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #222;
+      background: #fff;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2em 1.5em 4em;
+    }
+    h1 { font-size: 2em; border-bottom: 2px solid #4285f4; padding-bottom: 0.3em; }
+    h2 { font-size: 1.4em; border-bottom: 1px solid #ccc; padding-bottom: 0.2em; margin-top: 2em; }
+    p.subtitle { font-size: 0.95em; color: #555; margin-top: -0.5em; }
+    code { font-family: monospace; font-size: 0.95em; background: #f5f5f5; padding: 0.1em 0.3em; border-radius: 3px; }
+    a { color: #1a73e8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    nav#toc { background: #f8f9fa; border: 1px solid #ddd; padding: 1em 1.5em; margin: 1.5em 0; display: inline-block; min-width: 200px; }
+    nav#toc h2 { margin-top: 0; border: none; font-size: 1.1em; }
+    nav#toc ul { margin: 0; padding-left: 1.2em; }
+    nav#toc ul ul { font-size: 0.9em; }
+    nav#toc li { margin: 0.2em 0; }
+    section { margin-top: 2em; }
+    section > p { margin-top: 0.3em; color: #444; font-size: 0.95em; }
+    table.prefixes td { padding: 0.1em 1em 0.1em 0; }
+.term { background: #e8f0fe; color: #222; border-left: 3px solid #4285f4; border-radius: 3px;
+        padding: 0.8em 1em; margin: 1em 0; }
+.term a { color: #1a73e8; }
+.term code { color: inherit; }
+.term .term-name { font-size: 1.1em; margin: 0 0 0.5em; color: #1a73e8; font-weight: bold; }
+.term .term-name dfn { font-style: normal; }
+.term .term-iri { font-size: 0.85em; color: #555; font-weight: normal; margin-left: 0.6em; }
+.term table { border-collapse: collapse; width: 100%; font-size: 0.93em; margin: 0; }
+.term table.facts th { text-align: left; vertical-align: top; white-space: nowrap; width: 160px;
+        padding: 0.2em 0.8em 0.2em 0; color: #555; font-weight: normal; font-style: italic;
+        border: none; background: none; }
+.term table.keys th { text-align: left; padding: 0.2em 0.8em 0.2em 0; color: #555;
+        font-weight: normal; font-style: italic; border: none; border-bottom: 1px solid #4285f4;
+        background: none; }
+.term td { padding: 0.2em 0.8em 0.2em 0; border: none; vertical-align: top; }
+.term td code { word-break: break-all; }
+p.group { font-style: italic; color: #444; margin: 1.5em 0 0.3em; }
+  </style>
+</head>
+<body>
+
+  <h1>OpenProvenance vocabulary</h1>
+  <p class="subtitle">Namespace: <code>https://openprovenance.org/ns/openprov#</code> &nbsp; Prefix: <code>openprov</code></p>
+  <p>The vocabulary the OpenProvenance template library and ProvToolbox use in provenance documents beyond PROV-DM and provext: the statements a summarising relation was folded from, the roles of the parties to a change of collection, and the kinds of activity and derivation that change a collection. Distinct from provext, the minimal extension PROV-JSONLD needs for its regular JSON shape, whose classes this vocabulary builds on.</p>
+  <p>Imports <code><a href="https://openprovenance.org/ns/provext#">https://openprovenance.org/ns/provext#</a></code>.</p>
+
+  <nav id="toc">
+    <h2>Table of Contents</h2>
+    <ul>
+      <li><a href="#namespaces">Namespaces</a></li>
+      <li><a href="#properties">Object Properties</a>
+        <ul>
+        <li><a href="#hadActivity">openprov:hadActivity</a></li>
+        <li><a href="#hadAgentDerivation">openprov:hadAgentDerivation</a></li>
+        <li><a href="#hadAssociation">openprov:hadAssociation</a></li>
+        <li><a href="#hadCollectionGeneration">openprov:hadCollectionGeneration</a></li>
+        <li><a href="#hadDerivation">openprov:hadDerivation</a></li>
+        <li><a href="#hadEntityDerivation">openprov:hadEntityDerivation</a></li>
+        <li><a href="#hadGeneration">openprov:hadGeneration</a></li>
+        <li><a href="#hadInvalidation">openprov:hadInvalidation</a></li>
+        <li><a href="#hadItemGeneration">openprov:hadItemGeneration</a></li>
+        <li><a href="#hadPreviousEntity">openprov:hadPreviousEntity</a></li>
+        <li><a href="#hadSpecialization">openprov:hadSpecialization</a></li>
+        <li><a href="#hadUsage">openprov:hadUsage</a></li>
+        </ul>
+      </li>
+      <li><a href="#roles">Roles</a>
+        <ul>
+        <li><a href="#asCollection">openprov:asCollection</a></li>
+        <li><a href="#asEntity">openprov:asEntity</a></li>
+        <li><a href="#asItem">openprov:asItem</a></li>
+        <li><a href="#asMember">openprov:asMember</a></li>
+        </ul>
+      </li>
+      <li><a href="#types">Types</a>
+        <ul>
+        <li><a href="#InsertingElement">openprov:InsertingElement</a></li>
+        <li><a href="#InsertingInto_Collection">openprov:InsertingInto_Collection</a></li>
+        <li><a href="#InsertingInto_Item">openprov:InsertingInto_Item</a></li>
+        <li><a href="#InsertingItemIntoCollection">openprov:InsertingItemIntoCollection</a></li>
+        <li><a href="#RemovingElement">openprov:RemovingElement</a></li>
+        <li><a href="#RemovingElementFromCollection">openprov:RemovingElementFromCollection</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <section id="namespaces">
+    <h2>Namespaces</h2>
+    <table class="prefixes">
+      <tr><td><code>openprov</code></td><td><code>https://openprovenance.org/ns/openprov#</code></td></tr>
+      <tr><td><code>prov</code></td><td><code>http://www.w3.org/ns/prov#</code></td></tr>
+      <tr><td><code>provext</code></td><td><code>https://openprovenance.org/ns/provext#</code></td></tr>
+      <tr><td><code>owl</code></td><td><code>http://www.w3.org/2002/07/owl#</code></td></tr>
+      <tr><td><code>rdfs</code></td><td><code>http://www.w3.org/2000/01/rdf-schema#</code></td></tr>
+      <tr><td><code>rdf</code></td><td><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></td></tr>
+      <tr><td><code>xsd</code></td><td><code>http://www.w3.org/2001/XMLSchema#</code></td></tr>
+    </table>
+  </section>
+
+  <section id="properties">
+    <h2>Object Properties</h2>
+    <p>Each property is declared as <code>owl:ObjectProperty</code>; it is optional on the relation named by its domain and points at a statement that relation summarises.</p>
+    <p class="group">On prov:Attribution and provext:Membership</p>
+    <div class="term" id="hadActivity">
+      <div class="term-name"><dfn class="export">openprov:hadActivity</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#hadActivity">https://openprovenance.org/ns/openprov#hadActivity</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>had activity</td></tr>
+      <tr><th>rdfs:comment</th><td>The activity the relation arose from: for an attribution, the activity that generated, invalidated or derived the entity while the agent was associated with it; for a membership, the activity that placed the member in the collection. A sub-property of prov:hadActivity, whose domain PROV-O states as prov:Influence and, more precisely, as the union of Delegation, Derivation, End and Start; an attribution or membership carrying this property is therefore entailed to be an Influence, and, under the precise domain, a member of that union, which PROV-O declares nothing to contradict.</td></tr>
+      <tr><th>rdfs:subPropertyOf</th><td><code>prov:hadActivity</code></td></tr>
+      <tr><th>rdfs:domain</th><td><code>prov:Attribution ∪ provext:Membership</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>prov:Activity</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="hadGeneration">
+      <div class="term-name"><dfn class="export">openprov:hadGeneration</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#hadGeneration">https://openprovenance.org/ns/openprov#hadGeneration</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>had generation</td></tr>
+      <tr><th>rdfs:comment</th><td>For an attribution, the generation of the attributed entity by the activity it arose from; for a membership, the generation of the collection by that activity.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>prov:Attribution ∪ provext:Membership</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>prov:Generation</code></td></tr>
+      </table>
+    </div>
+    <p class="group">On prov:Attribution</p>
+    <div class="term" id="hadAgentDerivation">
+      <div class="term-name"><dfn class="export">openprov:hadAgentDerivation</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#hadAgentDerivation">https://openprovenance.org/ns/openprov#hadAgentDerivation</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>had agent derivation</td></tr>
+      <tr><th>rdfs:comment</th><td>The derivation of the agent, from its earlier version, by the activity the attribution arose from.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>prov:Attribution</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>prov:Derivation</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="hadAssociation">
+      <div class="term-name"><dfn class="export">openprov:hadAssociation</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#hadAssociation">https://openprovenance.org/ns/openprov#hadAssociation</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>had association</td></tr>
+      <tr><th>rdfs:comment</th><td>The association of the agent with the activity the attribution arose from.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>prov:Attribution</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>prov:Association</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="hadEntityDerivation">
+      <div class="term-name"><dfn class="export">openprov:hadEntityDerivation</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#hadEntityDerivation">https://openprovenance.org/ns/openprov#hadEntityDerivation</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>had entity derivation</td></tr>
+      <tr><th>rdfs:comment</th><td>The derivation of the attributed entity, from its earlier version, by the activity the attribution arose from.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>prov:Attribution</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>prov:Derivation</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="hadInvalidation">
+      <div class="term-name"><dfn class="export">openprov:hadInvalidation</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#hadInvalidation">https://openprovenance.org/ns/openprov#hadInvalidation</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>had invalidation</td></tr>
+      <tr><th>rdfs:comment</th><td>The invalidation of the attributed entity by the activity the attribution arose from.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>prov:Attribution</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>prov:Invalidation</code></td></tr>
+      </table>
+    </div>
+    <p class="group">On provext:Membership</p>
+    <div class="term" id="hadCollectionGeneration">
+      <div class="term-name"><dfn class="export">openprov:hadCollectionGeneration</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#hadCollectionGeneration">https://openprovenance.org/ns/openprov#hadCollectionGeneration</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>had collection generation</td></tr>
+      <tr><th>rdfs:comment</th><td>The generation of the collection by the activity the membership arose from.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>provext:Membership</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>prov:Generation</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="hadItemGeneration">
+      <div class="term-name"><dfn class="export">openprov:hadItemGeneration</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#hadItemGeneration">https://openprovenance.org/ns/openprov#hadItemGeneration</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>had item generation</td></tr>
+      <tr><th>rdfs:comment</th><td>The generation of the member by the activity the membership arose from.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>provext:Membership</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>prov:Generation</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="hadUsage">
+      <div class="term-name"><dfn class="export">openprov:hadUsage</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#hadUsage">https://openprovenance.org/ns/openprov#hadUsage</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>had usage</td></tr>
+      <tr><th>rdfs:comment</th><td>The usage of the member by the activity the membership arose from.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>provext:Membership</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>prov:Usage</code></td></tr>
+      </table>
+    </div>
+    <p class="group">On provext:Specialization</p>
+    <div class="term" id="hadDerivation">
+      <div class="term-name"><dfn class="export">openprov:hadDerivation</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#hadDerivation">https://openprovenance.org/ns/openprov#hadDerivation</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>had derivation</td></tr>
+      <tr><th>rdfs:comment</th><td>The derivation of the specific entity from the entity the specialization arose from.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>provext:Specialization</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>prov:Derivation</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="hadPreviousEntity">
+      <div class="term-name"><dfn class="export">openprov:hadPreviousEntity</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#hadPreviousEntity">https://openprovenance.org/ns/openprov#hadPreviousEntity</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>had previous entity</td></tr>
+      <tr><th>rdfs:comment</th><td>The previous entity, from which the specific entity was derived, itself a specialization of the same general entity. Named previous, not entity, beside the specific and general entities of the specialization.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>provext:Specialization</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>prov:Entity</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="hadSpecialization">
+      <div class="term-name"><dfn class="export">openprov:hadSpecialization</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#hadSpecialization">https://openprovenance.org/ns/openprov#hadSpecialization</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>had specialization</td></tr>
+      <tr><th>rdfs:comment</th><td>The specialization, of the entity the specific entity was derived from, to the same general entity.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>provext:Specialization</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>provext:Specialization</code></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="roles">
+    <h2>Roles</h2>
+    <p>Each role is an individual of type <code>prov:Role</code>, for use as the <code>prov:role</code> of a usage or generation.</p>
+    <div class="term" id="asCollection">
+      <div class="term-name"><dfn class="export">openprov:asCollection</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#asCollection">https://openprovenance.org/ns/openprov#asCollection</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>as collection</td></tr>
+      <tr><th>rdfs:comment</th><td>The role of a collection in the usage or generation by an activity that inserts into it or removes from it.</td></tr>
+      <tr><th>rdf:type</th><td><code>prov:Role</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="asEntity">
+      <div class="term-name"><dfn class="export">openprov:asEntity</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#asEntity">https://openprovenance.org/ns/openprov#asEntity</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>as entity</td></tr>
+      <tr><th>rdfs:comment</th><td>The role of the entity an activity acts upon, when no more specific role applies.</td></tr>
+      <tr><th>rdf:type</th><td><code>prov:Role</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="asItem">
+      <div class="term-name"><dfn class="export">openprov:asItem</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#asItem">https://openprovenance.org/ns/openprov#asItem</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>as item</td></tr>
+      <tr><th>rdfs:comment</th><td>The role of the item an activity takes in and hands on, as in an assignment or a handover.</td></tr>
+      <tr><th>rdf:type</th><td><code>prov:Role</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="asMember">
+      <div class="term-name"><dfn class="export">openprov:asMember</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#asMember">https://openprovenance.org/ns/openprov#asMember</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>as member</td></tr>
+      <tr><th>rdfs:comment</th><td>The role of a member in the usage or generation by an activity that inserts it into, or removes it from, a collection.</td></tr>
+      <tr><th>rdf:type</th><td><code>prov:Role</code></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="types">
+    <h2>Types</h2>
+    <p>Each type is declared as <code>owl:Class</code>, for use as a <code>prov:type</code>.</p>
+    <div class="term" id="InsertingElement">
+      <div class="term-name"><dfn class="export">openprov:InsertingElement</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#InsertingElement">https://openprovenance.org/ns/openprov#InsertingElement</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>Inserting element</td></tr>
+      <tr><th>rdfs:comment</th><td>The membership that an insertion establishes, alongside prov:Derivation; used by ProvToolbox&#x27;s collection scenarios.</td></tr>
+      </table>
+    </div>
+    <div class="term" id="InsertingInto_Collection">
+      <div class="term-name"><dfn class="export">openprov:InsertingInto_Collection</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#InsertingInto_Collection">https://openprovenance.org/ns/openprov#InsertingInto_Collection</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>Inserting into: collection</td></tr>
+      <tr><th>rdfs:comment</th><td>The derivation of the new collection from the old one by an insertion.</td></tr>
+      <tr><th>rdfs:subClassOf</th><td><code>prov:Derivation</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="InsertingInto_Item">
+      <div class="term-name"><dfn class="export">openprov:InsertingInto_Item</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#InsertingInto_Item">https://openprovenance.org/ns/openprov#InsertingInto_Item</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>Inserting into: item</td></tr>
+      <tr><th>rdfs:comment</th><td>The derivation of the inserted item, as it is in the collection, from the item that was inserted.</td></tr>
+      <tr><th>rdfs:subClassOf</th><td><code>prov:Derivation</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="InsertingItemIntoCollection">
+      <div class="term-name"><dfn class="export">openprov:InsertingItemIntoCollection</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#InsertingItemIntoCollection">https://openprovenance.org/ns/openprov#InsertingItemIntoCollection</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>Inserting item into collection</td></tr>
+      <tr><th>rdfs:comment</th><td>The insertion of an item into a collection: the type of the activity that uses the collection and the item and generates the new collection, and of the derivations it accounts for.</td></tr>
+      </table>
+    </div>
+    <div class="term" id="RemovingElement">
+      <div class="term-name"><dfn class="export">openprov:RemovingElement</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#RemovingElement">https://openprovenance.org/ns/openprov#RemovingElement</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>Removing element</td></tr>
+      <tr><th>rdfs:comment</th><td>The derivation of the removed element, as it is once out of the collection, from the element that was removed.</td></tr>
+      <tr><th>rdfs:subClassOf</th><td><code>prov:Derivation</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="RemovingElementFromCollection">
+      <div class="term-name"><dfn class="export">openprov:RemovingElementFromCollection</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#RemovingElementFromCollection">https://openprovenance.org/ns/openprov#RemovingElementFromCollection</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>Removing element from collection</td></tr>
+      <tr><th>rdfs:comment</th><td>The removal of an element from a collection: the type of the activity that uses the collection and generates the new one, and of the derivations it accounts for.</td></tr>
+      </table>
+    </div>
+  </section>
+
+</body>
+</html>

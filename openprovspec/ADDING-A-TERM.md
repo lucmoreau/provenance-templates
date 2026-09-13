@@ -1,0 +1,98 @@
+# Adding a term to the OpenProv vocabulary
+
+The vocabulary is written once, here, and read from here by the template
+library (`provenance-templates-library/template-pages/ns/openprov.{ttl,jsonld}`
+are symlinks to this directory) and by ProvToolbox (which keeps a byte-identical
+copy of the context, pinned by a test). Three kinds of term exist, and each
+touches a different set of files:
+
+| kind | example | ttl | jsonld | ProvToolbox |
+|---|---|---|---|---|
+| property of an attribution, membership or specialization | `openprov:hadPreviousEntity`, written `previousEntity` | yes | yes | yes |
+| role | `openprov:asMember` | yes | no | no |
+| type (class) | `openprov:InsertingItemIntoCollection` | yes | no | no |
+
+Properties follow PROV-O's convention for a qualified derivation: the property
+is `hadX` (`openprov:hadActivity`), and documents write it without `had`
+(`openprov:activity` in PROV-N and PROV-JSON, the bare `activity` in
+PROV-JSONLD), the way PROV-N writes `prov:type`. The written name is the *term*,
+the `hadX` name the *property*; both appear below.
+
+## 1. In this directory
+
+1. `openprov.ttl` — define the term in the section for its kind, with
+   `rdfs:domain`, `rdfs:range` (properties), `rdfs:label` and `rdfs:comment`.
+   A property scoped to two relations takes a `owl:unionOf` domain, as
+   `:hadActivity` does. Name it `hadX`; if the same word already names
+   something else on the relation (`entity` beside `specificEntity` and
+   `generalEntity`), choose a distinct one (`previousEntity`).
+2. `openprov.jsonld` — properties only: add the term to the type-scoped
+   `@context` of `Attribution`, `Membership` or `Specialization`:
+   `"x": { "@id": "openprov:hadX", "@type": "@id" }`. Roles and types need no
+   context entry; they are values, written as `openprov:asMember`.
+3. `make html` — refreshes the generated ontology and context sections of
+   `index.html`, the specification page, from the two files. Hand-written prose
+   in `index.html` is left alone: edit it if the new term deserves a mention.
+   `make standalone` writes `openprov.html` and `context.html`, the same
+   sections as self-contained pages; run it too, so they stay in step.
+
+## 2. In ProvToolbox (properties only; roles and types need nothing)
+
+Branch `development2_0`, module `modules-core`:
+
+1. `prov-model/src/main/java/org/openprovenance/prov/model/OpenprovTerms.java`
+   — add the pair `"x", "hadX"` to the `scope(Kind.PROV_ATTRIBUTION | PROV_MEMBERSHIP | PROV_SPECIALIZATION, ...)`
+   it belongs to. This table is what every parser and serialiser consults: PROV-N
+   (`TreeTraversal`, `NotationConstructor`), PROV-JSON (`ProvJsonReader`,
+   `ProvJsonWriter`), PROV-JSONLD (`ScopedKeyDeserializer`,
+   `ScopedKeySerializer`) and the Scala model (`OpenprovAttributes`).
+2. `prov-jsonld/src/main/resources/openprov-context/openprov.jsonld` — copy
+   `openprov.jsonld` over it, byte for byte. `OpenprovTermsTest` fails until
+   the table and this copy agree.
+3. Tests naming the terms, to extend with the new one:
+   `prov-n/.../notation/test/OpenprovAttributesTest.java`,
+   `prov-jsonld/.../json/test/OpenprovAttributesJsonTest.java`,
+   `prov-jsonld/.../jsonld11/test/OpenprovTermsTest.java` with its inputs
+   `prov-jsonld/src/test/resources/openprov/{attribution,membership,specialization}.jsonld`,
+   `prov-model-scala/src/test/scala/.../OpenprovAttributesSpec.scala`.
+4. `RELEASES.md` — one line.
+5. Build in full, from the ProvToolbox root, with the environment sourced
+   (`~/.bashrc` sets the database and JDK the integration tests need):
+
+       bash -c 'source ~/.bashrc; mvn -o install -Dmaven.javadoc.skip=true'
+
+## 3. In the template library (`provenance-templates-library`)
+
+1. Bindings and templates that use the term: under `src/main/resources/bindings`
+   the term is a value, `{"@id": "openprov:x"}`; under `src/main/resources/templates`
+   an attribute, `openprov:x = 'var:...'`. A bindings file that names openprov
+   declares it in its `context` as `"openprov": "${openprov_ns}"`
+   (`src/main/resources/ttfs/common-ns.json` maps the variable).
+2. `template-pages/org/openprovenance/templates/**/*.md` — the page prose, if
+   it lists the relation's attributes. The `.md` is the source; regenerate its
+   `.html`, `.json` and `.yaml` with
+
+       make -f template-pages/Makefile FILE=`pwd`/template-pages/org/openprovenance/templates/<package>/<Template> do.file
+
+   (pandoc, pandoc-crossref, mermaid-filter, yq and jq on the path).
+3. Rebuild, which regenerates `target/generated-templates` with the rebuilt
+   toolbox, validates every bindings file and runs `OpenprovContextTest`, the
+   drift test between `openprov.jsonld` and the PROV-JSONLD context it extends:
+
+       bash -c 'source ~/.bashrc; mvn -o clean install -Dmaven.javadoc.skip=true'
+
+4. Check the output: no `openprov:` compact key should appear in a generated
+   `.jsonld` (the serialiser writes the bare term), and every generated `.provn`
+   should read back through `provconvert`.
+
+## 4. Publish
+
+1. Commit `provenance-templates` (this directory and the library together, so
+   the symlinked files and the pages that cite them move as one) and push.
+2. **Manual, by Luc:** on openprovenance.org, pull `provenance-templates`. That
+   refreshes https://openprovenance.org/ns/openprov (the Turtle, also at
+   `openprov.ttl`), https://openprovenance.org/ns/openprov.html (this
+   `index.html`) and https://openprovenance.org/ns/openprov.jsonld — the context
+   ProvToolbox's PROV-JSONLD output cites, so processors resolve the new term
+   only once this step is done.
+3. Push ProvToolbox.

@@ -57,7 +57,7 @@
     "context": {
         "var" : "http://openprovenance.org/var#",
         "vargen" : "http://openprovenance.org/vargen#",
-        "prov": "@{prov_ns}",
+        "prov": "${prov_ns}",
         "phys" : "${phys_ns}"
     }
 }

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>openprov.jsonld</title>
+<style>body{font-family:Georgia,serif;max-width:900px;margin:0 auto;padding:2em}table.thinborder{border-collapse:collapse}table.thinborder td,table.thinborder th{border:1px solid gray;padding:2px 6px}pre{background:#f5f5f5;padding:1em;overflow:auto}code{font-family:monospace;background:#f5f5f5;padding:.1em .3em;border-radius:3px}</style></head>
+<body>
+<h1>openprov.jsonld</h1>
+<style>
+.term { background: #e8f0fe; color: #222; border-left: 3px solid #4285f4; border-radius: 3px;
+        padding: 0.8em 1em; margin: 1em 0; }
+.term a { color: #1a73e8; }
+.term code { color: inherit; }
+.term .term-name { font-size: 1.1em; margin: 0 0 0.5em; color: #1a73e8; font-weight: bold; }
+.term .term-name dfn { font-style: normal; }
+.term .term-iri { font-size: 0.85em; color: #555; font-weight: normal; margin-left: 0.6em; }
+.term table { border-collapse: collapse; width: 100%; font-size: 0.93em; margin: 0; }
+.term table.facts th { text-align: left; vertical-align: top; white-space: nowrap; width: 160px;
+        padding: 0.2em 0.8em 0.2em 0; color: #555; font-weight: normal; font-style: italic;
+        border: none; background: none; }
+.term table.keys th { text-align: left; padding: 0.2em 0.8em 0.2em 0; color: #555;
+        font-weight: normal; font-style: italic; border: none; border-bottom: 1px solid #4285f4;
+        background: none; }
+.term td { padding: 0.2em 0.8em 0.2em 0; border: none; vertical-align: top; }
+.term td code { word-break: break-all; }
+p.group { font-style: italic; color: #444; margin: 1.5em 0 0.3em; }
+</style>
+<p>The context builds on <code><a href="https://openprovenance.org/prov-jsonld/context.jsonld">https://openprovenance.org/prov-jsonld/context.jsonld</a></code>.</p>
+<p>The context declares <code>@version</code> 1.1.</p>
+<p>It declares the following prefixes.</p>
+<div class="term"><table class="keys">
+  <thead><tr><th>prefix</th><th>namespace IRI</th></tr></thead>
+  <tbody>
+    <tr><td><code>openprov</code></td><td><code>https://openprovenance.org/ns/openprov#</code></td></tr>
+  </tbody>
+</table></div>
+<p>Each of the following keys names a type of relation and carries a scoped context: the keys it lists are defined only inside an object of that type; a key mapped as a property gives the IRI as predicate, a reverse property as the predicate pointing back at the object.</p>
+    <div class="term" id="context-Attribution">
+      <div class="term-name"><code>Attribution</code><span class="term-iri">stands for <code>prov:Attribution</code></span></div>
+      <table class="keys">
+        <thead><tr><th>key</th><th>IRI</th><th>mapping</th><th>@type</th></tr></thead>
+        <tbody>
+      <tr><td><code>entity</code></td><td><code>prov:qualifiedAttribution</code></td><td>reverse property</td><td><code>@id</code></td></tr>
+      <tr><td><code>activity</code></td><td><a href="#hadActivity"><code>openprov:hadActivity</code></a></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>association</code></td><td><a href="#hadAssociation"><code>openprov:hadAssociation</code></a></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>generation</code></td><td><a href="#hadGeneration"><code>openprov:hadGeneration</code></a></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>invalidation</code></td><td><a href="#hadInvalidation"><code>openprov:hadInvalidation</code></a></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>entityDerivation</code></td><td><a href="#hadEntityDerivation"><code>openprov:hadEntityDerivation</code></a></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>agentDerivation</code></td><td><a href="#hadAgentDerivation"><code>openprov:hadAgentDerivation</code></a></td><td>property</td><td><code>@id</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="term" id="context-Membership">
+      <div class="term-name"><code>Membership</code><span class="term-iri">stands for <code>provext:Membership</code></span></div>
+      <table class="keys">
+        <thead><tr><th>key</th><th>IRI</th><th>mapping</th><th>@type</th></tr></thead>
+        <tbody>
+      <tr><td><code>collection</code></td><td><code>provext:qualifiedMembership</code></td><td>reverse property</td><td><code>@id</code></td></tr>
+      <tr><td><code>entity</code></td><td><code>provext:member</code></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>activity</code></td><td><a href="#hadActivity"><code>openprov:hadActivity</code></a></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>generation</code></td><td><a href="#hadGeneration"><code>openprov:hadGeneration</code></a></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>usage</code></td><td><a href="#hadUsage"><code>openprov:hadUsage</code></a></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>collectionGeneration</code></td><td><a href="#hadCollectionGeneration"><code>openprov:hadCollectionGeneration</code></a></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>itemGeneration</code></td><td><a href="#hadItemGeneration"><code>openprov:hadItemGeneration</code></a></td><td>property</td><td><code>@id</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="term" id="context-Specialization">
+      <div class="term-name"><code>Specialization</code><span class="term-iri">stands for <code>provext:Specialization</code></span></div>
+      <table class="keys">
+        <thead><tr><th>key</th><th>IRI</th><th>mapping</th><th>@type</th></tr></thead>
+        <tbody>
+      <tr><td><code>specificEntity</code></td><td><code>provext:qualifiedSpecialization</code></td><td>reverse property</td><td><code>@id</code></td></tr>
+      <tr><td><code>generalEntity</code></td><td><code>provext:generalEntity</code></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>previousEntity</code></td><td><a href="#hadPreviousEntity"><code>openprov:hadPreviousEntity</code></a></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>derivation</code></td><td><a href="#hadDerivation"><code>openprov:hadDerivation</code></a></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>specialization</code></td><td><a href="#hadSpecialization"><code>openprov:hadSpecialization</code></a></td><td>property</td><td><code>@id</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+<pre class="example" title="The context, openprov.jsonld">
+{
+  &quot;@context&quot;: [
+    &quot;https://openprovenance.org/prov-jsonld/context.jsonld&quot;,
+    {
+      &quot;@version&quot;: 1.1,
+      &quot;openprov&quot;: &quot;https://openprovenance.org/ns/openprov#&quot;,
+
+      &quot;Attribution&quot;: {
+        &quot;@id&quot;: &quot;prov:Attribution&quot;,
+        &quot;@context&quot;: {
+          &quot;entity&quot;:           { &quot;@reverse&quot;: &quot;prov:qualifiedAttribution&quot;, &quot;@type&quot;: &quot;@id&quot; },
+          &quot;activity&quot;:         { &quot;@id&quot;: &quot;openprov:hadActivity&quot;,         &quot;@type&quot;: &quot;@id&quot; },
+          &quot;association&quot;:      { &quot;@id&quot;: &quot;openprov:hadAssociation&quot;,      &quot;@type&quot;: &quot;@id&quot; },
+          &quot;generation&quot;:       { &quot;@id&quot;: &quot;openprov:hadGeneration&quot;,       &quot;@type&quot;: &quot;@id&quot; },
+          &quot;invalidation&quot;:     { &quot;@id&quot;: &quot;openprov:hadInvalidation&quot;,     &quot;@type&quot;: &quot;@id&quot; },
+          &quot;entityDerivation&quot;: { &quot;@id&quot;: &quot;openprov:hadEntityDerivation&quot;, &quot;@type&quot;: &quot;@id&quot; },
+          &quot;agentDerivation&quot;:  { &quot;@id&quot;: &quot;openprov:hadAgentDerivation&quot;,  &quot;@type&quot;: &quot;@id&quot; }
+        }
+      },
+
+      &quot;Membership&quot;: {
+        &quot;@id&quot;: &quot;provext:Membership&quot;,
+        &quot;@context&quot;: {
+          &quot;collection&quot;:           { &quot;@reverse&quot;: &quot;provext:qualifiedMembership&quot;, &quot;@type&quot;: &quot;@id&quot; },
+          &quot;entity&quot;:               { &quot;@id&quot;: &quot;provext:member&quot;,                   &quot;@type&quot;: &quot;@id&quot; },
+          &quot;activity&quot;:             { &quot;@id&quot;: &quot;openprov:hadActivity&quot;,             &quot;@type&quot;: &quot;@id&quot; },
+          &quot;generation&quot;:           { &quot;@id&quot;: &quot;openprov:hadGeneration&quot;,           &quot;@type&quot;: &quot;@id&quot; },
+          &quot;usage&quot;:                { &quot;@id&quot;: &quot;openprov:hadUsage&quot;,                &quot;@type&quot;: &quot;@id&quot; },
+          &quot;collectionGeneration&quot;: { &quot;@id&quot;: &quot;openprov:hadCollectionGeneration&quot;, &quot;@type&quot;: &quot;@id&quot; },
+          &quot;itemGeneration&quot;:       { &quot;@id&quot;: &quot;openprov:hadItemGeneration&quot;,       &quot;@type&quot;: &quot;@id&quot; }
+        }
+      },
+
+      &quot;Specialization&quot;: {
+        &quot;@id&quot;: &quot;provext:Specialization&quot;,
+        &quot;@context&quot;: {
+          &quot;specificEntity&quot;: { &quot;@reverse&quot;: &quot;provext:qualifiedSpecialization&quot;, &quot;@type&quot;: &quot;@id&quot; },
+          &quot;generalEntity&quot;:  { &quot;@id&quot;: &quot;provext:generalEntity&quot;,                &quot;@type&quot;: &quot;@id&quot; },
+          &quot;previousEntity&quot;: { &quot;@id&quot;: &quot;openprov:hadPreviousEntity&quot;,           &quot;@type&quot;: &quot;@id&quot; },
+          &quot;derivation&quot;:     { &quot;@id&quot;: &quot;openprov:hadDerivation&quot;,               &quot;@type&quot;: &quot;@id&quot; },
+          &quot;specialization&quot;: { &quot;@id&quot;: &quot;openprov:hadSpecialization&quot;,           &quot;@type&quot;: &quot;@id&quot; }
+        }
+      }
+    }
+  ]
+}
+</pre>
+</body>
+</html>

@@ -20,7 +20,7 @@
                     "@id": "openprov:derivation"
                 },
                 {
-                    "@id": "openprov:entity"
+                    "@id": "openprov:previousEntity"
                 },
                 {
                     "@id": "openprov:specialization"

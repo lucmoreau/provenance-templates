@@ -92,11 +92,11 @@
 
 ###  On specializations
 
-:hadEntity rdf:type owl:ObjectProperty ;
+:hadPreviousEntity rdf:type owl:ObjectProperty ;
     rdfs:domain provext:Specialization ;
     rdfs:range prov:Entity ;
-    rdfs:label "had entity"@en ;
-    rdfs:comment "The entity the specific entity was derived from, itself a specialization of the same general entity."@en .
+    rdfs:label "had previous entity"@en ;
+    rdfs:comment "The previous entity, from which the specific entity was derived, itself a specialization of the same general entity. Named previous, not entity, beside the specific and general entities of the specialization."@en .
 
 :hadDerivation rdf:type owl:ObjectProperty ;
     rdfs:domain provext:Specialization ;
