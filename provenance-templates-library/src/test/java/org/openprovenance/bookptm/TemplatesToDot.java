@@ -5,7 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openprovenance.prov.dot.ProvToDot;
+import org.openprovenance.prov.viz.VizGraph;
 import org.openprovenance.prov.model.*;
 import org.openprovenance.prov.model.exception.UncheckedException;
 import org.openprovenance.prov.template.log2prov.FileBuilder;
@@ -24,7 +24,7 @@ import static org.openprovenance.prov.template.compiler.common.Constants.INPUT;
 import static org.openprovenance.prov.template.compiler.common.Constants.OUTPUT;
 
 
-public class TemplatesToDot extends ProvToDot {
+public class TemplatesToDot extends org.openprovenance.prov.viz.templates.TemplatesToDot {
 
     private static final Logger logger = LogManager.getLogger(TemplatesToDot.class);
     public static final String OUTPUT1 = "output";
@@ -75,7 +75,7 @@ public class TemplatesToDot extends ProvToDot {
                           String style,
                           ProvFactory pf,
                           String principal) {
-        super(pf);
+        super(pf, false, null);
         this.pf=pf;
         this.templateConnections = templateConnections;
         this.templateConnections.forEach(tc -> { tc.in_id=abs(tc.in_id); tc.out_id=abs(tc.out_id);});
@@ -340,7 +340,8 @@ public class TemplatesToDot extends ProvToDot {
 
     public void convert_template(Document doc, PrintStream out, String title) {
         if (title!=null) name=title;
-        prelude(doc, out);
+        // the drawing is a model the dot renderer writes, no longer dot text written here
+        VizGraph graph = new VizGraph(name);
 
 
         List<TemplateConnection> trimmedTemplateConnections = getTrimmedTemplateConnections();
@@ -386,17 +387,18 @@ public class TemplatesToDot extends ProvToDot {
 
 
             String html = createHtmlTable(templateInfo, inputsNames, inputPorts, inputsColors, outputsNames, outputsPorts, outputsColors);
-            emitTemplate(template, templateId, html, out);
+            graph.add(templateNode(templateId, html));
 
         }
 
         for (TemplateConnection templateConnection : trimmedTemplateConnections) {
-            emitEdge(qualifiedPortName(templateConnection.in_template,  templateName(templateConnection.in_template, templateConnection.in_id),  templateConnection.in_property),
-                     qualifiedPortName(templateConnection.out_template, templateName(templateConnection.out_template,templateConnection.out_id), templateConnection.out_property),
-                     out);
+            String inId = templateName(templateConnection.in_template, templateConnection.in_id);
+            String outId = templateName(templateConnection.out_template, templateConnection.out_id);
+            graph.add(connectionEdge(inId, portName(templateConnection.in_template, inId, templateConnection.in_property),
+                                     outId, portName(templateConnection.out_template, outId, templateConnection.out_property)));
         }
 
-        postlude(doc,out);
+        render(process(graph), out);
         out.close();
 
     }
@@ -422,46 +424,12 @@ public class TemplatesToDot extends ProvToDot {
         ));
     }
 
-    String headstyle="invempty";
-    String tailstyle="empty";
-
-    private void emitEdge(String source, String destination, PrintStream out) {
-        StringBuffer sb=new StringBuffer();
-        sb.append("\n");
-        sb.append(source).append(":n"); // anchor to north
-        sb.append(" -> ");
-        sb.append(destination).append(":s"); // anchor to south
-        sb.append("[dir=\"both\", arrowhead=\"").append(headstyle).append("\", arrowtail=\"").append(tailstyle).append("\"]");
-        sb.append(";\n");
-        out.println(sb.toString());
-    }
-
-    private String portName(String template, String templateId, String property) {
-        return  template+"_"+templateId+"_"+property;
-    }
 
 
-    private String qualifiedPortName(String template, String templateId, String property) {
-        return templateId + ":" + portName(template, templateId, property);
-    }
     private QualifiedName qualifiedPortNameAsQn(String template, String templateId, String property) {
         return pf.newQualifiedName( "/book/provapi/template/", template + "/"+ templateId + "/" + property, "ex");
     }
 
-    public void emitTemplate(String template, String templateId, String htmlTable, PrintStream out) {
-        StringBuffer sb=new StringBuffer();
-        sb.append("\n");
-        sb.append("node [shape=plaintext]\n");
-        sb.append(templateId);
-        sb.append(" [label=<");
-        sb.append(htmlTable);
-        sb.append(">];\n");
-        out.println(sb.toString());
-    }
-
-    private String templateName(String template, Integer id) {
-        return template+"_"+id;
-    }
 
     private String livePrefix(String relation) {
         return "/ptl/provapi/live/" + relation+"/" ;
