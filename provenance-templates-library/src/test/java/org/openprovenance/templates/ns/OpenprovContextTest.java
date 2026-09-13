@@ -23,6 +23,9 @@ public class OpenprovContextTest extends TestCase {
 
     static final String OPENPROV_CONTEXT = "template-pages/ns/openprov.jsonld";
     static final String OPENPROV_ONTOLOGY = "template-pages/ns/openprov.ttl";
+    static final String OPENPROV_SCHEMA = "../openprovspec/openprov-schema.json";
+    static final String SPEC_SCHEMA_URL = "https://openprovenance.org/prov-jsonld/schema.json";
+    static final String SPEC_SCHEMA_RESOURCE = "/2024-08-25/jsonldschema.json";
     static final String SPEC_CONTEXT_URL = "https://openprovenance.org/prov-jsonld/context.jsonld";
     static final String SPEC_CONTEXT_RESOURCE = "/2024-08-25/jsonldcontext.jsonld";
     static final String OPENPROV_NS = "https://openprovenance.org/ns/openprov#";
@@ -98,5 +101,42 @@ public class OpenprovContextTest extends TestCase {
         Matcher m = Pattern.compile("(?m)^:(\\w+) rdf:type owl:ObjectProperty").matcher(Files.readString(new File(OPENPROV_ONTOLOGY).toPath(), StandardCharsets.UTF_8));
         while (m.find()) inOntology.add(m.group(1));
         assertEquals(inOntology, inContext);
+    }
+
+    /**
+     * openprov-schema.json extends the specification's schema by reference: each extended relation's definition
+     * carries the specification's properties plus exactly the scope's terms, and every other definition it uses is
+     * a reference into the published schema, so the two cannot drift apart.
+     */
+    public void testSchemaAdmitsTheScopedTermsAndReferencesTheRest() throws IOException {
+        JsonNode specSchema;
+        try (InputStream in = OpenprovContextTest.class.getResourceAsStream(SPEC_SCHEMA_RESOURCE)) {
+            assertNotNull("specification schema on the classpath (prov-jsonld artifact)", in);
+            specSchema = mapper.readTree(in).get("definitions");
+        }
+        JsonNode schema = mapper.readTree(new File(OPENPROV_SCHEMA));
+        assertEquals("#/definitions/prov:Document", schema.get("$ref").asText());
+        JsonNode definitions = schema.get("definitions");
+        for (String type : EXTENDED) {
+            Set<String> expected = new TreeSet<>();
+            specSchema.get("prov:" + type).get("properties").fieldNames().forEachRemaining(expected::add);
+            extension.get(type).get("@context").fields().forEachRemaining(t -> {
+                if (t.getValue().path("@id").asText().startsWith("openprov:")) expected.add(t.getKey());
+            });
+            Set<String> actual = new TreeSet<>();
+            definitions.get("prov:" + type).get("properties").fieldNames().forEachRemaining(actual::add);
+            assertEquals(type, expected, actual);
+        }
+        List<String> refs = new ArrayList<>();
+        collectRefs(definitions, refs);
+        for (String ref : refs) {
+            if (ref.startsWith("#/definitions/")) assertTrue(ref, definitions.has(ref.substring("#/definitions/".length())));
+            else assertTrue(ref, ref.startsWith(SPEC_SCHEMA_URL + "#/definitions/") && specSchema.has(ref.substring((SPEC_SCHEMA_URL + "#/definitions/").length())));
+        }
+    }
+
+    static void collectRefs(JsonNode node, List<String> refs) {
+        if (node.isObject()) node.fields().forEachRemaining(f -> { if (f.getKey().equals("$ref")) refs.add(f.getValue().asText()); else collectRefs(f.getValue(), refs); });
+        else if (node.isArray()) node.forEach(n -> collectRefs(n, refs));
     }
 }

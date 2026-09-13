@@ -134,7 +134,7 @@
   <!-- BEGIN generated: ontology (ttl-to-html.py from openprov.ttl) -->
 <p>The ontology is identified by <code>https://openprovenance.org/ns/openprov#</code>; its terms are in the
 namespace <code>https://openprovenance.org/ns/openprov#</code>, prefix <code>openprov</code>.
-The vocabulary the OpenProvenance template library and ProvToolbox use in provenance documents beyond PROV-DM and provext: the statements a summarising relation was folded from, the roles of the parties to a change of collection, and the kinds of activity and derivation that change a collection. Distinct from provext, the minimal extension [[[PROV-JSONLD]]] needs for its regular JSON shape, whose classes this vocabulary builds on.</p>
+The vocabulary the OpenProvenance template library and ProvToolbox use in provenance documents beyond PROV-DM and provext: the statements a summarising relation was folded from, the roles of the parties to a change of collection, and the kinds of activity and derivation that change a collection. Distinct from provext, the minimal extension PROV-JSONLD needs for its regular JSON shape, whose classes this vocabulary builds on.</p>
 <p>The ontology imports <code>https://openprovenance.org/ns/provext#</code>.</p>
 
 <section id="ontology-properties">
@@ -523,6 +523,25 @@ p.group { font-style: italic; color: #444; margin: 1.5em 0 0.3em; }
 <!-- END generated: context -->
 
 
+</section>
+
+<section id='schema'>
+  <h2>OpenProv JSON Schema</h2>
+
+  <p>The PROV-JSONLD schema [PROV-JSONLD] closes every relation to the properties it names and to
+  prefixed attributes, so a document using the terms above does not validate against it. The OpenProv
+  schema, <code><a href="https://openprovenance.org/ns/openprov-schema.json">https://openprovenance.org/ns/openprov-schema.json</a></code>,
+  extends the PROV-JSONLD schema, <code><a href="https://openprovenance.org/prov-jsonld/schema.json">https://openprovenance.org/prov-jsonld/schema.json</a></code>,
+  by reference: every definition that does not change is a <code>$ref</code> into the PROV-JSONLD
+  schema, and only what changes is restated: the four relations the context scopes terms to, each the
+  PROV-JSONLD definition plus one property per term, a qualified name or an array of them
+  (<code>QualifiedName+</code>) since the terms are <code>@type: @id</code>; and the chain from a
+  document to its statements (<code>Document</code>, <code>Bundle</code>, <code>StatementOrBundle</code>,
+  <code>Statement</code>), which otherwise would route a relation to the PROV-JSONLD definition of it.</p>
+
+  <p>A validator must therefore resolve the PROV-JSONLD schema, from its URL or a local copy:
+  <code>ajv validate -s openprov-schema.json -r schema.json -d document.jsonld</code>. The schema is
+  generated from the two files it extends, by <code>script/schema-extend.py</code>.</p>
 </section>
 
 <section id='pronv'>
