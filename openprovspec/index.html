@@ -253,13 +253,13 @@ The vocabulary the OpenProvenance template library and ProvToolbox use in proven
       <tr><th>rdfs:range</th><td><code>prov:Entity</code></td></tr>
       </table>
     </div>
-    <p class="group">On prov:Attribution and provext:Membership and prov:Communication</p>
+    <p class="group">On prov:Attribution and provext:Membership and prov:Communication and prov:Start and prov:End</p>
     <div class="term" id="hadGeneration">
       <div class="term-name"><dfn class="export">openprov:hadGeneration</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#hadGeneration">https://openprovenance.org/ns/openprov#hadGeneration</a></span></div>
       <table class="facts">
       <tr><th>rdfs:label</th><td>had generation</td></tr>
-      <tr><th>rdfs:comment</th><td>For an attribution, the generation of the attributed entity by the activity it arose from; for a membership, the generation of the collection by that activity; for a communication, the generation, by the informant, of the entity the informed activity used.</td></tr>
-      <tr><th>rdfs:domain</th><td><code>prov:Attribution ∪ provext:Membership ∪ prov:Communication</code></td></tr>
+      <tr><th>rdfs:comment</th><td>For an attribution, the generation of the attributed entity by the activity it arose from; for a membership, the generation of the collection by that activity; for a communication, the generation, by the informant, of the entity the informed activity used; for a start or an end, the generation of the trigger entity by the starter or ender activity.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>prov:Attribution ∪ provext:Membership ∪ prov:Communication ∪ prov:Start ∪ prov:End</code></td></tr>
       <tr><th>rdfs:range</th><td><code>prov:Generation</code></td></tr>
       </table>
     </div>
@@ -468,6 +468,34 @@ p.group { font-style: italic; color: #444; margin: 1.5em 0 0.3em; }
       </table>
     </div>
 
+    <div class="term" id="context-Start">
+      <div class="term-name"><code>Start</code><span class="term-iri">stands for <code>prov:Start</code></span></div>
+      <table class="keys">
+        <thead><tr><th>key</th><th>IRI</th><th>mapping</th><th>@type</th></tr></thead>
+        <tbody>
+      <tr><td><code>activity</code></td><td><code>prov:qualifiedStart</code></td><td>reverse property</td><td><code>@id</code></td></tr>
+      <tr><td><code>trigger</code></td><td><code>prov:entity</code></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>starter</code></td><td><code>prov:hadActivity</code></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>time</code></td><td><code>prov:atTime</code></td><td>property</td><td><code>xsd:dateTime</code></td></tr>
+      <tr><td><code>generation</code></td><td><a href="#hadGeneration"><code>openprov:hadGeneration</code></a></td><td>property</td><td><code>@id</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="term" id="context-End">
+      <div class="term-name"><code>End</code><span class="term-iri">stands for <code>prov:End</code></span></div>
+      <table class="keys">
+        <thead><tr><th>key</th><th>IRI</th><th>mapping</th><th>@type</th></tr></thead>
+        <tbody>
+      <tr><td><code>activity</code></td><td><code>prov:qualifiedEnd</code></td><td>reverse property</td><td><code>@id</code></td></tr>
+      <tr><td><code>trigger</code></td><td><code>prov:entity</code></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>ender</code></td><td><code>prov:hadActivity</code></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>time</code></td><td><code>prov:atTime</code></td><td>property</td><td><code>xsd:dateTime</code></td></tr>
+      <tr><td><code>generation</code></td><td><a href="#hadGeneration"><code>openprov:hadGeneration</code></a></td><td>property</td><td><code>@id</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
 <pre class="example" title="The context, openprov.jsonld">
 {
   &quot;@context&quot;: [
@@ -522,6 +550,28 @@ p.group { font-style: italic; color: #444; margin: 1.5em 0 0.3em; }
           &quot;generation&quot;: { &quot;@id&quot;: &quot;openprov:hadGeneration&quot;,           &quot;@type&quot;: &quot;@id&quot; },
           &quot;usage&quot;:      { &quot;@id&quot;: &quot;openprov:hadUsage&quot;,                &quot;@type&quot;: &quot;@id&quot; }
         }
+      },
+
+      &quot;Start&quot;: {
+        &quot;@id&quot;: &quot;prov:Start&quot;,
+        &quot;@context&quot;: {
+          &quot;activity&quot;:   { &quot;@reverse&quot;: &quot;prov:qualifiedStart&quot;, &quot;@type&quot;: &quot;@id&quot; },
+          &quot;trigger&quot;:    { &quot;@id&quot;: &quot;prov:entity&quot;,              &quot;@type&quot;: &quot;@id&quot; },
+          &quot;starter&quot;:    { &quot;@id&quot;: &quot;prov:hadActivity&quot;,         &quot;@type&quot;: &quot;@id&quot; },
+          &quot;time&quot;:       { &quot;@id&quot;: &quot;prov:atTime&quot;,              &quot;@type&quot;: &quot;xsd:dateTime&quot; },
+          &quot;generation&quot;: { &quot;@id&quot;: &quot;openprov:hadGeneration&quot;,   &quot;@type&quot;: &quot;@id&quot; }
+        }
+      },
+
+      &quot;End&quot;: {
+        &quot;@id&quot;: &quot;prov:End&quot;,
+        &quot;@context&quot;: {
+          &quot;activity&quot;:   { &quot;@reverse&quot;: &quot;prov:qualifiedEnd&quot;, &quot;@type&quot;: &quot;@id&quot; },
+          &quot;trigger&quot;:    { &quot;@id&quot;: &quot;prov:entity&quot;,            &quot;@type&quot;: &quot;@id&quot; },
+          &quot;ender&quot;:      { &quot;@id&quot;: &quot;prov:hadActivity&quot;,       &quot;@type&quot;: &quot;@id&quot; },
+          &quot;time&quot;:       { &quot;@id&quot;: &quot;prov:atTime&quot;,            &quot;@type&quot;: &quot;xsd:dateTime&quot; },
+          &quot;generation&quot;: { &quot;@id&quot;: &quot;openprov:hadGeneration&quot;, &quot;@type&quot;: &quot;@id&quot; }
+        }
       }
     }
   ]
@@ -540,7 +590,7 @@ p.group { font-style: italic; color: #444; margin: 1.5em 0 0.3em; }
   schema, <code><a href="https://openprovenance.org/ns/openprov-schema.json">https://openprovenance.org/ns/openprov-schema.json</a></code>,
   extends the PROV-JSONLD schema, <code><a href="https://openprovenance.org/prov-jsonld/schema.json">https://openprovenance.org/prov-jsonld/schema.json</a></code>,
   by reference: every definition that does not change is a <code>$ref</code> into the PROV-JSONLD
-  schema, and only what changes is restated: the four relations the context scopes terms to, each the
+  schema, and only what changes is restated: the relations the context scopes terms to, each the
   PROV-JSONLD definition plus one property per term, a qualified name or an array of them
   (<code>QualifiedName+</code>) since the terms are <code>@type: @id</code>; and the chain from a
   document to its statements (<code>Document</code>, <code>Bundle</code>, <code>StatementOrBundle</code>,

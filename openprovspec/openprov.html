@@ -220,13 +220,13 @@ p.group { font-style: italic; color: #444; margin: 1.5em 0 0.3em; }
       <tr><th>rdfs:range</th><td><code>prov:Entity</code></td></tr>
       </table>
     </div>
-    <p class="group">On prov:Attribution and provext:Membership and prov:Communication</p>
+    <p class="group">On prov:Attribution and provext:Membership and prov:Communication and prov:Start and prov:End</p>
     <div class="term" id="hadGeneration">
       <div class="term-name"><dfn class="export">openprov:hadGeneration</dfn><span class="term-iri"><a href="https://openprovenance.org/ns/openprov#hadGeneration">https://openprovenance.org/ns/openprov#hadGeneration</a></span></div>
       <table class="facts">
       <tr><th>rdfs:label</th><td>had generation</td></tr>
-      <tr><th>rdfs:comment</th><td>For an attribution, the generation of the attributed entity by the activity it arose from; for a membership, the generation of the collection by that activity; for a communication, the generation, by the informant, of the entity the informed activity used.</td></tr>
-      <tr><th>rdfs:domain</th><td><code>prov:Attribution ∪ provext:Membership ∪ prov:Communication</code></td></tr>
+      <tr><th>rdfs:comment</th><td>For an attribution, the generation of the attributed entity by the activity it arose from; for a membership, the generation of the collection by that activity; for a communication, the generation, by the informant, of the entity the informed activity used; for a start or an end, the generation of the trigger entity by the starter or ender activity.</td></tr>
+      <tr><th>rdfs:domain</th><td><code>prov:Attribution ∪ provext:Membership ∪ prov:Communication ∪ prov:Start ∪ prov:End</code></td></tr>
       <tr><th>rdfs:range</th><td><code>prov:Generation</code></td></tr>
       </table>
     </div>

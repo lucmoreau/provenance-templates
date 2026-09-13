@@ -8,7 +8,7 @@ touches a different set of files:
 
 | kind | example | ttl | jsonld + schema | ProvToolbox |
 |---|---|---|---|---|
-| property of an attribution, membership, specialization or communication | `openprov:hadPreviousEntity`, written `previousEntity` | yes | yes | yes |
+| property of a scoped relation (attribution, membership, specialization, communication, start, end) | `openprov:hadPreviousEntity`, written `previousEntity` | yes | yes | yes |
 | role | `openprov:asMember` | yes | no | no |
 | type (class) | `openprov:InsertingItemIntoCollection` | yes | no | no |
 
@@ -27,7 +27,9 @@ the `hadX` name the *property*; both appear below.
    something else on the relation (`entity` beside `specificEntity` and
    `generalEntity`), choose a distinct one (`previousEntity`).
 2. `openprov.jsonld` — properties only: add the term to the type-scoped
-   `@context` of `Attribution`, `Membership` or `Specialization`:
+   `@context` of the relation (`Attribution`, `Membership`, `Specialization`,
+   `Communication`, `Start`, `End`; a new relation restates the specification's
+   scope for it, and the library's `OpenprovContextTest.EXTENDED` lists it):
    `"x": { "@id": "openprov:hadX", "@type": "@id" }`. Roles and types need no
    context entry; they are values, written as `openprov:asMember`.
 3. `make html` — refreshes the generated ontology and context sections of
@@ -37,7 +39,7 @@ the `hadX` name the *property*; both appear below.
    sections as self-contained pages; run it too, so they stay in step.
 4. `make schema` — regenerates `openprov-schema.json`: the published
    PROV-JSONLD schema extended by reference (`script/schema-extend.py`), restating
-   only the four scoped relations, each with one property per term of its
+   only the scoped relations, each with one property per term of its
    context scope, and the document-to-statement chain. A property needs no
    further step; a validator resolves the PROV-JSONLD schema alongside
    (`ajv validate -s openprov-schema.json -r <spec schema.json> -d doc.jsonld`).
@@ -47,8 +49,10 @@ the `hadX` name the *property*; both appear below.
 Branch `development2_0`, module `modules-core`:
 
 1. `prov-model/src/main/java/org/openprovenance/prov/model/OpenprovTerms.java`
-   — add the pair `"x", "hadX"` to the `scope(Kind.PROV_ATTRIBUTION | PROV_MEMBERSHIP | PROV_SPECIALIZATION, ...)`
-   it belongs to. This table is what every parser and serialiser consults: PROV-N
+   — add the pair `"x", "hadX"` to the `scope(Kind.PROV_..., ...)` of its
+   relation (a new relation also needs its JSON-LD mixin `JLD_...` given the
+   scoped key handlers, `ScopedKey(De)Serializer.<Relation>`, and the PROV-N,
+   PROV-JSON and Scala sites the existing ones have). This table is what every parser and serialiser consults: PROV-N
    (`TreeTraversal`, `NotationConstructor`), PROV-JSON (`ProvJsonReader`,
    `ProvJsonWriter`), PROV-JSONLD (`ScopedKeyDeserializer`,
    `ScopedKeySerializer`) and the Scala model (`OpenprovAttributes`).

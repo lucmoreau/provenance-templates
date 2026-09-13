@@ -92,6 +92,34 @@ p.group { font-style: italic; color: #444; margin: 1.5em 0 0.3em; }
       </table>
     </div>
 
+    <div class="term" id="context-Start">
+      <div class="term-name"><code>Start</code><span class="term-iri">stands for <code>prov:Start</code></span></div>
+      <table class="keys">
+        <thead><tr><th>key</th><th>IRI</th><th>mapping</th><th>@type</th></tr></thead>
+        <tbody>
+      <tr><td><code>activity</code></td><td><code>prov:qualifiedStart</code></td><td>reverse property</td><td><code>@id</code></td></tr>
+      <tr><td><code>trigger</code></td><td><code>prov:entity</code></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>starter</code></td><td><code>prov:hadActivity</code></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>time</code></td><td><code>prov:atTime</code></td><td>property</td><td><code>xsd:dateTime</code></td></tr>
+      <tr><td><code>generation</code></td><td><a href="#hadGeneration"><code>openprov:hadGeneration</code></a></td><td>property</td><td><code>@id</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="term" id="context-End">
+      <div class="term-name"><code>End</code><span class="term-iri">stands for <code>prov:End</code></span></div>
+      <table class="keys">
+        <thead><tr><th>key</th><th>IRI</th><th>mapping</th><th>@type</th></tr></thead>
+        <tbody>
+      <tr><td><code>activity</code></td><td><code>prov:qualifiedEnd</code></td><td>reverse property</td><td><code>@id</code></td></tr>
+      <tr><td><code>trigger</code></td><td><code>prov:entity</code></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>ender</code></td><td><code>prov:hadActivity</code></td><td>property</td><td><code>@id</code></td></tr>
+      <tr><td><code>time</code></td><td><code>prov:atTime</code></td><td>property</td><td><code>xsd:dateTime</code></td></tr>
+      <tr><td><code>generation</code></td><td><a href="#hadGeneration"><code>openprov:hadGeneration</code></a></td><td>property</td><td><code>@id</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
 <pre class="example" title="The context, openprov.jsonld">
 {
   &quot;@context&quot;: [
@@ -145,6 +173,28 @@ p.group { font-style: italic; color: #444; margin: 1.5em 0 0.3em; }
           &quot;entity&quot;:     { &quot;@id&quot;: &quot;openprov:hadEntity&quot;,               &quot;@type&quot;: &quot;@id&quot; },
           &quot;generation&quot;: { &quot;@id&quot;: &quot;openprov:hadGeneration&quot;,           &quot;@type&quot;: &quot;@id&quot; },
           &quot;usage&quot;:      { &quot;@id&quot;: &quot;openprov:hadUsage&quot;,                &quot;@type&quot;: &quot;@id&quot; }
+        }
+      },
+
+      &quot;Start&quot;: {
+        &quot;@id&quot;: &quot;prov:Start&quot;,
+        &quot;@context&quot;: {
+          &quot;activity&quot;:   { &quot;@reverse&quot;: &quot;prov:qualifiedStart&quot;, &quot;@type&quot;: &quot;@id&quot; },
+          &quot;trigger&quot;:    { &quot;@id&quot;: &quot;prov:entity&quot;,              &quot;@type&quot;: &quot;@id&quot; },
+          &quot;starter&quot;:    { &quot;@id&quot;: &quot;prov:hadActivity&quot;,         &quot;@type&quot;: &quot;@id&quot; },
+          &quot;time&quot;:       { &quot;@id&quot;: &quot;prov:atTime&quot;,              &quot;@type&quot;: &quot;xsd:dateTime&quot; },
+          &quot;generation&quot;: { &quot;@id&quot;: &quot;openprov:hadGeneration&quot;,   &quot;@type&quot;: &quot;@id&quot; }
+        }
+      },
+
+      &quot;End&quot;: {
+        &quot;@id&quot;: &quot;prov:End&quot;,
+        &quot;@context&quot;: {
+          &quot;activity&quot;:   { &quot;@reverse&quot;: &quot;prov:qualifiedEnd&quot;, &quot;@type&quot;: &quot;@id&quot; },
+          &quot;trigger&quot;:    { &quot;@id&quot;: &quot;prov:entity&quot;,            &quot;@type&quot;: &quot;@id&quot; },
+          &quot;ender&quot;:      { &quot;@id&quot;: &quot;prov:hadActivity&quot;,       &quot;@type&quot;: &quot;@id&quot; },
+          &quot;time&quot;:       { &quot;@id&quot;: &quot;prov:atTime&quot;,            &quot;@type&quot;: &quot;xsd:dateTime&quot; },
+          &quot;generation&quot;: { &quot;@id&quot;: &quot;openprov:hadGeneration&quot;, &quot;@type&quot;: &quot;@id&quot; }
         }
       }
     }

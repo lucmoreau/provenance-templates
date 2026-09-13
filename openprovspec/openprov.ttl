@@ -21,7 +21,7 @@
 #    A template folds a triangle of statements — an activity, its
 #    usage, generation, invalidation or derivation, an agent's
 #    association — into one relation: an attribution, a membership,
-#    a specialization, a communication. These properties, optional on that relation,
+#    a specialization, a communication, a start, an end. These properties, optional on that relation,
 #    point back at the statements it summarises. They follow the
 #    convention of PROV-O's qualified derivation, whose hadActivity,
 #    hadGeneration and hadUsage name the statements a derivation
@@ -39,10 +39,10 @@
     rdfs:comment "The activity the relation arose from: for an attribution, the activity that generated, invalidated or derived the entity while the agent was associated with it; for a membership, the activity that placed the member in the collection. A sub-property of prov:hadActivity, whose domain PROV-O states as prov:Influence and, more precisely, as the union of Delegation, Derivation, End and Start; an attribution or membership carrying this property is therefore entailed to be an Influence, and, under the precise domain, a member of that union, which PROV-O declares nothing to contradict."@en .
 
 :hadGeneration rdf:type owl:ObjectProperty ;
-    rdfs:domain [ rdf:type owl:Class ; owl:unionOf ( prov:Attribution provext:Membership prov:Communication ) ] ;
+    rdfs:domain [ rdf:type owl:Class ; owl:unionOf ( prov:Attribution provext:Membership prov:Communication prov:Start prov:End ) ] ;
     rdfs:range prov:Generation ;
     rdfs:label "had generation"@en ;
-    rdfs:comment "For an attribution, the generation of the attributed entity by the activity it arose from; for a membership, the generation of the collection by that activity; for a communication, the generation, by the informant, of the entity the informed activity used."@en .
+    rdfs:comment "For an attribution, the generation of the attributed entity by the activity it arose from; for a membership, the generation of the collection by that activity; for a communication, the generation, by the informant, of the entity the informed activity used; for a start or an end, the generation of the trigger entity by the starter or ender activity."@en .
 
 ###  On attributions
 

@@ -1,7 +1,7 @@
 document
 bundle vargen:bundle
 prefix vargen <http://openprovenance.org/vargen#>
-prefix tmpl <http://openprovenance.org/templates/tmpl#>
+prefix tmpl <http://openprovenance.org/tmpl#>
 prefix var <http://openprovenance.org/var#>
 
 activity(var:a,-,-,[prov:type = 'var:activityType', var:aprop = 'var:avalue'])

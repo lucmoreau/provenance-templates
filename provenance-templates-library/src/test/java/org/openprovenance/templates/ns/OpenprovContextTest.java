@@ -14,7 +14,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * openprov.jsonld extends the PROV-JSONLD context by redefining four type-scoped terms, and JSON-LD replaces a
+ * openprov.jsonld extends the PROV-JSONLD context by redefining six type-scoped terms, and JSON-LD replaces a
  * redefined term whole: the provext part of each scope is restated, and must not drift from the specification's.
  * The specification's context is read from the prov-jsonld artifact, whose copy its build keeps byte-identical
  * to the published one.
@@ -29,7 +29,7 @@ public class OpenprovContextTest extends TestCase {
     static final String SPEC_CONTEXT_URL = "https://openprovenance.org/prov-jsonld/context.jsonld";
     static final String SPEC_CONTEXT_RESOURCE = "/2024-08-25/jsonldcontext.jsonld";
     static final String OPENPROV_NS = "https://openprovenance.org/ns/openprov#";
-    static final List<String> EXTENDED = List.of("Attribution", "Membership", "Specialization", "Communication");
+    static final List<String> EXTENDED = List.of("Attribution", "Membership", "Specialization", "Communication", "Start", "End");
 
     static final ObjectMapper mapper = new ObjectMapper();
 
@@ -49,7 +49,7 @@ public class OpenprovContextTest extends TestCase {
         assertEquals(OPENPROV_NS, extension.get("openprov").asText());
     }
 
-    /** The extension redefines the four extended types and nothing else of the specification's. */
+    /** The extension redefines the six extended types and nothing else of the specification's. */
     public void testOnlyTheExtendedTypesAreRedefined() {
         Set<String> redefined = new TreeSet<>();
         extension.fieldNames().forEachRemaining(f -> { if (!f.startsWith("@") && spec.has(f)) redefined.add(f); });

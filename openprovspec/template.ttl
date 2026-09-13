@@ -1,0 +1,81 @@
+@prefix :        <http://openprovenance.org/tmpl#> .
+@prefix tmpl:    <http://openprovenance.org/tmpl#> .
+@prefix var:     <http://openprovenance.org/var#> .
+@prefix vargen:  <http://openprovenance.org/vargen#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix provext: <https://openprovenance.org/ns/provext#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@base            <http://openprovenance.org/tmpl#> .
+
+<http://openprovenance.org/tmpl#>
+    rdf:type owl:Ontology ;
+    rdfs:label "Provenance template vocabulary"@en ;
+    rdfs:comment "The reserved attributes of provenance templates. A template is a PROV document whose placeholders are variables, qualified names in the var namespace (http://openprovenance.org/var#), or in the vargen namespace (http://openprovenance.org/vargen#) for identifiers the instantiation generates when the bindings leave them unbound. A variable can stand where PROV admits a qualified name: an identifier, an attribute, a value. Where PROV constrains the syntax of a value — a label is a string, a time an xsd:dateTime — a template writes a tmpl attribute paired with a variable instead, and the instantiation writes the PROV attribute; further tmpl attributes make a statement conditional, give a relation an identifier, or tie the expansion of two statements together. Every tmpl attribute is consumed by the instantiation: none survives into an instantiated document."@en ;
+    rdfs:seeAlso <https://openprovenance.org/ns/openprov> ;
+    rdfs:seeAlso <https://lucmoreau.github.io/ProvToolbox/> .
+
+
+#################################################################
+#    Syntax-constrained attributes
+#
+#    Paired with a variable in the template; the instantiation
+#    writes the PROV attribute with the bound value in its place.
+#################################################################
+
+:label rdf:type rdf:Property ;
+    rdfs:range xsd:string ;
+    rdfs:label "label"@en ;
+    rdfs:comment "Instantiates prov:label on the statement: the variable's bound string, or one prov:label per string when the variable is bound to several."@en ;
+    rdfs:seeAlso prov:label .
+
+:time rdf:type rdf:Property ;
+    rdfs:domain [ rdf:type owl:Class ; owl:unionOf ( prov:Usage prov:Generation prov:Invalidation prov:Start prov:End ) ] ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "time"@en ;
+    rdfs:comment "Instantiates prov:time on a usage, generation, invalidation, start or end: the variable's bound xsd:dateTime. A single value; a variable bound to several is ignored."@en ;
+    rdfs:seeAlso prov:atTime .
+
+:startTime rdf:type rdf:Property ;
+    rdfs:domain prov:Activity ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "start time"@en ;
+    rdfs:comment "Instantiates prov:startTime on an activity: the variable's bound xsd:dateTime. A single value."@en ;
+    rdfs:seeAlso prov:startedAtTime .
+
+:endTime rdf:type rdf:Property ;
+    rdfs:domain prov:Activity ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "end time"@en ;
+    rdfs:comment "Instantiates prov:endTime on an activity: the variable's bound xsd:dateTime. A single value."@en ;
+    rdfs:seeAlso prov:endedAtTime .
+
+
+#################################################################
+#    Conditional instantiation
+#################################################################
+
+:if rdf:type rdf:Property ;
+    rdfs:label "if"@en ;
+    rdfs:comment "The statement is instantiated only if the variable is bound; unbound, the statement is left out of the instantiated document. A variable bound to a sequence of values counts as bound."@en .
+
+:notif rdf:type rdf:Property ;
+    rdfs:label "not if"@en ;
+    rdfs:comment "The statement is instantiated only if the variable is not bound; bound, to a value or to a sequence, the statement is left out. The complement of tmpl:if."@en .
+
+
+#################################################################
+#    Identifiers and expansion
+#################################################################
+
+:ID rdf:type rdf:Property ;
+    rdfs:domain prov:Influence ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "identifier"@en ;
+    rdfs:comment "On a relation written without an identifier: the variable's bound qualified name becomes the relation's identifier, so that instantiations of the same relation can be told apart and referred to. Ignored when the value is not a qualified name, when the relation already has an identifier, or on a node."@en .
+
+:linked rdf:type rdf:Property ;
+    rdfs:label "linked"@en ;
+    rdfs:comment "On a statement whose identifier is a variable: names another variable whose expansion this statement follows. Variables bound to sequences of values expand a statement once per value; two variables linked, directly or through a chain of tmpl:linked, expand in step, the i-th value of one with the i-th value of the other, rather than as a product. The link is symmetric, and may also be declared in the bindings. Not a free variable of the statement: it binds nothing itself."@en .
