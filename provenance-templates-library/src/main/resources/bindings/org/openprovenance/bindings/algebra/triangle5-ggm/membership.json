@@ -22,13 +22,13 @@
                     "@id": "var:mprops"
                 },
                 {
-                    "@id": "provext:activity"
+                    "@id": "openprov:activity"
                 },
                 {
-                    "@id": "provext:igeneration"
+                    "@id": "openprov:itemGeneration"
                 },
                 {
-                    "@id": "provext:cgeneration"
+                    "@id": "openprov:collectionGeneration"
                 }
             ]
         ],
@@ -60,6 +60,6 @@
         "var":      "${var_ns}",
         "vargen" :  "${vargen_ns}",
         "prov":     "${prov_ns}",
-        "provext":  "${provext_ns}"
+        "openprov":  "${openprov_ns}"
     }
 }

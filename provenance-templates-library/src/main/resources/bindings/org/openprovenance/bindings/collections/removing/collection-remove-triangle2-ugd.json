@@ -5,13 +5,13 @@
         "e1":        [  {"@id": "var:coll1"}     ],
         "activity":  [  {"@id": "var:removing"}  ],
         "dprops":    [[ {"@id": "var:dprops2"},  {"@id": "prov:type"}                             ]],
-        "dvalues":   [[ {"@id": "var:dvalues2"}, {"@id": "provext:RemovingElementFromCollection"} ]],
+        "dvalues":   [[ {"@id": "var:dvalues2"}, {"@id": "openprov:RemovingElementFromCollection"} ]],
         "uprops":    [[ {"@id": "var:uprops2"},  {"@id": "prov:role"}             ]],
-        "uvalues":   [[ {"@id": "var:uvalues2"}, {"@id": "provext:asCollection"}  ]],
+        "uvalues":   [[ {"@id": "var:uvalues2"}, {"@id": "openprov:asCollection"}  ]],
         "eprops1" :  [[ {"@id": "var:cprops1"},  {"@id": "prov:type"}             ]],
         "evalues1" : [[ {"@id": "var:cvalues1"}, {"@id": "prov:Collection"}       ]],
         "gprops":    [[ {"@id": "var:gprops"},   {"@id": "prov:role"}             ]],
-        "gvalues":   [[ {"@id": "var:gvalues"},  {"@id": "provext:asCollection"}  ]],
+        "gvalues":   [[ {"@id": "var:gvalues"},  {"@id": "openprov:asCollection"}  ]],
         "usd":       [  {"@id": "var:usd2"}      ],
         "gen":       [  {"@id": "var:gen"}       ],
 
@@ -28,6 +28,6 @@
         "var":      "${var_ns}",
         "vargen" :  "${vargen_ns}",
         "prov":     "${prov_ns}",
-        "provext":  "${provext_ns}"
+        "openprov":  "${openprov_ns}"
     }
 }

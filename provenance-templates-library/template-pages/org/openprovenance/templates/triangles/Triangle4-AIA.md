@@ -19,7 +19,7 @@
 
     The template Triangle4-AIA (Association-Invalidation-Attribution) involves an entity `e`, an activity `activity`, an agent `ag` and a plan `p`. The activity `activity` was associated with the agent and the plan, and it invalidated the entity `e`. The template asserts an attribution of the entity to the agent.
 
-    The template Triangle4-AIA asserts an attribution link from the entity `e` to the agent `ag`, which can be annotated with additional information using the attributes `provext:activity`, `provext:association` and `provext:invalidation` to refer to the activity, association and invalidation. We note that these attributes are not predefined in PROV, so we rely on the `provext` namespace.
+    The template Triangle4-AIA asserts an attribution link from the entity `e` to the agent `ag`, which can be annotated with additional information using the attributes `openprov:activity`, `openprov:association` and `openprov:invalidation` to refer to the activity, association and invalidation. These attributes are not predefined in PROV: they are the properties `openprov:hadActivity`, `openprov:hadAssociation` and `openprov:hadInvalidation` of the [OpenProvenance vocabulary](https://openprovenance.org/ns/openprov), written without `had` as PROV-N writes `prov:type`.
 
     To ensure extensibility, the attributes `var:aprops` (for the `activity`), `var:attrprops` (for the attribution `attr`), `var:eprops` (for the entity `e`), `var:ascprops` (for the association `asc`), and `var:invprops` (for the invalidation `inv`) allow application- or domain-specific properties to be added. 
 

@@ -17,13 +17,13 @@
                     "@id": "var:sprops1"
                 },
                 {
-                    "@id": "provext:derivation"
+                    "@id": "openprov:derivation"
                 },
                 {
-                    "@id": "provext:entity"
+                    "@id": "openprov:entity"
                 },
                 {
-                    "@id": "provext:specialization"
+                    "@id": "openprov:specialization"
                 }
             ]
         ],
@@ -60,7 +60,7 @@
         "var" : "${var_ns}",
         "vargen" : "${vargen_ns}",
         "prov": "${prov_ns}",
-        "provext": "${provext_ns}"
+        "openprov": "${openprov_ns}"
 
     }
 }

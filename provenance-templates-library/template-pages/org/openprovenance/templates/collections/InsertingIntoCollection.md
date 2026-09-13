@@ -30,7 +30,7 @@
 
     - Triangle5-GGM links the membership relation to the activity and generations of the new collection and its new member item.
 
-    To distinguish the roles of the collection and the entity in the inputs and outputs of `inserting`, we introduce `provext:asCollection` and `provext:asMember` as roles in the extensibility namespace. In addition, `provext:InsertingItemIntoCollection` is the type of the activity `inserting` and of the derivation `der1`. The other two derivations have types `provext:InsertingInto_Item` and `provext:InsertingInto_Collection`, respectively.
+    To distinguish the roles of the collection and the entity in the inputs and outputs of `inserting`, we introduce `openprov:asCollection` and `openprov:asMember` as roles in the [OpenProvenance vocabulary](https://openprovenance.org/ns/openprov). In addition, `openprov:InsertingItemIntoCollection` is the type of the activity `inserting` and of the derivation `der1`. The other two derivations have types `openprov:InsertingInto_Item` and `openprov:InsertingInto_Collection`, respectively.
 
     Domain-specific instantiations of the template must consider whether the entity `item0` still exists after it is added to the collection. In a physical context, when a book is put in a box, there is a single instance of the book, and therefore, it no longer exists outside the box. Alternatively, in the digital world, adding a file to a ZIP archive keeps its original copy available.
 

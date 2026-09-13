@@ -3,7 +3,8 @@
     "var_ns": "http://openprovenance.org/var#",
     "vargen_ns": "http://openprovenance.org/vargen#",
     "prov_ns": "http://www.w3.org/ns/prov#",
-    "provext_ns": "http://openprovenance.org/prov/extension#",
+    "provext_ns": "https://openprovenance.org/ns/provext#",
+    "openprov_ns": "https://openprovenance.org/ns/openprov#",
     "ptm_ns": "http://openprovenance.org/ns/ptm#",
     "tmpl_ns": "http://openprovenance.org/tmpl#",
 

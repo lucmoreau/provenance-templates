@@ -32,7 +32,7 @@
                     "@id": "var:gvalues1"
                 },
                 {
-                    "@id": "provext:asCollection"
+                    "@id": "openprov:asCollection"
                 }
             ]
         ],
@@ -55,6 +55,6 @@
         "var":      "${var_ns}",
         "vargen" :  "${vargen_ns}",
         "prov":     "${prov_ns}",
-        "provext":  "${provext_ns}"
+        "openprov":  "${openprov_ns}"
     }
 }

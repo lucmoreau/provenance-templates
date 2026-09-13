@@ -18,7 +18,7 @@
 
     The template Triangle5-GGM (Generation-Generation-Membership) involves a collection `collection`, the entity `item`, and an activity `adding`. The activity `adding` generates `item` and `collection`. The template links `collection` to `item` via the membership relation. 
 
-    The template asserts a membership link from the collection to the item, which can be annotated with additional information using the attributes `provext:activity`, `provext:cgeneration`, and `provext:igeneration`, allowing references to the activity and to the generations (collection generation with `provext:cgeneration` and item generation with `provext:igeneration`). We note that these attributes are not predefined in PROV, so we rely on the `provext` namespace.
+    The template asserts a membership link from the collection to the item, which can be annotated with additional information using the attributes `openprov:activity`, `openprov:collectionGeneration`, and `openprov:itemGeneration`, allowing references to the activity and to the generations (collection generation with `openprov:collectionGeneration` and item generation with `openprov:itemGeneration`). These attributes are not predefined in PROV: they are the properties `openprov:hadActivity`, `openprov:hadCollectionGeneration` and `openprov:hadItemGeneration` of the [OpenProvenance vocabulary](https://openprovenance.org/ns/openprov), written without `had` as PROV-N writes `prov:type`.
 
     To ensure extensibility, the attributes `var:mprops` (for the membership), `var:gprops0` and `var:gprops1` (for the generations), `var:cprops` (for the collection), and `var:iprops` (for the item) allow application- or domain-specific typing to be added. 
 

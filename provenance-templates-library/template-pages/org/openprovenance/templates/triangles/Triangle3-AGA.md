@@ -19,7 +19,7 @@
 
     Triangle1-Entity-UGD specifies the activity that underpins a derivation, along with the corresponding usage and generation.  PROV provides the attributes `prov:activity`, `prov:usage` and `prov:generation` to capture these values.  However, PROV defines the concept of attribution independently of any activity. 
     
-    The template Triangle3-AGA asserts an attribution link from entity `e` to agent `ag`, annotated with additional information, `provext:activity`, `provext:association`, and `provext:generation`, to refer to the activity, association, and generation. We note that these attributes are not predefined in PROV, so we rely on the extension namespace denoted by the prefix `provext`.
+    The template Triangle3-AGA asserts an attribution link from entity `e` to agent `ag`, annotated with additional information, `openprov:activity`, `openprov:association`, and `openprov:generation`, to refer to the activity, association, and generation. These attributes are not predefined in PROV: they are the properties `openprov:hadActivity`, `openprov:hadAssociation` and `openprov:hadGeneration` of the [OpenProvenance vocabulary](https://openprovenance.org/ns/openprov), written without `had` as PROV-N writes `prov:type`.
 
 
     It must be noted that not all attributions follow this pattern. Ownership of a car, modelled by attributing it to an agent, is not linked to the car manufacturer once the car is sold to a customer. The provenance designer must determine which form of attribution applies to their situation. [Section @sec:the.template.library.responsibility.templates] describes other forms of responsibility.

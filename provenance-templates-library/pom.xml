@@ -869,7 +869,6 @@
                                 <arg>src/main/resources/ttfs/config-triangle5-ggm.json</arg>
                                 <arg>src/main/resources/ttfs/config-triangle6-ugm.json</arg>
                                 <arg>src/main/resources/ttfs/config-inserting-into-collection.json</arg>
-                                <arg>src/main/resources/ttfs/config-insert-into-collection-old.json</arg>
                                 <arg>src/main/resources/ttfs/config-removing-from-collection.json</arg>
 
                                 <arg>src/main/resources/ttfs/config-ptm-creating-template.json</arg>
@@ -1013,7 +1012,6 @@
                             <outputBaseDir>${project.build.directory}</outputBaseDir>
                             <args>
                                 <arg>src/main/resources/ttfs/config-inserting-into-collection.json</arg>
-                               <!-- <config>src/main/resources/ttfs/config-insert-into-collection-old.json</config>-->
                                 <arg>src/main/resources/ttfs/config-removing-from-collection.json</arg>
 
                             </args>

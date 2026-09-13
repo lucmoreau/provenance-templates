@@ -1,5 +1,4 @@
 document
-prefix provext <http://openprovenance.org/prov/extension#>
 bundle vargen:bundle
 prefix vargen <http://openprovenance.org/vargen#>
 prefix tmpl <http://openprovenance.org/templates/tmpl#>

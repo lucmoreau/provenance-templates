@@ -3,7 +3,7 @@
 
         "entity":  [  {"@id": "var:e"}],
         "agent":   [  {"@id": "var:ag"}],
-        "prop":    [[ {"@id": "var:attrprop"}, {"@id": "provext:association"},{"@id": "provext:invalidation"},{"@id": "provext:activity"}]],
+        "prop":    [[ {"@id": "var:attrprop"}, {"@id": "openprov:association"},{"@id": "openprov:invalidation"},{"@id": "openprov:activity"}]],
         "pvalue":  [[ {"@id": "var:attrvalue"},{"@id": "var:asc"}            ,{"@id": "var:inv"},             {"@id": "var:activity"}    ]],
         "id":      [  {"@id": "var:attr"}]
     },
@@ -14,6 +14,6 @@
         "var":      "${var_ns}",
         "vargen" :  "${vargen_ns}",
         "prov":     "${prov_ns}",
-        "provext":  "${provext_ns}"
+        "openprov":  "${openprov_ns}"
     }
 }

@@ -10,7 +10,7 @@
         "dprops": [[{"@id": "var:dprops"},{"@id": "prov:type"}]],
         "dvalues": [[{"@id": "var:dvalues"},{"@id": "var:ExaminingType"}]],
         "uprops": [[{"@id": "var:uprops1"},{"@id": "prov:role"}]],
-        "uvalues": [[{"@id": "var:uvalues1"},{"@id": "provext:asEntity"}]],
+        "uvalues": [[{"@id": "var:uvalues1"},{"@id": "openprov:asEntity"}]],
         "usd": [{"@id": "var:usd1"}],
         "der": [{"@id": "var:der1"}],
         "gen": [{"@id": "var:gen1"}],
@@ -27,7 +27,7 @@
         "var" : "${var_ns}",
         "vargen" : "${vargen_ns}",
         "prov": "${prov_ns}",
-        "provext": "${provext_ns}",
+        "openprov": "${openprov_ns}",
         "resp": "${resp_ns}"
     }
 }

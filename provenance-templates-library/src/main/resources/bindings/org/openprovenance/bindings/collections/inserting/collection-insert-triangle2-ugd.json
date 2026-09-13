@@ -4,14 +4,14 @@
         "e0":        [  {"@id": "var:coll0"}     ],
         "e1":        [  {"@id": "var:coll1"}     ],
         "activity":  [  {"@id": "var:inserting"} ],
-        "dprops":    [[ {"@id": "var:dprops2"},  {"@id": "prov:type"}                        ]],
-        "dvalues":   [[ {"@id": "var:dvalues2"}, {"@id": "provext:InsertingInto_Collection"} ]],
-        "uprops":    [[ {"@id": "var:uprops2"},  {"@id": "prov:role"}                        ]],
-        "uvalues":   [[ {"@id": "var:uvalues2"}, {"@id": "provext:asCollection"}             ]],
-        "eprops1" :  [[ {"@id": "var:cprops1"},  {"@id": "prov:type"}                        ]],
-        "evalues1" : [[ {"@id": "var:cvalues1"}, {"@id": "prov:Collection"}                  ]],
-        "gprops":    [[ {"@id": "var:gprops0"},  {"@id": "prov:role"}                        ]],
-        "gvalues":   [[ {"@id": "var:gvalues0"}, {"@id": "provext:asCollection"}             ]],
+        "dprops":    [[ {"@id": "var:dprops2"},  {"@id": "prov:type"}                         ]],
+        "dvalues":   [[ {"@id": "var:dvalues2"}, {"@id": "openprov:InsertingInto_Collection"} ]],
+        "uprops":    [[ {"@id": "var:uprops2"},  {"@id": "prov:role"}                         ]],
+        "uvalues":   [[ {"@id": "var:uvalues2"}, {"@id": "openprov:asCollection"}             ]],
+        "eprops1" :  [[ {"@id": "var:cprops1"},  {"@id": "prov:type"}                         ]],
+        "evalues1" : [[ {"@id": "var:cvalues1"}, {"@id": "prov:Collection"}                   ]],
+        "gprops":    [[ {"@id": "var:gprops0"},  {"@id": "prov:role"}                         ]],
+        "gvalues":   [[ {"@id": "var:gvalues0"}, {"@id": "openprov:asCollection"}             ]],
         "usd":       [  {"@id": "var:usd2"}      ],
         "gen":       [  {"@id": "var:gen0"}      ],
 
@@ -27,9 +27,9 @@
         "b": [{"@id": "vargen:b"}]
     },
     "context": {
-        "var":      "${var_ns}",
-        "vargen" :  "${vargen_ns}",
-        "prov":     "${prov_ns}",
-        "provext":  "${provext_ns}"
+        "var":       "${var_ns}",
+        "vargen" :   "${vargen_ns}",
+        "prov":      "${prov_ns}",
+        "openprov":  "${openprov_ns}"
     }
 }
