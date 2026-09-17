@@ -1,10 +1,10 @@
 # Adding a term to the OpenProv vocabulary
 
-The vocabulary is written once, here, and read from here by the template
-library (`provenance-templates-library/template-pages/ns/openprov.{ttl,jsonld}` and `openprov-schema.json`
-are symlinks to this directory) and by ProvToolbox (which keeps a byte-identical
-copy of the context, pinned by a test). Three kinds of term exist, and each
-touches a different set of files:
+The vocabulary is written once, here, and published from here (the template
+library's landing page links to the published vocabulary, schema and context
+rather than carrying copies); ProvToolbox keeps a byte-identical copy of the
+context, pinned by a test. Three kinds of term exist, and each touches a
+different set of files:
 
 | kind | example | ttl | jsonld + schema | ProvToolbox |
 |---|---|---|---|---|
@@ -113,7 +113,7 @@ Branch `development2_0`, module `modules-core`:
 
 `template.ttl` defines `http://openprovenance.org/ns/tmpl#`, the reserved
 attributes of provenance templates, served at https://openprovenance.org/ns/tmpl
-through `template-pages/ns/tmpl.ttl`. Its terms are ProvToolbox's
+(and documented at https://openprovenance.org/ns/tmpl.html). Its terms are ProvToolbox's
 (`InstantiateUtil` in prov-template: `label`, `time`, `startTime`, `endTime`,
 `ID`, `linked`; `if` in the compiler); a new one is added there, with its
 handling, and here. `template.html` is its specification page, served at
