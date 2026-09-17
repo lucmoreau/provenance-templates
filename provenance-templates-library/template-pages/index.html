@@ -125,6 +125,45 @@
       margin-top: 3rem;
     }
 
+    .resources {
+      margin-top: 3rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 700px) {
+      .resources { grid-template-columns: 1fr; }
+    }
+
+    .feature-card code {
+      font-size: 0.85em;
+      background: rgba(0,0,0,0.05);
+      padding: 0.05em 0.3em;
+      border-radius: 3px;
+    }
+
+    .feature-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.85rem;
+      line-height: 1.7;
+    }
+
+    .feature-card ul a {
+      color: #2a4d8f;
+      text-decoration: none;
+    }
+
+    .feature-card ul a:hover {
+      text-decoration: underline;
+    }
+
+    .feature-card .soon {
+      font-size: 0.8rem;
+      color: #8a8aa0;
+      font-style: italic;
+    }
+
     .library-heading {
       font-size: 1.4rem;
       font-weight: 700;
@@ -302,6 +341,34 @@
       </ul>
     </div>
   </section>
+
+  <div class="features resources">
+    <div class="feature-card">
+      <div class="icon">📖</div>
+      <h3>OpenProv</h3>
+      <p>The vocabulary the templates use beyond PROV: the statements a qualified relation was folded from, roles, and types.</p>
+      <ul>
+        <li><a href="https://openprovenance.org/ns/openprov#">OpenProv Vocabulary</a></li>
+        <li><a href="https://openprovenance.org/ns/openprov-schema.json">OpenProv JSON schema</a></li>
+        <li><a href="https://openprovenance.org/ns/openprov.jsonld">OpenProv JSON-LD context</a></li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🏷️</div>
+      <h3>Template Vocabulary</h3>
+      <p>The reserved attributes a template may carry, in the <code>tmpl</code> namespace: labels, times, conditions, and identifiers.</p>
+      <ul>
+        <li><a href="https://openprovenance.org/ns/tmpl#">Template Vocabulary</a></li>
+        <li><a href="https://openprovenance.org/ns/tmpl.html">Template Vocabulary specification</a></li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🧭</div>
+      <h3>Examples</h3>
+      <p>Worked examples of instantiating and composing the templates.</p>
+      <p class="soon">Coming soon.</p>
+    </div>
+  </div>
 
   <footer>
     &copy; 2026 Provenance Template Library &mdash; Under Construction
