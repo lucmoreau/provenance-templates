@@ -125,6 +125,49 @@
       margin-top: 3rem;
     }
 
+    .category-note {
+      font-size: 0.85rem;
+      color: #555570;
+      line-height: 1.55;
+      margin: 0.25rem 0 0.75rem;
+    }
+
+    .category-note a, .tpl-src a {
+      color: #2a4d8f;
+      text-decoration: none;
+    }
+
+    .category-note a:hover, .tpl-src a:hover {
+      text-decoration: underline;
+    }
+
+    /* a primitive template has no page: the pill carries the name and the
+       links to its source files */
+    .category ul li.primitive {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.45rem;
+      padding: 0.3rem 0.85rem;
+      background: rgba(99,102,241,0.07);
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: #2a2a4a;
+    }
+
+    .tpl-src {
+      font-size: 0.75rem;
+      color: #8a8aa0;
+    }
+
+    .category ul li.primitive a {
+      display: inline;
+      padding: 0;
+      background: none;
+      border: none;
+      font-size: inherit;
+    }
+
     .resources {
       margin-top: 3rem;
       grid-template-columns: repeat(3, 1fr);
@@ -263,7 +306,7 @@
   <section class="library">
     <h2 class="library-heading">Template Library</h2>
 
-    <div class="category">
+    <div class="category" id="generic">
       <h3 class="category-title">Generic</h3>
       <ul>
         <li><a href="org/openprovenance/templates/generic/Forking2"><img class="tpl-icon" src="icons/org.openprovenance.templates.generic.Forking2.svg" alt="" />Forking2</a></li>
@@ -274,7 +317,7 @@
       </ul>
     </div>
 
-    <div class="category">
+    <div class="category" id="triangles">
       <h3 class="category-title">Triangles</h3>
       <ul>
         <li><a href="org/openprovenance/templates/triangles/Triangle1-Agent-UGD"><img class="tpl-icon" src="icons/org.openprovenance.templates.triangles.Triangle1-Agent-UGD.svg" alt="" />Triangle1-Agent-UGD</a></li>
@@ -287,7 +330,7 @@
       </ul>
     </div>
 
-    <div class="category">
+    <div class="category" id="responsibility">
       <h3 class="category-title">Responsibility</h3>
       <ul>
         <li><a href="org/openprovenance/templates/responsibility/AgentInit"><img class="tpl-icon" src="icons/org.openprovenance.templates.transport.AgentInit.svg" alt="" />AgentInit</a></li>
@@ -297,7 +340,7 @@
       </ul>
     </div>
 
-    <div class="category">
+    <div class="category" id="physical">
       <h3 class="category-title">Physical</h3>
       <ul>
         <li><a href="org/openprovenance/templates/physical/EntityInit"><img class="tpl-icon" src="icons/org.openprovenance.templates.transport.EntityInit.svg" alt="" />EntityInit</a></li>
@@ -310,7 +353,7 @@
       </ul>
     </div>
 
-    <div class="category">
+    <div class="category" id="collections">
       <h3 class="category-title">Collections</h3>
       <ul>
         <li><a href="org/openprovenance/templates/collections/InsertingIntoCollection"><img class="tpl-icon" src="icons/org.openprovenance.templates.collections.InsertingIntoCollection.svg" alt="" />InsertingIntoCollection</a></li>
@@ -318,7 +361,7 @@
       </ul>
     </div>
 
-    <div class="category">
+    <div class="category" id="file-system">
       <h3 class="category-title">File System</h3>
       <ul>
         <li><a href="org/openprovenance/templates/fs/FileApproving"><img class="tpl-icon" src="icons/org.openprovenance.templates.fs.FileApproving.svg" alt="" />FileApproving</a></li>
@@ -333,11 +376,33 @@
       </ul>
     </div>
 
-    <div class="category">
+    <div class="category" id="ptm">
       <h3 class="category-title">PTM</h3>
       <ul>
         <li><a href="org/openprovenance/templates/ptm/Instantiating">Instantiating</a></li>
         <li><a href="org/openprovenance/templates/ptm/Merging">Merging</a></li>
+      </ul>
+    </div>
+
+    <div class="category" id="primitive">
+      <h3 class="category-title">Primitive</h3>
+      <ul>
+        <li class="primitive"><span class="tpl-name">activity0</span> <span class="tpl-src"><a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/templates/org/openprovenance/templates/primitive/activity0.jsonld">jsonld</a></span></li>
+        <li class="primitive"><span class="tpl-name">agent0</span> <span class="tpl-src"><a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/templates/org/openprovenance/templates/primitive/agent0.provn">provn</a></span></li>
+        <li class="primitive"><span class="tpl-name">association0</span> <span class="tpl-src"><a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/templates/org/openprovenance/templates/primitive/association0.provn">provn</a></span></li>
+        <li class="primitive"><span class="tpl-name">attribution-nameless</span> <span class="tpl-src"><a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/templates/org/openprovenance/templates/primitive/attribution-nameless.jsonld">jsonld</a></span></li>
+        <li class="primitive"><span class="tpl-name">attribution</span> <span class="tpl-src"><a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/templates/org/openprovenance/templates/primitive/attribution.jsonld">jsonld</a></span></li>
+        <li class="primitive"><span class="tpl-name">attribution0</span> <span class="tpl-src"><a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/templates/org/openprovenance/templates/primitive/attribution0.jsonld">jsonld</a></span></li>
+        <li class="primitive"><span class="tpl-name">delegation0</span> <span class="tpl-src"><a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/templates/org/openprovenance/templates/primitive/delegation0.jsonld">jsonld</a></span></li>
+        <li class="primitive"><span class="tpl-name">derivation0</span> <span class="tpl-src"><a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/templates/org/openprovenance/templates/primitive/derivation0.jsonld">jsonld</a></span></li>
+        <li class="primitive"><span class="tpl-name">entity-with-attribute</span> <span class="tpl-src"><a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/templates/org/openprovenance/templates/primitive/entity-with-attribute.jsonld">jsonld</a></span></li>
+        <li class="primitive"><span class="tpl-name">entity0</span> <span class="tpl-src"><a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/templates/org/openprovenance/templates/primitive/entity0.jsonld">jsonld</a></span></li>
+        <li class="primitive"><span class="tpl-name">generation0</span> <span class="tpl-src"><a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/templates/org/openprovenance/templates/primitive/generation0.provn">provn</a></span></li>
+        <li class="primitive"><span class="tpl-name">invalidation0</span> <span class="tpl-src"><a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/templates/org/openprovenance/templates/primitive/invalidation0.provn">provn</a></span></li>
+        <li class="primitive"><span class="tpl-name">qualified-membership0</span> <span class="tpl-src"><a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/templates/org/openprovenance/templates/primitive/qualified-membership0.jsonld">jsonld</a></span></li>
+        <li class="primitive"><span class="tpl-name">qualified-specialization0</span> <span class="tpl-src"><a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/templates/org/openprovenance/templates/primitive/qualified-specialization0.jsonld">jsonld</a></span></li>
+        <li class="primitive"><span class="tpl-name">simple-derivation</span> <span class="tpl-src"><a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/templates/org/openprovenance/templates/primitive/simple-derivation.jsonld">jsonld</a></span></li>
+        <li class="primitive"><span class="tpl-name">usage0</span> <span class="tpl-src"><a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/templates/org/openprovenance/templates/primitive/usage0.provn">provn</a></span></li>
       </ul>
     </div>
   </section>
