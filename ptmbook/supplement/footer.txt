@@ -110,6 +110,7 @@ code {
 .onlinetitle {
   color: #1919f9;
   font-style: bold;
+  font-size: 140%;
 }
 
 /* Responsive design */
