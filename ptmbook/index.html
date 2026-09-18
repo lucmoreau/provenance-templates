@@ -1,10 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Provenance Engineering — The Provenance Template Management Approach</title>
+<meta name="description" content="Companion site of the book Provenance Engineering: The Provenance Template Management Approach, by Luc Moreau. Online material, template library, and software.">
+<style>
+  :root {
+    --ink: #1f2937;
+    --muted: #5b6472;
+    --rule: #e5e7eb;
+    --accent: #1d4ed8;
+    --band: #f3f4f6;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--ink);
+    background: #ffffff;
+  }
+  .notice {
+    background: #fff7ed;
+    border-bottom: 1px solid #fed7aa;
+    color: #7c2d12;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    padding: 8px 24px;
+    text-align: center;
+  }
+  header {
+    background: var(--band);
+    border-bottom: 1px solid var(--rule);
+    padding: 56px 24px 40px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+  h1 {
+    font-size: 2.4em;
+    line-height: 1.15;
+    margin: 0 0 8px;
+    font-weight: normal;
+  }
+  .subtitle {
+    font-size: 1.35em;
+    color: var(--muted);
+    margin: 0 0 24px;
+  }
+  .byline { margin: 0; font-size: 1.05em; }
+  .byline .affil { color: var(--muted); }
+  .tagline {
+    font-style: italic;
+    margin: 24px 0 0;
+    color: var(--muted);
+  }
+  main { padding: 40px 24px 64px; }
+  h2 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 0.85em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 40px 0 12px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 6px;
+  }
+  h2:first-child { margin-top: 0; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  ul.links { list-style: none; padding: 0; margin: 0; }
+  ul.links li { padding: 6px 0; border-bottom: 1px dotted var(--rule); }
+  ul.links li span { color: var(--muted); }
+  ol.contents { padding-left: 1.6em; margin: 0; columns: 2; column-gap: 40px; }
+  ol.contents li { break-inside: avoid; padding: 2px 0; }
+  ul.topics { padding-left: 1.2em; margin: 0; }
+  ul.topics li { padding: 3px 0; }
+  blockquote {
+    margin: 0;
+    padding: 0 0 0 20px;
+    border-left: 3px solid var(--rule);
+    color: var(--muted);
+    font-style: italic;
+  }
+  footer {
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    padding: 20px 24px 40px;
+  }
+  @media (max-width: 640px) {
+    body { font-size: 17px; }
+    h1 { font-size: 1.9em; }
+    ol.contents { columns: 1; }
+  }
+</style>
 </head>
 <body>
+
+<div class="notice">Provisional page — the book is in preparation; this site will grow as it goes to press.</div>
+
+<header>
+  <div class="wrap">
+    <h1>Provenance Engineering</h1>
+    <p class="subtitle">The Provenance Template Management Approach</p>
+    <p class="byline">Luc Moreau <span class="affil">— University of Sussex</span></p>
+    <p class="tagline">From supply chains to AI: tracing what matters. Where did this come from? Who made it? Can we trust it?</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <h2>About the book</h2>
+    <p>Provenance is the systematic record of how data, goods, and decisions come to be. This book is an engineering-focused guide to building provenance systems that work in the real world. At its core is the concept of <em>provenance templates</em>: a declarative, design-first methodology that separates <em>what</em> provenance should be generated from <em>how</em> it is produced, with tooling automating instantiation, storage, querying, visualisation, and explanation at runtime. Every concept is underpinned by <a href="https://github.com/lucmoreau/ProvToolbox">ProvToolbox</a>, and all examples, code, and screenshots in the book are taken from the software.</p>
+
+    <h2>Online material</h2>
+    <ul class="links">
+      <li><a href="https://openprovenance.org/ptmbook/material.html">Listings and their sources</a> <span>— every listing of the book, with the full files it was extracted from (PROV-N, JSON-LD, JSON schemas, generated Java, JavaScript, Python, and Rust)</span></li>
+      <li><a href="https://openprovenance.org/templates/">The provenance template library</a> <span>— the foundational templates of Chapter 9, each at its own IRI</span></li>
+      <li><a href="https://github.com/lucmoreau/provenance-templates">provenance-templates on GitHub</a> <span>— the template library, its configurations, and this site</span></li>
+      <li><a href="https://github.com/lucmoreau/ProvToolbox">ProvToolbox on GitHub</a> <span>— the toolkit: serialisations, validation, template instantiation, compiler, services</span></li>
+      <li><a href="https://openprovenance.org/service/translator.html">The PROV translator service</a> <span>— convert PROV documents between PROV-N, PROV-JSONLD, PROV-XML, and SVG</span></li>
+    </ul>
+
+    <h2>Contents</h2>
+    <ol class="contents">
+      <li>Introduction</li>
+      <li>Provenance: Definition and Processing</li>
+      <li>Provenance: More Complex Patterns</li>
+      <li>Provenance Templates: the Basics</li>
+      <li>Provenance Templates: Advanced Use</li>
+      <li>A Compiler-based Approach to Provenance Template Management</li>
+      <li>Principles of Provenance Template Management</li>
+      <li>Advanced Features</li>
+      <li>A Library of Provenance Templates</li>
+      <li>Conclusion</li>
+      <li style="list-style-type: none;">Appendix A. Security</li>
+    </ol>
+
+    <h2>What readers will find</h2>
+    <ul class="topics">
+      <li>The W3C PROV standard: entities, activities, agents, and their interrelations.</li>
+      <li>A provenance-first design methodology, placing provenance at the core of software design.</li>
+      <li>Template management: authoring, instantiation, storing, and access control.</li>
+      <li>Visualising, querying, and reasoning over provenance for audit, compliance, and investigation.</li>
+      <li>Provenance template management with Retrieval-Augmented Generation, towards conversational agents.</li>
+      <li>A library of foundational templates ready to be customised and deployed.</li>
+      <li>A manifesto for provenance template management.</li>
+    </ul>
+
+    <h2>Who it is for</h2>
+    <p>Software engineers building systems that must be auditable, compliant, or explainable; data scientists and AI practitioners grounding outputs in traceable evidence; supply-chain and compliance professionals; researchers in data-intensive fields requiring reproducibility; and graduate students entering provenance, knowledge representation, or semantic-web technologies.</p>
+
+    <h2>Provenance</h2>
+    <blockquote>“Provenance is a record that describes the people, institutions, entities, and activities involved in producing, influencing, or delivering a piece of data or a thing.” — W3C PROV Recommendation, 2013</blockquote>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    Luc Moreau, 2026. Page created 18 September 2026; provisional, ahead of publication.
+    Contact: see <a href="https://openprovenance.org/">openprovenance.org</a>.
+  </div>
+</footer>
 
 </body>
 </html>
