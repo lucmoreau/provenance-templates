@@ -1,6 +1,13 @@
 <style>
+/* The page fills the window (pandoc's default column is 36em; the onl target
+   passes -V maxwidth=100%), and code is set at the body size rather than the
+   85% of pandoc's default stylesheet. */
+code {
+  font-size: 100%;
+}
+
 .tab-container {
-  max-width: 1000px;
+  max-width: none;
   margin: 30px auto;
   font-family: Arial, sans-serif;
 }
