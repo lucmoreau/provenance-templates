@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ProvToolbox vocabulary</title>
+  <style>
+\
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #222;
+      background: #fff;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2em 1.5em 4em;
+    }
+    h1 { font-size: 2em; border-bottom: 2px solid #4285f4; padding-bottom: 0.3em; }
+    h2 { font-size: 1.4em; border-bottom: 1px solid #ccc; padding-bottom: 0.2em; margin-top: 2em; }
+    p.subtitle { font-size: 0.95em; color: #555; margin-top: -0.5em; }
+    code { font-family: monospace; font-size: 0.95em; background: #f5f5f5; padding: 0.1em 0.3em; border-radius: 3px; }
+    a { color: #1a73e8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    nav#toc { background: #f8f9fa; border: 1px solid #ddd; padding: 1em 1.5em; margin: 1.5em 0; display: inline-block; min-width: 200px; }
+    nav#toc h2 { margin-top: 0; border: none; font-size: 1.1em; }
+    nav#toc ul { margin: 0; padding-left: 1.2em; }
+    nav#toc ul ul { font-size: 0.9em; }
+    nav#toc li { margin: 0.2em 0; }
+    section { margin-top: 2em; }
+    section > p { margin-top: 0.3em; color: #444; font-size: 0.95em; }
+    table.prefixes td { padding: 0.1em 1em 0.1em 0; }
+  </style>
+</head>
+<body>
+  <h1>ProvToolbox vocabulary</h1>
+  <p class="subtitle">Shared prefix: <code>http://openprovenance.org/provtoolbox/</code> &nbsp; Prefixes: <code>box</code>, <code>dot</code>, <code>sum</code></p>
+  <nav id="toc">
+    <h2>Table of Contents</h2>
+    <ul>
+      <li><a href="#ns-box">The toolbox namespace</a><ul>
+        <li><a href="#box-UNKNOWN_TYPE">box:UNKNOWN_TYPE</a></li>
+      </ul></li>
+      <li><a href="#ns-dot">The dot namespace</a><ul>
+        <li><a href="#dot-fillcolor">dot:fillcolor</a></li>
+        <li><a href="#dot-color">dot:color</a></li>
+        <li><a href="#dot-fontcolor">dot:fontcolor</a></li>
+        <li><a href="#dot-style">dot:style</a></li>
+        <li><a href="#dot-url">dot:url</a></li>
+        <li><a href="#dot-size">dot:size</a></li>
+        <li><a href="#dot-tooltip">dot:tooltip</a></li>
+      </ul></li>
+      <li><a href="#ns-sum">The summary namespace</a><ul>
+        <li><a href="#sum-size">sum:size</a></li>
+        <li><a href="#sum-nbr">sum:nbr</a></li>
+        <li><a href="#sum-count">sum:count</a></li>
+        <li><a href="#sum-level0">sum:level0</a></li>
+      </ul></li>
+    </ul>
+  </nav>
+<style>
+.term { background: #e8f0fe; color: #222; border-left: 3px solid #4285f4; border-radius: 3px;
+        padding: 0.8em 1em; margin: 1em 0; }
+.term a { color: #1a73e8; }
+.term code { color: inherit; }
+.term .term-name { font-size: 1.1em; margin: 0 0 0.5em; color: #1a73e8; font-weight: bold; }
+.term .term-name dfn { font-style: normal; }
+.term .term-iri { font-size: 0.85em; color: #555; font-weight: normal; margin-left: 0.6em; }
+.term table { border-collapse: collapse; width: 100%; font-size: 0.93em; margin: 0; }
+.term table.facts th { text-align: left; vertical-align: top; white-space: nowrap; width: 160px;
+        padding: 0.2em 0.8em 0.2em 0; color: #555; font-weight: normal; font-style: italic;
+        border: none; background: none; }
+.term table.keys th { text-align: left; padding: 0.2em 0.8em 0.2em 0; color: #555;
+        font-weight: normal; font-style: italic; border: none; border-bottom: 1px solid #4285f4;
+        background: none; }
+.term td { padding: 0.2em 0.8em 0.2em 0; border: none; vertical-align: top; }
+.term td code { word-break: break-all; }
+p.group { font-style: italic; color: #444; margin: 1.5em 0 0.3em; }
+h3 code.ns-prefix { font-size: 0.7em; font-weight: normal; color: #555; margin-left: 0.6em; }
+</style>
+<p>The vocabulary is identified by <code>http://openprovenance.org/provtoolbox/</code>, the prefix its three
+namespaces share.
+The terms ProvToolbox itself writes and reads in provenance documents, beyond PROV-DM, provext, the OpenProvenance vocabulary and the template vocabulary. They share the prefix http://openprovenance.org/provtoolbox/ and fall into three namespaces: box, the toolbox&#x27;s own (a datatype the value converter falls back on); dot, the hints a document carries for its rendering as a graph; and sum, the figures the summariser stamps on a summary graph. Every attribute in the three namespaces is toolbox-internal: the visualiser never lists one in a statement&#x27;s attribute box, and other tools pass them through untouched.</p>
+<table class="prefixes">
+  <tr><td><code>box</code></td><td><code>http://openprovenance.org/provtoolbox/ns#</code></td></tr>
+  <tr><td><code>dot</code></td><td><code>http://openprovenance.org/provtoolbox/dot/ns#</code></td></tr>
+  <tr><td><code>sum</code></td><td><code>http://openprovenance.org/provtoolbox/summary/ns#</code></td></tr>
+</table>
+<p>The kind of each term is shown on its card: an attribute is an <code>rdf:Property</code>,
+paired with a value on a statement; the one datatype is an <code>rdfs:Datatype</code>.</p>
+
+<section id="ns-box">
+  <h2>The toolbox namespace <code class="ns-prefix">box</code></h2>
+  <p>Namespace <code>http://openprovenance.org/provtoolbox/ns#</code>, prefix <code>box</code>. ProvToolbox's own namespace (<code>NamespacePrefixMapper.TOOLBOX_NS</code>): what the toolbox names for itself rather than for a document.</p>
+    <div class="term" id="box-UNKNOWN_TYPE">
+      <div class="term-name"><dfn class="export">box:UNKNOWN_TYPE</dfn><span class="term-iri"><a href="http://openprovenance.org/provtoolbox/ns#UNKNOWN_TYPE">http://openprovenance.org/provtoolbox/ns#UNKNOWN_TYPE</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>unknown type</td></tr>
+      <tr><th>rdfs:comment</th><td>The datatype the value converter answers when it cannot tell the XSD type of a value: a Java object of no class the converter knows, where a typed literal was expected. A document never writes it deliberately; its presence in output marks a value whose type was lost on the way in (ValueConverter.getXsdType, Name.QUALIFIED_NAME_UNKNOWN_TYPE).</td></tr>
+      <tr><th>rdf:type</th><td><code>rdfs:Datatype</code></td></tr>
+      <tr><th>rdfs:seeAlso</th><td><code>xsd:anyType</code></td></tr>
+      </table>
+    </div>
+</section>
+
+<section id="ns-dot">
+  <h2>The dot namespace <code class="ns-prefix">dot</code></h2>
+  <p>Namespace <code>http://openprovenance.org/provtoolbox/dot/ns#</code>, prefix <code>dot</code>. Rendering hints (<code>NamespacePrefixMapper.DOT_NS</code>): an attribute on any statement, element or relation, overriding the default the visualiser would pick for its node or edge. Values are Graphviz's; the Mermaid and SVG passes read them too, and the first value counts when several are given.</p>
+    <div class="term" id="dot-fillcolor">
+      <div class="term-name"><dfn class="export">dot:fillcolor</dfn><span class="term-iri"><a href="http://openprovenance.org/provtoolbox/dot/ns#fillcolor">http://openprovenance.org/provtoolbox/dot/ns#fillcolor</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>fill colour</td></tr>
+      <tr><th>rdfs:comment</th><td>The fill colour of the node, a Graphviz colour name or #rrggbb; setting it also sets the style to filled. The one hint the toolbox&#x27;s own examples use most, to tell kinds of entity apart at a glance.</td></tr>
+      <tr><th>rdf:type</th><td><code>rdf:Property</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:string</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="dot-color">
+      <div class="term-name"><dfn class="export">dot:color</dfn><span class="term-iri"><a href="http://openprovenance.org/provtoolbox/dot/ns#color">http://openprovenance.org/provtoolbox/dot/ns#color</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>colour</td></tr>
+      <tr><th>rdfs:comment</th><td>The stroke colour: of a node&#x27;s outline, or of an edge.</td></tr>
+      <tr><th>rdf:type</th><td><code>rdf:Property</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:string</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="dot-fontcolor">
+      <div class="term-name"><dfn class="export">dot:fontcolor</dfn><span class="term-iri"><a href="http://openprovenance.org/provtoolbox/dot/ns#fontcolor">http://openprovenance.org/provtoolbox/dot/ns#fontcolor</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>font colour</td></tr>
+      <tr><th>rdfs:comment</th><td>The colour of the node&#x27;s label text. Read by the Scala graphics module; the Java visualiser leaves the font colour to its defaults.</td></tr>
+      <tr><th>rdf:type</th><td><code>rdf:Property</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:string</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="dot-style">
+      <div class="term-name"><dfn class="export">dot:style</dfn><span class="term-iri"><a href="http://openprovenance.org/provtoolbox/dot/ns#style">http://openprovenance.org/provtoolbox/dot/ns#style</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>style</td></tr>
+      <tr><th>rdfs:comment</th><td>Graphviz style words, comma-separated (filled, dashed, dotted, bold, rounded, …), replacing the default style of the node or edge outright. The template connection graph writes dot:style=&quot;dashed&quot; on the derivation between two versions of a port.</td></tr>
+      <tr><th>rdf:type</th><td><code>rdf:Property</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:string</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="dot-url">
+      <div class="term-name"><dfn class="export">dot:url</dfn><span class="term-iri"><a href="http://openprovenance.org/provtoolbox/dot/ns#url">http://openprovenance.org/provtoolbox/dot/ns#url</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>url</td></tr>
+      <tr><th>rdfs:comment</th><td>A link to attach to the node or edge, followed when the rendered graph is clicked (Graphviz URL, an anchor in SVG output).</td></tr>
+      <tr><th>rdf:type</th><td><code>rdf:Property</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:anyURI</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="dot-size">
+      <div class="term-name"><dfn class="export">dot:size</dfn><span class="term-iri"><a href="http://openprovenance.org/provtoolbox/dot/ns#size">http://openprovenance.org/provtoolbox/dot/ns#size</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>size</td></tr>
+      <tr><th>rdfs:comment</th><td>A number scaling the drawing: on an element, the width of its node (the value, in inches, times 0.75); on a relation, the pen width of its edge. Distinct from sum:size, a count the summariser writes and the visualiser shows in the label rather than in the geometry.</td></tr>
+      <tr><th>rdf:type</th><td><code>rdf:Property</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:double</code></td></tr>
+      <tr><th>rdfs:seeAlso</th><td><code><a href="#sum-size">sum:size</a></code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="dot-tooltip">
+      <div class="term-name"><dfn class="export">dot:tooltip</dfn><span class="term-iri"><a href="http://openprovenance.org/provtoolbox/dot/ns#tooltip">http://openprovenance.org/provtoolbox/dot/ns#tooltip</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>tooltip</td></tr>
+      <tr><th>rdfs:comment</th><td>The text shown when the pointer rests on the node or edge; a long one is cut to the visualiser&#x27;s maximum tooltip length and ended with an ellipsis.</td></tr>
+      <tr><th>rdf:type</th><td><code>rdf:Property</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:string</code></td></tr>
+      </table>
+    </div>
+</section>
+
+<section id="ns-sum">
+  <h2>The summary namespace <code class="ns-prefix">sum</code></h2>
+  <p>Namespace <code>http://openprovenance.org/provtoolbox/summary/ns#</code>, prefix <code>sum</code>. What the summariser stamps on a summary graph (<code>NamespacePrefixMapper.SUMMARY_NS</code>): each node stands for the instance nodes sharing a provenance type at the chosen level, each edge for the instance edges between two such classes, and these figures say how many.</p>
+    <div class="term" id="sum-size">
+      <div class="term-name"><dfn class="export">sum:size</dfn><span class="term-iri"><a href="http://openprovenance.org/provtoolbox/summary/ns#size">http://openprovenance.org/provtoolbox/summary/ns#size</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>size</td></tr>
+      <tr><th>rdfs:comment</th><td>How many nodes or edges of the instance graph the summary node or edge stands for: the size of its equivalence class. Zero on a node the summary keeps for a type no instance node carries.</td></tr>
+      <tr><th>rdf:type</th><td><code>rdf:Property</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:int</code></td></tr>
+      <tr><th>rdfs:seeAlso</th><td><code><a href="#dot-size">dot:size</a></code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="sum-nbr">
+      <div class="term-name"><dfn class="export">sum:nbr</dfn><span class="term-iri"><a href="http://openprovenance.org/provtoolbox/summary/ns#nbr">http://openprovenance.org/provtoolbox/summary/ns#nbr</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>number</td></tr>
+      <tr><th>rdfs:comment</th><td>The number of the provenance type the summary node stands for, in the summariser&#x27;s index of types at that level: the integer its identifier is minted from, kept as an attribute so the type can be looked up without parsing the name.</td></tr>
+      <tr><th>rdf:type</th><td><code>rdf:Property</code></td></tr>
+      <tr><th>rdfs:domain</th><td><code>prov:Entity ∪ prov:Activity ∪ prov:Agent</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:int</code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="sum-count">
+      <div class="term-name"><dfn class="export">sum:count</dfn><span class="term-iri"><a href="http://openprovenance.org/provtoolbox/summary/ns#count">http://openprovenance.org/provtoolbox/summary/ns#count</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>count</td></tr>
+      <tr><th>rdfs:comment</th><td>The number of nodes or edges of the instance graph with the summary node&#x27;s type. Declared by the summariser beside sum:size, which it writes with that meaning; reserved, and not written at present.</td></tr>
+      <tr><th>rdf:type</th><td><code>rdf:Property</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:int</code></td></tr>
+      <tr><th>rdfs:seeAlso</th><td><code><a href="#sum-size">sum:size</a></code></td></tr>
+      </table>
+    </div>
+    <div class="term" id="sum-level0">
+      <div class="term-name"><dfn class="export">sum:level0</dfn><span class="term-iri"><a href="http://openprovenance.org/provtoolbox/summary/ns#level0">http://openprovenance.org/provtoolbox/summary/ns#level0</a></span></div>
+      <table class="facts">
+      <tr><th>rdfs:label</th><td>level-0 type</td></tr>
+      <tr><th>rdfs:comment</th><td>One of the level-0 descriptors — the primitive prov:type values — folded into the provenance type the summary node stands for; one attribute per descriptor. Written only when the summariser is asked for level-0 descriptions.</td></tr>
+      <tr><th>rdf:type</th><td><code>rdf:Property</code></td></tr>
+      <tr><th>rdfs:domain</th><td><code>prov:Entity ∪ prov:Activity ∪ prov:Agent</code></td></tr>
+      <tr><th>rdfs:range</th><td><code>xsd:string</code></td></tr>
+      </table>
+    </div>
+</section>
+
+</body>
+</html>

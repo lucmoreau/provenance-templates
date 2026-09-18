@@ -124,3 +124,26 @@ the script names (`GROUPS`) — a term outside them shows under "Other
 attributes" until it is placed. The namespace was `http://openprovenance.org/tmpl#` until
 2026-09-13; ProvToolbox accepts that on input (`LEGACY_TMPL_NS`) and never
 writes it.
+
+## The ProvToolbox vocabulary (`provtoolbox.ttl`)
+
+`provtoolbox.ttl` defines what ProvToolbox itself writes and reads beyond PROV,
+provext, openprov and tmpl: three namespaces under the shared prefix
+`http://openprovenance.org/provtoolbox/` (`NamespacePrefixMapper.SHARED_PROV_TOOLBOX_PREFIX`),
+`box` (`ns#`, the toolbox's own: `box:UNKNOWN_TYPE`, the datatype
+`ValueConverter.getXsdType` falls back on), `dot` (`dot/ns#`, the rendering
+hints `ProvViz.applyHints` reads: `fillcolor`, `color`, `fontcolor`, `style`,
+`url`, `size`, `tooltip`) and `sum` (`summary/ns#`, what the summariser stamps
+on a summary graph: `size`, `nbr`, `level0`, and `count`, declared but not
+written). A new term is added where the toolbox handles it — `Name.java` for
+`box`, `ProvViz.applyHints` for `dot`, `NS` in `immutable/IO.scala` and
+`Summary.scala` for `sum` — and here, in the section of its namespace.
+`make html` writes `provtoolbox.html`, the vocabulary's page, from the file
+(`script/provtoolbox-ttl-to-html.py`, one section per namespace, terms in
+the order the script's `NAMESPACES` table names; a term outside them is still
+shown, in name order). There is no hand-written page: the generated one is
+published, at https://openprovenance.org/provtoolbox/ns.html once the site
+serves it. The Scala modules still declare the older
+`http://openprovenance.org/Toolbox/dot#` (`Graphics.scala`, `FactorGraph.scala`)
+and `http://openprovenance.org/summary/ns#` (`immutable/IO.scala`, `NormalForm.scala`)
+for the same terms; the Java constants are the ones this file follows.

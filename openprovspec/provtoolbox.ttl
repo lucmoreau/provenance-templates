@@ -1,0 +1,115 @@
+@prefix :        <http://openprovenance.org/provtoolbox/> .
+@prefix box:     <http://openprovenance.org/provtoolbox/ns#> .
+@prefix dot:     <http://openprovenance.org/provtoolbox/dot/ns#> .
+@prefix sum:     <http://openprovenance.org/provtoolbox/summary/ns#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@base            <http://openprovenance.org/provtoolbox/> .
+
+<http://openprovenance.org/provtoolbox/>
+    rdf:type owl:Ontology ;
+    rdfs:label "ProvToolbox vocabulary"@en ;
+    rdfs:comment "The terms ProvToolbox itself writes and reads in provenance documents, beyond PROV-DM, provext, the OpenProvenance vocabulary and the template vocabulary. They share the prefix http://openprovenance.org/provtoolbox/ and fall into three namespaces: box, the toolbox's own (a datatype the value converter falls back on); dot, the hints a document carries for its rendering as a graph; and sum, the figures the summariser stamps on a summary graph. Every attribute in the three namespaces is toolbox-internal: the visualiser never lists one in a statement's attribute box, and other tools pass them through untouched."@en ;
+    rdfs:seeAlso <https://openprovenance.org/provtoolbox/ns.html> ;
+    rdfs:seeAlso <https://openprovenance.org/ns/openprov> ;
+    rdfs:seeAlso <https://openprovenance.org/ns/tmpl> ;
+    rdfs:seeAlso <https://lucmoreau.github.io/ProvToolbox/> .
+
+
+#################################################################
+#    The toolbox namespace: http://openprovenance.org/provtoolbox/ns#
+#    prefix box (NamespacePrefixMapper.TOOLBOX_NS, TOOLBOX_PREFIX)
+#################################################################
+
+box:UNKNOWN_TYPE rdf:type rdfs:Datatype ;
+    rdfs:label "unknown type"@en ;
+    rdfs:comment "The datatype the value converter answers when it cannot tell the XSD type of a value: a Java object of no class the converter knows, where a typed literal was expected. A document never writes it deliberately; its presence in output marks a value whose type was lost on the way in (ValueConverter.getXsdType, Name.QUALIFIED_NAME_UNKNOWN_TYPE)."@en ;
+    rdfs:seeAlso xsd:anyType .
+
+
+#################################################################
+#    The dot namespace: http://openprovenance.org/provtoolbox/dot/ns#
+#    prefix dot (NamespacePrefixMapper.DOT_NS, DOT_PREFIX)
+#
+#    Rendering hints. An attribute on any statement — element or
+#    relation — that overrides the default the visualiser (prov-dot,
+#    ProvViz.applyHints) would otherwise pick for its node or edge.
+#    Values are Graphviz's; the Mermaid and SVG passes read them
+#    too. The first value counts when several are given.
+#################################################################
+
+dot:fillcolor rdf:type rdf:Property ;
+    rdfs:range xsd:string ;
+    rdfs:label "fill colour"@en ;
+    rdfs:comment "The fill colour of the node, a Graphviz colour name or #rrggbb; setting it also sets the style to filled. The one hint the toolbox's own examples use most, to tell kinds of entity apart at a glance."@en .
+
+dot:color rdf:type rdf:Property ;
+    rdfs:range xsd:string ;
+    rdfs:label "colour"@en ;
+    rdfs:comment "The stroke colour: of a node's outline, or of an edge."@en .
+
+dot:fontcolor rdf:type rdf:Property ;
+    rdfs:range xsd:string ;
+    rdfs:label "font colour"@en ;
+    rdfs:comment "The colour of the node's label text. Read by the Scala graphics module; the Java visualiser leaves the font colour to its defaults."@en .
+
+dot:style rdf:type rdf:Property ;
+    rdfs:range xsd:string ;
+    rdfs:label "style"@en ;
+    rdfs:comment "Graphviz style words, comma-separated (filled, dashed, dotted, bold, rounded, …), replacing the default style of the node or edge outright. The template connection graph writes dot:style=\"dashed\" on the derivation between two versions of a port."@en .
+
+dot:url rdf:type rdf:Property ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "url"@en ;
+    rdfs:comment "A link to attach to the node or edge, followed when the rendered graph is clicked (Graphviz URL, an anchor in SVG output)."@en .
+
+dot:size rdf:type rdf:Property ;
+    rdfs:range xsd:double ;
+    rdfs:label "size"@en ;
+    rdfs:comment "A number scaling the drawing: on an element, the width of its node (the value, in inches, times 0.75); on a relation, the pen width of its edge. Distinct from sum:size, a count the summariser writes and the visualiser shows in the label rather than in the geometry."@en ;
+    rdfs:seeAlso sum:size .
+
+dot:tooltip rdf:type rdf:Property ;
+    rdfs:range xsd:string ;
+    rdfs:label "tooltip"@en ;
+    rdfs:comment "The text shown when the pointer rests on the node or edge; a long one is cut to the visualiser's maximum tooltip length and ended with an ellipsis."@en .
+
+
+#################################################################
+#    The summary namespace: http://openprovenance.org/provtoolbox/summary/ns#
+#    prefix sum (NamespacePrefixMapper.SUMMARY_NS, SUMMARY_PREFIX)
+#
+#    What the summariser (prov-summarisation) stamps on the nodes
+#    and edges of a summary graph: each node stands for the class
+#    of instance nodes sharing a provenance type at the chosen
+#    level, each edge for the instance edges between two classes.
+#    The visualiser reads sum:size to write the count into the
+#    label and, in the Scala graphics module, to scale the node.
+#################################################################
+
+sum:size rdf:type rdf:Property ;
+    rdfs:range xsd:int ;
+    rdfs:label "size"@en ;
+    rdfs:comment "How many nodes or edges of the instance graph the summary node or edge stands for: the size of its equivalence class. Zero on a node the summary keeps for a type no instance node carries."@en ;
+    rdfs:seeAlso dot:size .
+
+sum:nbr rdf:type rdf:Property ;
+    rdfs:domain [ rdf:type owl:Class ; owl:unionOf ( prov:Entity prov:Activity prov:Agent ) ] ;
+    rdfs:range xsd:int ;
+    rdfs:label "number"@en ;
+    rdfs:comment "The number of the provenance type the summary node stands for, in the summariser's index of types at that level: the integer its identifier is minted from, kept as an attribute so the type can be looked up without parsing the name."@en .
+
+sum:count rdf:type rdf:Property ;
+    rdfs:range xsd:int ;
+    rdfs:label "count"@en ;
+    rdfs:comment "The number of nodes or edges of the instance graph with the summary node's type. Declared by the summariser beside sum:size, which it writes with that meaning; reserved, and not written at present."@en ;
+    rdfs:seeAlso sum:size .
+
+sum:level0 rdf:type rdf:Property ;
+    rdfs:domain [ rdf:type owl:Class ; owl:unionOf ( prov:Entity prov:Activity prov:Agent ) ] ;
+    rdfs:range xsd:string ;
+    rdfs:label "level-0 type"@en ;
+    rdfs:comment "One of the level-0 descriptors — the primitive prov:type values — folded into the provenance type the summary node stands for; one attribute per descriptor. Written only when the summariser is asked for level-0 descriptions."@en .
