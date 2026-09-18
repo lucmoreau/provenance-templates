@@ -1,0 +1,171 @@
+<style>
+.tab-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  font-family: Arial, sans-serif;
+}
+
+.tab-buttons {
+  display: flex;
+  border-bottom: 2px solid #ddd;
+  background-color: #f5f5f5;
+}
+
+.tab-button {
+  background-color: transparent;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #666;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+  background-color: #e9e9e9;
+  color: #333;
+}
+
+.tab-button.active {
+  color: #2c3e50;
+  border-bottom-color: #3498db;
+  background-color: white;
+}
+
+.tab-content {
+  display: none;
+  padding: 30px 20px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-top: none;
+  min-height: 300px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-content h2 {
+  margin-top: 0;
+  color: #2c3e50;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.tab-content h3 {
+  color: #34495e;
+  margin-top: 25px;
+}
+
+.tab-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+
+.tab-content th,
+.tab-content td {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.tab-content th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+.tab-content code {
+  background-color: #f4f4f4;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+}
+
+.tab-content pre {
+  background-color: #f8f8f8;
+  padding: 30px;
+  border-radius: 5px;
+  overflow-x: auto;
+  border: 1px solid #e1e1e1;
+}
+
+.tab-content blockquote {
+  border-left: 4px solid #3498db;
+  margin: 15px 0;
+  padding: 10px 20px;
+  background-color: #f9f9f9;
+  font-style: italic;
+}
+
+.onlinetitle {
+  color: #1919f9;
+  font-style: bold;
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+  .tab-buttons {
+    flex-direction: column;
+  }
+
+  .tab-button {
+    border-bottom: 1px solid #ddd;
+    border-right: none;
+  }
+
+  .tab-button.active {
+    border-bottom-color: #3498db;
+    border-right-color: transparent;
+  }
+}
+</style>
+
+<script>
+function showTab(tabId) {
+  // Find the tab to show and its top-level container div
+  const activeTab = document.getElementById(tabId);
+  const container = activeTab.parentElement;
+
+  // Hide only the tab contents within this container
+  container.querySelectorAll('.tab-content').forEach(tab => {
+    tab.classList.remove('active');
+    tab.style.display = 'none';
+  });
+
+  // Remove active class from buttons within this container only
+  container.querySelectorAll('.tab-button').forEach(button => {
+    button.classList.remove('active');
+    button.style.backgroundColor = 'transparent';
+    button.style.color = '#666';
+    button.style.borderBottom = '3px solid transparent';
+  });
+
+  // Show selected tab content
+  activeTab.classList.add('active');
+  activeTab.style.display = 'block';
+
+  // Mark the clicked button as active
+  const activeButton = event.target;
+  activeButton.classList.add('active');
+  activeButton.style.backgroundColor = 'white';
+  activeButton.style.color = '#2c3e50';
+  activeButton.style.borderBottom = '3px solid #3498db';
+}
+
+// Initialize first tab as active when page loads
+document.onreadystatechange = function() {
+  if (document.readyState === "complete") {
+    console.log("Page is loaded completely!");
+    document.addEventListener('DOMContentLoaded', function() {
+  showTab('tab1');
+});
+  }
+};
+
+
+
+</script>
+

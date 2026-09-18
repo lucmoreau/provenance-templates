@@ -1,0 +1,10 @@
+activity(xid:insert0,
+              [prov:type = 'openprov:InsertingItemIntoCollection'])
+wasDerivedFrom(xid:coll1,
+               xid:coll0,
+               xid:insert0,
+              [prov:type = 'openprov:InsertingItemIntoCollection'])
+provext:hadMember(xid:coll1,
+              xid:item73,
+              [prov:type = 'prov:Derivation',
+               prov:type = 'openprov:InsertingElement'])

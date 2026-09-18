@@ -1,0 +1,15 @@
+wasAssociatedWith(xid:waw11;
+              xid:a7699,
+              xid:ag401,
+              -,
+              [prov:role = 'vocab:Unpacker'])
+wasInvalidatedBy(xid:wib11;
+              xid:b34/7,
+              xid:a7699,
+              -)
+wasAttributedTo(xid:b34/7,
+               xid:ag401,
+              [prov:type = 'vocab:Recycling',
+               openprov:association = 'xid:waw11',
+               openprov:invalidation = 'xid:wib11',
+               openprov:activity = 'xid:a7699'])

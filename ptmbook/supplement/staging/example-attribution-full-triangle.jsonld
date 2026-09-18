@@ -1,0 +1,102 @@
+{
+  "@context" : [ {
+    "xid" : "http://example.org/id/",
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "dot" : "http://openprovenance.org/provtoolbox/dot/ns#",
+    "vocab" : "http://example.org/ns/",
+    "openprov" : "https://openprovenance.org/ns/openprov#",
+    "prov" : "http://www.w3.org/ns/prov#",
+    "foaf" : "http://xmlns.com/foaf/0.1/"
+  }, "https://openprovenance.org/ns/openprov.jsonld" ],
+  "@graph" : [ {
+    "@type" : "Entity",
+    "@id" : "xid:b34/5",
+    "type" : [ "vocab:Box" ],
+    "label" : [ {
+      "@value" : "a box"
+    } ]
+  }, {
+    "@type" : "Entity",
+    "@id" : "xid:fpc045",
+    "type" : [ "vocab:FPC" ],
+    "label" : [ {
+      "@value" : "flat-packed cardboard"
+    } ]
+  }, {
+    "@type" : "Entity",
+    "@id" : "xid:bks643",
+    "label" : [ {
+      "@value" : "books"
+    } ]
+  }, {
+    "@type" : "Agent",
+    "@id" : "xid:ag401",
+    "type" : [ "prov:Person" ],
+    "foaf:name" : [ {
+      "@value" : "Alice"
+    } ]
+  }, {
+    "@type" : "Activity",
+    "@id" : "xid:a7667",
+    "type" : [ "vocab:Packing" ],
+    "label" : [ {
+      "@value" : "packing activity"
+    } ]
+  }, {
+    "@type" : "Generation",
+    "@id" : "xid:wgb0",
+    "entity" : "xid:b34/5",
+    "activity" : "xid:a7667",
+    "dot:color" : [ {
+      "@value" : "blue"
+    } ]
+  }, {
+    "@type" : "Usage",
+    "@id" : "xid:used1",
+    "activity" : "xid:a7667",
+    "entity" : "xid:fpc045"
+  }, {
+    "@type" : "Usage",
+    "@id" : "xid:used2",
+    "activity" : "xid:a7667",
+    "entity" : "xid:bks643"
+  }, {
+    "@type" : "Derivation",
+    "@id" : "xid:deriv1",
+    "generatedEntity" : "xid:b34/5",
+    "usedEntity" : "xid:fpc045",
+    "activity" : "xid:a7667",
+    "generation" : "xid:wgb0",
+    "usage" : "xid:used1",
+    "type" : [ "vocab:Packing" ]
+  }, {
+    "@type" : "Derivation",
+    "@id" : "xid:deriv2",
+    "generatedEntity" : "xid:b34/5",
+    "usedEntity" : "xid:bks643",
+    "activity" : "xid:a7667",
+    "generation" : "xid:wgb0",
+    "usage" : "xid:used2",
+    "type" : [ "vocab:Packing" ]
+  }, {
+    "@type" : "Association",
+    "@id" : "xid:waw1",
+    "activity" : "xid:a7667",
+    "agent" : "xid:ag401",
+    "dot:color" : [ {
+      "@value" : "red"
+    } ],
+    "role" : [ "vocab:Packer" ]
+  }, {
+    "@type" : "Attribution",
+    "entity" : "xid:b34/5",
+    "agent" : "xid:ag401",
+    "association" : [ "xid:waw1" ],
+    "dot:color" : [ {
+      "@value" : "gold"
+    } ],
+    "activity" : [ "xid:a7667" ],
+    "type" : [ "vocab:Ownership" ],
+    "generation" : [ "xid:wgb0" ]
+  } ]
+}

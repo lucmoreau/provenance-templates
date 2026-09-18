@@ -1,0 +1,5 @@
+used(xid:a7543,
+     xid:b34/5,
+     2024-07-16T10:20:00.000+01:00,
+     [prov:type = 'vocab:PickUp',
+      prov:label = "pick up at origin" %% xsd:string])

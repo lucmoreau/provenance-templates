@@ -1,0 +1,13 @@
+wasDerivedFrom(xid:deriv1;
+             xid:b34/6,
+              xid:b34/5,
+             [prov:type = 'vocab:Transporting'])
+provext:specializationOf(xid:spe1;
+             xid:b34/5,
+             xid:b34)
+provext:specializationOf(xid:spe2;
+             xid:b34/6,
+             xid:b34,
+             [openprov:specialization = 'xid:spe1',
+              openprov:derivation = 'xid:deriv1',
+              openprov:previousEntity = 'xid:b34/5'])

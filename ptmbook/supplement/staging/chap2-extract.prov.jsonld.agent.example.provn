@@ -1,0 +1,3 @@
+agent(xid:ag700,
+      [prov:type = 'prov:Person',
+       foaf:name = "Bob" %% xsd:string])

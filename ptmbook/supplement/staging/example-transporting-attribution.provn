@@ -1,0 +1,12 @@
+document
+prefix foaf <http://xmlns.com/foaf/0.1/>
+prefix dot <http://openprovenance.org/provtoolbox/dot/ns#>
+prefix openprov <https://openprovenance.org/ns/openprov#>
+prefix xid <http://example.org/id/>
+prefix vocab <http://example.org/ns/>
+activity(xid:a7543,-,-,[prov:type = 'vocab:Transporting'])
+agent(xid:ag990,[prov:type = 'prov:Organization', foaf:name = "BigTransport, Inc." %% xsd:string])
+agent(xid:ag700,[prov:type = 'prov:Person', foaf:name = "Bob" %% xsd:string])
+wasAssociatedWith(xid:a7543,xid:ag700,-,[prov:role = 'vocab:Driver'])
+actedOnBehalfOf(xid:ag700,xid:ag990,-)
+endDocument

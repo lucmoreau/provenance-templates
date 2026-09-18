@@ -1,0 +1,9 @@
+document
+  prefix var <http://openprovenance.org/var#>
+  prefix vargen <http://openprovenance.org/vargen#>
+  prefix ex <http://example.org/#>
+
+  bundle vargen:b
+    entity(ex:e1, [prov:type='var:type'])
+  endBundle
+endDocument

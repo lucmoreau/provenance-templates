@@ -1,0 +1,5 @@
+wasGeneratedBy(xid:b34/6,
+               xid:a7543,
+               2024-07-16T11:58:00.000+01:00,
+               [prov:type = 'vocab:DropOff',
+                prov:label = "drop-off at destination" %% xsd:string])

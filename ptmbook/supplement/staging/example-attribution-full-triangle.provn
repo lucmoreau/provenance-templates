@@ -1,0 +1,19 @@
+document
+prefix foaf <http://xmlns.com/foaf/0.1/>
+prefix dot <http://openprovenance.org/provtoolbox/dot/ns#>
+prefix openprov <https://openprovenance.org/ns/openprov#>
+prefix xid <http://example.org/id/>
+prefix vocab <http://example.org/ns/>
+entity(xid:b34/5,[prov:type = 'vocab:Box', prov:label = "a box" %% xsd:string])
+entity(xid:fpc045,[prov:type = 'vocab:FPC', prov:label = "flat-packed cardboard" %% xsd:string])
+entity(xid:bks643,[prov:label = "books" %% xsd:string])
+agent(xid:ag401,[prov:type = 'prov:Person', foaf:name = "Alice" %% xsd:string])
+activity(xid:a7667,-,-,[prov:type = 'vocab:Packing', prov:label = "packing activity" %% xsd:string])
+wasGeneratedBy(xid:wgb0;xid:b34/5,xid:a7667,-,[dot:color = "blue" %% xsd:string])
+used(xid:used1;xid:a7667,xid:fpc045,-)
+used(xid:used2;xid:a7667,xid:bks643,-)
+wasDerivedFrom(xid:deriv1;xid:b34/5, xid:fpc045, xid:a7667, xid:wgb0, xid:used1,[prov:type = 'vocab:Packing'])
+wasDerivedFrom(xid:deriv2;xid:b34/5, xid:bks643, xid:a7667, xid:wgb0, xid:used2,[prov:type = 'vocab:Packing'])
+wasAssociatedWith(xid:waw1;xid:a7667,xid:ag401,-,[prov:role = 'vocab:Packer', dot:color = "red" %% xsd:string])
+wasAttributedTo(xid:b34/5, xid:ag401,[prov:type = 'vocab:Ownership', openprov:association = 'xid:waw1', openprov:generation = 'xid:wgb0', openprov:activity = 'xid:a7667', dot:color = "gold" %% xsd:string])
+endDocument

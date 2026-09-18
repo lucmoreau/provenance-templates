@@ -1,0 +1,9 @@
+wasGeneratedBy(xid:g;
+              xid:e,
+              xid:a0,
+              -)
+wasEndedBy(xid:a1,
+              xid:e,
+              xid:a0,
+              -,
+              [openprov:generation = 'xid:g'])

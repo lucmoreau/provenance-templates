@@ -1,0 +1,17 @@
+{
+  "var": {
+    "ag": [
+      {
+        "@id": "ex:agent/2"
+      }
+    ],
+    "e": [
+      {
+        "@id": "ex:painting/1"
+      }
+    ]
+  },
+  "context": {
+    "ex": "http://example.org/#"
+  }
+}

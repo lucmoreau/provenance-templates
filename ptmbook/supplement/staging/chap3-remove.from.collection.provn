@@ -1,0 +1,12 @@
+activity(xid:remove0,
+              [prov:type = 'openprov:RemovingElementFromCollection'])
+hadMember(xid:coll0,
+              xid:item73)
+wasDerivedFrom(xid:coll1,
+               xid:coll0,
+               xid:remove0,
+              [prov:type = 'openprov:RemovingElementFromCollection'])
+wasDerivedFrom(xid:coll1,
+               xid:item73,
+               xid:remove0,
+              [prov:type = 'openprov:RemovingElement'])

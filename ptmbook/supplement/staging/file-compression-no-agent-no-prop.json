@@ -1,0 +1,33 @@
+{
+	"var": {
+		"file1": [
+			{
+				"@id": "var:file1"
+			}
+		],
+		"file2": [
+			{
+				"@id": "var:file2"
+			}
+
+		],
+		"compressing": [
+			{
+				"@id": "var:compressing"
+			}
+		]
+	},
+	"vargen":  {
+		"b": [
+			{
+				"@id": "vargen:b"
+			}
+		]
+	},
+	"context": {
+		"ex": "http://example.org/#",
+		"var" : "http://openprovenance.org/var#",
+		"vargen" : "http://openprovenance.org/vargen#"
+
+	}
+}

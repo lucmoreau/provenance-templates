@@ -1,0 +1,6 @@
+changequote(`{{',`}}')
+
+include({{macros.m4}})
+
+define(OLISTING,)dnl
+

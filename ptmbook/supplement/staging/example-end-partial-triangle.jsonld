@@ -1,0 +1,38 @@
+{
+  "@context" : [ {
+    "xid" : "http://example.org/id/",
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "dot" : "http://openprovenance.org/provtoolbox/dot/ns#",
+    "vocab" : "http://example.org/ns/",
+    "openprov" : "https://openprovenance.org/ns/openprov#",
+    "prov" : "http://www.w3.org/ns/prov#",
+    "foaf" : "http://xmlns.com/foaf/0.1/"
+  }, "https://openprovenance.org/ns/openprov.jsonld" ],
+  "@graph" : [ {
+    "@type" : "Activity",
+    "@id" : "xid:a0"
+  }, {
+    "@type" : "Entity",
+    "@id" : "xid:e"
+  }, {
+    "@type" : "Activity",
+    "@id" : "xid:a1"
+  }, {
+    "@type" : "Generation",
+    "@id" : "xid:g",
+    "entity" : "xid:e",
+    "activity" : "xid:a0",
+    "dot:color" : [ {
+      "@value" : "red"
+    } ]
+  }, {
+    "@type" : "End",
+    "activity" : "xid:a1",
+    "trigger" : "xid:e",
+    "ender" : "xid:a0",
+    "dot:color" : [ {
+      "@value" : "gold"
+    } ],
+    "generation" : [ "xid:g" ]
+  } ]
+}

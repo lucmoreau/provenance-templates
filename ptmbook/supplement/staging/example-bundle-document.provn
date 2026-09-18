@@ -1,0 +1,16 @@
+document
+prefix foaf <http://xmlns.com/foaf/0.1/>
+prefix dot <http://openprovenance.org/provtoolbox/dot/ns#>
+prefix openprov <https://openprovenance.org/ns/openprov#>
+prefix xid <http://example.org/id/>
+prefix vocab <http://example.org/ns/>
+entity(xid:b0,[prov:type = 'prov:Bundle'])
+agent(xid:agent0)
+wasAttributedTo(xid:b0, xid:agent0)
+bundle xid:b0
+
+entity(xid:e0,[prov:label = "an entity" %% xsd:string])
+activity(xid:a0,-,-)
+wasGeneratedBy(xid:e0,xid:a0,-)
+endBundle
+endDocument

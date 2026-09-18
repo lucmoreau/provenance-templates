@@ -1,0 +1,16 @@
+wasGeneratedBy(xid:wgb0;
+              xid:b34/5,
+              xid:a7667,
+              -)
+wasAssociatedWith(xid:waw1;
+              xid:a7667,
+              xid:ag401,
+              -,
+              [prov:role = 'vocab:Packer',
+               dot:color = "red" %% xsd:string])
+wasAttributedTo(xid:b34/5,
+               xid:ag401,
+              [prov:type = 'vocab:Ownership',
+               openprov:association = 'xid:waw1',
+               openprov:generation = 'xid:wgb0',
+               openprov:activity = 'xid:a7667'])

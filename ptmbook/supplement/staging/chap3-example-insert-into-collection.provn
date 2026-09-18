@@ -1,0 +1,8 @@
+entity(xid:item73,
+              [prov:label = "An item" %% xsd:string])
+entity(xid:coll1,
+              [prov:type = 'prov:Collection'])
+provext:hadMember(xid:coll1,
+              xid:item73,
+              [prov:type = 'prov:Derivation',
+               prov:type = 'openprov:InsertingElement'])

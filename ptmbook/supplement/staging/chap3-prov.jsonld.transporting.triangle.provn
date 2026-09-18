@@ -1,0 +1,18 @@
+wasGeneratedBy(xid:wgb1;
+        xid:b34/6,
+        xid:a7543,
+        2024-07-16T11:58:00.000+01:00,
+        [prov:type = 'vocab:DropOff',
+         prov:label = "drop-off at destination" %% xsd:string])
+used(xid:used1;
+        xid:a7543,
+        xid:b34/5,
+        2024-07-16T10:20:00.000+01:00,
+        [prov:type = 'vocab:PickUp',
+         prov:label = "pick up at origin" %% xsd:string])
+wasDerivedFrom(xid:b34/6,
+         xid:b34/5,
+         xid:a7543,
+         xid:wgb1,
+         xid:used1,
+        [prov:type = 'vocab:Transporting'])

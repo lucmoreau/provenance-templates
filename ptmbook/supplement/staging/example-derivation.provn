@@ -1,0 +1,31 @@
+document
+prefix foaf <http://xmlns.com/foaf/0.1/>
+prefix dot <http://openprovenance.org/provtoolbox/dot/ns#>
+prefix openprov <https://openprovenance.org/ns/openprov#>
+prefix xid <http://example.org/id/>
+prefix vocab <http://example.org/ns/>
+entity(xid:b34/5,[prov:type = 'vocab:Box', prov:label = "a box somewhere" %% xsd:string, prov:location = 'vocab:London', vocab:weight = "10kg" %% xsd:string])
+entity(xid:b34/6,[prov:type = 'vocab:Box', prov:label = "a box elsewhere" %% xsd:string, prov:location = 'vocab:Brighton'])
+activity(xid:a7543,2024-07-16T10:05:00.000+01:00,2024-07-16T12:47:00.000+01:00,[prov:type = 'vocab:Transporting', prov:label = "some activity" %% xsd:string])
+wasDerivedFrom(xid:b34/6, xid:b34/5, xid:a7543, -, -,[prov:type = 'vocab:Transporting'])
+wasGeneratedBy(xid:b34/6,xid:a7543,2024-07-16T11:58:00.000+01:00,[prov:type = 'vocab:DropOff', prov:label = "drop-off at destination" %% xsd:string])
+used(xid:a7543,xid:b34/5,2024-07-16T10:20:00.000+01:00,[prov:type = 'vocab:PickUp', prov:label = "pick up at origin" %% xsd:string])
+agent(xid:ag401,[prov:type = 'prov:Person', foaf:name = "Alice" %% xsd:string])
+wasAttributedTo(xid:b34/5, xid:ag401,[prov:type = 'vocab:Ownership'])
+activity(xid:a7588,-,-,[prov:type = 'vocab:Weighing', prov:label = "weighing activity" %% xsd:string])
+entity(xid:b34/7,[prov:type = 'vocab:Box', prov:label = "a weighted box" %% xsd:string, vocab:weight = "8kg" %% xsd:string])
+wasGeneratedBy(xid:b34/7,xid:a7588,-)
+used(xid:a7588,xid:b34/6,-)
+wasDerivedFrom(xid:b34/7, xid:b34/6, xid:a7588, -, -,[prov:type = 'vocab:Weighing'])
+agent(xid:alice,[prov:type = 'prov:Person', foaf:name = "Alice" %% xsd:string])
+wasAssociatedWith(xid:a7588,xid:alice,-,[prov:role = 'vocab:Scientist'])
+agent(xid:scale101,[prov:type = 'vocab:Instrument'])
+wasAssociatedWith(xid:a7588,xid:scale101,-,[prov:role = 'vocab:Scale'])
+agent(xid:ag990,[prov:type = 'prov:Organization', foaf:name = "BigTransport, Inc." %% xsd:string])
+agent(xid:ag700,[prov:type = 'prov:Person', foaf:name = "Bob" %% xsd:string])
+wasAssociatedWith(xid:a7543,xid:ag700,-,[prov:role = 'vocab:Driver'])
+actedOnBehalfOf(xid:ag700,xid:ag990,-)
+entity(xid:b34,[prov:type = 'vocab:Box', prov:label = "a box" %% xsd:string])
+specializationOf(xid:b34/5,xid:b34)
+specializationOf(xid:b34/6,xid:b34)
+endDocument

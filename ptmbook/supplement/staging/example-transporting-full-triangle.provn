@@ -1,0 +1,13 @@
+document
+prefix foaf <http://xmlns.com/foaf/0.1/>
+prefix dot <http://openprovenance.org/provtoolbox/dot/ns#>
+prefix openprov <https://openprovenance.org/ns/openprov#>
+prefix xid <http://example.org/id/>
+prefix vocab <http://example.org/ns/>
+entity(xid:b34/5,[prov:type = 'vocab:Box', prov:label = "a box somewhere" %% xsd:string, prov:location = 'vocab:London', vocab:weight = "10kg" %% xsd:string])
+entity(xid:b34/6,[prov:type = 'vocab:Box', prov:label = "a box elsewhere" %% xsd:string, prov:location = 'vocab:Brighton'])
+activity(xid:a7543,2024-07-16T10:05:00.000+01:00,2024-07-16T12:47:00.000+01:00,[prov:type = 'vocab:Transporting', prov:label = "some activity" %% xsd:string])
+wasGeneratedBy(xid:wgb1;xid:b34/6,xid:a7543,2024-07-16T11:58:00.000+01:00,[prov:type = 'vocab:DropOff', prov:label = "drop-off at destination" %% xsd:string, dot:color = "blue" %% xsd:string])
+used(xid:used1;xid:a7543,xid:b34/5,2024-07-16T10:20:00.000+01:00,[prov:type = 'vocab:PickUp', prov:label = "pick up at origin" %% xsd:string, dot:color = "red" %% xsd:string])
+wasDerivedFrom(xid:b34/6, xid:b34/5, xid:a7543, xid:wgb1, xid:used1,[prov:type = 'vocab:Transporting', dot:color = "gold" %% xsd:string])
+endDocument

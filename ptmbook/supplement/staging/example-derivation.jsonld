@@ -1,0 +1,166 @@
+{
+  "@context" : [ {
+    "xid" : "http://example.org/id/",
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "dot" : "http://openprovenance.org/provtoolbox/dot/ns#",
+    "vocab" : "http://example.org/ns/",
+    "openprov" : "https://openprovenance.org/ns/openprov#",
+    "prov" : "http://www.w3.org/ns/prov#",
+    "foaf" : "http://xmlns.com/foaf/0.1/"
+  }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+  "@graph" : [ {
+    "@type" : "Entity",
+    "@id" : "xid:b34/5",
+    "location" : [ "vocab:London" ],
+    "type" : [ "vocab:Box" ],
+    "label" : [ {
+      "@value" : "a box somewhere"
+    } ],
+    "vocab:weight" : [ {
+      "@value" : "10kg"
+    } ]
+  }, {
+    "@type" : "Entity",
+    "@id" : "xid:b34/6",
+    "location" : [ "vocab:Brighton" ],
+    "type" : [ "vocab:Box" ],
+    "label" : [ {
+      "@value" : "a box elsewhere"
+    } ]
+  }, {
+    "@type" : "Activity",
+    "@id" : "xid:a7543",
+    "startTime" : "2024-07-16T09:05:00.000Z",
+    "endTime" : "2024-07-16T11:47:00.000Z",
+    "type" : [ "vocab:Transporting" ],
+    "label" : [ {
+      "@value" : "some activity"
+    } ]
+  }, {
+    "@type" : "Derivation",
+    "generatedEntity" : "xid:b34/6",
+    "usedEntity" : "xid:b34/5",
+    "activity" : "xid:a7543",
+    "type" : [ "vocab:Transporting" ]
+  }, {
+    "@type" : "Generation",
+    "entity" : "xid:b34/6",
+    "activity" : "xid:a7543",
+    "time" : "2024-07-16T10:58:00.000Z",
+    "type" : [ "vocab:DropOff" ],
+    "label" : [ {
+      "@value" : "drop-off at destination"
+    } ]
+  }, {
+    "@type" : "Usage",
+    "activity" : "xid:a7543",
+    "entity" : "xid:b34/5",
+    "time" : "2024-07-16T09:20:00.000Z",
+    "type" : [ "vocab:PickUp" ],
+    "label" : [ {
+      "@value" : "pick up at origin"
+    } ]
+  }, {
+    "@type" : "Agent",
+    "@id" : "xid:ag401",
+    "type" : [ "prov:Person" ],
+    "foaf:name" : [ {
+      "@value" : "Alice"
+    } ]
+  }, {
+    "@type" : "Attribution",
+    "entity" : "xid:b34/5",
+    "agent" : "xid:ag401",
+    "type" : [ "vocab:Ownership" ]
+  }, {
+    "@type" : "Activity",
+    "@id" : "xid:a7588",
+    "type" : [ "vocab:Weighing" ],
+    "label" : [ {
+      "@value" : "weighing activity"
+    } ]
+  }, {
+    "@type" : "Entity",
+    "@id" : "xid:b34/7",
+    "type" : [ "vocab:Box" ],
+    "label" : [ {
+      "@value" : "a weighted box"
+    } ],
+    "vocab:weight" : [ {
+      "@value" : "8kg"
+    } ]
+  }, {
+    "@type" : "Generation",
+    "entity" : "xid:b34/7",
+    "activity" : "xid:a7588"
+  }, {
+    "@type" : "Usage",
+    "activity" : "xid:a7588",
+    "entity" : "xid:b34/6"
+  }, {
+    "@type" : "Derivation",
+    "generatedEntity" : "xid:b34/7",
+    "usedEntity" : "xid:b34/6",
+    "activity" : "xid:a7588",
+    "type" : [ "vocab:Weighing" ]
+  }, {
+    "@type" : "Agent",
+    "@id" : "xid:alice",
+    "type" : [ "prov:Person" ],
+    "foaf:name" : [ {
+      "@value" : "Alice"
+    } ]
+  }, {
+    "@type" : "Association",
+    "activity" : "xid:a7588",
+    "agent" : "xid:alice",
+    "role" : [ "vocab:Scientist" ]
+  }, {
+    "@type" : "Agent",
+    "@id" : "xid:scale101",
+    "type" : [ "vocab:Instrument" ]
+  }, {
+    "@type" : "Association",
+    "activity" : "xid:a7588",
+    "agent" : "xid:scale101",
+    "role" : [ "vocab:Scale" ]
+  }, {
+    "@type" : "Agent",
+    "@id" : "xid:ag990",
+    "type" : [ "prov:Organization" ],
+    "foaf:name" : [ {
+      "@value" : "BigTransport, Inc."
+    } ]
+  }, {
+    "@type" : "Agent",
+    "@id" : "xid:ag700",
+    "type" : [ "prov:Person" ],
+    "foaf:name" : [ {
+      "@value" : "Bob"
+    } ]
+  }, {
+    "@type" : "Association",
+    "activity" : "xid:a7543",
+    "agent" : "xid:ag700",
+    "role" : [ "vocab:Driver" ]
+  }, {
+    "@type" : "Delegation",
+    "delegate" : "xid:ag700",
+    "responsible" : "xid:ag990"
+  }, {
+    "@type" : "Entity",
+    "@id" : "xid:b34",
+    "type" : [ "vocab:Box" ],
+    "label" : [ {
+      "@value" : "a box"
+    } ]
+  }, {
+    "@type" : "Specialization",
+    "specificEntity" : "xid:b34/5",
+    "generalEntity" : "xid:b34"
+  }, {
+    "@type" : "Specialization",
+    "specificEntity" : "xid:b34/6",
+    "generalEntity" : "xid:b34"
+  } ]
+}

@@ -1,0 +1,10 @@
+document
+prefix foaf <http://xmlns.com/foaf/0.1/>
+prefix dot <http://openprovenance.org/provtoolbox/dot/ns#>
+prefix openprov <https://openprovenance.org/ns/openprov#>
+prefix xid <http://example.org/id/>
+prefix vocab <http://example.org/ns/>
+entity(xid:b34/5,[prov:type = 'vocab:Box', prov:label = "a box" %% xsd:string])
+agent(xid:ag401,[prov:type = 'prov:Person', foaf:name = "Alice" %% xsd:string])
+wasAttributedTo(xid:b34/5, xid:ag401,[prov:type = 'vocab:Ownership'])
+endDocument

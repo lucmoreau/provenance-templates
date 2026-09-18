@@ -1,0 +1,17 @@
+document
+prefix foaf <http://xmlns.com/foaf/0.1/>
+prefix dot <http://openprovenance.org/provtoolbox/dot/ns#>
+prefix openprov <https://openprovenance.org/ns/openprov#>
+prefix xid <http://example.org/id/>
+prefix vocab <http://example.org/ns/>
+activity(xid:remove0,-,-,[prov:type = 'openprov:RemovingElementFromCollection'])
+entity(xid:coll0,[prov:type = 'prov:Collection'])
+entity(xid:item73,[prov:label = "An item" %% xsd:string])
+hadMember(xid:coll0,xid:item73)
+entity(xid:coll1,[prov:type = 'prov:Collection'])
+wasGeneratedBy(xid:coll1,xid:remove0,-,[prov:role = 'openprov:asCollection', dot:color = "blue" %% xsd:string])
+used(xid:remove0,xid:coll0,-,[prov:role = 'openprov:asCollection', dot:color = "red" %% xsd:string])
+used(xid:remove0,xid:item73,-,[prov:role = 'openprov:asMember', dot:color = "red" %% xsd:string])
+wasDerivedFrom(xid:coll1, xid:coll0, xid:remove0, -, -,[prov:type = 'openprov:RemovingElementFromCollection', dot:color = "gold" %% xsd:string])
+wasDerivedFrom(xid:coll1, xid:item73, xid:remove0, -, -,[prov:type = 'openprov:RemovingElement', dot:color = "gold" %% xsd:string])
+endDocument

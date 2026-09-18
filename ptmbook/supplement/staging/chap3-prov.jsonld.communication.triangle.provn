@@ -1,0 +1,13 @@
+wasGeneratedBy(xid:g;
+         xid:e,
+         xid:a0,
+         -)
+used(xid:u;
+         xid:a1,
+         xid:e,
+         -)
+wasInformedBy(xid:a1,
+         xid:a0,
+         [openprov:entity = 'xid:e',
+          openprov:generation = 'xid:g',
+          openprov:usage = 'xid:u'])

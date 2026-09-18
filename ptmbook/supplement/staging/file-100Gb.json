@@ -1,0 +1,22 @@
+{
+    "var": {
+        "file": [
+                {
+                    "@id": "ex:file1"
+                }
+        ],
+
+        "size": [
+            [
+                {
+                    "@value": "100Gb",
+                    "@type": "xsd:string"
+                }
+            ]
+        ]
+    },
+    "context": {
+        "ex": "http://example.org/#",
+        "var" : "http://openprovenance.org/var#"
+    }
+}

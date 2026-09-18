@@ -1,0 +1,15 @@
+document
+bundle vargen:b
+prefix vargen <http://openprovenance.org/vargen#>
+prefix var <http://openprovenance.org/var#>
+
+activity(var:act,-,-)
+entity(var:input,[var:iprop = 'var:ivalue'])
+entity(var:output,[var:oprop = 'var:ovalue'])
+agent(var:ag,[var:aprop = 'var:avalue'])
+wasAssociatedWith(var:act,var:ag,-)
+wasGeneratedBy(var:output,var:act,-)
+used(var:act,var:input,-)
+wasDerivedFrom(var:output, var:input,[var:dprop = 'var:dvalue'])
+endBundle
+endDocument

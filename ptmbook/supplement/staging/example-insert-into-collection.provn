@@ -1,0 +1,17 @@
+document
+prefix xid <http://example.org/id/>
+prefix dot <http://openprovenance.org/provtoolbox/dot/ns#>
+prefix vocab <http://example.org/ns/>
+prefix openprov <https://openprovenance.org/ns/openprov#>
+prefix provext <https://openprovenance.org/ns/provext#>
+prefix foaf <http://xmlns.com/foaf/0.1/>
+activity(xid:insert0,-,-,[prov:type = 'openprov:InsertingItemIntoCollection'])
+entity(xid:coll0,[prov:type = 'prov:Collection'])
+entity(xid:item73,[prov:label = "An item" %% xsd:string])
+entity(xid:coll1,[prov:type = 'prov:Collection'])
+wasGeneratedBy(xid:coll1,xid:insert0,-,[prov:role = 'openprov:asCollection', dot:color = "blue" %% xsd:string])
+used(xid:insert0,xid:coll0,-,[prov:role = 'openprov:asCollection', dot:color = "red" %% xsd:string])
+used(xid:insert0,xid:item73,-,[prov:role = 'openprov:asMember', dot:color = "red" %% xsd:string])
+wasDerivedFrom(xid:coll1, xid:coll0, xid:insert0, -, -,[prov:type = 'openprov:InsertingItemIntoCollection', dot:color = "gold" %% xsd:string])
+provext:hadMember(xid:coll1,xid:item73,[prov:type = 'prov:Derivation', prov:type = 'openprov:InsertingElement', dot:color = "gold" %% xsd:string])
+endDocument

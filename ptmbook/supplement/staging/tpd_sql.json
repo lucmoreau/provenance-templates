@@ -1,0 +1,54 @@
+{
+	"group": "org.openprovenance.bookptm",
+	"name": "bindings_schema_sql",
+	"description": "PROV templates for book ptm (bindings-schema-sql)",
+	"version": "0.1.0",
+	"destination": "target/",
+	"root_package": "org.openprovenance.bookptm.bindings_schema_sql",
+	"script": "bookptm_run",
+	"script_dir": "target/bin",
+	"python_dir": "target/generated-python",
+        "integrator": true,
+        "jsweet": true,
+        "sqlFile": "plead-mini-sql.sql",
+        "jsonschema": "schema.json",
+	"documentation": "doc.html",
+	"templates" : [
+
+		{
+			"@type": "simple",
+			"name": "plead_transforming",
+			"template": "plead-transforming",
+            "fullyQualifiedName": "org.openprovenance.prov.templates.plead.Transforming",
+            "package": "org.openprovenance.bookptm.bindings_schema_sql",
+			"cbindings": "src/main/resources/bindings/plead-transforming-sql.json"
+		},
+		{
+			"@type": "composite",
+			"name": "plead_transforming_composite",
+            "fullyQualifiedName": "org.openprovenance.prov.templates.plead.TransformingComposite",
+            "consistsOf": "org.openprovenance.prov.templates.plead.Transforming",
+			"package": "org.openprovenance.bookptm.bindings_schema_sql",
+			"sharing": ["transformed_file","transforming"]
+		}
+	],
+    "sql.tables":  {
+	"file": {
+	    "id": "SERIAL",
+	    "created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+	},
+	"agent": {
+	    "id": "SERIAL",
+	    "created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+	},
+	"activity": {
+	    "id": "SERIAL",
+	    "created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+	},
+	"method": {
+	    "id": "SERIAL",
+	    "serial": "INT",
+	    "created_at": "timestamp with time zone NOT NULL DEFAULT NOW()"
+	}
+    }
+}

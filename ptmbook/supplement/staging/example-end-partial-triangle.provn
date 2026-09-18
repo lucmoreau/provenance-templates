@@ -1,0 +1,12 @@
+document
+prefix foaf <http://xmlns.com/foaf/0.1/>
+prefix dot <http://openprovenance.org/provtoolbox/dot/ns#>
+prefix openprov <https://openprovenance.org/ns/openprov#>
+prefix xid <http://example.org/id/>
+prefix vocab <http://example.org/ns/>
+activity(xid:a0,-,-)
+entity(xid:e)
+activity(xid:a1,-,-)
+wasGeneratedBy(xid:g;xid:e,xid:a0,-,[dot:color = "red" %% xsd:string])
+wasEndedBy(xid:a1,xid:e,xid:a0,-,[openprov:generation = 'xid:g', dot:color = "gold" %% xsd:string])
+endDocument

@@ -1,0 +1,20 @@
+document
+prefix foaf <http://xmlns.com/foaf/0.1/>
+prefix dot <http://openprovenance.org/provtoolbox/dot/ns#>
+prefix openprov <https://openprovenance.org/ns/openprov#>
+prefix xid <http://example.org/id/>
+prefix vocab <http://example.org/ns/>
+entity(xid:b34/7,[prov:type = 'vocab:Box'])
+entity(xid:crdbrd843,[prov:label = "cardboard" %% xsd:string])
+entity(xid:bks644,[prov:label = "books" %% xsd:string])
+agent(xid:ag401,[prov:type = 'prov:Person', foaf:name = "Alice" %% xsd:string])
+activity(xid:a7699,-,-,[prov:type = 'vocab:Unpacking'])
+wasGeneratedBy(xid:wgb11;xid:bks644,xid:a7699,-)
+wasGeneratedBy(xid:wgb12;xid:crdbrd843,xid:a7699,-)
+used(xid:used11;xid:a7699,xid:b34/7,-)
+wasDerivedFrom(xid:deriv11;xid:bks644, xid:b34/7, xid:a7699, xid:wgb11, xid:used11)
+wasDerivedFrom(xid:deriv12;xid:crdbrd843, xid:b34/7, xid:a7699, xid:wgb12, xid:used11)
+wasAssociatedWith(xid:waw11;xid:a7699,xid:ag401,-,[prov:role = 'vocab:Unpacker', dot:color = "red" %% xsd:string])
+wasInvalidatedBy(xid:wib11;xid:b34/7,xid:a7699,-,[dot:color = "blue" %% xsd:string])
+wasAttributedTo(xid:b34/7, xid:ag401,[prov:type = 'vocab:Recycling', openprov:association = 'xid:waw11', openprov:invalidation = 'xid:wib11', openprov:activity = 'xid:a7699', dot:color = "gold" %% xsd:string])
+endDocument

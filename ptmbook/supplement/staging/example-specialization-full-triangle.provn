@@ -1,0 +1,14 @@
+document
+prefix xid <http://example.org/id/>
+prefix dot <http://openprovenance.org/provtoolbox/dot/ns#>
+prefix vocab <http://example.org/ns/>
+prefix openprov <https://openprovenance.org/ns/openprov#>
+prefix provext <https://openprovenance.org/ns/provext#>
+prefix foaf <http://xmlns.com/foaf/0.1/>
+entity(xid:b34/5,[prov:type = 'vocab:Box', prov:label = "a box somewhere" %% xsd:string, prov:location = 'vocab:London', vocab:weight = "10kg" %% xsd:string])
+entity(xid:b34/6,[prov:type = 'vocab:Box', prov:label = "a box elsewhere" %% xsd:string, prov:location = 'vocab:Brighton'])
+wasDerivedFrom(xid:deriv1;xid:b34/6, xid:b34/5,[prov:type = 'vocab:Transporting', dot:color = "blue" %% xsd:string])
+entity(xid:b34,[prov:type = 'vocab:Box', prov:label = "a box" %% xsd:string])
+provext:specializationOf(xid:spe1;xid:b34/5,xid:b34,[dot:color = "red" %% xsd:string])
+provext:specializationOf(xid:spe2;xid:b34/6,xid:b34,[openprov:specialization = 'xid:spe1', openprov:derivation = 'xid:deriv1', openprov:previousEntity = 'xid:b34/5', dot:color = "gold" %% xsd:string])
+endDocument

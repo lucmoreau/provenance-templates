@@ -1,0 +1,39 @@
+{
+  "@context" : [ {
+    "xid" : "http://example.org/id/",
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "dot" : "http://openprovenance.org/provtoolbox/dot/ns#",
+    "vocab" : "http://example.org/ns/",
+    "openprov" : "https://openprovenance.org/ns/openprov#",
+    "prov" : "http://www.w3.org/ns/prov#",
+    "foaf" : "http://xmlns.com/foaf/0.1/"
+  }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+  "@graph" : [ {
+    "@type" : "Activity",
+    "@id" : "xid:a7543",
+    "type" : [ "vocab:Transporting" ]
+  }, {
+    "@type" : "Agent",
+    "@id" : "xid:ag990",
+    "type" : [ "prov:Organization" ],
+    "foaf:name" : [ {
+      "@value" : "BigTransport, Inc."
+    } ]
+  }, {
+    "@type" : "Agent",
+    "@id" : "xid:ag700",
+    "type" : [ "prov:Person" ],
+    "foaf:name" : [ {
+      "@value" : "Bob"
+    } ]
+  }, {
+    "@type" : "Association",
+    "activity" : "xid:a7543",
+    "agent" : "xid:ag700",
+    "role" : [ "vocab:Driver" ]
+  }, {
+    "@type" : "Delegation",
+    "delegate" : "xid:ag700",
+    "responsible" : "xid:ag990"
+  } ]
+}

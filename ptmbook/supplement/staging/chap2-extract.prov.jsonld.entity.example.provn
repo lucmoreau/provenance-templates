@@ -1,0 +1,5 @@
+entity(xid:b34/5,
+      [prov:type = 'vocab:Box',
+       prov:label = "a box somewhere" %% xsd:string,
+       prov:location = 'vocab:London',
+       vocab:weight = "10kg" %% xsd:string])

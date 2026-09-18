@@ -1,0 +1,81 @@
+{
+	"var": {
+		"ag": [
+			{
+				"@id": "var:agent"
+			}
+		],
+		"input": [
+			{
+				"@id": "var:file1"
+			}
+		],
+		"output": [
+			{
+				"@id": "var:file2"
+			}
+
+		],
+		"act": [
+			{
+				"@id": "var:compressing"
+			}
+		],
+		"oprop": [
+			[
+				{
+					"@id": "var:oprop"
+				}
+			]
+
+		],
+		"ovalue": [
+			[
+				{
+					"@id": "var:ovalue"
+				}
+			]
+		],
+		"iprop": [
+			[
+				{
+					"@id": "var:iprop"
+				}
+			]
+
+		],
+		"ivalue": [
+			[
+				{
+					"@id": "var:ivalue"
+				}
+			]
+		],
+		"aprop": [
+			[
+				{
+					"@id": "var:aprop"
+				}
+			]
+
+		],
+		"avalue": [
+			[
+				{
+					"@id": "var:avalue"
+				}
+			]
+		]
+	},
+	"vargen":  {
+		"b": [
+			{
+				"@id": "vargen:b"
+			}
+		]
+	},
+	"context": {
+		"var" : "http://openprovenance.org/var#",
+		"vargen" : "http://openprovenance.org/vargen#"
+	}
+}

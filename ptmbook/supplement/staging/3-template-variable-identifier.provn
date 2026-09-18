@@ -1,0 +1,9 @@
+document
+  prefix var <http://openprovenance.org/var#>
+  prefix vargen <http://openprovenance.org/vargen#>
+  bundle vargen:b
+    agent(var:ag)
+    entity(var:e)
+    wasAttributedTo(var:e,var:ag)
+  endBundle
+endDocument
