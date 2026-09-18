@@ -3,7 +3,7 @@
    passes -V maxwidth=100%), and code is set at the body size rather than the
    85% of pandoc's default stylesheet. */
 code {
-  font-size: 100%;
+  font-size: 120%;
 }
 
 .tab-container {
