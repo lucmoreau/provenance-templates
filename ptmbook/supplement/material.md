@@ -171,7 +171,7 @@ OLISTING(lst:example.java.templateInstantiation,{{Declaration of templateInstant
 OLISTING(lst:curl:equiv:swagger:post,{{CURL call equivalent to posting of CSV through Swagger interface}},sh)
 OLISTING(lst:sql.query.list.records,{{SQL query to list records authorized for user lavm}},sql)
 OLISTING(lst:post.bindings.request.hash,{{POST some bindings for a template and request an acknowledgement in the form of hash}},Makefile)
-OLISTING(lst:response.bindings.request.hash,{{HTTP response including a PROV-Hash HTTP header}},yaml)
+OLISTING2(response.bindings.request.hash,{{HTTP response including a PROV-Hash HTTP header}},yaml,{{make -f Makefile-extractor extract.post.response}},yaml,{{figures/screenshots/chap8-post-response.txt}},{{HTTP response including a PROV-Hash HTTP header}})
 OLISTING(lst:decoded.prov.hash.header,{{Decoded HTTP PROV-Hash header field}},json)
 OLISTING(lst:calculating.hash.digest,{{Calculating a hash digest of a single-line record}},Makefile)
 OLISTING4B(successor.across.instantiated.template,{{Successor relation across an instantiated template}},java,{{make -f Makefile-extractor extract.file_approving.successors}},java,{{project/template-intro1/target/generated-sources/transport_template_library_cli/org/openprovenance/book/fs/client/common/File_approvingBuilder.java}},{{Java File}},{{python}},{{project/template-intro1/target/generated-python/org/openprovenance/book/fs/client/common/File_approvingBuilder.py}},{{Python File}},{{javascript}},{{project/template-intro1/target/generated-js/org/openprovenance/book/fs/client/common/File_approvingBuilder.js}},{{Javascript File}})

@@ -10185,6 +10185,75 @@ Rust source
 </div>
 </div>
 </div>
+<div id="response.bindings.request.hash.div">
+<div class="onlinetitle">
+Listing 173: HTTP response including a PROV-Hash HTTP header
+</div>
+<div class="tab-buttons">
+<button class="tab-button active" onclick="showTab(&#39;response.bindings.request.hash.tab1&#39;)">
+Book
+</button>
+<button class="tab-button" onclick="showTab(&#39;response.bindings.request.hash.tab2&#39;)">
+HTTP response including a PROV-Hash HTTP header
+</button>
+</div>
+<div class="tab-container">
+<div id="response.bindings.request.hash.tab1" class="tab-content active" style="display: block; padding: 30px 20px; background-color: white; border: 1px solid #ddd; border-top: none; min-height: 300px;">
+<p>Listing 173: HTTP response including a PROV-Hash HTTP header</p>
+<div class="sourceCode" id="lst:response.bindings.request.hash.tab1"><pre class="sourceCode numberSource yaml number-lines"><code class="sourceCode yaml"><span id="lst:response.bindings.request.hash.tab1-1"><a href="#lst:response.bindings.request.hash.tab1-1"></a><span class="at">HTTP/1.1 200 OK</span></span>
+<span id="lst:response.bindings.request.hash.tab1-2"><a href="#lst:response.bindings.request.hash.tab1-2"></a><span class="fu">Date</span><span class="kw">:</span><span class="at"> Fri, 01 May 2026 12:24:39 GMT</span></span>
+<span id="lst:response.bindings.request.hash.tab1-3"><a href="#lst:response.bindings.request.hash.tab1-3"></a><span class="fu">Cache-Control</span><span class="kw">:</span><span class="at"> no-cache, no-store, max-age=0, must-revalidate</span></span>
+<span id="lst:response.bindings.request.hash.tab1-4"><a href="#lst:response.bindings.request.hash.tab1-4"></a><span class="fu">Pragma</span><span class="kw">:</span><span class="at"> no-cache</span></span>
+<span id="lst:response.bindings.request.hash.tab1-5"><a href="#lst:response.bindings.request.hash.tab1-5"></a><span class="fu">Expires</span><span class="kw">:</span><span class="at"> Thu, 01 Jan 1970 00:00:00 GMT</span></span>
+<span id="lst:response.bindings.request.hash.tab1-6"><a href="#lst:response.bindings.request.hash.tab1-6"></a><span class="fu">X-Content-Type-Options</span><span class="kw">:</span><span class="at"> nosniff</span></span>
+<span id="lst:response.bindings.request.hash.tab1-7"><a href="#lst:response.bindings.request.hash.tab1-7"></a><span class="fu">X-Frame-Options</span><span class="kw">:</span><span class="at"> DENY</span></span>
+<span id="lst:response.bindings.request.hash.tab1-8"><a href="#lst:response.bindings.request.hash.tab1-8"></a><span class="fu">X-XSS-Protection</span><span class="kw">:</span><span class="at"> 1; mode=block</span></span>
+<span id="lst:response.bindings.request.hash.tab1-9"><a href="#lst:response.bindings.request.hash.tab1-9"></a><span class="fu">Set-Cookie</span><span class="kw">:</span><span class="at"> JSESSIONID=node01bt1x5lcz831wn3x99i7dpwxo2.node0; Path=/book</span></span>
+<span id="lst:response.bindings.request.hash.tab1-10"><a href="#lst:response.bindings.request.hash.tab1-10"></a><span class="fu">WWW-Authenticate</span><span class="kw">:</span><span class="at"> Bearer realm=&quot;prov&quot;</span></span>
+<span id="lst:response.bindings.request.hash.tab1-11"><a href="#lst:response.bindings.request.hash.tab1-11"></a><span class="fu">Access-Control-Allow-Origin</span><span class="kw">:</span><span class="at"> *</span></span>
+<span id="lst:response.bindings.request.hash.tab1-12"><a href="#lst:response.bindings.request.hash.tab1-12"></a><span class="fu">Content-Type</span><span class="kw">:</span><span class="at"> application/vnd.kcl.prov-template+json</span></span>
+<span id="lst:response.bindings.request.hash.tab1-13"><a href="#lst:response.bindings.request.hash.tab1-13"></a><span class="fu">Location</span><span class="kw">:</span><span class="at"> http://localhost:7075/book/provapi/template/</span></span>
+<span id="lst:response.bindings.request.hash.tab1-14"><a href="#lst:response.bindings.request.hash.tab1-14"></a><span class="at">    org.openprovenance.templates.fs.FileTransforming/839</span></span>
+<span id="lst:response.bindings.request.hash.tab1-15"><a href="#lst:response.bindings.request.hash.tab1-15"></a><span class="fu">PROV-Hash</span><span class="kw">:</span><span class="at"> ewogICJTSEEzLTUxMiIgOiAiNjY4NDcy...jE5NDE0NTU5YzE2YjgyZmQ1MGMiCn0=</span></span>
+<span id="lst:response.bindings.request.hash.tab1-16"><a href="#lst:response.bindings.request.hash.tab1-16"></a><span class="fu">Content-Length</span><span class="kw">:</span><span class="at"> </span><span class="dv">136</span></span>
+<span id="lst:response.bindings.request.hash.tab1-17"><a href="#lst:response.bindings.request.hash.tab1-17"></a><span class="fu">Server</span><span class="kw">:</span><span class="at"> Jetty(11.0.26)</span></span>
+<span id="lst:response.bindings.request.hash.tab1-18"><a href="#lst:response.bindings.request.hash.tab1-18"></a></span>
+<span id="lst:response.bindings.request.hash.tab1-19"><a href="#lst:response.bindings.request.hash.tab1-19"></a><span class="kw">[</span><span class="at"> </span><span class="kw">{</span></span>
+<span id="lst:response.bindings.request.hash.tab1-20"><a href="#lst:response.bindings.request.hash.tab1-20"></a><span class="at">  </span><span class="fu">&quot;isA&quot; </span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;org.openprovenance.templates.fs.FileTransforming&quot;</span><span class="kw">,</span></span>
+<span id="lst:response.bindings.request.hash.tab1-21"><a href="#lst:response.bindings.request.hash.tab1-21"></a><span class="at">  </span><span class="fu">&quot;ID&quot; </span><span class="kw">:</span><span class="at"> </span><span class="dv">839</span><span class="kw">,</span></span>
+<span id="lst:response.bindings.request.hash.tab1-22"><a href="#lst:response.bindings.request.hash.tab1-22"></a><span class="at">  </span><span class="fu">&quot;transformed_file&quot; </span><span class="kw">:</span><span class="at"> </span><span class="dv">1908</span><span class="kw">,</span></span>
+<span id="lst:response.bindings.request.hash.tab1-23"><a href="#lst:response.bindings.request.hash.tab1-23"></a><span class="at">  </span><span class="fu">&quot;transforming&quot; </span><span class="kw">:</span><span class="at"> </span><span class="dv">6403</span></span>
+<span id="lst:response.bindings.request.hash.tab1-24"><a href="#lst:response.bindings.request.hash.tab1-24"></a><span class="kw">}</span><span class="at"> </span><span class="kw">]</span></span></code></pre></div>
+</div>
+<div id="response.bindings.request.hash.tab2" class="tab-content" style="display: none; padding: 30px 20px; background-color: white; border: 1px solid #ddd; border-top: none; min-height: 300px;">
+<p>Listing 173: HTTP response including a PROV-Hash HTTP header <a href="staging/chap8-post-response.txt">(File)</a></p>
+<!--  -->
+<div class="sourceCode" id="response.bindings.request.hash.tab2"><pre class="sourceCode numberSource yaml number-lines"><code class="sourceCode yaml"><span id="response.bindings.request.hash.tab2-1"><a href="#response.bindings.request.hash.tab2-1"></a><span class="at">HTTP/1.1 200 OK</span></span>
+<span id="response.bindings.request.hash.tab2-2"><a href="#response.bindings.request.hash.tab2-2"></a><span class="fu">Date</span><span class="kw">:</span><span class="at"> Fri, 01 May 2026 12:24:39 GMT</span></span>
+<span id="response.bindings.request.hash.tab2-3"><a href="#response.bindings.request.hash.tab2-3"></a><span class="fu">Cache-Control</span><span class="kw">:</span><span class="at"> no-cache, no-store, max-age=0, must-revalidate</span></span>
+<span id="response.bindings.request.hash.tab2-4"><a href="#response.bindings.request.hash.tab2-4"></a><span class="fu">Pragma</span><span class="kw">:</span><span class="at"> no-cache</span></span>
+<span id="response.bindings.request.hash.tab2-5"><a href="#response.bindings.request.hash.tab2-5"></a><span class="fu">Expires</span><span class="kw">:</span><span class="at"> Thu, 01 Jan 1970 00:00:00 GMT</span></span>
+<span id="response.bindings.request.hash.tab2-6"><a href="#response.bindings.request.hash.tab2-6"></a><span class="fu">X-Content-Type-Options</span><span class="kw">:</span><span class="at"> nosniff</span></span>
+<span id="response.bindings.request.hash.tab2-7"><a href="#response.bindings.request.hash.tab2-7"></a><span class="fu">X-Frame-Options</span><span class="kw">:</span><span class="at"> DENY</span></span>
+<span id="response.bindings.request.hash.tab2-8"><a href="#response.bindings.request.hash.tab2-8"></a><span class="fu">X-XSS-Protection</span><span class="kw">:</span><span class="at"> 1; mode=block</span></span>
+<span id="response.bindings.request.hash.tab2-9"><a href="#response.bindings.request.hash.tab2-9"></a><span class="fu">Set-Cookie</span><span class="kw">:</span><span class="at"> JSESSIONID=node01bt1x5lcz831wn3x99i7dpwxo2.node0; Path=/book</span></span>
+<span id="response.bindings.request.hash.tab2-10"><a href="#response.bindings.request.hash.tab2-10"></a><span class="fu">WWW-Authenticate</span><span class="kw">:</span><span class="at"> Bearer realm=&quot;prov&quot;</span></span>
+<span id="response.bindings.request.hash.tab2-11"><a href="#response.bindings.request.hash.tab2-11"></a><span class="fu">Access-Control-Allow-Origin</span><span class="kw">:</span><span class="at"> *</span></span>
+<span id="response.bindings.request.hash.tab2-12"><a href="#response.bindings.request.hash.tab2-12"></a><span class="fu">Content-Type</span><span class="kw">:</span><span class="at"> application/vnd.kcl.prov-template+json</span></span>
+<span id="response.bindings.request.hash.tab2-13"><a href="#response.bindings.request.hash.tab2-13"></a><span class="fu">Location</span><span class="kw">:</span><span class="at"> http://localhost:7075/book/provapi/template/org.openprovenance.templates.fs.FileTransforming/839</span></span>
+<span id="response.bindings.request.hash.tab2-14"><a href="#response.bindings.request.hash.tab2-14"></a><span class="fu">PROV-Hash</span><span class="kw">:</span><span class="at"> ewogICJTSEEzLTUxMiIgOiAiNjY4NDcyODVhNTNmOGU1NmU1Mjc5MTg3YjMxOTc5YjhkM2M5MGE3ZDg3NTRmYjNhNjZjMjU1OGVmYTU0ZDdiMmVhM2ZmNGRkYjg4OTc0MGMyMmQwOGFmMGZhYTQzNjMyMjY2MWUzNTY3ZmEwYjE5NDE0NTU5YzE2YjgyZmQ1MGMiCn0=</span></span>
+<span id="response.bindings.request.hash.tab2-15"><a href="#response.bindings.request.hash.tab2-15"></a><span class="fu">Content-Length</span><span class="kw">:</span><span class="at"> </span><span class="dv">136</span></span>
+<span id="response.bindings.request.hash.tab2-16"><a href="#response.bindings.request.hash.tab2-16"></a><span class="fu">Server</span><span class="kw">:</span><span class="at"> Jetty(11.0.26)</span></span>
+<span id="response.bindings.request.hash.tab2-17"><a href="#response.bindings.request.hash.tab2-17"></a></span>
+<span id="response.bindings.request.hash.tab2-18"><a href="#response.bindings.request.hash.tab2-18"></a><span class="kw">[</span><span class="at"> </span><span class="kw">{</span></span>
+<span id="response.bindings.request.hash.tab2-19"><a href="#response.bindings.request.hash.tab2-19"></a><span class="at">  </span><span class="fu">&quot;isA&quot; </span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;org.openprovenance.templates.fs.FileTransforming&quot;</span><span class="kw">,</span></span>
+<span id="response.bindings.request.hash.tab2-20"><a href="#response.bindings.request.hash.tab2-20"></a><span class="at">  </span><span class="fu">&quot;ID&quot; </span><span class="kw">:</span><span class="at"> </span><span class="dv">839</span><span class="kw">,</span></span>
+<span id="response.bindings.request.hash.tab2-21"><a href="#response.bindings.request.hash.tab2-21"></a><span class="at">  </span><span class="fu">&quot;transformed_file&quot; </span><span class="kw">:</span><span class="at"> </span><span class="dv">1908</span><span class="kw">,</span></span>
+<span id="response.bindings.request.hash.tab2-22"><a href="#response.bindings.request.hash.tab2-22"></a><span class="at">  </span><span class="fu">&quot;transforming&quot; </span><span class="kw">:</span><span class="at"> </span><span class="dv">6403</span></span>
+<span id="response.bindings.request.hash.tab2-23"><a href="#response.bindings.request.hash.tab2-23"></a><span class="kw">}</span><span class="at"> </span><span class="kw">]</span></span></code></pre></div>
+</div>
+</div>
+</div>
 <div id="successor.across.instantiated.template.div">
 <div class="onlinetitle">
 Listing 176: Successor relation across an instantiated template

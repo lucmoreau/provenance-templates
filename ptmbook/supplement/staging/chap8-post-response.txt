@@ -1,0 +1,23 @@
+HTTP/1.1 200 OK
+Date: Fri, 01 May 2026 12:24:39 GMT
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+X-XSS-Protection: 1; mode=block
+Set-Cookie: JSESSIONID=node01bt1x5lcz831wn3x99i7dpwxo2.node0; Path=/book
+WWW-Authenticate: Bearer realm="prov"
+Access-Control-Allow-Origin: *
+Content-Type: application/vnd.kcl.prov-template+json
+Location: http://localhost:7075/book/provapi/template/org.openprovenance.templates.fs.FileTransforming/839
+PROV-Hash: ewogICJTSEEzLTUxMiIgOiAiNjY4NDcyODVhNTNmOGU1NmU1Mjc5MTg3YjMxOTc5YjhkM2M5MGE3ZDg3NTRmYjNhNjZjMjU1OGVmYTU0ZDdiMmVhM2ZmNGRkYjg4OTc0MGMyMmQwOGFmMGZhYTQzNjMyMjY2MWUzNTY3ZmEwYjE5NDE0NTU5YzE2YjgyZmQ1MGMiCn0=
+Content-Length: 136
+Server: Jetty(11.0.26)
+
+[ {
+  "isA" : "org.openprovenance.templates.fs.FileTransforming",
+  "ID" : 839,
+  "transformed_file" : 1908,
+  "transforming" : 6403
+} ]
