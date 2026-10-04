@@ -14,7 +14,7 @@
 
 - **Details**:
 
-    At the start, there is an entity `item` and its specialisation `item0`, with no attributes specified in this template. An activity `handingover` uses entity `item0`.  After this operation, an entity `item1` is created with a new attribute `iprops1` and a value `ivalues1`, determined by the activity `handingover`.  All other attributes of `item` and `item0` are expected to remain unchanged.
+    At the start, there is an entity `item` and its specialization `item0`, with no attributes specified in this template. An activity `handingover` uses entity `item0`.  After this operation, an entity `item1` is created with a new attribute `iprops1` and a value `ivalues1`, determined by the activity `handingover`.  All other attributes of `item` and `item0` are expected to remain unchanged.
 
     Attribution changes during this operation: before the `handingover` activity, `item0` is attributed to the agent `giver`; after the activity, an agent `receiver` is associated with `item1`.
 
@@ -24,7 +24,7 @@
     - Triangle1-Entity-UGD describes the entity `item0` evolving into `item1`, enriched with the attribute-value pair `iprops1`-`ivalues1`. All other aspects of the entity `item0` remain unchanged.
 
 
-    - Triangle2-Entity-SDS describes how the entities `item0` and `item1` are specialisations of a more general entity `item`.
+    - Triangle2-Entity-SDS describes how the entities `item0` and `item1` are specializations of a more general entity `item`.
 
     - Triangle3-AGA describes how the `receiver` agent is involved in the activity, resulting in the agent being linked to `item1` by means of an attribution link.
 

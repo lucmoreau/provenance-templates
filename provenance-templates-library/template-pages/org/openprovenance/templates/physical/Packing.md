@@ -22,12 +22,12 @@
 
     - Triangle3-AGA to capture the agent (`packer`) responsible for packing the item in the container.
 
-    - Triangle2-Entity-SDS to describe that the container before and the container after are both specialisations of a single, more general container.
+    - Triangle2-Entity-SDS to describe that the container before and the container after are both specializations of a single, more general container.
 
-    - Triangle2-Entity-SDS to describe that the item before and the item after are both specialisations of a single, more general item.
+    - Triangle2-Entity-SDS to describe that the item before and the item after are both specializations of a single, more general item.
 
 
-    As this is a physical operation, the container and item specialisations have a single existence: the container's previous and new versions cannot coexist, and the same applies to the item. The creation of `item1` and `container1` invalidates (in the sense of provenance) `item0` and `container0`, though we did not make invalidation edges explicit to avoid overloading the visualisation.
+    As this is a physical operation, the container and item specializations have a single existence: the container's previous and new versions cannot coexist, and the same applies to the item. The creation of `item1` and `container1` invalidates (in the sense of provenance) `item0` and `container0`, though we did not make invalidation edges explicit to avoid overloading the visualisation.
 
 
 

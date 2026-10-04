@@ -25,7 +25,7 @@
     - Triangle1-Entity-UGD describing the entity `e0` evolving to `e1` enriched with attribute-value pair `eprops1`-`evalues1`.
       All other aspects of the entity `e0` remain unchanged.
 
-    - Triangle2-Entity-SDS describes how the entities `e0` and `e1` are specialisations of a more general entity `e`.
+    - Triangle2-Entity-SDS describes how the entities `e0` and `e1` are specializations of a more general entity `e`.
 
     - Triangle3-AGA describes how the activity `examining` was associated with `agent`, who is responsible for `e1` and its new attribute `eprops1`.
 

@@ -12,8 +12,8 @@ Details: |-
   - RemovingFromCollection describes the container and item, before and after the operation
   - Triangle3-AGA to express that the agent (unpacker) is responsible for unpacking the item.
   - Triangle3-AGA to express that the agent (unpacker) is responsible for unpacking the item from the container.
-  - Triangle2-Entity-SDS to describe that the container before and the container after are both specialisations of a single, more general container.
-  - Triangle2-Entity-SDS to describe that the item before and the item after are both specialisations of a single, more general item.
+  - Triangle2-Entity-SDS to describe that the container before and the container after are both specializations of a single, more general container.
+  - Triangle2-Entity-SDS to describe that the item before and the item after are both specializations of a single, more general item.
 
-  As this is a physical operation, the container and item specialisations have a single existence. The creation of item1 and container1 invalidates (in the sense of provenance)  item0 and container0, though we did not make invalidation edges explicit to avoid overloading the visualisation.
+  As this is a physical operation, the container and item specializations have a single existence. The creation of item1 and container1 invalidates (in the sense of provenance)  item0 and container0, though we did not make invalidation edges explicit to avoid overloading the visualisation.
   Domain-specific instantiations of the template need to consider whether the entity item0 still exists after it is added to the collection. In a physical context, when a book is placed in a box, there is a single instance of the book, so it no longer exists outside the box. Alternatively, in the digital world, when a file is added to a Zip archive, its original copy remains in existence.

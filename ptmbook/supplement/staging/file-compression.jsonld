@@ -1,0 +1,45 @@
+{
+  "@context" : [ { }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+  "@graph" : [ {
+    "@type" : "Bundle",
+    "@context" : [ {
+      "xsd" : "http://www.w3.org/2001/XMLSchema#",
+      "vargen" : "http://openprovenance.org/vargen#",
+      "prov" : "http://www.w3.org/ns/prov#",
+      "var" : "http://openprovenance.org/var#"
+    }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+    "@id" : "vargen:b",
+    "@graph" : [ {
+      "@type" : "Activity",
+      "@id" : "var:compressing"
+    }, {
+      "@type" : "Entity",
+      "@id" : "var:file1",
+      "var:iprop" : [ "var:ivalue" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "var:file2",
+      "var:oprop" : [ "var:ovalue" ]
+    }, {
+      "@type" : "Agent",
+      "@id" : "var:agent",
+      "var:aprop" : [ "var:avalue" ]
+    }, {
+      "@type" : "Association",
+      "activity" : "var:compressing",
+      "agent" : "var:agent"
+    }, {
+      "@type" : "Generation",
+      "entity" : "var:file2",
+      "activity" : "var:compressing"
+    }, {
+      "@type" : "Usage",
+      "activity" : "var:compressing",
+      "entity" : "var:file1"
+    }, {
+      "@type" : "Derivation",
+      "generatedEntity" : "var:file2",
+      "usedEntity" : "var:file1"
+    } ]
+  } ]
+}
