@@ -13,7 +13,7 @@
             "output": "org/openprovenance/templates/triangles/triangle1-agent-ugd/agents",
             "bindings": "agent-ag0-ag1.json",
             "formats": ["provn", "png", "svg"],
-            "hasProvenance": "org/openprovenance/templates/triangles/triangle1-ugd/prov/prov-entities.prov-csv"
+            "hasProvenance": "org/openprovenance/templates/triangles/triangle1-agent-ugd/prov/prov-agents.prov-csv"
         },
         {
             "type": "instantiate",

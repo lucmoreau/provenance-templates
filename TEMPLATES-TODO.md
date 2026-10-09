@@ -1,6 +1,6 @@
 # TEMPLATES-TODO — Outstanding Work
 
-> **🔢 LAST ALLOCATED TASK NUMBER: T-4** — the highest task id ever assigned (whether still open here
+> **🔢 LAST ALLOCATED TASK NUMBER: T-6** — the highest task id ever assigned (whether still open here
 > or retired to `TEMPLATES-DONE.md`). **When allocating a new task, take the NEXT number and bump this
 > line.** Do NOT reuse a number freed by retirement — a retired task is gone from the index but its
 > number is still taken.
@@ -10,7 +10,7 @@
 > recording the task ID, completion date, what was done, and the key files changed.
 > All paths relative to `/Users/luc/IdeaProjects/provenance-templates/provenance-templates-library/`
 > unless stated.
-> Last updated: 2026-07-28.
+> Last updated: 2026-10-09.
 
 ---
 
@@ -29,6 +29,8 @@ one-line summary *only*; all narrative (context, findings, design, evidence) bel
 | T-2 | Check all URLs of the published template pages with the crawler script. | 🔵 LOW | Quality / Web | [T-2 section](#-t-2-check-all-urls-of-the-published-template-pages) |
 | T-3 | Change the package in which Java code is generated — remove `bookptm`. | 🟡 MEDIUM | Build / Naming | [T-3 section](#-t-3-change-the-package-in-which-java-code-is-generated--remove-bookptm) |
 | T-4 | Add a "How to use the template library" page to the template web site, referring to the workflows and the book. | 🟡 MEDIUM | Documentation | [T-4 section](#-t-4-add-a-how-to-use-the-template-library-page-to-the-template-web-site) |
+| T-5 | A merge's provenance record names all its inputs, not the first two: one record per input, sharing the activity id. | 🟡 MEDIUM | Provenance / ptm | [T-5 section](#-t-5-a-merges-provenance-record-names-all-its-inputs) |
+| T-6 | Provenance records name templates and inputs as the outputs they are, so the joined records form one graph. | 🟡 MEDIUM | Provenance / ptm | [T-6 section](#-t-6-provenance-records-identify-templates-by-their-output-path) |
 
 ---
 
@@ -193,3 +195,111 @@ generated code (beans/builders) is consumed from an application.
 **DoD.** The page renders through `do.file` without pandoc errors, is reachable from
 `index.html`, and contains working references to both the workflows and the book (the T-2
 crawler run should pick it up and report no broken links from it).
+
+---
+
+### 🟡 T-5: A merge's provenance record names all its inputs
+
+**Status**: OPEN (created 2026-10-09; option B ruled 2026-10-09).
+**Priority**: 🟡 MEDIUM. **Category**: Provenance / ptm.
+
+**Finding (2026-10-09).** Every ttfs task writes a `hasProvenance` PROV-CSV record. A merge task's
+record is a `ptm_merging` record, and that template has exactly two inputs (`template1`,
+`template2`). ProvToolbox's `MergeTask` (`modules-template/prov-template/src/main/java/org/openprovenance/prov/template/core/ttf/MergeTask.java`,
+the `Ptm_mergingBean` fill near the end) sets `bean.template1`/`bean.template2` from the first two
+`inputs` and drops the rest. 21 of the library's 22 merges have more than two inputs (3 to 8; e.g.
+`collections/inserting/collection-inserting` and `responsibility/assigning/assigning` have 8,
+`ptm/creating-template/creating-template` has 4), so their records lose 1 to 6 inputs each. Only
+the merge in `config-generic-transforming.json` is a true two-input merge.
+
+**How `-log2prov` reads a record.** `provconvert -log2prov <Init>` calls `<Init>.main`. That
+`Init` class is generated from one catalogue; the ptm records use
+`org.openprovenance.prov.template.library.ptm.Init`, generated from ProvToolbox's `tp_ptm.json`.
+`Init` registers one `FileBuilder` per template in the catalogue. ProvToolbox's `FileBuilder`
+(`modules-template/prov-template-compiler/.../log2prov/FileBuilder.java`, `processRecord`) parses
+the file as CSV and looks up each record's first field (the template's `name`, e.g.
+`ptm_merging`) in that registry. A record with an unknown name is skipped, with only an info log
+line. So yes: for a composite merge record to be read, the composite must be declared in
+`tp_ptm.json` (as `ptm/ptm_merging` composite, `consistsOf` a one-input element template) so
+that the ptm `Init` registers a builder for it. Declaring it is not enough, though: today
+`log2prov` cannot read any composite record (checked 2026-10-09 against this library's compiled
+transport catalogue, which has `packing_composite`/`unpacking_composite`):
+1. **No builder for composites.** The generated `Init` sizes its `builders` array for every
+   catalogue entry but fills only the simple ones (transport: 9 slots, 7 filled). The two
+   composite slots stay `null`, and `FileBuilder.registerBuilders` calls `Class.forName(null)`:
+   `-log2prov org.openprovenance.templates.catalogue.transport.Init` dies with a
+   `NullPointerException` (`FileBuilder.java:178`) before reading a single line.
+2. **Key mismatch.** A composite record starts with the template's fully qualified name
+   (`Packing_compositeBuilder.logPacking_composite` writes
+   `org.openprovenance.templates.transport.PackingComposite`), whereas the registry is keyed by
+   `getName()` (`packing_composite`).
+3. **One physical line.** The composite's `args2csv` joins the header (`name,bean,count,type`)
+   and the element records with a literal two-character `\n`
+   (`sb.append("\\n")` in the generated source). The CSV parser therefore sees one record whose
+   fields run into each other (`type\npacking`, ...), not a header followed by element records.
+
+**Options.**
+- **(A) Composite `ptm_merging`.** Declare it in `tp_ptm.json` and fix 1–3 in the ProvToolbox
+  template compiler and `FileBuilder`. This also makes the fs/transport composites readable,
+  but it is ProvToolbox work beyond the ptm library.
+- **(B) One record per input, sharing the activity id.** `MergeTask` writes several `ptm_merging`
+  records per output, all with the same `merging` id (pairing up the inputs, or, cleaner, a new
+  simple one-input template such as `ptm_merging_input`). This works with today's reader:
+  `log2prov` unions records by identifier. Tested 2026-10-09: two `ptm_merging` rows for
+  `creating-template.provn` with the same id and inputs (1,2) and (3,4) gave one
+  `ptm:MergingTemplates` activity with four `used` edges. Records already repeat per output
+  format in this way.
+
+**Ruled (Luc, 2026-10-09): B.** Defects 1–3 are filed separately as ProvToolbox T26
+(`ProvToolbox/TODO.md`); T-5 does not wait for them.
+
+**Open questions.** Keep `ptm_merging` for the two-input case, or retire it? Do the library's own
+`ptm/ptm-merging` template and its bindings
+(`bindings/org/openprovenance/bindings/ptm/ptm-merging.json`, built by `config-ptm.json` from
+`generic/parallel2`) need a counterpart too?
+
+**DoD.** Regenerated records: for each of the 22 merges, the record's inputs equal the task's
+`inputs` in the config (count and names). `log2prov` of a merge record yields one `used` per
+input. The `log2prov.*.all` SVGs in `target/` still build.
+
+---
+
+### 🟡 T-6: Provenance records identify templates by their output path
+
+**Status**: OPEN (created 2026-10-09).
+**Priority**: 🟡 MEDIUM. **Category**: Provenance / ptm.
+
+**Finding (2026-10-09).** Concatenate every `target/generated-templates/**/*.prov-csv` and run
+`provconvert -log2prov org.openprovenance.prov.template.library.ptm.Init`. The result is a valid
+document (~1,000 nodes) that does not form a lineage graph: 38 weakly connected components, and
+some of those connections are false. A record names its inputs in three different ways, none of
+which matches how an output is named (the output path relative to `output_dir`, plus a format
+extension, e.g. `org/openprovenance/templates/triangles/triangle1-ugd/triangle1-ugd.jsonld`):
+- **Merge inputs** are bare file names (`MergeTask`: `bean.template1 = fileinDirs1.getName()`),
+  e.g. `creating-template-triangle1-ugd.jsonld`. None of the 69 merge inputs recorded matches an
+  output.
+- **Instantiation templates** are recorded as written in the config: a Java-style name
+  (`org.openprovenance.templates.triangles.Triangle1-UGD`) or a path
+  (`org/openprovenance/templates/generic/parallel2`). The name is never linked to the merge that
+  produced the template. `target/generated-templates/index.json` already keys such merges by
+  that name (when the merge declares `outputFullyQualifiedName`); hand-written templates map
+  name → `src/main/resources/templates/<path lowercased>.{provn,jsonld}`.
+- **Bindings** are bare file names (`agent.json`, `activity.json`), so unrelated families that
+  happen to use the same file name are joined into one false component.
+
+**Fix (ProvToolbox `InstantiateTask`/`MergeTask`).** Record the resolved file each task actually
+read: the template found on `template_path`, the bindings found on `bindings_path`, and each merge
+input. Record each one relative to its root (output dir for generated templates, resources root for
+hand-written templates and bindings), so that an input written by an earlier task has the same
+identifier as that task's output. Formats: an output is recorded once per format
+(`.jsonld`, `.provn`, `.png`, ...). Decide whether the input is the `.jsonld`/`.provn` that was
+actually read, or a format-free template identifier with the formats as its specialisations.
+
+**Evidence of the target.** A throwaway rebuild on 2026-10-09 got one connected graph: activity ids
+and times taken from the records, inputs filled in from the configs, and names resolved through
+`index.json`. It had 148 templates (12 hand-written), 114 bindings and 136 activities. T-5 is
+needed for merge records to carry all the inputs on their own.
+
+**DoD.** `log2prov` of all records joined (excluding the per-family `all.prov-csv`) gives one
+connected component. Every `used` input of an activity is either the output of another activity
+or a hand-written template or bindings file. No two families share a bindings node.
