@@ -34,6 +34,7 @@
         <cbindings.dir>${project.basedir}/src/main/resources/cbindings</cbindings.dir>
 
         <generated.templates.dir>${project.build.directory}/generated-templates</generated.templates.dir>
+        <prov.graph.dir>${project.build.directory}/prov-graph</prov.graph.dir>
 
         <commons.text.version>1.14.0</commons.text.version>
         <commons.io.version>2.21.0</commons.io.version>  <!-- 2.15.1, 2.8.0 -->
@@ -1271,6 +1272,61 @@
                         </configuration>
                     </execution>
 
+                    <!-- the library's provenance graph: every template's provenance record (concat.library.csv) as PROV -->
+                    <execution>
+                        <id>log2prov.library.provn</id>
+                        <phase>test</phase> <!-- later than concat.library.csv; before the exec plugin's prov-graph steps -->
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${prov.graph.dir}/library.prov-csv</arg>
+                                <arg>-log2prov</arg>
+                                <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
+                                <arg>-outfile</arg>
+                                <arg>${prov.graph.dir}/library.provn</arg> <!-- PROV-N -->
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>log2prov.library.json</id>
+                        <phase>test</phase> <!-- later than concat.library.csv; before the exec plugin's prov-graph steps -->
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${prov.graph.dir}/library.prov-csv</arg>
+                                <arg>-log2prov</arg>
+                                <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
+                                <arg>-outfile</arg>
+                                <arg>${prov.graph.dir}/library.json</arg> <!-- PROV-JSON, read by scripts/prov_graph.py -->
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>log2prov.library.svg</id>
+                        <phase>test</phase> <!-- later than concat.library.csv; before the exec plugin's prov-graph steps -->
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${prov.graph.dir}/library.prov-csv</arg>
+                                <arg>-log2prov</arg>
+                                <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
+                                <arg>-outfile</arg>
+                                <arg>${prov.graph.dir}/library.svg</arg> <!-- the full graph, every format of every template -->
+                            </args>
+                        </configuration>
+                    </execution>
+
                     <execution>
                         <id>validate.catalogue</id>
                         <phase>generate-sources</phase>
@@ -1515,6 +1571,23 @@
                         </configuration>
                     </execution>
 
+                    <!-- the library's provenance graph, step 1: all the templates' provenance records in one file
+                         (the per-family all.prov-csv concatenations left out, they repeat records) -->
+                    <execution>
+                        <id>concat.library.csv</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>bash</executable>
+                            <arguments>
+                                <argument>-c</argument>
+                                <argument>mkdir -p ${prov.graph.dir} &amp;&amp; find ${generated.templates.dir} -name '*.prov-csv' ! -name all.prov-csv -print0 | sort -z | xargs -0 cat &gt; ${prov.graph.dir}/library.prov-csv</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
                     <execution>
                         <id>python-fs-run-workflow</id>
                         <phase>test</phase>
@@ -1558,6 +1631,45 @@
                             <successCodes>
                                 <successCode>0</successCode>
                             </successCodes>
+                        </configuration>
+                    </execution>
+
+                    <!-- the library's provenance graph, step 3 (after the prov plugin's log2prov.library.*):
+                         check every used input is explained (fails the build if not) and write the template-level view -->
+                    <execution>
+                        <id>prov-graph-check</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>python3</executable>
+                            <arguments>
+                                <argument>scripts/prov_graph.py</argument>
+                                <argument>${prov.graph.dir}/library.json</argument>
+                                <argument>${prov.graph.dir}/templates.dot</argument>
+                                <argument>src/main/resources/templates</argument> <!-- hand-written templates -->
+                                <argument>src/main/resources</argument>           <!-- bindings, configs run from src/main/resources -->
+                                <argument>.</argument>                            <!-- bindings, configs run from the project directory -->
+                            </arguments>
+                            <workingDirectory>${project.basedir}</workingDirectory>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>prov-graph-templates-svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>dot</executable>
+                            <arguments>
+                                <argument>-Tsvg</argument>
+                                <argument>${prov.graph.dir}/templates.dot</argument>
+                                <argument>-o</argument>
+                                <argument>${prov.graph.dir}/templates.svg</argument>
+                            </arguments>
                         </configuration>
                     </execution>
 
