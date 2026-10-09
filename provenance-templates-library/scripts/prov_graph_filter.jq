@@ -7,7 +7,11 @@
 #     (file:org/openprovenance/templates/triangles/triangle1-ugd/triangle1-ugd.jsonld
 #      becomes file:triangle1-ugd/triangle1-ugd.jsonld);
 #  3. attributes dropped (types, creation times): provconvert draws each as a note beside its
-#     node. They remain in library.json.
+#     node;
+#  4. activities dropped, with their generations and usages, and the activity of each derivation:
+#     every file an activity used is a file its outputs derive from (ProvToolbox's ptm templates
+#     and the library's own, from generic/product2-2), so the derivations alone carry the lineage.
+#  All of it remains in library.json.
 #
 # Usage: jq -f prov_graph_filter.jq library.json > library-templates.json
 
@@ -37,7 +41,5 @@ def shorten:
 | .wasDerivedFrom |= with_entries(select($keep[.value["prov:generatedEntity"]] and $keep[.value["prov:usedEntity"]]))
 
 | .entity |= with_entries(.key |= shorten | .value = {})
-| .activity |= map_values({})
-| .used |= map_values(map_values(shorten))
-| .wasGeneratedBy |= map_values(map_values(shorten))
-| .wasDerivedFrom |= map_values(map_values(shorten))
+| .wasDerivedFrom |= map_values(del(.["prov:activity"]) | map_values(shorten))
+| del(.activity, .used, .wasGeneratedBy)
