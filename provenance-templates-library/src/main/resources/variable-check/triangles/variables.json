@@ -22,7 +22,7 @@
     "hadMember": "(mem)\\d*",
     "specializationOf": "(spec)\\d*",
 
-    "time": "(time)\\d*",
+    "time": "(g|u|inv)?time\\d*",
 
     "attributes": {
         "entity": "(eprops|pprops)\\d*",

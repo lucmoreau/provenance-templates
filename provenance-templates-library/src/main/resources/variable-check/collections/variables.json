@@ -1,6 +1,6 @@
 {
     "entity": "(coll|item|collection)\\d*",
-    "agent": "(ag)\\d*",
+    "agent": "(ag|agent)\\d*",
     "activity": "(removing|inserting|activity|adding)\\d*$",
 
     "entity.wasGeneratedBy": "(ag)\\d*",
@@ -22,7 +22,7 @@
     "hadMember": "(mem)\\d*",
     "specializationOf": "(spec)\\d*",
 
-    "time": "(time|startTime|endTime)\\d*",
+    "time": "([gu]?time|startTime|endTime)\\d*",
 
     "attributes": {
         "entity": "(cprops|iprops)\\d*",
