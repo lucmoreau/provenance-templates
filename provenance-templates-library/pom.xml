@@ -1328,6 +1328,22 @@
                     </execution>
 
                     <execution>
+                        <id>prov.graph.templates.dot</id>
+                        <phase>prepare-package</phase> <!-- later than the exec plugin's prov-graph-filter (test) -->
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${prov.graph.dir}/library-templates.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>${prov.graph.dir}/library-templates.dot</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
                         <id>validate.catalogue</id>
                         <phase>generate-sources</phase>
                         <goals>
@@ -1669,6 +1685,40 @@
                                 <argument>${prov.graph.dir}/templates.dot</argument>
                                 <argument>-o</argument>
                                 <argument>${prov.graph.dir}/templates.svg</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <!-- the library's provenance graph, step 4: one file per template, short names, no attributes
+                         (scripts/prov_graph_filter.jq); drawn by the prov plugin's prov.graph.templates.dot (prepare-package) -->
+                    <execution>
+                        <id>prov-graph-filter</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>bash</executable>
+                            <arguments>
+                                <argument>-c</argument>
+                                <argument>jq -f scripts/prov_graph_filter.jq ${prov.graph.dir}/library.json &gt; ${prov.graph.dir}/library-templates.json</argument>
+                            </arguments>
+                            <workingDirectory>${project.basedir}</workingDirectory>
+                        </configuration>
+                    </execution>
+
+                    <!-- step 5: provconvert lays PROV out bottom to top, far too wide for this graph; right to left instead -->
+                    <execution>
+                        <id>prov-graph-templates-rl-svg</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>bash</executable>
+                            <arguments>
+                                <argument>-c</argument>
+                                <argument>sed 's/rankdir="BT"/rankdir="RL"/' ${prov.graph.dir}/library-templates.dot | dot -Tsvg -o ${prov.graph.dir}/library-templates.svg</argument>
                             </arguments>
                         </configuration>
                     </execution>
