@@ -1346,14 +1346,6 @@
                     </execution>
                 </executions>
 
-                <dependencies> <!-- dependency added to support -log2prov use of class
-                                    org.openprovenance.prov.template.library.ptm.Init -->
-                    <dependency>
-                        <groupId>org.openprovenance.prov</groupId>
-                        <artifactId>prov-template-library</artifactId>
-                        <version>${prov.toolbox.version}</version>
-                    </dependency>
-                </dependencies>
             </plugin>
 
             <!-- exec plugin to cat all files in target/generated-templates/prov-*.prov-csv into target/generated-templates/all.prov-csv -->
