@@ -1,7 +1,8 @@
 # Filter over the library's provenance graph in PROV-JSON (target/prov-graph/library.json):
 #  1. one file per template: its .jsonld, or its .provn when no .jsonld was produced; the
-#     renderings (.svg, .png, .qualified.*) and the provenance records (.prov-csv) are dropped,
-#     with the relations that mention them (a file some activity used is always kept);
+#     renderings (.svg, .png, .qualified.*), the provenance records (.prov-csv) and the bindings
+#     (typed ptm:Bindings) are dropped, with the relations that mention them (any other file some
+#     activity used is kept);
 #  2. each file named by its directory and local name only
 #     (file:org/openprovenance/templates/triangles/triangle1-ugd/triangle1-ugd.jsonld
 #      becomes file:triangle1-ugd/triangle1-ugd.jsonld);
@@ -18,13 +19,16 @@ def shorten:
   then "file:" + (ltrimstr("file:") | split("/") | .[-2:] | join("/"))
   else . end;
 
-([.used[]?["prov:entity"]] | unique) as $used
+([.entity | to_entries[]
+  | select([.value["prov:type"] | if type == "array" then .[] else . end | .["$"]?] | index("ptm:Bindings"))
+  | .key]) as $bindings
+| ([.used[]?["prov:entity"]] | unique) as $used
 | ([.entity | keys[] | select(dropped | not)]
    | group_by(base)
    | map((map(select(endswith(".jsonld"))) | .[0])
          // (map(select(endswith(".provn"))) | .[0])
          // .[0])) as $chosen
-| (($chosen + $used) | map({key: ., value: true}) | from_entries) as $keep
+| (($chosen + $used - $bindings) | map({key: ., value: true}) | from_entries) as $keep
 
 | .entity |= with_entries(select($keep[.key]))
 | .wasGeneratedBy |= with_entries(select($keep[.value["prov:entity"]]))
