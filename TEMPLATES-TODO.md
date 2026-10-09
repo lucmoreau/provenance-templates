@@ -1,6 +1,6 @@
 # TEMPLATES-TODO — Outstanding Work
 
-> **🔢 LAST ALLOCATED TASK NUMBER: T-6** — the highest task id ever assigned (whether still open here
+> **🔢 LAST ALLOCATED TASK NUMBER: T-7** — the highest task id ever assigned (whether still open here
 > or retired to `TEMPLATES-DONE.md`). **When allocating a new task, take the NEXT number and bump this
 > line.** Do NOT reuse a number freed by retirement — a retired task is gone from the index but its
 > number is still taken.
@@ -29,6 +29,7 @@ one-line summary *only*; all narrative (context, findings, design, evidence) bel
 | T-2 | Check all URLs of the published template pages with the crawler script. | 🔵 LOW | Quality / Web | [T-2 section](#-t-2-check-all-urls-of-the-published-template-pages) |
 | T-3 | Change the package in which Java code is generated — remove `bookptm`. | 🟡 MEDIUM | Build / Naming | [T-3 section](#-t-3-change-the-package-in-which-java-code-is-generated--remove-bookptm) |
 | T-4 | Add a "How to use the template library" page to the template web site, referring to the workflows and the book. | 🟡 MEDIUM | Documentation | [T-4 section](#-t-4-add-a-how-to-use-the-template-library-page-to-the-template-web-site) |
+| T-7 | Consider copying the Python runtime the workflows need (PYTHONPATH into ProvToolbox) locally, or giving it a place in the archetype. | 🔵 LOW | Build / Python | [T-7 section](#-t-7-consider-a-local-or-archetype-home-for-the-python-runtime) |
 
 ---
 
@@ -193,3 +194,48 @@ generated code (beans/builders) is consumed from an application.
 **DoD.** The page renders through `do.file` without pandoc errors, is reachable from
 `index.html`, and contains working references to both the workflows and the book (the T-2
 crawler run should pick it up and report no broken links from it).
+
+---
+
+### 🔵 T-7: Consider a local or archetype home for the Python runtime
+
+**Status**: OPEN (created 2026-10-09). To *consider*; no decision taken.
+**Priority**: 🔵 LOW. **Category**: Build / Python.
+
+**Context.** The Python workflow steps in `pom.xml` (`python-fs-run-workflow`,
+`python-box-run-workflow`, test phase) and the Makefile's `PY_PATH` (targets `test.py`,
+`fs.local.py`, `fs.remote.py`, `box.local.py`, `box.remote.py`) set `PYTHONPATH` to absolute
+paths in a ProvToolbox checkout:
+- `/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/src/main/python`.
+  ProvToolbox's hand-written Python runtime, about 10 files: `past/util` (List, Map,
+  StringBuilder), `past/exception`, `org/openprovenance/prov/client` (Builder, LoggerInterface,
+  SQL, ProcessorArgsInterface), `org/openprovenance/apache/commons/lang`. The library's
+  generated Python (`target/generated-python`) imports `past.*` from here.
+- `/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/target/generated-python`.
+  ProvToolbox's own template libraries (ptm, plead, pg; ~305 files). It does not look needed
+  by the library's workflows (to confirm).
+
+So the build only works with a ProvToolbox checkout at that path, built (for `target/`). Since
+2026-10-09, the library no longer needs ProvToolbox's `prov-template-library` for anything else
+(its records are read by its own `catalogue.ptm.Init`; the prov plugin dependency was dropped,
+773e1df).
+
+**Options to consider.**
+1. Copy the runtime into the library (e.g. `src/main/python/past`, `.../prov/client`), and drop
+   the ProvToolbox paths. Simple, but a copy to keep in step with ProvToolbox.
+2. Have the template compiler emit the runtime next to the generated Python (it already writes
+   `org/openprovenance/prov/client` into `target/generated-python`), so `PYTHONPATH` is only
+   local paths.
+3. Give it a place in the archetype (`ProvToolbox/modules-tools/prov-template-archetype`), so a
+   library made from the archetype gets the runtime and a `PYTHONPATH` that works. Today the
+   archetype's pom and Makefile mention no Python.
+4. Package the runtime as a Python package (pip-installable) and depend on it.
+
+**Also check.** Whether the ProvToolbox `target/generated-python` entry can simply be removed.
+Whether the generated `Init.py` files' imports of `org.openprovenance.prov.template.log`,
+`...types.ProvenanceKernels` and `...model.interop.SubmissionKeyManager`, which are found in
+neither path, are dead code (the workflows pass today).
+
+**DoD.** A decision recorded here. If one is taken: the pom and Makefile `PYTHONPATH` no longer
+name an absolute ProvToolbox path, and `python-fs-run-workflow` / `python-box-run-workflow` pass.
+
