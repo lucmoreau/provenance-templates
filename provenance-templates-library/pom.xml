@@ -35,6 +35,8 @@
 
         <generated.templates.dir>${project.build.directory}/generated-templates</generated.templates.dir>
         <prov.graph.dir>${project.build.directory}/prov-graph</prov.graph.dir>
+        <!-- the file whose ancestors the build draws (ancestors.svg); -Dprov.graph.focus=dir/name.jsonld for another -->
+        <prov.graph.focus>packing/packing.jsonld</prov.graph.focus>
 
         <commons.text.version>1.14.0</commons.text.version>
         <commons.io.version>2.21.0</commons.io.version>  <!-- 2.15.1, 2.8.0 -->
@@ -1344,6 +1346,22 @@
                     </execution>
 
                     <execution>
+                        <id>prov.graph.ancestors.dot</id>
+                        <phase>prepare-package</phase> <!-- later than the exec plugin's prov-graph-ancestors (test) -->
+                        <goals>
+                            <goal>provconvert</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-infile</arg>
+                                <arg>${prov.graph.dir}/ancestors.json</arg>
+                                <arg>-outfile</arg>
+                                <arg>${prov.graph.dir}/ancestors.dot</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <execution>
                         <id>validate.catalogue</id>
                         <phase>generate-sources</phase>
                         <goals>
@@ -1651,7 +1669,7 @@
                     </execution>
 
                     <!-- the library's provenance graph, step 3 (after the prov plugin's log2prov.library.*):
-                         check every used input is explained (fails the build if not) and write the template-level view -->
+                         check every used input is explained (fails the build if not) -->
                     <execution>
                         <id>prov-graph-check</id>
                         <phase>test</phase>
@@ -1663,29 +1681,11 @@
                             <arguments>
                                 <argument>scripts/prov_graph.py</argument>
                                 <argument>${prov.graph.dir}/library.json</argument>
-                                <argument>${prov.graph.dir}/templates.dot</argument>
                                 <argument>src/main/resources/templates</argument> <!-- hand-written templates -->
                                 <argument>src/main/resources</argument>           <!-- bindings, configs run from src/main/resources -->
                                 <argument>.</argument>                            <!-- bindings, configs run from the project directory -->
                             </arguments>
                             <workingDirectory>${project.basedir}</workingDirectory>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>prov-graph-templates-svg</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <executable>dot</executable>
-                            <arguments>
-                                <argument>-Tsvg</argument>
-                                <argument>${prov.graph.dir}/templates.dot</argument>
-                                <argument>-o</argument>
-                                <argument>${prov.graph.dir}/templates.svg</argument>
-                            </arguments>
                         </configuration>
                     </execution>
 
@@ -1707,6 +1707,23 @@
                         </configuration>
                     </execution>
 
+                    <!-- step 4b: the focus file (prov.graph.focus) and its ancestors only (scripts/prov_graph_ancestors.jq) -->
+                    <execution>
+                        <id>prov-graph-ancestors</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>bash</executable>
+                            <arguments>
+                                <argument>-c</argument>
+                                <argument>jq --arg focus ${prov.graph.focus} -f scripts/prov_graph_ancestors.jq ${prov.graph.dir}/library-templates.json &gt; ${prov.graph.dir}/ancestors.json</argument>
+                            </arguments>
+                            <workingDirectory>${project.basedir}</workingDirectory>
+                        </configuration>
+                    </execution>
+
                     <!-- step 5: provconvert lays PROV out bottom to top, far too wide for this graph; right to left instead -->
                     <execution>
                         <id>prov-graph-templates-rl-svg</id>
@@ -1719,6 +1736,21 @@
                             <arguments>
                                 <argument>-c</argument>
                                 <argument>sed 's/rankdir="BT"/rankdir="RL"/' ${prov.graph.dir}/library-templates.dot | dot -Tsvg -o ${prov.graph.dir}/library-templates.svg</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>prov-graph-ancestors-rl-svg</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>bash</executable>
+                            <arguments>
+                                <argument>-c</argument>
+                                <argument>sed 's/rankdir="BT"/rankdir="RL"/' ${prov.graph.dir}/ancestors.dot | dot -Tsvg -o ${prov.graph.dir}/ancestors.svg</argument>
                             </arguments>
                         </configuration>
                     </execution>
