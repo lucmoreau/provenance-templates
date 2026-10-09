@@ -21,8 +21,8 @@ import java.util.regex.Pattern;
  */
 public class OpenprovContextTest extends TestCase {
 
-    static final String OPENPROV_CONTEXT = "template-pages/ns/openprov.jsonld";
-    static final String OPENPROV_ONTOLOGY = "template-pages/ns/openprov.ttl";
+    static final String OPENPROV_CONTEXT = "../openprovspec/openprov.jsonld";
+    static final String OPENPROV_ONTOLOGY = "../openprovspec/openprov.ttl";
     static final String OPENPROV_SCHEMA = "../openprovspec/openprov-schema.json";
     static final String SPEC_SCHEMA_URL = "https://openprovenance.org/prov-jsonld/schema.json";
     static final String SPEC_SCHEMA_RESOURCE = "/2024-08-25/jsonldschema.json";
