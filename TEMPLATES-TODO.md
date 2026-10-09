@@ -29,7 +29,6 @@ one-line summary *only*; all narrative (context, findings, design, evidence) bel
 | T-2 | Check all URLs of the published template pages with the crawler script. | 🔵 LOW | Quality / Web | [T-2 section](#-t-2-check-all-urls-of-the-published-template-pages) |
 | T-3 | Change the package in which Java code is generated — remove `bookptm`. | 🟡 MEDIUM | Build / Naming | [T-3 section](#-t-3-change-the-package-in-which-java-code-is-generated--remove-bookptm) |
 | T-4 | Add a "How to use the template library" page to the template web site, referring to the workflows and the book. | 🟡 MEDIUM | Documentation | [T-4 section](#-t-4-add-a-how-to-use-the-template-library-page-to-the-template-web-site) |
-| T-6 | Provenance records name templates and inputs as the outputs they are, so the joined records form one graph. | 🟡 MEDIUM | Provenance / ptm | [T-6 section](#-t-6-provenance-records-identify-templates-by-their-output-path) |
 
 ---
 
@@ -194,46 +193,3 @@ generated code (beans/builders) is consumed from an application.
 **DoD.** The page renders through `do.file` without pandoc errors, is reachable from
 `index.html`, and contains working references to both the workflows and the book (the T-2
 crawler run should pick it up and report no broken links from it).
-
----
-
-### 🟡 T-6: Provenance records identify templates by their output path
-
-**Status**: OPEN (created 2026-10-09).
-**Priority**: 🟡 MEDIUM. **Category**: Provenance / ptm.
-
-**Finding (2026-10-09).** Concatenate every `target/generated-templates/**/*.prov-csv` and run
-`provconvert -log2prov org.openprovenance.prov.template.library.ptm.Init`. The result is a valid
-document (~1,000 nodes) that does not form a lineage graph: 38 weakly connected components, and
-some of those connections are false. A record names its inputs in three different ways, none of
-which matches how an output is named (the output path relative to `output_dir`, plus a format
-extension, e.g. `org/openprovenance/templates/triangles/triangle1-ugd/triangle1-ugd.jsonld`):
-- **Merge inputs** are bare file names (`MergeTask`: `bean.template1 = fileinDirs1.getName()`),
-  e.g. `creating-template-triangle1-ugd.jsonld`. None of the 69 merge inputs recorded matches an
-  output.
-- **Instantiation templates** are recorded as written in the config: a Java-style name
-  (`org.openprovenance.templates.triangles.Triangle1-UGD`) or a path
-  (`org/openprovenance/templates/generic/parallel2`). The name is never linked to the merge that
-  produced the template. `target/generated-templates/index.json` already keys such merges by
-  that name (when the merge declares `outputFullyQualifiedName`); hand-written templates map
-  name → `src/main/resources/templates/<path lowercased>.{provn,jsonld}`.
-- **Bindings** are bare file names (`agent.json`, `activity.json`), so unrelated families that
-  happen to use the same file name are joined into one false component.
-
-**Fix (ProvToolbox `InstantiateTask`/`MergeTask`).** Record the resolved file each task actually
-read: the template found on `template_path`, the bindings found on `bindings_path`, and each merge
-input. Record each one relative to its root (output dir for generated templates, resources root for
-hand-written templates and bindings), so that an input written by an earlier task has the same
-identifier as that task's output. Formats: an output is recorded once per format
-(`.jsonld`, `.provn`, `.png`, ...). Decide whether the input is the `.jsonld`/`.provn` that was
-actually read, or a format-free template identifier with the formats as its specialisations.
-
-**Evidence of the target.** A throwaway rebuild on 2026-10-09 got one connected graph: activity ids
-and times taken from the records, inputs filled in from the configs, and names resolved through
-`index.json`. It had 148 templates (12 hand-written), 114 bindings and 136 activities. Merge
-records already name every input (`MergeTask` writes one `ptm_merging` record per extra input; see
-T-5 in `TEMPLATES-DONE.md`); only their identifiers need fixing here.
-
-**DoD.** `log2prov` of all records joined (excluding the per-family `all.prov-csv`) gives one
-connected component. Every `used` input of an activity is either the output of another activity
-or a hand-written template or bindings file. No two families share a bindings node.
