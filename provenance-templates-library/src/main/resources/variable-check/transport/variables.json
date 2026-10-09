@@ -23,18 +23,20 @@
     "time": "[gu]?time\\d*",
 
     "attributes": {
-        "entity": "(eprop|iprops)\\d*",
+        "entity": "(eprop|iprops|cprops)\\d*",
         "activity": "(aprops)\\d*",
         "agent": "(agprop)\\d*",
-        "wasGeneratedBy": "(gprop)\\d*",
+        "wasGeneratedBy": "(gprop|gprops)\\d*",
+        "wasInvalidatedBy": "(invprops)\\d*",	
         "specializationOf": "(sprop)\\d*",
         "used": "(uprops)\\d*"
     },
     "values": {
-        "entity": "(evalue|ivalues)\\d*",
+        "entity": "(evalue|ivalues|cvalues)\\d*",
         "activity": "(avalues)\\d*",
         "agent": "(agvalue)\\d*",
-        "wasGeneratedBy": "(gvalue)\\d*",
+        "wasGeneratedBy": "(gvalue|gvalues)\\d*",
+        "wasInvalidatedBy": "(invvalues)\\d*",	
         "specializationOf": "(svalue)\\d*",
         "used": "(uvalues)\\d*"
     },
