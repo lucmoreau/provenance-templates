@@ -59,7 +59,8 @@ def main(library_json, roots):
         if e in outputs:
             kinds['output of another activity'] += 1
         elif any(os.path.exists(os.path.join(root, path_of(e))) for root in roots):
-            kinds['bindings' if 'ptm:Bindings' in types_of(entities.get(e, {})) else 'hand-written template'] += 1
+            bindings = 'ptm:Bindings' in types_of(entities.get(e, {})) or e.endswith('.json')
+            kinds['bindings' if bindings else 'hand-written template'] += 1
         else:
             unexplained.append(e)
 

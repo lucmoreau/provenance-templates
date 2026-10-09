@@ -35,6 +35,8 @@
 
         <generated.templates.dir>${project.build.directory}/generated-templates</generated.templates.dir>
         <prov.graph.dir>${project.build.directory}/prov-graph</prov.graph.dir>
+        <!-- reads the ptm_instantiating / ptm_merging provenance records the ttf runner writes -->
+        <prov.log2prov.reader>org.openprovenance.templates.catalogue.ptm.Init</prov.log2prov.reader>
         <!-- the file whose ancestors the build draws (ancestors.svg); -Dprov.graph.focus=dir/name.jsonld for another -->
         <prov.graph.focus>packing/packing.jsonld</prov.graph.focus>
 
@@ -1063,96 +1065,11 @@
                         </configuration>
                     </execution>
 
-                    <execution>
-                        <id>log2prov.ugd.all</id>
-                        <phase>test</phase> <!-- later than concat-csv -->
-                        <goals>
-                            <goal>provconvert</goal>
-                        </goals>
-                        <configuration>
-                            <args>
-                                <arg>-infile</arg>
-                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle1-ugd/prov/all.prov-csv</arg>
-                                <arg>-log2prov</arg>
-                                <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
-                                <arg>-outfile</arg>
-                                <arg>${project.build.directory}/triangle1-ugd-all.svg</arg>
-                            </args>
-                        </configuration>
-                    </execution>
 
 
-                    <execution>
-                        <id>log2prov.aga.all</id>
-                        <phase>test</phase> <!-- later than concat-csv -->
-                        <goals>
-                            <goal>provconvert</goal>
-                        </goals>
-                        <configuration>
-                            <args>
-                                <arg>-infile</arg>
-                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle3-aga/prov/all.prov-csv</arg>
-                                <arg>-log2prov</arg>
-                                <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
-                                <arg>-outfile</arg>
-                                <arg>${project.build.directory}/triangle3-aga-all.svg</arg>
-                            </args>
-                        </configuration>
-                    </execution>
 
-                    <execution>
-                        <id>log2prov.entity.sds.all</id>
-                        <phase>test</phase> <!-- later than concat-csv -->
-                        <goals>
-                            <goal>provconvert</goal>
-                        </goals>
-                        <configuration>
-                            <args>
-                                <arg>-infile</arg>
-                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-entity-sds/prov/all.prov-csv</arg>
-                                <arg>-log2prov</arg>
-                                <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
-                                <arg>-outfile</arg>
-                                <arg>${project.build.directory}/triangle2-entity-sds-all.svg</arg>
-                            </args>
-                        </configuration>
-                    </execution>
 
-                    <execution>
-                        <id>log2prov.agent.sds.all</id>
-                        <phase>test</phase> <!-- later than concat-csv -->
-                        <goals>
-                            <goal>provconvert</goal>
-                        </goals>
-                        <configuration>
-                            <args>
-                                <arg>-infile</arg>
-                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-agent-sds/prov/all.prov-csv</arg>
-                                <arg>-log2prov</arg>
-                                <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
-                                <arg>-outfile</arg>
-                                <arg>${project.build.directory}/triangle2-agent-sds-all.svg</arg>
-                            </args>
-                        </configuration>
-                    </execution>
 
-                    <execution>
-                        <id>log2prov.ugm.all</id>
-                        <phase>test</phase> <!-- later than concat-csv -->
-                        <goals>
-                            <goal>provconvert</goal>
-                        </goals>
-                        <configuration>
-                            <args>
-                                <arg>-infile</arg>
-                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle6-ugm/prov/all.prov-csv</arg>
-                                <arg>-log2prov</arg>
-                                <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
-                                <arg>-outfile</arg>
-                                <arg>${project.build.directory}/triangle6-ugm-all.svg</arg>
-                            </args>
-                        </configuration>
-                    </execution>
 
                     <execution>
                         <id>exec.ttf.ptm.creating.template</id>
@@ -1256,78 +1173,9 @@
                         </configuration>
                     </execution>
 
-                    <execution>
-                        <id>log2prov.aia.all</id>
-                        <phase>test</phase> <!-- later than concat-csv -->
-                        <goals>
-                            <goal>provconvert</goal>
-                        </goals>
-                        <configuration>
-                            <args>
-                                <arg>-infile</arg>
-                                <arg>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle4-aia/prov/all.prov-csv</arg>
-                                <arg>-log2prov</arg>
-                                <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
-                                <arg>-outfile</arg>
-                                <arg>${project.build.directory}/triangle4-aia-all.svg</arg>
-                            </args>
-                        </configuration>
-                    </execution>
 
-                    <!-- the library's provenance graph: every template's provenance record (concat.library.csv) as PROV -->
-                    <execution>
-                        <id>log2prov.library.provn</id>
-                        <phase>test</phase> <!-- later than concat.library.csv; before the exec plugin's prov-graph steps -->
-                        <goals>
-                            <goal>provconvert</goal>
-                        </goals>
-                        <configuration>
-                            <args>
-                                <arg>-infile</arg>
-                                <arg>${prov.graph.dir}/library.prov-csv</arg>
-                                <arg>-log2prov</arg>
-                                <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
-                                <arg>-outfile</arg>
-                                <arg>${prov.graph.dir}/library.provn</arg> <!-- PROV-N -->
-                            </args>
-                        </configuration>
-                    </execution>
 
-                    <execution>
-                        <id>log2prov.library.json</id>
-                        <phase>test</phase> <!-- later than concat.library.csv; before the exec plugin's prov-graph steps -->
-                        <goals>
-                            <goal>provconvert</goal>
-                        </goals>
-                        <configuration>
-                            <args>
-                                <arg>-infile</arg>
-                                <arg>${prov.graph.dir}/library.prov-csv</arg>
-                                <arg>-log2prov</arg>
-                                <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
-                                <arg>-outfile</arg>
-                                <arg>${prov.graph.dir}/library.json</arg> <!-- PROV-JSON, read by scripts/prov_graph.py -->
-                            </args>
-                        </configuration>
-                    </execution>
 
-                    <execution>
-                        <id>log2prov.library.svg</id>
-                        <phase>test</phase> <!-- later than concat.library.csv; before the exec plugin's prov-graph steps -->
-                        <goals>
-                            <goal>provconvert</goal>
-                        </goals>
-                        <configuration>
-                            <args>
-                                <arg>-infile</arg>
-                                <arg>${prov.graph.dir}/library.prov-csv</arg>
-                                <arg>-log2prov</arg>
-                                <arg>org.openprovenance.prov.template.library.ptm.Init</arg>
-                                <arg>-outfile</arg>
-                                <arg>${prov.graph.dir}/library.svg</arg> <!-- the full graph, every format of every template -->
-                            </args>
-                        </configuration>
-                    </execution>
 
                     <execution>
                         <id>prov.graph.templates.dot</id>
@@ -1668,7 +1516,217 @@
                         </configuration>
                     </execution>
 
-                    <!-- the library's provenance graph, step 3 (after the prov plugin's log2prov.library.*):
+                    <!-- the provenance records as PROV, read by the library's own log2prov (${prov.log2prov.reader},
+                         compiled from catalogue/ptm-catalogue.json): exec java on the project's classpath, which the prov
+                         plugin does not see. Per family (target/*-all.svg), then the whole library (step 2). -->
+                    <execution>
+                        <id>log2prov.ugd.all</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>java</executable>
+                            <classpathScope>test</classpathScope>
+                            <arguments>
+                                <argument>-classpath</argument>
+                                <classpath/>
+                                <argument>org.openprovenance.prov.interop.CommandLineArguments</argument>
+                                <argument>-infile</argument>
+                                <argument>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle1-ugd/prov/all.prov-csv</argument>
+                                <argument>-log2prov</argument>
+                                <argument>${prov.log2prov.reader}</argument>
+                                <argument>-outfile</argument>
+                                <argument>${project.build.directory}/triangle1-ugd-all.svg</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>log2prov.aga.all</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>java</executable>
+                            <classpathScope>test</classpathScope>
+                            <arguments>
+                                <argument>-classpath</argument>
+                                <classpath/>
+                                <argument>org.openprovenance.prov.interop.CommandLineArguments</argument>
+                                <argument>-infile</argument>
+                                <argument>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle3-aga/prov/all.prov-csv</argument>
+                                <argument>-log2prov</argument>
+                                <argument>${prov.log2prov.reader}</argument>
+                                <argument>-outfile</argument>
+                                <argument>${project.build.directory}/triangle3-aga-all.svg</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>log2prov.entity.sds.all</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>java</executable>
+                            <classpathScope>test</classpathScope>
+                            <arguments>
+                                <argument>-classpath</argument>
+                                <classpath/>
+                                <argument>org.openprovenance.prov.interop.CommandLineArguments</argument>
+                                <argument>-infile</argument>
+                                <argument>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-entity-sds/prov/all.prov-csv</argument>
+                                <argument>-log2prov</argument>
+                                <argument>${prov.log2prov.reader}</argument>
+                                <argument>-outfile</argument>
+                                <argument>${project.build.directory}/triangle2-entity-sds-all.svg</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>log2prov.agent.sds.all</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>java</executable>
+                            <classpathScope>test</classpathScope>
+                            <arguments>
+                                <argument>-classpath</argument>
+                                <classpath/>
+                                <argument>org.openprovenance.prov.interop.CommandLineArguments</argument>
+                                <argument>-infile</argument>
+                                <argument>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-agent-sds/prov/all.prov-csv</argument>
+                                <argument>-log2prov</argument>
+                                <argument>${prov.log2prov.reader}</argument>
+                                <argument>-outfile</argument>
+                                <argument>${project.build.directory}/triangle2-agent-sds-all.svg</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>log2prov.ugm.all</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>java</executable>
+                            <classpathScope>test</classpathScope>
+                            <arguments>
+                                <argument>-classpath</argument>
+                                <classpath/>
+                                <argument>org.openprovenance.prov.interop.CommandLineArguments</argument>
+                                <argument>-infile</argument>
+                                <argument>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle6-ugm/prov/all.prov-csv</argument>
+                                <argument>-log2prov</argument>
+                                <argument>${prov.log2prov.reader}</argument>
+                                <argument>-outfile</argument>
+                                <argument>${project.build.directory}/triangle6-ugm-all.svg</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>log2prov.aia.all</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>java</executable>
+                            <classpathScope>test</classpathScope>
+                            <arguments>
+                                <argument>-classpath</argument>
+                                <classpath/>
+                                <argument>org.openprovenance.prov.interop.CommandLineArguments</argument>
+                                <argument>-infile</argument>
+                                <argument>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle4-aia/prov/all.prov-csv</argument>
+                                <argument>-log2prov</argument>
+                                <argument>${prov.log2prov.reader}</argument>
+                                <argument>-outfile</argument>
+                                <argument>${project.build.directory}/triangle4-aia-all.svg</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>log2prov.library.provn</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>java</executable>
+                            <classpathScope>test</classpathScope>
+                            <arguments>
+                                <argument>-classpath</argument>
+                                <classpath/>
+                                <argument>org.openprovenance.prov.interop.CommandLineArguments</argument>
+                                <argument>-infile</argument>
+                                <argument>${prov.graph.dir}/library.prov-csv</argument>
+                                <argument>-log2prov</argument>
+                                <argument>${prov.log2prov.reader}</argument>
+                                <argument>-outfile</argument>
+                                <argument>${prov.graph.dir}/library.provn</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>log2prov.library.json</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>java</executable>
+                            <classpathScope>test</classpathScope>
+                            <arguments>
+                                <argument>-classpath</argument>
+                                <classpath/>
+                                <argument>org.openprovenance.prov.interop.CommandLineArguments</argument>
+                                <argument>-infile</argument>
+                                <argument>${prov.graph.dir}/library.prov-csv</argument>
+                                <argument>-log2prov</argument>
+                                <argument>${prov.log2prov.reader}</argument>
+                                <argument>-outfile</argument>
+                                <argument>${prov.graph.dir}/library.json</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>log2prov.library.svg</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>java</executable>
+                            <classpathScope>test</classpathScope>
+                            <arguments>
+                                <argument>-classpath</argument>
+                                <classpath/>
+                                <argument>org.openprovenance.prov.interop.CommandLineArguments</argument>
+                                <argument>-infile</argument>
+                                <argument>${prov.graph.dir}/library.prov-csv</argument>
+                                <argument>-log2prov</argument>
+                                <argument>${prov.log2prov.reader}</argument>
+                                <argument>-outfile</argument>
+                                <argument>${prov.graph.dir}/library.svg</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <!-- the library's provenance graph, step 3 (after log2prov.library.*):
                          check every used input is explained (fails the build if not) -->
                     <execution>
                         <id>prov-graph-check</id>
