@@ -4,9 +4,9 @@
 - **Name**: `Unpacking`
 - **Fully Qualified Name**: `org.openprovenance.templates.physical.Unpacking`
 - **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/physical/Unpacking>
-- **Purpose**: The template `Unpacking` describes the evolution of a container as an item is removed from it.
-- **Context**: The template helps describe common situations in the physical world involving containers such as boxes, pallets, etc. 
-- **Design considerations**: The ability to describe the state of the container (before and after inserting an item) and the state of the item (before being in the container or after).
+- **Purpose**: The `Unpacking` template describes how a container evolves as an item is removed from it.
+- **Context**: The template helps describe common situations in the physical world involving containers such as boxes and pallets. 
+- **Design considerations**: The ability to describe the container's state (before and after an item is removed) and the item's state (before it is removed from the container or after).
 - **Automation**: [ttfs/config-unpacking.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-unpacking.json)
 
 ![org.openprovenance.templates.physical.Unpacking](project/template-intro1/target/generated-templates/org/openprovenance/templates/physical/unpacking/unpacking.qualified.svg){#fig:org.openprovenance.templates.physical.Unpacking}
@@ -15,24 +15,24 @@
 
 - **Details**:
 
-    This template is a refinement of `org.openprovenance.templates.collections.RemovingFromCollection` where the collection is a physical container, and the item is physical.  At the start, there is a container `container0` containing an item `item0`. After this operation, the container `container1` no longer contains the item.
+    This template is a refinement of `org.openprovenance.templates.collections.RemovingFromCollection`, where the collection is a physical container and the item is physical. At the start, there is a container `container0` containing an item `item0`. After this operation, the container `container1` no longer contains the item.
 
-    The template is the result of merging four instantiated templates. 
+    The template results from merging four instantiated templates. 
 
-    - RemovingFromCollection describes the container and item, before and after the operation
+    - RemovingFromCollection describes the container and item before and after the operation
 
-    - Triangle3-AGA to express that the agent (`unpacker`) is responsible for unpacking the item.
+    - Triangle3-AGA to indicate that the agent (`unpacker`) is responsible for unpacking the item.
 
-    - Triangle3-AGA to express that the agent (`unpacker`) is responsible for unpacking the item from the container.
+    - Triangle3-AGA to indicate that the agent (`unpacker`) is responsible for unpacking the item from the container.
 
     - Triangle2-Entity-SDS to describe that the container before and the container after are both specializations of a single, more general container.
 
     - Triangle2-Entity-SDS to describe that the item before and the item after are both specializations of a single, more general item.
 
 
-    As this is a physical operation, the container and item specializations have a single existence. The creation of `item1` and `container1` invalidates (in the sense of provenance)  `item0` and `container0`, though we did not make invalidation edges explicit to avoid overloading the visualisation.
+    As this is a physical operation, the container and item specializations have a single instance. The creation of `item1` and `container1` invalidates (in the sense of provenance) `item0` and `container0`, though we did not make invalidation edges explicit to avoid overloading the visualisation.
 
-    Domain-specific instantiations of the template need to consider whether the entity `item0` still exists after it is added to the collection. In a physical context, when a book is placed in a box, there is a single instance of the book, so it no longer exists outside the box. Alternatively, in the digital world, when a file is added to a Zip archive, its original copy remains in existence.
+    Domain-specific instantiations of the template need to consider whether the entity `item0` still exists after it is added to the collection. In a physical context, when a book is placed in a box, there is only one instance of the book, so it no longer exists outside the box. Alternatively, in the digital world, when a file is added to a Zip archive, its original copy remains.
 
 
 

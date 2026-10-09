@@ -3,13 +3,13 @@
 - **Name**: `Triangle4-AIA`
 - **Fully Qualified Name**: `org.openprovenance.templates.triangles.Triangle4-AIA`
 - **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/triangles/Triangle4-AIA>
-- **Purpose**: This template describes how the end of an entity (its invalidation in PROV terminology) is attributed to an agent, indicating the agent's responsibility for the entity's end of life following the agent's association with the activity that invalidated the entity.
-- **Context**: The template describes the link between the attribution and the activity, the agent's association with the activity and the entity's invalidation by the activity.
-- **Design considerations**: The ability to assert new attributes for the invalidated entity, as well as attributes for the invalidation and activity.
+- **Purpose**: This template describes how the end of an entity (its invalidation in PROV terminology) is attributed to an agent, indicating the agent's responsibility for the entity's end of life following the agent's association with the activity that invalidated it.
+- **Context**: The template describes the link between the attribution and the activity, the agent's association with the activity, and the entity's invalidation by the activity.
+- **Design considerations**: The ability to assert new attributes for the invalidated entity, as well as for the invalidation and activity.
 - **Automation**: [ttfs/config-triangle4-aia.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-triangle4-aia.json)
 
 
-![org.openprovenance.templates.triangles.Triangle4-AIA](project/template-intro1/target/generated-templates/org/openprovenance/templates/triangles/triangle4-aia/triangle4-aia.qualified.svg){#fig:org.openprovenance.templates.triangles.Triangle4-AIA}
+![org.openprovenance.templates.triangles.Triangle4-AIA](project/template-intro1/target/generated-templates/org/openprovenance/templates/triangles/triangle4-aia/triangle4-aia.qualified-inv.svg){#fig:org.openprovenance.templates.triangles.Triangle4-AIA}
 
 - **Details**:
 
@@ -19,9 +19,10 @@
 
     The template Triangle4-AIA (Association-Invalidation-Attribution) involves an entity `e`, an activity `activity`, an agent `ag` and a plan `p`. The activity `activity` was associated with the agent and the plan, and it invalidated the entity `e`. The template asserts an attribution of the entity to the agent.
 
-    The template Triangle4-AIA asserts an attribution link from the entity `e` to the agent `ag`, which can be annotated with additional information using the attributes `openprov:activity`, `openprov:association` and `openprov:invalidation` to refer to the activity, association and invalidation. These attributes are not predefined in PROV: they are the properties `openprov:hadActivity`, `openprov:hadAssociation` and `openprov:hadInvalidation` of the [OpenProvenance vocabulary](https://openprovenance.org/ns/openprov), written without `had` as PROV-N writes `prov:type`.
+    The template Triangle4-AIA asserts an attribution link from the entity `e` to the agent `ag`, which can be annotated with additional information using the attributes `activity`, `association` and `invalidation` to refer to the activity, association and invalidation. These attributes are not predefined in PROV: they are the properties `hadActivity`, `hadAssociation` and `hadInvalidation` of the [OpenProvenance vocabulary](https://openprovenance.org/ns/openprov), using the `had` prefix in line with the PROV-O ontology convention.
 
     To ensure extensibility, the attributes `var:aprops` (for the `activity`), `var:attrprops` (for the attribution `attr`), `var:eprops` (for the entity `e`), `var:ascprops` (for the association `asc`), and `var:invprops` (for the invalidation `inv`) allow application- or domain-specific properties to be added. 
 
-    According to PROV, an entity is a thing with fixed aspects, which may be described using attribute-value pairs. These aspects must remain fixed for the entity’s entire lifetime. Thus, the ability to enrich the description of the invalidated entity `e` with additional attribute-value pairs should be exercised with caution. New attributes should not change or override existing attributes; any attribute asserted should remain fixed for the lifetime of an entity. The advice is that such attributes must be the entity's final characteristics, such as its final position or the time of invalidation. These last characteristics are valid and fixed descriptors for the whole lifetime, as they always remain the *last* values of these characteristics. For instance, a food taster tasting a food sample can assert its rating or quality at the time of its consumption and invalidation. The attribution link here is particularly important, as it defines the asserter of those characteristics.
+    According to PROV, an entity is a thing with fixed aspects, which may be described using attribute-value pairs. These aspects must remain fixed for the entity’s entire lifetime. Thus, the ability to enrich the description of the invalidated entity `e` with additional attribute-value pairs should be exercised with caution. New attributes should not change or override pre-existing attributes; any attribute asserted should remain fixed for the lifetime of an entity. The advice is that such attributes must be the entity's final characteristics, such as its final position or the time of invalidation. These last characteristics are valid and fixed descriptors for the whole lifetime, as they always remain the *last* values of these characteristics. For instance, a food taster tasting a food sample can assert its rating or quality at the time of its consumption and invalidation. The attribution link here is particularly important, as it defines the asserter of those characteristics. 
  
+    We considered introducing a type `Invalidator` for the Attribution, but we felt it was best left to specific domains to define their own typology.

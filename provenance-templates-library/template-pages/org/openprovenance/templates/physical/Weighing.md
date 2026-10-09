@@ -5,8 +5,8 @@
 - **Fully Qualified Name**: `org.openprovenance.templates.physical.Weighing`
 - **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/physical/Weighing>
 - **Purpose**: This template describes how an item was weighed.
-- **Context**: The template describes a common operation in logistics, determining the weight of goods being transported. 
-- **Design considerations**: The ability to describe the item with its weight as well as the scale involved, and the operator of the scale.
+- **Context**: The template describes a common logistics operation, determining the weight of goods being transported. 
+- **Design considerations**: The ability to describe the item, including its weight, the scale used, and the operator of the scale.
 - **Automation**: [ttfs/config-weighing.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-weighing.json)
 
 ![org.openprovenance.templates.physical.Weighing](project/template-intro1/target/generated-templates/org/openprovenance/templates/physical/weighing/weighing.qualified.svg){#fig:org.openprovenance.templates.physical.Weighing}
@@ -15,16 +15,16 @@
 
 - **Details**:
 
-    Initially, there is an item `item0` with an unspecified weight. After this operation, there is an item `item1` with a defined weight attribute.
+    Initially, there is an item `item0` with an unspecified weight. After this operation, there is an item `item1` with a defined weight.
 
-    The template is the result of instantiating a single template, `org.openprovenance.templates.responsibility.Examining`, which describes how an item evolves from its initial state `item0` to the state `item1`, with an explicit weight attribute and optional mass units, defaulting to kilograms.
+    The template is the result of instantiating a single template, `org.openprovenance.templates.responsibility.Examining`, which describes how an item evolves from its initial state `item0` to the state `item1`, including an explicit weight attribute and optional mass units, defaulting to kilograms.
 
-    Given that aspects of a PROV entity are intended to remain constant, we cannot claim (or enforce) that an entity's weight does not change during its lifetime. Therefore, we adopt the attribute 'last known weight', abbreviated `phys:lkw`, as the attribute to which we assign the weight measured by the scale. If the entity changes weight without being observed by another weighing operation, its last known weight remains unchanged. Another weighing operation produces another entity with the latest mass.  
+    Given that certain aspects of a PROV entity are intended to remain constant, we cannot claim (or enforce) that an entity's weight does not change during its lifetime. Therefore, we adopt the attribute 'last known weight', abbreviated `phys:lkw`, to which we assign the weight measured by the scale. If the entity changes weight without being observed by another weighing operation, its last known weight remains unchanged. Another weighing operation produces another entity with the latest mass.  
     
     By default, we expect the mass to be expressed in kg. It is permitted to use another mass unit, provided it is specified via the variable `var:unit` using the symbols defined by the International System of Units.
 
     In addition, the scale and the agent operating it can be specified, allowing responsibility for the measurement to be tracked. In particular, the scale's provenance may indicate whether it was recently calibrated and its precision. The agent's provenance may indicate whether they are certified or have been trained.
 
-    In this template, the variable `scale` denotes an instrument for measuring weight, as specified by the activity type `Weighing`. An alternative design could relax these assumptions (while largely preserving the topology), allowing the weight to be estimated computationally or read from a product description.
+    In this template, the variable `scale` denotes an instrument for measuring weight, as specified by the activity type `Weighing`. An alternative design could relax these assumptions (while largely preserving the topology), allowing the weight to be estimated computationally or obtained from a product description.
 
 

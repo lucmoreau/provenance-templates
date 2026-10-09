@@ -3,8 +3,8 @@
 - **Name**: `FileSplitting`
 - **Fully Qualified Name**: `org.openprovenance.templates.fs.FileSplitting`
 - **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/fs/FileSplitting>
-- **Purpose**: The template `FileSplitting` describes the transformation of a file into two files.
-- **Context**: The template is useful for describing operations in a file system.
+- **Purpose**: The `FileSplitting` template describes the transformation of a file into two files.
+- **Context**: The template is useful for describing file-system operations that split files.
 - **Design considerations**: The ability to identify the files (before and after splitting).
 - **Automation**: [ttfs/config-fs.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-fs.json)
 
@@ -16,8 +16,8 @@
 - **Details**:
 
 
-    At the start, there is a `file`; after the activity `splitting`, there are two files `split_file1` and `split_file2`. An agent `engineer` controls the `splitting` activity and uses a method (such as a script or programme).
+    At the start, there is a `file`; after the `splitting` activity, there are two files, `split_file1` and `split_file2`. An agent `engineer` controls the `splitting` activity and uses a method (such as a script or programme).
 
-    Some pre-defined, self-explanatory attributes have been adopted, such as `filename1`, `filename2`, `path1` and `path2`.
+    Some predefined, self-explanatory attributes have been adopted, such as `filename1`, `filename2`, `path1` and `path2`.
 
-    This template can describe the Unix command,  `split -n 2 file`{.sh}, which reads the given file and breaks it up into two files (named `xaa` and `xab`); note that the command does not make the output files explicit, as the pipe redirection cannot be used given the multiple outputs that need to be generated.
+    This template can describe the Unix command `split -n 2 file`{.sh}, which reads the given file and splits it into two files (named `xaa` and `xab`); note that the command does not make the output files explicit, as the pipe redirection cannot be used given the multiple outputs that need to be generated.
