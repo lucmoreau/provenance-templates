@@ -13,7 +13,7 @@
 
 - **Details**:
 
-    The research paper [@Moreau:TWEB15] and the W3C recommendation [@Moreau:prov-constraints:20130430] introduce this triangular pattern, which is encoded as a template in the library. There are two entities, `e0` and `e1`, and an activity `activity`. The activity used `e0` and generated `e1`, with `e1` derived from `e0`. Unlike a common mistake among early users of PROV, this derivation relation cannot be inferred automatically; it must be asserted.
+   @Moreau:TWEB15 and @Moreau:prov-constraints:20130430 introduce this triangular pattern, which is encoded as a template in the library. There are two entities, `e0` and `e1`, and an activity `activity`. The activity used `e0` and generated `e1`, with `e1` derived from `e0`. Unlike a common mistake among early users of PROV, this derivation relation cannot be inferred automatically; it must be asserted.
 
     There are two key aspects to this pattern. First, it explicitly links the derivation to the underlying activity, enabling the provision of additional details, such as time or domain-specific information. Second, the pattern precisely specifies how the derivation refers to the `activity`'s use of `e0` and its contribution to the generation of `e1`.   
 
