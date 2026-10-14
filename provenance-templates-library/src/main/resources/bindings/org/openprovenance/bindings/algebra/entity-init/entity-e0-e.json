@@ -13,24 +13,24 @@
         "prop": [
             [
                 {
-                    "@id": "var:eprop"
+                    "@id": "var:eprops"
                 }
             ],
             [
                 {
-                    "@id": "var:eprop0"
+                    "@id": "var:eprops0"
                 }
             ]
         ],
         "pvalue": [
             [
                 {
-                    "@id": "var:evalue"
+                    "@id": "var:evalues"
                 }
             ],
             [
                 {
-                    "@id": "var:evalue0"
+                    "@id": "var:evalues0"
                 }
             ]
         ]

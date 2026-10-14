@@ -20,14 +20,14 @@
         "pvalue": [
             [
                 {
-                    "@id": "var:svalue1"
+                    "@id": "var:svalues1"
                 }
             ]
         ],
         "prop": [
             [
                 {
-                    "@id": "var:sprop1"
+                    "@id": "var:sprops1"
                 }
             ]
         ]

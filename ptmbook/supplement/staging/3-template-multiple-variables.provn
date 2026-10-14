@@ -4,12 +4,12 @@ prefix vargen <http://openprovenance.org/vargen#>
 prefix var <http://openprovenance.org/var#>
 
 activity(var:act,-,-)
-entity(var:input,[var:iprop = 'var:ivalue'])
-entity(var:output,[var:oprop = 'var:ovalue'])
-agent(var:ag,[var:aprop = 'var:avalue'])
+entity(var:input,[var:iprops = 'var:ivalues'])
+entity(var:output,[var:oprops = 'var:ovalues'])
+agent(var:ag,[var:aprops = 'var:avalues'])
 wasAssociatedWith(var:act,var:ag,-)
 wasGeneratedBy(var:output,var:act,-)
 used(var:act,var:input,-)
-wasDerivedFrom(var:output, var:input,[var:dprop = 'var:dvalue'])
+wasDerivedFrom(var:output, var:input,[var:dprops = 'var:dvalues'])
 endBundle
 endDocument

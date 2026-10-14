@@ -15,15 +15,15 @@
     }, {
       "@type" : "Entity",
       "@id" : "var:input",
-      "var:iprop" : [ "var:ivalue" ]      
+      "var:iprops" : [ "var:ivalues" ]      
     }, {
       "@type" : "Entity",
       "@id" : "var:output",
-      "var:oprop" : [ "var:ovalue" ]      
+      "var:oprops" : [ "var:ovalues" ]      
     }, {
       "@type" : "Agent",
       "@id" : "var:ag",
-      "var:aprop" : [ "var:avalue" ]      
+      "var:aprops" : [ "var:avalues" ]      
     }, {
       "@type" : "Association",
       "activity" : "var:act",

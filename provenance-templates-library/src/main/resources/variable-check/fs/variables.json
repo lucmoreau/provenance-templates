@@ -23,20 +23,20 @@
     "time": "([gu]?time|startTime|endTime)\\d*",
 
     "attributes": {
-        "entity": "(eprop|iprops|mprops|oprops)\\d*",
+        "entity": "(eprops|iprops|mprops|oprops)\\d*",
         "activity": "(aprops)\\d*",
         "agent": "(agprops)\\d*",
-        "wasGeneratedBy": "(gprop)\\d*",
-        "specializationOf": "(sprop)\\d*",
-        "used": "(uprop)\\d*"
+        "wasGeneratedBy": "(gprops)\\d*",
+        "specializationOf": "(sprops)\\d*",
+        "used": "(uprops)\\d*"
     },
     "values": {
-        "entity": "(evalue|ivalues|mvalues|ovalues)\\d*",
+        "entity": "(evalues|ivalues|mvalues|ovalues)\\d*",
         "activity": "(avalues)\\d*",
         "agent": "(agvalues)\\d*",
-        "wasGeneratedBy": "(gvalue)\\d*",
-        "specializationOf": "(svalue)\\d*",
-        "used": "(uvalue)\\d*"
+        "wasGeneratedBy": "(gvalues)\\d*",
+        "specializationOf": "(svalues)\\d*",
+        "used": "(uvalues)\\d*"
     },
 
     ".name": "fs-variables"

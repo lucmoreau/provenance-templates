@@ -13,7 +13,7 @@
         "prop": [
             [
                 {
-                    "@id": "var:eprop"
+                    "@id": "var:eprops"
                 },
                 {
                     "@id": "prov:type"
@@ -22,7 +22,7 @@
             ],
             [
                 {
-                    "@id": "var:eprop0"
+                    "@id": "var:eprops0"
                 },
                 {
                     "@id": "phys:lkl"
@@ -32,7 +32,7 @@
         "pvalue": [
             [
                 {
-                    "@id": "var:evalue"
+                    "@id": "var:evalues"
                 },
                 {
                     "@id": "var:type"
@@ -40,7 +40,7 @@
             ],
             [
                 {
-                    "@id": "var:evalue0"
+                    "@id": "var:evalues0"
                 },
                 {
                     "@id": "var:location"

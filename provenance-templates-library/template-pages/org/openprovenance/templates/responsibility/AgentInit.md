@@ -16,9 +16,9 @@
 
     The template does not assume the existence of any entity or agent. It allows a new agent to be defined without specifying its provenance, thereby enabling the "bootstrapping" of provenance.
 
-    Some registration activity generates an `agent` and its specialization `agent0`. Placeholders are provided for the `type` and `agprop` attributes of `agent`. It is also possible to specify a location and other attributes `agprop0` for `agent0`.
+    Some registration activity generates an `agent` and its specialization `agent0`. Placeholders are provided for the `type` and `agprops` attributes of `agent`. It is also possible to specify a location and other attributes `agprops0` for `agent0`.
 
-    The intent is that the `type` and `agprop` attributes are inherited by all specializations `agent0`, whereas `location` and `agprop0` may change as specializations evolve (using Triangle2-Agent-SDS).
+    The intent is that the `type` and `agprops` attributes are inherited by all specializations `agent0`, whereas `location` and `agprops0` may change as specializations evolve (using Triangle2-Agent-SDS).
 
     Given that aspects of a PROV entity are intended to remain constant throughout its lifetime, we cannot claim (or enforce) that an entity's location does not change during that time (and similarly for agents). Therefore, we adopt the attribute 'last known location', abbreviated `phys:lkl`, to record an entity's location. If the entity changes location without being observed, its last known location remains unchanged. A new observation of the location must result in another entity with the latest location.  
 

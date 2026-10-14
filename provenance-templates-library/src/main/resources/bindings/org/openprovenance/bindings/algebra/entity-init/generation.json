@@ -23,25 +23,25 @@
         "prop": [
             [
                 {
-                    "@id": "var:gprop"
+                    "@id": "var:gprops"
                 }
             ],
 
             [
                 {
-                    "@id": "var:gprop0"
+                    "@id": "var:gprops0"
                 }
             ]
         ],
         "pvalue": [
             [
                 {
-                    "@id": "var:gvalue"
+                    "@id": "var:gvalues"
                 }
             ],
             [
                 {
-                    "@id": "var:gvalue0"
+                    "@id": "var:gvalues0"
                 }
             ]
         ],

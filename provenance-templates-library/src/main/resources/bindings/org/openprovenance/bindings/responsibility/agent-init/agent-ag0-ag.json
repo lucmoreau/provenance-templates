@@ -13,24 +13,24 @@
         "prop": [
             [
                 {
-                    "@id": "var:agprop"
+                    "@id": "var:agprops"
                 }
             ],
             [
                 {
-                    "@id": "var:agprop0"
+                    "@id": "var:agprops0"
                 }
             ]
         ],
         "pvalue": [
             [
                 {
-                    "@id": "var:agvalue"
+                    "@id": "var:agvalues"
                 }
             ],
             [
                 {
-                    "@id": "var:agvalue0"
+                    "@id": "var:agvalues0"
                 }
             ]
         ]

@@ -21,12 +21,12 @@
                 "@id": "xsd:int"
             }
         ]],
-        "eprop0": [[
+        "eprops0": [[
             {
                 "@id": "prov:value"
             }
         ]],
-        "evalue0": [[
+        "evalues0": [[
             {
                 "@type": "xsd:int",
                 "@value": "134"
@@ -37,12 +37,12 @@
                 "@id": "xsd:int"
             }
         ]],
-        "eprop1": [[
+        "eprops1": [[
             {
                 "@id": "prov:value"
             }
         ]],
-        "evalue1": [[
+        "evalues1": [[
             {
                 "@type": "xsd:int",
                 "@value": "135"

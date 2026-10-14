@@ -69,8 +69,8 @@
 <polygon fill="none" stroke="gray" points="98,-218.25 16,-218.25 16,-182.25 104,-182.25 104,-212.25 98,-218.25"/>
 <polyline fill="none" stroke="gray" points="98,-218.25 98,-212.25"/>
 <polyline fill="none" stroke="gray" points="104,-212.25 98,-212.25"/>
-<text text-anchor="start" x="26" y="-196" font-family="Times,serif" font-size="10.00">iprop:</text>
-<text text-anchor="start" x="52.75" y="-196" font-family="Times,serif" font-size="10.00">var:ivalue</text>
+<text text-anchor="start" x="26" y="-196" font-family="Times,serif" font-size="10.00">iprops:</text>
+<text text-anchor="start" x="52.75" y="-196" font-family="Times,serif" font-size="10.00">var:ivalues</text>
 </g>
 <!-- &#45;attrs0&#45;&gt;http://openprovenance.org/var#input -->
 <!-- null _:_ -->
@@ -110,8 +110,8 @@
 <polygon fill="none" stroke="gray" points="186.25,-74.25 99.75,-74.25 99.75,-38.25 192.25,-38.25 192.25,-68.25 186.25,-74.25"/>
 <polyline fill="none" stroke="gray" points="186.25,-74.25 186.25,-68.25"/>
 <polyline fill="none" stroke="gray" points="192.25,-68.25 186.25,-68.25"/>
-<text text-anchor="start" x="109.75" y="-52" font-family="Times,serif" font-size="10.00">oprop:</text>
-<text text-anchor="start" x="138.75" y="-52" font-family="Times,serif" font-size="10.00">var:ovalue</text>
+<text text-anchor="start" x="109.75" y="-52" font-family="Times,serif" font-size="10.00">oprops:</text>
+<text text-anchor="start" x="138.75" y="-52" font-family="Times,serif" font-size="10.00">var:ovalues</text>
 </g>
 <!-- &#45;attrs1&#45;&gt;http://openprovenance.org/var#output -->
 <!-- null _:_ -->
@@ -125,8 +125,8 @@
 <polygon fill="none" stroke="gray" points="299.5,-218.25 214.5,-218.25 214.5,-182.25 305.5,-182.25 305.5,-212.25 299.5,-218.25"/>
 <polyline fill="none" stroke="gray" points="299.5,-218.25 299.5,-212.25"/>
 <polyline fill="none" stroke="gray" points="305.5,-212.25 299.5,-212.25"/>
-<text text-anchor="start" x="224.5" y="-196" font-family="Times,serif" font-size="10.00">aprop:</text>
-<text text-anchor="start" x="252.75" y="-196" font-family="Times,serif" font-size="10.00">var:avalue</text>
+<text text-anchor="start" x="224.5" y="-196" font-family="Times,serif" font-size="10.00">aprops:</text>
+<text text-anchor="start" x="252.75" y="-196" font-family="Times,serif" font-size="10.00">var:avalues</text>
 </g>
 <!-- &#45;attrs2&#45;&gt;http://openprovenance.org/var#ag -->
 <!-- null _:_ -->

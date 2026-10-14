@@ -15,15 +15,15 @@
     }, {
       "@type" : "Entity",
       "@id" : "var:file1",
-      "var:iprop" : [ "var:ivalue" ]
+      "var:iprops" : [ "var:ivalues" ]
     }, {
       "@type" : "Entity",
       "@id" : "var:file2",
-      "var:oprop" : [ "var:ovalue" ]
+      "var:oprops" : [ "var:ovalues" ]
     }, {
       "@type" : "Agent",
       "@id" : "var:agent",
-      "var:aprop" : [ "var:avalue" ]
+      "var:aprops" : [ "var:avalues" ]
     }, {
       "@type" : "Association",
       "activity" : "var:compressing",

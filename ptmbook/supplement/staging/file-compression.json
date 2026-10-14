@@ -21,48 +21,48 @@
 				"@id": "var:compressing"
 			}
 		],
-		"oprop": [
+		"oprops": [
 			[
 				{
-					"@id": "var:oprop"
+					"@id": "var:oprops"
 				}
 			]
 
 		],
-		"ovalue": [
+		"ovalues": [
 			[
 				{
-					"@id": "var:ovalue"
+					"@id": "var:ovalues"
 				}
 			]
 		],
-		"iprop": [
+		"iprops": [
 			[
 				{
-					"@id": "var:iprop"
-				}
-			]
-
-		],
-		"ivalue": [
-			[
-				{
-					"@id": "var:ivalue"
-				}
-			]
-		],
-		"aprop": [
-			[
-				{
-					"@id": "var:aprop"
+					"@id": "var:iprops"
 				}
 			]
 
 		],
-		"avalue": [
+		"ivalues": [
 			[
 				{
-					"@id": "var:avalue"
+					"@id": "var:ivalues"
+				}
+			]
+		],
+		"aprops": [
+			[
+				{
+					"@id": "var:aprops"
+				}
+			]
+
+		],
+		"avalues": [
+			[
+				{
+					"@id": "var:avalues"
 				}
 			]
 		]
