@@ -16,7 +16,7 @@
                 "@id": "var:item"
             }
         ],
-        "mprop": [
+        "mprops": [
             [
                 {
                     "@id": "var:mprops"
@@ -32,7 +32,7 @@
                 }
             ]
         ],
-        "mvalue": [
+        "mvalues": [
             [
                 {
                     "@id": "var:mvalues"

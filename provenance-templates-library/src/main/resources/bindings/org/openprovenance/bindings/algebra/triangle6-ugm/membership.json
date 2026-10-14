@@ -16,10 +16,10 @@
                 "@id": "var:item"
             }
         ],
-        "mprop": [
+        "mprops": [
             [
                 {
-                    "@id": "var:mprop"
+                    "@id": "var:mprops"
                 },
                 {
                     "@id": "openprov:activity"
@@ -32,10 +32,10 @@
                 }
             ]
         ],
-        "mvalue": [
+        "mvalues": [
             [
                 {
-                    "@id": "var:mvalue"
+                    "@id": "var:mvalues"
                 },
                 {
                     "@id": "var:activity"

@@ -68,7 +68,7 @@
                 }
             ]
         ],
-        "avalue": null
+        "avalues": null
     },
     "context": {
         "people":  "${PROV_API}/live/agent/",

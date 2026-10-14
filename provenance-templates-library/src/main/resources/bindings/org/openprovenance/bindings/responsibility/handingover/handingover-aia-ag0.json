@@ -15,8 +15,8 @@
         "eprops":   null,
         "evalues":  null,
         "invvalues": null,
-        "attrprop": null,
-        "attrvalue": null,
+        "attrprops": null,
+        "attrvalues": null,
         "invtime": null,
         "invprops": null
 

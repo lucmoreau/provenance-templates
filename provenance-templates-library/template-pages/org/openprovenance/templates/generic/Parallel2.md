@@ -17,7 +17,7 @@
    This template has two inputs: `input1` and `input2`; two outputs: `output1` and `output2`; an activity: `transforming`; an agent; and a plan. It is a direct instantiation of `org.openprovenance.templates.generic.Transformation1`, with multiple values for `input` and `output`.
 
 
-   In this template, we note the presence of the "linked" property in the bindings file; it is fundamental, as it links the variable `output` to `input`. This results in `output1` being derived from `input1` and `output2` from `input2`, in a similar manner.
+   For this template, we note the presence of the "linked" property in the bindings file; it is fundamental, as it links the variable `output` to `input`. This results in `output1` being derived from `input1` and `output2` from `input2`, in a similar manner.
 
    In contrast, `Product2-2` (see the next Section) does not link the input variables to the output variables, implying that each output is derived from all inputs.
 
