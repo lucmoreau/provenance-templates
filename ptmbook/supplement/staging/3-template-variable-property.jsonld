@@ -13,7 +13,7 @@
 	"@graph" : [ {
 	    "@type" : "Entity",
 	    "@id" : "ex:e1",
-	    "var:prop" : [ { "@id" : "var:value" } ]
+	    "var:props" : [ { "@id" : "var:values" } ]
 	} ]
     } ]
 }

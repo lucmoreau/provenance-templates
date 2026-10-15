@@ -1,6 +1,6 @@
 # TEMPLATES-TODO — Outstanding Work
 
-> **🔢 LAST ALLOCATED TASK NUMBER: T-7** — the highest task id ever assigned (whether still open here
+> **🔢 LAST ALLOCATED TASK NUMBER: T-9** — the highest task id ever assigned (whether still open here
 > or retired to `TEMPLATES-DONE.md`). **When allocating a new task, take the NEXT number and bump this
 > line.** Do NOT reuse a number freed by retirement — a retired task is gone from the index but its
 > number is still taken.
@@ -10,7 +10,7 @@
 > recording the task ID, completion date, what was done, and the key files changed.
 > All paths relative to `/Users/luc/IdeaProjects/provenance-templates/provenance-templates-library/`
 > unless stated.
-> Last updated: 2026-10-09.
+> Last updated: 2026-10-14.
 
 ---
 
@@ -30,6 +30,8 @@ one-line summary *only*; all narrative (context, findings, design, evidence) bel
 | T-3 | Change the package in which Java code is generated — remove `bookptm`. | 🟡 MEDIUM | Build / Naming | [T-3 section](#-t-3-change-the-package-in-which-java-code-is-generated--remove-bookptm) |
 | T-4 | Add a "How to use the template library" page to the template web site, referring to the workflows and the book. | 🟡 MEDIUM | Documentation | [T-4 section](#-t-4-add-a-how-to-use-the-template-library-page-to-the-template-web-site) |
 | T-7 | Consider copying the Python runtime the workflows need (PYTHONPATH into ProvToolbox) locally, or giving it a place in the archetype. | 🔵 LOW | Build / Python | [T-7 section](#-t-7-consider-a-local-or-archetype-home-for-the-python-runtime) |
+| T-8 | Regularise the `simple` family's value variables: `<x>prop_values` → `<x>values`, the last naming irregularity in the library. | 🟡 MEDIUM | Naming / Templates | [T-8 section](#-t-8-regularise-the-simple-familys-value-variables-to-the-plural-convention) |
+| T-9 | The PTM compact bindings `ptm-creating.json` are a stub whose fields match none of `creating-template`'s attribute/value variables. | 🟡 MEDIUM | Correctness / Compact bindings | [T-9 section](#-t-9-the-ptm-compact-bindings-have-drifted-from-their-template) |
 
 ---
 
@@ -239,3 +241,109 @@ neither path, are dead code (the workflows pass today).
 **DoD.** A decision recorded here. If one is taken: the pom and Makefile `PYTHONPATH` no longer
 name an absolute ProvToolbox path, and `python-fs-run-workflow` / `python-box-run-workflow` pass.
 
+---
+
+### 🟡 T-8: Regularise the simple family's value variables to the plural convention
+
+**Status**: OPEN (created 2026-10-14).
+**Priority**: 🟡 MEDIUM. **Category**: Naming / Templates.
+
+**Context.** A variable in an attribute or a value position binds to an array of arrays, so its
+name is plural: `aprops`/`avalues`, `iprops`/`ivalues`, `oprops`/`ovalues`. On 2026-10-14 the
+library was brought in line with that throughout (commits 7d2410a, 364addb): the three templates
+the book draws on, the `triangle4-aia` attribution pair, the membership primitive and its three
+bindings, and six dead `"avalue": null` cbinding keys. The `simple` family is what is left: it
+pairs `<x>props` with **`<x>prop_values`** rather than `<x>values`.
+
+```
+simple-transforming1:  aprops/aprop_values   iprops/iprop_values   oprops/oprop_values
+                       pprops/pprop_values   agprops/agprop_values
+```
+
+**Inventory** — 10 names, 53 occurrences in `src/main/resources`:
+
+```
+agprop_values 10   pprop_values 10   aprop_values 8   oprop_values 8
+iprop_values   6   rprop_values  3   cprop_values 2   eprop_values 2
+iprop_values1  2   iprop_values2 2
+```
+
+**Files.** Four templates — `templates/.../simple/simple-transforming1.{jsonld,provn,svg}`,
+`templates/.../generic/operation.{jsonld,provn}`, `templates/.../generic/updating-entity.{jsonld,provn}`,
+`templates/.../generic/old/transforming1-old.provn`. Eleven bindings bind the keys —
+`bindings/.../simple/{simple-binaryop,simple-joining2}.json`, the six `bindings/.../fs/file-*.json`,
+and `bindings/.../ptm/ptm-{instantiating,merging,mexpanding}.json`. One check file encodes the
+convention, `variable-check/simple/variables.json`, applied by `ttfs/config-simple.json`.
+
+**Blast radius is narrow.** The composition bindings already rename these away, so of the
+generated families only `simple` still carries them (`agprop_values`, `iprop_values1/2`,
+`oprop_values`). Everything built on top is already plural:
+
+- `generic.Transforming1` — the template nextgen instantiates 64 times — is entirely plural
+  (`aprops/avalues`, `oprops/ovalues`, `uprops/uvalues`), so **nextgen is not exposed**;
+- the fs and ptm families likewise, apart from their domain names (`consumed_value1/2`,
+  `produced_value`, `score_value`), which are not of this form and stay;
+- **the book never renders `simple-transforming1`** — no figure, no listing, no prose.
+
+**Settle first.** `variable-check/simple/variables.json` already half-contradicts its own
+templates: its `activity` value slot reads `(avalues)` while `simple-transforming1` uses
+`aprop_values`, and the build is nonetheless green. Understand why that passes before rewriting
+the file, or the rewrite will hide rather than fix something.
+
+**Not in scope.** `prop`/`pvalue` in the primitives (16 ids, 56 binding keys) name a single pair
+and stay singular. `cvalue`/`dcvalue`/`tvalue` in `cbindings/.../ptm/ptm-creating.json` are a
+separate defect, not a pluralisation — see T-9.
+
+**DoD.** No `<x>prop_values` name left in `src/main/resources` or `target/generated-templates`;
+`variable-check/simple/variables.json` names only plural forms; library `mvn test` green with no
+failed checks; nextgen `templates` module green against the reinstalled jar.
+
+---
+
+### 🟡 T-9: The PTM compact bindings have drifted from their template
+
+**Status**: OPEN (created 2026-10-14).
+**Priority**: 🟡 MEDIUM. **Category**: Correctness / Compact bindings.
+
+**Context.** Found while regularising the attribute/value variable names (T-8, and the renames
+in 7d2410a / 364addb). `cbindings/org/openprovenance/cbindings/ptm/ptm-creating.json` declares
+three singular fields — `cvalue`, `dcvalue`, `tvalue` — which look like stragglers of the
+singular/plural clean-up but are not: they are a symptom of the compact schema having drifted
+away from the template it describes. Renaming them would hide the problem, and in one case would
+not even compile cleanly.
+
+**The mismatch.** `creating-template` declares:
+
+```
+asc1 asc2 asc3 context creating creator dc dprops dvalues
+template0 template1 tprops ttf tvalues uprops1 uvalues1
+```
+
+`ptm-creating.json` declares:
+
+```
+asc1 asc2 asc3 context creating creator cvalue dc dcvalue
+ppath template0 template1 time ttf tvalue
+```
+
+Ten names agree. None of the template's six attribute/value variables — `dprops`, `dvalues`,
+`tprops`, `tvalues`, `uprops1`, `uvalues1` — is declared by the cbinding, and `cvalue`,
+`dcvalue`, `ppath` and `time` correspond to nothing in the template. The file also still carries
+its placeholders: `"template": "TODO template"`, `"@documentation": "TODO doc."`.
+
+**Why a rename is the wrong fix.** Both sets reach the same generated class,
+`target/generated-sources/transport_template_library_l2p/.../ptm/Ptm_creatingBuilder.java`:
+`cvalue` ×9, `dcvalue` ×9, `ppath` ×9, `tvalue` ×9 alongside `dprops` ×6, `dvalues` ×6,
+`tprops` ×6, `tvalues` ×6, `uprops1` ×6, `uvalues1` ×6. `tvalues` is already a parameter there
+(line 88, used with `tprops` at 103–104) while `tvalue` is a separate `String` parameter
+(line 231), so `tvalue` → `tvalues` would collide inside one class. It would also rename fields
+of a public builder API and the CSV column names in `Ptm_creatingInputsProcessor`.
+
+**Work.** Establish which template variable each compact field was meant to feed (and whether
+`ppath` / `time` are live at all), then either bind the template's real variables or retire the
+dead fields; fill in `template` and `@documentation`; keep `example/example-creating-template.json`
+in step, since it is a sample record keyed by these field names.
+
+**DoD.** Every field of `ptm-creating.json` corresponds to a variable of `creating-template`, or
+is deliberately documented as not doing so; no `TODO` placeholders left in the file; the sample
+record still loads; library `mvn test` green.

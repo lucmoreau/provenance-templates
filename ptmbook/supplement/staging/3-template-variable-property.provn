@@ -4,6 +4,6 @@ prefix vargen <http://openprovenance.org/vargen#>
 prefix var <http://openprovenance.org/var#>
 prefix ex <http://example.org/#>
 
-entity(ex:e1,[var:prop = 'var:value'])
+entity(ex:e1,[var:props = 'var:values'])
 endBundle
 endDocument

@@ -15,15 +15,21 @@
     }, {
       "@type" : "Entity",
       "@id" : "var:file1",
-      "var:iprops" : [ { "@id" : "var:ivalues" } ]
+      "var:iprops" : [ {
+        "@id" : "var:ivalues"
+      } ]
     }, {
       "@type" : "Entity",
       "@id" : "var:file2",
-      "var:oprops" : [ { "@id" : "var:ovalues" } ]
+      "var:oprops" : [ {
+        "@id" : "var:ovalues"
+      } ]
     }, {
       "@type" : "Agent",
       "@id" : "var:agent",
-      "var:aprops" : [ { "@id" : "var:avalues" } ]
+      "var:aprops" : [ {
+        "@id" : "var:avalues"
+      } ]
     }, {
       "@type" : "Association",
       "activity" : "var:compressing",
