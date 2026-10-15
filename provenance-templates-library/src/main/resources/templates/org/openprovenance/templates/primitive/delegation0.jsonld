@@ -16,7 +16,7 @@
                 "delegate": "var:agent1",
                 "responsible": "var:agent0",
                 "activity": "var:activity",
-                "var:delprops" : [ "var:delvalues" ]
+                "var:delprops" : [ { "@id" : "var:delvalues" } ]
             }
 
             ]

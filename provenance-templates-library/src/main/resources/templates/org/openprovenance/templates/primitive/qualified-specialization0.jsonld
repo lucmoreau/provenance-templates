@@ -15,7 +15,7 @@
         "@id" : "var:id",
         "specificEntity" : "var:specificEntity",
         "generalEntity" : "var:generalEntity",
-        "var:prop" : [ "var:pvalue" ]
+        "var:prop" : [ { "@id" : "var:pvalue" } ]
       }
 
       ]

@@ -15,7 +15,7 @@
         "@id" : "var:id",
         "generatedEntity": "var:e1",
         "usedEntity": "var:e0",
-        "var:prop" : [ "var:pvalue" ]
+        "var:prop" : [ { "@id" : "var:pvalue" } ]
       },
         {
           "@type" : "Entity",

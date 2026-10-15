@@ -13,7 +13,7 @@
       "@graph" : [ {
         "@type" : "Activity",
         "@id" : "var:activity",
-        "var:prop" : [ "var:pvalue" ]
+        "var:prop" : [ { "@id" : "var:pvalue" } ]
       }
       ]
     }

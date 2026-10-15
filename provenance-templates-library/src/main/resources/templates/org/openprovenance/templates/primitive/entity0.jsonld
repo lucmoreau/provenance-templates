@@ -18,7 +18,7 @@
       "@graph" : [ {
         "@type" : "Entity",
         "@id" : "var:entity",
-        "var:prop" : [ "var:pvalue" ]
+        "var:prop" : [ { "@id" : "var:pvalue" } ]
       }
       ]
     }

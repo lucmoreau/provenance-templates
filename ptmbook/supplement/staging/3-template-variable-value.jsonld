@@ -14,7 +14,7 @@
 	    "@type" : "Entity",
 	    "@id" : "ex:e1",
 	    "type" : [ "var:type" ],
-	    "ex:category" : [ "var:category" ]
+	    "ex:category" : [ { "@id" : "var:category" } ]
 	} ]
     } ]
 }

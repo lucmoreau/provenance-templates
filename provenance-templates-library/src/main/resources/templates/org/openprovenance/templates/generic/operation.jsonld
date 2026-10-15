@@ -16,34 +16,34 @@
     "@graph" : [ {
       "@type" : "Activity",
       "@id" : "var:block_instance",
-      "tmpl:startTime" : [ "var:starttime" ],
-      "tmpl:endTime" : [ "var:endtime" ],
+      "tmpl:startTime" : [ { "@id" : "var:starttime" } ],
+      "tmpl:endTime" : [ { "@id" : "var:endtime" } ],
       "type" : [ "var:block_type" ],
-      "tmpl:label" : [ "var:block_label" ]
+      "tmpl:label" : [ { "@id" : "var:block_label" } ]
     }, {
       "@type" : "Entity",
       "@id" : "var:consumed",
       "type" : [ "var:consumed_type" ],
-      "tmpl:label" : [ "var:consumed_label" ],
-      "var:cprops" : [ "var:cprop_values" ]
+      "tmpl:label" : [ { "@id" : "var:consumed_label" } ],
+      "var:cprops" : [ { "@id" : "var:cprop_values" } ]
     }, {
       "@type" : "Usage",
       "activity" : "var:block_instance",
       "entity" : "var:consumed",
       "role" : [ "var:consumed_role" ],
-      "tmpl:time" : [ "var:consumed_at" ]
+      "tmpl:time" : [ { "@id" : "var:consumed_at" } ]
     }, {
       "@type" : "Entity",
       "@id" : "var:produced",
       "type" : [ "var:produced_type" ],
-      "tmpl:label" : [ "var:produced_label" ],
-      "var:pprops" : [ "var:pprop_values" ]
+      "tmpl:label" : [ { "@id" : "var:produced_label" } ],
+      "var:pprops" : [ { "@id" : "var:pprop_values" } ]
     }, {
       "@type" : "Generation",
       "entity" : "var:produced",
       "activity" : "var:block_instance",
       "role" : [ "var:produced_role" ],
-      "tmpl:time" : [ "var:produced_at" ]
+      "tmpl:time" : [ { "@id" : "var:produced_at" } ]
     }, {
       "@type" : "Derivation",
       "generatedEntity" : "var:produced",

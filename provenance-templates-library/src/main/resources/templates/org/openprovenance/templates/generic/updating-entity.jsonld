@@ -17,12 +17,12 @@
     "@graph" : [ {
       "@type" : "Agent",
       "@id" : "var:agent",
-      "var:agprops" : [ "var:agprop_values" ],
+      "var:agprops" : [ { "@id" : "var:agprop_values" } ],
       "type" : [ "var:agtype" ]
     }, {
       "@type" : "Agent",
       "@id" : "var:responsible",
-      "var:rprops" : [ "var:rprop_values" ],
+      "var:rprops" : [ { "@id" : "var:rprop_values" } ],
       "type" : [ "var:rtype" ]
     }, {
       "@type" : "Delegation",
@@ -33,12 +33,12 @@
       "@type" : "Entity",
       "@id" : "var:plan",
       "type" : [ "var:ptype" ],
-      "var:pprops" : [ "var:pprop_values" ]
+      "var:pprops" : [ { "@id" : "var:pprop_values" } ]
     }, {
       "@type" : "Entity",
       "@id" : "var:entity",
       "type" : [ "var:etype" ],
-      "var:eprops" : [ "var:eprop_values" ]
+      "var:eprops" : [ { "@id" : "var:eprop_values" } ]
     }, {
       "@type" : "Entity",
       "@id" : "var:entity0",
@@ -46,12 +46,12 @@
     }, {
       "@type" : "Entity",
       "@id" : "var:entity1",
-      "var:e1props" : [ "var:e1prop_values" ],
+      "var:e1props" : [ { "@id" : "var:e1prop_values" } ],
       "type" : [ "var:etype" ]
     }, {
       "@type" : "Activity",
       "@id" : "var:activity",
-      "var:aprops" : [ "var:aprop_values" ],
+      "var:aprops" : [ { "@id" : "var:aprop_values" } ],
       "type" : [ "var:atype" ]
     }, {
       "@type" : "Derivation",

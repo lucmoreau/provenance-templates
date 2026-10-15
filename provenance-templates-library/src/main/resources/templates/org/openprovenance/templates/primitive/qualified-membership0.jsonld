@@ -15,7 +15,7 @@
         "@id" : "var:mem",
         "entity" : ["var:entity"],
         "collection" : "var:collection",
-        "var:mprops" : [ "var:mvalues" ]
+        "var:mprops" : [ { "@id" : "var:mvalues" } ]
       }
 
       ]

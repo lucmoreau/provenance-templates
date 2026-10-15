@@ -23,29 +23,29 @@
                 "@type" : "Activity",
                 "@id" : "var:a",
                 "type" : [ "var:activityType" ],
-                "var:aprops" : [ "var:avalues" ]
+                "var:aprops" : [ { "@id" : "var:avalues" } ]
             }, {
                 "@type" : "Entity",
                 "@id" : "var:e0",
                 "type" : [ "var:entityType0" ],
-                "var:eprops0" : [ "var:evalues0" ]
+                "var:eprops0" : [ { "@id" : "var:evalues0" } ]
             }, {
                 "@type" : "Entity",
                 "@id" : "var:e1",
                 "type" : [ "var:entityType1" ],
-                "var:eprops1" : [ "var:evalues1" ]
+                "var:eprops1" : [ { "@id" : "var:evalues1" } ]
             }, {
                 "@type" : "Usage",
                 "@id" : "vargen:u",
                 "activity" : "var:a",
                 "entity" : "var:e0",
-                "tmpl:time" : [ "var:time0" ]
+                "tmpl:time" : [ { "@id" : "var:time0" } ]
             }, {
                 "@type" : "Generation",
                 "@id" : "vargen:g",
                 "activity" : "var:a",
                 "entity" : "var:e1",
-                "tmpl:time" :  [ "var:time1" ]
+                "tmpl:time" :  [ { "@id" : "var:time1" } ]
             }, {
                 "@type" : "Derivation",
                 "generatedEntity" : "var:e1",

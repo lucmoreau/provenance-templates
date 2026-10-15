@@ -14,7 +14,7 @@
       "@type" : "Entity",
       "@id" : "var:entity",
       "type" : [ "var:tvalues" ],        
-      "var:eprops" : [ "var:evalues" ]
+      "var:eprops" : [ { "@id" : "var:evalues" } ]
     }
     ]
   }

@@ -23,7 +23,7 @@
           "usage": "var:usage",
           "activity": "var:activity",
           "var:prop": [
-            "var:pvalue"
+            { "@id" : "var:pvalue" }
           ]
         }
       ]

@@ -16,31 +16,31 @@
     "@graph" : [ {
       "@type" : "Agent",
       "@id" : "var:agent",
-      "var:agprops" : [ "var:agprop_values" ],
+      "var:agprops" : [ { "@id" : "var:agprop_values" } ],
       "type" : [ "var:agtype" ]
     }, {
       "@type" : "Entity",
       "@id" : "var:input",
       "location" : [ "var:ilocation" ],
-      "var:iprops" : [ "var:iprop_values" ],
+      "var:iprops" : [ { "@id" : "var:iprop_values" } ],
       "type" : [ "var:itype" ]
     }, {
       "@type" : "Entity",
       "@id" : "var:output",
-      "var:oprops" : [ "var:oprop_values" ],
+      "var:oprops" : [ { "@id" : "var:oprop_values" } ],
       "location" : [ "var:olocation" ],
       "type" : [ "var:otype" ]
     }, {
       "@type" : "Entity",
       "@id" : "var:plan",
       "type" : [ "var:ptype" ],
-      "var:pprops" : [ "var:pprop_values" ]
+      "var:pprops" : [ { "@id" : "var:pprop_values" } ]
     }, {
       "@type" : "Activity",
       "@id" : "var:activity",
-      "tmpl:startTime" : [ "var:start" ],
-      "var:aprops" : [ "var:aprop_values" ],
-      "tmpl:endTime" : [ "var:end" ],
+      "tmpl:startTime" : [ { "@id" : "var:start" } ],
+      "var:aprops" : [ { "@id" : "var:aprop_values" } ],
+      "tmpl:endTime" : [ { "@id" : "var:end" } ],
       "type" : [ "var:atype" ]
     }, {
       "@type" : "Usage",
