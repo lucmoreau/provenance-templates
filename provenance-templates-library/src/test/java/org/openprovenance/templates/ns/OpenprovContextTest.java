@@ -16,8 +16,8 @@ import java.util.regex.Pattern;
 /**
  * openprov.jsonld extends the PROV-JSONLD context by redefining six type-scoped terms, and JSON-LD replaces a
  * redefined term whole: the provext part of each scope is restated, and must not drift from the specification's.
- * The specification's context is read from the prov-jsonld artifact, whose copy its build keeps byte-identical
- * to the published one.
+ * The specification's context and schema are read from the prov-jsonld artifact, whose copies its build keeps
+ * byte-identical to the published ones.
  */
 public class OpenprovContextTest extends TestCase {
 
@@ -25,7 +25,8 @@ public class OpenprovContextTest extends TestCase {
     static final String OPENPROV_ONTOLOGY = "../openprovspec/openprov.ttl";
     static final String OPENPROV_SCHEMA = "../openprovspec/openprov-schema.json";
     static final String SPEC_SCHEMA_URL = "https://openprovenance.org/prov-jsonld/schema.json";
-    static final String SPEC_SCHEMA_RESOURCE = "/2024-08-25/jsonldschema.json";
+    /** The prov-jsonld artifact's copy of what SPEC_SCHEMA_URL serves: 2026-10-14 since openprov/prov-jsonld#7. */
+    static final String SPEC_SCHEMA_RESOURCE = "/2026-10-14/jsonldschema.json";
     static final String SPEC_CONTEXT_URL = "https://openprovenance.org/prov-jsonld/context.jsonld";
     static final String SPEC_CONTEXT_RESOURCE = "/2024-08-25/jsonldcontext.jsonld";
     static final String OPENPROV_NS = "https://openprovenance.org/ns/openprov#";
