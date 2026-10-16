@@ -19,7 +19,7 @@ go:
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/generic/Forking2 do.file
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/generic/Joining2 do.file
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/generic/Parallel2 do.file
-	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/generic/Product2 do.file
+	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/generic/Product2-2 do.file
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/generic/Transforming1 do.file
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/physical/Packing do.file
 	@$(MAKE) -f $(MAKEFILE_LIST)  FILE=$(PAGES_DIR)/org/openprovenance/templates/physical/Transporting do.file
@@ -80,7 +80,7 @@ go1:
 	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/generic/Forking2 do.file1
 	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/generic/Joining2 do.file1
 	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/generic/Parallel2 do.file1
-	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/generic/Product2 do.file1
+	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/generic/Product2-2 do.file1
 	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/generic/Transforming1 do.file1
 	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/ptm/Instantiating do.file1
 	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/ptm/Merging do.file1
@@ -128,7 +128,7 @@ go1.link:
 	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/generic/Forking2 do.link
 	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/generic/Joining2 do.link
 	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/generic/Parallel2 do.link
-	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/generic/Product2 do.link
+	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/generic/Product2-2 do.link
 	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/generic/Transforming1 do.link
 	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/ptm/Instantiating do.link
 	@$(MAKE) -f template-library/Makefile FILE=template-library/org/openprovenance/templates/ptm/Merging do.link

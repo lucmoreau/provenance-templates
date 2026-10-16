@@ -14,8 +14,11 @@
 #                    published schema; see script/schema-extend.py)
 #   make standalone  openprov.html, context.html and tmpl.html, the same
 #                    content as self-contained pages, for checking the generators
+#   make diagram     schema-dependencies.svg and .png from schema-dependencies.mmd,
+#                    the schemas and contexts and how they depend on each other
+#                    (needs mmdc, the Mermaid CLI: npm install -g @mermaid-js/mermaid-cli)
 
-.PHONY: all html schema standalone
+.PHONY: all html schema standalone diagram
 
 all: html schema
 
@@ -36,3 +39,13 @@ schema:
 	curl -s -o /tmp/prov-jsonld-schema.json $(SPEC_SCHEMA)
 	python3 script/schema-extend.py /tmp/prov-jsonld-schema.json openprov.jsonld openprov-schema.json
 	rm /tmp/prov-jsonld-schema.json
+
+MMDC=mmdc
+
+diagram: schema-dependencies.svg schema-dependencies.png
+
+schema-dependencies.svg: schema-dependencies.mmd
+	$(MMDC) -i $< -o $@ -b white
+
+schema-dependencies.png: schema-dependencies.mmd
+	$(MMDC) -i $< -o $@ -b white -s 2 -w 2400

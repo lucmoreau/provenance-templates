@@ -1,0 +1,78 @@
+%% PROV-JSONLD and OpenProv schemas and contexts: what openprovenance.org serves, how the versions
+%% derive, what references what by URL, and the identical copies kept elsewhere. Rendered by `make diagram`.
+flowchart LR
+  subgraph LIVE["openprovenance.org (live)"]
+    direction TB
+    L_opsch["ns/openprov-schema.json"]
+    L_opctx["ns/openprov.jsonld"]
+    L_schema["prov-jsonld/schema.json"]
+    L_s0912["prov-jsonld/schema-2026-09-12.json"]
+    L_s0825["prov-jsonld/schema-2024-08-25.json"]
+    L_ctx["prov-jsonld/context.jsonld"]
+  end
+
+  subgraph OPSPEC["provenance-templates/openprovspec (main)"]
+    direction TB
+    OPCTX["openprov.jsonld<br/>(openprov context)"]
+    GEN(["script/schema-extend.py"])
+    OPSCH["openprov-schema.json"]
+  end
+
+  subgraph SPEC["openprov/prov-jsonld (master)"]
+    direction TB
+    S0825["2024-08-25/schema.json<br/>(W3C submission)"]
+    S0912["2026-09-12/schema.json"]
+    S1014["2026-10-14/schema.json"]
+    C0912["2026-09-12/context.jsonld"]
+  end
+
+  subgraph PTB["ProvToolbox prov-jsonld resources (development2_0)"]
+    direction TB
+    T_opsch["openprov-context/openprov-schema.json"]
+    T_opctx["openprov-context/openprov.jsonld"]
+    T_s1014["2026-10-14/jsonldschema.json"]
+    T_s0825["2024-08-25/jsonldschema.json<br/>(+ jsonldschema-notab.json)"]
+    T_ctx["2024-08-25/jsonldcontext.jsonld<br/>(content = 2026-09-12 context)"]
+  end
+
+  subgraph BOOK["Book"]
+    direction TB
+    B_list["book-ptm listings<br/>(Makefile-extractor)"]
+    B_stage["ptmbook/supplement/staging/<br/>jsonldschema.json"]
+    B_valid["provenance-intro1/.../2024-08-25/<br/>jsonldschema.json (validation)"]
+  end
+
+  %% what the site serves
+  L_opsch -->|serves| OPSCH
+  L_opctx -->|serves| OPCTX
+  L_schema -->|serves| S1014
+  L_s0912 -->|serves| S0912
+  L_s0825 -->|serves| S0825
+  L_ctx -->|serves| C0912
+
+  %% schema versions, each derived from the previous one
+  S0825 ==>|"@type anchored (#5)"| S0912
+  S0912 ==>|"+ node_reference,<br/>ArrayOfStringValues (#7)"| S1014
+
+  %% references by URL
+  L_ctx -.->|"imported by @context of"| OPCTX
+  L_schema -.->|"$ref'd by"| OPSCH
+
+  %% generation of the openprov schema
+  OPCTX --> GEN
+  S1014 -->|input| GEN
+  GEN -->|generates| OPSCH
+
+  %% identical copies
+  OPSCH -->|copy| T_opsch
+  OPCTX -->|copy| T_opctx
+  S1014 -->|copy| T_s1014
+  S0825 -->|copy| T_s0825
+  C0912 -->|copy| T_ctx
+  S1014 -->|copy| B_stage
+  S0825 -->|copy| B_valid
+
+  %% the book's listings come from ProvToolbox's copy
+  T_s1014 -->|jq extracts| B_list
+
+  linkStyle 6,7 stroke-width:3px
