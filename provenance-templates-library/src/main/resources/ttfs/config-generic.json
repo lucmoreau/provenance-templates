@@ -9,6 +9,7 @@
         {
             "type": "instantiate",
             "template": "org.openprovenance.templates.generic.Transforming1",
+            "schemaCheck": "default",
             "output": "org/openprovenance/templates/generic/forking2",
             "bindings": "forking2.json",
             "formats": ["jsonld", "provn", "png", "svg", "qualified.png", "qualified.svg"],
@@ -18,6 +19,7 @@
         {
             "type": "instantiate",
             "template": "org.openprovenance.templates.generic.Transforming1",
+            "schemaCheck": "default",
             "output": "org/openprovenance/templates/generic/joining2",
             "bindings": "joining2.json",
             "formats": ["jsonld", "provn", "png", "svg", "qualified.png", "qualified.svg"],
@@ -27,6 +29,7 @@
         {
             "type": "instantiate",
             "template": "org.openprovenance.templates.generic.Transforming1",
+            "schemaCheck": "default",
             "output": "org/openprovenance/templates/generic/parallel2",
             "bindings": "parallel2.json",
             "formats": ["jsonld", "provn", "png", "svg", "qualified.png", "qualified.svg"],
@@ -36,6 +39,7 @@
         {
             "type": "instantiate",
             "template": "org.openprovenance.templates.generic.Transforming1",
+            "schemaCheck": "default",
             "output": "org/openprovenance/templates/generic/product2-2",
             "bindings": "product2-2.json",
             "formats": ["jsonld", "provn", "png", "svg", "qualified.png", "qualified.svg"],

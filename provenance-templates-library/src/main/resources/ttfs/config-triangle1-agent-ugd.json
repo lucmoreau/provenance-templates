@@ -62,6 +62,7 @@
                 "org/openprovenance/templates/triangles/triangle1-agent-ugd/derivation",
                 "org/openprovenance/templates/triangles/triangle1-agent-ugd/usage",
                 "org/openprovenance/templates/triangles/triangle1-agent-ugd/generation"],
+            "schemaCheck": "default",
             "output": "org/openprovenance/templates/triangles/triangle1-agent-ugd/triangle1-agent-ugd",
             "outputFullyQualifiedName": "org.openprovenance.templates.triangles.Triangle1-Agent-UGD",
             "formats": ["provn", "png", "svg", "jsonld", "qualified.png", "qualified.svg"],

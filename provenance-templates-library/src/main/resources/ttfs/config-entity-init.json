@@ -63,6 +63,7 @@
                 "org/openprovenance/templates/general/entity-init/activity",
                 "org/openprovenance/templates/general/entity-init/generation"
             ],
+            "schemaCheck": "default",
             "output": "org/openprovenance/templates/general/entity-init/entity-init",
             "outputFullyQualifiedName": "org.openprovenance.templates.responsibility.EntityInit",
             "formats": ["jsonld", "provn", "png", "svg"],
@@ -79,6 +80,7 @@
                 "org/openprovenance/templates/general/entity-init/activity",
                 "org/openprovenance/templates/general/entity-init/generation"
             ],
+            "schemaCheck": "default",
             "output": "org/openprovenance/templates/general/entity-init/entity-location-init",
             "outputFullyQualifiedName": "org.openprovenance.templates.responsibility.EntityLocationInit",
             "formats": ["jsonld", "provn", "png", "svg"],

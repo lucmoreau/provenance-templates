@@ -9,6 +9,7 @@
         {
             "type": "instantiate",
             "template": "org/openprovenance/templates/generic/product2-2",
+            "schemaCheck": "default",
             "output": "org/openprovenance/templates/ptm/ptm-instantiating",
             "bindings": "ptm-instantiating.json",
             "formats": ["jsonld", "provn", "png", "svg"],
@@ -18,6 +19,7 @@
         {
             "type": "instantiate",
             "template": "org/openprovenance/templates/generic/product2-2",
+            "schemaCheck": "default",
             "output": "org/openprovenance/templates/ptm/ptm-merging",
             "bindings": "ptm-merging.json",
             "formats": ["jsonld", "provn", "png", "svg"],

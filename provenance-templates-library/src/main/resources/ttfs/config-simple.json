@@ -19,6 +19,7 @@
         {
             "type": "instantiate",
             "template": "org/openprovenance/templates/simple/joining2",
+            "schemaCheck": "default",
             "output": "org/openprovenance/templates/simple/binaryop",
             "bindings": "simple-binaryop.json",
             "formats": ["jsonld", "provn", "png", "svg", "qualified.png", "qualified.svg"],

@@ -69,6 +69,7 @@
                 "org/openprovenance/templates/physical/unpacking/unpacking-sds-container",
                 "org/openprovenance/templates/physical/unpacking/unpacking-sds-item"
             ],
+            "schemaCheck": "default",
             "output": "org/openprovenance/templates/physical/unpacking/unpacking",
             "outputFullyQualifiedName": "org.openprovenance.templates.transport.Unpacking",
             "formats": ["jsonld","provn", "png", "svg", "qualified.png", "qualified.svg"],

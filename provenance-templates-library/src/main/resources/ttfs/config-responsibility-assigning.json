@@ -98,6 +98,7 @@
                 "org/openprovenance/templates/responsibility/assigning/triangle-sds1",
                 "org/openprovenance/templates/responsibility/assigning/triangle-sds2"
             ],
+            "schemaCheck": "default",
             "output": "org/openprovenance/templates/responsibility/assigning/assigning",
             "outputFullyQualifiedName": "org.openprovenance.templates.responsibility.Assigning",
             "formats": ["jsonld", "provn", "png", "svg", "qualified.png", "qualified.svg"],

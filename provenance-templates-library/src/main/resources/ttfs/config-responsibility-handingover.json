@@ -60,6 +60,7 @@
                 "org/openprovenance/templates/responsibility/handingover/handingover-aga-ag1",
                 "org/openprovenance/templates/responsibility/handingover/handingover-aia-ag0"
             ],
+            "schemaCheck": "default",
             "output": "org/openprovenance/templates/responsibility/handingover/handingover",
             "outputFullyQualifiedName": "org.openprovenance.templates.responsibility.HandingOver",
             "formats": ["jsonld","provn", "png", "svg", "qualified-inv.png", "qualified-inv.svg"],

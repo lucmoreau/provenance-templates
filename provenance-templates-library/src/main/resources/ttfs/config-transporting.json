@@ -47,6 +47,7 @@
                 "org/openprovenance/templates/physical/transporting/transporting-aga-agent",
                 "org/openprovenance/templates/physical/transporting/transporting-sds"
             ],
+            "schemaCheck": "default",
             "output": "org/openprovenance/templates/physical/transporting/transporting",
             "outputFullyQualifiedName": "org.openprovenance.templates.transport.Transporting",
             "formats": ["jsonld","provn", "png", "svg", "qualified.png", "qualified.svg"],

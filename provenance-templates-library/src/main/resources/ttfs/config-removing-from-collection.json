@@ -59,6 +59,7 @@
                 "org/openprovenance/templates/collections/removing/collection-remove-triangle3-ugd",
                 "org/openprovenance/templates/collections/removing/membership"
             ],
+            "schemaCheck": "default",
             "output": "org/openprovenance/templates/collections/removing/collection-removing",
             "formats": ["jsonld","provn", "png", "svg", "qualified.png", "qualified.svg"],
             "hasProvenance": "org/openprovenance/templates/collections/removing/prov/prov-collection-removing.prov-csv",

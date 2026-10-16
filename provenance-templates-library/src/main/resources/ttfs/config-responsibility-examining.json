@@ -71,6 +71,7 @@
                 "org/openprovenance/templates/responsibility/examining/examining-aga-instrument",
                 "org/openprovenance/templates/responsibility/examining/examining-delegation"
             ],
+            "schemaCheck": "default",
             "output": "org/openprovenance/templates/responsibility/examining/examining",
             "outputFullyQualifiedName": "org.openprovenance.templates.responsibility.Examining",
             "formats": ["jsonld","provn", "png", "svg", "qualified.png", "qualified.svg"],
