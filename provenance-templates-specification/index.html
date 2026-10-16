@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PROV-TEMPLATE Documents</title>
+  <style>
+    :root {
+      --fg: #222; --muted: #555; --bg: #fff; --card: #f8f9fa; --border: #ddd; --accent: #005a9c;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --fg: #e6e6e6; --muted: #aaa; --bg: #1b1b1b; --card: #262626; --border: #3a3a3a; --accent: #6cb4ff; }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0 auto; max-width: 52em; padding: 2em 16px 4em;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.55;
+      color: var(--fg); background: var(--bg);
+    }
+    h1 { font-size: 1.9em; margin-bottom: 0.2em; color: var(--accent); }
+    p.subtitle { margin-top: 0; color: var(--muted); }
+    ul.docs { list-style: none; padding: 0; }
+    ul.docs li {
+      background: var(--card); border: 1px solid var(--border); border-radius: 6px;
+      padding: 0.8em 1em; margin: 0.8em 0;
+    }
+    ul.docs a { font-weight: bold; color: var(--accent); text-decoration: none; }
+    ul.docs a:hover { text-decoration: underline; }
+    .tag { font-size: 0.8em; color: var(--muted); margin-left: 0.5em; white-space: nowrap; }
+    ul.docs p { margin: 0.3em 0 0; }
+    footer { margin-top: 2.5em; font-size: 0.9em; color: var(--muted); }
+    footer a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <h1>PROV-TEMPLATE</h1>
+  <p class="subtitle">The provenance template family of documents &middot; Unofficial Drafts, 16 October 2026 &middot; Editor: Luc Moreau</p>
+
+  <p>
+    A provenance template is a PROV document whose identifiers, attributes and values may be variables. A set of
+    bindings gives values to the variables, and instantiation replaces them to produce an ordinary PROV document.
+    The family consists of five documents.
+  </p>
+
+  <ul class="docs">
+    <li>
+      <a href="prov-template-overview/">PROV-TEMPLATE-OVERVIEW</a><span class="tag">non-normative</span>
+      <p>An overview of provenance templates: the approach, its artefacts, and a guide to the family.</p>
+    </li>
+    <li>
+      <a href="prov-template-primer/">PROV-TEMPLATE-PRIMER</a><span class="tag">non-normative</span>
+      <p>A step-by-step introduction through the provenance of a nightly file processing pipeline.</p>
+    </li>
+    <li>
+      <a href="prov-template/">PROV-TEMPLATE</a><span class="tag">normative</span>
+      <p>Templates, variables and the <code>tmpl:</code> vocabulary; bindings; bindings schemas; template indexes;
+        template transformation files. Non-normative: the command line, executables, Maven plugin and template compiler.</p>
+    </li>
+    <li>
+      <a href="prov-template-algorithms/">PROV-TEMPLATE-ALGORITHMS</a><span class="tag">normative</span>
+      <p>The instantiation and merge algorithms, and their error situations.</p>
+    </li>
+    <li>
+      <a href="prov-template-library/">PROV-TEMPLATE-LIBRARY</a><span class="tag">non-normative</span>
+      <p>The library of templates: identification, organisation, derivation, and its families of templates.</p>
+    </li>
+  </ul>
+
+  <footer>
+    Previous version: <a href="https://openprovenance.org/prov-template-2014-06-07/">PROV-TEMPLATE: A Template System for
+    PROV Documents</a>, Unofficial Draft 07 June 2014, edited by Danius Michaelides, Trung Dong Huynh and Luc Moreau.
+  </footer>
+</body>
+</html>
