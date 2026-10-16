@@ -55,7 +55,7 @@
                 "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3b-aga",
                 "org/openprovenance/templates/ptm/creating-template/creating-template-triangle3c-aga"
             ],
-            "schemaCheck": "default",
+            "schemaCheck": "default-qn",
             "output": "org/openprovenance/templates/ptm/creating-template/creating-template",
             "formats": ["jsonld","provn", "png", "svg"],
             "hasProvenance": "org/openprovenance/templates/ptm/creating-template/prov/ptm-creating-template.prov-csv"

@@ -74,7 +74,7 @@
                 "org/openprovenance/templates/triangles/triangle3-aga/attribution",
                 "org/openprovenance/templates/triangles/triangle3-aga/generation"
             ],
-            "schemaCheck": "default",
+            "schemaCheck": "default-qn",
             "output": "org/openprovenance/templates/triangles/triangle3-aga/triangle3-aga",
             "outputFullyQualifiedName": "org.openprovenance.templates.triangles.Triangle3-AGA",
             "formats": ["provn", "png", "svg", "jsonld", "qualified.png", "qualified.svg"],

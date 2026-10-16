@@ -63,7 +63,7 @@
                 "org/openprovenance/templates/responsibility/agent-init/activity",
                 "org/openprovenance/templates/responsibility/agent-init/generation"
             ],
-            "schemaCheck": "default",
+            "schemaCheck": "default-qn",
             "output": "org/openprovenance/templates/responsibility/agent-init/agent-init",
             "outputFullyQualifiedName": "org.openprovenance.templates.tr.AgentLocation",
             "formats": ["jsonld", "provn", "png", "svg"],
@@ -79,7 +79,7 @@
                 "org/openprovenance/templates/responsibility/agent-init/activity",
                 "org/openprovenance/templates/responsibility/agent-init/generation"
             ],
-            "schemaCheck": "default",
+            "schemaCheck": "default-qn",
             "output": "org/openprovenance/templates/responsibility/agent-init/agent-location-init",
             "outputFullyQualifiedName": "org.openprovenance.templates.responsibility.AgentLocationInit",
             "formats": ["jsonld", "provn", "png", "svg"],

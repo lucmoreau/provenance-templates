@@ -64,7 +64,7 @@
                 "org/openprovenance/templates/triangles/triangle5-ggm/generation1"
             ],
             "outputFullyQualifiedName": "org.openprovenance.templates.triangles.Triangle5-GGM",
-            "schemaCheck": "default",
+            "schemaCheck": "default-qn",
             "output": "org/openprovenance/templates/triangles/triangle5-ggm/triangle5-ggm",
             "formats": ["jsonld","provn", "png", "svg", "qualified.png", "qualified.svg"],
             "hasProvenance": "org/openprovenance/templates/triangles/triangle5-ggm/prov/prov-triangle5-ggm.prov-csv",

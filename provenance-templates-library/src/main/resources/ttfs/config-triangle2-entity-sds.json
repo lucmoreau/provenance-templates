@@ -52,7 +52,7 @@
                 "org/openprovenance/templates/triangles/triangle2-entity-sds/derivation",
                 "org/openprovenance/templates/triangles/triangle2-entity-sds/specialization1",
                 "org/openprovenance/templates/triangles/triangle2-entity-sds/specialization2"],
-            "schemaCheck": "default",
+            "schemaCheck": "default-qn",
             "output": "org/openprovenance/templates/triangles/triangle2-entity-sds/triangle2-entity-sds",
             "outputFullyQualifiedName": "org.openprovenance.templates.triangles.Triangle2-Entity-SDS",
             "formats": ["jsonld", "provn", "png", "svg", "qualified.png", "qualified.svg"],
