@@ -1,0 +1,16 @@
+document
+bundle ex:run
+prefix pipe <http://example.org/pipeline#>
+prefix ex <http://example.org/run/2026-10-16/>
+
+entity(ex:raw-kew,[prov:type = 'pipe:RawReadings'])
+entity(ex:clean-kew,[prov:type = 'pipe:CleanReadings', pipe:rowsDropped = "3" %% xsd:int])
+entity(pipe:clean.py,[prov:type = 'prov:Plan', prov:label = "clean.py 1.4.2" %% xsd:string])
+agent(ex:ada,[prov:type = 'prov:Person'])
+activity(ex:cleaning-kew,2026-10-17T00:10:00.000Z,2026-10-17T00:10:04.000Z,[prov:type = 'pipe:Cleaning'])
+used(ex:cleaning-kew,ex:raw-kew,-)
+wasGeneratedBy(ex:clean-kew,ex:cleaning-kew,-)
+wasDerivedFrom(ex:clean-kew, ex:raw-kew)
+wasAssociatedWith(ex:cleaning-kew,ex:ada,pipe:clean.py)
+endBundle
+endDocument

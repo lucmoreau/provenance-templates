@@ -1,0 +1,57 @@
+document
+prefix pipe <http://example.org/pipeline#>
+prefix ex <http://example.org/run/2026-10-16/>
+prefix uuid <urn:uuid:>
+bundle ex:run
+prefix pipe <http://example.org/pipeline#>
+prefix ex <http://example.org/run/2026-10-16/>
+prefix uuid <urn:uuid:>
+
+entity(ex:clean-wisley,[prov:type = 'pipe:CleanReadings'])
+entity(ex:daily-2026-10-16,[prov:type = 'pipe:DailyDataset'])
+entity(ex:raw-kew,[prov:type = 'pipe:RawReadings', prov:label = "kew-2026-10-16.csv" %% xsd:string])
+entity(ex:parquet-heathrow,[prov:type = 'pipe:ParquetFile'])
+entity(ex:report-2026-10-16,[prov:type = 'pipe:ValidationReport', pipe:status = "passed" %% xsd:string])
+entity(ex:parquet-wisley,[prov:type = 'pipe:ParquetFile'])
+entity(ex:clean-kew,[prov:type = 'pipe:CleanReadings', pipe:rowsDropped = "3" %% xsd:int])
+entity(pipe:clean.py,[prov:type = 'prov:Plan', prov:label = "clean.py 1.4.2" %% xsd:string])
+entity(pipe:readings-schema-v2,[prov:type = 'pipe:Schema'])
+entity(ex:clean-heathrow,[prov:type = 'pipe:CleanReadings'])
+entity(ex:parquet-kew,[prov:type = 'pipe:ParquetFile'])
+activity(uuid:d479d9e4-2717-49e0-b4e9-9940574b6d34,-,-,[prov:type = 'pipe:Combining'])
+activity(ex:cleaning-kew,2026-10-17T00:10:00.000Z,2026-10-17T00:10:04.000Z,[prov:type = 'pipe:Cleaning'])
+activity(uuid:91915e45-a7c2-4aa9-b7e1-0ab8bb318640,-,-,[prov:type = 'pipe:Converting'])
+activity(uuid:dacc0fb5-d727-4f45-b3e3-84c64241ffda,2026-10-16T23:55:02.000Z,-,[prov:type = 'pipe:Uploading'])
+activity(uuid:e4a21483-fa6f-4002-b923-3f1242f5f3af,-,2026-10-17T00:20:11.000Z,[prov:type = 'pipe:Validating'])
+agent(ex:grace,[prov:type = 'prov:Person'])
+agent(ex:ada,[prov:type = 'prov:Person'])
+agent(ex:station-kew,[prov:type = 'pipe:WeatherStation'])
+used(ex:cleaning-kew,ex:raw-kew,-)
+used(uuid:d479d9e4-2717-49e0-b4e9-9940574b6d34,ex:clean-kew,-)
+used(uuid:d479d9e4-2717-49e0-b4e9-9940574b6d34,ex:clean-heathrow,-)
+used(uuid:d479d9e4-2717-49e0-b4e9-9940574b6d34,ex:clean-wisley,-)
+used(uuid:91915e45-a7c2-4aa9-b7e1-0ab8bb318640,ex:clean-kew,-)
+used(uuid:91915e45-a7c2-4aa9-b7e1-0ab8bb318640,ex:clean-heathrow,-)
+used(uuid:91915e45-a7c2-4aa9-b7e1-0ab8bb318640,ex:clean-wisley,-)
+used(uuid:e4a21483-fa6f-4002-b923-3f1242f5f3af,ex:daily-2026-10-16,-)
+used(uuid:e4a21483-fa6f-4002-b923-3f1242f5f3af,pipe:readings-schema-v2,-)
+wasGeneratedBy(ex:raw-kew,uuid:dacc0fb5-d727-4f45-b3e3-84c64241ffda,-)
+wasGeneratedBy(ex:clean-kew,ex:cleaning-kew,-)
+wasGeneratedBy(ex:daily-2026-10-16,uuid:d479d9e4-2717-49e0-b4e9-9940574b6d34,-)
+wasGeneratedBy(ex:parquet-kew,uuid:91915e45-a7c2-4aa9-b7e1-0ab8bb318640,-)
+wasGeneratedBy(ex:parquet-heathrow,uuid:91915e45-a7c2-4aa9-b7e1-0ab8bb318640,-)
+wasGeneratedBy(ex:parquet-wisley,uuid:91915e45-a7c2-4aa9-b7e1-0ab8bb318640,-)
+wasGeneratedBy(ex:report-2026-10-16,uuid:e4a21483-fa6f-4002-b923-3f1242f5f3af,-)
+wasDerivedFrom(ex:clean-kew, ex:raw-kew)
+wasDerivedFrom(ex:daily-2026-10-16, ex:clean-kew)
+wasDerivedFrom(ex:daily-2026-10-16, ex:clean-heathrow)
+wasDerivedFrom(ex:daily-2026-10-16, ex:clean-wisley)
+wasDerivedFrom(ex:parquet-kew, ex:clean-kew)
+wasDerivedFrom(ex:parquet-heathrow, ex:clean-heathrow)
+wasDerivedFrom(ex:parquet-wisley, ex:clean-wisley)
+wasAssociatedWith(uuid:dacc0fb5-d727-4f45-b3e3-84c64241ffda,ex:station-kew,-)
+wasAssociatedWith(ex:cleaning-kew,ex:ada,pipe:clean.py)
+wasAttributedTo(ex:raw-kew, ex:station-kew)
+wasAttributedTo(ex:daily-2026-10-16, ex:grace,[prov:type = 'pipe:Approval'])
+endBundle
+endDocument

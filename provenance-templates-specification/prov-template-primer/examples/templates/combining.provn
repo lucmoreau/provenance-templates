@@ -1,0 +1,15 @@
+document
+  prefix var <http://openprovenance.org/var#>
+  prefix vargen <http://openprovenance.org/vargen#>
+  prefix tmpl <http://openprovenance.org/ns/tmpl#>
+  prefix pipe <http://example.org/pipeline#>
+
+  bundle vargen:bundle
+    entity(var:input, [prov:type = 'pipe:CleanReadings'])
+    entity(var:dataset, [prov:type = 'pipe:DailyDataset'])
+    activity(vargen:combining, [prov:type = 'pipe:Combining'])
+    used(vargen:combining, var:input, -)
+    wasGeneratedBy(var:dataset, vargen:combining, -)
+    wasDerivedFrom(var:dataset, var:input)
+  endBundle
+endDocument

@@ -1,0 +1,15 @@
+document
+  prefix var <http://openprovenance.org/var#>
+  prefix vargen <http://openprovenance.org/vargen#>
+  prefix tmpl <http://openprovenance.org/ns/tmpl#>
+  prefix pipe <http://example.org/pipeline#>
+
+  bundle vargen:bundle
+    entity(var:file, [prov:type = 'pipe:RawReadings', tmpl:label = 'var:filename'])
+    agent(var:station, [prov:type = 'pipe:WeatherStation'])
+    activity(vargen:uploading, [prov:type = 'pipe:Uploading', tmpl:startTime = 'var:time'])
+    wasGeneratedBy(var:file, vargen:uploading, -)
+    wasAssociatedWith(vargen:uploading, var:station, -)
+    wasAttributedTo(var:file, var:station)
+  endBundle
+endDocument

@@ -1,0 +1,20 @@
+document
+bundle ex:run
+prefix pipe <http://example.org/pipeline#>
+prefix ex <http://example.org/run/2026-10-16/>
+prefix uuid <urn:uuid:>
+
+entity(ex:clean-kew,[prov:type = 'pipe:CleanReadings'])
+entity(ex:clean-heathrow,[prov:type = 'pipe:CleanReadings'])
+entity(ex:clean-wisley,[prov:type = 'pipe:CleanReadings'])
+entity(ex:daily-2026-10-16,[prov:type = 'pipe:DailyDataset'])
+activity(uuid:d479d9e4-2717-49e0-b4e9-9940574b6d34,-,-,[prov:type = 'pipe:Combining'])
+used(uuid:d479d9e4-2717-49e0-b4e9-9940574b6d34,ex:clean-kew,-)
+used(uuid:d479d9e4-2717-49e0-b4e9-9940574b6d34,ex:clean-heathrow,-)
+used(uuid:d479d9e4-2717-49e0-b4e9-9940574b6d34,ex:clean-wisley,-)
+wasGeneratedBy(ex:daily-2026-10-16,uuid:d479d9e4-2717-49e0-b4e9-9940574b6d34,-)
+wasDerivedFrom(ex:daily-2026-10-16, ex:clean-kew)
+wasDerivedFrom(ex:daily-2026-10-16, ex:clean-heathrow)
+wasDerivedFrom(ex:daily-2026-10-16, ex:clean-wisley)
+endBundle
+endDocument

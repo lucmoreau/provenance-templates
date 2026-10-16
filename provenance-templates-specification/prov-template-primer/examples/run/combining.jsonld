@@ -1,0 +1,63 @@
+{
+  "@context" : [ { }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+  "@graph" : [ {
+    "@type" : "Bundle",
+    "@context" : [ {
+      "xsd" : "http://www.w3.org/2001/XMLSchema#",
+      "pipe" : "http://example.org/pipeline#",
+      "ex" : "http://example.org/run/2026-10-16/",
+      "prov" : "http://www.w3.org/ns/prov#",
+      "uuid" : "urn:uuid:"
+    }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+    "@id" : "ex:run",
+    "@graph" : [ {
+      "@type" : "Entity",
+      "@id" : "ex:clean-kew",
+      "type" : [ "pipe:CleanReadings" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "ex:clean-heathrow",
+      "type" : [ "pipe:CleanReadings" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "ex:clean-wisley",
+      "type" : [ "pipe:CleanReadings" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "ex:daily-2026-10-16",
+      "type" : [ "pipe:DailyDataset" ]
+    }, {
+      "@type" : "Activity",
+      "@id" : "uuid:d479d9e4-2717-49e0-b4e9-9940574b6d34",
+      "type" : [ "pipe:Combining" ]
+    }, {
+      "@type" : "Usage",
+      "activity" : "uuid:d479d9e4-2717-49e0-b4e9-9940574b6d34",
+      "entity" : "ex:clean-kew"
+    }, {
+      "@type" : "Usage",
+      "activity" : "uuid:d479d9e4-2717-49e0-b4e9-9940574b6d34",
+      "entity" : "ex:clean-heathrow"
+    }, {
+      "@type" : "Usage",
+      "activity" : "uuid:d479d9e4-2717-49e0-b4e9-9940574b6d34",
+      "entity" : "ex:clean-wisley"
+    }, {
+      "@type" : "Generation",
+      "entity" : "ex:daily-2026-10-16",
+      "activity" : "uuid:d479d9e4-2717-49e0-b4e9-9940574b6d34"
+    }, {
+      "@type" : "Derivation",
+      "generatedEntity" : "ex:daily-2026-10-16",
+      "usedEntity" : "ex:clean-kew"
+    }, {
+      "@type" : "Derivation",
+      "generatedEntity" : "ex:daily-2026-10-16",
+      "usedEntity" : "ex:clean-heathrow"
+    }, {
+      "@type" : "Derivation",
+      "generatedEntity" : "ex:daily-2026-10-16",
+      "usedEntity" : "ex:clean-wisley"
+    } ]
+  } ]
+}

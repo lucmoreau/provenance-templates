@@ -1,0 +1,14 @@
+{
+  "context": {
+    "ex": "http://example.org/run/2026-10-16/"
+  },
+  "var": {
+    "file":     [{"@id": "ex:raw-kew"}],
+    "filename": [[{"@value": "kew-2026-10-16.csv"}]],
+    "station":  [{"@id": "ex:station-kew"}],
+    "time":     [[{"@value": "2026-10-16T23:55:02Z", "@type": "xsd:dateTime"}]]
+  },
+  "vargen": {
+    "bundle": [{"@id": "ex:run"}]
+  }
+}

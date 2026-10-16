@@ -1,0 +1,18 @@
+document
+  prefix var <http://openprovenance.org/var#>
+  prefix vargen <http://openprovenance.org/vargen#>
+  prefix tmpl <http://openprovenance.org/ns/tmpl#>
+  prefix pipe <http://example.org/pipeline#>
+
+  bundle vargen:bundle
+    entity(var:input, [prov:type = 'pipe:RawReadings'])
+    entity(var:output, [prov:type = 'pipe:CleanReadings', pipe:rowsDropped = 'var:dropped'])
+    entity(var:script, [prov:type = 'prov:Plan', tmpl:label = 'var:version'])
+    agent(var:operator, [prov:type = 'prov:Person'])
+    activity(var:cleaning, [prov:type = 'pipe:Cleaning', tmpl:startTime = 'var:start', tmpl:endTime = 'var:end'])
+    used(var:cleaning, var:input, -)
+    wasGeneratedBy(var:output, var:cleaning, -)
+    wasDerivedFrom(var:output, var:input)
+    wasAssociatedWith(var:cleaning, var:operator, var:script)
+  endBundle
+endDocument

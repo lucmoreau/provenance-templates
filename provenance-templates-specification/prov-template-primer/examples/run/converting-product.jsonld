@@ -1,0 +1,103 @@
+{
+  "@context" : [ { }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+  "@graph" : [ {
+    "@type" : "Bundle",
+    "@context" : [ {
+      "xsd" : "http://www.w3.org/2001/XMLSchema#",
+      "pipe" : "http://example.org/pipeline#",
+      "ex" : "http://example.org/run/2026-10-16/",
+      "prov" : "http://www.w3.org/ns/prov#",
+      "uuid" : "urn:uuid:"
+    }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+    "@id" : "ex:run",
+    "@graph" : [ {
+      "@type" : "Entity",
+      "@id" : "ex:clean-kew",
+      "type" : [ "pipe:CleanReadings" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "ex:clean-heathrow",
+      "type" : [ "pipe:CleanReadings" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "ex:clean-wisley",
+      "type" : [ "pipe:CleanReadings" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "ex:parquet-kew",
+      "type" : [ "pipe:ParquetFile" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "ex:parquet-heathrow",
+      "type" : [ "pipe:ParquetFile" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "ex:parquet-wisley",
+      "type" : [ "pipe:ParquetFile" ]
+    }, {
+      "@type" : "Activity",
+      "@id" : "uuid:796ab199-9a6f-4674-9509-b3e573199b61",
+      "type" : [ "pipe:Converting" ]
+    }, {
+      "@type" : "Usage",
+      "activity" : "uuid:796ab199-9a6f-4674-9509-b3e573199b61",
+      "entity" : "ex:clean-kew"
+    }, {
+      "@type" : "Usage",
+      "activity" : "uuid:796ab199-9a6f-4674-9509-b3e573199b61",
+      "entity" : "ex:clean-heathrow"
+    }, {
+      "@type" : "Usage",
+      "activity" : "uuid:796ab199-9a6f-4674-9509-b3e573199b61",
+      "entity" : "ex:clean-wisley"
+    }, {
+      "@type" : "Generation",
+      "entity" : "ex:parquet-kew",
+      "activity" : "uuid:796ab199-9a6f-4674-9509-b3e573199b61"
+    }, {
+      "@type" : "Generation",
+      "entity" : "ex:parquet-heathrow",
+      "activity" : "uuid:796ab199-9a6f-4674-9509-b3e573199b61"
+    }, {
+      "@type" : "Generation",
+      "entity" : "ex:parquet-wisley",
+      "activity" : "uuid:796ab199-9a6f-4674-9509-b3e573199b61"
+    }, {
+      "@type" : "Derivation",
+      "generatedEntity" : "ex:parquet-kew",
+      "usedEntity" : "ex:clean-kew"
+    }, {
+      "@type" : "Derivation",
+      "generatedEntity" : "ex:parquet-kew",
+      "usedEntity" : "ex:clean-heathrow"
+    }, {
+      "@type" : "Derivation",
+      "generatedEntity" : "ex:parquet-kew",
+      "usedEntity" : "ex:clean-wisley"
+    }, {
+      "@type" : "Derivation",
+      "generatedEntity" : "ex:parquet-heathrow",
+      "usedEntity" : "ex:clean-kew"
+    }, {
+      "@type" : "Derivation",
+      "generatedEntity" : "ex:parquet-heathrow",
+      "usedEntity" : "ex:clean-heathrow"
+    }, {
+      "@type" : "Derivation",
+      "generatedEntity" : "ex:parquet-heathrow",
+      "usedEntity" : "ex:clean-wisley"
+    }, {
+      "@type" : "Derivation",
+      "generatedEntity" : "ex:parquet-wisley",
+      "usedEntity" : "ex:clean-kew"
+    }, {
+      "@type" : "Derivation",
+      "generatedEntity" : "ex:parquet-wisley",
+      "usedEntity" : "ex:clean-heathrow"
+    }, {
+      "@type" : "Derivation",
+      "generatedEntity" : "ex:parquet-wisley",
+      "usedEntity" : "ex:clean-wisley"
+    } ]
+  } ]
+}

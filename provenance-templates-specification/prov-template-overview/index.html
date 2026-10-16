@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>PROV-TEMPLATE-OVERVIEW</title>
+    <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
+    <script src="../common/config.js" class="remove"></script>
+    <script class="remove">
+      var respecConfig = ptmConfig({
+          shortName: "prov-template-overview",
+          subtitle: "An Overview of Provenance Templates",
+          formerEditors: ptmFormerEditors,
+          otherLinks: ptmPreviousLink,
+      });
+    </script>
+    <link rel="stylesheet" href="../common/style.css">
+  </head>
+  <body>
+    <section id="abstract">
+      <p>
+        Provenance is information about the entities, activities and people involved in producing a piece of data
+        or a thing, which can be used to form assessments about its quality, reliability or trustworthiness.
+        PROV [[PROV-DM]] is the W3C family of specifications for expressing provenance. Applications that want to
+        produce PROV keep writing the same patterns of provenance, again and again, with different values.
+        <em>Provenance templates</em> capture these patterns declaratively: a template is a PROV document in which
+        some identifiers, attributes and values are variables; a set of <em>bindings</em> associates values with the
+        variables; <em>instantiation</em> replaces the variables with their values and produces an ordinary PROV
+        document.
+      </p>
+      <p>
+        This document is an overview of the PROV-TEMPLATE family of documents. It introduces the approach, its
+        concepts and its artefacts, and it guides the reader to the document that suits their needs: a primer,
+        a specification of the formats, a specification of the algorithms, and a library of reusable templates.
+      </p>
+    </section>
+
+    <section id="sotd">
+      <p>
+        This is an unofficial draft. It has no official standing of any kind and does not represent the consensus
+        of any standards organisation.
+      </p>
+      <p>
+        The PROV-TEMPLATE family supersedes <a href="https://openprovenance.org/prov-template-2014-06-07/">PROV-TEMPLATE:
+        A Template System for PROV Documents</a> [[PROV-TEMPLATE-2014]], an unofficial draft of 7 June 2014 edited by
+        Danius Michaelides, Trung Dong Huynh and Luc Moreau. The 2014 draft defined templates, their expansion and a
+        representation of bindings as PROV documents in one document. Its content is now split between
+        [[PROV-TEMPLATE]] and [[PROV-TEMPLATE-ALGORITHMS]], and extended with the material that a decade of use has
+        required: a JSON representation of bindings, bindings schemas, template transformation files, and a library of
+        templates. <a href="#changes"></a> lists the main changes.
+      </p>
+    </section>
+
+    <section id="introduction">
+      <h2>Introduction</h2>
+      <p>
+        Generating provenance that conforms to the PROV data model [[PROV-DM]] remains a challenge for application
+        developers. Each serialization of PROV &mdash; PROV-N [[PROV-N]], PROV-O [[PROV-O]], PROV-XML [[PROV-XML]],
+        PROV-JSON [[PROV-JSON]], PROV-JSONLD [[PROV-JSONLD]] &mdash; has its own syntax to master, and a toolkit such
+        as ProvToolbox [[PROVTOOLBOX]] requires programming effort that has little to do with the application
+        itself. Worse, provenance written directly by application code is scattered across that code: what the
+        provenance of a step looks like can only be understood by reading the program.
+      </p>
+      <p>
+        Yet provenance tends to follow patterns. Each time a file is uploaded, the same activity, the same
+        generation, the same attribution to an agent is recorded, with a different file, a different time and a
+        different agent. Provenance templates exploit this regularity. They follow three principles, already stated
+        in [[PROV-TEMPLATE-2014]]:
+      </p>
+      <ol>
+        <li>
+          <b>Declarative.</b> A pattern of provenance is declared once, as a template whose variables act as
+          placeholders for values; the pattern is instantiated many times, each time with a new set of bindings.
+        </li>
+        <li>
+          <b>Decoupled.</b> The code that instruments an application only collects values; generating provenance
+          from these values is left to template instantiation. The design of provenance becomes a separate concern,
+          which can be reviewed, versioned and changed without touching the application.
+        </li>
+        <li>
+          <b>PROV all the way.</b> Templates are themselves PROV documents. Every tool that reads, checks,
+          converts or visualizes PROV applies to templates too, and no new language is introduced to write them.
+        </li>
+      </ol>
+      <p>
+        A fourth principle has emerged from use, and it shapes most of what is new in this family of documents:
+      </p>
+      <ol start="4">
+        <li>
+          <b>Described and automated.</b> Each template comes with a <em>bindings schema</em> that describes its
+          variables, their types and their meaning. Bindings schemas make it possible to check bindings, to
+          generate code that produces bindings in the application's own language, and to document templates
+          as a library. <em>Template transformation files</em> automate the instantiation, merge and checking of templates
+          as part of a build.
+        </li>
+      </ol>
+    </section>
+
+    <section id="approach" class="informative">
+      <h2>The approach at a glance</h2>
+      <p>
+        The figure below summarises the artefacts and the processes of the approach. Each is described in a
+        subsection, with a pointer to the document that defines it.
+      </p>
+      <figure id="fig-approach">
+        <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Template, bindings, instantiation and PROV document" style="max-width:100%;font-family:sans-serif;font-size:13px">
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#444"/>
+            </marker>
+          </defs>
+          <g stroke="#444" fill="none" stroke-width="1.4">
+            <rect x="10" y="20" width="170" height="60" rx="6" fill="#fffbe0"/>
+            <rect x="10" y="120" width="170" height="60" rx="6" fill="#e8f0fe"/>
+            <rect x="10" y="220" width="170" height="60" rx="6" fill="#e8f0fe"/>
+            <rect x="300" y="120" width="160" height="60" rx="30" fill="#f2f2f2"/>
+            <rect x="580" y="120" width="170" height="60" rx="6" fill="#fffbe0"/>
+            <rect x="300" y="220" width="160" height="60" rx="30" fill="#f2f2f2"/>
+            <path d="M180,50 C250,50 260,130 300,140" marker-end="url(#arr)"/>
+            <path d="M180,150 L300,150" marker-end="url(#arr)"/>
+            <path d="M95,220 L95,180" marker-end="url(#arr)" stroke-dasharray="4 3"/>
+            <path d="M460,150 L580,150" marker-end="url(#arr)"/>
+            <path d="M180,250 L300,250" marker-end="url(#arr)"/>
+            <path d="M380,220 L380,180" marker-end="url(#arr)" stroke-dasharray="4 3"/>
+          </g>
+          <g fill="#222" text-anchor="middle">
+            <text x="95" y="46" font-weight="bold">template</text>
+            <text x="95" y="64">PROV document with variables</text>
+            <text x="95" y="146" font-weight="bold">bindings</text>
+            <text x="95" y="164">values of the variables</text>
+            <text x="95" y="246" font-weight="bold">bindings schema</text>
+            <text x="95" y="264">the variables described</text>
+            <text x="380" y="155" font-weight="bold">instantiation</text>
+            <text x="665" y="146" font-weight="bold">PROV document</text>
+            <text x="665" y="164">no variable left</text>
+            <text x="380" y="246" font-weight="bold">template compiler</text>
+            <text x="380" y="264">code that writes bindings</text>
+            <text x="230" y="205" font-size="11">checks</text>
+            <text x="404" y="205" font-size="11">drives</text>
+          </g>
+        </svg>
+        <figcaption>Templates, bindings and bindings schemas, and the processes that consume them.</figcaption>
+      </figure>
+
+      <section id="concept-template">
+        <h3>Templates</h3>
+        <p>
+          A <dfn data-lt="templates">template</dfn> is a PROV document whose statements contain <em>variables</em>.
+          A variable is a qualified name in a reserved namespace: <code>var:</code> for an ordinary variable,
+          <code>vargen:</code> for a variable whose value the instantiation may generate when the bindings leave it
+          unbound. A variable can occur wherever PROV admits a qualified name: as the identifier of an entity, an
+          activity or an agent, in the position of a relation, as an attribute, or as an attribute's value. Where
+          PROV constrains the syntax of a value &mdash; a label is a string, a time an <code>xsd:dateTime</code>
+          &mdash; a template uses an attribute of the <code>tmpl:</code> namespace paired with a variable. Further
+          <code>tmpl:</code> attributes make a statement conditional, give a relation an identifier, or link
+          variables so that they change value in step. Templates and the <code>tmpl:</code> vocabulary are defined
+          in [[PROV-TEMPLATE]].
+        </p>
+      </section>
+
+      <section id="concept-bindings">
+        <h3>Bindings</h3>
+        <p>
+          A set of <dfn>bindings</dfn> associates variables with values. A variable may be bound to one value, to
+          a sequence of values &mdash; the template then describes as many instances of a statement as there are
+          values &mdash; or, for an attribute value, to a sequence of sequences, so that each instance of a
+          statement may carry the attribute zero, one or several times. Bindings are written in JSON: a
+          <code>var</code> object maps each variable to its values, written as JSON-LD value objects, and a
+          <code>context</code> object declares the prefixes the values use. [[PROV-TEMPLATE]] defines this
+          representation, and the representation of bindings as a PROV document inherited from
+          [[PROV-TEMPLATE-2014]].
+        </p>
+      </section>
+
+      <section id="concept-instantiation">
+        <h3>Instantiation and merge</h3>
+        <p>
+          <dfn>Instantiation</dfn>, also called <em>expansion</em>, takes a template and a set of bindings, and
+          produces a PROV document in which no variable is left. Variables are partitioned into
+          <em>groups</em> of variables that change value in step; each statement is instantiated once for each
+          combination of the values of the groups it uses. <dfn>Merge</dfn> combines templates, or instantiated
+          documents, into one. Both algorithms are specified in [[PROV-TEMPLATE-ALGORITHMS]].
+        </p>
+      </section>
+
+      <section id="concept-schema">
+        <h3>Bindings schemas and generated code</h3>
+        <p>
+          A <dfn>bindings schema</dfn> describes the variables of a template: for each variable, the type of its
+          values, its documentation and examples. It is the contract between an application and a template: the
+          application promises to supply values of the declared types, and the template promises to turn them into
+          provenance. From a template and its bindings schema, a <em>template compiler</em> can generate code, in
+          the application's language, that builds bindings, writes them as compact records, and later turns logs of
+          such records into provenance. Bindings schemas are specified in [[PROV-TEMPLATE]]; the template compiler is
+          described there, non-normatively.
+        </p>
+      </section>
+
+      <section id="concept-ttf">
+        <h3>Template transformation files</h3>
+        <p>
+          A <dfn>template transformation file</dfn> lists tasks to be performed on templates &mdash; instantiate a
+          template with bindings, merge templates &mdash; each writing its output in the formats requested and checking
+          it against the PROV-JSONLD schema, so that a collection of templates can be built, rebuilt and checked
+          automatically, for instance by a Maven build.
+          The executions themselves leave provenance, recorded with templates. Template transformation files are specified
+          in [[PROV-TEMPLATE]].
+        </p>
+      </section>
+
+      <section id="concept-library">
+        <h3>A library of templates</h3>
+        <p>
+          Templates are worth sharing. The same pattern of provenance &mdash; a file transformed, an item packed,
+          an approval given &mdash; recurs across applications. A <dfn>template library</dfn> is a published
+          collection of templates, each with a stable IRI, its bindings schema, its documentation and its
+          variants. [[PROV-TEMPLATE-LIBRARY]] describes the library maintained at openprovenance.org.
+        </p>
+      </section>
+    </section>
+
+    <section id="roadmap">
+      <h2>The PROV-TEMPLATE family of documents</h2>
+      <p>
+        The family is made of five documents, in the manner of the PROV family [[PROV-OVERVIEW]]. The table
+        indicates, for each document, its status and its intended readers.
+      </p>
+      <table class="simple roadmap">
+        <thead><tr><th>Document</th><th>Content</th><th>Normative?</th><th>Intended readers</th></tr></thead>
+        <tbody>
+          <tr><td>PROV-TEMPLATE-OVERVIEW</td><td>This document: the approach, its concepts and the guide to the family.</td><td>No</td><td>Everyone</td></tr>
+          <tr><td>[[PROV-TEMPLATE-PRIMER]]</td><td>A step-by-step introduction through the provenance of a file processing pipeline.</td><td>No</td><td>Developers and users new to templates</td></tr>
+          <tr><td>[[PROV-TEMPLATE]]</td><td>Templates, variables and the <code>tmpl:</code> vocabulary; bindings; bindings schemas; template transformation files. Non-normative: the command line, the executables, the Maven plugins and the template compiler.</td><td>Yes</td><td>Template designers and implementers</td></tr>
+          <tr><td>[[PROV-TEMPLATE-ALGORITHMS]]</td><td>The instantiation and merge algorithms, and their error situations.</td><td>Yes</td><td>Implementers</td></tr>
+          <tr><td>[[PROV-TEMPLATE-LIBRARY]]</td><td>The library of templates: organisation, identification, publication, and the families of templates it contains.</td><td>No</td><td>Template designers and users of the library</td></tr>
+        </tbody>
+      </table>
+      <p>A reader new to templates should start with the primer, then consult the library before writing a new template.
+        An implementer of a template processor needs both [[PROV-TEMPLATE]] and [[PROV-TEMPLATE-ALGORITHMS]].</p>
+    </section>
+
+    <section id="namespaces">
+      <h2>Namespaces</h2>
+      <p>The following prefixes and namespaces are used throughout the family of documents.</p>
+      <table class="simple">
+        <thead><tr><th>Prefix</th><th>Namespace IRI</th><th>Definition</th></tr></thead>
+        <tbody>
+          <tr><td><code>prov</code></td><td><code>http://www.w3.org/ns/prov#</code></td><td>The PROV namespace [[PROV-DM]]</td></tr>
+          <tr><td><code>tmpl</code></td><td><code>http://openprovenance.org/ns/tmpl#</code></td><td>The template vocabulary [[PROV-TEMPLATE]], [[TMPL-VOCAB]]</td></tr>
+          <tr><td><code>var</code></td><td><code>http://openprovenance.org/var#</code></td><td>The namespace of template variables</td></tr>
+          <tr><td><code>vargen</code></td><td><code>http://openprovenance.org/vargen#</code></td><td>The namespace of template variables whose values may be generated</td></tr>
+          <tr><td><code>xsd</code></td><td><code>http://www.w3.org/2001/XMLSchema#</code></td><td>The XML Schema namespace [[XMLSCHEMA11-2]]</td></tr>
+          <tr><td>(others)</td><td>(various)</td><td>All other prefixes are used in examples only. IRIs starting with <code>http://example.org/</code> represent application-dependent IRIs [[RFC3987]].</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="changes" class="informative">
+      <h2>Changes since PROV-TEMPLATE 2014-06-07</h2>
+      <ul id="changes-list">
+        <li>The single document of 2014 is split into a family of five documents: this overview, a primer, a
+          specification of the artefacts, a specification of the algorithms, and a library.</li>
+        <li>The template vocabulary moved to <code>http://openprovenance.org/ns/tmpl#</code>, and gained
+          <code>tmpl:if</code>, <code>tmpl:notif</code> and <code>tmpl:ID</code>; <code>tmpl:order</code> is written
+          only on request.</li>
+        <li>Bindings are written in JSON; their representation as PROV documents is deprecated.</li>
+        <li>New artefacts: bindings schemas, template indexes, template transformation files, the template compiler
+          and the template library.</li>
+        <li>New algorithm: merge. The treatment of unbound variables is specified per kind of statement.</li>
+        <li>The detailed lists are in the appendices of [[PROV-TEMPLATE]] and [[PROV-TEMPLATE-ALGORITHMS]].</li>
+      </ul>
+    </section>
+
+    <section id="acknowledgements" class="appendix informative">
+      <h2>Acknowledgements</h2>
+      <p>
+        Danius Michaelides and Trung Dong Huynh co-edited the 2014 version of PROV-TEMPLATE [[PROV-TEMPLATE-2014]],
+        on which this family of documents builds. The templating system was described and evaluated in
+        [[PROV-TEMPLATE-TSE]].
+      </p>
+    </section>
+  </body>
+</html>

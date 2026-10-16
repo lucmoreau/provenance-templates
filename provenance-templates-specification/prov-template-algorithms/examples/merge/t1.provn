@@ -1,0 +1,13 @@
+document
+  prefix var <http://openprovenance.org/var#>
+  prefix vargen <http://openprovenance.org/vargen#>
+  prefix ex <http://example.org/>
+
+  bundle vargen:b
+    entity(var:input, [prov:type = 'ex:File'])
+    entity(var:output, [prov:type = 'ex:File'])
+    activity(var:transforming)
+    used(var:transforming, var:input, -)
+    wasGeneratedBy(var:output, var:transforming, -)
+  endBundle
+endDocument

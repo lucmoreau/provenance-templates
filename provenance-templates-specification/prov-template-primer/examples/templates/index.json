@@ -1,0 +1,8 @@
+{
+    "org.example.pipeline.Uploading":         { "provn": "uploading.provn" },
+    "org.example.pipeline.Cleaning":          { "provn": "cleaning.provn" },
+    "org.example.pipeline.Combining":         { "provn": "combining.provn" },
+    "org.example.pipeline.ConvertingProduct": { "provn": "converting-product.provn" },
+    "org.example.pipeline.Converting":        { "provn": "converting.provn" },
+    "org.example.pipeline.Validating":        { "provn": "validating.provn" }
+}

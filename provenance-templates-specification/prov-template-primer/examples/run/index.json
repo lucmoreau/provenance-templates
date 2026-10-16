@@ -1,0 +1,66 @@
+{
+  "uploading" : {
+    "jsonld" : "uploading.jsonld",
+    "provn" : "uploading.provn",
+    "svg" : "uploading.svg",
+    "hasProvenance" : {
+      "provCsv" : "prov/uploading.prov-csv"
+    }
+  },
+  "cleaning" : {
+    "jsonld" : "cleaning.jsonld",
+    "provn" : "cleaning.provn",
+    "svg" : "cleaning.svg",
+    "hasProvenance" : {
+      "provCsv" : "prov/cleaning.prov-csv"
+    }
+  },
+  "combining" : {
+    "jsonld" : "combining.jsonld",
+    "provn" : "combining.provn",
+    "svg" : "combining.svg",
+    "hasProvenance" : {
+      "provCsv" : "prov/combining.prov-csv"
+    }
+  },
+  "converting-product" : {
+    "jsonld" : "converting-product.jsonld",
+    "provn" : "converting-product.provn",
+    "svg" : "converting-product.svg",
+    "hasProvenance" : {
+      "provCsv" : "prov/converting-product.prov-csv"
+    }
+  },
+  "converting" : {
+    "jsonld" : "converting.jsonld",
+    "provn" : "converting.provn",
+    "svg" : "converting.svg",
+    "hasProvenance" : {
+      "provCsv" : "prov/converting.prov-csv"
+    }
+  },
+  "validating" : {
+    "jsonld" : "validating.jsonld",
+    "provn" : "validating.provn",
+    "svg" : "validating.svg",
+    "hasProvenance" : {
+      "provCsv" : "prov/validating.prov-csv"
+    }
+  },
+  "validating-unapproved" : {
+    "jsonld" : "validating-unapproved.jsonld",
+    "provn" : "validating-unapproved.provn",
+    "svg" : "validating-unapproved.svg",
+    "hasProvenance" : {
+      "provCsv" : "prov/validating-unapproved.prov-csv"
+    }
+  },
+  "pipeline-run" : {
+    "jsonld" : "pipeline-run.jsonld",
+    "provn" : "pipeline-run.provn",
+    "svg" : "pipeline-run.svg",
+    "hasProvenance" : {
+      "provCsv" : "prov/pipeline-run.prov-csv"
+    }
+  }
+}

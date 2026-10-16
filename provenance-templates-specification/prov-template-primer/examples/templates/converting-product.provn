@@ -1,0 +1,15 @@
+document
+  prefix var <http://openprovenance.org/var#>
+  prefix vargen <http://openprovenance.org/vargen#>
+  prefix tmpl <http://openprovenance.org/ns/tmpl#>
+  prefix pipe <http://example.org/pipeline#>
+
+  bundle vargen:bundle
+    entity(var:input, [prov:type = 'pipe:CleanReadings'])
+    entity(var:output, [prov:type = 'pipe:ParquetFile'])
+    activity(vargen:converting, [prov:type = 'pipe:Converting'])
+    used(vargen:converting, var:input, -)
+    wasGeneratedBy(var:output, vargen:converting, -)
+    wasDerivedFrom(var:output, var:input)
+  endBundle
+endDocument

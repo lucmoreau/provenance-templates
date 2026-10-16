@@ -1,0 +1,20 @@
+{
+  "context": {
+    "ex":   "http://example.org/run/2026-10-16/",
+    "pipe": "http://example.org/pipeline#"
+  },
+  "var": {
+    "input":    [{"@id": "ex:raw-kew"}],
+    "output":   [{"@id": "ex:clean-kew"}],
+    "dropped":  [[{"@value": "3", "@type": "xsd:int"}]],
+    "script":   [{"@id": "pipe:clean.py"}],
+    "version":  [[{"@value": "clean.py 1.4.2"}]],
+    "operator": [{"@id": "ex:ada"}],
+    "cleaning": [{"@id": "ex:cleaning-kew"}],
+    "start":    [[{"@value": "2026-10-17T00:10:00Z", "@type": "xsd:dateTime"}]],
+    "end":      [[{"@value": "2026-10-17T00:10:04Z", "@type": "xsd:dateTime"}]]
+  },
+  "vargen": {
+    "bundle": [{"@id": "ex:run"}]
+  }
+}

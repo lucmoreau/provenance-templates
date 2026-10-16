@@ -1,0 +1,30 @@
+document
+bundle ex:run
+prefix pipe <http://example.org/pipeline#>
+prefix ex <http://example.org/run/2026-10-16/>
+prefix uuid <urn:uuid:>
+
+entity(ex:clean-kew,[prov:type = 'pipe:CleanReadings'])
+entity(ex:clean-heathrow,[prov:type = 'pipe:CleanReadings'])
+entity(ex:clean-wisley,[prov:type = 'pipe:CleanReadings'])
+entity(ex:parquet-kew,[prov:type = 'pipe:ParquetFile'])
+entity(ex:parquet-heathrow,[prov:type = 'pipe:ParquetFile'])
+entity(ex:parquet-wisley,[prov:type = 'pipe:ParquetFile'])
+activity(uuid:796ab199-9a6f-4674-9509-b3e573199b61,-,-,[prov:type = 'pipe:Converting'])
+used(uuid:796ab199-9a6f-4674-9509-b3e573199b61,ex:clean-kew,-)
+used(uuid:796ab199-9a6f-4674-9509-b3e573199b61,ex:clean-heathrow,-)
+used(uuid:796ab199-9a6f-4674-9509-b3e573199b61,ex:clean-wisley,-)
+wasGeneratedBy(ex:parquet-kew,uuid:796ab199-9a6f-4674-9509-b3e573199b61,-)
+wasGeneratedBy(ex:parquet-heathrow,uuid:796ab199-9a6f-4674-9509-b3e573199b61,-)
+wasGeneratedBy(ex:parquet-wisley,uuid:796ab199-9a6f-4674-9509-b3e573199b61,-)
+wasDerivedFrom(ex:parquet-kew, ex:clean-kew)
+wasDerivedFrom(ex:parquet-kew, ex:clean-heathrow)
+wasDerivedFrom(ex:parquet-kew, ex:clean-wisley)
+wasDerivedFrom(ex:parquet-heathrow, ex:clean-kew)
+wasDerivedFrom(ex:parquet-heathrow, ex:clean-heathrow)
+wasDerivedFrom(ex:parquet-heathrow, ex:clean-wisley)
+wasDerivedFrom(ex:parquet-wisley, ex:clean-kew)
+wasDerivedFrom(ex:parquet-wisley, ex:clean-heathrow)
+wasDerivedFrom(ex:parquet-wisley, ex:clean-wisley)
+endBundle
+endDocument

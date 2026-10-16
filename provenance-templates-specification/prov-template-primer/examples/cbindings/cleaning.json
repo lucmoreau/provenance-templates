@@ -1,0 +1,19 @@
+{
+  "@documentation": "The cleaning of a file of raw readings by a script, run by an operator.",
+  "template": "org.example.pipeline.Cleaning",
+  "context": {
+    "ex":   "http://example.org/run/2026-10-16/",
+    "pipe": "http://example.org/pipeline#"
+  },
+  "var": {
+    "input":    [{"@id": "ex:*", "@type": "xsd:string", "@documentation": "The file of raw readings", "@examplar": "raw-kew", "@input": "compulsory", "@output": "false"}],
+    "output":   [{"@id": "ex:*", "@type": "xsd:string", "@documentation": "The file of cleaned readings", "@examplar": "clean-kew", "@input": "false", "@output": "true"}],
+    "dropped":  [[{"@value": "*", "@type": "xsd:int", "@documentation": "The number of rows the script dropped", "@examplar": "3", "@input": "optional"}]],
+    "script":   [{"@id": "pipe:*", "@type": "xsd:string", "@documentation": "The cleaning script, the plan of the cleaning", "@examplar": "clean.py", "@input": "compulsory"}],
+    "version":  [[{"@value": "*", "@type": "xsd:string", "@documentation": "The script's name and version", "@examplar": "clean.py 1.4.2", "@input": "optional"}]],
+    "operator": [{"@id": "ex:*", "@type": "xsd:string", "@documentation": "The person who ran the script", "@examplar": "ada", "@input": "optional"}],
+    "cleaning": [{"@id": "ex:*", "@type": "xsd:string", "@documentation": "The cleaning activity", "@examplar": "cleaning-kew", "@input": "false", "@output": "true"}],
+    "start":    [[{"@value": "*", "@type": "xsd:dateTime", "@documentation": "When the cleaning started", "@input": "optional"}]],
+    "end":      [[{"@value": "*", "@type": "xsd:dateTime", "@documentation": "When the cleaning ended", "@input": "optional"}]]
+  }
+}

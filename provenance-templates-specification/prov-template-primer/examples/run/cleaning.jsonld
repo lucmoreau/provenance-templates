@@ -1,0 +1,60 @@
+{
+  "@context" : [ { }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+  "@graph" : [ {
+    "@type" : "Bundle",
+    "@context" : [ {
+      "xsd" : "http://www.w3.org/2001/XMLSchema#",
+      "pipe" : "http://example.org/pipeline#",
+      "ex" : "http://example.org/run/2026-10-16/",
+      "prov" : "http://www.w3.org/ns/prov#"
+    }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+    "@id" : "ex:run",
+    "@graph" : [ {
+      "@type" : "Entity",
+      "@id" : "ex:raw-kew",
+      "type" : [ "pipe:RawReadings" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "ex:clean-kew",
+      "pipe:rowsDropped" : [ {
+        "@value" : "3",
+        "@type" : "xsd:int"
+      } ],
+      "type" : [ "pipe:CleanReadings" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "pipe:clean.py",
+      "type" : [ "prov:Plan" ],
+      "label" : [ {
+        "@value" : "clean.py 1.4.2"
+      } ]
+    }, {
+      "@type" : "Agent",
+      "@id" : "ex:ada",
+      "type" : [ "prov:Person" ]
+    }, {
+      "@type" : "Activity",
+      "@id" : "ex:cleaning-kew",
+      "startTime" : "2026-10-17T00:10:00.000Z",
+      "endTime" : "2026-10-17T00:10:04.000Z",
+      "type" : [ "pipe:Cleaning" ]
+    }, {
+      "@type" : "Usage",
+      "activity" : "ex:cleaning-kew",
+      "entity" : "ex:raw-kew"
+    }, {
+      "@type" : "Generation",
+      "entity" : "ex:clean-kew",
+      "activity" : "ex:cleaning-kew"
+    }, {
+      "@type" : "Derivation",
+      "generatedEntity" : "ex:clean-kew",
+      "usedEntity" : "ex:raw-kew"
+    }, {
+      "@type" : "Association",
+      "activity" : "ex:cleaning-kew",
+      "agent" : "ex:ada",
+      "plan" : "pipe:clean.py"
+    } ]
+  } ]
+}

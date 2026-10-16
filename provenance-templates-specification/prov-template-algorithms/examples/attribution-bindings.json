@@ -1,0 +1,11 @@
+{
+  "context": {
+    "ex": "http://example.org/"
+  },
+  "var": {
+    "a": [{"@id": "ex:ag1"}, {"@id": "ex:ag2"}],
+    "b": [{"@id": "ex:en1"}, {"@id": "ex:en2"}, {"@id": "ex:en3"}],
+    "c": [[{"@id": "ex:t1"}], [{"@id": "ex:t2a"}, {"@id": "ex:t2b"}], [{"@id": "ex:t3"}],
+          [{"@id": "ex:t4"}], [{"@id": "ex:t5a"}, {"@id": "ex:t5b"}, {"@id": "ex:t5c"}], [{"@id": "ex:t6"}]]
+  }
+}

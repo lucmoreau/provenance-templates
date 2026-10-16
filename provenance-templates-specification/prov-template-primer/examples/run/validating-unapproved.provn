@@ -1,0 +1,15 @@
+document
+bundle ex:run
+prefix pipe <http://example.org/pipeline#>
+prefix ex <http://example.org/run/2026-10-16/>
+prefix uuid <urn:uuid:>
+
+entity(ex:daily-2026-10-16,[prov:type = 'pipe:DailyDataset'])
+entity(pipe:readings-schema-v2,[prov:type = 'pipe:Schema'])
+entity(ex:report-2026-10-16,[prov:type = 'pipe:ValidationReport', pipe:status = "passed" %% xsd:string])
+activity(uuid:04fefaed-e11c-472c-996c-5c21184b384f,-,2026-10-17T00:20:11.000Z,[prov:type = 'pipe:Validating'])
+used(uuid:04fefaed-e11c-472c-996c-5c21184b384f,ex:daily-2026-10-16,-)
+used(uuid:04fefaed-e11c-472c-996c-5c21184b384f,pipe:readings-schema-v2,-)
+wasGeneratedBy(ex:report-2026-10-16,uuid:04fefaed-e11c-472c-996c-5c21184b384f,-)
+endBundle
+endDocument

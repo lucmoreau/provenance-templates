@@ -1,0 +1,14 @@
+document
+bundle ex:run
+prefix pipe <http://example.org/pipeline#>
+prefix ex <http://example.org/run/2026-10-16/>
+prefix uuid <urn:uuid:>
+
+entity(ex:raw-kew,[prov:type = 'pipe:RawReadings', prov:label = "kew-2026-10-16.csv" %% xsd:string])
+agent(ex:station-kew,[prov:type = 'pipe:WeatherStation'])
+activity(uuid:dacc0fb5-d727-4f45-b3e3-84c64241ffda,2026-10-16T23:55:02.000Z,-,[prov:type = 'pipe:Uploading'])
+wasGeneratedBy(ex:raw-kew,uuid:dacc0fb5-d727-4f45-b3e3-84c64241ffda,-)
+wasAssociatedWith(uuid:dacc0fb5-d727-4f45-b3e3-84c64241ffda,ex:station-kew,-)
+wasAttributedTo(ex:raw-kew, ex:station-kew)
+endBundle
+endDocument

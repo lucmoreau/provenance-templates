@@ -1,0 +1,12 @@
+{
+  "context": {
+    "ex": "http://example.org/run/2026-10-16/"
+  },
+  "var": {
+    "input":   [{"@id": "ex:clean-kew"}, {"@id": "ex:clean-heathrow"}, {"@id": "ex:clean-wisley"}],
+    "dataset": [{"@id": "ex:daily-2026-10-16"}]
+  },
+  "vargen": {
+    "bundle": [{"@id": "ex:run"}]
+  }
+}

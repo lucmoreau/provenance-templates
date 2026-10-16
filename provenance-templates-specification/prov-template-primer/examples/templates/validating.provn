@@ -1,0 +1,18 @@
+document
+  prefix var <http://openprovenance.org/var#>
+  prefix vargen <http://openprovenance.org/vargen#>
+  prefix tmpl <http://openprovenance.org/ns/tmpl#>
+  prefix pipe <http://example.org/pipeline#>
+
+  bundle vargen:bundle
+    entity(var:dataset, [prov:type = 'pipe:DailyDataset'])
+    entity(var:schema, [prov:type = 'pipe:Schema'])
+    entity(var:report, [prov:type = 'pipe:ValidationReport', pipe:status = 'var:status'])
+    agent(var:curator, [prov:type = 'prov:Person'])
+    activity(vargen:validating, [prov:type = 'pipe:Validating', tmpl:endTime = 'var:time'])
+    used(vargen:validating, var:dataset, -)
+    used(vargen:validating, var:schema, -)
+    wasGeneratedBy(var:report, vargen:validating, -)
+    wasAttributedTo(var:dataset, var:curator, [prov:type = 'pipe:Approval'])
+  endBundle
+endDocument

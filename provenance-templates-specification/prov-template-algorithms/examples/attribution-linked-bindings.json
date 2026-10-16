@@ -1,0 +1,10 @@
+{
+  "context": {
+    "ex": "http://example.org/"
+  },
+  "var": {
+    "a": [{"@id": "ex:ag1"}, {"@id": "ex:ag2"}],
+    "b": [{"@id": "ex:en1"}, {"@id": "ex:en2"}],
+    "c": [[{"@id": "ex:t1"}], [{"@id": "ex:t2a"}, {"@id": "ex:t2b"}]]
+  }
+}

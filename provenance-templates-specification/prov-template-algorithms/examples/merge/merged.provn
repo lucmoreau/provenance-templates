@@ -1,0 +1,19 @@
+document
+prefix vargen <http://openprovenance.org/vargen#>
+prefix var <http://openprovenance.org/var#>
+prefix ex <http://example.org/>
+bundle vargen:b
+prefix vargen <http://openprovenance.org/vargen#>
+prefix var <http://openprovenance.org/var#>
+prefix ex <http://example.org/>
+
+entity(var:input,[prov:type = 'ex:File'])
+entity(var:output,[prov:type = 'ex:File', ex:checked = 'var:checked'])
+activity(var:transforming,-,-)
+agent(var:engineer)
+used(var:transforming,var:input,-)
+wasGeneratedBy(var:output,var:transforming,-)
+wasAssociatedWith(var:transforming,var:engineer,-)
+wasAttributedTo(var:output, var:engineer)
+endBundle
+endDocument

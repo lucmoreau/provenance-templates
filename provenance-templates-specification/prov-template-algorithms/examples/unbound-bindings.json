@@ -1,0 +1,9 @@
+{
+  "context": {
+    "ex": "http://example.org/"
+  },
+  "var": {
+    "e2": [{"@id": "ex:report"}],
+    "a":  [{"@id": "ex:writing"}]
+  }
+}

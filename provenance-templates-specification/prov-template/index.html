@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>PROV-TEMPLATE</title>
+    <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
+    <script src="../common/config.js" class="remove"></script>
+    <script class="remove">
+      var respecConfig = ptmConfig({
+          shortName: "prov-template",
+          subtitle: "Provenance Templates, Bindings, Bindings Schemas and Template Transformation Files",
+          formerEditors: ptmFormerEditors,
+          otherLinks: ptmPreviousLink,
+      });
+    </script>
+    <link rel="stylesheet" href="../common/style.css">
+  </head>
+  <body>
+    <section id="abstract">
+      <p>
+        A provenance template is a PROV document [[PROV-DM]] in which some identifiers, attributes and values are
+        variables. A set of bindings associates values with the variables, and instantiation replaces the
+        variables by their values to produce an ordinary PROV document. This document specifies the artefacts of
+        the provenance template approach: templates, their variables and the <code>tmpl:</code> vocabulary; the
+        JSON representation of bindings; bindings schemas, which describe the variables of a template; template
+        indexes; and template transformation files, which automate the instantiation and merge of templates. It
+        also describes, non-normatively, the command-line tools, the executables, the Maven plugin and the
+        template compiler of ProvToolbox [[PROVTOOLBOX]] that process them. The algorithms are specified in
+        [[PROV-TEMPLATE-ALGORITHMS]].
+      </p>
+    </section>
+
+    <section id="sotd">
+      <p>
+        This is an unofficial draft, part of the PROV-TEMPLATE family of documents [[PROV-TEMPLATE-OVERVIEW]]. It
+        has no official standing of any kind and does not represent the consensus of any standards organisation.
+      </p>
+      <p>
+        This document revises and extends <a href="https://openprovenance.org/prov-template-2014-06-07/">PROV-TEMPLATE:
+        A Template System for PROV Documents</a> [[PROV-TEMPLATE-2014]], edited in 2014 by Danius Michaelides, Trung
+        Dong Huynh and Luc Moreau. The definitions of templates and of the representation of bindings as PROV
+        documents come from that draft; its algorithm is now in [[PROV-TEMPLATE-ALGORITHMS]].
+        <a href="#changes"></a> lists the changes.
+      </p>
+      <p>
+        The JSON Schemas included in this document are copies of those distributed with ProvToolbox (branch
+        <code>development2_0</code>, commit <code>95386ae29</code>, 2026-10-16) and with the template library. Editor's notes
+        mark where this document, the schemas and ProvToolbox currently disagree.
+      </p>
+    </section>
+
+    <section id="conformance">
+      <p>
+        A <dfn>template processor</dfn> is software that instantiates templates with bindings, or merges templates
+        or documents, according to this specification and [[PROV-TEMPLATE-ALGORITHMS]]. A template processor
+        conforms to this specification if it accepts every conforming template, set of bindings and template
+        transformation file, and processes them as specified.
+      </p>
+    </section>
+
+    <section id="introduction">
+      <h2>Introduction</h2>
+      <p>
+        Provenance often follows patterns that repeat during the lifetime of an application. Provenance templates
+        declare such patterns once, in PROV itself, with variables acting as placeholders for values; the pattern
+        is instantiated many times, each time with a new set of bindings for the variables. The code that
+        instruments the application only collects values, and the generation of provenance is left to
+        instantiation [[PROV-TEMPLATE-TSE]]. [[PROV-TEMPLATE-OVERVIEW]] presents the approach and
+        [[PROV-TEMPLATE-PRIMER]] introduces it through an example.
+      </p>
+      <p>This document is organised as follows.</p>
+      <ul>
+        <li><a href="#templates"></a> defines templates, their variables and the reserved <code>tmpl:</code> attributes.</li>
+        <li><a href="#bindings"></a> defines bindings and their JSON representation.</li>
+        <li><a href="#bindings-schemas"></a> defines bindings schemas.</li>
+        <li><a href="#template-index"></a> defines template indexes, by which templates are found by identifier.</li>
+        <li><a href="#ttf"></a> defines template transformation files.</li>
+        <li><a href="#tools"></a>, non-normative, describes the ProvToolbox tools that process these artefacts.</li>
+      </ul>
+
+      <section id="namespaces">
+        <h3>Namespaces</h3>
+        <table class="simple">
+          <thead><tr><th>Prefix</th><th>Namespace IRI</th><th>Definition</th></tr></thead>
+          <tbody>
+            <tr><td><code>prov</code></td><td><code>http://www.w3.org/ns/prov#</code></td><td>The PROV namespace [[PROV-DM]]</td></tr>
+            <tr><td><code>tmpl</code></td><td><code>http://openprovenance.org/ns/tmpl#</code></td><td>The template vocabulary (<a href="#tmpl-vocabulary"></a>), [[TMPL-VOCAB]]</td></tr>
+            <tr><td><code>var</code></td><td><code>http://openprovenance.org/var#</code></td><td>The namespace of variables</td></tr>
+            <tr><td><code>vargen</code></td><td><code>http://openprovenance.org/vargen#</code></td><td>The namespace of variables whose value may be generated</td></tr>
+            <tr><td><code>uuid</code></td><td><code>urn:uuid:</code></td><td>The namespace of the identifiers generated by instantiation</td></tr>
+            <tr><td><code>xsd</code></td><td><code>http://www.w3.org/2001/XMLSchema#</code></td><td>XML Schema datatypes [[XMLSCHEMA11-2]]</td></tr>
+            <tr><td>(others)</td><td>(various)</td><td>All other prefixes are used in examples only; <code>http://example.org/</code> stands for application-dependent IRIs [[RFC3987]].</td></tr>
+          </tbody>
+        </table>
+        <p>
+          The template vocabulary was previously in the namespace <code>http://openprovenance.org/tmpl#</code>
+          [[PROV-TEMPLATE-2014]]. A template processor MUST accept templates that use this legacy namespace and
+          process their attributes as those of the current namespace; it MUST NOT write the legacy namespace.
+        </p>
+      </section>
+
+      <section id="conventions">
+        <h3>Conventions</h3>
+        <p>
+          Unless otherwise stated, examples use the PROV-N notation [[PROV-N]]. The term <em>qualified name</em> is
+          used as in [[PROV-DM]], with the syntax of the production <code>QUALIFIED_NAME</code> of [[PROV-N]].
+        </p>
+      </section>
+    </section>
+
+    <section id="templates">
+      <h2>Templates</h2>
+
+      <section id="template-definition">
+        <h3>Definition</h3>
+        <p>A <dfn data-lt="templates|PROV template">template</dfn> is a PROV document that:</p>
+        <ul>
+          <li>MUST contain exactly one bundle; statements outside this bundle are ignored by instantiation;</li>
+          <li>MAY contain [=variables=], in any position where PROV admits a qualified name, as specified in <a href="#variable-positions"></a>;</li>
+          <li>MAY contain attributes of the <code>tmpl:</code> vocabulary (<a href="#tmpl-vocabulary"></a>).</li>
+        </ul>
+        <p>
+          A template is a PROV document: it MAY be written in any serialization of PROV, among which PROV-N
+          [[PROV-N]], PROV-JSONLD [[PROV-JSONLD]], PROV-JSON [[PROV-JSON]], PROV-XML [[PROV-XML]] and PROV-O
+          [[PROV-O]]. Every tool that reads, converts or validates PROV applies to templates.
+        </p>
+        <pre class="example provn" title="A template with two variables">
+document
+  prefix var &lt;http://openprovenance.org/var#&gt;
+  prefix vargen &lt;http://openprovenance.org/vargen#&gt;
+
+  bundle vargen:b
+    agent(var:a)
+    entity(var:b)
+    wasAttributedTo(var:b, var:a)
+  endBundle
+endDocument</pre>
+      </section>
+
+      <section id="variables">
+        <h3>Variables</h3>
+        <p>
+          A <dfn data-lt="variables">variable</dfn> is a qualified name whose namespace is <code>var:</code>
+          (<code>http://openprovenance.org/var#</code>) or <code>vargen:</code>
+          (<code>http://openprovenance.org/vargen#</code>). The local part of a variable is its <dfn>variable
+          name</dfn>; the bindings refer to variables by name.
+        </p>
+        <ul>
+          <li>
+            A <dfn>var variable</dfn>, in the <code>var:</code> namespace, is replaced by its value. If it is
+            unbound, the position it occupies is left empty, or the statement is left out, according to
+            [[PROV-TEMPLATE-ALGORITHMS]].
+          </li>
+          <li>
+            A <dfn>vargen variable</dfn>, in the <code>vargen:</code> namespace, is replaced by its value if it is
+            bound; if it is unbound, instantiation generates a fresh qualified name for it, in the
+            <code>uuid:</code> namespace (<code>urn:uuid:</code>), the same for all its occurrences in one
+            instantiation. A vargen variable MUST NOT be bound to more than one value.
+          </li>
+        </ul>
+        <p>
+          A variable name SHOULD match the regular expression <code>^[^:\[\]()/\\,\-]+$</code> and MUST NOT be
+          <code>id</code>, in any case: the bindings JSON Schema (<a href="#bindings-json-schema"></a>) rejects
+          other names, and code generated from templates uses variable names as identifiers.
+        </p>
+      </section>
+
+      <section id="variable-positions">
+        <h3>Positions of variables</h3>
+        <p>
+          The positions of a statement are those of its PROV-N form [[PROV-N]]: an optional identifier, then
+          positional arguments, then, for some statements, a time, then attributes. Variables are classified by the
+          position in which they occur.
+        </p>
+        <ul>
+          <li>
+            A <dfn data-lt="group variables">group variable</dfn> occurs in the identifier position of a statement or in one of
+            its positional arguments that precede the time: the identifier of an entity, activity or agent; the
+            identifier of a relation; an influencer or influencee; a secondary argument such as the plan of an
+            association, the activity of a delegation or of a derivation, the generation and usage of a
+            derivation. A statement is instantiated once for each combination of the values of its group
+            variables, as specified in [[PROV-TEMPLATE-ALGORITHMS]].
+          </li>
+          <li>
+            An <dfn data-lt="attribute variables">attribute variable</dfn> occurs as the value of an attribute, as in
+            <code>[prov:type = 'var:t']</code>, or as the name of an attribute, as in
+            <code>[var:p = 'var:v']</code>. An attribute variable does not multiply the statement it occurs in: each
+            instance of the statement takes its own entry of the attribute variable's values.
+          </li>
+          <li>
+            A <dfn data-lt="bundle variables">bundle variable</dfn> is the identifier of the template's bundle. It
+            is bound to a single value.
+          </li>
+        </ul>
+        <p>
+          A variable MUST NOT be both a group variable and an attribute variable in the same template. A bundle
+          variable MAY also be a group variable.
+        </p>
+        <div class="ednote">
+          ProvToolbox does not check that a variable is not both a group variable and an attribute variable. The
+          distinction was named "group variable" and "statement-level variable" in [[PROV-TEMPLATE-2014]].
+        </div>
+        <p>
+          Times cannot be variables, since PROV requires a time to be an <code>xsd:dateTime</code>. Likewise, a
+          label must be a string. Values in such positions are given by the syntax-constrained attributes of the
+          <code>tmpl:</code> vocabulary.
+        </p>
+        <p>
+          An attribute whose name is a variable is paired with its value: the i-th name bound to the name variable
+          is paired with the i-th value bound to the value variable. This lets a template leave room for attributes
+          that are only known when the template is used:
+        </p>
+        <pre class="example provn" title="Open attributes on an entity">
+entity(var:file, [prov:type = 'fs:DataFile', var:oprops = 'var:ovalues'])</pre>
+      </section>
+
+      <section id="tmpl-vocabulary">
+        <h3>The <code>tmpl:</code> vocabulary</h3>
+        <p>
+          The template vocabulary, in the namespace <code>http://openprovenance.org/ns/tmpl#</code>, defines
+          attributes reserved for templates. In a template, the value of each of these attributes is a variable.
+          Every <code>tmpl:</code> attribute is consumed by instantiation: none appears in an instantiated
+          document, except <code>tmpl:order</code> when it is requested. The vocabulary is published as an RDF
+          vocabulary [[TMPL-VOCAB]].
+        </p>
+        <table class="simple">
+          <thead><tr><th>Attribute</th><th>Allowed on</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td><dfn><code>tmpl:label</code></dfn></td><td>any statement</td>
+              <td>The statement is given a <code>prov:label</code> for each value of the variable, which MUST be bound to <code>xsd:string</code> values.</td></tr>
+            <tr><td><dfn><code>tmpl:time</code></dfn></td><td>usage, generation, invalidation, start, end</td>
+              <td>The statement's time is the variable's value, which MUST be a single <code>xsd:dateTime</code>.</td></tr>
+            <tr><td><dfn><code>tmpl:startTime</code></dfn></td><td>activity</td>
+              <td>The activity's start time is the variable's value, a single <code>xsd:dateTime</code>.</td></tr>
+            <tr><td><dfn><code>tmpl:endTime</code></dfn></td><td>activity</td>
+              <td>The activity's end time is the variable's value, a single <code>xsd:dateTime</code>.</td></tr>
+            <tr><td><dfn><code>tmpl:if</code></dfn></td><td>any statement</td>
+              <td>The statement is instantiated only if the variable is bound. A variable bound to a sequence of values counts as bound.</td></tr>
+            <tr><td><dfn><code>tmpl:notif</code></dfn></td><td>any statement</td>
+              <td>The statement is instantiated only if the variable is not bound; the complement of <code>tmpl:if</code>.</td></tr>
+            <tr><td><dfn><code>tmpl:ID</code></dfn></td><td>a relation without identifier</td>
+              <td>The relation's identifier is the variable's value, a qualified name. Ignored when the relation already has an identifier, or when the value is not a qualified name.</td></tr>
+            <tr><td><dfn><code>tmpl:linked</code></dfn></td><td>a statement whose identifier is a variable</td>
+              <td>Names another variable, which changes value in step with the statement's identifier (<a href="#linked-variables"></a>). The link is symmetric. The named variable is not a free variable of the statement.</td></tr>
+            <tr><td><dfn><code>tmpl:order</code></dfn></td><td>(output only)</td>
+              <td>Written by instantiation, on request, on each instantiated statement: the index of the combination of values that produced it, such as <code>"[1, 0]"</code>. It MUST NOT occur in a template.</td></tr>
+          </tbody>
+        </table>
+        <p>
+          The names <code>tmpl:activity</code> and <code>tmpl:activityType</code> are reserved for the template
+          compiler (<a href="#template-compiler"></a>).
+        </p>
+        <div class="ednote">
+          <p>Where ProvToolbox's interpreter currently differs from the vocabulary:</p>
+          <ul>
+            <li><code>tmpl:if</code> and <code>tmpl:notif</code> are not implemented by the interpreter: a statement
+              carrying them is instantiated in any case, and a bound <code>tmpl:if</code> is kept in the output. The
+              template compiler implements <code>tmpl:if</code>, as a test of the value's truth, for invalidations
+              and qualified memberships only.</li>
+            <li>A <code>tmpl:time</code> variable bound to several values gives the statement the last value; the
+              vocabulary says such a binding is ignored.</li>
+            <li><code>tmpl:ID</code> is kept in the output when it cannot be applied.</li>
+            <li><code>tmpl:order</code> is not part of the published vocabulary [[TMPL-VOCAB]].</li>
+          </ul>
+        </div>
+        <section id="linked-variables">
+          <h4>Linked variables</h4>
+          <p>
+            By default, the group variables of a statement change value independently, and the statement is
+            instantiated for every combination of their values. Two variables are <dfn data-lt="linked">linked</dfn> if a
+            statement whose identifier is one of them carries a <code>tmpl:linked</code> attribute whose value is the
+            other, or if the bindings declare the link (<a href="#bindings-json"></a>); the relation is symmetric
+            and transitive. Linked variables change value in step: the i-th value of one goes with the i-th value
+            of the other. Linked variables MUST be bound to the same number of values.
+          </p>
+          <pre class="example provn" title="Linked variables: each output derived from the corresponding input">
+entity(var:input)
+entity(var:output, [tmpl:linked = 'var:input'])
+wasDerivedFrom(var:output, var:input)</pre>
+        </section>
+      </section>
+
+      <section id="template-from-template">
+        <h3>Templates generated from templates</h3>
+        <p>
+          Instantiation with bindings whose values are themselves variables produces a template: binding
+          <code>var:input</code> to <code>var:file</code> renames a variable, and binding <code>var:type</code> to
+          <code>fs:DataFile</code> specialises a template. When the value of a <code>tmpl:label</code>,
+          <code>tmpl:time</code>, <code>tmpl:startTime</code> or <code>tmpl:endTime</code> variable is a variable,
+          the attribute is kept, with the new variable as value. The template library
+          [[PROV-TEMPLATE-LIBRARY]] derives most of its templates in this way, and by merge.
+        </p>
+      </section>
+    </section>
+
+    <section id="bindings">
+      <h2>Bindings</h2>
+
+      <section id="bindings-model">
+        <h3>Bindings</h3>
+        <p>
+          A <dfn data-lt="binding">set of bindings</dfn> associates variables with values. A variable associated with a value is
+          <dfn>bound</dfn>; otherwise it is <dfn>unbound</dfn>.
+        </p>
+        <ul>
+          <li>A group variable is bound to a sequence of qualified names; the statements using it are
+            instantiated once for each.</li>
+          <li>An attribute variable is bound to a sequence of <em>entries</em>, one per instance of the statement in
+            which it occurs, in the order of [[PROV-TEMPLATE-ALGORITHMS]]; each entry is a sequence of values,
+            since an attribute may occur zero, one or several times in a statement. A value is a qualified name or a
+            typed literal.</li>
+          <li>A bundle variable and a vargen variable are bound to a single qualified name.</li>
+        </ul>
+      </section>
+
+      <section id="bindings-json">
+        <h3>JSON representation</h3>
+        <p>A set of bindings is represented by a JSON object [[RFC8259]] with the following members.</p>
+        <table class="simple">
+          <thead><tr><th>Member</th><th>Required</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td><code>var</code></td><td>yes</td><td>An object mapping each bound variable name of the <code>var:</code> namespace to its values (below).</td></tr>
+            <tr><td><code>context</code></td><td>yes</td><td>An object mapping each prefix used in the values to its namespace IRI.</td></tr>
+            <tr><td><code>vargen</code></td><td>no</td><td>An object mapping variable names of the <code>vargen:</code> namespace to a sequence of one qualified name.</td></tr>
+            <tr><td><code>linked</code></td><td>no</td><td>An object mapping a variable name to the name of a variable it is linked with.</td></tr>
+            <tr><td><code>template</code></td><td>no</td><td>The identifier of the template the bindings are for, or <code>null</code>.</td></tr>
+            <tr><td><code>@documentation</code></td><td>no</td><td>A description, or <code>null</code>.</td></tr>
+          </tbody>
+        </table>
+        <p>The values of a variable are a JSON array, or <code>null</code> for an unbound variable.</p>
+        <ul>
+          <li>
+            A qualified name is written <code>{"@id": "prefix:local"}</code>. The prefix MUST be declared in
+            <code>context</code>, except <code>uuid</code>, which denotes <code>urn:uuid:</code> when not declared.
+          </li>
+          <li>
+            A literal is written <code>{"@value": "lexical form", "@type": "xsd:..."}</code>; without
+            <code>@type</code>, it is an <code>xsd:string</code>. A language-tagged string is written
+            <code>{"@value": "...", "@language": "en"}</code>.
+          </li>
+          <li>
+            The values of a group variable are an array of qualified names. The values of an attribute variable are an
+            array of entries, each an array of values.
+          </li>
+        </ul>
+        <pre class="example json" title="Bindings with group and attribute variables">
+{
+  "context": { "ex": "http://example.org/" },
+  "var": {
+    "a": [{"@id": "ex:ag1"}, {"@id": "ex:ag2"}],
+    "b": [{"@id": "ex:en1"}, {"@id": "ex:en2"}, {"@id": "ex:en3"}],
+    "c": [[{"@id": "ex:t1"}], [{"@id": "ex:t2a"}, {"@id": "ex:t2b"}], [{"@id": "ex:t3"}],
+          [{"@id": "ex:t4"}], [{"@id": "ex:t5a"}, {"@id": "ex:t5b"}, {"@id": "ex:t5c"}], [{"@id": "ex:t6"}]]
+  }
+}</pre>
+        <p>
+          The values in a bindings file MAY contain placeholders <code>${name}</code>, which a template
+          transformation file replaces by the values of its variable maps before the bindings are read
+          (<a href="#ttf-paths"></a>).
+        </p>
+        <div class="ednote">
+          <ul>
+            <li>ProvToolbox also accepts an entry of an attribute variable written as a single value rather than an
+              array of one value, which the JSON Schema rejects.</li>
+            <li>ProvToolbox reads a language tag from <code>@lang</code>, the JSON Schema from <code>@language</code>
+              (the JSON-LD keyword); the interpreter then ignores it.</li>
+            <li>The JSON Schema admits the types <code>xsd:string</code>, <code>xsd:int</code>,
+              <code>xsd:float</code>, <code>xsd:boolean</code> and <code>xsd:dateTime</code>; the interpreter
+              supports only <code>xsd:string</code>, <code>xsd:int</code> and <code>xsd:boolean</code> as values of
+              ordinary attributes, and <code>xsd:dateTime</code> for the time attributes.</li>
+            <li>A value written as a full IRI rather than a qualified name is not supported.</li>
+          </ul>
+        </div>
+        <section id="bindings-json-schema">
+          <h4>JSON Schema</h4>
+          <p>
+            A set of bindings MUST validate against the JSON Schema <a href="schemas/bindings-schema.json">bindings-schema.json</a>
+            [[JSON-SCHEMA]], which also validates bindings schemas (<a href="#bindings-schemas"></a>).
+          </p>
+          <pre class="json" data-include="schemas/bindings-schema.json" data-include-format="text"></pre>
+          <div class="ednote">The schema does not list the member <code>linked</code>, which ProvToolbox accepts.</div>
+        </section>
+      </section>
+
+      <section id="bindings-prov" class="informative">
+        <h3>Bindings as PROV documents (deprecated)</h3>
+        <p>
+          [[PROV-TEMPLATE-2014]] represented bindings as a PROV document, so as not to introduce a new syntax: each
+          variable is an entity, and its values are attributes in the <code>tmpl:</code> namespace:
+          <code>tmpl:value_i</code> for the i-th value of a group variable, <code>tmpl:2dvalue_i_j</code> for the
+          j-th value of the i-th entry of an attribute variable. A later version used <code>tmpl:binding_i</code>.
+          These representations are deprecated. ProvToolbox converts them (the <code>bindings</code> commands of
+          <code>provmanager</code>) but no longer instantiates from them.
+        </p>
+        <pre class="example provn" title="Bindings as a PROV document">
+document
+  prefix var &lt;http://openprovenance.org/var#&gt;
+  prefix tmpl &lt;http://openprovenance.org/tmpl#&gt;
+  prefix ex &lt;http://example.org/&gt;
+
+  entity(var:a, [tmpl:value_0 = 'ex:ag1', tmpl:value_1 = 'ex:ag2'])
+  entity(var:c, [tmpl:2dvalue_0_0 = 'ex:t1', tmpl:2dvalue_1_0 = 'ex:t2a', tmpl:2dvalue_1_1 = 'ex:t2b'])
+endDocument</pre>
+      </section>
+    </section>
+
+    <section id="bindings-schemas">
+      <h2>Bindings schemas</h2>
+      <p>
+        A <dfn data-lt="bindings schemas">bindings schema</dfn> describes the variables of a template: for each
+        variable, the kind of its values, their type, its documentation, an example, and whether an application
+        supplies it or instantiation produces it. It is the contract between an application and a template, used to
+        check bindings, to document templates, and to generate code (<a href="#template-compiler"></a>). In the
+        template library, bindings schemas are also called <em>compact bindings</em>, and are found under
+        <code>cbindings/</code>.
+      </p>
+      <p>A bindings schema is a JSON object with the members of a set of bindings (<a href="#bindings-json"></a>), in which:</p>
+      <ul>
+        <li><code>var</code> maps each variable name to a description instead of values;</li>
+        <li><code>template</code> identifies the template described;</li>
+        <li><code>@documentation</code> describes the template.</li>
+      </ul>
+      <p>
+        A group variable is described by an array of one object with the member <code>@id</code>; an attribute
+        variable by an array of one array of one object with the member <code>@value</code>. The value of
+        <code>@id</code> is a pattern <code>prefix:*</code>, standing for any qualified name in that namespace; the
+        value of <code>@value</code> is <code>*</code>, standing for any literal. The other members are:
+      </p>
+      <table class="simple">
+        <thead><tr><th>Member</th><th>On</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td><code>@type</code></td><td>both</td><td>The type of the values: <code>xsd:string</code>, <code>xsd:int</code>, <code>xsd:float</code>, <code>xsd:boolean</code>, <code>xsd:dateTime</code>. For a group variable, the type of the local part.</td></tr>
+          <tr><td><code>@documentation</code></td><td>both</td><td>What the variable stands for.</td></tr>
+          <tr><td><code>@examplar</code></td><td>both</td><td>An example value.</td></tr>
+          <tr><td><code>@input</code></td><td>both</td><td><code>compulsory</code>, <code>optional</code> or <code>false</code>: whether, and how, the application supplies the value.</td></tr>
+          <tr><td><code>@output</code></td><td>both</td><td><code>true</code> or <code>false</code>: whether the value is produced, for instance a generated identifier.</td></tr>
+          <tr><td><code>@sql.table</code></td><td>group variable</td><td>The table in which values are stored, for code generating SQL.</td></tr>
+          <tr><td><code>@sql.type</code></td><td>attribute variable</td><td>The SQL type of the values, such as <code>timestamptz</code> or <code>nonNullableTEXT</code>.</td></tr>
+        </tbody>
+      </table>
+      <p>
+        The order of the members of <code>var</code> is significant: it is the order of the fields of the records
+        generated from the bindings schema. A bindings schema MUST validate against the JSON Schema of
+        <a href="#bindings-json-schema"></a>.
+      </p>
+      <pre class="example json" title="A bindings schema (from the primer)" data-include="../prov-template-primer/examples/cbindings/cleaning.json" data-include-format="text"></pre>
+      <div class="ednote">
+        The template compiler reads further members that the JSON Schema rejects: on a group variable
+        <code>@role</code>, <code>@escape</code>, <code>@semantic.type</code>, <code>@unique</code>,
+        <code>@sql.new.inputs</code>, <code>@sql.also.outputs</code>; on an attribute variable
+        <code>@sql.foreign</code>, <code>@unique</code>, <code>@escape</code>; <code>@output: "optional"</code>;
+        and a top-level <code>@return</code>. Either the schema or this section should grow to cover them.
+      </div>
+    </section>
+
+    <section id="template-index">
+      <h2>Template indexes</h2>
+      <p>
+        A <dfn>template index</dfn> is a JSON file, named <code>index.json</code>, in a directory of templates. It maps
+        each template identifier to the files, relative to the directory, that hold the template in each format.
+        The formats are <code>provn</code>, <code>jsonld</code>, <code>png</code> and <code>svg</code>. A template
+        identifier is a fully qualified name, such as <code>org.openprovenance.templates.fs.FileTransforming</code>,
+        or the path of an output of a template transformation file without extension. An index MUST validate
+        against the JSON Schema <a href="schemas/template-index-schema.json">template-index-schema.json</a>.
+      </p>
+      <pre class="example json" title="A template index (from the primer)" data-include="../prov-template-primer/examples/templates/index.json" data-include-format="text"></pre>
+      <p>
+        A template processor that resolves an identifier in an index prefers the formats <code>jsonld</code>, then
+        <code>provn</code>. The index that a template transformation file writes for its outputs also records,
+        under <code>hasProvenance</code>, the record of the task that produced each output.
+      </p>
+      <div class="ednote">The written index uses the members <code>qualifiedPng</code>, <code>qualifiedSvg</code> and <code>hasProvenance</code>, which the index JSON Schema does not list.</div>
+    </section>
+
+    <section id="ttf">
+      <h2>Template transformation files</h2>
+      <p>
+        A <dfn data-lt="TTF|template transformation files">template transformation file</dfn> (TTF) is a JSON file that lists
+        tasks performed on templates: instantiating a template with bindings, or merging templates or documents.
+        Executed in sequence, the tasks build a collection of templates, or of documents, from their sources; the
+        outputs of a task can be the inputs of the next.
+      </p>
+
+      <section id="ttf-structure">
+        <h3>Structure</h3>
+        <table class="simple">
+          <thead><tr><th>Member</th><th>Required</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td><code>template_path</code></td><td>yes</td><td>The directories in which templates are looked up by identifier, each with a template index.</td></tr>
+            <tr><td><code>bindings_path</code></td><td>yes</td><td>The directories in which bindings files are looked up, in order.</td></tr>
+            <tr><td><code>output_dir</code></td><td>yes</td><td>The directory in which outputs, and their index, are written.</td></tr>
+            <tr><td><code>variableMaps</code></td><td>yes</td><td>JSON files, each an object mapping names to strings, that replace the placeholders <code>${name}</code> of bindings files.</td></tr>
+            <tr><td><code>tasks</code></td><td>yes</td><td>The tasks, at least one, each an instantiate task or a merge task.</td></tr>
+            <tr><td><code>schemaCheck</code></td><td>no</td><td>The default schema check of the tasks (<a href="#ttf-schema-check"></a>).</td></tr>
+          </tbody>
+        </table>
+        <p>Both kinds of task have the following members.</p>
+        <table class="simple">
+          <thead><tr><th>Member</th><th>Required</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td><code>type</code></td><td>yes</td><td><code>instantiate</code> or <code>merge</code>.</td></tr>
+            <tr><td><code>output</code></td><td>yes</td><td>The path of the output, relative to <code>output_dir</code>, without extension; also its identifier in the output index.</td></tr>
+            <tr><td><code>formats</code></td><td>yes</td><td>The formats in which the output is written: <code>provn</code>, <code>jsonld</code> (also <code>prov-jsonld</code>), <code>svg</code>, <code>png</code>, <code>pdf</code>, <code>mmd</code>, and the drawings of qualified relations <code>qualified.png</code>, <code>qualified.svg</code>, <code>qualified.pdf</code>, <code>qualified.mmd</code>, <code>qualified-inv.png</code>, <code>qualified-inv.svg</code>, <code>qualified-inv.pdf</code>.</td></tr>
+            <tr><td><code>description</code></td><td>no</td><td>A description of the task.</td></tr>
+            <tr><td><code>outputFullyQualifiedName</code></td><td>no</td><td>A second identifier for the output in the output index, a fully qualified name.</td></tr>
+            <tr><td><code>hasProvenance</code></td><td>no</td><td>The path, relative to <code>output_dir</code>, of a file in which the task records its own provenance (<a href="#ttf-provenance"></a>).</td></tr>
+            <tr><td><code>schemaCheck</code></td><td>no</td><td>The schema check of this task, overriding the file's.</td></tr>
+            <tr><td><code>template_path</code></td><td>no</td><td>Directories searched for templates before those of the file.</td></tr>
+            <tr><td><code>addOutputDirToInputPath</code></td><td>no</td><td>If true, the outputs of earlier tasks can be inputs of this one.</td></tr>
+            <tr><td><code>variableCheck</code></td><td>no</td><td>A JSON file of regular expressions that the variable names of the output must match, per kind of statement.</td></tr>
+            <tr><td><code>copyinput</code>, <code>clean2</code></td><td>no</td><td>Copy the input next to the output; delete intermediate inputs after a merge.</td></tr>
+          </tbody>
+        </table>
+        <p>
+          An <dfn>instantiate task</dfn> has, in addition, the required members <code>template</code>, a template
+          identifier, and <code>bindings</code>, the name of a bindings file found in <code>bindings_path</code>. It
+          instantiates the template with the bindings. A <dfn>merge task</dfn> has, in addition, the required member
+          <code>inputs</code>, an array of at least one template identifier. It merges the inputs, in order, as
+          specified in [[PROV-TEMPLATE-ALGORITHMS]].
+        </p>
+        <pre class="example json" title="A template transformation file (from the primer)" data-include="../prov-template-primer/examples/pipeline-ttf.json" data-include-format="text"></pre>
+        <p>A template transformation file MUST validate against the JSON Schema <a href="schemas/template-transformation-file-schema.json">template-transformation-file-schema.json</a>.</p>
+        <details>
+          <summary>The JSON Schema of template transformation files</summary>
+          <pre class="json" data-include="schemas/template-transformation-file-schema.json" data-include-format="text"></pre>
+        </details>
+      </section>
+
+      <section id="ttf-paths">
+        <h3>Resolution of paths</h3>
+        <p>A template transformation file is executed with an input base directory and an output base directory.</p>
+        <ul>
+          <li>An entry of <code>template_path</code> or <code>variableMaps</code> that starts with <code>.</code> is relative to the directory of the template transformation file.</li>
+          <li>An entry of <code>template_path</code> or <code>bindings_path</code> that starts with neither <code>/</code> nor <code>.</code> is relative to the input base directory.</li>
+          <li><code>output_dir</code> is relative to the output base directory.</li>
+          <li>A template identifier is looked up in the template index of each directory of the task's <code>template_path</code>, then of the file's, then, if <code>addOutputDirToInputPath</code> is true, of the output directory.</li>
+          <li>Each output is added to the template index of <code>output_dir</code>, under <code>output</code> and, if present, <code>outputFullyQualifiedName</code>.</li>
+        </ul>
+      </section>
+
+      <section id="ttf-schema-check">
+        <h3>Schema check</h3>
+        <p>
+          The value of <code>schemaCheck</code> selects the version of the PROV-JSONLD JSON Schema [[PROV-JSONLD]]
+          against which each <code>jsonld</code> output is validated. It is <code>none</code> (the default: no
+          check), <code>default</code> (the version the processor writes), or a date naming a version of the
+          schema, such as <code>2026-10-14</code>. The suffix <code>-qn</code>, as in <code>default-qn</code>,
+          selects the strict variant of the schema, which also checks the syntax of qualified names. An output that
+          fails its schema check fails the execution.
+        </p>
+      </section>
+
+      <section id="ttf-provenance">
+        <h3>Provenance of the tasks</h3>
+        <p>
+          A task with <code>hasProvenance</code> records what it did, as compact records of the template-management
+          templates of the library ([[PROV-TEMPLATE-LIBRARY]], family <code>ptm</code>), one line per output format,
+          in CSV. An instantiate task writes <code>ptm_instantiating</code> records, a merge task
+          <code>ptm_merging</code> records, one for each input after the first, paired with the first.
+        </p>
+        <table class="simple">
+          <thead><tr><th>Record</th><th>Fields, in order</th></tr></thead>
+          <tbody>
+            <tr><td><code>ptm_instantiating</code></td><td>document, provenance, template, bindings, agent, instantiating, email, time</td></tr>
+            <tr><td><code>ptm_merging</code></td><td>document, provenance, template1, template2, agent, merging, email, time</td></tr>
+          </tbody>
+        </table>
+        <p>Templates and documents are named by their path relative to their template directory, bindings by their path relative to the input base directory, so that the records of several tasks connect: the output of one is the template of another.</p>
+        <pre class="example" title="The records of an instantiate task (from the primer)" data-include="../prov-template-primer/examples/run/prov/uploading.prov-csv" data-include-format="text"></pre>
+      </section>
+    </section>
+
+    <section id="tools" class="informative">
+      <h2>Tools</h2>
+      <p>This section describes the ProvToolbox [[PROVTOOLBOX]] tools that process the artefacts of this specification.</p>
+
+      <section id="tools-provconvert">
+        <h3>The command line: <code>provconvert</code></h3>
+        <p><code>provconvert</code> converts between PROV formats and instantiates and merges templates.</p>
+        <pre class="example" title="Instantiating a template">provconvert -infile template.provn -bindings bindings.json -outfile document.provn</pre>
+        <table class="simple">
+          <thead><tr><th>Option</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td><code>-infile</code> <var>file</var></td><td>The input: the template, when <code>-bindings</code> is given.</td></tr>
+            <tr><td><code>-outfile</code> <var>file</var></td><td>The output, whose format is given by its extension (<code>provn</code>, <code>jsonld</code>, <code>svg</code>, …).</td></tr>
+            <tr><td><code>-bindings</code> <var>file</var></td><td>Instantiate the input with the given bindings; <code>-</code> reads them from standard input.</td></tr>
+            <tr><td><code>-bindver</code> <var>n</var></td><td>The version of the bindings; only 3, the JSON representation, the default, is supported.</td></tr>
+            <tr><td><code>-genorder</code></td><td>Write <code>tmpl:order</code> on instantiated statements.</td></tr>
+            <tr><td><code>-allexpanded</code></td><td>Instantiate a statement only if all its variables are bound; the exit status is 7 if some were not.</td></tr>
+            <tr><td><code>-merge</code> <var>file</var></td><td>Merge the documents listed in the file, one per line, into the output; with <code>-flatten</code>, into a single bundle-less document.</td></tr>
+            <tr><td><code>-log2prov</code> <var>class</var></td><td>Turn a log of compact records (<code>-infile</code>) into a PROV document, with the given generated initialiser class (<a href="#template-compiler"></a>).</td></tr>
+            <tr><td><code>-templatebuilder</code> <var>file</var></td><td>Run the template compiler on the given catalogue.</td></tr>
+            <tr><td><code>-templateLibrary</code> <var>paths</var></td><td>Directories of templates, for the template compiler.</td></tr>
+            <tr><td><code>-inputBaseDir</code>, <code>-outputBaseDir</code></td><td>Base directories of relative paths.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="tools-process">
+        <h3>The executable <code>prov-template-process</code></h3>
+        <p>
+          <code>prov-template-process</code> executes template transformation files. Its arguments are the input base
+          directory, the output base directory (the input one if absent), and, after <code>-configs</code>, the
+          template transformation files.
+        </p>
+        <pre class="example">prov-template-process . target -configs ttfs/config-fs.json ttfs/config-ptm.json</pre>
+      </section>
+
+      <section id="tools-maven">
+        <h3>The Maven plugin</h3>
+        <p>
+          The plugin <code>org.openprovenance.prov:prov-toolbox-plugin</code> makes these tools part of a Maven
+          build. Its goals are:
+        </p>
+        <table class="simple">
+          <thead><tr><th>Goal</th><th>Effect</th><th>Parameters</th></tr></thead>
+          <tbody>
+            <tr><td><code>execute-ttf</code></td><td>Executes template transformation files (phase <code>process-resources</code>).</td><td><code>inputBaseDir</code>, <code>outputBaseDir</code>, <code>args</code> (the files)</td></tr>
+            <tr><td><code>validate-ttf</code></td><td>Validates template transformation files against their JSON Schema.</td><td><code>inputBaseDir</code>, <code>args</code></td></tr>
+            <tr><td><code>validate-bindings</code></td><td>Validates bindings and bindings schemas against their JSON Schema.</td><td><code>args</code></td></tr>
+            <tr><td><code>validate-catalogue</code></td><td>Validates catalogues of the template compiler.</td><td><code>args</code></td></tr>
+            <tr><td><code>compile-catalogue</code></td><td>Runs the template compiler (phase <code>generate-sources</code>).</td><td><code>inputBaseDir</code>, <code>outputBaseDir</code>, <code>cbindingsBaseDir</code>, <code>templateLibrary</code>, <code>configs</code></td></tr>
+            <tr><td><code>provconvert</code></td><td>Runs <code>provconvert</code> with the given arguments.</td><td><code>args</code></td></tr>
+            <tr><td><code>prepare-webjar</code></td><td>Packages templates, bindings schemas and generated scripts as a web jar.</td><td>lists of files by kind</td></tr>
+          </tbody>
+        </table>
+        <p>The validation goals run <code>ajv</code>, which must be installed.</p>
+        <pre class="example xml" title="Executing a template transformation file in a Maven build">
+&lt;plugin&gt;
+  &lt;groupId&gt;org.openprovenance.prov&lt;/groupId&gt;
+  &lt;artifactId&gt;prov-toolbox-plugin&lt;/artifactId&gt;
+  &lt;version&gt;${prov.toolbox.version}&lt;/version&gt;
+  &lt;executions&gt;
+    &lt;execution&gt;
+      &lt;id&gt;exec.process.templates.fs&lt;/id&gt;
+      &lt;goals&gt;&lt;goal&gt;validate-ttf&lt;/goal&gt;&lt;goal&gt;execute-ttf&lt;/goal&gt;&lt;/goals&gt;
+      &lt;configuration&gt;
+        &lt;inputBaseDir&gt;${project.basedir}&lt;/inputBaseDir&gt;
+        &lt;outputBaseDir&gt;${project.build.directory}&lt;/outputBaseDir&gt;
+        &lt;args&gt;&lt;arg&gt;src/main/resources/ttfs/config-fs.json&lt;/arg&gt;&lt;/args&gt;
+      &lt;/configuration&gt;
+    &lt;/execution&gt;
+  &lt;/executions&gt;
+&lt;/plugin&gt;</pre>
+      </section>
+
+      <section id="template-compiler">
+        <h3>The template compiler</h3>
+        <p>
+          The template compiler generates, from templates and their bindings schemas, code by which an application
+          produces provenance without building PROV itself. Its input is a <dfn>catalogue</dfn>, a JSON file
+          listing templates, each with its identifier, its fully qualified name, its package and its bindings schema
+          (<code>cbindings</code>); a composite entry (<code>consistsOf</code>, <code>sharing</code>) combines
+          several instances of a template that share some variables. For each template it generates:
+        </p>
+        <ul>
+          <li>beans and builders, in Java, Python, JavaScript and Rust, with one field per variable of the bindings schema, in order;</li>
+          <li>a compact record of the bindings, one line of CSV whose first field names the template, which an application can log cheaply;</li>
+          <li>SQL tables and functions to store records;</li>
+          <li>a JSON Schema and HTML documentation of the records;</li>
+          <li>the code by which <code>provconvert -log2prov</code> turns a log of records back into PROV, by instantiating each record's template.</li>
+        </ul>
+      </section>
+    </section>
+
+    <section id="changes" class="appendix informative">
+      <h2>Changes since PROV-TEMPLATE 2014-06-07</h2>
+      <ul>
+        <li>The template vocabulary moved to <code>http://openprovenance.org/ns/tmpl#</code>; the 2014 namespace is accepted on input.</li>
+        <li>New <code>tmpl:</code> attributes: <code>tmpl:if</code>, <code>tmpl:notif</code>, <code>tmpl:ID</code>.</li>
+        <li>An attribute name may be a variable, paired with a value variable.</li>
+        <li><code>tmpl:order</code> is written only on request; [[PROV-TEMPLATE-2014]] wrote it always, and left open whether it should be optional.</li>
+        <li>Unbound <code>vargen:</code> variables are given <code>urn:uuid:</code> identifiers.</li>
+        <li>Bindings are represented in JSON; their representation as PROV documents is deprecated.</li>
+        <li>Links between variables may be declared in the bindings.</li>
+        <li>New: bindings schemas, template indexes, template transformation files, the template compiler.</li>
+        <li>The algorithm moved to [[PROV-TEMPLATE-ALGORITHMS]], with merge.</li>
+      </ul>
+    </section>
+  </body>
+</html>

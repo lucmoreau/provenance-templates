@@ -1,0 +1,43 @@
+{
+  "@context" : [ { }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+  "@graph" : [ {
+    "@type" : "Bundle",
+    "@context" : [ {
+      "xsd" : "http://www.w3.org/2001/XMLSchema#",
+      "pipe" : "http://example.org/pipeline#",
+      "ex" : "http://example.org/run/2026-10-16/",
+      "prov" : "http://www.w3.org/ns/prov#",
+      "uuid" : "urn:uuid:"
+    }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+    "@id" : "ex:run",
+    "@graph" : [ {
+      "@type" : "Entity",
+      "@id" : "ex:raw-kew",
+      "type" : [ "pipe:RawReadings" ],
+      "label" : [ {
+        "@value" : "kew-2026-10-16.csv"
+      } ]
+    }, {
+      "@type" : "Agent",
+      "@id" : "ex:station-kew",
+      "type" : [ "pipe:WeatherStation" ]
+    }, {
+      "@type" : "Activity",
+      "@id" : "uuid:dacc0fb5-d727-4f45-b3e3-84c64241ffda",
+      "startTime" : "2026-10-16T23:55:02.000Z",
+      "type" : [ "pipe:Uploading" ]
+    }, {
+      "@type" : "Generation",
+      "entity" : "ex:raw-kew",
+      "activity" : "uuid:dacc0fb5-d727-4f45-b3e3-84c64241ffda"
+    }, {
+      "@type" : "Association",
+      "activity" : "uuid:dacc0fb5-d727-4f45-b3e3-84c64241ffda",
+      "agent" : "ex:station-kew"
+    }, {
+      "@type" : "Attribution",
+      "entity" : "ex:raw-kew",
+      "agent" : "ex:station-kew"
+    } ]
+  } ]
+}

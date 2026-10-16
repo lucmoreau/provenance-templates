@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>PROV-TEMPLATE-LIBRARY</title>
+    <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
+    <script src="../common/config.js" class="remove"></script>
+    <script class="remove">
+      var respecConfig = ptmConfig({
+          shortName: "prov-template-library",
+          subtitle: "A Library of Provenance Templates",
+          localBiblio: {
+              "PTM-BOOK": {
+                  title: "Provenance Engineering — The Provenance Template Management Approach",
+                  authors: ["Luc Moreau"],
+                  status: "Book, 2026 (submitted)",
+              },
+              "TEMPLATE-LIBRARY-SITE": {
+                  title: "Provenance Template Library",
+                  href: "https://openprovenance.org/templates/",
+                  publisher: "openprovenance.org",
+              },
+              "TEMPLATE-LIBRARY-SOURCE": {
+                  title: "provenance-templates (source repository)",
+                  href: "https://github.com/lucmoreau/provenance-templates",
+              },
+          },
+      });
+    </script>
+    <link rel="stylesheet" href="../common/style.css">
+    <style>
+      table.templates td:first-child { white-space: nowrap; }
+      table.templates td:nth-child(3) { white-space: nowrap; font-size: 90%; }
+    </style>
+  </head>
+  <body>
+    <section id="abstract">
+      <p>
+        The same patterns of provenance recur across applications: a file is transformed, an item is packed into a
+        container, responsibility for a thing is handed over, an entity is examined. This document describes a
+        library of provenance templates [[PROV-TEMPLATE]] that captures such patterns, maintained at
+        openprovenance.org [[TEMPLATE-LIBRARY-SITE]]. It explains how templates in the library are identified,
+        organised, documented and published; how most of them are derived from a small number of primitive
+        templates by instantiation and merge; and it lists the families of templates the library contains.
+      </p>
+    </section>
+
+    <section id="sotd">
+      <p>
+        This is an unofficial draft, part of the PROV-TEMPLATE family of documents [[PROV-TEMPLATE-OVERVIEW]]. It
+        is not normative. It describes the library as of 2026-10-16 (commit <code>c99f358</code> of
+        [[TEMPLATE-LIBRARY-SOURCE]]); the library is a living collection, and its own index and pages are
+        authoritative for its current content. The library is the subject of a chapter of [[PTM-BOOK]].
+      </p>
+    </section>
+
+    <section id="introduction" class="informative">
+      <h2>Introduction</h2>
+      <p>
+        A template is worth more when it is shared. A shared template carries a design decision about how a kind of
+        event is described in PROV &mdash; which nodes, which relations, which attributes &mdash; and every
+        application that reuses it produces provenance of the same shape, which can be queried, compared and
+        explained in the same way. A template library is a published collection of such templates, each with a
+        stable identifier, a bindings schema [[PROV-TEMPLATE]] describing its variables, a documentation page, and
+        drawings.
+      </p>
+      <p>
+        The library described here has two further properties. Its templates are <em>derived</em>: most are
+        generated, by the template transformation files of the library, from simpler templates, so that a family
+        of templates shares the structure of a common ancestor. And the library records its own provenance: each
+        derivation leaves a record, written with the library's own template-management templates.
+      </p>
+    </section>
+
+    <section id="identification" class="informative">
+      <h2>Identification of templates</h2>
+      <p>Each template of the library is identified in three ways.</p>
+      <table class="simple">
+        <thead><tr><th>Identifier</th><th>Form</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>Fully qualified name</td><td><code>org.openprovenance.templates.</code><var>family</var><code>.</code><var>Name</var></td><td><code>org.openprovenance.templates.fs.FileTransforming</code></td></tr>
+          <tr><td>IRI</td><td><code>https://openprovenance.org/templates/org/openprovenance/templates/</code><var>family</var><code>/</code><var>Name</var></td><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/fs/FileTransforming">…/fs/FileTransforming</a></td></tr>
+          <tr><td>Path</td><td>the path of the generated file, relative to the library root, without extension</td><td><code>org/openprovenance/templates/fs/file-transforming</code></td></tr>
+        </tbody>
+      </table>
+      <p>
+        The fully qualified name identifies a template in template indexes and template transformation files; the IRI
+        is the address of its documentation page; the path identifies the template in the library's provenance
+        records, where the output of one derivation is the input of the next.
+      </p>
+      <p>
+        Each documented template has a page whose header gives its name, fully qualified name, IRI,
+        <em>purpose</em>, <em>context</em>, <em>design considerations</em> and <em>automation</em> (the template
+        transformation file that derives it), followed by its drawing and the details of its statements. The
+        metadata of a page follows the model of <code>template-pages/template.json</code>: name, author, version,
+        revision of, purpose, context, solution, design considerations, derived by, influenced by, bindings
+        schemas.
+      </p>
+    </section>
+
+    <section id="organisation" class="informative">
+      <h2>Organisation</h2>
+      <p>
+        The library is the Maven module <code>provenance-templates-library</code> of [[TEMPLATE-LIBRARY-SOURCE]]
+        (<code>org.openprovenance.templates:provenance-templates-library</code>). Its sources are in
+        <code>src/main/resources/</code>:
+      </p>
+      <table class="simple">
+        <thead><tr><th>Directory</th><th>Content</th></tr></thead>
+        <tbody>
+          <tr><td><code>templates/</code></td><td>The hand-written templates, with their template index <code>index.json</code>.</td></tr>
+          <tr><td><code>bindings/</code></td><td>The bindings with which template transformation files derive templates from others; their values are mostly variables.</td></tr>
+          <tr><td><code>cbindings/</code></td><td>The bindings schemas of the templates for which code is generated.</td></tr>
+          <tr><td><code>ttfs/</code></td><td>The template transformation files, one per derived template or family, and <code>common-ns.json</code>, the namespaces their bindings refer to as <code>${prov_ns}</code>, <code>${fs_ns}</code>, ….</td></tr>
+          <tr><td><code>catalogue/</code></td><td>The catalogues of the template compiler, one per compiled family (<code>fs</code>, <code>transport</code>, <code>ptm</code>).</td></tr>
+          <tr><td><code>variable-check/</code></td><td>The naming conventions of variables, per family (<a href="#conventions"></a>).</td></tr>
+          <tr><td><code>icons/</code></td><td>An icon per template, named after its fully qualified name.</td></tr>
+          <tr><td><code>json-schema/</code></td><td>The JSON Schema of template indexes.</td></tr>
+        </tbody>
+      </table>
+      <p>
+        The build executes the template transformation files (Maven goal <code>execute-ttf</code>) into
+        <code>target/generated-templates/</code>: each derived template in PROV-N, PROV-JSONLD, PNG and SVG, and for
+        the final templates drawings of their qualified relations, all listed in a generated template index. The
+        JSON-LD of each final template is checked against the strict PROV-JSONLD schema (<code>schemaCheck</code>
+        <code>default-qn</code>). The build then compiles the catalogues (goal <code>compile-catalogue</code>) into
+        code in Java, Python, JavaScript and Rust.
+      </p>
+      <p>
+        The documentation pages, written in Markdown under <code>template-pages/</code>, are rendered to HTML with
+        pandoc; <code>template-pages/</code> is the root of the published site [[TEMPLATE-LIBRARY-SITE]], whose
+        landing page lists the families with a button per template.
+      </p>
+    </section>
+
+    <section id="derivation" class="informative">
+      <h2>How templates are derived</h2>
+      <p>A template of the library is derived from others in two ways [[PROV-TEMPLATE]], [[PROV-TEMPLATE-ALGORITHMS]].</p>
+      <ul>
+        <li>
+          <b>Instantiation with variables.</b> Instantiating a template with bindings whose values are themselves
+          variables renames its variables and fixes some of its values: binding <code>var:input</code> to
+          <code>var:file</code> and <code>var:otype</code> to <code>fs:DataFile</code> turns the generic
+          <code>Transforming1</code> into the file-specific <code>FileTransforming</code>. Binding a variable to
+          <code>null</code> removes the statements or attributes that use it.
+        </li>
+        <li>
+          <b>Merge.</b> Merging templates that share variables composes them: <code>Transforming1</code> is the
+          merge of instantiations of the triangles <code>Triangle1-Entity-UGD</code> (usage, generation,
+          derivation) and <code>Triangle3-AGA</code> (association, generation, attribution).
+        </li>
+      </ul>
+      <figure id="fig-lineage">
+        <svg viewBox="0 0 760 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lineage of the library's templates" style="max-width:100%;font-family:sans-serif;font-size:13px">
+          <defs>
+            <marker id="larr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="#444"/>
+            </marker>
+          </defs>
+          <g stroke="#444" stroke-width="1.4" fill="#e8f0fe">
+            <rect x="10" y="65" width="110" height="40" rx="6"/>
+            <rect x="160" y="65" width="110" height="40" rx="6"/>
+            <rect x="320" y="15" width="170" height="40" rx="6"/>
+            <rect x="320" y="115" width="170" height="40" rx="6"/>
+            <rect x="560" y="15" width="190" height="40" rx="6" fill="#fffbe0"/>
+            <rect x="560" y="115" width="190" height="40" rx="6" fill="#fffbe0"/>
+          </g>
+          <g stroke="#444" stroke-width="1.4" fill="none">
+            <path d="M120,85 L160,85" marker-end="url(#larr)"/>
+            <path d="M270,80 L320,40" marker-end="url(#larr)"/>
+            <path d="M270,90 L320,130" marker-end="url(#larr)"/>
+            <path d="M490,35 L560,35" marker-end="url(#larr)"/>
+            <path d="M490,135 L560,135" marker-end="url(#larr)"/>
+          </g>
+          <g text-anchor="middle" fill="#222">
+            <text x="65" y="90">primitive</text>
+            <text x="215" y="90">triangles</text>
+            <text x="405" y="33">generic</text>
+            <text x="405" y="48" font-size="11">Transforming1, Joining2, …</text>
+            <text x="405" y="133">collections, responsibility</text>
+            <text x="405" y="148" font-size="11">InsertingIntoCollection, Examining, …</text>
+            <text x="655" y="40">fs, ptm</text>
+            <text x="655" y="140">physical (transport)</text>
+          </g>
+        </svg>
+        <figcaption>The lineage of the library's families: each arrow is a set of instantiations and merges in
+          template transformation files.</figcaption>
+      </figure>
+      <p>
+        Every task of the template transformation files records its own provenance with the templates of the
+        <code>ptm</code> family (<a href="#family-ptm"></a>). Joined, these records form the provenance of the
+        library itself: which template was derived from which, with which bindings, and when. The build draws it in
+        <code>target/prov-graph/</code>.
+      </p>
+    </section>
+
+    <section id="families" class="informative">
+      <h2>Families of templates</h2>
+      <p>
+        The tables list the templates that have a documentation page, with the purpose given by the page, and the
+        other templates of each family. Each name links to the template's IRI.
+      </p>
+
+      <section id="family-primitive">
+        <h3>primitive</h3>
+        <p>
+          Hand-written templates of a single PROV statement or a single attribute, from which the others are built:
+          <code>Entity0</code>, <code>Activity0</code>, <code>Agent0</code>, <code>Usage0</code>,
+          <code>Generation0</code>, <code>Invalidation0</code>, <code>Derivation0</code>,
+          <code>Association0</code>, <code>Attribution0</code>, <code>Attribution</code>, <code>Delegation0</code>,
+          <code>Qualified-Membership0</code>, <code>Qualified-Specialization0</code>,
+          <code>Simple-Derivation</code>, <code>Entity-With-Attribute</code>.
+        </p>
+      </section>
+
+      <section id="family-triangles">
+        <h3>triangles</h3>
+        <p>
+          A <em>triangle</em> is three PROV relations that close a cycle in a provenance graph, such as a usage, a
+          generation and a derivation. Each triangle is a template, derived by merging primitives.
+        </p>
+        <table class="simple templates">
+          <thead><tr><th>Template</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/triangles/Triangle1-Entity-UGD">Triangle1-Entity-UGD</a></td><td>An entity evolves into another entity through derivation.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/triangles/Triangle1-Agent-UGD">Triangle1-Agent-UGD</a></td><td>An agent evolves into another agent through derivation.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/triangles/Triangle2-Entity-SDS">Triangle2-Entity-SDS</a></td><td>An entity evolves through derivation, while retaining its identity through the specialization of a more general entity.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/triangles/Triangle2-Agent-SDS">Triangle2-Agent-SDS</a></td><td>An agent evolves through derivation while remaining a specialization of a more general agent.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/triangles/Triangle3-AGA">Triangle3-AGA</a></td><td>An entity is attributed to an agent associated with the activity that generated it.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/triangles/Triangle4-AIA">Triangle4-AIA</a></td><td>The end of an entity (its invalidation) is attributed to an agent, responsible for its end of life.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/triangles/Triangle5-GGM">Triangle5-GGM</a></td><td>An activity adds an element to a collection.</td></tr>
+          </tbody>
+        </table>
+        <p>Also: <code>Triangle6-UGM</code> (derived, undocumented); <code>Usage-Generation-Derivation</code> and <code>Association-Generation-Attribution</code> (hand-written).</p>
+      </section>
+
+      <section id="family-collections">
+        <h3>collections</h3>
+        <table class="simple templates">
+          <thead><tr><th>Template</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/collections/InsertingIntoCollection">InsertingIntoCollection</a></td><td>A collection evolves as an item is added to it.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/collections/RemovingFromCollection">RemovingFromCollection</a></td><td>A collection evolves as an item is removed from it.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="family-generic">
+        <h3>generic</h3>
+        <p>The shapes of transformations, independent of what is transformed.</p>
+        <table class="simple templates">
+          <thead><tr><th>Template</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/generic/Transforming1">Transforming1</a></td><td>An input is transformed into an output.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/generic/Forking2">Forking2</a></td><td>A transformation of an input that produces two distinct outputs.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/generic/Joining2">Joining2</a></td><td>The transformation of two inputs into a single output.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/generic/Parallel2">Parallel2</a></td><td>The parallel transformation of two inputs by a single activity.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/generic/Product2-2">Product2-2</a></td><td>The transformation of two inputs into two distinct outputs.</td></tr>
+          </tbody>
+        </table>
+        <p>Also, hand-written: <code>Operation</code>, <code>Unary-Operation-With-Agent</code>, <code>Updating-Entity</code>.</p>
+      </section>
+
+      <section id="family-responsibility">
+        <h3>responsibility</h3>
+        <table class="simple templates">
+          <thead><tr><th>Template</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/responsibility/AgentInit">AgentInit</a></td><td>An agent is initially created.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/responsibility/Assigning">Assigning</a></td><td>An entity is attributed to an agent.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/responsibility/Examining">Examining</a></td><td>An entity is examined, observed or assessed, resulting in a new attribute for the entity.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/responsibility/HandingOver">HandingOver</a></td><td>Responsibility for an entity is transferred from one agent to another.</td></tr>
+          </tbody>
+        </table>
+        <p>Also, derived and undocumented: <code>EntityInit</code>, <code>EntityLocationInit</code>, <code>AgentLocationInit</code>.</p>
+      </section>
+
+      <section id="family-physical">
+        <h3>physical</h3>
+        <p>
+          The provenance of physical things: packing, transporting, weighing. This is the family of the running
+          example of [[PTM-BOOK]], the transport of a box. Its templates are compiled under the fully qualified names
+          <code>org.openprovenance.templates.transport.*</code>.
+        </p>
+        <table class="simple templates">
+          <thead><tr><th>Template</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/physical/Packing">Packing</a></td><td>A container evolves as an item is added to it.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/physical/Unpacking">Unpacking</a></td><td>A container evolves as an item is removed from it.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/physical/Transporting">Transporting</a></td><td>A physical object is transported to a new location.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/physical/Weighing">Weighing</a></td><td>An item is weighed (an instance of <code>Examining</code>).</td></tr>
+          </tbody>
+        </table>
+        <p>Also, without page: <code>EntityInit</code>, and the composite templates <code>PackingComposite</code> and <code>UnpackingComposite</code>.</p>
+      </section>
+
+      <section id="family-fs">
+        <h3>fs</h3>
+        <p>
+          The provenance of files: transformations of files by engineers following methods, and the steps of a
+          machine-learning pipeline. Namespace <code>fs</code>, <code>http://openprovenance.org/ns/fs#</code>. The
+          templates derive from the generic family; for example, <code>FileTransforming</code> instantiates
+          <code>Transforming1</code>:
+        </p>
+        <table class="simple templates">
+          <thead><tr><th>Template</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/fs/FileTransforming">FileTransforming</a></td><td>The transformation of a file into another file.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/fs/FileFiltering">FileFiltering</a></td><td>A filtering operation that selects parts (e.g., lines) of a file.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/fs/FileSplitting">FileSplitting</a></td><td>The transformation of a file into two files.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/fs/FileMerging">FileMerging</a></td><td>The transformation of two files into a single file.</td></tr>
+          </tbody>
+        </table>
+        <p>
+          Also, without page: <code>FileInit</code>, <code>FileTraining</code> (a dataset fitted into a pipeline),
+          <code>FileValidating</code> (a pipeline assessed into an accuracy score), <code>FileApproving</code> (a
+          pipeline and its score approved), and the composite <code>FileTransformingComposite</code>.
+        </p>
+        <pre class="example provn" title="FileTransforming (generated, target/generated-templates/org/openprovenance/templates/fs/file-transforming.provn)">
+entity(var:file)
+entity(var:method)
+entity(var:transformed_file,[prov:type = 'fs:DataFile', fs:createdAt = 'var:time', fs:filename = 'var:filename', fs:path = 'var:path', var:oprops = 'var:ovalues'])
+activity(var:transforming,-,-,[prov:type = 'fs:TransformingData', tmpl:endTime = 'var:endTime', var:aprops = 'var:avalues', tmpl:startTime = 'var:startTime'])
+agent(var:engineer)
+used(var:transforming,var:file,-)
+wasGeneratedBy(var:gen;var:transformed_file,var:transforming,-)
+wasDerivedFrom(var:transformed_file, var:file, var:transforming, var:gen, -)
+wasAssociatedWith(var:asc;var:transforming,var:engineer,var:method)
+wasAttributedTo(var:attr;var:transformed_file, var:engineer,[openprov:association = 'var:asc', openprov:activity = 'var:transforming', openprov:generation = 'var:gen'])</pre>
+      </section>
+
+      <section id="family-ptm">
+        <h3>ptm</h3>
+        <p>
+          The provenance of template management itself: these templates describe the tasks of template
+          transformation files, and record the provenance of the library (<a href="#derivation"></a>).
+        </p>
+        <table class="simple templates">
+          <thead><tr><th>Template</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/ptm/Instantiating">Instantiating</a></td><td>The instantiation of a template with a set of bindings, producing a document and a record of the instantiation.</td></tr>
+            <tr><td><a href="https://openprovenance.org/templates/org/openprovenance/templates/ptm/Merging">Merging</a></td><td>The merge of two templates, producing a document and a record of the merge.</td></tr>
+          </tbody>
+        </table>
+        <p>Also, without page: <code>CreatingTemplate</code> (a template revised by its creator) and <code>ptm-mexpanding</code> (the instantiation of a meta-template).</p>
+      </section>
+
+      <section id="family-simple">
+        <h3>simple</h3>
+        <p>
+          A separate lineage, from the hand-written <code>simple.Transforming1</code> to <code>simple/joining2</code>
+          and <code>simple/binaryop</code>. It shares no template with the other families.
+        </p>
+      </section>
+    </section>
+
+    <section id="namespaces" class="informative">
+      <h2>Namespaces</h2>
+      <p>Besides those of [[PROV-TEMPLATE]], the templates of the library use the following namespaces.</p>
+      <table class="simple">
+        <thead><tr><th>Prefix</th><th>Namespace IRI</th><th>Used by</th></tr></thead>
+        <tbody>
+          <tr><td><code>openprov</code></td><td><code>https://openprovenance.org/ns/openprov#</code></td><td>Attributes that point from a relation to the statements it summarises, such as <code>openprov:activity</code> on an attribution [[OPENPROV]].</td></tr>
+          <tr><td><code>provext</code></td><td><code>https://openprovenance.org/ns/provext#</code></td><td>Extensions of PROV for PROV-JSONLD [[PROV-JSONLD]].</td></tr>
+          <tr><td><code>fs</code></td><td><code>http://openprovenance.org/ns/fs#</code></td><td>The fs family.</td></tr>
+          <tr><td><code>phys</code></td><td><code>http://openprovenance.org/ns/phys#</code></td><td>The physical family.</td></tr>
+          <tr><td><code>resp</code></td><td><code>http://openprovenance.org/ns/responsibility#</code></td><td>The responsibility family.</td></tr>
+          <tr><td><code>ptm</code></td><td><code>http://openprovenance.org/ns/ptm#</code></td><td>The ptm family.</td></tr>
+        </tbody>
+      </table>
+      <div class="ednote">The vocabularies of <code>fs</code>, <code>phys</code>, <code>resp</code> and <code>ptm</code> are not yet published.</div>
+    </section>
+
+    <section id="conventions" class="informative">
+      <h2>Conventions</h2>
+      <p>The templates of a family follow conventions, which the template transformation files check (<code>variableCheck</code>).</p>
+      <ul>
+        <li>Variables are named after their role: an entity <code>input</code>, <code>output</code>, <code>file</code>, <code>plan</code>; an agent <code>engineer</code>, <code>manager</code>; an activity a gerund, such as <code>transforming</code>. A numeral distinguishes variables of the same role: <code>input1</code>, <code>input2</code>.</li>
+        <li>The identifiers of relations are the variables <code>usd</code>, <code>gen</code>, <code>der</code>, <code>asc</code>, <code>attr</code>, so that derived templates and the <code>openprov:</code> attributes can refer to them.</li>
+        <li>Each node has an open pair of attribute variables, a name and a value, such as <code>var:oprops = 'var:ovalues'</code> on an output and <code>var:aprops = 'var:avalues'</code> on an activity, through which derived templates add attributes.</li>
+        <li>Times are written with <code>tmpl:startTime</code>, <code>tmpl:endTime</code> and <code>tmpl:time</code>.</li>
+      </ul>
+    </section>
+
+    <section id="contributing" class="informative">
+      <h2>Adding a template</h2>
+      <ol>
+        <li>Look for a template of the library that describes the pattern, or one from which it derives.</li>
+        <li>Write bindings that derive the new template from it, in <code>bindings/</code>, and a template transformation file in <code>ttfs/</code>; or, for a new primitive, write the template in <code>templates/</code> and add it to its index.</li>
+        <li>Add an execution of the template transformation file to the library's build.</li>
+        <li>For code generation, write its bindings schema in <code>cbindings/</code> and add it to a catalogue.</li>
+        <li>Write its documentation page and its icon, and add a button to the landing page.</li>
+      </ol>
+    </section>
+
+    <section id="issues" class="appendix informative">
+      <h2>Known issues</h2>
+      <p>The following inconsistencies were found while writing this document; they are tracked in the library's <code>TEMPLATES-TODO.md</code> or in this document's <code>TODO.md</code>.</p>
+      <ul>
+        <li>Eight templates have a button but no page: <code>FileInit</code>, <code>FileTraining</code>, <code>FileValidating</code>, <code>FileApproving</code>, <code>FileTransformingComposite</code>, <code>EntityInit</code>, <code>PackingComposite</code>, <code>UnpackingComposite</code>; <code>Product2-2</code> has a page but no icon (T-1).</li>
+        <li>The pages of the physical family give fully qualified names <code>physical.*</code>; the build uses <code>transport.*</code>.</li>
+        <li>The page of <code>Triangle2-Entity-SDS</code> gives the IRI of <code>Triangle2-Agent-SDS</code> and the name <code>Triangle-Entity-SDS</code>; the template transformation file of <code>Triangle1-Entity-UGD</code> names it <code>Triangle1-UGD</code>.</li>
+        <li>The bindings schema <code>cbindings/…/fs/file-merging.json</code> is a copy of that of <code>FileSplitting</code>; <code>ptm-creating.json</code> has drifted from its template (T-9).</li>
+        <li>The <code>simple</code> family names its value variables <code>prop_values</code> rather than <code>values</code> (T-8).</li>
+        <li>The library's <code>README.md</code> gives Maven coordinates (<code>org.openprovenance.bookptm:template-intro1</code>) that the build no longer uses (T-3).</li>
+      </ul>
+    </section>
+  </body>
+</html>

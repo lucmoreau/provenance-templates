@@ -1,0 +1,17 @@
+{
+  "context": {
+    "ex":   "http://example.org/run/2026-10-16/",
+    "pipe": "http://example.org/pipeline#"
+  },
+  "var": {
+    "dataset": [{"@id": "ex:daily-2026-10-16"}],
+    "schema":  [{"@id": "pipe:readings-schema-v2"}],
+    "report":  [{"@id": "ex:report-2026-10-16"}],
+    "status":  [[{"@value": "passed"}]],
+    "time":    [[{"@value": "2026-10-17T00:20:11Z", "@type": "xsd:dateTime"}]],
+    "curator": [{"@id": "ex:grace"}]
+  },
+  "vargen": {
+    "bundle": [{"@id": "ex:run"}]
+  }
+}

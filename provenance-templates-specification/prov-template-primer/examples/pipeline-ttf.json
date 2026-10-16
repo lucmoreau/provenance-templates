@@ -1,0 +1,130 @@
+{
+  "template_path": [
+    "templates"
+  ],
+  "bindings_path": [
+    "bindings"
+  ],
+  "output_dir": "run",
+  "variableMaps": [],
+  "tasks": [
+    {
+      "type": "instantiate",
+      "description": "Uploading the Kew readings",
+      "template": "org.example.pipeline.Uploading",
+      "bindings": "uploading-bindings.json",
+      "output": "uploading",
+      "formats": [
+        "provn",
+        "jsonld",
+        "svg"
+      ],
+      "schemaCheck": "default-qn",
+      "hasProvenance": "prov/uploading.prov-csv"
+    },
+    {
+      "type": "instantiate",
+      "description": "Cleaning the Kew readings",
+      "template": "org.example.pipeline.Cleaning",
+      "bindings": "cleaning-bindings.json",
+      "output": "cleaning",
+      "formats": [
+        "provn",
+        "jsonld",
+        "svg"
+      ],
+      "schemaCheck": "default-qn",
+      "hasProvenance": "prov/cleaning.prov-csv"
+    },
+    {
+      "type": "instantiate",
+      "description": "Combining the cleaned readings of three stations",
+      "template": "org.example.pipeline.Combining",
+      "bindings": "combining-bindings.json",
+      "output": "combining",
+      "formats": [
+        "provn",
+        "jsonld",
+        "svg"
+      ],
+      "schemaCheck": "default-qn",
+      "hasProvenance": "prov/combining.prov-csv"
+    },
+    {
+      "type": "instantiate",
+      "description": "Converting three files, without linked variables",
+      "template": "org.example.pipeline.ConvertingProduct",
+      "bindings": "converting-bindings.json",
+      "output": "converting-product",
+      "formats": [
+        "provn",
+        "jsonld",
+        "svg"
+      ],
+      "schemaCheck": "default-qn",
+      "hasProvenance": "prov/converting-product.prov-csv"
+    },
+    {
+      "type": "instantiate",
+      "description": "Converting three files, input and output linked",
+      "template": "org.example.pipeline.Converting",
+      "bindings": "converting-bindings.json",
+      "output": "converting",
+      "formats": [
+        "provn",
+        "jsonld",
+        "svg"
+      ],
+      "schemaCheck": "default-qn",
+      "hasProvenance": "prov/converting.prov-csv"
+    },
+    {
+      "type": "instantiate",
+      "description": "Validating the daily dataset, approved by a curator",
+      "template": "org.example.pipeline.Validating",
+      "bindings": "validating-bindings.json",
+      "output": "validating",
+      "formats": [
+        "provn",
+        "jsonld",
+        "svg"
+      ],
+      "schemaCheck": "default-qn",
+      "hasProvenance": "prov/validating.prov-csv"
+    },
+    {
+      "type": "instantiate",
+      "description": "Validating the daily dataset, no curator",
+      "template": "org.example.pipeline.Validating",
+      "bindings": "validating-unapproved-bindings.json",
+      "output": "validating-unapproved",
+      "formats": [
+        "provn",
+        "jsonld",
+        "svg"
+      ],
+      "schemaCheck": "default-qn",
+      "hasProvenance": "prov/validating-unapproved.prov-csv"
+    },
+    {
+      "type": "merge",
+      "description": "The provenance of the night's run",
+      "addOutputDirToInputPath": true,
+      "inputs": [
+        "uploading",
+        "cleaning",
+        "combining",
+        "converting",
+        "validating"
+      ],
+      "output": "pipeline-run",
+      "formats": [
+        "provn",
+        "jsonld",
+        "svg"
+      ],
+      "schemaCheck": "default-qn",
+      "hasProvenance": "prov/pipeline-run.prov-csv"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+document
+  prefix var <http://openprovenance.org/var#>
+  prefix vargen <http://openprovenance.org/vargen#>
+  prefix ex <http://example.org/>
+
+  bundle vargen:b
+    entity(var:output, [ex:checked = 'var:checked'])
+    agent(var:engineer)
+    wasAttributedTo(var:output, var:engineer)
+    wasAssociatedWith(var:transforming, var:engineer, -)
+  endBundle
+endDocument

@@ -1,0 +1,56 @@
+{
+  "@context" : [ { }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+  "@graph" : [ {
+    "@type" : "Bundle",
+    "@context" : [ {
+      "xsd" : "http://www.w3.org/2001/XMLSchema#",
+      "pipe" : "http://example.org/pipeline#",
+      "ex" : "http://example.org/run/2026-10-16/",
+      "prov" : "http://www.w3.org/ns/prov#",
+      "uuid" : "urn:uuid:"
+    }, "https://openprovenance.org/prov-jsonld/context.jsonld" ],
+    "@id" : "ex:run",
+    "@graph" : [ {
+      "@type" : "Entity",
+      "@id" : "ex:daily-2026-10-16",
+      "type" : [ "pipe:DailyDataset" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "pipe:readings-schema-v2",
+      "type" : [ "pipe:Schema" ]
+    }, {
+      "@type" : "Entity",
+      "@id" : "ex:report-2026-10-16",
+      "pipe:status" : [ {
+        "@value" : "passed"
+      } ],
+      "type" : [ "pipe:ValidationReport" ]
+    }, {
+      "@type" : "Agent",
+      "@id" : "ex:grace",
+      "type" : [ "prov:Person" ]
+    }, {
+      "@type" : "Activity",
+      "@id" : "uuid:e4a21483-fa6f-4002-b923-3f1242f5f3af",
+      "endTime" : "2026-10-17T00:20:11.000Z",
+      "type" : [ "pipe:Validating" ]
+    }, {
+      "@type" : "Usage",
+      "activity" : "uuid:e4a21483-fa6f-4002-b923-3f1242f5f3af",
+      "entity" : "ex:daily-2026-10-16"
+    }, {
+      "@type" : "Usage",
+      "activity" : "uuid:e4a21483-fa6f-4002-b923-3f1242f5f3af",
+      "entity" : "pipe:readings-schema-v2"
+    }, {
+      "@type" : "Generation",
+      "entity" : "ex:report-2026-10-16",
+      "activity" : "uuid:e4a21483-fa6f-4002-b923-3f1242f5f3af"
+    }, {
+      "@type" : "Attribution",
+      "entity" : "ex:daily-2026-10-16",
+      "agent" : "ex:grace",
+      "type" : [ "pipe:Approval" ]
+    } ]
+  } ]
+}

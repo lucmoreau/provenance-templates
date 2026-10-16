@@ -1,0 +1,18 @@
+document
+  prefix var <http://openprovenance.org/var#>
+  prefix ex <http://example.org/>
+
+  bundle ex:b
+    entity(var:e1)
+    entity(var:e2)
+    activity(var:a)
+    agent(var:ag)
+    used(var:a, var:e1, -)
+    wasGeneratedBy(var:e2, var:a, -)
+    wasDerivedFrom(var:e2, var:e1)
+    wasAssociatedWith(var:a, var:ag, var:plan)
+    wasAttributedTo(var:e2, var:ag)
+    wasInformedBy(var:a, var:a0)
+    entity(var:e2, [ex:size = 'var:size'])
+  endBundle
+endDocument

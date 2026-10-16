@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>PROV-TEMPLATE-PRIMER</title>
+    <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
+    <script src="../common/config.js" class="remove"></script>
+    <script class="remove">
+      var respecConfig = ptmConfig({
+          shortName: "prov-template-primer",
+          subtitle: "A Primer for Provenance Templates",
+      });
+    </script>
+    <link rel="stylesheet" href="../common/style.css">
+    <style>
+      figure.prov img { max-width: 100%; max-height: 32em; }
+    </style>
+  </head>
+  <body>
+    <section id="abstract">
+      <p>
+        This primer introduces provenance templates through an example: the nightly pipeline of a weather
+        institute, which uploads, cleans, combines, converts and validates files of readings. Step by step, it
+        shows how to write a template for each step, how to supply its bindings, what instantiation produces, how
+        variables with several values and linked variables behave, how statements are left out, how the
+        instantiated documents of a run are merged, and how a bindings schema and a template transformation file
+        describe and automate the whole. Every example in this document was produced by ProvToolbox
+        [[PROVTOOLBOX]] from the files that accompany it.
+      </p>
+    </section>
+
+    <section id="sotd">
+      <p>
+        This is an unofficial draft, part of the PROV-TEMPLATE family of documents [[PROV-TEMPLATE-OVERVIEW]]. It
+        is not normative: the formats are specified in [[PROV-TEMPLATE]] and the algorithms in
+        [[PROV-TEMPLATE-ALGORITHMS]].
+      </p>
+    </section>
+
+    <section id="introduction" class="informative">
+      <h2>Introduction</h2>
+      <p>
+        A weather institute receives, every night, a file of readings from each of its weather stations. A
+        pipeline processes the files: each uploaded file is cleaned by a script, the cleaned files of the day are
+        combined into a daily dataset, they are also converted to a columnar format for archiving, and the daily
+        dataset is validated against a schema before a curator approves it for publication. The institute wants
+        the provenance of every published dataset: which files it came from, which station produced them, which
+        version of the cleaning script ran, who approved it.
+      </p>
+      <figure id="fig-pipeline">
+        <svg viewBox="0 0 760 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The pipeline: upload, clean, combine, convert, validate" style="max-width:100%;font-family:sans-serif;font-size:13px">
+          <defs>
+            <marker id="parr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="#444"/>
+            </marker>
+          </defs>
+          <g stroke="#444" stroke-width="1.4" fill="#e8f0fe">
+            <rect x="10" y="40" width="110" height="40" rx="6"/>
+            <rect x="160" y="40" width="110" height="40" rx="6"/>
+            <rect x="310" y="10" width="110" height="40" rx="6"/>
+            <rect x="310" y="70" width="110" height="40" rx="6"/>
+            <rect x="460" y="10" width="110" height="40" rx="6"/>
+            <rect x="610" y="10" width="140" height="40" rx="6" fill="#fffbe0"/>
+          </g>
+          <g stroke="#444" stroke-width="1.4" fill="none">
+            <path d="M120,60 L160,60" marker-end="url(#parr)"/>
+            <path d="M270,60 L310,30" marker-end="url(#parr)"/>
+            <path d="M270,60 L310,90" marker-end="url(#parr)"/>
+            <path d="M420,30 L460,30" marker-end="url(#parr)"/>
+            <path d="M570,30 L610,30" marker-end="url(#parr)"/>
+          </g>
+          <g text-anchor="middle" fill="#222">
+            <text x="65" y="65">upload</text>
+            <text x="215" y="65">clean</text>
+            <text x="365" y="35">combine</text>
+            <text x="365" y="95">convert</text>
+            <text x="515" y="35">validate</text>
+            <text x="680" y="35">daily dataset</text>
+          </g>
+        </svg>
+        <figcaption>The nightly pipeline: each station's file is uploaded and cleaned; the cleaned files are combined
+          into a daily dataset, which is validated, and converted for archiving.</figcaption>
+      </figure>
+      <p>
+        Writing this provenance directly in the pipeline's code would be tedious, and the result hard to review:
+        the shape of the provenance would be scattered across five programs. Instead, we write one
+        <em>template</em> per step, a PROV document that describes the provenance of the step once, with
+        <em>variables</em> where the values change from one run to the next. Each step of the pipeline then only
+        records the values of the variables &mdash; the <em>bindings</em> &mdash; and the provenance is obtained by
+        <em>instantiating</em> the template with the bindings.
+      </p>
+      <p>
+        We assume the reader is familiar with PROV [[PROV-PRIMER]] and its notation PROV-N [[PROV-N]], in which all
+        templates of this primer are written. Templates can equally be written in any other serialization of PROV,
+        for instance PROV-JSONLD [[PROV-JSONLD]].
+      </p>
+      <p>
+        The files of this primer are in the <a href="examples/">examples</a> directory: the templates in
+        <a href="examples/templates/">templates</a>, the bindings in <a href="examples/bindings/">bindings</a>, the
+        template transformation file <a href="examples/pipeline-ttf.json">pipeline-ttf.json</a> that runs them, and
+        the documents it produced in <a href="examples/run/">run</a>.
+      </p>
+    </section>
+
+    <section id="first-template" class="informative">
+      <h2>A first template: uploading a file</h2>
+      <p>
+        When a station uploads its file, we want to record that the file was generated by an uploading activity,
+        associated with the station, and that the file is attributed to the station. The template below says
+        exactly that.
+      </p>
+      <pre class="example provn" title="The uploading template (templates/uploading.provn)" data-include="examples/templates/uploading.provn" data-include-format="text"></pre>
+      <p>Four things distinguish this template from an ordinary PROV document.</p>
+      <ul>
+        <li>
+          The qualified names in the namespace <code>var:</code> (<code>http://openprovenance.org/var#</code>) are
+          <em>variables</em>: <code>var:file</code>, <code>var:station</code>, <code>var:filename</code>,
+          <code>var:time</code>. They are placeholders, to be replaced by values.
+        </li>
+        <li>
+          The qualified names in the namespace <code>vargen:</code>
+          (<code>http://openprovenance.org/vargen#</code>) are variables too, but if no value is supplied for them,
+          the instantiation <em>generates</em> one. The uploading activity has no natural identifier in the
+          pipeline, so we let the instantiation generate it: <code>vargen:uploading</code>.
+        </li>
+        <li>
+          The label and the start time are not written <code>prov:label</code> and as the activity's start time,
+          because PROV requires a label to be a string and a time to be a date and time, not a variable. Instead,
+          the template uses the attributes <code>tmpl:label</code> and <code>tmpl:startTime</code> of the template
+          vocabulary, whose values are variables; instantiation turns them into a <code>prov:label</code> and a
+          start time.
+        </li>
+        <li>
+          Everything is inside a bundle, here <code>vargen:bundle</code>. A template contains one bundle, whose
+          identifier is itself a variable.
+        </li>
+      </ul>
+      <p>
+        The bindings for the Kew station's upload are written in JSON. The <code>context</code> declares the
+        prefixes the values use; <code>var</code> gives, for each variable, an array of values. A value that is a
+        qualified name is written <code>{"@id": ...}</code>; a literal value is written
+        <code>{"@value": ..., "@type": ...}</code>, nested in an extra array, for reasons that
+        <a href="#several-values"></a> explains. Finally <code>vargen</code> gives a value to the bundle: every step
+        of the night's run will put its provenance in the same bundle, <code>ex:run</code>.
+      </p>
+      <pre class="example json" title="Bindings for the upload from Kew (bindings/uploading-bindings.json)" data-include="examples/bindings/uploading-bindings.json" data-include-format="text"></pre>
+      <p>Instantiating the template with these bindings produces the following PROV document.</p>
+      <pre class="example provn" title="The uploading template, instantiated (run/uploading.provn)" data-include="examples/run/uploading.provn" data-include-format="text"></pre>
+      <p>
+        Each variable has been replaced by its value; the label and the start time are now PROV's own. The
+        activity, left unbound, received a fresh identifier in the <code>uuid:</code> namespace
+        (<code>urn:uuid:</code>), the same in every statement where <code>vargen:uploading</code> occurs. No
+        variable and no <code>tmpl:</code> attribute is left: the result is an ordinary PROV document.
+      </p>
+      <figure class="prov" id="fig-uploading">
+        <img src="examples/run/uploading.svg" alt="The instantiated uploading template, drawn as a graph">
+        <figcaption>The instantiated uploading template.</figcaption>
+      </figure>
+    </section>
+
+    <section id="transformation" class="informative">
+      <h2>Describing a transformation: cleaning a file</h2>
+      <p>
+        The cleaning step is the archetype of a transformation: an activity uses a file and generates a new file
+        derived from it. The activity is associated with the operator who ran it, and with a plan, the cleaning
+        script.
+      </p>
+      <pre class="example provn" title="The cleaning template (templates/cleaning.provn)" data-include="examples/templates/cleaning.provn" data-include-format="text"></pre>
+      <p>Two new features appear.</p>
+      <ul>
+        <li>
+          A variable can be the <em>value of an attribute</em>: <code>pipe:rowsDropped = 'var:dropped'</code>
+          records how many malformed rows the script dropped, a number the pipeline knows only at run time. Its
+          binding is a typed literal, an <code>xsd:int</code>.
+        </li>
+        <li>
+          The cleaning activity is identified by a <code>var:</code> variable, not a <code>vargen:</code> one: the
+          pipeline names its activities, and the provenance should use the same name. Similarly, the plan of the
+          association is the variable <code>var:script</code>.
+        </li>
+      </ul>
+      <pre class="example json" title="Bindings for cleaning the Kew file (bindings/cleaning-bindings.json)" data-include="examples/bindings/cleaning-bindings.json" data-include-format="text"></pre>
+      <pre class="example provn" title="The cleaning template, instantiated (run/cleaning.provn)" data-include="examples/run/cleaning.provn" data-include-format="text"></pre>
+    </section>
+
+    <section id="several-values" class="informative">
+      <h2>Several values: combining files</h2>
+      <p>
+        The combining step uses all the cleaned files of the night, however many stations reported. A template
+        cannot know their number in advance, so a variable may be bound to several values. The template is written
+        for one input file:
+      </p>
+      <pre class="example provn" title="The combining template (templates/combining.provn)" data-include="examples/templates/combining.provn" data-include-format="text"></pre>
+      <p>and the bindings give three values to <code>var:input</code>:</p>
+      <pre class="example json" title="Bindings for combining three files (bindings/combining-bindings.json)" data-include="examples/bindings/combining-bindings.json" data-include-format="text"></pre>
+      <p>
+        Every statement in which <code>var:input</code> occurs is instantiated once per value: three entities,
+        three usages, three derivations. The statements in which it does not occur are instantiated once.
+      </p>
+      <pre class="example provn" title="The combining template, instantiated (run/combining.provn)" data-include="examples/run/combining.provn" data-include-format="text"></pre>
+      <p>
+        This explains the extra array around literal values in the bindings. A variable that is an identifier,
+        such as <code>var:input</code>, is bound to an array with one value per instance. A variable that is the
+        value of an attribute is bound to an array with one <em>entry</em> per instance of its statement, and each
+        entry is itself an array, because PROV allows an attribute to occur several times in a statement: an
+        entity may carry two labels, or a file two types.
+      </p>
+    </section>
+
+    <section id="linked" class="informative">
+      <h2>Values in step: converting files</h2>
+      <p>
+        The conversion step converts each cleaned file into a Parquet file. Its template looks like the combining
+        one, with a <code>var:output</code> where combining had a single dataset:
+      </p>
+      <pre class="example provn" title="A first converting template (templates/converting-product.provn)" data-include="examples/templates/converting-product.provn" data-include-format="text"></pre>
+      <p>Both <code>var:input</code> and <code>var:output</code> are bound to three values, in the same order:</p>
+      <pre class="example json" title="Bindings for converting three files (bindings/converting-bindings.json)" data-include="examples/bindings/converting-bindings.json" data-include-format="text"></pre>
+      <p>The instantiation is not what we intended:</p>
+      <pre class="example provn" title="The first converting template, instantiated (run/converting-product.provn)" data-include="examples/run/converting-product.provn" data-include-format="text"></pre>
+      <p>
+        There are nine derivations: each Parquet file is said to be derived from each of the three cleaned files.
+        By default, the variables of a statement change value independently of each other, so a statement with two
+        variables bound to three values each is instantiated for every combination of their values, the Cartesian
+        product. Here, the i-th output is derived from the i-th input only: the two variables should change value
+        <em>in step</em>. This is declared with the attribute <code>tmpl:linked</code>, on the statement whose
+        identifier is one of the variables:
+      </p>
+      <pre class="example provn" title="The converting template, with linked variables (templates/converting.provn)" data-include="examples/templates/converting.provn" data-include-format="text"></pre>
+      <pre class="example provn" title="The converting template, instantiated (run/converting.provn)" data-include="examples/run/converting.provn" data-include-format="text"></pre>
+      <p>
+        Now there are three derivations. Linked variables must be bound to the same number of values. The link can
+        also be declared in the bindings rather than in the template, with
+        <code>"linked": {"output": "input"}</code>, when it is a property of a particular use of the template
+        rather than of the template itself.
+      </p>
+    </section>
+
+    <section id="leaving-out" class="informative">
+      <h2>Leaving statements out: validating the dataset</h2>
+      <p>
+        The validation step checks the daily dataset against a schema and produces a report. When the validation
+        passes, a curator approves the dataset, and the approval is recorded as an attribution of the dataset to
+        the curator. On some nights no curator is on duty and the dataset waits; the provenance must not invent an
+        approval.
+      </p>
+      <pre class="example provn" title="The validating template (templates/validating.provn)" data-include="examples/templates/validating.provn" data-include-format="text"></pre>
+      <p>
+        With a curator, the bindings give a value to <code>var:curator</code>, and the instantiation contains the
+        curator and the approval:
+      </p>
+      <pre class="example provn" title="The validating template, instantiated with a curator (run/validating.provn)" data-include="examples/run/validating.provn" data-include-format="text"></pre>
+      <p>
+        Without a curator, the bindings simply leave <code>var:curator</code> out. An entity, activity or agent
+        whose identifier is an unbound <code>var:</code> variable is left out of the instantiated document, and so
+        is an attribution or an association whose agent is unbound:
+      </p>
+      <pre class="example json" title="Bindings without a curator (bindings/validating-unapproved-bindings.json)" data-include="examples/bindings/validating-unapproved-bindings.json" data-include-format="text"></pre>
+      <pre class="example provn" title="The validating template, instantiated without a curator (run/validating-unapproved.provn)" data-include="examples/run/validating-unapproved.provn" data-include-format="text"></pre>
+      <p>
+        An unbound <code>var:</code> variable in an optional position of a statement, such as the plan of an
+        association, becomes <code>-</code>, and an attribute whose value is an unbound variable is dropped. The
+        rules for every kind of statement are given in [[PROV-TEMPLATE-ALGORITHMS]], which also describes the
+        attributes <code>tmpl:if</code> and <code>tmpl:notif</code> that make a statement explicitly conditional on
+        a variable.
+      </p>
+    </section>
+
+    <section id="merging" class="informative">
+      <h2>The provenance of a run: merging documents</h2>
+      <p>
+        Each step's instantiation is a PROV document of its own. The provenance of the night's run is obtained by
+        <em>merging</em> them. Merging identifies the entities, activities and agents that have the same
+        identifier &mdash; the cleaned file <code>ex:clean-kew</code>, generated by the cleaning and used by the
+        combining and the converting &mdash; and merges bundles that have the same identifier: all our bindings put
+        the provenance in the bundle <code>ex:run</code>.
+      </p>
+      <pre class="example provn" title="The provenance of the run, merged (run/pipeline-run.provn)" data-include="examples/run/pipeline-run.provn" data-include-format="text"></pre>
+      <figure class="prov" id="fig-run">
+        <img src="examples/run/pipeline-run.svg" alt="The provenance of the run, drawn as a graph">
+        <figcaption>The provenance of the night's run (only the Kew file was uploaded and cleaned in this example).</figcaption>
+      </figure>
+      <p>
+        Merge applies to templates too. Since variables are qualified names, two templates that use the same
+        variable describe the same node: merging them composes a larger template. Most templates of the library
+        [[PROV-TEMPLATE-LIBRARY]] are built this way, from smaller ones.
+      </p>
+    </section>
+
+    <section id="describing" class="informative">
+      <h2>Describing the variables: a bindings schema</h2>
+      <p>
+        The pipeline's developers need to know, for each template, which variables to supply, of which type, and
+        which are compulsory. A <em>bindings schema</em> says so. It has the shape of a set of bindings, but each
+        variable is described rather than given a value: <code>"@id": "ex:*"</code> stands for any qualified name in
+        the <code>ex</code> namespace, <code>"@value": "*"</code> for any literal of the given type, and each variable
+        has documentation, an example (<code>@examplar</code>), and whether it is an input the application must
+        supply (<code>compulsory</code>, <code>optional</code>) or an output the provenance creates.
+      </p>
+      <pre class="example json" title="The bindings schema of the cleaning template (cbindings/cleaning.json)" data-include="examples/cbindings/cleaning.json" data-include-format="text"></pre>
+      <p>
+        A bindings schema is the contract between the pipeline and the template. It is used to check bindings, to
+        document the template, and by a <em>template compiler</em> to generate, in the pipeline's own programming
+        language, code that builds bindings &mdash; or compact records of them, which can be logged cheaply and
+        turned into provenance later. Bindings schemas are specified in [[PROV-TEMPLATE]].
+      </p>
+    </section>
+
+    <section id="automating" class="informative">
+      <h2>Automating: a template transformation file</h2>
+      <p>
+        All the documents of this primer were produced by one <em>template transformation file</em> (TTF). It
+        says where to find the templates and the bindings, where to write the outputs, and lists the tasks:
+        seven instantiations and one merge. Templates are named by identifiers, which an
+        <a href="examples/templates/index.json">index</a> maps to files; each output is written in the formats
+        listed, its JSON-LD checked against the PROV-JSONLD schema, and the provenance of the task itself recorded.
+      </p>
+      <pre class="example json" title="The template transformation file of this primer (pipeline-ttf.json)" data-include="examples/pipeline-ttf.json" data-include-format="text"></pre>
+      <p>It is executed by ProvToolbox's <code>prov-template-process</code>, from the <code>examples</code> directory:</p>
+      <pre class="example">prov-template-process . . -configs pipeline-ttf.json</pre>
+      <p>
+        Each task leaves a record of what it did, written with the template-management templates of the library:
+        which document was produced, from which template and which bindings, and when.
+      </p>
+      <pre class="example" title="The record of the uploading task (run/prov/uploading.prov-csv)" data-include="examples/run/prov/uploading.prov-csv" data-include-format="text"></pre>
+      <p>
+        Template transformation files are specified in [[PROV-TEMPLATE]]; the executables and the Maven plugin that
+        run them are described there, non-normatively.
+      </p>
+    </section>
+
+    <section id="next" class="informative">
+      <h2>Where next</h2>
+      <ul>
+        <li>
+          Before writing a template, look in the library [[PROV-TEMPLATE-LIBRARY]]: its <code>fs</code> family
+          already describes the transformation, filtering, splitting and merging of files, and its generic
+          family the shapes of transformations from which they derive.
+        </li>
+        <li>
+          For the precise definition of templates, variables, the <code>tmpl:</code> vocabulary, bindings, bindings
+          schemas and template transformation files, read [[PROV-TEMPLATE]].
+        </li>
+        <li>
+          For the precise rules of instantiation and merge, including the error situations, read
+          [[PROV-TEMPLATE-ALGORITHMS]].
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>
