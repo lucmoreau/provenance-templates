@@ -13,7 +13,7 @@
       ],
       "properties": {
         "@type": {
-          "pattern": "Document"
+          "pattern": "^Document$"
         },
         "@context": {
           "$ref": "https://openprovenance.org/prov-jsonld/schema.json#/definitions/Context"
@@ -37,7 +37,7 @@
       ],
       "properties": {
         "@type": {
-          "pattern": "Bundle"
+          "pattern": "^Bundle$"
         },
         "@id": {
           "$ref": "https://openprovenance.org/prov-jsonld/schema.json#/definitions/QualifiedName"
@@ -126,7 +126,7 @@
       ],
       "properties": {
         "@type": {
-          "pattern": "Attribution"
+          "pattern": "^Attribution$"
         },
         "@id": {
           "$ref": "https://openprovenance.org/prov-jsonld/schema.json#/definitions/QualifiedName"
@@ -164,7 +164,7 @@
       },
       "patternProperties": {
         "^[A-Za-z0-9_]+:(.*)$": {
-          "$ref": "https://openprovenance.org/prov-jsonld/schema.json#/definitions/ArrayOfValues"
+          "$ref": "https://openprovenance.org/prov-jsonld/schema.json#/definitions/ArrayOfStringValues"
         }
       },
       "additionalProperties": false
@@ -176,7 +176,7 @@
       ],
       "properties": {
         "@type": {
-          "pattern": "Membership"
+          "pattern": "^Membership$"
         },
         "@id": {
           "$ref": "https://openprovenance.org/prov-jsonld/schema.json#/definitions/QualifiedName"
@@ -211,7 +211,7 @@
       },
       "patternProperties": {
         "^[A-Za-z0-9_]+:(.*)$": {
-          "$ref": "https://openprovenance.org/prov-jsonld/schema.json#/definitions/ArrayOfValues"
+          "$ref": "https://openprovenance.org/prov-jsonld/schema.json#/definitions/ArrayOfStringValues"
         }
       },
       "additionalProperties": false
@@ -223,7 +223,7 @@
       ],
       "properties": {
         "@type": {
-          "pattern": "Specialization"
+          "pattern": "^Specialization$"
         },
         "@id": {
           "$ref": "https://openprovenance.org/prov-jsonld/schema.json#/definitions/QualifiedName"
@@ -252,7 +252,7 @@
       },
       "patternProperties": {
         "^[A-Za-z0-9_]+:(.*)$": {
-          "$ref": "https://openprovenance.org/prov-jsonld/schema.json#/definitions/ArrayOfValues"
+          "$ref": "https://openprovenance.org/prov-jsonld/schema.json#/definitions/ArrayOfStringValues"
         }
       },
       "additionalProperties": false
@@ -264,7 +264,7 @@
       ],
       "properties": {
         "@type": {
-          "pattern": "Communication"
+          "pattern": "^Communication$"
         },
         "@id": {
           "$ref": "https://openprovenance.org/prov-jsonld/schema.json#/definitions/QualifiedName"
@@ -293,7 +293,7 @@
       },
       "patternProperties": {
         "^[A-Za-z0-9_]+:(.*)$": {
-          "$ref": "https://openprovenance.org/prov-jsonld/schema.json#/definitions/ArrayOfValues"
+          "$ref": "https://openprovenance.org/prov-jsonld/schema.json#/definitions/ArrayOfStringValues"
         }
       },
       "additionalProperties": false
@@ -305,7 +305,7 @@
       ],
       "properties": {
         "@type": {
-          "pattern": "Start"
+          "pattern": "^Start$"
         },
         "@id": {
           "$ref": "https://openprovenance.org/prov-jsonld/schema.json#/definitions/QualifiedName"
@@ -340,7 +340,7 @@
       },
       "patternProperties": {
         "^[A-Za-z0-9_]+:(.*)$": {
-          "$ref": "https://openprovenance.org/prov-jsonld/schema.json#/definitions/ArrayOfValues"
+          "$ref": "https://openprovenance.org/prov-jsonld/schema.json#/definitions/ArrayOfStringValues"
         }
       },
       "additionalProperties": false
@@ -352,7 +352,7 @@
       ],
       "properties": {
         "@type": {
-          "pattern": "End"
+          "pattern": "^End$"
         },
         "@id": {
           "$ref": "https://openprovenance.org/prov-jsonld/schema.json#/definitions/QualifiedName"
@@ -387,7 +387,7 @@
       },
       "patternProperties": {
         "^[A-Za-z0-9_]+:(.*)$": {
-          "$ref": "https://openprovenance.org/prov-jsonld/schema.json#/definitions/ArrayOfValues"
+          "$ref": "https://openprovenance.org/prov-jsonld/schema.json#/definitions/ArrayOfStringValues"
         }
       },
       "additionalProperties": false
