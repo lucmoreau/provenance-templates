@@ -43,10 +43,11 @@ cd<!DOCTYPE html>
         The PROV-TEMPLATE family supersedes <a href="https://openprovenance.org/prov-template-2014-06-07/">PROV-TEMPLATE:
         A Template System for PROV Documents</a> [[PROV-TEMPLATE-2014]], an unofficial draft of 7 June 2014 edited by
         Danius Michaelides, Trung Dong Huynh and Luc Moreau. The 2014 draft defined templates, their expansion and a
-        representation of bindings as PROV documents in one document. Its content is now split between
-        [[PROV-TEMPLATE]] and [[PROV-TEMPLATE-ALGORITHMS]], and extended with the material that a decade of use has
-        required: a JSON representation of bindings, bindings schemas, template transformation files, and a library of
-        templates. <a href="#changes"></a> lists the main changes.
+        representation of bindings as PROV documents in one document. Its definitions are revised in
+        [[PROV-TEMPLATE]] and extended with the material that a decade of use has required: a JSON representation of
+        bindings, bindings schemas, template transformation files, and a library of templates. Its algorithm is
+        replaced by that of the book <em>Provenance Engineering</em> [[PTM-BOOK]], specified in
+        [[PROV-TEMPLATE-ALGORITHMS]]. <a href="#changes"></a> lists the main changes.
       </p>
     </section>
 
@@ -175,9 +176,10 @@ cd<!DOCTYPE html>
         <h3>Instantiation and merge</h3>
         <p>
           <dfn>Instantiation</dfn>, also called <em>expansion</em>, takes a template and a set of bindings, and
-          produces a PROV document in which no variable is left. Variables are partitioned into
-          <em>groups</em> of variables that change value in step; each statement is instantiated once for each
-          combination of the values of the groups it uses. <dfn>Merge</dfn> combines templates, or instantiated
+          produces a PROV document in which no variable is left. Each element of the template is instantiated once
+          for each combination of the values of its name variables, unless variables are linked to change value in
+          step; elements left without identifier, or without the properties a relation requires, are dropped.
+          <dfn>Merge</dfn> combines templates, or instantiated
           documents, into one. Both algorithms are specified in [[PROV-TEMPLATE-ALGORITHMS]].
         </p>
       </section>
@@ -265,7 +267,8 @@ cd<!DOCTYPE html>
         <li>Bindings are written in JSON; their representation as PROV documents is deprecated.</li>
         <li>New artefacts: bindings schemas, template indexes, template transformation files, the template compiler
           and the template library.</li>
-        <li>New algorithm: merge. The treatment of unbound variables is specified per kind of statement.</li>
+        <li>The instantiation algorithm is that of [[PTM-BOOK]]: a case analysis per graph element, and
+          well-formedness to decide which elements are kept. Merge is specified too.</li>
         <li>The detailed lists are in the appendices of [[PROV-TEMPLATE]] and [[PROV-TEMPLATE-ALGORITHMS]].</li>
       </ul>
     </section>
@@ -274,7 +277,7 @@ cd<!DOCTYPE html>
       <h2>Acknowledgements</h2>
       <p>
         Danius Michaelides and Trung Dong Huynh co-edited the 2014 version of PROV-TEMPLATE [[PROV-TEMPLATE-2014]],
-        on which this family of documents builds. The templating system was described and evaluated in
+        on which [[PROV-TEMPLATE]] builds. The templating system was described and evaluated in
         [[PROV-TEMPLATE-TSE]].
       </p>
     </section>

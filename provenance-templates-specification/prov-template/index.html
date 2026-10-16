@@ -39,7 +39,8 @@
         This document revises and extends <a href="https://openprovenance.org/prov-template-2014-06-07/">PROV-TEMPLATE:
         A Template System for PROV Documents</a> [[PROV-TEMPLATE-2014]], edited in 2014 by Danius Michaelides, Trung
         Dong Huynh and Luc Moreau. The definitions of templates and of the representation of bindings as PROV
-        documents come from that draft; its algorithm is now in [[PROV-TEMPLATE-ALGORITHMS]].
+        documents come from that draft; its algorithm is replaced by that of [[PTM-BOOK]], specified in
+        [[PROV-TEMPLATE-ALGORITHMS]].
         <a href="#changes"></a> lists the changes.
       </p>
       <p>
@@ -243,7 +244,7 @@ entity(var:file, [prov:type = 'fs:DataFile', var:oprops = 'var:ovalues'])</pre>
             <tr><td><dfn><code>tmpl:linked</code></dfn></td><td>a statement whose identifier is a variable</td>
               <td>Names another variable, which changes value in step with the statement's identifier (<a href="#linked-variables"></a>). The link is symmetric. The named variable is not a free variable of the statement.</td></tr>
             <tr><td><dfn><code>tmpl:order</code></dfn></td><td>(output only)</td>
-              <td>Written by instantiation, on request, on each instantiated statement: the index of the combination of values that produced it, such as <code>"[1, 0]"</code>. It MUST NOT occur in a template.</td></tr>
+              <td>MAY be written by a processor, on request, on each instantiated statement: the index of the combination of values that produced it, such as <code>"[1, 0]"</code>. It MUST NOT occur in a template.</td></tr>
           </tbody>
         </table>
         <p>
@@ -674,7 +675,7 @@ endDocument</pre>
         <li>Bindings are represented in JSON; their representation as PROV documents is deprecated.</li>
         <li>Links between variables may be declared in the bindings.</li>
         <li>New: bindings schemas, template indexes, template transformation files, the template compiler.</li>
-        <li>The algorithm moved to [[PROV-TEMPLATE-ALGORITHMS]], with merge.</li>
+        <li>The algorithm is replaced by that of [[PTM-BOOK]], specified in [[PROV-TEMPLATE-ALGORITHMS]], with merge.</li>
       </ul>
     </section>
   </body>

@@ -7,7 +7,7 @@
 // The overrides are merged over the defaults below; localBiblio entries are merged
 // key by key, so a document can add references without repeating the shared ones.
 
-var PTM_BASE = "https://openprovenance.org/";
+var PTM_BASE = "https://openprovenance.org/templates-spec/";
 var PTM_PUBLISH_DATE = "2026-10-16";
 
 var ptmEditors = [{
@@ -79,6 +79,19 @@ var ptmBiblio = {
         authors: ["Danius Michaelides", "Trung Dong Huynh", "Luc Moreau"],
         status: "Unofficial Draft 07 June 2014",
         publisher: "openprovenance.org",
+    },
+    // The book whose algorithm PROV-TEMPLATE-ALGORITHMS specifies.
+    "PTM-BOOK": {
+        title: "Provenance Engineering — The Provenance Template Management Approach",
+        authors: ["Luc Moreau"],
+        status: "Book, 2026 (submitted)",
+    },
+    "PROV-CONSTRAINTS": {
+        title: "Constraints of the PROV Data Model",
+        authors: ["James Cheney", "Paolo Missier", "Luc Moreau"],
+        href: "https://www.w3.org/TR/prov-constraints/",
+        status: "W3C Recommendation 30 April 2013",
+        publisher: "W3C",
     },
     // Related work by the same group.
     "PROV-JSONLD": {

@@ -1,0 +1,10 @@
+document
+  prefix ex <http://example.org/>
+
+  bundle ex:b
+    entity(ex:report)
+    activity(ex:writing)
+    wasGeneratedBy(ex:report, ex:writing, -)
+    entity(ex:report)
+  endBundle
+endDocument

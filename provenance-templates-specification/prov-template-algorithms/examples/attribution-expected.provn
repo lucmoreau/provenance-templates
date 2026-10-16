@@ -1,0 +1,17 @@
+document
+  prefix ex <http://example.org/>
+
+  bundle ex:b
+    agent(ex:ag1)
+    agent(ex:ag2)
+    entity(ex:en1)
+    entity(ex:en2)
+    entity(ex:en3)
+    wasAttributedTo(ex:en1, ex:ag1, [prov:type = 'ex:t1'])
+    wasAttributedTo(ex:en2, ex:ag1, [prov:type = 'ex:t2a', prov:type = 'ex:t2b'])
+    wasAttributedTo(ex:en3, ex:ag1, [prov:type = 'ex:t3'])
+    wasAttributedTo(ex:en1, ex:ag2, [prov:type = 'ex:t4'])
+    wasAttributedTo(ex:en2, ex:ag2, [prov:type = 'ex:t5a', prov:type = 'ex:t5b', prov:type = 'ex:t5c'])
+    wasAttributedTo(ex:en3, ex:ag2, [prov:type = 'ex:t6'])
+  endBundle
+endDocument

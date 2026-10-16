@@ -1,13 +1,13 @@
 # PROV-TEMPLATE specifications TODO — Outstanding Work
 
-> **🔢 LAST ALLOCATED TASK NUMBER: S20** — the highest task id ever assigned (whether still open here or retired to
-> `DONE.md`). **When allocating a new task, take the NEXT number (S21) and bump this line.** Do NOT reuse a number
+> **🔢 LAST ALLOCATED TASK NUMBER: S24** — the highest task id ever assigned (whether still open here or retired to
+> `DONE.md`). **When allocating a new task, take the NEXT number (S25) and bump this line.** Do NOT reuse a number
 > freed by retirement. Ids are prefixed `S` so as not to collide with `TEMPLATES-TODO.md`'s `T-n` in the same
 > repository.
 >
 > Completed tasks are in `DONE.md`. Paths are relative to `provenance-templates-specification/` unless stated.
 > Structure as in ProvToolbox's `TODO.md`: an index of one-line rows, the narrative in each task's section.
-> Last updated: 2026-10-16.
+> Last updated: 2026-10-16 (algorithm from the book).
 
 ---
 
@@ -22,17 +22,20 @@ attempt history — belongs in the task's `###` section under `## Tasks` below, 
 
 | # | Task | Priority | Category | Section |
 |---|---|---|---|---|
-| S2 | Rule on `tmpl:if` / `tmpl:notif`: specified and in the vocabulary, not implemented by the interpreter. | 🔴 HIGH | Ruling / Algorithms | [S2 section](#-s2-rule-on-tmplif-and-tmplnotif) |
-| S3 | Rule on relations with an empty mandatory slot (`used(a,-,-)`): error, as in 2014, or leave them out. | 🔴 HIGH | Ruling / Algorithms | [S3 section](#-s3-rule-on-relations-with-an-empty-mandatory-slot) |
-| S4 | Confirm the editor's affiliation (University of Sussex, from the book) and the former-editor wording. | 🔴 HIGH | Ruling / Front matter | [S4 section](#-s4-confirm-the-editors-affiliation) |
+| S21 | Rule on the enumeration order: the book cycles the last name variable fastest, ProvToolbox the first. | 🔴 HIGH | Ruling / Algorithms | [S21 section](#-s21-rule-on-the-enumeration-order) |
+| S23 | Check that reusing the book's algorithm text in a public specification is compatible with the publisher. | 🔴 HIGH | Ruling / Rights | [S23 section](#-s23-reuse-of-the-books-text) |
+| S2 | ProvToolbox: implement `tmpl:if` / `tmpl:notif` as the book's algorithm specifies them. | 🟡 MEDIUM | ProvToolbox / Algorithms | [S2 section](#-s2-implement-tmplif-and-tmplnotif-in-provtoolbox) |
+| S3 | ProvToolbox: drop relations that are not well-formed (`used(a,-,-)`), keep identified ones, as the book specifies. | 🟡 MEDIUM | ProvToolbox / Algorithms | [S3 section](#-s3-provtoolbox-well-formedness-of-relations) |
+| S4 | Confirm the editor's affiliation (University of Sussex, from the book) and where the former editors appear. | 🔴 HIGH | Ruling / Front matter | [S4 section](#-s4-confirm-the-editors-affiliation) |
 | S5 | `tmpl:` attributes that survive instantiation, and `tmpl:order` missing from `template.ttl`. | 🟡 MEDIUM | Vocabulary / Algorithms | [S5 section](#-s5-tmpl-attributes-that-survive-instantiation) |
-| S6 | Rule on `tmpl:time` bound to several values: vocabulary says ignored, code takes the last. | 🟡 MEDIUM | Ruling / Vocabulary | [S6 section](#-s6-rule-on-tmpltime-with-several-values) |
+| S6 | ProvToolbox: ignore a time variable bound to several values (book, vocabulary) rather than take the last. | 🔵 LOW | ProvToolbox / Algorithms | [S6 section](#-s6-provtoolbox-tmpltime-with-several-values) |
+| S22 | Specify how linked ("aligned") variables enter the book's enumeration; the book leaves them out. | 🟡 MEDIUM | Algorithms | [S22 section](#-s22-linked-variables-in-the-books-enumeration) |
 | S7 | Align the bindings JSON Schema and ProvToolbox (`@lang`/`@language`, single-value entries, `linked`, types, IRIs). | 🟡 MEDIUM | Schemas / Bindings | [S7 section](#-s7-align-the-bindings-json-schema-and-provtoolbox) |
 | S8 | Bindings schemas: the JSON Schema rejects members the compiler reads; consider a schema of their own. | 🟡 MEDIUM | Schemas / Bindings schemas | [S8 section](#-s8-a-json-schema-for-bindings-schemas) |
 | S9 | Index and TTF JSON Schemas: missing members, tuple-form `items` that only checks the first entry. | 🟡 MEDIUM | Schemas / TTF | [S9 section](#-s9-index-and-ttf-json-schemas) |
 | S10 | Error signalling in ProvToolbox departs from the error table of PROV-TEMPLATE-ALGORITHMS. | 🟡 MEDIUM | ProvToolbox / Errors | [S10 section](#-s10-error-signalling-in-provtoolbox) |
 | S11 | Library inconsistencies found while writing PROV-TEMPLATE-LIBRARY, to be filed in `TEMPLATES-TODO.md`. | 🟡 MEDIUM | Library | [S11 section](#-s11-library-inconsistencies-to-file) |
-| S12 | Decide publication: URLs, dated snapshots as in prov-jsonld, static export of the ReSpec documents. | 🟡 MEDIUM | Publication | [S12 section](#-s12-publication) |
+| S12 | Publication at openprovenance.org/templates-spec/: dated snapshots, static export, password protection while in development. | 🟡 MEDIUM | Publication | [S12 section](#-s12-publication) |
 | S13 | Verify the bibliographic references (TSE paper, PROV-JSONLD URL, the book's publisher and URL). | 🔵 LOW | References | [S13 section](#-s13-verify-the-bibliographic-references) |
 | S14 | Primer outputs are not reproducible: fresh `uuid:` identifiers each run; the JVM time zone decides the offsets. | 🔵 LOW | Primer / Build | [S14 section](#-s14-reproducible-primer-outputs) |
 | S15 | Primer: a section on the template compiler — generated builders, compact records, `log2prov`. | 🔵 LOW | Primer | [S15 section](#-s15-primer-section-on-the-template-compiler) |
@@ -48,37 +51,52 @@ attempt history — belongs in the task's `###` section under `## Tasks` below, 
 
 ---
 
-### 🔴 S2: Rule on tmpl:if and tmpl:notif
+### 🔴 S21: Rule on the enumeration order
 
-**Priority**: 🔴 HIGH.  **Category**: Ruling / Algorithms.  **Filed 2026-10-16** (writing PROV-TEMPLATE-ALGORITHMS).
+**Priority**: 🔴 HIGH.  **Category**: Ruling / Algorithms.  **Filed 2026-10-16** (rewriting PROV-TEMPLATE-ALGORITHMS on the book).
 
-`openprovspec/template.ttl` defines `tmpl:if` (instantiate the statement only if the variable is bound) and `tmpl:notif`
-(its complement); `prov-template/index.html` §3.4 and `prov-template-algorithms/index.html` §4.6 specify them as such.
-ProvToolbox's interpreter implements neither: `IFVAR_URI` is declared in `InstantiateUtil.java:38-39` and never used by
-`InstantiateAction`. A statement carrying `tmpl:if` is instantiated whatever the binding, and a bound `tmpl:if` survives
-in the output (seen in the primer: `agent(ex:grace,[…, tmpl:if = 'ex:grace'])` before the primer was rewritten to
-rely on the unbound-node rule instead). The template compiler implements `tmpl:if` as a truth test, for
-`wasInvalidatedBy` and qualified `hadMember` only (`StatementCompilerAction2.java:233-256, 521-538, 601-617`);
-`tmpl:notif` appears nowhere in the code.
-
-**Options.** (a) implement both in `InstantiateAction` (drop the statement per the vocabulary, consume the attribute),
-and align the compiler on "bound" rather than "true"; (b) withdraw them from the vocabulary and the specifications.
-Editor's notes are in both documents until ruled.
+The book (`~/git-papers/papers/book-ptm/section-4.4.md`, §4.4.3 step 6) orders the name variables of an element
+lexicographically and enumerates their Cartesian product with the **last** variable cycling fastest. ProvToolbox
+(`Using`/`UsingIterator`, `index[0]` fastest) cycles the **first** fastest. Value variables are indexed by the position
+`i`, so the two disagree on which copy gets which entry: in `prov-template-algorithms/examples/attribution.provn`,
+`prov:type = ex:t2a, ex:t2b` lands on `(ex:en2, ex:ag1)` by the book (`attribution-expected.provn`, written by hand) and
+on `(ex:en1, ex:ag2)` by ProvToolbox. The specification follows the book; appendix A notes ProvToolbox. Either
+ProvToolbox changes (which reorders every existing bindings file with multi-valued value variables) or the book and the
+specification change.
 
 ---
 
-### 🔴 S3: Rule on relations with an empty mandatory slot
+### 🔴 S23: Reuse of the book's text
 
-**Priority**: 🔴 HIGH.  **Category**: Ruling / Algorithms.  **Filed 2026-10-16**.
+**Priority**: 🔴 HIGH.  **Category**: Ruling / Rights.  **Filed 2026-10-16**.
 
-`prov-template-algorithms/examples/unbound-expanded.provn` shows that ProvToolbox keeps `used(ex:writing,-,-)`,
-`wasDerivedFrom(ex:report, -)` and `wasInformedBy(ex:writing,-)` when their second argument is an unbound `var:`
-variable. These are not valid PROV-N. PROV-TEMPLATE 2014-06-07 made this the error `UnboundMandatoryVariable`; today only
-nodes, attributions, associations and delegations are left out (`InstantiateAction.java` lines 77, 144, 186, 207, 239,
-326). The algorithms document states the current behaviour, with an `issue` box in §4.6.
+PROV-TEMPLATE-ALGORITHMS §3–§5 follow the book's §4.4 closely (structure, cases 1–5.b.5, illustrations, errors), in
+adapted wording; §6 follows §5.3.2. The book is submitted to a publisher: check that publishing this text openly, at
+openprovenance.org/templates-spec/, is compatible with the agreement.
 
-**Options.** (a) restore the error; (b) leave such relations out, like nodes without identifier (consistent with the
-current treatment of attributions); (c) keep them but require `-allexpanded` for valid PROV.
+---
+
+### 🟡 S2: Implement tmpl:if and tmpl:notif in ProvToolbox
+
+**Priority**: 🟡 MEDIUM.  **Category**: ProvToolbox / Algorithms.  **Filed 2026-10-16**; re-scoped the same day.
+
+The book's algorithm (cases 5.b.1, 5.b.2, 5.b.5) specifies them: `tmpl:if` keeps the element only if the variable is
+bound (a sequence counts as bound), `tmpl:notif` only if it is not. ProvToolbox's interpreter implements neither:
+`IFVAR_URI` is declared in `InstantiateUtil.java:38-39` and never used by `InstantiateAction`; a bound `tmpl:if`
+survives in the output. The template compiler implements `tmpl:if` as a truth test, for `wasInvalidatedBy` and
+qualified `hadMember` only (`StatementCompilerAction2.java`); `tmpl:notif` appears nowhere in the code.
+
+---
+
+### 🟡 S3: ProvToolbox well-formedness of relations
+
+**Priority**: 🟡 MEDIUM.  **Category**: ProvToolbox / Algorithms.  **Filed 2026-10-16**; re-scoped the same day.
+
+The book's well-formedness table (PROV-TEMPLATE-ALGORITHMS §2.1) keeps a relation if it has an identifier or its required
+edge properties. ProvToolbox keeps `used(ex:writing,-,-)`, `wasDerivedFrom(ex:report, -)`, `wasInformedBy(ex:writing,-)`
+(run of `prov-template-algorithms/examples/unbound.provn`), and drops an attribution, association or delegation without
+agent even when it has an identifier (`InstantiateAction.java` lines 186, 207, 239). PROV-TEMPLATE 2014 had made the
+first case an error, `UnboundMandatoryVariable`; the book drops the relation instead.
 
 ---
 
@@ -87,11 +105,13 @@ current treatment of attributions); (c) keep them but require `-allexpanded` for
 **Priority**: 🔴 HIGH.  **Category**: Ruling / Front matter.  **Filed 2026-10-16**.
 
 `common/config.js` gives Luc Moreau as sole editor, **University of Sussex** (from `ptmbook/index.html`, the most recent
-source); `openprovspec/index.html` and `template.html` still say King's College London, and prov-jsonld gave KCL. Danius
-Michaelides and Trung Dong Huynh are former editors "(editor of the 2014-06-07 version)", with University of Southampton
-as their 2014 affiliation, on the overview, PROV-TEMPLATE and PROV-TEMPLATE-ALGORITHMS (the three documents that
-descend from 2014), not on the primer and the library (new documents); the overview acknowledges them, and the status
-sections of PROV-TEMPLATE and PROV-TEMPLATE-ALGORITHMS name them. Confirm or adjust.
+source); `openprovspec/index.html` and `template.html` still say King's College London, and prov-jsonld gave KCL.
+
+Former editors: Luc ruled (2026-10-16) that Dong Huynh and Danius Michaelides are not previous authors of the
+algorithm, which is now the book's. They remain former editors "(editor of the 2014-06-07 version)", University of
+Southampton, with the previous-version link, on the overview and PROV-TEMPLATE only (the definitions descend from
+2014); the overview acknowledges them. PROV-TEMPLATE-ALGORITHMS has Luc alone, and cites 2014 only in its appendix
+"Relation to earlier work". Confirm whether they should also be dropped from the overview and PROV-TEMPLATE.
 
 ---
 
@@ -108,13 +128,23 @@ lists it as output-only. Add `tmpl:order` (and the compiler's reserved `tmpl:act
 
 ---
 
-### 🟡 S6: Rule on tmpl:time with several values
+### 🔵 S6: ProvToolbox tmpl:time with several values
 
-**Priority**: 🟡 MEDIUM.  **Category**: Ruling / Vocabulary.  **Filed 2026-10-16**.
+**Priority**: 🔵 LOW.  **Category**: ProvToolbox / Algorithms.  **Filed 2026-10-16**; re-scoped the same day.
 
-`template.ttl:39` says a `tmpl:time` variable bound to several values is ignored; `InstantiateAction.processTemplateAttributes`
-calls `setTime` for each value, so the last wins. PROV-TEMPLATE requires a single value; the algorithms document notes the
-behaviour. Pick one and align the other.
+The book (case 5.b.2) and `template.ttl:39` ignore a time variable bound to several values;
+`InstantiateAction.processTemplateAttributes` calls `setTime` for each value, so the last wins.
+
+---
+
+### 🟡 S22: Linked variables in the book's enumeration
+
+**Priority**: 🟡 MEDIUM.  **Category**: Algorithms.  **Filed 2026-10-16**.
+
+The book (§4.4.3, last paragraph) mentions "aligned" variables, iterated in lock step, "not discussed in this book and
+supported by ProvToolbox". PROV-TEMPLATE-ALGORITHMS §4.4 proposes: a set of linked variables contributes one dimension to
+the product, placed at the first of them in `NV_E`. To confirm, with S21 (the position of the dimension matters for the
+indexing of value variables).
 
 ---
 
@@ -193,9 +223,10 @@ Listed in `prov-template-library/index.html` appendix A; to be filed in `../TEMP
 
 **Priority**: 🟡 MEDIUM.  **Category**: Publication.  **Filed 2026-10-16**.
 
-`common/config.js` sets `latestVersion` to `https://openprovenance.org/<shortName>/` for each document, and the
-documents refer to each other by relative links (`../prov-template/`). To decide: the URLs; dated snapshots in the
-manner of prov-jsonld (`YYYY-MM-DD/` directories, top-level links); exporting static HTML from ReSpec (the documents load
+Published at <https://openprovenance.org/templates-spec/> (Luc, 2026-10-16): `common/config.js` sets `latestVersion` to
+`https://openprovenance.org/templates-spec/<shortName>/`, and the documents refer to each other by relative links
+(`../prov-template/`); `index.html` is the landing page. Password protection while in development: nginx basic auth in
+the server block (no `.htaccess` in nginx). To decide: dated snapshots in the manner of prov-jsonld (`YYYY-MM-DD/` directories, top-level links); exporting static HTML from ReSpec (the documents load
 ReSpec from w3.org and include files with `data-include`, which needs http); a `make schemas` target refreshing the
 schema copies from ProvToolbox.
 
