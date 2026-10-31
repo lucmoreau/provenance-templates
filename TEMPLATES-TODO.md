@@ -201,7 +201,8 @@ crawler run should pick it up and report no broken links from it).
 
 ### 🔵 T-7: Consider a local or archetype home for the Python runtime
 
-**Status**: OPEN (created 2026-10-09). To *consider*; no decision taken.
+**Status**: OPEN (created 2026-10-09). Absolute paths removed 2026-10-31 (see *Decision*); the
+longer-term options below are still open.
 **Priority**: 🔵 LOW. **Category**: Build / Python.
 
 **Context.** The Python workflow steps in `pom.xml` (`python-fs-run-workflow`,
@@ -240,6 +241,18 @@ neither path, are dead code (the workflows pass today).
 
 **DoD.** A decision recorded here. If one is taken: the pom and Makefile `PYTHONPATH` no longer
 name an absolute ProvToolbox path, and `python-fs-run-workflow` / `python-box-run-workflow` pass.
+
+**Decision (2026-10-31).** Neither copy nor checkout: the runtime comes from the artifact ProvToolbox
+already publishes. `prov-template-library`'s assembly attaches a `python` zip (Maven Central for
+releases, `~/.m2` after a ProvToolbox `mvn install` for snapshots) holding its `src/main/python`
+(`past`, `prov/client`, `apache/commons/lang`) and its `target/generated-python`. The pom's
+`unpack.prov.toolbox.python` (maven-dependency-plugin, `generate-resources`) unpacks
+`prov-template-library:${prov.toolbox.version}:zip:python` flat into `target/prov-toolbox-python`;
+both workflow steps' `PYTHONPATH` start with `${prov.toolbox.python.dir}` (default that directory;
+`-Dprov.toolbox.python.dir=$PT/target/generated-python:$PT/src/main/python` to use a checkout), and
+the Makefile's `PY_PATH` with `$(PROVTOOLBOX_PYTHON)` (default `target/prov-toolbox-python`). It
+needs nothing the build did not need already (the Java side depends on the same ProvToolbox version).
+Options 2–4 stay open as a way to drop the ProvToolbox `generated-python` part.
 
 ---
 

@@ -1,7 +1,10 @@
 PROVTOOLBOX_DIR=$(HOME)/IdeaProjects/ProvToolbox
 PROVCONVERT=$(PROVTOOLBOX_DIR)/modules-executable/toolbox/target/appassembler/bin/provconvert
 
-PY_PATH=/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/target/generated-python/:/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/src/main/python:target/generated-python:src/test/python
+# ProvToolbox's Python runtime (past.*, ...), unpacked by the maven build (unpack.prov.toolbox.python) into
+# target/prov-toolbox-python; to use a checkout: make PROVTOOLBOX_PYTHON=$PT/target/generated-python:$PT/src/main/python
+PROVTOOLBOX_PYTHON=target/prov-toolbox-python
+PY_PATH=$(PROVTOOLBOX_PYTHON):target/generated-python:src/test/python
 
 # regenerate online pages
 onl:
