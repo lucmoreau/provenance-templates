@@ -84,7 +84,8 @@
                     "@type": "xsd:string",
                     "@examplar": "kg",
                     "@documentation": "unit of weight",
-                    "@input": "optional"
+                    "@input": "optional",
+                    "@sql.type": "nullableTEXT"
                 }
             ]],
         "time": [

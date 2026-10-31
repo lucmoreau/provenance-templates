@@ -71,7 +71,8 @@
             "@type": "xsd:string",
             "@examplar": "ilocation property ",
             "@documentation": "ilocation property",
-            "@input": "optional"
+            "@input": "optional",
+            "@sql.type": "nullableTEXT"
         }]],
         "time": [
             [
