@@ -15,6 +15,32 @@
         <module>provenance-templates-explanations</module>
     </modules>
 
+
+
+    <developers>
+        <developer>
+            <id>lucmoreau</id>
+            <name>Luc Moreau</name>
+            <email>luc.moreau@sussex.ac.uk</email>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <organization>University of Sussex</organization>
+            <timezone>0</timezone>
+        </developer>
+    </developers>
+
+    <distributionManagement>
+    </distributionManagement>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>LICENSE</url>
+        </license>
+    </licenses>
+
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <scm.version>2.1.0</scm.version> <!-- 1.3 -->
