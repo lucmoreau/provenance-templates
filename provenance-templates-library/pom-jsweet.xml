@@ -4,16 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.openprovenance.bookptm</groupId>
-        <artifactId>book-ptm</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
-        <!-- resolve the parent from the repository: the directory above holds the
-             provenance-templates aggregator, not book-ptm -->
-        <relativePath/>
-    </parent>
-
+    <!-- standalone (no parent): run by pom.xml's antrun step as `mvn -f pom-jsweet.xml jsweet:jsweet`;
+         everything it needs is on Maven Central -->
+    <groupId>org.openprovenance.bookptm</groupId>
     <artifactId>template-intro1</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name> |-- template-intro1</name>
     <description>templates for book</description>
@@ -35,7 +30,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <prov.toolbox.candy.version>2.2.5-SNAPSHOT</prov.toolbox.candy.version>
+        <prov.toolbox.candy.version>2.2.5</prov.toolbox.candy.version>
+        <jsweet.plugin.version>3.1.0</jsweet.plugin.version>
         <meta.inf.webjars>META-INF/resources/webjars</meta.inf.webjars>
         <package.name>transport_template_library</package.name>
         <package.name.cli>${package.name}_cli</package.name.cli>

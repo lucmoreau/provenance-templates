@@ -40,6 +40,16 @@
         <!-- the file whose ancestors the build draws (ancestors.svg); -Dprov.graph.focus=dir/name.jsonld for another -->
         <prov.graph.focus>packing/packing.jsonld</prov.graph.focus>
 
+        <!-- ProvToolbox's Python runtime (past.*, org.openprovenance.prov.client, ...), which the generated Python
+             imports, with ProvToolbox's own generated Python: unpacked by unpack.prov.toolbox.python from the
+             org.openprovenance.prov:prov-template-library:${prov.toolbox.version}:zip:python artifact, so the
+             python-*-run-workflow steps need no ProvToolbox checkout. To use a checkout instead:
+             -Dprov.toolbox.python.dir=$PT/target/generated-python:$PT/src/main/python
+             (PT=.../ProvToolbox/modules-template/prov-template-library; a ':'-separated PYTHONPATH prefix) -->
+        <prov.toolbox.python.unpacked.dir>${project.build.directory}/prov-toolbox-python</prov.toolbox.python.unpacked.dir>
+        <prov.toolbox.python.dir>${prov.toolbox.python.unpacked.dir}</prov.toolbox.python.dir>
+        <dependency.plugin.version>3.8.1</dependency.plugin.version>
+
         <commons.text.version>1.14.0</commons.text.version>
         <commons.io.version>2.21.0</commons.io.version>  <!-- 2.15.1, 2.8.0 -->
 
@@ -1348,6 +1358,43 @@
 
             </plugin>
 
+            <!-- ProvToolbox's Python runtime for the python-*-run-workflow steps (see prov.toolbox.python.dir):
+                 the zip's prov-template-library/<version>/src/python/main/ is unpacked flat into
+                 ${prov.toolbox.python.unpacked.dir} -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>${dependency.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>unpack.prov.toolbox.python</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.openprovenance.prov</groupId>
+                                    <artifactId>prov-template-library</artifactId>
+                                    <version>${prov.toolbox.version}</version>
+                                    <classifier>python</classifier>
+                                    <type>zip</type>
+                                    <outputDirectory>${prov.toolbox.python.unpacked.dir}</outputDirectory>
+                                    <includes>prov-template-library/*/src/python/main/**</includes>
+                                    <fileMappers>
+                                        <org.codehaus.plexus.components.io.filemappers.RegExpFileMapper>
+                                            <pattern>^prov-template-library/[^/]+/src/python/main/</pattern>
+                                            <replacement>./</replacement>
+                                        </org.codehaus.plexus.components.io.filemappers.RegExpFileMapper>
+                                    </fileMappers>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
             <!-- exec plugin to cat all files in target/generated-templates/prov-*.prov-csv into target/generated-templates/all.prov-csv -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -1471,7 +1518,7 @@
                         <configuration>
                             <executable>python3</executable>
                             <environmentVariables>
-                                <PYTHONPATH>/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/target/generated-python/:/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/src/main/python:${project.build.directory}/generated-python:${project.basedir}/src/test/python</PYTHONPATH>
+                                <PYTHONPATH>${prov.toolbox.python.dir}:${project.build.directory}/generated-python:${project.basedir}/src/test/python</PYTHONPATH>
                             </environmentVariables>
                             <arguments>
                                 <argument>src/test/python/org/openprovenance/bookptm/fs_run_workflow.py</argument>
@@ -1494,7 +1541,7 @@
                         <configuration>
                             <executable>python3</executable>
                             <environmentVariables>
-                                <PYTHONPATH>/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/target/generated-python/:/Users/luc/IdeaProjects/ProvToolbox/modules-template/prov-template-library/src/main/python:${project.build.directory}/generated-python:${project.basedir}/src/test/python</PYTHONPATH>
+                                <PYTHONPATH>${prov.toolbox.python.dir}:${project.build.directory}/generated-python:${project.basedir}/src/test/python</PYTHONPATH>
                             </environmentVariables>
                             <arguments>
                                 <argument>src/test/python/org/openprovenance/bookptm/box_run_workflow.py</argument>
