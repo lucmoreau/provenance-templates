@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <!-- the aggregator is also the parent: its release profile (gpg, sources, javadoc, central-publishing),
@@ -7,7 +6,7 @@
     <parent>
         <groupId>org.openprovenance.templates</groupId>
         <artifactId>provenance-templates</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
+        <version>0.1.0</version>
     </parent>
 
     <artifactId>provenance-templates-library</artifactId>
@@ -1575,7 +1574,7 @@
                             <classpathScope>test</classpathScope>
                             <arguments>
                                 <argument>-classpath</argument>
-                                <classpath/>
+                                <classpath />
                                 <argument>org.openprovenance.prov.interop.CommandLineArguments</argument>
                                 <argument>-infile</argument>
                                 <argument>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle1-ugd/prov/all.prov-csv</argument>
@@ -1598,7 +1597,7 @@
                             <classpathScope>test</classpathScope>
                             <arguments>
                                 <argument>-classpath</argument>
-                                <classpath/>
+                                <classpath />
                                 <argument>org.openprovenance.prov.interop.CommandLineArguments</argument>
                                 <argument>-infile</argument>
                                 <argument>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle3-aga/prov/all.prov-csv</argument>
@@ -1621,7 +1620,7 @@
                             <classpathScope>test</classpathScope>
                             <arguments>
                                 <argument>-classpath</argument>
-                                <classpath/>
+                                <classpath />
                                 <argument>org.openprovenance.prov.interop.CommandLineArguments</argument>
                                 <argument>-infile</argument>
                                 <argument>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-entity-sds/prov/all.prov-csv</argument>
@@ -1644,7 +1643,7 @@
                             <classpathScope>test</classpathScope>
                             <arguments>
                                 <argument>-classpath</argument>
-                                <classpath/>
+                                <classpath />
                                 <argument>org.openprovenance.prov.interop.CommandLineArguments</argument>
                                 <argument>-infile</argument>
                                 <argument>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle2-agent-sds/prov/all.prov-csv</argument>
@@ -1667,7 +1666,7 @@
                             <classpathScope>test</classpathScope>
                             <arguments>
                                 <argument>-classpath</argument>
-                                <classpath/>
+                                <classpath />
                                 <argument>org.openprovenance.prov.interop.CommandLineArguments</argument>
                                 <argument>-infile</argument>
                                 <argument>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle6-ugm/prov/all.prov-csv</argument>
@@ -1690,7 +1689,7 @@
                             <classpathScope>test</classpathScope>
                             <arguments>
                                 <argument>-classpath</argument>
-                                <classpath/>
+                                <classpath />
                                 <argument>org.openprovenance.prov.interop.CommandLineArguments</argument>
                                 <argument>-infile</argument>
                                 <argument>${generated.templates.dir}/org/openprovenance/templates/triangles/triangle4-aia/prov/all.prov-csv</argument>
@@ -1713,7 +1712,7 @@
                             <classpathScope>test</classpathScope>
                             <arguments>
                                 <argument>-classpath</argument>
-                                <classpath/>
+                                <classpath />
                                 <argument>org.openprovenance.prov.interop.CommandLineArguments</argument>
                                 <argument>-infile</argument>
                                 <argument>${prov.graph.dir}/library.prov-csv</argument>
@@ -1736,7 +1735,7 @@
                             <classpathScope>test</classpathScope>
                             <arguments>
                                 <argument>-classpath</argument>
-                                <classpath/>
+                                <classpath />
                                 <argument>org.openprovenance.prov.interop.CommandLineArguments</argument>
                                 <argument>-infile</argument>
                                 <argument>${prov.graph.dir}/library.prov-csv</argument>
@@ -1759,7 +1758,7 @@
                             <classpathScope>test</classpathScope>
                             <arguments>
                                 <argument>-classpath</argument>
-                                <classpath/>
+                                <classpath />
                                 <argument>org.openprovenance.prov.interop.CommandLineArguments</argument>
                                 <argument>-infile</argument>
                                 <argument>${prov.graph.dir}/library.prov-csv</argument>
@@ -1955,7 +1954,7 @@
                             <target>
                                 <echo message="Running JSweet Maven build with MAVEN_OPTS" />
                                 <exec executable="mvn">
-                                    <env key="MAVEN_OPTS" value="--add-opens jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED  --add-opens jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED  --add-opens jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED  --add-opens jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED  --add-opens jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED"/>
+                                    <env key="MAVEN_OPTS" value="--add-opens jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED  --add-opens jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED  --add-opens jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED  --add-opens jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED" />
                                     <arg value="-f" />
                                     <arg value="pom-jsweet.xml" />
                                     <arg value="jsweet:jsweet" />
