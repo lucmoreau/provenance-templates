@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.openprovenance.templates</groupId>
         <artifactId>provenance-templates</artifactId>
-        <version>0.2.0-SNAPSHOT</version>
+        <version>0.2.0</version>
     </parent>
 
     <artifactId>provenance-templates-library</artifactId>
@@ -1954,7 +1954,7 @@
                             <target>
                                 <echo message="Running JSweet Maven build with MAVEN_OPTS" />
                                 <exec executable="mvn">
-                                    <env key="MAVEN_OPTS" value="--add-opens jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED  --add-opens jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED  --add-opens jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED" />
+                                    <env key="MAVEN_OPTS" value="--add-opens jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED  --add-opens jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED" />
                                     <arg value="-f" />
                                     <arg value="pom-jsweet.xml" />
                                     <arg value="jsweet:jsweet" />
