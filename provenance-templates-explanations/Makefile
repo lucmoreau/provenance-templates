@@ -11,7 +11,15 @@ JAVA_OPTS="-Dlog4j.configurationFile=src/test/resources/ptm/config/log4j2.xml -D
 # and hsqldb allows a single process per database.
 LEXICON_SOURCE=$(PROVTOOLBOX_DIR)/modules-explanations/nlg-wrapper/target/dictionary
 LEXICON_DIR=$(CURDIR)/target/dictionary
-JAVA_OPTS2=-DXPLAIN_LEXICON=$(LEXICON_DIR)/lexAccess2013.data
+JAVA_OPTS2=-DXPLAIN_LEXICON=$(LEXICON_DIR)/lexAccess2013.data $(UNSAFE_OPT)
+
+# provman is built with Scala 3, whose lazy vals use sun.misc.Unsafe: from JDK 24 the JVM
+# prints a "terminally deprecated method" warning at every run. The option silencing it is
+# known from JDK 23 only (older JVMs refuse to start with it), so it is passed only when
+# the JDK the provmanagement launcher picks (JAVA_HOME, else /usr/libexec/java_home) is 23+.
+PROVMAN_JAVA_HOME:=$(or $(JAVA_HOME),$(shell /usr/libexec/java_home 2>/dev/null))
+PROVMAN_JAVA_VERSION:=$(shell "$(if $(PROVMAN_JAVA_HOME),$(PROVMAN_JAVA_HOME)/bin/java,java)" -XshowSettings:properties -version 2>&1 | sed -n 's/^ *java.specification.version = //p')
+UNSAFE_OPT:=$(shell [ "$(PROVMAN_JAVA_VERSION)" -ge 23 ] 2>/dev/null && echo --sun-misc-unsafe-memory-access=allow)
 
 $(LEXICON_DIR)/lexAccess2013.data:
 	@echo "Copying lexical database to $(LEXICON_DIR) ..." >&2
@@ -20,7 +28,7 @@ $(LEXICON_DIR)/lexAccess2013.data:
 	@cp $(LEXICON_SOURCE)/lexAccess2013.properties $(LEXICON_DIR)/
 	@cp $(LEXICON_SOURCE)/lexAccess2013.script $(LEXICON_DIR)/
 
-PROVMAN=export JAVA_OPTS=$(JAVA_OPTS2); $(PROVTOOLBOX_DIR)/modules-executable-provman/target/appassembler/bin/provmanagement
+PROVMAN=export JAVA_OPTS="$(JAVA_OPTS2)";$(PROVTOOLBOX_DIR)/modules-executable-provman/target/appassembler/bin/provmanagement
 NLG_XPLAIN=src/main/resources/xplain/nlg
 
 XPLAN_SCHEMA=src/main/resources/schema/xplan-schema.json
