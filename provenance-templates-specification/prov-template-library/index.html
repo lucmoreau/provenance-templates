@@ -374,6 +374,10 @@ wasAttributedTo(var:attr;var:transformed_file, var:engineer,[openprov:associatio
         <li>The identifiers of relations are the variables <code>usd</code>, <code>gen</code>, <code>der</code>, <code>asc</code>, <code>attr</code>, so that derived templates and the <code>openprov:</code> attributes can refer to them.</li>
         <li>Each node has an open pair of attribute variables, a name and a value, such as <code>var:oprops = 'var:ovalues'</code> on an output and <code>var:aprops = 'var:avalues'</code> on an activity, through which derived templates add attributes.</li>
         <li>Times are written with <code>tmpl:startTime</code>, <code>tmpl:endTime</code> and <code>tmpl:time</code>.</li>
+        <li>A variable whose value refers to a person may carry, in the template's bindings schema, a data-protection
+          annotation, <code>@transient</code> or <code>@pseudonym</code> ([[PROV-TEMPLATE]], section Data-protection
+          annotations). It states the library's intent: each application using the library decides, through the privacy
+          policy of its own catalogue, to honour, ignore or change it, without copying the library.</li>
       </ul>
     </section>
 

@@ -106,6 +106,10 @@
                 },
                 "@sql.table": {
                     "type": "string"
+                },
+                "@pseudonym": {
+                    "type": "string",
+                    "description": "The value arrives pseudonymised, in the form of this method (a name; unprefixed means pt:). A name variable can't be @transient."
                 }
             },
             "required": [
@@ -146,6 +150,14 @@
                 },
                 "@sql.type" : {
                     "type": "string"
+                },
+                "@transient": {
+                    "description": "The value is never persisted, or kept only where this method says: true for the default method pt:drop, or a method name.",
+                    "oneOf": [ { "type": "boolean" }, { "type": "string" } ]
+                },
+                "@pseudonym": {
+                    "type": "string",
+                    "description": "The value arrives pseudonymised, in the form of this method (a name; unprefixed means pt:)."
                 }
             },
             "additionalProperties": false

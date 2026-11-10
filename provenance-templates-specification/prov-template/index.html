@@ -437,6 +437,8 @@ endDocument</pre>
           <tr><td><code>@output</code></td><td>both</td><td><code>true</code> or <code>false</code>: whether the value is produced, for instance a generated identifier.</td></tr>
           <tr><td><code>@sql.table</code></td><td>group variable</td><td>The table in which values are stored, for code generating SQL.</td></tr>
           <tr><td><code>@sql.type</code></td><td>attribute variable</td><td>The SQL type of the values, such as <code>timestamptz</code> or <code>nonNullableTEXT</code>.</td></tr>
+          <tr><td><code>@transient</code></td><td>attribute variable</td><td><code>true</code>, <code>false</code> or a method name: the value is never persisted, or kept only where the method says (<a href="#data-protection"></a>).</td></tr>
+          <tr><td><code>@pseudonym</code></td><td>both</td><td>A method name: the value arrives pseudonymised, in the method's form (<a href="#data-protection"></a>).</td></tr>
         </tbody>
       </table>
       <p>
@@ -452,6 +454,51 @@ endDocument</pre>
         <code>@sql.foreign</code>, <code>@unique</code>, <code>@escape</code>; <code>@output: "optional"</code>;
         and a top-level <code>@return</code>. Either the schema or this section should grow to cover them.
       </div>
+
+      <section id="data-protection">
+        <h3>Data-protection annotations</h3>
+        <p>
+          Two members of a bindings schema let a template declare how the values of a variable that refers to a person
+          are kept, so that a provenance store built from templates holds references to people, never their names: a
+          name is resolved, when shown, from the system of record for people, and no name-to-reference mapping is kept.
+        </p>
+        <ul>
+          <li><code>@transient</code>: the value exists while the template is filled in, and is never persisted, or kept
+            only where its method says. <code>true</code> stands for the default method <code>pt:drop</code>;
+            <code>false</code> for no annotation. A transient attribute variable is left unbound, so that the attribute
+            is absent from the expanded document, as for any unbound attribute variable
+            ([[PROV-TEMPLATE-ALGORITHMS]]). A name variable MUST NOT be transient: unbound, it would suppress its node.</li>
+          <li><code>@pseudonym</code>: the value arrives already pseudonymised. Its method states the form a valid value
+            takes, and the system readers resolve it against.</li>
+        </ul>
+        <p>
+          Both annotations apply only to a variable whose value an application supplies: <code>@input</code>
+          <code>compulsory</code> or <code>optional</code>, not an <code>@output</code>. A variable can't carry both. A
+          method is a name, namespaced: a name without prefix stands for <code>pt:</code>, the prefix reserved for the
+          methods of ProvToolbox; any other prefix belongs to whoever defines the method.
+        </p>
+        <table class="simple">
+          <thead><tr><th>Method</th><th>Kind</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td><code>pt:drop</code></td><td>transient</td><td>Kept nowhere: no column, no insert parameter, no log field value, no expanded attribute.</td></tr>
+            <tr><td><code>pt:local-log</code></td><td>transient</td><td>Kept in the caller's own log only, never in a store or an expanded document.</td></tr>
+            <tr><td><code>pt:erp-ref</code></td><td>pseudonym</td><td>The identifier of the system of record, <code>^[a-z][a-z0-9_.-]*:[A-Za-z0-9_./-]+$</code>, e.g. <code>hr:person/4711</code>.</td></tr>
+            <tr><td><code>pt:inline-refs</code></td><td>pseudonym</td><td>Free text in which people appear only as references <code>⟨person <var>erp-ref</var>⟩</code>, <code>^([^⟨⟩]|⟨person [a-z][a-z0-9_.-]*:[A-Za-z0-9_./-]+⟩)*$</code>.</td></tr>
+            <tr><td><code>pt:keyed-hash</code></td><td>pseudonym</td><td>An HMAC-SHA256 with a tenant key, prefixed by the key's identifier, <code>^[a-z0-9_-]+:[0-9a-f]{64}$</code>. Destroying the key erases the tenant.</td></tr>
+          </tbody>
+        </table>
+        <p>
+          A pseudonym method's form is a regular expression, anchored (<code>^...$</code>) and limited to what Java,
+          Python, JavaScript, Rust and PostgreSQL read alike: character classes, <code>{n}</code>, <code>*</code>,
+          <code>+</code>, <code>?</code>, <code>|</code>; no <code>\d</code>, <code>\w</code>, <code>\s</code>, no
+          <code>(?...)</code>. A form check recognises a clear value by its shape, not its meaning.
+        </p>
+        <p>
+          The annotations of a bindings schema state its author's intent. An application that uses a template library
+          decides, from its own configuration, whether to honour, ignore or change them, and may define further methods
+          (<a href="#template-compiler"></a>).
+        </p>
+      </section>
     </section>
 
     <section id="template-index">
@@ -661,6 +708,25 @@ endDocument</pre>
           <li>a JSON Schema and HTML documentation of the records;</li>
           <li>the code by which <code>provconvert -log2prov</code> turns a log of records back into PROV, by instantiating each record's template.</li>
         </ul>
+        <p>
+          A catalogue may name a privacy policy (member <code>privacy</code>), by which an application decides the
+          data-protection annotations (<a href="#data-protection"></a>) of the templates it compiles, without copying
+          their library. The policy defines methods (<code>methods</code>: a <code>kind</code>; for a transient method
+          the places it <code>keeps</code> a value in, among <code>store</code>, <code>log</code>,
+          <code>expansion</code>; for a pseudonym method its <code>pattern</code>), which may redefine a
+          <code>pt:</code> method under its name but not add one; and it decides, per scope (<code>*</code>,
+          <code>method:<var>m</var></code>, <code>template:<var>fqn</var></code>,
+          <code>variable:<var>fqn</var>#<var>var</var></code>, the most specific winning), to honour an annotation,
+          ignore it, or replace it, a replacement at variable scope also adding one a library didn't declare. Every
+          decision other than honour carries a reason.
+        </p>
+        <p>
+          Every method is resolved when the code is generated, and its meaning is then fixed: the generated SQL checks a
+          pseudonymised column inline, in a constraint named by the digest of the method's definition; the generated
+          client checks the value in every target language before writing it; and a privacy register, written beside
+          the documentation, records for each annotated variable what was declared, what is in effect, who decided and
+          why, and the digest. A template whose annotations are all ignored generates the same code as one without any.
+        </p>
       </section>
     </section>
 
