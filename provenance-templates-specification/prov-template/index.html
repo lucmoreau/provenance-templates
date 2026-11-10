@@ -723,9 +723,17 @@ endDocument</pre>
         <p>
           Every method is resolved when the code is generated, and its meaning is then fixed: the generated SQL checks a
           pseudonymised column inline, in a constraint named by the digest of the method's definition; the generated
-          client checks the value in every target language before writing it; and a privacy register, written beside
-          the documentation, records for each annotated variable what was declared, what is in effect, who decided and
-          why, and the digest. A template whose annotations are all ignored generates the same code as one without any.
+          client checks the value before writing it, in Java, Python and JavaScript (a catalogue that generates Rust
+          is warned that the Rust client doesn't); and a privacy register, written beside the documentation, records
+          for each annotated variable what was declared, what is in effect, who decided and why, and the digest. A
+          template whose annotations are all ignored generates the same code as one without any.
+        </p>
+        <p>
+          The generated client refuses a value not in its method's form without echoing it. A writer that bypasses the
+          client is refused by the database constraint, whose error may repeat the row, the clear value included
+          (PostgreSQL: <code>Failing row contains (…)</code>), to that writer and to the server log. A store that holds
+          references to people should therefore set <code>log_error_verbosity = terse</code>, and only the generated
+          client should write to it.
         </p>
       </section>
     </section>
