@@ -482,8 +482,8 @@ endDocument</pre>
           <tbody>
             <tr><td><code>pt:drop</code></td><td>transient</td><td>Kept nowhere: no column, no insert parameter, no log field value, no expanded attribute.</td></tr>
             <tr><td><code>pt:local-log</code></td><td>transient</td><td>Kept in the caller's own log only, never in a store or an expanded document.</td></tr>
-            <tr><td><code>pt:erp-ref</code></td><td>pseudonym</td><td>The identifier of the system of record, <code>^[a-z][a-z0-9_.-]*:[A-Za-z0-9_./-]+$</code>, e.g. <code>hr:person/4711</code>.</td></tr>
-            <tr><td><code>pt:inline-refs</code></td><td>pseudonym</td><td>Free text in which people appear only as references <code>⟨person <var>erp-ref</var>⟩</code>, <code>^([^⟨⟩]|⟨person [a-z][a-z0-9_.-]*:[A-Za-z0-9_./-]+⟩)*$</code>.</td></tr>
+            <tr><td><code>pt:ext-ref</code></td><td>pseudonym</td><td>The identifier of an external system that is the system of record (an ERP, an HR system, an identity realm), <code>^[a-z][a-z0-9_.-]*:[A-Za-z0-9_./-]+$</code>, e.g. <code>hr:person/4711</code>.</td></tr>
+            <tr><td><code>pt:inline-refs</code></td><td>pseudonym</td><td>Free text in which people appear only as references <code>⟨person <var>ext-ref</var>⟩</code>, <code>^([^⟨⟩]|⟨person [a-z][a-z0-9_.-]*:[A-Za-z0-9_./-]+⟩)*$</code>.</td></tr>
             <tr><td><code>pt:keyed-hash</code></td><td>pseudonym</td><td>An HMAC-SHA256 with a tenant key, prefixed by the key's identifier, <code>^[a-z0-9_-]+:[0-9a-f]{64}$</code>. Destroying the key erases the tenant.</td></tr>
           </tbody>
         </table>
