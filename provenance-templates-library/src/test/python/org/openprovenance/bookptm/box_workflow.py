@@ -51,8 +51,10 @@ class BoxWorkflow:
         self.drop1_time = "2024-10-01T17:00:00Z"
         self.handover_time = "2024-10-01T17:15:00Z"
         self.weighing2_time = "2024-10-01T18:12:00Z"
-        self.handover_time2 = "2024-10-01T05:20:00Z"
-        self.delivery_time = "2024-10-01T15:14:00Z"
+        self.handover_time2 = "2024-10-02T05:20:00Z"
+        self.delivery_time = "2024-10-02T15:14:00Z"
+        self.handover_time3 = "2024-10-02T15:30:00Z"
+        self.weighing3_time = "2024-10-02T16:05:00Z"
 
         self.connections = []
         self.connections_no_agent = None
@@ -288,7 +290,7 @@ class BoxWorkflow:
         self.flow_to_from(handingover_inputs4, "item", box_init_outputs, "entity")
         self.flow_to_from(handingover_inputs4, "receiver", agent_init_outputs4, "agent0")
         self.flow_to_from(handingover_inputs4, "giver", agent_init_outputs3, "agent0")
-        handingover_inputs4.time = self.delivery_time
+        handingover_inputs4.time = self.handover_time3
         handingover_outputs4 = self.template_invoker.process_handingover_inputs(handingover_inputs4)
         self.generate_connections(handingover_outputs4)
         # at this point, the item is with the recipient
@@ -307,7 +309,7 @@ class BoxWorkflow:
         self.flow_to_from(weighing_inputs3, "agent", agent_init_outputs4, "agent0")
         self.flow_to_from(weighing_inputs3, "scale", agent_init_outputs_s3, "agent0")
         weighing_inputs3.weight = 15.0
-        weighing_inputs3.time = self.delivery_time
+        weighing_inputs3.time = self.weighing3_time
         weighing_outputs3 = self.template_invoker.process_weighing_inputs(weighing_inputs3)
         self.generate_connections(weighing_outputs3)
         # item should weigh 10.0, so this is a discrepancy

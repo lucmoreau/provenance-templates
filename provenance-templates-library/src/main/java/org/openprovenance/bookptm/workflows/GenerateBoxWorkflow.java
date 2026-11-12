@@ -199,8 +199,10 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 FIELD("drop1Time",     STRING).INITIALIZER(CONSTANT("2024-10-01T17:00:00Z")),
                 FIELD("handoverTime",  STRING).INITIALIZER(CONSTANT("2024-10-01T17:15:00Z")),
                 FIELD("weighing2Time", STRING).INITIALIZER(CONSTANT("2024-10-01T18:12:00Z")),
-                FIELD("handoverTime2", STRING).INITIALIZER(CONSTANT("2024-10-01T05:20:00Z")),
-                FIELD("deliveryTime",  STRING).INITIALIZER(CONSTANT("2024-10-01T15:14:00Z")),
+                FIELD("handoverTime2", STRING).INITIALIZER(CONSTANT("2024-10-02T05:20:00Z")),
+                FIELD("deliveryTime",  STRING).INITIALIZER(CONSTANT("2024-10-02T15:14:00Z")),
+                FIELD("handoverTime3", STRING).INITIALIZER(CONSTANT("2024-10-02T15:30:00Z")),
+                FIELD("weighing3Time", STRING).INITIALIZER(CONSTANT("2024-10-02T16:05:00Z")),
 
                 FIELD("MARKER1", INTEGER).MODIFIERS(Modifier.PUBLIC).INITIALIZER(CONSTANT(-1)),
                 FIELD("MARKER2", INTEGER).MODIFIERS(Modifier.PUBLIC).INITIALIZER(CONSTANT(-2))
@@ -642,7 +644,7 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 flowToFrom("handingoverInputs4", "item",     "box_initOutputs",      "entity"),
                 flowToFrom("handingoverInputs4", "receiver", "agent_initOutputs4",   "agent0"),
                 flowToFrom("handingoverInputs4", "giver",    "agent_initOutputs3",   "agent0"),
-                ASSIGNMENT(METHOD_CALL(VARIABLE("handingoverInputs4"), "time"), thisField("deliveryTime")),
+                ASSIGNMENT(METHOD_CALL(VARIABLE("handingoverInputs4"), "time"), thisField("handoverTime3")),
                 nullGuardedAdd("inputs", "handingoverInputs4"),
                 process(HANDING_OVER_OUTPUTS, "handingoverOutputs4", "handingoverInputs4"),
                 nullGuardedAdd("outputs", "handingoverOutputs4")
@@ -677,7 +679,7 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 flowToFrom("weighingInputs3", "agent",  "agent_initOutputs4",   "agent0"),
                 flowToFrom("weighingInputs3", "scale",  "agent_initOutputsS3",  "agent0"),
                 ASSIGNMENT(METHOD_CALL(VARIABLE("weighingInputs3"), "weight"), CONSTANT(15.03d)),
-                ASSIGNMENT(METHOD_CALL(VARIABLE("weighingInputs3"), "time"),   thisField("deliveryTime")),
+                ASSIGNMENT(METHOD_CALL(VARIABLE("weighingInputs3"), "time"),   thisField("weighing3Time")),
                 nullGuardedAdd("inputs", "weighingInputs3"),
                 process(WEIGHING_OUTPUTS, "weighingOutputs3", "weighingInputs3"),
                 nullGuardedAdd("outputs", "weighingOutputs3")

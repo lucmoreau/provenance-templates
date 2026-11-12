@@ -37,8 +37,10 @@ public class BoxWorkflow {
     String drop1Time ="2024-10-01T17:00:00Z";
     String handoverTime ="2024-10-01T17:15:00Z";
     String weighing2Time ="2024-10-01T18:12:00Z";
-    String handoverTime2 ="2024-10-01T05:20:00Z";
-    String deliveryTime ="2024-10-01T15:14:00Z";
+    String handoverTime2 ="2024-10-02T05:20:00Z";
+    String deliveryTime ="2024-10-02T15:14:00Z";
+    String handoverTime3 ="2024-10-02T15:30:00Z";
+    String weighing3Time ="2024-10-02T16:05:00Z";
 
     public BoxWorkflow(InputOutputProcessor templateInvoker, Function<String, List<List<Object>>> query) {
         this.templateInvoker=templateInvoker;
@@ -236,7 +238,7 @@ public class BoxWorkflow {
         flowToFrom(handingoverInputs4, "item", box_initOutputs, "entity");
         flowToFrom(handingoverInputs4, "receiver", agent_initOutputs4, "agent0");
         flowToFrom(handingoverInputs4, "giver", agent_initOutputs3, "agent0");
-        handingoverInputs4.time=deliveryTime;
+        handingoverInputs4.time=handoverTime3;
         HandingoverOutputs handingoverOutputs4=templateInvoker.process(handingoverInputs4);
         generateConnections(handingoverOutputs4);
         // at this point, the item is with the recipient
@@ -257,7 +259,7 @@ public class BoxWorkflow {
         flowToFrom(weighingInputs3, "agent", agent_initOutputs4, "agent0");
         flowToFrom(weighingInputs3, "scale", agent_initOutputsS3, "agent0");
         weighingInputs3.weight=15.0d;
-        weighingInputs3.time=deliveryTime;
+        weighingInputs3.time=weighing3Time;
         WeighingOutputs weighingOutputs3=templateInvoker.process(weighingInputs3);
         generateConnections(weighingOutputs3);
         // item should weigh 10.0, so this is a discrepancy
