@@ -1,0 +1,116 @@
+{
+    "select": {
+        "mem": {
+            "@type": "provext:HadMember"
+        }
+    },
+    "query": [
+        "prefix provext <https://openprovenance.org/ns/provext#>",
+        "prefix openprov <https://openprovenance.org/ns/openprov#>",
+        "select * from mem a provext:HadMember",
+        "from coll0 a prov:Entity",
+        " join mem.collection = coll0.id",
+        "from item0 a prov:Entity",
+        " join mem.entity = item0.id",
+        "from usdc a prov:Used",
+        " join coll0.id = usdc.entity",
+        "from act a prov:Activity",
+        " join usdc.activity = act.id",
+        "from usdm a prov:Used",
+        " join item0.id = usdm.entity",
+        "from wgbc a prov:WasGeneratedBy",
+        " join act.id = wgbc.activity",
+        "from coll1 a prov:Entity",
+        " join wgbc.entity = coll1.id",
+        "from wgbm a prov:WasGeneratedBy",
+        " join act.id = wgbm.activity",
+        "from item1 a prov:Entity",
+        " join wgbm.entity = item1.id",
+        "where act[prov:type] >= 'openprov:RemovingElementFromCollection'",
+        "  and usdm.activity = act.id",
+        "  and usdc[prov:role] >= 'openprov:asCollection'",
+        "  and usdm[prov:role] >= 'openprov:asMember'",
+        "  and wgbc[prov:role] >= 'openprov:asCollection'",
+        "  and wgbm[prov:role] >= 'openprov:asMember'"
+    ],
+    "sentence": {
+        "type": "clause",
+        "subject": {
+            "type": "noun_phrase",
+            "determiner": "the",
+            "head": {
+                "type": "@funcall",
+                "@object": "item1",
+                "@property": "prov:type",
+                "@function": "lookup-type-with-default",
+                "@arg1": "noun_phrase",
+                "@arg2": "item"
+            },
+            "post-modifiers": [
+                {
+                    "type": "adjective_phrase",
+                    "head": {
+                        "type": "@funcall",
+                        "@object": "item0",
+                        "@field": "id",
+                        "@function": "noun+identity",
+                        "@arg1": ""
+                    }
+                }
+            ],
+            "features": {
+                "number": "singular"
+            }
+        },
+        "verb": "be",
+        "object": {
+            "type": "noun_phrase",
+            "determiner": "a",
+            "head": "member",
+            "post-modifiers": [
+                {
+                    "type": "preposition_phrase",
+                    "preposition": "of",
+                    "noun": {
+                        "type": "noun_phrase",
+                        "determiner": "the",
+                        "head": {
+                            "type": "@funcall",
+                            "@object": "coll1",
+                            "@property": "prov:type",
+                            "@function": "lookup-type-with-default",
+                            "@arg1": "noun_phrase",
+                            "@arg2": "collection"
+                        },
+                        "post-modifiers": [
+                            {
+                                "type": "adjective_phrase",
+                                "head": {
+                                    "type": "@funcall",
+                                    "@object": "coll0",
+                                    "@field": "id",
+                                    "@function": "noun+identity",
+                                    "@arg1": ""
+                                }
+                            }
+                        ],
+                        "features": {
+                            "number": "singular"
+                        }
+                    }
+                }
+            ],
+            "features": {
+                "number": "singular"
+            }
+        },
+        "features": {
+            "tense": "past",
+            "cue_phrase": "Before the removal,"
+        }
+    },
+    "context": {
+        "provext": "https://openprovenance.org/ns/provext#",
+        "openprov": "https://openprovenance.org/ns/openprov#"
+    }
+}

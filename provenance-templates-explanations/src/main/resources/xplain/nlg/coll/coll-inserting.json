@@ -1,0 +1,132 @@
+{
+    "select": { "act": { "@type": "prov:Activity" } },
+
+    "query": [
+        "prefix openprov <https://openprovenance.org/ns/openprov#>",
+        "select * from act a prov:Activity",
+        "from usdm a prov:Used",
+        " join act.id = usdm.activity",
+        "from item0 a prov:Entity",
+        " join usdm.entity = item0.id",
+        "from usdc a prov:Used",
+        " join act.id = usdc.activity",
+        "from coll0 a prov:Entity",
+        " join usdc.entity = coll0.id",
+        "from wgbm a prov:WasGeneratedBy",
+        " join act.id = wgbm.activity",
+        "from item1 a prov:Entity",
+        " join wgbm.entity = item1.id",
+        "from wgbc a prov:WasGeneratedBy",
+        " join act.id = wgbc.activity",
+        "from coll1 a prov:Entity",
+        " join wgbc.entity = coll1.id",
+        "from waw a prov:WasAssociatedWith",
+        " optional join act.id = waw.activity",
+        "from agent a prov:Agent",
+        " optional join waw.agent = agent.id",
+        "where act[prov:type] >= 'openprov:InsertingItemIntoCollection'",
+        "  and usdm[prov:role] >= 'openprov:asMember'",
+        "  and usdc[prov:role] >= 'openprov:asCollection'",
+        "  and wgbm[prov:role] >= 'openprov:asMember'",
+        "  and wgbc[prov:role] >= 'openprov:asCollection'"
+    ],
+
+    "sentence": {
+        "type": "clause",
+        "subject": {
+            "type": "noun_phrase",
+            "head": {
+                "type": "@funcall",
+                "@object": "agent",
+                "@field": "id",
+                "@function": "noun+identity",
+                "@arg1": "agent",
+                "@optional": "true"
+            }
+        },
+        "object": {
+            "type": "noun_phrase",
+            "determiner": "The",
+            "head": {
+                "type": "@funcall",
+                "@object": "item1",
+                "@property": "prov:type",
+                "@function": "lookup-type-with-default",
+                "@arg1": "noun_phrase",
+                "@arg2": "item"
+            },
+            "post-modifiers": [
+                {
+                    "type": "adjective_phrase",
+                    "head": {
+                        "type": "@funcall",
+                        "@object": "item0",
+                        "@field": "id",
+                        "@function": "noun+identity",
+                        "@arg1": ""
+                    }
+                }
+            ],
+            "features": { "number": "singular" }
+        },
+        "verb": {
+            "type": "@funcall",
+            "@object": "act",
+            "@property": "prov:type",
+            "@function": "lookup-type",
+            "@arg1": "verb_phrase",
+            "@arg2": "openprov"
+        },
+        "modifiers": [
+            {
+                "type": "preposition_phrase",
+                "preposition": "into",
+                "noun": {
+                    "type": "noun_phrase",
+                    "determiner": "the",
+                    "head": {
+                        "type": "@funcall",
+                        "@object": "coll1",
+                        "@property": "prov:type",
+                        "@function": "lookup-type-with-default",
+                        "@arg1": "noun_phrase",
+                        "@arg2": "collection"
+                    },
+                    "post-modifiers": [
+                        {
+                            "type": "adjective_phrase",
+                            "head": {
+                                "type": "@funcall",
+                                "@object": "coll0",
+                                "@field": "id",
+                                "@function": "noun+identity",
+                                "@arg1": ""
+                            }
+                        }
+                    ],
+                    "features": { "number": "singular" }
+                }
+            },
+            {
+                "type": "preposition_phrase",
+                "preposition": "on",
+                "noun": {
+                    "type": "@funcall",
+                    "@object": "act",
+                    "@field": "endTime",
+                    "@optional": "true",
+                    "@function": "friendly_timestring"
+                }
+            }
+        ],
+        "features": {
+            "tense": "past",
+            "passive": "true"
+        }
+    },
+
+    "context": {
+        "provext":  "https://openprovenance.org/ns/provext#",
+        "openprov": "https://openprovenance.org/ns/openprov#"
+    }
+}

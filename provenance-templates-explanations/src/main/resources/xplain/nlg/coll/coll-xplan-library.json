@@ -1,0 +1,13 @@
+{
+    "name": "coll",
+    "templates": [
+        "coll-inserting.json",
+        "coll-inserting-membership.json",
+        "coll-removing.json",
+        "coll-removing-membership.json",
+        "coll-removing-result.json"
+    ],
+    "dictionaries": [
+        "coll-dictionary.json"
+    ]
+}
