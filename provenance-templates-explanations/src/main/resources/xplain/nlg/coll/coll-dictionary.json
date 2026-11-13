@@ -1,0 +1,16 @@
+{
+    "snippets": {},
+    "dictionary": {
+        "openprov:InsertingItemIntoCollection": {
+            "type": "verb_phrase",
+            "head": "insert"
+        },
+        "openprov:RemovingElementFromCollection": {
+            "type": "verb_phrase",
+            "head": "remove"
+        }
+    },
+    "context": {
+        "openprov": "https://openprovenance.org/ns/openprov#"
+    }
+}

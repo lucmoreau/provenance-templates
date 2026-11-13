@@ -1,0 +1,25 @@
+// Instance of collections/InsertingIntoCollection (config-inserting-into-collection.json), all optional parts present.
+// Expected: The item (ex:item0) was inserted into the collection (ex:coll0) by agent (ex:librarian) on 10 November 2026 at 09:05.
+// Expected: As a result, the item (ex:item1) is a member of the collection (ex:coll1).
+document
+prefix ex <http://example.org/>
+prefix provext <https://openprovenance.org/ns/provext#>
+prefix openprov <https://openprovenance.org/ns/openprov#>
+entity(ex:coll0)
+entity(ex:coll1,[prov:type = 'prov:Collection'])
+entity(ex:item0)
+entity(ex:item1)
+activity(ex:inserting1,2026-11-10T09:00:00,2026-11-10T09:05:00,[prov:type = 'openprov:InsertingItemIntoCollection'])
+used(ex:usd1;ex:inserting1,ex:item0,-,[prov:role = 'openprov:asMember'])
+used(ex:usd2;ex:inserting1,ex:coll0,-,[prov:role = 'openprov:asCollection'])
+wasGeneratedBy(ex:gen0;ex:coll1,ex:inserting1,-,[prov:role = 'openprov:asCollection'])
+wasGeneratedBy(ex:gen1;ex:item1,ex:inserting1,-,[prov:role = 'openprov:asMember'])
+wasDerivedFrom(ex:der1;ex:coll1,ex:item0,ex:inserting1,ex:gen0,ex:usd1,[prov:type = 'openprov:InsertingItemIntoCollection'])
+wasDerivedFrom(ex:der2;ex:coll1,ex:coll0,ex:inserting1,ex:gen0,ex:usd2,[prov:type = 'openprov:InsertingInto_Collection'])
+wasDerivedFrom(ex:der3;ex:item1,ex:item0,ex:inserting1,ex:gen1,ex:usd1,[prov:type = 'openprov:InsertingInto_Item'])
+provext:hadMember(ex:mem;ex:coll1,ex:item1,[openprov:activity = 'ex:inserting1', openprov:itemGeneration = 'ex:gen1', openprov:collectionGeneration = 'ex:gen0'])
+agent(ex:librarian)
+wasAssociatedWith(ex:asc;ex:inserting1,ex:librarian,-)
+wasAttributedTo(ex:attr1;ex:coll1,ex:librarian)
+wasAttributedTo(ex:attr2;ex:item1,ex:librarian)
+endDocument

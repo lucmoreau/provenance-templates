@@ -55,6 +55,12 @@ XPLAN_FILES = \
     $(NLG_XPLAIN)/tr/tr-agent-init.json \
     $(NLG_XPLAIN)/tr/tr-assigning.json \
     $(NLG_XPLAIN)/tr/tr-handingover.json \
+    $(NLG_XPLAIN)/coll/coll-xplan-library.json \
+    $(NLG_XPLAIN)/coll/coll-inserting.json \
+    $(NLG_XPLAIN)/coll/coll-inserting-membership.json \
+    $(NLG_XPLAIN)/coll/coll-removing.json \
+    $(NLG_XPLAIN)/coll/coll-removing-membership.json \
+    $(NLG_XPLAIN)/coll/coll-removing-result.json \
     $(NLG_XPLAIN)/provbasic/provbasic.json \
     $(NLG_XPLAIN)/provbasic/actedonbehalfof1.json \
     $(NLG_XPLAIN)/provbasic/activity1.json \
@@ -108,6 +114,7 @@ PROPERTY_NAME=$(SOURCE_NAME)
 # x-plan library used by batch.explain; tr targets override it
 XPLAN_LIB=$(NLG_XPLAIN)/fs/fs-xplan-library.json
 TR_XPLAN_LIB=$(NLG_XPLAIN)/tr/tr-xplan-library.json
+COLL_XPLAN_LIB=$(NLG_XPLAIN)/coll/coll-xplan-library.json
 
 batch.explain: $(LEXICON_DIR)/lexAccess2013.data
 	@$(PROVMAN) explain --infile $(DOCUMENTS)/$(FILE).provn --outfile target/narrative-loan.provn --text target/narrative-loan.json --language $(XPLAN_LIB) -s target/simplenlg2.txt --profile=$(PROFILE)  --batch-templates=$(BATCH)
@@ -267,8 +274,26 @@ xp.tr.handingover:
 xp.tr.handingover.no.giver:
 	@$(MAKE) tr.explain FILE=tr_handingover_no_giver BATCH=[tr-handingover]
 
+# --- Collections (coll): x-plans for collections/InsertingIntoCollection and
+# collections/RemovingFromCollection. They key on the openprov activity types, roles
+# openprov:asMember/openprov:asCollection and the membership, so they also explain the
+# refinements of these templates (e.g. packing, unpacking) when this library is loaded.
+
+coll.explain:
+	@$(MAKE) batch.explain XPLAN_LIB=$(COLL_XPLAN_LIB) FILE=$(FILE) BATCH=$(BATCH) SOURCE_NAME=$(SOURCE_NAME) PROPERTY_NAME=$(PROPERTY_NAME)
+
+xp.coll.all: xp.coll.inserting xp.coll.inserting.no.agent xp.coll.removing xp.coll.removing.agent
+xp.coll.inserting:
+	@$(MAKE) coll.explain FILE=coll_inserting BATCH=[coll-inserting][coll-inserting-membership]
+xp.coll.inserting.no.agent:
+	@$(MAKE) coll.explain FILE=coll_inserting_no_agent BATCH=[coll-inserting][coll-inserting-membership]
+xp.coll.removing:
+	@$(MAKE) coll.explain FILE=coll_removing BATCH=[coll-removing][coll-removing-membership][coll-removing-result]
+xp.coll.removing.agent:
+	@$(MAKE) coll.explain FILE=coll_removing_agent BATCH=[coll-removing][coll-removing-membership][coll-removing-result]
+
 #| xgroup_by(.)
 xp.fs.all:
 	@$(MAKE) xp.transforming.all xp.filtering.all xp.init.all xp.splitting.all xp.fitting.all xp.validating.all xp.approving.all | jq -s '.  '
 
-xp.all: xp.fs.all xp.tr.all
+xp.all: xp.fs.all xp.tr.all xp.coll.all

@@ -1,0 +1,106 @@
+{
+    "select": {
+        "mem": {
+            "@type": "provext:HadMember"
+        }
+    },
+    "query": [
+        "prefix provext <https://openprovenance.org/ns/provext#>",
+        "prefix openprov <https://openprovenance.org/ns/openprov#>",
+        "select * from mem a provext:HadMember",
+        "from coll1 a prov:Entity",
+        " join mem.collection = coll1.id",
+        "from item1 a prov:Entity",
+        " join mem.entity = item1.id",
+        "from wgbc a prov:WasGeneratedBy",
+        " join coll1.id = wgbc.entity",
+        "from act a prov:Activity",
+        " join wgbc.activity = act.id",
+        "from wgbm a prov:WasGeneratedBy",
+        " join item1.id = wgbm.entity",
+        "where act[prov:type] >= 'openprov:InsertingItemIntoCollection'",
+        "  and wgbm.activity = act.id",
+        "  and wgbc[prov:role] >= 'openprov:asCollection'",
+        "  and wgbm[prov:role] >= 'openprov:asMember'"
+    ],
+    "sentence": {
+        "type": "clause",
+        "subject": {
+            "type": "noun_phrase",
+            "determiner": "the",
+            "head": {
+                "type": "@funcall",
+                "@object": "item1",
+                "@property": "prov:type",
+                "@function": "lookup-type-with-default",
+                "@arg1": "noun_phrase",
+                "@arg2": "item"
+            },
+            "post-modifiers": [
+                {
+                    "type": "adjective_phrase",
+                    "head": {
+                        "type": "@funcall",
+                        "@object": "item1",
+                        "@field": "id",
+                        "@function": "noun+identity",
+                        "@arg1": ""
+                    }
+                }
+            ],
+            "features": {
+                "number": "singular"
+            }
+        },
+        "verb": "be",
+        "object": {
+            "type": "noun_phrase",
+            "determiner": "a",
+            "head": "member",
+            "post-modifiers": [
+                {
+                    "type": "preposition_phrase",
+                    "preposition": "of",
+                    "noun": {
+                        "type": "noun_phrase",
+                        "determiner": "the",
+                        "head": {
+                            "type": "@funcall",
+                            "@object": "coll1",
+                            "@property": "prov:type",
+                            "@function": "lookup-type-with-default",
+                            "@arg1": "noun_phrase",
+                            "@arg2": "collection"
+                        },
+                        "post-modifiers": [
+                            {
+                                "type": "adjective_phrase",
+                                "head": {
+                                    "type": "@funcall",
+                                    "@object": "coll1",
+                                    "@field": "id",
+                                    "@function": "noun+identity",
+                                    "@arg1": ""
+                                }
+                            }
+                        ],
+                        "features": {
+                            "number": "singular"
+                        }
+                    }
+                }
+            ],
+            "features": {
+                "number": "singular"
+            }
+        },
+        "features": {
+            "tense": "present",
+            "cue_phrase": "As a result,"
+        }
+    },
+    "context": {
+        "provext": "https://openprovenance.org/ns/provext#",
+        "openprov": "https://openprovenance.org/ns/openprov#"
+    }
+}

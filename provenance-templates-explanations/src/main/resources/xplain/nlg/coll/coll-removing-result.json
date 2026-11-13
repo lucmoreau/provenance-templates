@@ -1,0 +1,101 @@
+{
+    "select": {
+        "act": {
+            "@type": "prov:Activity"
+        }
+    },
+    "query": [
+        "prefix openprov <https://openprovenance.org/ns/openprov#>",
+        "select * from act a prov:Activity",
+        "from wgbm a prov:WasGeneratedBy",
+        " join act.id = wgbm.activity",
+        "from item1 a prov:Entity",
+        " join wgbm.entity = item1.id",
+        "from wgbc a prov:WasGeneratedBy",
+        " join act.id = wgbc.activity",
+        "from coll1 a prov:Entity",
+        " join wgbc.entity = coll1.id",
+        "where act[prov:type] >= 'openprov:RemovingElementFromCollection'",
+        "  and wgbm[prov:role] >= 'openprov:asMember'",
+        "  and wgbc[prov:role] >= 'openprov:asCollection'"
+    ],
+    "sentence": {
+        "type": "clause",
+        "subject": {
+            "type": "noun_phrase",
+            "determiner": "the",
+            "head": "removal",
+            "features": {
+                "number": "singular"
+            }
+        },
+        "verb": "leave",
+        "object": {
+            "type": "noun_phrase",
+            "determiner": "the",
+            "head": {
+                "type": "@funcall",
+                "@object": "coll1",
+                "@property": "prov:type",
+                "@function": "lookup-type-with-default",
+                "@arg1": "noun_phrase",
+                "@arg2": "collection"
+            },
+            "post-modifiers": [
+                {
+                    "type": "adjective_phrase",
+                    "head": {
+                        "type": "@funcall",
+                        "@object": "coll1",
+                        "@field": "id",
+                        "@function": "noun+identity",
+                        "@arg1": ""
+                    }
+                }
+            ],
+            "features": {
+                "number": "singular"
+            }
+        },
+        "modifiers": [
+            {
+                "type": "preposition_phrase",
+                "preposition": "without",
+                "noun": {
+                    "type": "noun_phrase",
+                    "determiner": "the",
+                    "head": {
+                        "type": "@funcall",
+                        "@object": "item1",
+                        "@property": "prov:type",
+                        "@function": "lookup-type-with-default",
+                        "@arg1": "noun_phrase",
+                        "@arg2": "item"
+                    },
+                    "post-modifiers": [
+                        {
+                            "type": "adjective_phrase",
+                            "head": {
+                                "type": "@funcall",
+                                "@object": "item1",
+                                "@field": "id",
+                                "@function": "noun+identity",
+                                "@arg1": ""
+                            }
+                        }
+                    ],
+                    "features": {
+                        "number": "singular"
+                    }
+                }
+            }
+        ],
+        "features": {
+            "tense": "past"
+        }
+    },
+    "context": {
+        "provext": "https://openprovenance.org/ns/provext#",
+        "openprov": "https://openprovenance.org/ns/openprov#"
+    }
+}
