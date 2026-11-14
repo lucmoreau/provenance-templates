@@ -33,6 +33,8 @@ use crate::org::openprovenance::book::fs::client::integrator::{
     file_filtering_outputs::FileFilteringOutputs,
     file_init_inputs::FileInitInputs,
     file_init_outputs::FileInitOutputs,
+    file_merging_inputs::FileMergingInputs,
+    file_merging_outputs::FileMergingOutputs,
     file_splitting_inputs::FileSplittingInputs,
     file_splitting_outputs::FileSplittingOutputs,
     file_training_inputs::FileTrainingInputs,
@@ -264,6 +266,14 @@ impl InputOutputProcessor for FsWebTemplateInvoker {
             FileSplittingOutputs::new(),
             bean,
             |m, o| BeanCompleter2::new(m).process_file_splitting_outputs(o),
+        )
+    }
+
+    fn process_file_merging_inputs(&mut self, bean: &FileMergingInputs) -> FileMergingOutputs {
+        self.generic_post_and_return(
+            FileMergingOutputs::new(),
+            bean,
+            |m, o| BeanCompleter2::new(m).process_file_merging_outputs(o),
         )
     }
 

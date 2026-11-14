@@ -1,57 +1,45 @@
 {
     "var": {
-        "split_file1": [
+        "outfile": [
             {
                 "@id": "file:*",
                 "@type": "xsd:int",
                 "@examplar": 122,
-                "@documentation": "The first file resulting from the split",
+                "@documentation": "The file resulting from merging",
                 "@input": "false",
                 "@output": "true",
                 "@sql.table": "file"
             }
         ],
-        "filename1": [
+        "filename": [
             [
                 {
                     "@value": "*",
                     "@type": "xsd:string",
-                    "@examplar": "file/12378_1.csv",
-                    "@documentation": "The first filename resulting from the split",
+                    "@examplar": "file/123b.csv",
+                    "@documentation": "The file name resulting from the merging",
                     "@input": "compulsory",
-                    "@sql.type":  "nonNullableTEXT"
+                    "@output": "false",
+                    "@sql.type": "nonNullableTEXT"
                 }
             ]
         ],
-        "split_file2": [
+        "infile1": [
             {
                 "@id": "file:*",
                 "@type": "xsd:int",
-                "@examplar": 123,
-                "@documentation": "The second file resulting from the split",
-                "@input": "false",
-                "@output": "true",
+                "@examplar": 120,
+                "@documentation": "The first file before merging",
+                "@input": "compulsory",
                 "@sql.table": "file"
             }
         ],
-        "filename2": [
-            [
-                {
-                    "@value": "*",
-                    "@type": "xsd:string",
-                    "@examplar": "file/12378_2.csv",
-                    "@documentation": "The second filename resulting from the split",
-                    "@input": "compulsory",
-                    "@sql.type":  "nonNullableTEXT"
-                }
-            ]
-        ],
-        "file": [
+        "infile2": [
             {
                 "@id": "file:*",
                 "@type": "xsd:int",
                 "@examplar": 121,
-                "@documentation": "The file before splitting",
+                "@documentation": "The second file before merging",
                 "@input": "compulsory",
                 "@sql.table": "file"
             }
@@ -61,7 +49,7 @@
                 "@id": "method:*",
                 "@type": "xsd:int",
                 "@examplar": 222,
-                "@documentation": "The method to transform the file",
+                "@documentation": "The method to merge the files",
                 "@input": "optional",
                 "@output": "false",
                 "@sql.table": "method"
@@ -76,34 +64,23 @@
                 "@sql.table": "agent"
             }
         ],
-        "splitting": [
+        "merging": [
             {
                 "@id": "act:*",
                 "@type": "xsd:int",
-                "@documentation": "The activity of transforming the file",
+                "@documentation": "The activity of merging the files",
                 "@output": "true",
                 "@sql.table": "activity"
             }
         ],
-        "path1": [
+        "path": [
             [
                 {
                     "@value": "*",
                     "@type": "xsd:string",
                     "@documentation": "The actual path of the file",
                     "@input": "optional",
-                    "@sql.type":  "nullableTEXT"
-                }
-            ]
-        ],
-        "path2": [
-            [
-                {
-                    "@value": "*",
-                    "@type": "xsd:string",
-                    "@documentation": "The actual path of the file",
-                    "@input": "optional",
-                    "@sql.type":  "nullableTEXT"
+                    "@sql.type": "nullableTEXT"
                 }
             ]
         ],
@@ -112,9 +89,9 @@
                 {
                     "@value": "*",
                     "@type": "xsd:dateTime",
-                    "@documentation": "Time when the transformed file is created",
+                    "@documentation": "Time when the merged file is created",
                     "@input": "optional",
-                    "@sql.type":  "timestamptz"
+                    "@sql.type": "timestamptz"
                 }
             ]
         ],
@@ -123,9 +100,9 @@
                 {
                     "@value": "*",
                     "@type": "xsd:dateTime",
-                    "@documentation": "Time when the transformation starts",
+                    "@documentation": "Time when the merging starts",
                     "@input": "optional",
-                    "@sql.type":  "timestamptz"
+                    "@sql.type": "timestamptz"
                 }
             ]
         ],
@@ -134,19 +111,18 @@
                 {
                     "@value": "*",
                     "@type": "xsd:dateTime",
-                    "@documentation": "Time when the transformation ends",
+                    "@documentation": "Time when the merging ends",
                     "@input": "optional",
-                    "@sql.type":  "timestamptz"
+                    "@sql.type": "timestamptz"
                 }
             ]
         ]
     },
     "context": {
-        "ag":  "${PROV_API}/live/agent/",
+        "ag": "${PROV_API}/live/agent/",
         "act": "${PROV_API}/live/activity/",
         "file": "${PROV_API}/live/file/",
-	"method": "${PROV_API}/live/method/"
-
+        "method": "${PROV_API}/live/method/"
     },
     "template": "TODO template",
     "@documentation": "TODO doc."

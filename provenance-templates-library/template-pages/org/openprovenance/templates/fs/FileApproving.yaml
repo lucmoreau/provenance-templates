@@ -1,0 +1,13 @@
+Name: FileApproving
+Fully Qualified Name: org.openprovenance.templates.fs.FileApproving
+IRI: <https://openprovenance.org/templates/org/openprovenance/templates/fs/FileApproving>
+Purpose: The template FileApproving describes the approval of a machine-learning pipeline by a manager, on the basis of its validation score.
+Context: The template is useful for describing the sign-off step of a machine-learning workflow, in which a trained pipeline is released for use once its performance is deemed acceptable.
+Design considerations: The ability to identify the pipeline (before and after approval) and to keep a signed record of the approval.
+Automation: (ttfs/config-fs.json)(https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-fs.json)
+Figure: (org.openprovenance.templates.fs.FileApproving)(project/template-intro1/target/generated-templates/org/openprovenance/templates/fs/file-approving.svg){#fig:org.openprovenance.templates.fs.FileApproving}
+Details: |-
+  At the start, there is a pipeline, for instance produced by FileTraining, and a score, for instance produced by FileValidating. After the approving activity, there are two outputs: the approved pipeline approved_pipeline, and an approval record approval_record, which carries a signature and refers to the approved pipeline. An agent manager controls the approving activity and follows an approval method approval_method; both outputs are attributed to the manager.
+  The template is an instantiation of Product2-2: each output is derived from both inputs, so the approved pipeline and the approval record both depend on the pipeline and on its score.
+  Some predefined, self-explanatory attributes have been adopted, such as filename and path for the approved pipeline.
+  An example is a manager who reviews the accuracy score of a newly trained classifier and signs off its deployment.

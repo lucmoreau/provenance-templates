@@ -97,6 +97,17 @@ public class TableConfiguratorForSuccessorsFS implements TableConfigurator<Map<S
     }
 
     @Override
+    public Map<String, List<String>> file_merging(File_mergingBuilder builder) {
+        String[] order=File_mergingBuilder.propertyOrder;
+        return File_mergingBuilder.__successors.keySet().stream()
+                .collect(Collectors.toMap(
+                        k -> order[k],
+                        k -> Arrays.stream(File_mergingBuilder.__successors.get(k))
+                                .mapToObj(v -> order[v])
+                                .collect(Collectors.toList())));
+    }
+
+    @Override
     public Map<String, List<String>> file_transforming_composite(File_transforming_compositeBuilder builder) {
         return null;
     }

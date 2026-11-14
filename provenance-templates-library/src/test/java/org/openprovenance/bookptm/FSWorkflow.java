@@ -84,6 +84,7 @@ public class FSWorkflow {
         //random value between 0 and 1
         validatingInputs.score_value = Math.random();
         validatingInputs.testing_dataset = splittingOutputs.split_file2;
+        validatingInputs.pipeline = trainingOutputs.pipeline;
         validatingInputs.engineer = engineer;
         validatingInputs.path = path;
         validatingInputs.time = pf.newTimeNow().toString();

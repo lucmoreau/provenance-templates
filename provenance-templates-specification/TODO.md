@@ -210,10 +210,16 @@ Whether to file these in ProvToolbox's `TODO.md` is Luc's call.
 **Priority**: 🟡 MEDIUM.  **Category**: Library.  **Filed 2026-10-16**.
 
 Listed in `prov-template-library/index.html` appendix A; to be filed in `../TEMPLATES-TODO.md` (not done without Luc):
-- physical pages give FQNs `physical.*`, the build `transport.*`;
-- `Triangle2-Entity-SDS.md` gives the IRI of `Triangle2-Agent-SDS` and the name `Triangle-Entity-SDS`;
+- ~~physical pages give FQNs `physical.*`, the build `transport.*`~~ — not an inconsistency (Luc, 2026-11-14): the
+  page FQN and IRI name the modelling namespace (`physical`), the config and catalogue the library (`transport`), and
+  another library (e.g. manufacturing) could include the same template;
+- ~~`Triangle2-Entity-SDS.md` gives the IRI of `Triangle2-Agent-SDS` and the name `Triangle-Entity-SDS`~~ — fixed
+  2026-11-14 (name, IRI, figure label and id);
 - the TTF of `Triangle1-Entity-UGD` names it `triangles.Triangle1-UGD`;
-- `cbindings/…/fs/file-merging.json` is a copy of `file-splitting.json`; `FileMerging` is not in `fs-catalogue.json`;
+- ~~`cbindings/…/fs/file-merging.json` is a copy of `file-splitting.json`; `FileMerging` is not in `fs-catalogue.json`~~
+  — fixed 2026-11-14: `file-merging.json` rewritten for `infile1`, `infile2`, `outfile`, `merging`; `file_merging` added
+  to `fs-catalogue.json`, with handlers in the Rust, Java, Python and JavaScript test invokers; bookptm needs the
+  regenerated `prov-template-library-fs.sql` applied for the new `file_merging` table;
 - T-1 has moved on: `Product2-2.md` exists (its icon is still missing); eight pages remain;
 - the root `README.md` still gives `org.openprovenance.bookptm:template-intro1` (T-3).
 

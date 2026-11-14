@@ -72,8 +72,9 @@
                 "org/openprovenance/templates/triangles/triangle4-aia/association",
                 "org/openprovenance/templates/triangles/triangle4-aia/attribution",
                 "org/openprovenance/templates/triangles/triangle4-aia/invalidation"],
+            "outputFullyQualifiedName": "org.openprovenance.templates.triangles.Triangle4-AIA",
             "output": "org/openprovenance/templates/triangles/triangle4-aia/triangle4-aia",
-            "formats": ["provn", "png", "svg", "qualified-inv.png", "qualified-inv.svg"],
+            "formats": ["jsonld", "provn", "png", "svg", "qualified-inv.png", "qualified-inv.svg"],
             "hasProvenance": "org/openprovenance/templates/triangles/triangle4-aia/prov/prov-triangle4-aia.prov-csv",
             "variableCheck": "variable-check/triangles/variables.json"
         }

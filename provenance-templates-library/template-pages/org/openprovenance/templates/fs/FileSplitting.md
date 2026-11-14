@@ -20,4 +20,4 @@
 
     Some predefined, self-explanatory attributes have been adopted, such as `filename1`, `filename2`, `path1` and `path2`.
 
-    This template can describe the Unix command `split -n 2 file`{.sh}, which reads the given file and splits it into two files (named `xaa` and `xab`); note that the command does not make the output files explicit, as the pipe redirection cannot be used given the multiple outputs that need to be generated.
+    This template can describe the Unix command `split -n 2 file`{.sh}, which reads the given file and splits it into two files (named `xaa` and `xab`); note that the command does not make the output files explicit, as output redirection (`>`) cannot be used given the multiple outputs that need to be generated.

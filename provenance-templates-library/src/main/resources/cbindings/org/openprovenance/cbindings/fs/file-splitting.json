@@ -61,7 +61,7 @@
                 "@id": "method:*",
                 "@type": "xsd:int",
                 "@examplar": 222,
-                "@documentation": "The method to transform the file",
+                "@documentation": "The method to split the file",
                 "@input": "optional",
                 "@output": "false",
                 "@sql.table": "method"
@@ -80,7 +80,7 @@
             {
                 "@id": "act:*",
                 "@type": "xsd:int",
-                "@documentation": "The activity of transforming the file",
+                "@documentation": "The activity of splitting the file",
                 "@output": "true",
                 "@sql.table": "activity"
             }
@@ -90,7 +90,7 @@
                 {
                     "@value": "*",
                     "@type": "xsd:string",
-                    "@documentation": "The actual path of the file",
+                    "@documentation": "The actual path of the first split file",
                     "@input": "optional",
                     "@sql.type":  "nullableTEXT"
                 }
@@ -101,7 +101,7 @@
                 {
                     "@value": "*",
                     "@type": "xsd:string",
-                    "@documentation": "The actual path of the file",
+                    "@documentation": "The actual path of the second split file",
                     "@input": "optional",
                     "@sql.type":  "nullableTEXT"
                 }
@@ -112,7 +112,7 @@
                 {
                     "@value": "*",
                     "@type": "xsd:dateTime",
-                    "@documentation": "Time when the transformed file is created",
+                    "@documentation": "Time when the split files are created",
                     "@input": "optional",
                     "@sql.type":  "timestamptz"
                 }
@@ -123,7 +123,7 @@
                 {
                     "@value": "*",
                     "@type": "xsd:dateTime",
-                    "@documentation": "Time when the transformation starts",
+                    "@documentation": "Time when the splitting starts",
                     "@input": "optional",
                     "@sql.type":  "timestamptz"
                 }
@@ -134,7 +134,7 @@
                 {
                     "@value": "*",
                     "@type": "xsd:dateTime",
-                    "@documentation": "Time when the transformation ends",
+                    "@documentation": "Time when the splitting ends",
                     "@input": "optional",
                     "@sql.type":  "timestamptz"
                 }

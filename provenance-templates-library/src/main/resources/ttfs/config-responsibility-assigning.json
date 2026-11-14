@@ -11,7 +11,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle1-ugd pattern (for entities)",
-            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
+            "template": "org.openprovenance.templates.triangles.Triangle1-Entity-UGD",
             "output": "org/openprovenance/templates/responsibility/assigning/triangle-ugd1",
             "bindings": "assigning-ugd1.json",
             "formats": ["jsonld","provn", "png", "svg"],

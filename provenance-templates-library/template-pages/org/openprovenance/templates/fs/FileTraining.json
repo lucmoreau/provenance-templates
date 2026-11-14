@@ -1,0 +1,11 @@
+{
+  "Name": "FileTraining",
+  "Fully Qualified Name": "org.openprovenance.templates.fs.FileTraining",
+  "IRI": "<https://openprovenance.org/templates/org/openprovenance/templates/fs/FileTraining>",
+  "Purpose": "The template FileTraining describes the training of a machine-learning pipeline on a training dataset.",
+  "Context": "The template is useful for describing the model-fitting step of a machine-learning workflow.",
+  "Design considerations": "The ability to identify the trained pipeline and the dataset it was trained on.",
+  "Automation": "(ttfs/config-fs.json)(https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-fs.json)",
+  "Figure": "(org.openprovenance.templates.fs.FileTraining)(project/template-intro1/target/generated-templates/org/openprovenance/templates/fs/file-training.svg){#fig:org.openprovenance.templates.fs.FileTraining}",
+  "Details": "At the start, there is a dataset training_dataset; after the training activity, there is a pipeline. An agent engineer controls the training activity and uses a method method (such as a script or programme); the pipeline is attributed to the engineer.\nThe template is an instantiation of Transforming1, with training_dataset as its input and pipeline as its output.\nSome predefined, self-explanatory attributes have been adopted, such as filename and path.\nThe pipeline can then be assessed by FileValidating and approved by FileApproving."
+}

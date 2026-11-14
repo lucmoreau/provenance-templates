@@ -11,7 +11,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle1-ugd pattern",
-            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
+            "template": "org.openprovenance.templates.triangles.Triangle1-Entity-UGD",
             "output": "org/openprovenance/templates/responsibility/handingover/handingover-ugd",
             "bindings": "handingover-ugd.json",
             "formats": ["jsonld","provn", "png", "svg"],
@@ -42,7 +42,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle4-agi (a) pattern",
-            "template": "org/openprovenance/templates/triangles/triangle4-aia/triangle4-aia",
+            "template": "org.openprovenance.templates.triangles.Triangle4-AIA",
             "output": "org/openprovenance/templates/responsibility/handingover/handingover-aia-ag0",
             "bindings": "handingover-aia-ag0.json",
             "formats": ["jsonld","provn", "png", "svg"],

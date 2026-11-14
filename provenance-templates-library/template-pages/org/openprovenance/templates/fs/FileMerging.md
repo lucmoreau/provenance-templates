@@ -15,7 +15,7 @@
 - **Details**:
 
 
-    At the start, there are two files, `infile1` and `infile2`; after the `merging` activity, there is a file `merged_file`. An agent `engineer` controls the `merging` activity and uses a method (such as a script or programme).
+    At the start, there are two files, `infile1` and `infile2`; after the `merging` activity, there is a file `outfile`. An agent `engineer` controls the `merging` activity and uses a method (such as a script or programme).
 
     Some predefined, self-explanatory attributes have been adopted, such as `filename` and `path`.
 

@@ -5,7 +5,7 @@
 - **Fully Qualified Name**: `org.openprovenance.templates.generic.Parallel2`
 - **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/generic/Parallel2>
 - **Purpose**: The template `Parallel2` describes the parallel transformation of two inputs by a single activity.
-- **Context**: The template demonstrates parallel processing, introducing multiplicity for inputs and outputs, but each output still derives from a single input.
+- **Context**: The template introduces multiplicity for inputs and outputs, but each output still derives from a single input; both transformations are performed by the one activity `transforming`.
 - **Design considerations**: Ensuring that a given output is derived from a single input.
 - **Automation**: [ttfs/config-generic.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-generic.json)
 
@@ -14,7 +14,7 @@
 
 - **Details**:
 
-   This template has two inputs: `input1` and `input2`; two outputs: `output1` and `output2`; an activity: `transforming`; an agent; and a plan. It is a direct instantiation of `org.openprovenance.templates.generic.Transformation1`, with multiple values for `input` and `output`.
+   This template has two inputs: `input1` and `input2`; two outputs: `output1` and `output2`; an activity: `transforming`; an agent; and a plan. It is a direct instantiation of `org.openprovenance.templates.generic.Transforming1`, with multiple values for `input` and `output`.
 
 
    For this template, we note the presence of the "linked" property in the bindings file; it is fundamental, as it links the variable `output` to `input`. This results in `output1` being derived from `input1` and `output2` from `input2`, in a similar manner.

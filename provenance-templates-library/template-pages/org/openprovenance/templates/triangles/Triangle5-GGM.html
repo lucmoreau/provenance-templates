@@ -222,16 +222,17 @@ vocabulary</a>, using the <code>had</code> prefix in line with the
 PROV-O ontology convention.</p>
 <p>To ensure extensibility, the attributes <code>var:mprops</code> (for
 membership), <code>var:gprops0</code> and <code>var:gprops1</code> (for
-the generations), <code>var:cprops</code> (for the collection), and
+the generations of the item and of the collection, respectively),
+<code>var:cprops</code> (for the collection), and
 <code>var:iprops</code> (for the item) allow application- or
 domain-specific typing to be added.</p>
 <p>This template does not quite follow the pattern introduced in Section
 <strong>¿sec:triangular.patterns?</strong>, which requires that the
 first two edges be composable and that the third be a relation that
 cannot be inferred from their composition. Here, the generations
-<code>gen0</code> and <code>gen1</code> are not composable because both
-point to the activity. However, we felt this triangle has some use, as
-shown in Section
+<code>gen0</code> (of the item) and <code>gen1</code> (of the
+collection) are not composable because both point to the activity.
+However, we felt this triangle has some use, as shown in Section
 <strong>¿sec:templates.inserting.into.collection?</strong>, where we
 demonstrate how it is composed with other templates to describe
 situations before an item is added to a collection and after.</p></li>

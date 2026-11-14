@@ -63,7 +63,7 @@
                 "@id": "method:*",
                 "@type": "xsd:int",
                 "@examplar": 222,
-                "@documentation": "The method to transform the file",
+                "@documentation": "The method followed to approve the pipeline",
                 "@input": "optional",
                 "@output": "false",
                 "@sql.table": "method"
@@ -114,7 +114,7 @@
                 {
                     "@value": "*",
                     "@type": "xsd:dateTime",
-                    "@documentation": "Time when the filtered file is created",
+                    "@documentation": "Time when the approved pipeline is created",
                     "@input": "optional",
                     "@sql.type":  "timestamptz"
                 }
@@ -125,7 +125,7 @@
                 {
                     "@value": "*",
                     "@type": "xsd:dateTime",
-                    "@documentation": "Time when the transformation starts",
+                    "@documentation": "Time when the approval starts",
                     "@input": "optional",
                     "@sql.type":  "timestamptz"
                 }
@@ -136,7 +136,7 @@
                 {
                     "@value": "*",
                     "@type": "xsd:dateTime",
-                    "@documentation": "Time when the transformation ends",
+                    "@documentation": "Time when the approval ends",
                     "@input": "optional",
                     "@sql.type":  "timestamptz"
                 }

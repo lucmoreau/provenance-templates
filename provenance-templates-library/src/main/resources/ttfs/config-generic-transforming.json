@@ -8,7 +8,7 @@
     "tasks": [
         {
             "type": "instantiate",
-            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
+            "template": "org.openprovenance.templates.triangles.Triangle1-Entity-UGD",
             "output": "org/openprovenance/templates/generic/transforming/transforming-triangle1-ugd",
             "bindings": "transforming-triangle1-ugd.json",
             "formats": ["jsonld", "provn", "png", "svg"],

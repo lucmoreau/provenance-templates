@@ -8,7 +8,7 @@
         "dprops":    [[ {"@id": "var:dprops2"},  {"@id": "prov:type"}      ]],
         "dvalues":   [[ {"@id": "var:dvalues2"}, {"@id": "resp:Assigning"} ]],
         "uprops":    [[ {"@id": "var:uprops2"},  {"@id": "prov:role"}      ]],
-        "uvalues":   [[ {"@id": "var:uvalues2"}, {"@id": "var:asAgent"}    ]],
+        "uvalues":   [[ {"@id": "var:uvalues2"}, {"@id": "resp:asAgent"}    ]],
         "usd":       [  {"@id": "var:usd2"}  ],
         "gen":       [  {"@id": "var:gen2"}  ],
         "der":       [  {"@id": "var:der2"}  ],

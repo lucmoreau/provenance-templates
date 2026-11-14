@@ -1,0 +1,25 @@
+
+
+- **Name**: `FileValidating`
+- **Fully Qualified Name**: `org.openprovenance.templates.fs.FileValidating`
+- **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/fs/FileValidating>
+- **Purpose**: The template `FileValidating` describes the assessment of a machine-learning pipeline's performance on a testing dataset, resulting in a score.
+- **Context**: The template is useful for describing the evaluation step of a machine-learning workflow.
+- **Design considerations**: The ability to record the score obtained, the pipeline it assesses and the dataset it was obtained with.
+- **Automation**: [ttfs/config-fs.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-fs.json)
+
+
+![org.openprovenance.templates.fs.FileValidating](project/template-intro1/target/generated-templates/org/openprovenance/templates/fs/file-validating.svg){#fig:org.openprovenance.templates.fs.FileValidating}
+
+
+
+
+- **Details**:
+
+
+
+    At the start, there is a pipeline `pipeline`, for instance produced by `FileTraining`, and a dataset `testing_dataset`; after the `validating` activity, there is a `score`, whose value is `score_value`, derived from both. An agent `engineer` controls the `validating` activity and uses a method `method` (such as a script or programme); the score is attributed to the engineer.
+
+    The template is an instantiation of `Transforming1`, with `pipeline` and `testing_dataset` as its inputs and `score` as its output.
+
+    The score can then be used by `FileApproving` to decide whether to approve a pipeline.

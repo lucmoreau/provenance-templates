@@ -14,17 +14,17 @@
 
 - **Details**:
 
-    This template refines `org.openprovenance.templates.collections.InsertingIntoCollection`, in which the collection is a physical container and the item is physical. At the start, there is a container `container0` and an item `item0`. After this operation, the container `container1` contains item `item1`.
+    This template refines `org.openprovenance.templates.collections.InsertingIntoCollection`, in which the collection is a physical container and the item is physical. At the start, there is a container `container0` and an item `item0`. An activity `adding`, performed by the agent `packer`, places `item0` into `container0`, resulting in the container `container1`, which contains the item `item1`. The container after packing records whether it is sealed (`phys:sealed`) and its type (`containerType`).
 
     The template results from merging four instantiated templates. 
 
-    - InsertingIntoCollection describes the container and item before and after the operation
+    - InsertingIntoCollection describes the container and the item, before and after the operation, and the membership of `item1` in `container1`.
 
-    - Triangle3-AGA to capture the agent (`packer`) responsible for packing the item into the container.
+    - Triangle3-AGA describes the agent `packer`, associated with `adding` and responsible for `container1`.
 
-    - Triangle2-Entity-SDS to indicate that the container before and the container after are both specializations of a single, more general container.
+    - Triangle2-Entity-SDS states that the container before and the container after are both specializations of a single, more general container, `container`.
 
-    - Triangle2-Entity-SDS to describe that the item before and the item after are both specializations of a single, more general item.
+    - Triangle2-Entity-SDS states that the item before and the item after are both specializations of a single, more general item, `item`.
 
 
     As this is a physical operation, the container and item specializations have a single existence: the container's previous and new versions cannot coexist, and the same applies to the item. The creation of `item1` and `container1` invalidates (in the sense of provenance) `item0` and `container0`, though we did not make the invalidation edges explicit to avoid overloading the visualisation.

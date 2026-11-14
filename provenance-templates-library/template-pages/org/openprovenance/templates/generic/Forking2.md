@@ -17,6 +17,6 @@
     
    There are three entities directly related to the transformation: `input`, `output1` and `output2`; an activity `transforming`; an agent `agent`; and an associated plan `plan`. 
 
-   The template is constructed by instantiating `org.openprovenance.templates.generic.Transformation1`. Instead of a single variable `output`, we now have two variables, `output1` and `output2`. The pattern involves deriving each output from the single input. Variables allow specific types to be specified for the activity and its edges; distinct roles can also be assigned to the two outputs used by the activity.
+   The template is constructed by instantiating `org.openprovenance.templates.generic.Transforming1`. Instead of a single variable `output`, we now have two variables, `output1` and `output2`. The pattern involves deriving each output from the single input. Variables allow specific types to be specified for the activity and its edges; distinct roles can also be assigned to the generations of the two outputs by the activity.
 
    The pattern has multiple applications, including creating two subprocesses, splitting a file, cutting a cake in two, or sharing the profits of a business operation.

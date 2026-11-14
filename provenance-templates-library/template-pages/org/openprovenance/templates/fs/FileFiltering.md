@@ -6,7 +6,7 @@
 - **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/fs/FileFiltering>
 - **Purpose**: The template `FileFiltering` describes a filtering operation that selects parts (e.g., lines) of a file.
 - **Context**: The template is useful for describing file-system filtering operations.
-- **Design considerations**: The ability to identify the file (before and after filtering), and whether filtering is in place or generates a new file.
+- **Design considerations**: The ability to identify the file (before and after filtering).
 - **Automation**: [ttfs/config-fs.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-fs.json)
 
 

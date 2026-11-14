@@ -1,0 +1,85 @@
+@prefix :         <http://openprovenance.org/ns/phys#> .
+@prefix phys:     <http://openprovenance.org/ns/phys#> .
+@prefix openprov: <https://openprovenance.org/ns/openprov#> .
+@prefix prov:     <http://www.w3.org/ns/prov#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@base             <http://openprovenance.org/ns/phys#> .
+
+<http://openprovenance.org/ns/phys#>
+    rdf:type owl:Ontology ;
+    rdfs:label "OpenProvenance physical-world vocabulary"@en ;
+    rdfs:comment "The vocabulary the templates of the OpenProvenance library use to describe the physical world: the kinds of activity that act on physical items and containers (registering, packing, unpacking, transporting, weighing), and the attributes these activities record on items, containers and agents (last known location, last known weight and its unit, whether a container is sealed). Physical items have a single existence: a later state of an item is a new entity, derived from the previous one, and a specialization of the same general item."@en ;
+    rdfs:seeAlso <https://openprovenance.org/ns/openprov> .
+
+
+#################################################################
+#    Types: physical activities
+#
+#    Stamped as prov:type on an activity of a physical template;
+#    Transporting and Weighing are also stamped on the derivation
+#    the activity accounts for.
+#################################################################
+
+:RegisteringEntity rdf:type owl:Class ;
+    rdfs:label "Registering entity"@en ;
+    rdfs:comment "The registration of a physical item: the type of the activity of the EntityInit templates, which introduce an item and, optionally, its last known location."@en .
+
+:RegisteringAgent rdf:type owl:Class ;
+    rdfs:label "Registering agent"@en ;
+    rdfs:comment "The registration of an agent: the type of the activity of the AgentInit templates, which introduce an agent and, optionally, its last known location."@en .
+
+:AddingItemToContainer rdf:type owl:Class ;
+    rdfs:label "Adding item to container"@en ;
+    rdfs:comment "The packing of a physical item into a physical container: the type of the activity of the Packing template, alongside openprov:InsertingItemIntoCollection."@en ;
+    rdfs:seeAlso openprov:InsertingItemIntoCollection .
+
+:RemovingItemFromContainer rdf:type owl:Class ;
+    rdfs:label "Removing item from container"@en ;
+    rdfs:comment "The unpacking of a physical item from a physical container: the type of the activity of the Unpacking template, alongside openprov:RemovingElementFromCollection."@en ;
+    rdfs:seeAlso openprov:RemovingElementFromCollection .
+
+:Transporting rdf:type owl:Class ;
+    rdfs:label "Transporting"@en ;
+    rdfs:comment "The transport of a physical item from one location to another: the type of the activity of the Transporting template and of the derivation of the item after transport from the item before."@en .
+
+:Weighing rdf:type owl:Class ;
+    rdfs:label "Weighing"@en ;
+    rdfs:comment "The weighing of a physical item with a scale: the type of the activity of the Weighing template and of the derivation of the weighed item from the item before weighing. The scale is associated with the activity in the role resp:asInstrument, and acts on behalf of the agent operating it."@en .
+
+
+#################################################################
+#    Attributes
+#
+#    Aspects of an entity (or agent), recorded as attribute-value
+#    pairs. Being aspects, they hold throughout the lifetime of the
+#    entity that carries them; "last known" names the value last
+#    observed, which remains true of that entity even if the
+#    physical item changes without being observed again.
+#################################################################
+
+:lkw rdf:type owl:DatatypeProperty ;
+    rdfs:domain prov:Entity ;
+    rdfs:range xsd:double ;
+    rdfs:label "last known weight"@en ;
+    rdfs:comment "The last known weight of a physical item, as measured by a weighing, expressed in kilograms by default: when phys:massUnit is absent, the value is in kilograms; otherwise it is in the unit phys:massUnit gives. Another weighing produces another entity, derived from this one, with its own last known weight."@en .
+
+:massUnit rdf:type owl:DatatypeProperty ;
+    rdfs:domain prov:Entity ;
+    rdfs:range xsd:string ;
+    rdfs:label "mass unit"@en ;
+    rdfs:comment "The unit in which phys:lkw is expressed, as a symbol of the International System of Units (for example kg or g). Optional: when absent, phys:lkw is in kilograms."@en .
+
+:lkl rdf:type owl:DatatypeProperty ;
+    rdfs:domain [ rdf:type owl:Class ; owl:unionOf ( prov:Entity prov:Agent ) ] ;
+    rdfs:range xsd:string ;
+    rdfs:label "last known location"@en ;
+    rdfs:comment "The last known location of a physical item or of an agent, as recorded when it is registered (EntityInit, AgentInit). A later move is recorded by a new entity, for instance one generated by a transport, which states its location with prov:location."@en .
+
+:sealed rdf:type owl:DatatypeProperty ;
+    rdfs:domain prov:Entity ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "sealed"@en ;
+    rdfs:comment "Whether a physical container is sealed: recorded by the Packing template on the container after the item is added."@en .

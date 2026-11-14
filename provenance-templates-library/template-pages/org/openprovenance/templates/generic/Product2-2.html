@@ -199,13 +199,14 @@ org.openprovenance.templates.generic.Product2-2</figcaption>
 <code>input2</code>; two outputs: <code>output1</code> and
 <code>output2</code>; an activity: <code>transforming</code>; an agent;
 and a plan. It is a direct instantiation of
-<code>org.openprovenance.templates.generic.Transformation1</code>, which
+<code>org.openprovenance.templates.generic.Transforming1</code>, which
 uses multiple values for <code>input</code> and <code>output</code>.</p>
 <p>In this template, the bindings file contains no “linked” property
 linking the variable <code>output</code> to <code>input</code> (unlike
 Parallel2). As a result, <code>output1</code> is derived from both
 <code>input1</code> and <code>input2</code>, and <code>output2</code> is
-derived similarly.</p>
+derived similarly: the four derivations cover the product of the two
+inputs and the two outputs, hence the name.</p>
 <p>In contrast, <code>Parallel2</code> links the input to the output
 variables, implying that each output is derived from a single input.</p>
 <p>An application of Product2-2 is integer division, which takes a

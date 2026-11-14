@@ -178,15 +178,14 @@ vertical-align: middle;
 <li><strong>Fully Qualified Name</strong>:
 <code>org.openprovenance.templates.physical.Unpacking</code></li>
 <li><strong>IRI</strong>: <a href="https://openprovenance.org/templates/org/openprovenance/templates/physical/Unpacking" class="uri">https://openprovenance.org/templates/org/openprovenance/templates/physical/Unpacking</a></li>
-<li><strong>Purpose</strong>: The template <code>Unpacking</code>
-describes the evolution of a container as an item is removed from
-it.</li>
+<li><strong>Purpose</strong>: The <code>Unpacking</code> template
+describes how a container evolves as an item is removed from it.</li>
 <li><strong>Context</strong>: The template helps describe common
-situations in the physical world involving containers such as boxes,
-pallets, etc.</li>
+situations in the physical world involving containers such as boxes and
+pallets.</li>
 <li><strong>Design considerations</strong>: The ability to describe the
-state of the container (before and after inserting an item) and the
-state of the item (before being in the container or after).</li>
+container’s state (before and after an item is removed) and the item’s
+state (before it is removed from the container or after).</li>
 <li><strong>Automation</strong>: <a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-unpacking.json">ttfs/config-unpacking.json</a></li>
 </ul>
 <figure id="fig:org.openprovenance.templates.physical.Unpacking">
@@ -197,39 +196,36 @@ org.openprovenance.templates.physical.Unpacking</figcaption>
 <ul>
 <li><p><strong>Details</strong>:</p>
 <p>This template is a refinement of
-<code>org.openprovenance.templates.collections.RemovingFromCollection</code>
-where the collection is a physical container, and the item is physical.
+<code>org.openprovenance.templates.collections.RemovingFromCollection</code>,
+where the collection is a physical container and the item is physical.
 At the start, there is a container <code>container0</code> containing an
-item <code>item0</code>. After this operation, the container
-<code>container1</code> no longer contains the item.</p>
-<p>The template is the result of merging four instantiated
-templates.</p>
+item <code>item0</code>. An activity <code>removing</code>, performed by
+the agent <code>unpacker</code>, takes <code>item0</code> out of
+<code>container0</code>, resulting in the container
+<code>container1</code>, which no longer contains the item, and in
+<code>item1</code>, the item as it is once out of the container.</p>
+<p>The template results from merging five instantiated templates.</p>
 <ul>
-<li><p>RemovingFromCollection describes the container and item, before
-and after the operation</p></li>
-<li><p>Triangle3-AGA to express that the agent (<code>unpacker</code>)
-is responsible for unpacking the item.</p></li>
-<li><p>Triangle3-AGA to express that the agent (<code>unpacker</code>)
-is responsible for unpacking the item from the container.</p></li>
-<li><p>Triangle2-Entity-SDS to describe that the container before and
-the container after are both specializations of a single, more general
-container.</p></li>
-<li><p>Triangle2-Entity-SDS to describe that the item before and the
-item after are both specializations of a single, more general
-item.</p></li>
+<li><p>RemovingFromCollection describes the container and the item,
+before and after the operation.</p></li>
+<li><p>Triangle3-AGA describes the agent <code>unpacker</code>,
+associated with <code>removing</code> and responsible for the item
+<code>item1</code>.</p></li>
+<li><p>Triangle3-AGA describes the same agent <code>unpacker</code> as
+responsible for the container <code>container1</code>.</p></li>
+<li><p>Triangle2-Entity-SDS states that the container before and the
+container after are both specializations of a single, more general
+container, <code>container</code>.</p></li>
+<li><p>Triangle2-Entity-SDS states that the item before and the item
+after are both specializations of a single, more general item,
+<code>item</code>.</p></li>
 </ul>
 <p>As this is a physical operation, the container and item
-specializations have a single existence. The creation of
+specializations have a single instance. The creation of
 <code>item1</code> and <code>container1</code> invalidates (in the sense
 of provenance) <code>item0</code> and <code>container0</code>, though we
 did not make invalidation edges explicit to avoid overloading the
-visualisation.</p>
-<p>Domain-specific instantiations of the template need to consider
-whether the entity <code>item0</code> still exists after it is added to
-the collection. In a physical context, when a book is placed in a box,
-there is a single instance of the book, so it no longer exists outside
-the box. Alternatively, in the digital world, when a file is added to a
-Zip archive, its original copy remains in existence.</p></li>
+visualisation.</p></li>
 </ul>
 </body>
 </html>

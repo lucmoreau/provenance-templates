@@ -39,7 +39,7 @@
                 "@id": "method:*",
                 "@type": "xsd:int",
                 "@examplar": 222,
-                "@documentation": "The method to transform the file",
+                "@documentation": "The method to train the pipeline",
                 "@input": "optional",
                 "@output": "false",
                 "@sql.table": "method"
@@ -58,7 +58,7 @@
             {
                 "@id": "act:*",
                 "@type": "xsd:int",
-                "@documentation": "The activity of transforming the file",
+                "@documentation": "The activity of training the pipeline",
                 "@output": "true",
                 "@sql.table": "activity"
             }
@@ -90,7 +90,7 @@
                 {
                     "@value": "*",
                     "@type": "xsd:dateTime",
-                    "@documentation": "Time when the transformation starts",
+                    "@documentation": "Time when the training starts",
                     "@input": "optional",
                     "@sql.type":  "timestamptz"
                 }
@@ -101,7 +101,7 @@
                 {
                     "@value": "*",
                     "@type": "xsd:dateTime",
-                    "@documentation": "Time when the transformation ends",
+                    "@documentation": "Time when the training ends",
                     "@input": "optional",
                     "@sql.type":  "timestamptz"
                 }

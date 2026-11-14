@@ -30,8 +30,8 @@
         {
             "@type": "simple",
             "name": "ptm_instantiating",
-            "fullyQualifiedName": "org.openprovenance.templates.ptm.PtmInstantiating",
-            "template": "org/openprovenance/templates/ptm/ptm-instantiating",
+            "fullyQualifiedName": "org.openprovenance.templates.ptm.Instantiating",
+            "template": "org.openprovenance.templates.ptm.Instantiating",
             "package": "org.openprovenance.templates.ptm",
             "cbindings": "org/openprovenance/cbindings/ptm/ptm-instantiating.json"
         },
@@ -39,8 +39,8 @@
         {
             "@type": "simple",
             "name": "ptm_merging",
-            "fullyQualifiedName": "org.openprovenance.templates.ptm.PtmMerging",
-            "template": "org/openprovenance/templates/ptm/ptm-merging",
+            "fullyQualifiedName": "org.openprovenance.templates.ptm.Merging",
+            "template": "org.openprovenance.templates.ptm.Merging",
             "package": "org.openprovenance.templates.ptm",
             "cbindings": "org/openprovenance/cbindings/ptm/ptm-merging.json"
         }

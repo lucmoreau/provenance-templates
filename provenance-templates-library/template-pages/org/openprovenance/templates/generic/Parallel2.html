@@ -181,9 +181,10 @@ vertical-align: middle;
 <li><strong>Purpose</strong>: The template <code>Parallel2</code>
 describes the parallel transformation of two inputs by a single
 activity.</li>
-<li><strong>Context</strong>: The template demonstrates parallel
-processing, introducing multiplicity for inputs and outputs, but each
-output still derives from a single input.</li>
+<li><strong>Context</strong>: The template introduces multiplicity for
+inputs and outputs, but each output still derives from a single input;
+both transformations are performed by the one activity
+<code>transforming</code>.</li>
 <li><strong>Design considerations</strong>: Ensuring that a given output
 is derived from a single input.</li>
 <li><strong>Automation</strong>: <a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-generic.json">ttfs/config-generic.json</a></li>
@@ -199,9 +200,9 @@ org.openprovenance.templates.generic.Parallel2</figcaption>
 <code>input2</code>; two outputs: <code>output1</code> and
 <code>output2</code>; an activity: <code>transforming</code>; an agent;
 and a plan. It is a direct instantiation of
-<code>org.openprovenance.templates.generic.Transformation1</code>, with
+<code>org.openprovenance.templates.generic.Transforming1</code>, with
 multiple values for <code>input</code> and <code>output</code>.</p>
-<p>In this template, we note the presence of the “linked” property in
+<p>For this template, we note the presence of the “linked” property in
 the bindings file; it is fundamental, as it links the variable
 <code>output</code> to <code>input</code>. This results in
 <code>output1</code> being derived from <code>input1</code> and

@@ -1,0 +1,11 @@
+Name: FileTransformingComposite
+Fully Qualified Name: org.openprovenance.templates.fs.FileTransformingComposite
+IRI: <https://openprovenance.org/templates/org/openprovenance/templates/fs/FileTransformingComposite>
+Purpose: The template FileTransformingComposite describes the transformation of several files into a single file by a single activity.
+Context: The template is useful when one operation reads several files and writes one, for instance when several files are combined into an archive.
+Design considerations: The ability to submit together all the FileTransforming records of one operation, so that they are stored, or rejected, as a whole.
+Automation: (catalogue/fs-catalogue.json)(https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/catalogue/fs-catalogue.json)
+Details: |-
+  FileTransformingComposite does not have a graph of its own: it is a composite of the template FileTransforming, made of several FileTransforming records submitted together. All the records share the resulting file, transformed_file, and the activity transforming; each record describes one of the input files, file.
+  A composite record states how many records it groups and of which type; each of its elements is a complete FileTransforming record, linked to the composite. The composite is submitted as a single request, so its elements are stored together, or not at all.
+  An example is the Unix command tar -czf archive.tgz file1 file2 file3{.sh}, which writes the three files into the single archive archive.tgz.

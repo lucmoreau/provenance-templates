@@ -5,7 +5,7 @@
 - **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/fs/FileTransforming>
 - **Purpose**: The template `FileTransforming` describes the transformation of a file into another file.
 - **Context**: The template is useful for describing a general file operation within a file system.
-- **Design considerations**: The ability to identify the file (before and after transformation) and whether the transformation is in place or generates a new file.
+- **Design considerations**: The ability to identify the file (before and after transformation).
 - **Automation**: [ttfs/config-fs.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-fs.json)
 
 
@@ -18,7 +18,7 @@
 
 
 
-    At the start, there is a `file`; after the `transforming` activity, there is an item `transformed_file`. An agent `engineer` is involved in the `transforming` activity and uses a plan `method` (such as a script or programme) to drive it.
+    At the start, there is a `file`; after the `transforming` activity, there is a file `transformed_file`. An agent `engineer` is involved in the `transforming` activity and uses a plan `method` (such as a script or programme) to drive it.
 
     Some predefined, self-explanatory attributes have been adopted, such as `filename` and `path`.
 

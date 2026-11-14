@@ -1,0 +1,19 @@
+
+
+- **Name**: `PackingComposite`
+- **Fully Qualified Name**: `org.openprovenance.templates.physical.PackingComposite`
+- **IRI**: <https://openprovenance.org/templates/org/openprovenance/templates/physical/PackingComposite>
+- **Purpose**: The template `PackingComposite` describes the packing of several items into the same container by a single activity.
+- **Context**: The template is useful when several items are packed together, for instance when several boxes are loaded onto one pallet in a single operation.
+- **Design considerations**: The ability to submit together all the `Packing` records of one operation, so that they are stored, or rejected, as a whole.
+- **Automation**: [catalogue/transport-catalogue.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/catalogue/transport-catalogue.json)
+
+
+
+- **Details**:
+
+    `PackingComposite` does not have a graph of its own: it is a composite of the template `Packing`, made of several `Packing` records submitted together. All the records share the container after packing, `container1`, and the activity `adding`; each record describes one item, from `item0` before packing to `item1` in the container.
+
+    A composite record states how many records it groups and of which type; each of its elements is a complete `Packing` record, linked to the composite. The composite is submitted as a single request, so its elements are stored together, or not at all.
+
+    The resulting provenance is that of its elements: a single activity `adding` and a single container `container1`, which contains each of the packed items.

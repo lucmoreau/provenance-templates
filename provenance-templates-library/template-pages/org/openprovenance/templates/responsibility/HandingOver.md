@@ -16,7 +16,7 @@
 
     At the start, there is an entity `item` and its specialization `item0`, with no attributes specified in this template. An activity `handingover` uses entity `item0`. After this operation, an entity `item1` is created with a new attribute `iprops1` and a value `ivalues1`, both determined by the activity `handingover`. All other attributes of `item` and `item0` are expected to remain unchanged.
 
-    Attribution changes during this operation: before the `handingover` activity, `item0` is attributed to the agent `giver`; after the activity, the agent `receiver` is associated with `item1`.
+    Attribution changes during this operation: before the `handingover` activity, `item0` is attributed to the agent `giver`; after the activity, `item1` is attributed to the agent `receiver`. Both agents are associated with `handingover`.
 
 
     The template results from merging four instantiated templates. 
@@ -26,11 +26,11 @@
 
     - Triangle2-Entity-SDS describes how the entities `item0` and `item1` are specializations of a more general entity `item`.
 
-    - Triangle3-AGA describes how the `receiver` agent is involved in the activity, resulting in the agent being linked to `item1` via an attribution link.
+    - Triangle3-AGA describes how the `receiver` agent is associated with the activity, resulting in `item1` being attributed to the agent.
 
-    - Triangle4-AIA describes how the `giver` agent invalidates `item0` simply by handing it to the `receiver` agent.  This does not mean the item is destroyed: instead, `item0` ceases to be the `giver`'s responsibility.
+    - Triangle4-AIA describes how the `giver` agent, associated with the activity, hands `item0` over to the `receiver` agent: the activity invalidates `item0`, which was attributed to the `giver`. This does not mean the item is destroyed: instead, `item0` ceases to be the `giver`'s responsibility.
 
-    Before the activity, `item0` and `receiver` were not linked by an attribution relation. After the activity, `item1` has an attribution to `receiver` but has lost its attribution link to `giver`. Once `item1` is generated, `item0` reaches the end of its lifetime, as indicated by the invalidation relation.
+    Before the activity, `item0` and `receiver` were not linked by an attribution relation. After the activity, `item1` has an attribution to `receiver` and none to `giver`, whose attribution applies only to `item0`. Once `item1` is generated, `item0` reaches the end of its lifetime, as indicated by the invalidation relation.
 
     The template also allows the activity type, attribution type, and agents' roles (`role0` and `role1`) to be specified. 
 

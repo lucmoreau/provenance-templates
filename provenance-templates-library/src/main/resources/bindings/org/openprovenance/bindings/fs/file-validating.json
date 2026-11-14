@@ -1,7 +1,7 @@
 {
     "var" : {
         "agent" :                   [{"@id" : "var:engineer"}],
-        "input" :                   [{"@id" : "var:testing_dataset"}],
+        "input" :                   [{"@id" : "var:testing_dataset"}, {"@id" : "var:pipeline"}],
         "output" :                  [{"@id" : "var:score"}],
         "transforming" :            [{"@id" : "var:validating"}],
         "plan" :                    [{"@id" : "var:method"}],

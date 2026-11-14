@@ -79,6 +79,14 @@
             "template": "org.openprovenance.templates.fs.FileSplitting",
 			"cbindings": "org/openprovenance/cbindings/fs/file-splitting.json"
 		},
+		{
+			"@type": "simple",
+			"name": "file_merging",
+            "fullyQualifiedName": "org.openprovenance.templates.fs.FileMerging",
+            "package": "org.openprovenance.book.fs",
+            "template": "org.openprovenance.templates.fs.FileMerging",
+			"cbindings": "org/openprovenance/cbindings/fs/file-merging.json"
+		},
 
 		{
 			"@type": "composite",

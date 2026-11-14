@@ -204,8 +204,9 @@ is created with a new attribute <code>iprops1</code> and a value
 <code>item0</code> are expected to remain unchanged.</p>
 <p>Attribution changes during this operation: before the
 <code>handingover</code> activity, <code>item0</code> is attributed to
-the agent <code>giver</code>; after the activity, the agent
-<code>receiver</code> is associated with <code>item1</code>.</p>
+the agent <code>giver</code>; after the activity, <code>item1</code> is
+attributed to the agent <code>receiver</code>. Both agents are
+associated with <code>handingover</code>.</p>
 <p>The template results from merging four instantiated templates.</p>
 <ul>
 <li><p>Triangle1-Entity-UGD describes the entity <code>item0</code>
@@ -216,20 +217,22 @@ evolving into <code>item1</code>, enriched by the attribute-value pair
 <code>item0</code> and <code>item1</code> are specializations of a more
 general entity <code>item</code>.</p></li>
 <li><p>Triangle3-AGA describes how the <code>receiver</code> agent is
-involved in the activity, resulting in the agent being linked to
-<code>item1</code> via an attribution link.</p></li>
-<li><p>Triangle4-AIA describes how the <code>giver</code> agent
-invalidates <code>item0</code> simply by handing it to the
-<code>receiver</code> agent. This does not mean the item is destroyed:
-instead, <code>item0</code> ceases to be the <code>giver</code>’s
-responsibility.</p></li>
+associated with the activity, resulting in <code>item1</code> being
+attributed to the agent.</p></li>
+<li><p>Triangle4-AIA describes how the <code>giver</code> agent,
+associated with the activity, hands <code>item0</code> over to the
+<code>receiver</code> agent: the activity invalidates
+<code>item0</code>, which was attributed to the <code>giver</code>. This
+does not mean the item is destroyed: instead, <code>item0</code> ceases
+to be the <code>giver</code>’s responsibility.</p></li>
 </ul>
 <p>Before the activity, <code>item0</code> and <code>receiver</code>
 were not linked by an attribution relation. After the activity,
-<code>item1</code> has an attribution to <code>receiver</code> but has
-lost its attribution link to <code>giver</code>. Once <code>item1</code>
-is generated, <code>item0</code> reaches the end of its lifetime, as
-indicated by the invalidation relation.</p>
+<code>item1</code> has an attribution to <code>receiver</code> and none
+to <code>giver</code>, whose attribution applies only to
+<code>item0</code>. Once <code>item1</code> is generated,
+<code>item0</code> reaches the end of its lifetime, as indicated by the
+invalidation relation.</p>
 <p>The template also allows the activity type, attribution type, and
 agents’ roles (<code>role0</code> and <code>role1</code>) to be
 specified.</p>
@@ -238,9 +241,9 @@ Assigning (Section
 <strong>¿sec:templates.responsibility.assigning?</strong>). The
 Assigning template emphasises the agent’s evolution before and after the
 assignment of responsibility. Here, this is not made explicit. The
-provenance requirements will drive template modelling. The Assigning
-approach focuses on the agent and its responsibility, whereas in
-HandingOver the focus is on the entity and its attribution. Both
+provenance requirements will drive the template’s modelling. The
+Assigning approach focuses on the agent and its responsibility, whereas
+in HandingOver the focus is on the entity and its attribution. Both
 approaches could be combined, but this would add some complexity to the
 template.</p></li>
 </ul>

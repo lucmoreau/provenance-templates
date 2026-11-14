@@ -30,12 +30,12 @@
         "gprops1":       null,
         "gvalues0":      null,
         "gvalues1":      null,
-        "mem":           null,
+        "mem":           [  {"@id": "var:mem"}  ],
         "uprops1":       null,
         "uprops2":       null,
         "uvalues1":      null,
         "uvalues2":      null,
-        "asc":           null,
+        "asc":           [  {"@id": "var:asc1"}  ],
         "attr1":         [  {"@id": "var:attr1"}  ],
         "attr2":         [  {"@id": "var:attr2"}  ]
 

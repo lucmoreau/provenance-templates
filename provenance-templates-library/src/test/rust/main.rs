@@ -42,6 +42,8 @@ use org::openprovenance::book::fs::client::integrator::{
     file_filtering_outputs::FileFilteringOutputs,
     file_init_inputs::FileInitInputs,
     file_init_outputs::FileInitOutputs,
+    file_merging_inputs::FileMergingInputs,
+    file_merging_outputs::FileMergingOutputs,
     file_splitting_inputs::FileSplittingInputs,
     file_splitting_outputs::FileSplittingOutputs,
     file_training_inputs::FileTrainingInputs,
@@ -57,6 +59,7 @@ use crate::org::openprovenance::book::fs::client::common::{
     file_approving_bean::FileApprovingBean,
     file_filtering_bean::FileFilteringBean,
     file_init_bean::FileInitBean,
+    file_merging_bean::FileMergingBean,
     file_splitting_bean::FileSplittingBean,
     file_training_bean::FileTrainingBean,
     file_transforming_bean::FileTransformingBean,
@@ -108,6 +111,7 @@ pub enum HistoryEntry {
     FileValidating(FileValidatingBean),
     FileApproving(FileApprovingBean),
     FileSplitting(FileSplittingBean),
+    FileMerging(FileMergingBean),
     FileTransformingComposite(FileTransformingCompositeBean),
 }
 
@@ -125,6 +129,7 @@ fn try_convert(entry: &dyn Any) -> Option<HistoryEntry> {
     if let Some(b) = entry.downcast_ref::<FileValidatingBean>()            { return Some(HistoryEntry::FileValidating(b.clone())); }
     if let Some(b) = entry.downcast_ref::<FileApprovingBean>()             { return Some(HistoryEntry::FileApproving(b.clone())); }
     if let Some(b) = entry.downcast_ref::<FileSplittingBean>()             { return Some(HistoryEntry::FileSplitting(b.clone())); }
+    if let Some(b) = entry.downcast_ref::<FileMergingBean>()               { return Some(HistoryEntry::FileMerging(b.clone())); }
     if let Some(b) = entry.downcast_ref::<FileTransformingCompositeBean>() { return Some(HistoryEntry::FileTransformingComposite(b.clone())); }
     None
 }
@@ -160,6 +165,9 @@ impl<T: InputOutputProcessor> InputOutputProcessor for HistoryProcessor<T> {
     }
     fn process_file_splitting_inputs(&mut self, bean: &FileSplittingInputs) -> FileSplittingOutputs {
         self.0.borrow_mut().process_file_splitting_inputs(bean)
+    }
+    fn process_file_merging_inputs(&mut self, bean: &FileMergingInputs) -> FileMergingOutputs {
+        self.0.borrow_mut().process_file_merging_inputs(bean)
     }
     fn process_file_transforming_composite_inputs(
         &mut self,

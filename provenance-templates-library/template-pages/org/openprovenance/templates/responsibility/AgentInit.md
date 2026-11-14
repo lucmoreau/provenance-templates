@@ -20,7 +20,7 @@
 
     The intent is that the `type` and `agprops` attributes are inherited by all specializations `agent0`, whereas `location` and `agprops0` may change as specializations evolve (using Triangle2-Agent-SDS).
 
-    Given that aspects of a PROV entity are intended to remain constant throughout its lifetime, we cannot claim (or enforce) that an entity's location does not change during that time (and similarly for agents). Therefore, we adopt the attribute 'last known location', abbreviated `phys:lkl`, to record an entity's location. If the entity changes location without being observed, its last known location remains unchanged. A new observation of the location must result in another entity with the latest location.  
+    A PROV entity (or agent) has fixed aspects, encoded as attribute-value pairs, which hold throughout its lifetime; once one of them changes, there is a new entity, derived from the previous one. We cannot claim (or enforce) that an entity's location does not change during its lifetime (and similarly for agents). Therefore, we adopt the attribute 'last known location', abbreviated `phys:lkl`, to record an entity's location. If the entity changes location without being observed, its last known location remains unchanged. A new observation of the location must result in another entity with the latest location.  
 
 
     The activity is annotated with the RegisteringAgent type to provide an unambiguous way to recognise this template by its activity type; this type can then be used in queries.

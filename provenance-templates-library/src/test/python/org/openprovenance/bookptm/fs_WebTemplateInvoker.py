@@ -210,6 +210,18 @@ class WebTemplateInvoker(TemplateInvoker):
         if hasattr(out, 'ID') and out.ID is not None:
             self.id2object[out.ID] = {'type': bean_type, 'output': out}
         return out
+
+    def process_file_merging_inputs(self, bean):
+        # Call the parent's process method to get the output
+        out = super(WebTemplateInvoker,self).process_file_merging_inputs(bean)
+
+        # Add history tracking based on bean type
+        bean_type = bean.isA
+        self.history.append({'type': bean_type, 'input': bean, 'output': out})
+
+        if hasattr(out, 'ID') and out.ID is not None:
+            self.id2object[out.ID] = {'type': bean_type, 'output': out}
+        return out
         pass
 
     def process_file_validating_inputs(self, bean):

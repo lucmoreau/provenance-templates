@@ -24,4 +24,4 @@
 
     It must be noted that not all attributions follow this pattern. Ownership of a car, modelled by attributing it to an agent, is not linked to the manufacturing activity. The provenance designer must determine which form of attribution applies to their situation. [Section @sec:the.template.library.responsibility.templates] describes other forms of responsibility.
 
-    To ensure extensibility, the attributes `var:aprops` (for the `activity`), `var:attrprops` (for the attribution `attr`), `var:eprops` (for the entity `e`), `var:ascprops` (for the association `asc`) and `var:attprops` (for the attribution `attr`) allow application- or domain-specific typing to be added.
+    To ensure extensibility, the attributes `var:aprops` (for the `activity`), `var:attrprops` (for the attribution `attr`), `var:eprops` (for the entity `e`), `var:ascprops` (for the association `asc`) and `var:gprops` (for the generation) allow application- or domain-specific typing to be added.

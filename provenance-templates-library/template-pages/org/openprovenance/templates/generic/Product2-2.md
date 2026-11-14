@@ -15,10 +15,10 @@
 - **Details**:
 
    
-   This template has two inputs: `input1` and `input2`; two outputs: `output1` and `output2`; an activity: `transforming`; an agent; and a plan. It is a direct instantiation of `org.openprovenance.templates.generic.Transformation1`, which uses multiple values for `input` and `output`.
+   This template has two inputs: `input1` and `input2`; two outputs: `output1` and `output2`; an activity: `transforming`; an agent; and a plan. It is a direct instantiation of `org.openprovenance.templates.generic.Transforming1`, which uses multiple values for `input` and `output`.
 
 
-   In this template, the bindings file contains no "linked" property linking the variable `output` to `input` (unlike Parallel2). As a result, `output1` is derived from both `input1` and `input2`, and `output2` is derived similarly.
+   In this template, the bindings file contains no "linked" property linking the variable `output` to `input` (unlike Parallel2). As a result, `output1` is derived from both `input1` and `input2`, and `output2` is derived similarly: the four derivations cover the product of the two inputs and the two outputs, hence the name.
 
    In contrast, `Parallel2` links the input to the output variables, implying that each output is derived from a single input.
 

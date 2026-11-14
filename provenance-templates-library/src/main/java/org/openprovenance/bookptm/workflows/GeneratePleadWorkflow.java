@@ -395,6 +395,10 @@ public class GeneratePleadWorkflow implements GeneratorInvoker {
                         METHOD_CALL(VARIABLE("splittingOutputs"), "split_file2")),
 
                 ASSIGNMENT(
+                        METHOD_CALL(VARIABLE("validatingInputs"), "pipeline"),
+                        METHOD_CALL(VARIABLE("trainingOutputs"), "pipeline")),
+
+                ASSIGNMENT(
                         METHOD_CALL(VARIABLE("validatingInputs"), "engineer"),
                         VARIABLE("engineer")),
 

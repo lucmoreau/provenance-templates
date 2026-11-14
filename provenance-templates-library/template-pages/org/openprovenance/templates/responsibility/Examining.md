@@ -28,7 +28,7 @@
 
     - Triangle3-AGA describes how the activity `examining` was associated with `agent`, who is responsible for `e1` and its new attribute `eprops1`.
 
-    - Likewise, a further Triangle3-AGA describes how the activity `examining` is associated with `instrument`, which agent is responsible for `e1`, and which new attribute `eprops1` holds.
+    - Likewise, a further Triangle3-AGA describes how the activity `examining` is associated with `instrument`, which is also responsible for `e1` and its new attribute `eprops1`.
 
 
     - Finally, a delegation relation indicates that `instrument` was operated under the control of `agent`.
@@ -36,7 +36,7 @@
 
     The `instrument` and `agent` are optional: either can be specified, or both can be specified. This allows rich descriptions of responsibility for `e1` to be provided.
 
-    The template `Examining` covers many common situations, such as when an agent determines the weight of a box using a scale (the weight would become a new attribute of the box), when an officer checks that an administrative request is complete (the complete flag would become an attribute of the request), or when an autonomous robotic arm checks that a parcel is damaged (the damaged flag would become an attribute of the parcel). These three examples illustrate configurations with an instrument-only (robotic arm), a human-agent-only (officer), and a combination of both (scale and agent).
+    The template `Examining` covers many common situations, such as when an agent determines the weight of a box using a scale (the weight would become a new attribute of the box), when an officer checks that an administrative request is complete (the complete flag would become an attribute of the request), or when an autonomous robotic arm checks that a parcel is damaged (the damaged flag would become an attribute of the parcel). These three examples illustrate configurations with a combination of both (scale and agent), a human-agent-only (officer), and an instrument-only (robotic arm).
 
 
     

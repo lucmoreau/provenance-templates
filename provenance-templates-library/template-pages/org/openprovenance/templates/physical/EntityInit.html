@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>tmplate</title>
+  <style>
+html {
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+body {
+margin: 0 auto;
+max-width: 36em;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 50px;
+padding-bottom: 50px;
+hyphens: auto;
+overflow-wrap: break-word;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+}
+@media (max-width: 600px) {
+body {
+font-size: 0.9em;
+padding: 12px;
+}
+h1 {
+font-size: 1.8em;
+}
+}
+@media print {
+html {
+background-color: white;
+}
+body {
+background-color: transparent;
+color: black;
+font-size: 12pt;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3, h4 {
+page-break-after: avoid;
+}
+}
+p {
+margin: 1em 0;
+}
+a {
+color: #1a1a1a;
+}
+a:visited {
+color: #1a1a1a;
+}
+img {
+max-width: 100%;
+}
+svg {
+height: auto;
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 1.4em;
+}
+h5, h6 {
+font-size: 1em;
+font-style: italic;
+}
+h6 {
+font-weight: normal;
+}
+ol, ul {
+padding-left: 1.7em;
+margin-top: 1em;
+}
+li > ol, li > ul {
+margin-top: 0;
+}
+blockquote {
+margin: 1em 0 1em 1.7em;
+padding-left: 1em;
+border-left: 2px solid #e6e6e6;
+color: #606060;
+}
+code {
+font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+font-size: 85%;
+margin: 0;
+hyphens: manual;
+}
+pre {
+margin: 1em 0;
+overflow: auto;
+}
+pre code {
+padding: 0;
+overflow: visible;
+overflow-wrap: normal;
+}
+.sourceCode {
+background-color: transparent;
+overflow: visible;
+}
+hr {
+border: none;
+border-top: 1px solid #1a1a1a;
+height: 1px;
+margin: 1em 0;
+}
+table {
+margin: 1em 0;
+border-collapse: collapse;
+width: 100%;
+overflow-x: auto;
+display: block;
+font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+margin-bottom: 0.75em;
+}
+tbody {
+margin-top: 0.5em;
+border-top: 1px solid #1a1a1a;
+border-bottom: 1px solid #1a1a1a;
+}
+th {
+border-top: 1px solid #1a1a1a;
+padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+margin-bottom: 4em;
+text-align: center;
+}
+#TOC li {
+list-style: none;
+}
+#TOC ul {
+padding-left: 1.3em;
+}
+#TOC > ul {
+padding-left: 0;
+}
+#TOC a:not(:hover) {
+text-decoration: none;
+}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style>
+
+.columns :first-child {margin-top: 0;}
+.column-span + * {margin-top: 0;}
+</style>
+</head>
+<body>
+<ul>
+<li><strong>Name</strong>: <code>EntityInit</code></li>
+<li><strong>Fully Qualified Name</strong>:
+<code>org.openprovenance.templates.physical.EntityInit</code></li>
+<li><strong>IRI</strong>: <a href="https://openprovenance.org/templates/org/openprovenance/templates/physical/EntityInit" class="uri">https://openprovenance.org/templates/org/openprovenance/templates/physical/EntityInit</a></li>
+<li><strong>Purpose</strong>: This template describes how an entity is
+initially created.</li>
+<li><strong>Context</strong>: The template describes a registration
+activity that results in a generated entity and an optional
+specialization.</li>
+<li><strong>Design considerations</strong>: The template allows new
+attributes for the entity and its specialization to be defined after
+registration; in particular, a specific location can be specified for
+the specialization.</li>
+<li><strong>Automation</strong>: <a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-entity-init.json">ttfs/config-entity-init.json</a></li>
+</ul>
+<figure id="fig:org.openprovenance.templates.physical.EntityInit">
+<img role="img" aria-label="Figure 1: org.openprovenance.templates.physical.EntityInit" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8IS0tIEdlbmVyYXRlZCBieSBncmFwaHZpeiB2ZXJzaW9uIDE0LjEuNSAoMjAyNjA0MTEuMjMzMSkKIC0tPgo8IS0tIFRpdGxlOiB0aXRsZSBQYWdlczogMSAtLT4KPHN2ZyB3aWR0aD0iMzI2cHQiIGhlaWdodD0iMzUycHQiCiB2aWV3Qm94PSIwLjAwIDAuMDAgMzI2LjAwIDM1Mi4wMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CjxnIGlkPSJncmFwaDAiIGNsYXNzPSJncmFwaCIgdHJhbnNmb3JtPSJzY2FsZSgxIDEpIHJvdGF0ZSgwKSB0cmFuc2xhdGUoNCAzNDgpIj4KPHRpdGxlPnRpdGxlPC90aXRsZT4KPHBvbHlnb24gZmlsbD0id2hpdGUiIHN0cm9rZT0ibm9uZSIgcG9pbnRzPSItNCw0IC00LC0zNDggMzIyLC0zNDggMzIyLDQgLTQsNCIvPgo8ZyBpZD0iY2x1c3QxIiBjbGFzcz0iY2x1c3RlciI+Cjx0aXRsZT5jbHVzdGVyaHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXJnZW4jYjwvdGl0bGU+CjxnIGlkPSJhX2NsdXN0MSI+PGEgeGxpbms6aHJlZj0iaHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXJnZW4jYiIgeGxpbms6dGl0bGU9ImIiPgo8cG9seWdvbiBmaWxsPSJub25lIiBzdHJva2U9ImJsYWNrIiBwb2ludHM9IjgsLTggOCwtMzM2IDMxMCwtMzM2IDMxMCwtOCA4LC04Ii8+Cjx0ZXh0IHhtbDpzcGFjZT0icHJlc2VydmUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjE1OSIgeT0iLTE1LjIiIGZvbnQtZmFtaWx5PSJUaW1lcyxzZXJpZiIgZm9udC1zaXplPSIxNC4wMCI+YjwvdGV4dD4KPC9hPgo8L2c+CjwvZz4KPCEtLSBodHRwOi8vb3BlbnByb3ZlbmFuY2Uub3JnL3ZhciNhY3Rpdml0eSAtLT4KPCEtLSBQUk9WX0FDVElWSVRZIHZhcjphY3Rpdml0eSAtLT4KPGcgaWQ9Im5vZGUxIiBjbGFzcz0ibm9kZSI+Cjx0aXRsZT5odHRwOi8vb3BlbnByb3ZlbmFuY2Uub3JnL3ZhciNhY3Rpdml0eTwvdGl0bGU+CjxnIGlkPSJhX25vZGUxIj48YSB4bGluazpocmVmPSJodHRwOi8vb3BlbnByb3ZlbmFuY2Uub3JnL3ZhciNhY3Rpdml0eSIgeGxpbms6dGl0bGU9ImFjdGl2aXR5Ij4KPHBvbHlnb24gZmlsbD0iIzlmYjFmYyIgc3Ryb2tlPSIjMDAwMGZmIiBwb2ludHM9IjI0Mi4yNSwtMzI4IDE4NS43NSwtMzI4IDE4NS43NSwtMjkyIDI0Mi4yNSwtMjkyIDI0Mi4yNSwtMzI4Ii8+Cjx0ZXh0IHhtbDpzcGFjZT0icHJlc2VydmUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjIxNCIgeT0iLTMwNC45NSIgZm9udC1mYW1pbHk9IlRpbWVzLHNlcmlmIiBmb250LXNpemU9IjE0LjAwIj5hY3Rpdml0eTwvdGV4dD4KPC9hPgo8L2c+CjwvZz4KPCEtLSAmIzQ1O2F0dHJzMCAtLT4KPGcgaWQ9Im5vZGUyIiBjbGFzcz0ibm9kZSI+Cjx0aXRsZT4mIzQ1O2F0dHJzMDwvdGl0bGU+Cjxwb2x5Z29uIGZpbGw9Im5vbmUiIHN0cm9rZT0iZ3JheSIgcG9pbnRzPSIxNTcuNjIsLTIzOS41IDE2LjM4LC0yMzkuNSAxNi4zOCwtMjAzIDE2My42MiwtMjAzIDE2My42MiwtMjMzLjUgMTU3LjYyLC0yMzkuNSIvPgo8cG9seWxpbmUgZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBwb2ludHM9IjE1Ny42MiwtMjM5LjUgMTU3LjYyLC0yMzMuNSIvPgo8cG9seWxpbmUgZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBwb2ludHM9IjE2My42MiwtMjMzLjUgMTU3LjYyLC0yMzMuNSIvPgo8dGV4dCB4bWw6c3BhY2U9InByZXNlcnZlIiB0ZXh0LWFuY2hvcj0ic3RhcnQiIHg9IjI2LjM4IiB5PSItMjI0LjUiIGZvbnQtZmFtaWx5PSJUaW1lcyxzZXJpZiIgZm9udC1zaXplPSIxMC4wMCI+dHlwZTo8L3RleHQ+Cjx0ZXh0IHhtbDpzcGFjZT0icHJlc2VydmUiIHRleHQtYW5jaG9yPSJzdGFydCIgeD0iNTguMzgiIHk9Ii0yMjQuNSIgZm9udC1mYW1pbHk9IlRpbWVzLHNlcmlmIiBmb250LXNpemU9IjEwLjAwIj5waHlzOlJlZ2lzdGVyaW5nRW50aXR5PC90ZXh0Pgo8dGV4dCB4bWw6c3BhY2U9InByZXNlcnZlIiB0ZXh0LWFuY2hvcj0ic3RhcnQiIHg9IjI2LjM4IiB5PSItMjExLjI1IiBmb250LWZhbWlseT0iVGltZXMsc2VyaWYiIGZvbnQtc2l6ZT0iMTAuMDAiPmFwcm9wczo8L3RleHQ+Cjx0ZXh0IHhtbDpzcGFjZT0icHJlc2VydmUiIHRleHQtYW5jaG9yPSJzdGFydCIgeD0iNTguMzgiIHk9Ii0yMTEuMjUiIGZvbnQtZmFtaWx5PSJUaW1lcyxzZXJpZiIgZm9udC1zaXplPSIxMC4wMCI+dmFyOmF2YWx1ZXM8L3RleHQ+CjwvZz4KPCEtLSAmIzQ1O2F0dHJzMCYjNDU7Jmd0O2h0dHA6Ly9vcGVucHJvdmVuYW5jZS5vcmcvdmFyI2FjdGl2aXR5IC0tPgo8ZyBpZD0iZWRnZTEiIGNsYXNzPSJlZGdlIj4KPHRpdGxlPiYjNDU7YXR0cnMwJiM0NTsmZ3Q7aHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXIjYWN0aXZpdHk8L3RpdGxlPgo8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9ImdyYXkiIHN0cm9rZS1kYXNoYXJyYXk9IjUsMiIgZD0iTTExNS4wOSwtMjM5LjgxQzEzNi43NSwtMjU0Ljk1IDE2Ny44NSwtMjc2LjcxIDE4OS4zNywtMjkxLjc3Ii8+CjwvZz4KPCEtLSBodHRwOi8vb3BlbnByb3ZlbmFuY2Uub3JnL3ZhciNlbnRpdHkgLS0+CjwhLS0gUFJPVl9FTlRJVFkgdmFyOmVudGl0eSAtLT4KPGcgaWQ9Im5vZGUzIiBjbGFzcz0ibm9kZSI+Cjx0aXRsZT5odHRwOi8vb3BlbnByb3ZlbmFuY2Uub3JnL3ZhciNlbnRpdHk8L3RpdGxlPgo8ZyBpZD0iYV9ub2RlMyI+PGEgeGxpbms6aHJlZj0iaHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXIjZW50aXR5IiB4bGluazp0aXRsZT0iZW50aXR5Ij4KPGVsbGlwc2UgZmlsbD0iI2ZmZmM4NyIgc3Ryb2tlPSIjODA4MDgwIiBjeD0iMjE0IiBjeT0iLTIyMS4yNSIgcng9IjMxLjkiIHJ5PSIxOCIvPgo8dGV4dCB4bWw6c3BhY2U9InByZXNlcnZlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB4PSIyMTQiIHk9Ii0yMTYuMiIgZm9udC1mYW1pbHk9IlRpbWVzLHNlcmlmIiBmb250LXNpemU9IjE0LjAwIj5lbnRpdHk8L3RleHQ+CjwvYT4KPC9nPgo8L2c+CjwhLS0gaHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXIjZW50aXR5JiM0NTsmZ3Q7aHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXIjYWN0aXZpdHkgLS0+CjwhLS0gUFJPVl9HRU5FUkFUSU9OIF86XyAtLT4KPGcgaWQ9ImVkZ2U0IiBjbGFzcz0iZWRnZSI+Cjx0aXRsZT5odHRwOi8vb3BlbnByb3ZlbmFuY2Uub3JnL3ZhciNlbnRpdHkmIzQ1OyZndDtodHRwOi8vb3BlbnByb3ZlbmFuY2Uub3JnL3ZhciNhY3Rpdml0eTwvdGl0bGU+CjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iYmxhY2siIGQ9Ik0yMTQsLTIzOS4zOUMyMTQsLTI1MS4wOCAyMTQsLTI2Ni44MyAyMTQsLTI4MC40Ii8+Cjxwb2x5Z29uIGZpbGw9ImJsYWNrIiBzdHJva2U9ImJsYWNrIiBwb2ludHM9IjIxMC41LC0yODAuMDkgMjE0LC0yOTAuMDkgMjE3LjUsLTI4MC4wOSAyMTAuNSwtMjgwLjA5Ii8+Cjx0ZXh0IHhtbDpzcGFjZT0icHJlc2VydmUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjIyMy43NSIgeT0iLTI2MC43IiBmb250LWZhbWlseT0iVGltZXMsc2VyaWYiIGZvbnQtc2l6ZT0iMTQuMDAiPmdlbjwvdGV4dD4KPC9nPgo8IS0tICYjNDU7YXR0cnMxIC0tPgo8ZyBpZD0ibm9kZTQiIGNsYXNzPSJub2RlIj4KPHRpdGxlPiYjNDU7YXR0cnMxPC90aXRsZT4KPHBvbHlnb24gZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBwb2ludHM9IjE5NS4yNSwtMTUwLjUgMTAyLjc1LC0xNTAuNSAxMDIuNzUsLTExNCAyMDEuMjUsLTExNCAyMDEuMjUsLTE0NC41IDE5NS4yNSwtMTUwLjUiLz4KPHBvbHlsaW5lIGZpbGw9Im5vbmUiIHN0cm9rZT0iZ3JheSIgcG9pbnRzPSIxOTUuMjUsLTE1MC41IDE5NS4yNSwtMTQ0LjUiLz4KPHBvbHlsaW5lIGZpbGw9Im5vbmUiIHN0cm9rZT0iZ3JheSIgcG9pbnRzPSIyMDEuMjUsLTE0NC41IDE5NS4yNSwtMTQ0LjUiLz4KPHRleHQgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgdGV4dC1hbmNob3I9InN0YXJ0IiB4PSIxMTIuNzUiIHk9Ii0xMzUuNSIgZm9udC1mYW1pbHk9IlRpbWVzLHNlcmlmIiBmb250LXNpemU9IjEwLjAwIj50eXBlOjwvdGV4dD4KPHRleHQgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgdGV4dC1hbmNob3I9InN0YXJ0IiB4PSIxNDQuNzUiIHk9Ii0xMzUuNSIgZm9udC1mYW1pbHk9IlRpbWVzLHNlcmlmIiBmb250LXNpemU9IjEwLjAwIj52YXI6dHlwZTwvdGV4dD4KPHRleHQgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgdGV4dC1hbmNob3I9InN0YXJ0IiB4PSIxMTIuNzUiIHk9Ii0xMjIuMjUiIGZvbnQtZmFtaWx5PSJUaW1lcyxzZXJpZiIgZm9udC1zaXplPSIxMC4wMCI+ZXByb3BzOjwvdGV4dD4KPHRleHQgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgdGV4dC1hbmNob3I9InN0YXJ0IiB4PSIxNDQuNzUiIHk9Ii0xMjIuMjUiIGZvbnQtZmFtaWx5PSJUaW1lcyxzZXJpZiIgZm9udC1zaXplPSIxMC4wMCI+dmFyOmV2YWx1ZXM8L3RleHQ+CjwvZz4KPCEtLSAmIzQ1O2F0dHJzMSYjNDU7Jmd0O2h0dHA6Ly9vcGVucHJvdmVuYW5jZS5vcmcvdmFyI2VudGl0eSAtLT4KPGcgaWQ9ImVkZ2UyIiBjbGFzcz0iZWRnZSI+Cjx0aXRsZT4mIzQ1O2F0dHJzMSYjNDU7Jmd0O2h0dHA6Ly9vcGVucHJvdmVuYW5jZS5vcmcvdmFyI2VudGl0eTwvdGl0bGU+CjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iZ3JheSIgc3Ryb2tlLWRhc2hhcnJheT0iNSwyIiBkPSJNMTY0LjU1LC0xNTAuODZDMTc1LjY2LC0xNjYuNDUgMTkxLjc0LC0xODkuMDEgMjAyLjUyLC0yMDQuMTQiLz4KPC9nPgo8IS0tIGh0dHA6Ly9vcGVucHJvdmVuYW5jZS5vcmcvdmFyI2VudGl0eTAgLS0+CjwhLS0gUFJPVl9FTlRJVFkgdmFyOmVudGl0eTAgLS0+CjxnIGlkPSJub2RlNSIgY2xhc3M9Im5vZGUiPgo8dGl0bGU+aHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXIjZW50aXR5MDwvdGl0bGU+CjxnIGlkPSJhX25vZGU1Ij48YSB4bGluazpocmVmPSJodHRwOi8vb3BlbnByb3ZlbmFuY2Uub3JnL3ZhciNlbnRpdHkwIiB4bGluazp0aXRsZT0iZW50aXR5MCI+CjxlbGxpcHNlIGZpbGw9IiNmZmZjODciIHN0cm9rZT0iIzgwODA4MCIgY3g9IjI1NiIgY3k9Ii0xMzIuMjUiIHJ4PSIzNi41MSIgcnk9IjE4Ii8+Cjx0ZXh0IHhtbDpzcGFjZT0icHJlc2VydmUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjI1NiIgeT0iLTEyNy4yIiBmb250LWZhbWlseT0iVGltZXMsc2VyaWYiIGZvbnQtc2l6ZT0iMTQuMDAiPmVudGl0eTA8L3RleHQ+CjwvYT4KPC9nPgo8L2c+CjwhLS0gaHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXIjZW50aXR5MCYjNDU7Jmd0O2h0dHA6Ly9vcGVucHJvdmVuYW5jZS5vcmcvdmFyI2FjdGl2aXR5IC0tPgo8IS0tIFBST1ZfR0VORVJBVElPTiBfOl8gLS0+CjxnIGlkPSJlZGdlNSIgY2xhc3M9ImVkZ2UiPgo8dGl0bGU+aHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXIjZW50aXR5MCYjNDU7Jmd0O2h0dHA6Ly9vcGVucHJvdmVuYW5jZS5vcmcvdmFyI2FjdGl2aXR5PC90aXRsZT4KPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgZD0iTTI1OC45MywtMTUwLjQxQzI1OS43NywtMTU2LjE0IDI2MC41OCwtMTYyLjU4IDI2MSwtMTY4LjUgMjYzLjIzLC0yMDAuMDkgMjYzLjg3LC0yMDkuMSAyNTUsLTIzOS41IDI1MC41NywtMjU0LjY4IDI0Mi4wOSwtMjY5Ljk4IDIzMy45NywtMjgyLjM0Ii8+Cjxwb2x5Z29uIGZpbGw9ImJsYWNrIiBzdHJva2U9ImJsYWNrIiBwb2ludHM9IjIzMS4yNywtMjgwLjEgMjI4LjQ5LC0yOTAuMzIgMjM3LjA0LC0yODQuMDYgMjMxLjI3LC0yODAuMSIvPgo8dGV4dCB4bWw6c3BhY2U9InByZXNlcnZlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB4PSIyNzEuOTkiIHk9Ii0yMTYuMiIgZm9udC1mYW1pbHk9IlRpbWVzLHNlcmlmIiBmb250LXNpemU9IjE0LjAwIj5nZW48L3RleHQ+CjwvZz4KPCEtLSBodHRwOi8vb3BlbnByb3ZlbmFuY2Uub3JnL3ZhciNlbnRpdHkwJiM0NTsmZ3Q7aHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXIjZW50aXR5IC0tPgo8IS0tIFBST1ZfU1BFQ0lBTElaQVRJT04gXzpfIC0tPgo8ZyBpZD0iZWRnZTYiIGNsYXNzPSJlZGdlIj4KPHRpdGxlPmh0dHA6Ly9vcGVucHJvdmVuYW5jZS5vcmcvdmFyI2VudGl0eTAmIzQ1OyZndDtodHRwOi8vb3BlbnByb3ZlbmFuY2Uub3JnL3ZhciNlbnRpdHk8L3RpdGxlPgo8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9ImJsYWNrIiBkPSJNMjQ3LjksLTE1MC4wMkMyNDEuOTgsLTE2Mi4zIDIzMy44MSwtMTc5LjIxIDIyNi45OCwtMTkzLjM3Ii8+Cjxwb2x5Z29uIGZpbGw9ImJsYWNrIiBzdHJva2U9ImJsYWNrIiBwb2ludHM9IjIyMy45MywtMTkxLjY0IDIyMi43MywtMjAyLjE2IDIzMC4yMywtMTk0LjY4IDIyMy45MywtMTkxLjY0Ii8+Cjx0ZXh0IHhtbDpzcGFjZT0icHJlc2VydmUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjI0Ny43NiIgeT0iLTE3MS43IiBmb250LWZhbWlseT0iVGltZXMsc2VyaWYiIGZvbnQtc2l6ZT0iMTQuMDAiPnNwZTwvdGV4dD4KPC9nPgo8IS0tICYjNDU7YXR0cnMyIC0tPgo8ZyBpZD0ibm9kZTYiIGNsYXNzPSJub2RlIj4KPHRpdGxlPiYjNDU7YXR0cnMyPC90aXRsZT4KPHBvbHlnb24gZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBwb2ludHM9IjI5NS41LC03NyAxOTIuNSwtNzcgMTkyLjUsLTQwLjUgMzAxLjUsLTQwLjUgMzAxLjUsLTcxIDI5NS41LC03NyIvPgo8cG9seWxpbmUgZmlsbD0ibm9uZSIgc3Ryb2tlPSJncmF5IiBwb2ludHM9IjI5NS41LC03NyAyOTUuNSwtNzEiLz4KPHBvbHlsaW5lIGZpbGw9Im5vbmUiIHN0cm9rZT0iZ3JheSIgcG9pbnRzPSIzMDEuNSwtNzEgMjk1LjUsLTcxIi8+Cjx0ZXh0IHhtbDpzcGFjZT0icHJlc2VydmUiIHRleHQtYW5jaG9yPSJzdGFydCIgeD0iMjAyLjUiIHk9Ii02MiIgZm9udC1mYW1pbHk9IlRpbWVzLHNlcmlmIiBmb250LXNpemU9IjEwLjAwIj5lcHJvcHMwOjwvdGV4dD4KPHRleHQgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgdGV4dC1hbmNob3I9InN0YXJ0IiB4PSIyMzkuNzUiIHk9Ii02MiIgZm9udC1mYW1pbHk9IlRpbWVzLHNlcmlmIiBmb250LXNpemU9IjEwLjAwIj52YXI6ZXZhbHVlczA8L3RleHQ+Cjx0ZXh0IHhtbDpzcGFjZT0icHJlc2VydmUiIHRleHQtYW5jaG9yPSJzdGFydCIgeD0iMjAyLjUiIHk9Ii00OC43NSIgZm9udC1mYW1pbHk9IlRpbWVzLHNlcmlmIiBmb250LXNpemU9IjEwLjAwIj5sa2w6PC90ZXh0Pgo8dGV4dCB4bWw6c3BhY2U9InByZXNlcnZlIiB0ZXh0LWFuY2hvcj0ic3RhcnQiIHg9IjIzOS43NSIgeT0iLTQ4Ljc1IiBmb250LWZhbWlseT0iVGltZXMsc2VyaWYiIGZvbnQtc2l6ZT0iMTAuMDAiPnZhcjpsb2NhdGlvbjwvdGV4dD4KPC9nPgo8IS0tICYjNDU7YXR0cnMyJiM0NTsmZ3Q7aHR0cDovL29wZW5wcm92ZW5hbmNlLm9yZy92YXIjZW50aXR5MCAtLT4KPGcgaWQ9ImVkZ2UzIiBjbGFzcz0iZWRnZSI+Cjx0aXRsZT4mIzQ1O2F0dHJzMiYjNDU7Jmd0O2h0dHA6Ly9vcGVucHJvdmVuYW5jZS5vcmcvdmFyI2VudGl0eTA8L3RpdGxlPgo8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9ImdyYXkiIHN0cm9rZS1kYXNoYXJyYXk9IjUsMiIgZD0iTTI0OS4yMiwtNzcuNDJDMjUwLjY0LC04OC42NyAyNTIuNDYsLTEwMy4xNiAyNTMuODYsLTExNC4yNyIvPgo8L2c+CjwvZz4KPC9zdmc+Cg==" alt="Figure 1: org.openprovenance.templates.physical.EntityInit" />
+<figcaption aria-hidden="true">Figure 1:
+org.openprovenance.templates.physical.EntityInit</figcaption>
+</figure>
+<ul>
+<li><p><strong>Details</strong>:</p>
+<p>The template does not assume the existence of any entity or agent. It
+allows a new entity to be defined without specifying its provenance,
+thereby enabling the “bootstrapping” of provenance. It is the
+counterpart, for entities, of the template <code>AgentInit</code>.</p>
+<p>A registration activity <code>activity</code> generates an
+<code>entity</code> and its specialization <code>entity0</code>.
+Placeholders are provided for the <code>type</code> and
+<code>eprops</code> attributes of <code>entity</code>. It is also
+possible to specify a location and other attributes <code>eprops0</code>
+for <code>entity0</code>.</p>
+<p>The intent is that the <code>type</code> and <code>eprops</code>
+attributes are inherited by all specializations <code>entity0</code>,
+whereas <code>location</code> and <code>eprops0</code> may change as
+specializations evolve (using Triangle2-Entity-SDS).</p>
+<p>A PROV entity has fixed aspects, encoded as attribute-value pairs,
+which hold throughout its lifetime; once one of them changes, there is a
+new entity, derived from the previous one. We cannot claim (or enforce)
+that an entity’s location does not change during its lifetime.
+Therefore, we adopt the attribute ‘last known location’, abbreviated
+<code>phys:lkl</code>, to record an entity’s location. If the entity
+changes location without being observed, its last known location remains
+unchanged. A new observation of the location must result in another
+entity with the latest location.</p>
+<p>The activity is annotated with the type
+<code>phys:RegisteringEntity</code> to provide an unambiguous way to
+recognise this template by its activity type; this type can then be used
+in queries.</p></li>
+</ul>
+</body>
+</html>

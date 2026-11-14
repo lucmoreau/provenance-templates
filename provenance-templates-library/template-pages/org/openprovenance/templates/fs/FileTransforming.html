@@ -244,12 +244,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
 <code>org.openprovenance.templates.fs.FileTransforming</code></li>
 <li><strong>IRI</strong>: <a href="https://openprovenance.org/templates/org/openprovenance/templates/fs/FileTransforming" class="uri">https://openprovenance.org/templates/org/openprovenance/templates/fs/FileTransforming</a></li>
 <li><strong>Purpose</strong>: The template <code>FileTransforming</code>
-describes the transformation of a file into another.</li>
+describes the transformation of a file into another file.</li>
 <li><strong>Context</strong>: The template is useful for describing a
-general operation on files in a file system.</li>
+general file operation within a file system.</li>
 <li><strong>Design considerations</strong>: The ability to identify the
-file (before and after transformation), whether the transformation is in
-place or generates a new file.</li>
+file (before and after transformation).</li>
 <li><strong>Automation</strong>: <a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-fs.json">ttfs/config-fs.json</a></li>
 </ul>
 <figure id="fig:org.openprovenance.templates.fs.FileTransforming">
@@ -259,16 +258,16 @@ org.openprovenance.templates.fs.FileTransforming</figcaption>
 </figure>
 <ul>
 <li><p><strong>Details</strong>:</p>
-<p>At the start, there is a <code>file</code>; after the activity
-<code>transforming</code>, there is an item
+<p>At the start, there is a <code>file</code>; after the
+<code>transforming</code> activity, there is a file
 <code>transformed_file</code>. An agent <code>engineer</code> is
 involved in the <code>transforming</code> activity and uses a plan
 <code>method</code> (such as a script or programme) to drive it.</p>
-<p>Some pre-defined, self-explanatory attributes have been adopted, such
+<p>Some predefined, self-explanatory attributes have been adopted, such
 as <code>filename</code> and <code>path</code>.</p>
-<p>This template can be used to describe how applying the Unix command
+<p>This template can be used to describe how running the Unix command
 <code class="sourceCode bash"><span class="fu">gzip</span> file</code>
-results in a compressed file.</p>
+produces a compressed file.</p>
 <p>This template serves as a running example throughout the
 book.</p></li>
 </ul>

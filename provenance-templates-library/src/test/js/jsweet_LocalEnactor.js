@@ -73,6 +73,17 @@ class LocalEnactor extends org.openprovenance.templates.catalogue.fs.integrator.
         return out;
     }
 
+    process$org_openprovenance_book_fs_client_integrator_File_mergingInputs(bean) {
+        const out = super.process$org_openprovenance_book_fs_client_integrator_File_mergingInputs(bean);
+        const builder = new org.openprovenance.book.fs.client.common.File_mergingBuilder();
+        const itemIn = bean.process(builder.aArgs2RecordConverter());
+        const itemOut = out.process(builder.aArgs2RecordConverter());
+        const item = this.merge_array(itemIn, itemOut);
+        const file_mergingBean = builder.record2bean(item);
+        this.history.push(file_mergingBean);
+        return out;
+    }
+
     process$org_openprovenance_book_fs_client_integrator_File_validatingInputs(bean) {
         const out = super.process$org_openprovenance_book_fs_client_integrator_File_validatingInputs(bean);
         const builder = new org.openprovenance.book.fs.client.common.File_validatingBuilder();

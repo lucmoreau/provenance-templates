@@ -14,7 +14,7 @@
 - **Details**:
 
    
-   In this template, there are four entities: two serve as inputs, `template1` and `template2`, while the other two serve as outputs: a document and provenance. The activity `merging` combines the two input templates and generates a new provenance document, which is a provenance template.
+   In this template, there are four entities: two serve as inputs, `template1` and `template2`, while the other two serve as outputs, a document `document` and its provenance `provenance`. The activity `merging` combines the two input templates and generates a new provenance document, which is a provenance template. An agent `agent` is associated with `merging`, and both outputs are attributed to it. The template is an instantiation of `Product2-2`: each output is derived from both inputs.
 
    To document the execution of the merging algorithm, the activity also generates a provenance document in the form of compact bindings (see [Section @sec:alternate.external.bindings.representation]).
 

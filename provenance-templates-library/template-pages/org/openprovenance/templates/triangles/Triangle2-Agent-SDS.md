@@ -9,7 +9,7 @@
 - **Design considerations**: The ability to assert changing attribute-value pairs (either updated or new) in the new agent.
 - **Automation**:   [ttfs/config-triangle2-agent-sds.json](https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-triangle2-agent-sds.json)
 
-![org.openprovenance.templates.triangles.Triangle-Agent-SDS](project/template-intro1/target/generated-templates/org/openprovenance/templates/triangles/triangle2-agent-sds/triangle2-agent-sds.svg){#fig:org.openprovenance.templates.triangles.Triangle2-Agent-SDS}
+![org.openprovenance.templates.triangles.Triangle2-Agent-SDS](project/template-intro1/target/generated-templates/org/openprovenance/templates/triangles/triangle2-agent-sds/triangle2-agent-sds.svg){#fig:org.openprovenance.templates.triangles.Triangle2-Agent-SDS}
 
 
 

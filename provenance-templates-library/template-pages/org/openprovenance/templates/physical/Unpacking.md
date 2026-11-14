@@ -15,24 +15,22 @@
 
 - **Details**:
 
-    This template is a refinement of `org.openprovenance.templates.collections.RemovingFromCollection`, where the collection is a physical container and the item is physical. At the start, there is a container `container0` containing an item `item0`. After this operation, the container `container1` no longer contains the item.
+    This template is a refinement of `org.openprovenance.templates.collections.RemovingFromCollection`, where the collection is a physical container and the item is physical. At the start, there is a container `container0` containing an item `item0`. An activity `removing`, performed by the agent `unpacker`, takes `item0` out of `container0`, resulting in the container `container1`, which no longer contains the item, and in `item1`, the item as it is once out of the container.
 
-    The template results from merging four instantiated templates. 
+    The template results from merging five instantiated templates. 
 
-    - RemovingFromCollection describes the container and item before and after the operation
+    - RemovingFromCollection describes the container and the item, before and after the operation.
 
-    - Triangle3-AGA to indicate that the agent (`unpacker`) is responsible for unpacking the item.
+    - Triangle3-AGA describes the agent `unpacker`, associated with `removing` and responsible for the item `item1`.
 
-    - Triangle3-AGA to indicate that the agent (`unpacker`) is responsible for unpacking the item from the container.
+    - Triangle3-AGA describes the same agent `unpacker` as responsible for the container `container1`.
 
-    - Triangle2-Entity-SDS to describe that the container before and the container after are both specializations of a single, more general container.
+    - Triangle2-Entity-SDS states that the container before and the container after are both specializations of a single, more general container, `container`.
 
-    - Triangle2-Entity-SDS to describe that the item before and the item after are both specializations of a single, more general item.
+    - Triangle2-Entity-SDS states that the item before and the item after are both specializations of a single, more general item, `item`.
 
 
     As this is a physical operation, the container and item specializations have a single instance. The creation of `item1` and `container1` invalidates (in the sense of provenance) `item0` and `container0`, though we did not make invalidation edges explicit to avoid overloading the visualisation.
-
-    Domain-specific instantiations of the template need to consider whether the entity `item0` still exists after it is added to the collection. In a physical context, when a book is placed in a box, there is only one instance of the book, so it no longer exists outside the box. Alternatively, in the digital world, when a file is added to a Zip archive, its original copy remains.
 
 
 

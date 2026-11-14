@@ -23,7 +23,7 @@
 
     - Triangle1-Entity-UGD describing the entity `e0` evolving into `e1`, enriched with the attribute-value pair `eprops1`-`evalues1`. All other aspects of `e0` remain unchanged.
 
-    - Triangle1-Agent-UGD describing the agent `ag0` evolving to `ag1`, enriched with the attribute-value pair `agprops1`-`agvalues1`. All other aspects of the entity `ag0` remain unchanged. Note that `ag0` is not associated with the activity but is 'used' by it, meaning it must exist and be available for assignment. Agent `ag0` is not associated with the activity because another agent (not modelled in the template) might be responsible for this assignment.
+    - Triangle1-Agent-UGD describing the agent `ag0` evolving to `ag1`, enriched with the attribute-value pair `agprops1`-`agvalues1`. All other aspects of the agent `ag0` remain unchanged. Note that `ag0` is not associated with the activity but is 'used' by it, meaning it must exist and be available for assignment. Agent `ag0` is not associated with the activity because another agent (not modelled in the template) might be responsible for this assignment.
 
     - Triangle2-Entity-SDS describes how the entities `e0` and `e1` are specializations of a more general entity `e`.
 

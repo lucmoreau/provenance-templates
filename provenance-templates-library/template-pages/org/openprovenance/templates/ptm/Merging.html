@@ -178,7 +178,7 @@ vertical-align: middle;
 <li><strong>Fully Qualified Name</strong>:
 <code>org.openprovenance.templates.ptm.Merging</code></li>
 <li><strong>IRI</strong>: <a href="https://openprovenance.org/templates/org/openprovenance/templates/ptm/Merging" class="uri">https://openprovenance.org/templates/org/openprovenance/templates/ptm/Merging</a></li>
-<li><strong>Purpose</strong>: The template <code>Merging</code>
+<li><strong>Purpose</strong>: The <code>Merging</code> template
 describes the merging of two templates.</li>
 <li><strong>Context</strong>: The template describes one of the two key
 operations in provenance template management.</li>
@@ -195,11 +195,15 @@ org.openprovenance.templates.ptm.Merging</figcaption>
 <li><p><strong>Details</strong>:</p>
 <p>In this template, there are four entities: two serve as inputs,
 <code>template1</code> and <code>template2</code>, while the other two
-serve as outputs: a document and provenance. The activity
-<code>merging</code> combines the two input templates and generates a
-new provenance document, which is a provenance template.</p>
+serve as outputs, a document <code>document</code> and its provenance
+<code>provenance</code>. The activity <code>merging</code> combines the
+two input templates and generates a new provenance document, which is a
+provenance template. An agent <code>agent</code> is associated with
+<code>merging</code>, and both outputs are attributed to it. The
+template is an instantiation of <code>Product2-2</code>: each output is
+derived from both inputs.</p>
 <p>To document the execution of the merging algorithm, the activity also
-generates a provenance document, in the form of compact bindings (see
+generates a provenance document in the form of compact bindings (see
 Section
 <strong>¿sec:alternate.external.bindings.representation?</strong>).</p></li>
 </ul>

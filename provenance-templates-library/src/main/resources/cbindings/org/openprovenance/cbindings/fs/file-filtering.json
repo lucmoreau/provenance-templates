@@ -110,7 +110,7 @@
                 {
                     "@value": "*",
                     "@type": "xsd:dateTime",
-                    "@documentation": "Time when the transformation starts",
+                    "@documentation": "Time when the filtering starts",
                     "@input": "optional",
                     "@sql.type":  "timestamptz"
                 }
@@ -121,7 +121,7 @@
                 {
                     "@value": "*",
                     "@type": "xsd:dateTime",
-                    "@documentation": "Time when the transformation ends",
+                    "@documentation": "Time when the filtering ends",
                     "@input": "optional",
                     "@sql.type":  "timestamptz"
                 }

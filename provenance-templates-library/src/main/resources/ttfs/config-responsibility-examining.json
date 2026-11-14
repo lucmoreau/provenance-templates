@@ -11,7 +11,7 @@
         {
             "type": "instantiate",
             "description": "Instantiating an triangle1-ugd pattern",
-            "template": "org.openprovenance.templates.triangles.Triangle1-UGD",
+            "template": "org.openprovenance.templates.triangles.Triangle1-Entity-UGD",
             "output": "org/openprovenance/templates/responsibility/examining/examining-ugd",
             "bindings": "examining-ugd.json",
             "formats": ["jsonld","provn", "png", "svg"],
