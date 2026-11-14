@@ -179,14 +179,14 @@ vertical-align: middle;
 <code>org.openprovenance.templates.collections.InsertingIntoCollection</code></li>
 <li><strong>IRI</strong>: <a href="https://openprovenance.org/templates/org/openprovenance/templates/collections/InsertingIntoCollection" class="uri">https://openprovenance.org/templates/org/openprovenance/templates/collections/InsertingIntoCollection</a></li>
 <li><strong>Purpose</strong>: The template
-<code>InsertingIntoCollection</code> describes the evolution of a
-collection as an item is added to it.</li>
+<code>InsertingIntoCollection</code> describes how a collection evolves
+as an item is added to it.</li>
 <li><strong>Context</strong>: The template helps describe common
-situations involving collections, such as adding a row to a table, a
-file to a zip archive, a book to a shelf, or a box to a palette.</li>
+scenarios involving collections, such as adding a row to a table, a file
+to a zip archive, a book to a shelf, or a box to a pallet.</li>
 <li><strong>Design considerations</strong>: The ability to describe the
 state of the collection (before and after inserting an element) and the
-state of the element (before being in the collection or after).</li>
+state of the element (before it is in the collection or after).</li>
 <li><strong>Automation</strong>: <a href="https://github.com/lucmoreau/provenance-templates/blob/main/provenance-templates-library/src/main/resources/ttfs/config-inserting-into-collection.json">ttfs/config-inserting-into-collection.json</a></li>
 </ul>
 <figure id="fig:org.openprovenance.templates.collections.InsertingIntoCollection">
@@ -197,23 +197,24 @@ org.openprovenance.templates.collections.InsertingIntoCollection</figcaption>
 <ul>
 <li><p><strong>Details</strong>:</p>
 <p>To begin with, there is a collection <code>coll0</code> and an item
-<code>item0</code>. An activity <code>inserting</code> has added the
-item <code>item1</code> to the extended collection
-<code>coll1</code>.</p>
-<p>The template is the result of merging four instantiated
-templates.</p>
+<code>item0</code>. An activity <code>inserting</code> adds
+<code>item0</code> to <code>coll0</code>, resulting in a collection
+<code>coll1</code> of which <code>item1</code> is a member.</p>
+<p>The template principally results from merging four instantiated
+templates (and an association with an agent).</p>
 <ul>
 <li><p>Triangle1-Entity-UGD describes the collection evolving from its
-initial state <code>coll0</code> to the state <code>coll1</code> with a
-new member. All other aspects of the collection remain unchanged,
-meaning that all pre-existing members remain members.</p></li>
-<li><p>Triangle1-Entity-UGD describes the item <code>item0</code>
-initially absent from the collection and becoming item
-<code>item1</code> included in the collection, with all other aspects of
-the item unchanged.</p></li>
+initial state <code>coll0</code> to the state <code>coll1</code>, which
+includes a new member. All other aspects of the collection remain
+unchanged, so all pre-existing members remain members.</p></li>
+<li><p>Triangle1-Entity-UGD describes the item <code>item0</code>,
+initially absent from the collection, becoming item <code>item1</code>,
+which is included in the collection; some aspects of the item may change
+as it is inserted into the collection, such as no longer being
+accessible.</p></li>
 <li><p>Triangle1-Entity-UGD describes how the collection after extension
-<code>coll1</code> is derived from the item <code>item0</code>, as it
-becomes one of its members.</p></li>
+<code>coll1</code> is derived from the item <code>item0</code>, as
+<code>item0</code> becomes one of its members.</p></li>
 <li><p>Triangle5-GGM links the membership relation to the activity and
 generations of the new collection and its new member item.</p></li>
 </ul>
@@ -225,23 +226,22 @@ vocabulary</a>. In addition,
 <code>openprov:InsertingItemIntoCollection</code> is the type of the
 activity <code>inserting</code> and of the derivation <code>der1</code>.
 The other two derivations have types
-<code>openprov:InsertingInto_Item</code> and
-<code>openprov:InsertingInto_Collection</code>, respectively.</p>
+<code>openprov:InsertingInto_Collection</code> and
+<code>openprov:InsertingInto_Item</code>, respectively.</p>
 <p>Domain-specific instantiations of the template must consider whether
 the entity <code>item0</code> still exists after it is added to the
-collection. In a physical context, when a book is put in a box, there is
-a single instance of the book, and therefore, it no longer exists
-outside the box. Alternatively, in the digital world, adding a file to a
-ZIP archive keeps its original copy available.</p>
+collection. In a physical context, when a book is placed in a box, there
+is a single instance of the book, so it no longer exists outside the
+box. Alternatively, in the digital world, adding a file to a ZIP archive
+leaves the original copy available.</p>
 <p>Note that the first template instantiation (for the collection) may
 be further enriched by applying Triangle2-Entity-SDS to the collection,
-thereby marking that <code>coll0</code> and <code>coll1</code> are
-variants of a more general collection. Likewise, the second template
-instantiation (for the item) may be enriched in the same way. Whether
-applying Triangle2-Entity-SDS is appropriate depends on the context.
-Extending an immutable collection (as in Scala) yields a new collection
-independent of the original, so Triangle2-Entity-SDS would not be
-desirable.</p>
+thereby marking <code>coll0</code> and <code>coll1</code> as variants of
+a more general collection. Likewise, the second template instantiation
+(for the item) may be enriched in the same way. Whether applying
+Triangle2-Entity-SDS is appropriate depends on the context. Extending an
+immutable collection (as in Scala) yields a new collection independent
+of the original, so Triangle2-Entity-SDS would not be desirable.</p>
 <p>With these additional annotations and a systematic application of the
 templates in Section
 <strong>¿sec:the.template.library.collection.templates?</strong>, we can

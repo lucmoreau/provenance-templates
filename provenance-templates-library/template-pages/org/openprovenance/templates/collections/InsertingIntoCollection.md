@@ -14,9 +14,10 @@
 
 - **Details**:
 
-    To begin with, there is a collection `coll0` and an item `item0`. An activity `inserting` has added the item `item1` to the extended collection `coll1`. 
+    To begin with, there is a collection `coll0` and an item `item0`. An activity `inserting` 
+adds `item0` to `coll0`, resulting in a collection `coll1` of which `item1` is a member.
 
-    The template results from merging four instantiated templates.  
+    The template principally results from merging four instantiated templates (and an association with an agent).  
 
     - Triangle1-Entity-UGD describes the collection evolving from its initial state `coll0` to the state `coll1`, which includes a new member. All other aspects of the collection remain unchanged, so all pre-existing members remain members.
 
@@ -26,7 +27,7 @@
 
     - Triangle5-GGM links the membership relation to the activity and generations of the new collection and its new member item.
 
-    To distinguish the roles of the collection and the entity in the inputs and outputs of `inserting`, we introduce `openprov:asCollection` and `openprov:asMember` as roles in the [OpenProvenance vocabulary](https://openprovenance.org/ns/openprov). In addition, `openprov:InsertingItemIntoCollection` is the type of the activity `inserting` and of the derivation `der1`. The other two derivations have types `openprov:InsertingInto_Item` and `openprov:InsertingInto_Collection`, respectively.
+    To distinguish the roles of the collection and the entity in the inputs and outputs of `inserting`, we introduce `openprov:asCollection` and `openprov:asMember` as roles in the [OpenProvenance vocabulary](https://openprovenance.org/ns/openprov). In addition, `openprov:InsertingItemIntoCollection` is the type of the activity `inserting` and of the derivation `der1`. The other two derivations have types `openprov:InsertingInto_Collection` and `openprov:InsertingInto_Item`, respectively.
 
     Domain-specific instantiations of the template must consider whether the entity `item0` still exists after it is added to the collection. In a physical context, when a book is placed in a box, there is a single instance of the book, so it no longer exists outside the box. Alternatively, in the digital world, adding a file to a ZIP archive leaves the original copy available.
 

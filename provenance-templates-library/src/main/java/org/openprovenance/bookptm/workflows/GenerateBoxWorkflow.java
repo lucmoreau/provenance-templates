@@ -429,11 +429,11 @@ public class GenerateBoxWorkflow implements GeneratorInvoker {
                 // flowToFrom(weighingInputs1,"item0", packing_compositeOutputs.__elements.get(0), "container1")
                 ASSIGNMENT(
                         METHOD_CALL(VARIABLE("weighingInputs1"), "item0"),
-                        METHOD_CALL(elementGet("packing_compositeOutputs", 0), "item1")),
+                        METHOD_CALL(elementGet("packing_compositeOutputs", 0), "container1")),
                 // flowToFrom(weighingInputs1,"item0", packing_compositeOutputs.__elements.get(1), "container1")
                 ASSIGNMENT(
                         METHOD_CALL(VARIABLE("weighingInputs1"), "item0"),
-                        METHOD_CALL(elementGet("packing_compositeOutputs", 1), "item1")),
+                        METHOD_CALL(elementGet("packing_compositeOutputs", 1), "container1")),
                 flowToFrom("weighingInputs1", "item",  "box_initOutputs",     "entity"),
                 flowToFrom("weighingInputs1", "agent", "agent_initOutputs0",  "agent0"),
                 flowToFrom("weighingInputs1", "scale", "agent_initOutputsS1", "agent0"),

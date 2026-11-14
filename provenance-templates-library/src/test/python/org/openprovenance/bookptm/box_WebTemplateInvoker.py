@@ -11,6 +11,7 @@ from org.openprovenance.book.physical.client.integrator.Agent_initInputs import 
 from org.openprovenance.book.physical.client.integrator.Item_initInputs import Item_initInputs
 from org.openprovenance.book.responsibility.client.integrator.HandingoverInputs import HandingoverInputs
 from past.util.Map import Map
+from past.util.List import List
 
 import json
 from urllib import request
@@ -33,6 +34,19 @@ def _to_jsonable(value):
             if not k.startswith("_")
         }
     return str(value)
+
+
+def _to_past(value):
+    """Wrap a decoded JSON list as a past.util.List, so that generated code can call size() and get(i) on it
+    (e.g. a composite's __elements, read by BeanCompleter2Composite). The JS client gets the same methods by
+    patching Array.prototype in box_run_workflow.js; Python's built-in list cannot be patched.
+    The elements stay plain dicts: the generated completers only call get(key) on them."""
+    if isinstance(value, list) and not isinstance(value, List):
+        wrapped = List()
+        for v in value:
+            wrapped.append(v)
+        return wrapped
+    return value
 
 
 def postInstructionsInOut(url, inputs0, access_token):
@@ -84,7 +98,7 @@ class WebTemplateInvoker(TemplateInvoker):
         result1 = result0[0]
         aMap=Map()
         for key in result1:
-            aMap.put(key,result1[key])
+            aMap.put(key,_to_past(result1[key]))
         val=completer(aMap, outbean)
         return val
 
