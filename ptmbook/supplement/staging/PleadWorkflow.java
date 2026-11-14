@@ -1,6 +1,6 @@
 // Generated automatically by ProvToolbox for template configuration 'fs_template_library'
 // by class org.openprovenance.bookptm.workflows.GeneratePleadWorkflow, method generateAndCompilePast,
-// in file GeneratePleadWorkflow.java, at line 496
+// in file GeneratePleadWorkflow.java, at line 500
 package org.openprovenance.book.workflows;
 
 import java.lang.Integer;
@@ -117,6 +117,7 @@ public abstract class PleadWorkflow {
     File_validatingInputs validatingInputs=new File_validatingInputs();
     validatingInputs.score_value=0.123d;
     validatingInputs.testing_dataset=splittingOutputs.split_file2;
+    validatingInputs.pipeline=trainingOutputs.pipeline;
     validatingInputs.engineer=engineer;
     validatingInputs.path=path;
     validatingInputs.time=this.time();
