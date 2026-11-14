@@ -172,4 +172,4 @@
 :RemovingElement rdf:type owl:Class ;
     rdfs:subClassOf prov:Derivation ;
     rdfs:label "Removing element"@en ;
-    rdfs:comment "The derivation of the removed element, as it is once out of the collection, from the element that was removed."@en .
+    rdfs:comment "The derivation of the collection, as it is once the element is removed, from the element that was removed."@en .

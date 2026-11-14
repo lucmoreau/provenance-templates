@@ -50,6 +50,43 @@
         },
 
         {
+            "type": "instantiate",
+            "description": "Instantiating an agent pattern",
+            "template": "org.openprovenance.templates.primitive.Agent0",
+            "output": "org/openprovenance/templates/collections/removing/agent",
+            "bindings": "agent.json",
+            "formats": ["jsonld"],
+            "hasProvenance": "org/openprovenance/templates/collections/removing/prov/prov-agent.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating an attribution pattern",
+            "template": "org.openprovenance.templates.primitive.Attribution0",
+            "output": "org/openprovenance/templates/collections/removing/attribution1",
+            "bindings": "attribution1.json",
+            "formats": ["jsonld"],
+            "hasProvenance": "org/openprovenance/templates/collections/removing/prov/prov-attribution1.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating an attribution pattern",
+            "template": "org.openprovenance.templates.primitive.Attribution0",
+            "output": "org/openprovenance/templates/collections/removing/attribution2",
+            "bindings": "attribution2.json",
+            "formats": ["jsonld"],
+            "hasProvenance": "org/openprovenance/templates/collections/removing/prov/prov-attribution2.prov-csv"
+        },
+        {
+            "type": "instantiate",
+            "description": "Instantiating an association pattern",
+            "template": "org.openprovenance.templates.primitive.Association0",
+            "output": "org/openprovenance/templates/collections/removing/association",
+            "bindings": "association.json",
+            "formats": ["jsonld"],
+            "hasProvenance": "org/openprovenance/templates/collections/removing/prov/prov-association.prov-csv"
+        },
+
+        {
             "type": "merge",
             "description": "Merging the above templates into a single template",
             "addOutputDirToInputPath": true,
@@ -57,7 +94,11 @@
                 "org/openprovenance/templates/collections/removing/collection-remove-triangle1-ugd",
                 "org/openprovenance/templates/collections/removing/collection-remove-triangle2-ugd",
                 "org/openprovenance/templates/collections/removing/collection-remove-triangle3-ugd",
-                "org/openprovenance/templates/collections/removing/membership"
+                "org/openprovenance/templates/collections/removing/membership",
+                "org/openprovenance/templates/collections/removing/agent",
+                "org/openprovenance/templates/collections/removing/attribution1",
+                "org/openprovenance/templates/collections/removing/attribution2",
+                "org/openprovenance/templates/collections/removing/association"
             ],
             "schemaCheck": "default-qn",
             "output": "org/openprovenance/templates/collections/removing/collection-removing",

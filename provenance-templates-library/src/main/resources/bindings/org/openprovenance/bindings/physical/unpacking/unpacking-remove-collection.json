@@ -5,6 +5,10 @@
         "item1":         [  {"@id": "var:item1"}      ],
         "item0":         [  {"@id": "var:item0"}      ],
         "removing":      [  {"@id": "var:removing"}   ],
+        "agent":         [  {"@id": "var:unpacker"}   ],
+        "asc":           [  {"@id": "var:asc"}        ],
+        "attr1":         [  {"@id": "var:attr1"}      ],
+        "attr2":         [  {"@id": "var:attr2"}      ],
         "aprops":        [[ {"@id": "prov:type"}     ]],
         "avalues":       [[ {"@id": "phys:RemovingItemFromContainer"}]],
 

@@ -14,10 +14,9 @@
 
 - **Details**:
 
-    To begin with, there is a collection `coll0` and an item `item0`. An activity `inserting` 
-adds `item0` to `coll0`, resulting in a collection `coll1` of which `item1` is a member.
+    To begin with, there is a collection `coll0` and an item `item0`. An activity `inserting` adds `item0` to `coll0`, resulting in a collection `coll1` of which `item1` is a member.
 
-    The template principally results from merging four instantiated templates (and an association with an agent).  
+    The template principally results from merging four instantiated templates, together with an agent associated with `inserting`, to whom `coll1` and `item1` are attributed.  
 
     - Triangle1-Entity-UGD describes the collection evolving from its initial state `coll0` to the state `coll1`, which includes a new member. All other aspects of the collection remain unchanged, so all pre-existing members remain members.
 
