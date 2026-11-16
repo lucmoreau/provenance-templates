@@ -439,6 +439,9 @@ endDocument</pre>
           <tr><td><code>@sql.type</code></td><td>attribute variable</td><td>The SQL type of the values, such as <code>timestamptz</code> or <code>nonNullableTEXT</code>.</td></tr>
           <tr><td><code>@transient</code></td><td>attribute variable</td><td><code>true</code>, <code>false</code> or a method name: the value is never persisted, or kept only where the method says (<a href="#data-protection"></a>).</td></tr>
           <tr><td><code>@pseudonym</code></td><td>both</td><td>A method name: the value arrives pseudonymised, in the method's form (<a href="#data-protection"></a>).</td></tr>
+          <tr><td><code>@inJson</code></td><td>attribute variable</td><td>The name of a text variable of the template, the carrier: the value is encoded under a key of the JSON object that variable holds (<a href="#in-json"></a>).</td></tr>
+          <tr><td><code>@inJson.key</code></td><td>attribute variable</td><td>The key in the carrier, when it differs from the variable's name (<a href="#in-json"></a>).</td></tr>
+          <tr><td><code>@performative</code></td><td>attribute variable</td><td><code>request</code> or <code>reply</code>: whose content the value is, the caller's or the service's (<a href="#performative"></a>).</td></tr>
         </tbody>
       </table>
       <p>
@@ -497,6 +500,103 @@ endDocument</pre>
           The annotations of a bindings schema state its author's intent. An application that uses a template library
           decides, from its own configuration, whether to honour, ignore or change them, and may define further methods
           (<a href="#template-compiler"></a>).
+        </p>
+      </section>
+
+      <section id="in-json">
+        <h3>In-JSON values</h3>
+        <p>
+          A template used for many kinds of act often keeps what differs from one kind to the next in a text variable
+          that holds a JSON object, because adding a key there changes no table and no record. The price is that
+          nothing declares the keys. Two members of a bindings schema declare some of them.
+        </p>
+        <p>
+          A variable that carries <code>@inJson</code> is an <dfn>in-JSON value</dfn>. Its value is the value of a key
+          of the JSON object held by another variable of the template, its <dfn>carrier</dfn>, named by
+          <code>@inJson</code>. The key is the name of the variable, or <code>@inJson.key</code> when that member is
+          present: one key may appear in two carriers of a template, which two variables of one name could not.
+        </p>
+        <pre class="example json" title="A value kept in the carrier pattributes">
+"priceBefore": [[{ "@value": "*", "@type": "xsd:double",
+                   "@documentation": "The line's unit price before the act",
+                   "@input": "optional", "@inJson": "pattributes" }]]</pre>
+        <p>
+          An in-JSON value is not a variable of the template's graph: nothing in the template refers to it, and the
+          bindings by which the template is instantiated never name it. A processor that reads a bindings schema
+          takes the in-JSON values out of the template's variables, which are the ordinary ones: the records, tables and
+          builders generated for a template are those it would have without them. Only its documentation and the
+          descriptions of its records mention them.
+        </p>
+        <p>A bindings schema MUST NOT:</p>
+        <ul>
+          <li>put <code>@inJson</code> on a group variable, or <code>@inJson.key</code> without <code>@inJson</code>;</li>
+          <li>name as a carrier a variable that is not a value variable of the template, whose <code>@type</code> is
+            neither <code>xsd:string</code> nor <code>json</code>, or that is itself an in-JSON value;</li>
+          <li>give an in-JSON value a type other than <code>xsd:int</code>, <code>xsd:long</code>, <code>xsd:string</code>,
+            <code>xsd:boolean</code>, <code>xsd:float</code>, <code>xsd:double</code>, <code>xsd:dateTime</code>,
+            <code>xsd:date</code> or <code>json</code>;</li>
+          <li>declare one key twice in one carrier;</li>
+          <li>combine <code>@inJson</code> with <code>@sql.type</code>, <code>@sql.foreign</code>, <code>@unique</code>,
+            <code>@escape</code>, <code>@output</code>, <code>@transient</code> or <code>@pseudonym</code>. An in-JSON
+            value is no column and no log field, so these have nothing to apply to; the annotations of its carrier
+            cover the whole content of the carrier.</li>
+        </ul>
+        <div class="ednote">
+          The JSON Schema of <a href="#bindings-json-schema"></a> restricts <code>@type</code> to
+          <code>xsd:string</code>, <code>xsd:int</code>, <code>xsd:float</code>, <code>xsd:boolean</code> and
+          <code>xsd:dateTime</code>, so it rejects an in-JSON value, or any variable, of type <code>xsd:double</code>,
+          <code>xsd:long</code>, <code>xsd:date</code> or <code>json</code>, which the template compiler reads. The
+          types listed above are the compiler's. Either the schema or this list should change.
+        </div>
+        <p>
+          <strong>A carrier is open.</strong> The in-JSON values declare some of the keys of a carrier, never all of
+          them, and nothing closes it: a key nobody declared is expected, and software that reads and writes a carrier
+          through its declaration MUST accept it, keep it and write it back.
+        </p>
+        <p>
+          <strong>The text of a value.</strong> Software that writes the carrier does so in one way, so that the same
+          values give the same text from any language: no space is written between tokens; an <code>xsd:int</code> or
+          <code>xsd:long</code> is a JSON integer; an <code>xsd:double</code> is written by the number rule of
+          [[RFC8785]] (<code>5.0</code> is written <code>5</code>), an <code>xsd:float</code> by the same rule with the
+          shortest digits that read back as that float, and neither may be <code>NaN</code> or infinite; an <code>xsd:boolean</code> is
+          <code>true</code> or <code>false</code>; an <code>xsd:string</code>, <code>xsd:date</code> and
+          <code>xsd:dateTime</code> are JSON strings; a value of type <code>json</code> is the JSON it holds, nested in
+          the carrier, not a string containing JSON. The members of the object are the declared keys that have a value,
+          in the order of the bindings schema, followed by the other keys, each in the order it was given. (This is the
+          one departure from [[RFC8785]], which sorts the members.) A value that is absent is not written.
+        </p>
+      </section>
+
+      <section id="performative">
+        <h3>Performatives</h3>
+        <p>
+          A record of a request that a program served holds values from three hands: what the caller gave, what the service
+          knew before it acted, and what became of the request. A bindings schema does not say which. The member
+          <code>@performative</code> says it, for the values of the first and the last kind. A
+          <dfn>performative</dfn> is the kind of act a message performs; here it names the two messages of one exchange,
+          the <em>request</em> and the <em>reply</em>.
+        </p>
+        <ul>
+          <li><code>"request"</code>: the value is content of the request: the caller gives it.</li>
+          <li><code>"reply"</code>: the value is content of the reply: the service returns it.</li>
+          <li>Absent: neither. The value is the service's own.</li>
+        </ul>
+        <pre class="example json" title="Two performatives">
+"unitPrice": [[{ "@value": "*", "@type": "xsd:double", "@input": "optional",
+                 "@inJson": "attributes", "@performative": "request" }]],
+"outcome":   [[{ "@value": "*", "@type": "xsd:string", "@input": "compulsory",
+                 "@performative": "reply" }]]</pre>
+        <p>
+          The annotation is allowed on an ordinary value and on an in-JSON value (<a href="#in-json"></a>), one
+          performative per value. A bindings schema MUST NOT put it on a group variable (a caller gives names, and the
+          service finds the nodes), on an output (the store mints it), on a value that is no input of the template, on a
+          carrier that holds in-JSON values (each of its values says its own), or with a word other than the two.
+        </p>
+        <p>
+          The annotation changes nothing a template generates for its own records. It states which values a
+          generated request and reply carry (<a href="#requests-replies"></a>), and the documentation, the JSON Schema
+          and the Turtle description of the template say it. It does not mean that a reply follows a request, and the
+          reply is not one act: whether it agrees, refuses or fails is said by a value inside it, which is any other value.
         </p>
       </section>
     </section>
@@ -699,7 +799,8 @@ endDocument</pre>
           produces provenance without building PROV itself. Its input is a <dfn>catalogue</dfn>, a JSON file
           listing templates, each with its identifier, its fully qualified name, its package and its bindings schema
           (<code>cbindings</code>); a composite entry (<code>consistsOf</code>, <code>sharing</code>) combines
-          several instances of a template that share some variables. For each template it generates:
+          several instances of a template that share some variables; a subtype entry (<code>subtype</code>) describes
+          a kind of record of a simple template (<a href="#template-subtypes"></a>). For each template it generates:
         </p>
         <ul>
           <li>beans and builders, in Java, Python, JavaScript and Rust, with one field per variable of the bindings schema, in order;</li>
@@ -735,6 +836,266 @@ endDocument</pre>
           references to people should therefore set <code>log_error_verbosity = terse</code>, and only the generated
           client should write to it.
         </p>
+
+        <section id="template-subtypes">
+          <h4>Subtypes</h4>
+          <p>
+            A simple template serves many kinds of record when it keeps what differs in the carrier of its in-JSON
+            values (<a href="#in-json"></a>). A <dfn>subtype</dfn> names one such kind: a <dfn>general template</dfn>, a
+            simple template, with some of its inputs given a constant and a stated set of its in-JSON values. A record
+            of a subtype <em>is</em> a record of the general template, in the same table and by the same insert
+            function; the subtype adds nothing to the server side (no table, no builder, no entry in the catalogue's
+            dispatch, no reader for <code>-log2prov</code>), and a store that loads the library sees the general template
+            only. What a subtype generates is for the client: a typed bean, and conversions from it to the general
+            template's input bean and back.
+          </p>
+          <p>A subtype is an entry of the catalogue's <code>templates</code>, with <code>@type</code> <code>subtype</code>:</p>
+          <pre class="example json" title="A subtype entry">
+{ "@type": "subtype",
+  "name": "repricing_rfq_line",
+  "fullyQualifiedName": "com.example.actions.RepricingRfqLine",
+  "package": "com.example.actions",
+  "refines": "com.example.actions.UserInteracting",
+  "fixed":   { "atype": "ex:RepricingRfqLine" },
+  "carries": { "unitPrice": "required", "note": "optional" } }</pre>
+          <ul>
+            <li><code>name</code>, <code>fullyQualifiedName</code>, <code>package</code>: as for any entry (the typed bean, the request and the reply are generated in this package); the name and the
+              fully qualified name are not those of another entry.</li>
+            <li><code>refines</code>: the fully qualified name of a simple template of the same catalogue.</li>
+            <li><code>fixed</code>: for each variable named, the constant it has in every record of the subtype. The
+              variable MUST be an input of the general template, not an output, a carrier or an in-JSON value, and the
+              constant MUST fit its type; the constant of a node variable is the node's local part, a text without prefix. Two subtypes of one template MUST NOT fix the same values: a
+              record of the general template could not tell them apart.</li>
+            <li><code>carries</code>: for each in-JSON value of the general template the subtype has, <code>required</code>
+              or <code>optional</code>. The carrier of each MUST be an input of the general template.</li>
+          </ul>
+          <p>
+            The compiler refuses a subtype that breaks one of these, naming the subtype and what is wrong, and a
+            catalogue with a subtype that is not an integrator catalogue (<code>"integrator": true</code>), since the
+            typed bean converts to the input bean that only an integrator catalogue generates. A catalogue without
+            subtypes, and without in-JSON values, generates exactly what it would without this section.
+          </p>
+
+          <section id="typed-beans">
+            <h5>Typed beans</h5>
+            <p>
+              For each subtype the compiler generates a class, from the same description for Java, Python and JavaScript
+              (it is a PAST class, like the beans of the other templates, and no text of one language). Named as the
+              input bean of the general template is, from the subtype's name, and in the subtype's package, it has:
+            </p>
+            <ul>
+              <li>constants <code>isA</code>, the subtype's fully qualified name, and <code>refines</code>, the general
+                template's;</li>
+              <li>a field for each input of the general template, except the fixed ones and the carriers the subtype
+                carries values in;</li>
+              <li>a field for each carried value, of the type of its <code>@type</code>;</li>
+              <li>for each carrier the subtype carries values in, a map of the other keys of the carrier
+                (<code><var>carrier</var>Other</code>), whose values are JSON values. It is how a key nobody declared
+                reaches the record (<a href="#in-json"></a>);</li>
+              <li><code>toGeneral()</code>, which returns the general template's input bean: it copies the ordinary
+                fields, assigns the fixed constants, refuses a required value that is absent, and writes each carrier as
+                the JSON text of <a href="#in-json"></a>, declared keys first and then the other keys, refusing an
+                other key that is a declared one;</li>
+              <li>the static <code>fromGeneral(general)</code>, which refuses an input bean whose fixed variables do not
+                hold the subtype's constants, copies the ordinary fields, reads each carrier and gives each carried
+                field its key's value, with every other key in the map of other keys, and applies the check of required
+                values.</li>
+            </ul>
+            <p>
+              A carrier in which the subtype carries nothing stays an ordinary field, passed through as it is. There is
+              no typed bean for the outputs: a record of a subtype returns what the general template's returns.
+              Converting a typed bean with <code>toGeneral</code> and back with <code>fromGeneral</code> gives back the
+              bean, other keys included; converting a general bean with <code>fromGeneral</code> and back gives back the
+              same JSON object in each carrier, but not always the same text, since the declared keys are written first.
+            </p>
+            <p>
+              When the catalogue has a subtype, it also generates one class, <code>Subtypes</code>, which for each general
+              template that has subtypes tells, from an input bean, the subtype whose fixed values the bean holds (the
+              one with the most fixed values first), and gives its typed bean.
+            </p>
+            <p>
+              Writing and reading JSON text is not in PAST: the generated code calls one small class, of the same name and
+              behaviour in each language (<code>org.openprovenance.prov.utils.JsonText</code>, in ProvToolbox's
+              <code>prov-model</code> for Java, a candy of the JavaScript build, and a module of the Python template
+              library), that the client project depends on only when its catalogue has a subtype. Every language runs
+              the same table of values and the text each must give, which is what makes the text one.
+            </p>
+            <div class="ednote">
+              Three gaps in what ProvToolbox generates today. (1) In Rust the typed bean has its fields and no
+              conversions, nor the <code>Subtypes</code> class: Rust has no mapping for a static call to the runtime
+              class. (2) In Python, an optional value that is absent is written as <code>0</code>, not as absent, by
+              the Python bean generator generally; the conversions are right for present values only. (3) The JavaScript
+              build the compiler generates does not yet transpile anything, so the JavaScript typed bean is emitted but
+              not built into a client by the compiler. The runtime class is tested in all three languages against the
+              shared table.
+            </div>
+          </section>
+
+          <section id="requests-replies">
+            <h5>Requests and replies</h5>
+            <p>
+              The typed bean holds every input of a record, so a JSON reader that fills it from the body of a request sets
+              whatever the body names, the service's own values included. When values have a performative
+              (<a href="#performative"></a>), the compiler generates two more classes for a subtype, in the package of its
+              typed bean: <code><var>Name</var>Request</code>, when the subtype has a value of the request, and
+              <code><var>Name</var>Reply</code>, when it has a value of the reply. A subtype has a value when it is an
+              ordinary input it does not fix, or an in-JSON value it carries.
+            </p>
+            <ul>
+              <li>Each has one field for each of its values, of the type the value has in the typed bean, and no other
+                field: a body that names a value of the service cannot set it.</li>
+              <li><code>into(typed)</code> copies the fields into the typed bean it is given, and returns it; it touches
+                no other field. The static <code>of(typed)</code> makes the class from a typed bean. They copy fields and
+                call no runtime class, and check nothing: the check of required values stays in
+                <code>toGeneral()</code>, through which every record passes.</li>
+              <li>The request has the map of other keys (<code><var>carrier</var>Other</code>) of each carrier the subtype
+                carries values in, when every value the template declares in that carrier is a value of the request, so
+                that a key nobody declared can reach the record from the caller. <code>into</code> copies the map when it
+                is present. A carrier that also holds a value of the reply, or one of the service's own, has none in the
+                request. The reply has no map.</li>
+            </ul>
+            <p>
+              The JSON Schema of the catalogue has a definition for each, <code><var>subtype</var>Request</code> and
+              <code><var>subtype</var>Reply</code>, with the values typed, the required ones required and no other property,
+              and without <code>isA</code>: an application can publish the first as the schema of its request body. The
+              documentation lists the values of a subtype by whose content they are. The Turtle file declares the term
+              <code>tpl:performative</code> when a value has one and gives it, <code>"request"</code> or
+              <code>"reply"</code>, to the property of the value. An ordinary value that has a performative has a property,
+              named like those of in-JSON values and without <code>tpl:inJson</code>, and its template is then described
+              too.
+            </p>
+            <div class="ednote">
+              As for typed beans: in Rust the classes have their fields and no <code>into</code> or <code>of</code>, because
+              the Rust generator writes the assignment of one bean's field to another as <code>Some(x.to_string())</code> or
+              <code>Some(x)</code>, which does not compile for the optional field a bean has. In Python the test for an
+              absent map of other keys is written <code>!= 0</code>, so <code>into</code> copies <code>None</code> over the
+              typed bean's own map.
+            </div>
+          </section>
+
+          <section id="subtype-descriptions">
+            <h5>Descriptions</h5>
+            <ul>
+              <li>The <strong>documentation</strong> lists, under each general template, the keys of its carriers with
+                their in-JSON values, and its subtypes, each with what it fixes and carries.</li>
+              <li>The <strong>JSON Schema</strong> of the catalogue has, for each subtype, a definition of its typed bean:
+                its own <code>isA</code>, the inputs it keeps, each carried value as a typed property (the required ones
+                required), and for each carrier an object with free members for the other keys. The general template's
+                schema is unchanged: the carrier is a string there.</li>
+              <li>The <strong>Turtle file</strong>, when the catalogue names one (members <code>turtle</code>, the file,
+                and <code>turtleNamespace</code>, the namespace of its terms, which is then required), says what the
+                compiler knows of the subtypes in the following vocabulary, <code>tpl:</code>
+                (<code>http://openprovenance.org/ns/tpl#</code>).</li>
+            </ul>
+            <table class="simple">
+              <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+              <tbody>
+                <tr><td>a template that keeps in-JSON values or has subtypes</td><td>an <code>owl:Class</code>, named from the template's name; <code>tpl:fullyQualifiedName</code> gives its fully qualified name.</td></tr>
+                <tr><td>an in-JSON value</td><td>an <code>owl:DatatypeProperty</code>, named <code><var>template</var>-<var>value</var></code> so that two templates may use a name, with <code>rdfs:domain</code> the template, <code>rdfs:range</code> its type (<code>rdf:JSON</code> for <code>json</code>), <code>tpl:inJson</code> its carrier and, when it differs from the name, <code>tpl:key</code>.</td></tr>
+                <tr><td>a subtype</td><td>an <code>owl:Class</code>, named from the subtype's name, <code>rdfs:subClassOf</code> its general template: every record of the subtype is a record of the template.</td></tr>
+                <tr><td><code>tpl:fixes</code></td><td>from a subtype, a node with <code>tpl:variable</code> and <code>tpl:value</code>: an input the subtype gives a constant.</td></tr>
+                <tr><td><code>tpl:requires</code>, <code>tpl:mayCarry</code></td><td>from a subtype, an in-JSON value every record of it gives, or may give; a carrier is open, so other keys are allowed.</td></tr>
+              </tbody>
+            </table>
+            <p>
+              An application's own description of its kinds of record (their labels and comments) remains the
+              application's to write: the file states what the compiler knows and has checked.
+            </p>
+          </section>
+        </section>
+
+        <section id="template-flows">
+          <h4>Flows</h4>
+          <p>
+            A request has a request class, a user bean (the typed bean of a user subtype) and a reply class; the backend's
+            record has a typed bean of its own, a subtype of the template the store loads. A <dfn>flow</dfn> connects them: one
+            class of three steps, <em>ask</em> (the request becomes the user bean), <em>record</em> (the user bean and the
+            records that made things as they stood become the backend's bean) and <em>answer</em> (what the store made becomes
+            the reply), with a reply for a refused and for a failed request. Its point is that every input of those beans has
+            <strong>one stated origin</strong>, so that the backend's record can be shown faithful to what the person asked: a
+            value the person did not give cannot be passed off as asked.
+          </p>
+          <p>A flow is an entry of the catalogue's <code>templates</code>, with <code>@type</code> <code>flow</code>:</p>
+          <pre class="example json" title="A flow entry (abridged)">
+{ "@type": "flow", "name": "repricing_flow",
+  "fullyQualifiedName": "com.example.flows.RepricingFlow", "package": "com.example.flows",
+  "from": "com.example.actions.Repricing", "to": "com.example.backend.LineChange",
+  "stood": {
+    "document": { "node": "document0", "madeBy": "document1", "addressed": "subject0" },
+    "line":     { "node": "part0", "madeBy": "part1", "identity": { "user": "line", "backend": "partLine" } } },
+  "ask":    { "agent": { "supplied": "caller" }, "time": { "supplied": "clock" } },
+  "record": { "agent": "asked", "time": "asked",
+              "partLine": { "asked": "line", "as": "text" }, "priceUnit": { "asked": "unitPrice", "as": "text" },
+              "priceBefore": { "carried": "line.partPriceUnit" },
+              "atype": { "constant": "Repricing" }, "estimate": { "supplied": "estimate" },
+              "attributesOther": "absent" },
+  "carry":     { "line": "rest", "document": [ "items", "currency", "name1" ] },
+  "carryOpen": { "pattributes": "line" },
+  "reply": { "answer":  { "outcome": { "when": { "made": "document1" }, "is": "accepted", "otherwise": "failed" },
+                          "result": { "recorded": "erpId1" }, "code": "absent" },
+             "refused": { "outcome": { "constant": "refused" }, "code": { "argument": true }, "result": "absent" } } }</pre>
+          <ul>
+            <li><code>from</code>, <code>to</code>: the user subtype and the backend subtype the flow connects, both of the catalogue.</li>
+            <li><code>stood</code>: each thing that stood before, by a name of the flow's own, as the record that made it: the
+              backend's input node it becomes (<code>node</code>), the output node of that record that made it
+              (<code>madeBy</code>), optionally the user bean's node that must be the same node (<code>addressed</code>) and the user
+              value and backend value that say which thing it is (<code>identity</code>), and optionally the subtype of that
+              record (<code>of</code>). The document and the line are two records as soon as another line changed in between.</li>
+            <li><code>ask</code>: the user bean's own values, the ones the request does not give and the reply does not return.</li>
+            <li><code>record</code>: the backend's inputs not carried over. <code>carry</code>: from which stood thing the other
+              values come, unchanged and by their own name, as an explicit list or <code>"rest"</code> (for at most one thing).
+              <code>carryOpen</code>: for each carrier of the backend's bean, the stood thing whose other keys are carried; the
+              act's are not, since a removal's reason would leak into the next reprice.</li>
+            <li><code>reply</code>: for <code>answer</code>, <code>refused</code> and <code>failed</code>, how each value of the
+              reply class is given.</li>
+          </ul>
+          <table class="simple">
+            <thead><tr><th>Kind</th><th>The value is</th><th>Written</th></tr></thead>
+            <tbody>
+              <tr><td>AS ASKED</td><td>the request's (through the user bean)</td><td><code>"asked"</code>, <code>{"asked": value, "as": "text"}</code></td></tr>
+              <tr><td>CHAINED</td><td>a node a previous record made</td><td><code>stood</code></td></tr>
+              <tr><td>CARRIED OVER</td><td>a previous record's, unchanged</td><td><code>carry</code>, <code>carryOpen</code>, <code>{"carried": "thing.value"}</code></td></tr>
+              <tr><td>CONSTANT</td><td>the same for every record of this kind of act</td><td><code>{"constant": v}</code></td></tr>
+              <tr><td>SUPPLIED</td><td>the application's to compute: a rule, not a copy</td><td><code>{"supplied": rule}</code>, <code>{"argument": true}</code></td></tr>
+              <tr><td>AS MADE</td><td>the backend record's, given back to the caller</td><td><code>{"recorded": value}</code>, <code>{"made": output}</code>, <code>{"when": ...}</code></td></tr>
+            </tbody>
+          </table>
+          <p>
+            <strong>Every input is accounted for exactly once.</strong> An input of the backend's bean is a field of the typed bean
+            of its subtype: the ordinary inputs the subtype does not fix, the carried in-JSON values, and the map of other keys of
+            each carrier it carries values in. Each MUST be said once, by <code>record</code>, <code>carry</code>,
+            <code>carryOpen</code> or as a <code>stood</code> node; a value deliberately left unset is said, <code>"absent"</code>,
+            and MUST NOT be compulsory. The same holds of the user bean's own values and of the reply's values in each reply
+            block. The compiler refuses a flow that leaves one out or names one twice, that names what is no value or no node, a
+            conversion it does not have, a rule used for two values, two stood things for one node, or a reply that says what the
+            store made when nothing was recorded.
+          </p>
+          <p>
+            It generates, for Java, Python and JavaScript, one class <code><var>Flow</var></code> with the static methods
+            <code>ask</code>, <code>record</code>, <code>answer</code>, <code>refused</code> and <code>failed</code>, and, when
+            the flow has a supplied value, one interface <code><var>Flow</var>Rules</code> with a method for each, which the
+            application implements. A rule receives the beans in scope in its step (the user bean, the backend's bean so far and
+            each stood thing's inputs and outputs), not strings picked out of them. Each assignment is preceded by a comment that
+            names its kind and the value; <code>record</code> refuses, before anything is built, a previous record that is not of
+            the line the request names, and a request that addresses another document than the one the previous record made.
+            A number or a boolean given to a text value goes through the runtime class, <code>JsonText.text</code>, so that every
+            language gives the same text; <code>null</code> stays <code>null</code>.
+          </p>
+          <p>
+            The documentation lists each flow as a table, one row for each value: the kind and where it comes from. The Turtle
+            file describes it with <code>tpl:Flow</code>, <code>tpl:from</code> and <code>tpl:to</code> and, for each value, a node
+            <code>tpl:origin</code> with <code>tpl:step</code>, <code>tpl:target</code>, <code>tpl:kind</code> and
+            <code>tpl:source</code>. A flow has no record, so the JSON Schema says nothing of it.
+          </p>
+          <div class="ednote">
+            Not generated for Rust, which has no mapping for the runtime class. A double has no trailing zeros: a price asked as
+            <code>2.50</code> is recorded as <code>2.5</code> until there is a decimal type. <code>"rest"</code> carries over every
+            input the declaration does not say, from the stood thing, when that thing's bean has a value of that name, so a supplied
+            value the declaration forgets is carried over without a refusal; the table in the documentation shows it.
+            In Python an absent value is tested as <code>!= 0</code>, and the generated JavaScript build transpiles nothing, as for
+            the typed beans.
+          </div>
+        </section>
       </section>
     </section>
 
@@ -749,6 +1110,9 @@ endDocument</pre>
         <li>Bindings are represented in JSON; their representation as PROV documents is deprecated.</li>
         <li>Links between variables may be declared in the bindings.</li>
         <li>New: bindings schemas, template indexes, template transformation files, the template compiler.</li>
+        <li>New annotations <code>@inJson</code> and <code>@inJson.key</code> of bindings schemas, which declare some of the keys of a JSON text variable (<a href="#in-json"></a>), and the <code>subtype</code> entry of the template compiler's catalogue (<a href="#template-subtypes"></a>).</li>
+        <li>New: the <code>flow</code> entry of the template compiler's catalogue, which connects the beans of a request to those of the backend's record and says where each value comes from (<a href="#template-flows"></a>).</li>
+        <li>New annotation <code>@performative</code>, which sorts the values of a subtype into those of a request and those of a reply (<a href="#performative"></a>), and the request and reply classes the compiler generates from it (<a href="#requests-replies"></a>).</li>
         <li>The algorithm is replaced by that of [[PTM-BOOK]], specified in [[PROV-TEMPLATE-ALGORITHMS]], with merge.</li>
       </ul>
     </section>

@@ -158,6 +158,21 @@
                 "@pseudonym": {
                     "type": "string",
                     "description": "The value arrives pseudonymised, in the form of this method (a name; unprefixed means pt:)."
+                },
+                "@inJson": {
+                    "description": "The value is not a variable of the template's graph: it is encoded under a key of the JSON object held by this text variable (its carrier).",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "@inJson.key": {
+                    "description": "The key in the carrier, when it differs from the variable's name.",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "@performative": {
+                    "description": "Whose content the value is: the caller's (request) or the service's (reply). Absent: the service's own.",
+                    "type": "string",
+                    "enum": ["request", "reply"]
                 }
             },
             "additionalProperties": false
