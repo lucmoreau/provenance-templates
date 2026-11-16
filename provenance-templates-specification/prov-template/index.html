@@ -1009,7 +1009,7 @@ endDocument</pre>
           <p>
             A request has a request class, a user bean (the typed bean of a user subtype) and a reply class; the backend's
             record has a typed bean of its own, a subtype of the template the store loads. A <dfn>flow</dfn> connects them: one
-            class of three steps, <em>ask</em> (the request becomes the user bean), <em>record</em> (the user bean and the
+            class of three steps (the second is repeated, once for each record, when the request makes several), <em>ask</em> (the request becomes the user bean), <em>record</em> (the user bean and the
             records that made things as they stood become the backend's bean) and <em>answer</em> (what the store made becomes
             the reply), with a reply for a refused and for a failed request. Its point is that every input of those beans has
             <strong>one stated origin</strong>, so that the backend's record can be shown faithful to what the person asked: a
@@ -1036,11 +1036,14 @@ endDocument</pre>
              "refused": { "outcome": { "constant": "refused" }, "code": { "argument": true }, "result": "absent" } } }</pre>
           <ul>
             <li><code>from</code>, <code>to</code>: the user subtype and the backend subtype the flow connects, both of the catalogue.</li>
-            <li><code>stood</code>: each thing that stood before, by a name of the flow's own, as the record that made it: the
-              backend's input node it becomes (<code>node</code>), the output node of that record that made it
+            <li><code>stood</code>, which a flow may leave out when the request stands on nothing (the nodes are then said by the other kinds:
+              supplied by the application, asked, a constant, or absent): each thing that stood before, by a name of the flow's own, as the
+              record that made it: the backend's input node it becomes (<code>node</code>), the output node of that record that made it
               (<code>madeBy</code>), optionally the user bean's node that must be the same node (<code>addressed</code>) and the user
-              value and backend value that say which thing it is (<code>identity</code>), and optionally the subtype of that
-              record (<code>of</code>). The document and the line are two records as soon as another line changed in between.</li>
+              value and backend value that say which thing it is (<code>identity</code>), and optionally the subtype or template of that
+              record (<code>of</code>): the record may be of any subtype or template of the catalogue, not only the one the flow makes, and
+              then the guards and the carrying read that template's bean and its outputs. The document and the line are two records as soon
+              as another line changed in between.</li>
             <li><code>ask</code>: the user bean's own values, the ones the request does not give and the reply does not return.</li>
             <li><code>record</code>: the backend's inputs not carried over. <code>carry</code>: from which stood thing the other
               values come, unchanged and by their own name, as an explicit list or <code>"rest"</code> (for at most one thing).
@@ -1048,6 +1051,13 @@ endDocument</pre>
               act's are not, since a removal's reason would leak into the next reprice.</li>
             <li><code>reply</code>: for <code>answer</code>, <code>refused</code> and <code>failed</code>, how each value of the
               reply class is given.</li>
+            <li><code>records</code>: a request that makes several records lists them in order, each with its own <code>name</code>,
+              <code>to</code>, <code>stood</code>, <code>record</code>, <code>carry</code> and <code>carryOpen</code>; the members above, at
+              the top, are the shorthand of one record. A later record stands on an earlier one by naming it
+              (<code>"record": "register"</code> instead of <code>of</code>): its inputs are the bean that record built and its outputs what
+              the store made of it. The class has a method for each record, <code>record<var>Name</var></code>, called in order, with the store
+              between the calls, then <code>answer</code> with every record's bean and outputs; a reply value names its record
+              (<code>change.erpId1</code>).</li>
           </ul>
           <table class="simple">
             <thead><tr><th>Kind</th><th>The value is</th><th>Written</th></tr></thead>
@@ -1065,7 +1075,7 @@ endDocument</pre>
             of its subtype: the ordinary inputs the subtype does not fix, the carried in-JSON values, and the map of other keys of
             each carrier it carries values in. Each MUST be said once, by <code>record</code>, <code>carry</code>,
             <code>carryOpen</code> or as a <code>stood</code> node; a value deliberately left unset is said, <code>"absent"</code>,
-            and MUST NOT be compulsory. The same holds of the user bean's own values and of the reply's values in each reply
+            and MUST NOT be compulsory. The same holds, for each record, of its own inputs, and of the user bean's own values and the reply's values in each reply
             block. The compiler refuses a flow that leaves one out or names one twice, that names what is no value or no node, a
             conversion it does not have, a rule used for two values, two stood things for one node, or a reply that says what the
             store made when nothing was recorded.
@@ -1111,7 +1121,7 @@ endDocument</pre>
         <li>Links between variables may be declared in the bindings.</li>
         <li>New: bindings schemas, template indexes, template transformation files, the template compiler.</li>
         <li>New annotations <code>@inJson</code> and <code>@inJson.key</code> of bindings schemas, which declare some of the keys of a JSON text variable (<a href="#in-json"></a>), and the <code>subtype</code> entry of the template compiler's catalogue (<a href="#template-subtypes"></a>).</li>
-        <li>New: the <code>flow</code> entry of the template compiler's catalogue, which connects the beans of a request to those of the backend's record and says where each value comes from (<a href="#template-flows"></a>).</li>
+        <li>New: the <code>flow</code> entry of the template compiler's catalogue, which connects the beans of a request to those of the backend's records, one or several, and says where each value comes from (<a href="#template-flows"></a>).</li>
         <li>New annotation <code>@performative</code>, which sorts the values of a subtype into those of a request and those of a reply (<a href="#performative"></a>), and the request and reply classes the compiler generates from it (<a href="#requests-replies"></a>).</li>
         <li>The algorithm is replaced by that of [[PTM-BOOK]], specified in [[PROV-TEMPLATE-ALGORITHMS]], with merge.</li>
       </ul>
