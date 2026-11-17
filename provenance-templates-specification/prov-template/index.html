@@ -1071,6 +1071,16 @@ endDocument</pre>
             </tbody>
           </table>
           <p>
+            A request may give nothing (the address names the document): the flow then has no request class, and <code>ask</code> takes none. In
+            <code>record</code>, <code>"rest": "absent"</code> leaves every input not said otherwise unset (refused for a compulsory one), so that flows can
+            share a subtype that carries more than each gives. A record may name a composite of the catalogue (<code>composite</code>) instead of a subtype,
+            say how one element is built (<code>elements</code>: <code>stood</code>, <code>record</code>, <code>carry</code>, <code>carryOpen</code>) and where each
+            variable the composite shares between its elements comes from (<code>shared</code>; an <code>Integer</code>, as the compiler's mutators take). The class then has,
+            for a record <var>name</var>, <code>record<var>Name</var></code> (the composite's own values), <code>record<var>Name</var>Element</code> (one element) and
+            <code>record<var>Name</var>Share</code> (the shared variables, applied to every element the composite holds); the application loops over its items and
+            adds each element with the bean's <code>addElements</code>. Every input of the composite and of the element is said once, and the table names the three steps.
+          </p>
+          <p>
             <strong>Every input is accounted for exactly once.</strong> An input of the backend's bean is a field of the typed bean
             of its subtype: the ordinary inputs the subtype does not fix, the carried in-JSON values, and the map of other keys of
             each carrier it carries values in. Each MUST be said once, by <code>record</code>, <code>carry</code>,
