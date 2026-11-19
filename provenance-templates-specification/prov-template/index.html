@@ -439,9 +439,9 @@ endDocument</pre>
           <tr><td><code>@sql.type</code></td><td>attribute variable</td><td>The SQL type of the values, such as <code>timestamptz</code> or <code>nonNullableTEXT</code>.</td></tr>
           <tr><td><code>@transient</code></td><td>attribute variable</td><td><code>true</code>, <code>false</code> or a method name: the value is never persisted, or kept only where the method says (<a href="#data-protection"></a>).</td></tr>
           <tr><td><code>@pseudonym</code></td><td>both</td><td>A method name: the value arrives pseudonymised, in the method's form (<a href="#data-protection"></a>).</td></tr>
-          <tr><td><code>@inJson</code></td><td>attribute variable</td><td>The name of a text variable of the template, the carrier: the value is encoded under a key of the JSON object that variable holds (<a href="#in-json"></a>).</td></tr>
-          <tr><td><code>@inJson.key</code></td><td>attribute variable</td><td>The key in the carrier, when it differs from the variable's name (<a href="#in-json"></a>).</td></tr>
-          <tr><td><code>@performative</code></td><td>attribute variable</td><td><code>request</code> or <code>reply</code>: whose content the value is, the caller's or the service's (<a href="#performative"></a>).</td></tr>
+          <tr><td><code>@inJson</code></td><td>attribute variable</td><td><em>Experimental.</em> The name of a text variable of the template, the carrier: the value is encoded under a key of the JSON object that variable holds (<a href="#in-json"></a>).</td></tr>
+          <tr><td><code>@inJson.key</code></td><td>attribute variable</td><td><em>Experimental.</em> The key in the carrier, when it differs from the variable's name (<a href="#in-json"></a>).</td></tr>
+          <tr><td><code>@performative</code></td><td>attribute variable</td><td><em>Experimental.</em> <code>request</code> or <code>reply</code>: whose content the value is, the caller's or the service's (<a href="#performative"></a>).</td></tr>
         </tbody>
       </table>
       <p>
@@ -451,11 +451,12 @@ endDocument</pre>
       </p>
       <pre class="example json" title="A bindings schema (from the primer)" data-include="../prov-template-primer/examples/cbindings/cleaning.json" data-include-format="text"></pre>
       <div class="ednote">
-        The template compiler reads further members that the JSON Schema rejects: on a group variable
-        <code>@role</code>, <code>@escape</code>, <code>@semantic.type</code>, <code>@unique</code>,
-        <code>@sql.new.inputs</code>, <code>@sql.also.outputs</code>; on an attribute variable
-        <code>@sql.foreign</code>, <code>@unique</code>, <code>@escape</code>; <code>@output: "optional"</code>;
-        and a top-level <code>@return</code>. Either the schema or this section should grow to cover them.
+        The JSON Schema of <a href="#bindings-json-schema"></a> now lists every member the template compiler reads from a variable: on a group variable
+        <code>@role</code>, <code>@escape</code>, <code>@semantic.type</code>, <code>@unique</code>, <code>@sql.type</code>,
+        <code>@sql.new.inputs</code>, <code>@sql.also.outputs</code>; on an attribute variable <code>@sql.foreign</code>, <code>@unique</code>,
+        <code>@escape</code>; on both <code>@transient</code> and <code>@pseudonym</code>; the value <code>optional</code> of <code>@output</code>;
+        and the types <code>xsd:long</code>, <code>xsd:double</code>, <code>xsd:date</code> and <code>json</code> (the compiler's, with no
+        counterpart in the table above), and the top-level member <code>@return</code>, a text that documents what the compiler's generated logger method returns. This section does not describe them yet.
       </div>
 
       <section id="data-protection">
@@ -505,6 +506,7 @@ endDocument</pre>
 
       <section id="in-json">
         <h3>In-JSON values</h3>
+        <div class="warning"><strong>Experimental.</strong> The members <code>@inJson</code> and <code>@inJson.key</code>. This functionality is experimental: it was introduced with the template compiler's work on subtypes and flows (ProvToolbox tickets T36 and T41), it has been used by one application only, and its syntax, its generated classes and this section may change without notice.</div>
         <p>
           A template used for many kinds of act often keeps what differs from one kind to the next in a text variable
           that holds a JSON object, because adding a key there changes no table and no record. The price is that
@@ -565,10 +567,41 @@ endDocument</pre>
           in the order of the bindings schema, followed by the other keys, each in the order it was given. (This is the
           one departure from [[RFC8785]], which sorts the members.) A value that is absent is not written.
         </p>
+        <p>
+          <strong>The text of a double.</strong> The number rule of [[RFC8785]] is the ECMAScript rule for the text of a number,
+          and it fixes the digits as well as the layout; software MUST give the same text for every finite double.
+          The <em>digits</em> are the shortest that read back as that double; of the digit strings of that length that
+          do, the one closest to the value of the double; and, when two are equally close (an exact tie), the one whose last
+          digit is even. The <em>layout</em> is plain digits for a magnitude from 10<sup>-6</sup> up to 10<sup>21</sup>, and
+          otherwise the first digit, a point and the others (no point if there is one digit), <code>e</code>, a sign and the
+          exponent: <code>1e+21</code>, <code>5e-324</code>. A negative number has a minus sign and <code>-0</code> is
+          written <code>0</code>.
+        </p>
+        <p>
+          A language's own formatting is not safe to rely on. Three cases were met (ProvToolbox T42): Java's
+          <code>Double.toString</code> writes at least two digits, so it chose <code>4.9E-324</code> for the smallest number where the
+          rule gives <code>5e-324</code> (eight numbers, <code>1e-323</code> to <code>1e-322</code> among them); Rust's shortest digits
+          (<code>{:e}</code>) go up on an exact tie, <code>2.9802322387695313e-8</code> for 2<sup>-25</sup> where the rule gives
+          <code>2.9802322387695312e-8</code> (106 of 4.7 million numbers tried); and taking the closest digits of the
+          shortest length is wrong at a power of two, where the interval of the numbers that read back as it is narrower
+          below: <code>7.120236347223045e-307</code> is the text of 2<sup>-1017</sup>, and the closer
+          <code>7.120236347223044e-307</code> reads back as the number below it.
+        </p>
+        <div class="ednote">
+          What a conforming implementation is checked against: the table <code>numbers</code> of ProvToolbox's
+          <code>json-text-vectors.json</code>, 44 doubles given by their 64 bits (so that they are exact) with the text each must
+          give and its plain text (below), among them the numbers of the appendix of [[RFC8785]], the eight above, the ties and the
+          powers of two. Their texts are what a JavaScript engine gives (the reference of the RFC). Beyond the table, ProvToolbox's Java,
+          Python and JavaScript runtime classes give the text of JavaScript for 4.7 million doubles: every subnormal up to
+          2<sup>22</sup> times the smallest, the neighbours of every power of ten and of two, 400&nbsp;000 numbers of random bits and
+          100&nbsp;000 prices, and a sample of 300&nbsp;000 of their negatives. Java, before it was corrected, differed on the eight
+          numbers above only, all of them below 1.04e-322 (21 times the smallest number).
+        </div>
       </section>
 
       <section id="performative">
         <h3>Performatives</h3>
+        <div class="warning"><strong>Experimental.</strong> The member <code>@performative</code>. This functionality is experimental: it was introduced with the template compiler's work on subtypes and flows (ProvToolbox tickets T36 and T41), it has been used by one application only, and its syntax, its generated classes and this section may change without notice.</div>
         <p>
           A record of a request that a program served holds values from three hands: what the caller gave, what the service
           knew before it acted, and what became of the request. A bindings schema does not say which. The member
@@ -839,6 +872,7 @@ endDocument</pre>
 
         <section id="template-subtypes">
           <h4>Subtypes</h4>
+          <div class="warning"><strong>Experimental.</strong> The <code>subtype</code> entry of a catalogue, with its typed bean, request and reply classes and the <code>Subtypes</code> dispatcher. This functionality is experimental: it was introduced with the template compiler's work on subtypes and flows (ProvToolbox tickets T36 and T41), it has been used by one application only, and its syntax, its generated classes and this section may change without notice.</div>
           <p>
             A simple template serves many kinds of record when it keeps what differs in the carrier of its in-JSON
             values (<a href="#in-json"></a>). A <dfn>subtype</dfn> names one such kind: a <dfn>general template</dfn>, a
@@ -1006,6 +1040,7 @@ endDocument</pre>
 
         <section id="template-flows">
           <h4>Flows</h4>
+          <div class="warning"><strong>Experimental.</strong> The <code>flow</code> entry of a catalogue, with the classes and the rules interface it generates. This functionality is experimental: it was introduced with the template compiler's work on subtypes and flows (ProvToolbox tickets T36 and T41), it has been used by one application only, and its syntax, its generated classes and this section may change without notice.</div>
           <p>
             A request has a request class, a user bean (the typed bean of a user subtype) and a reply class; the backend's
             record has a typed bean of its own, a subtype of the template the store loads. A <dfn>flow</dfn> connects them: one
@@ -1063,6 +1098,7 @@ endDocument</pre>
             <thead><tr><th>Kind</th><th>The value is</th><th>Written</th></tr></thead>
             <tbody>
               <tr><td>AS ASKED</td><td>the request's (through the user bean)</td><td><code>"asked"</code>, <code>{"asked": value, "as": "text"}</code></td></tr>
+              <tr><td>SPREAD</td><td>the members of a JSON object the person gave, as the other keys of a carrier</td><td><code>{"spread": value}</code> (the value holds JSON text: a <code>json</code> or a string value of the request; an absent or blank text gives no key; a text that is no object is refused when the flow runs)</td></tr>
               <tr><td>CHAINED</td><td>a node a previous record made</td><td><code>stood</code></td></tr>
               <tr><td>CARRIED OVER</td><td>a previous record's, unchanged</td><td><code>carry</code>, <code>carryOpen</code>, <code>{"carried": "thing.value"}</code></td></tr>
               <tr><td>CONSTANT</td><td>the same for every record of this kind of act</td><td><code>{"constant": v}</code></td></tr>
@@ -1099,7 +1135,9 @@ endDocument</pre>
             names its kind and the value; <code>record</code> refuses, before anything is built, a previous record that is not of
             the line the request names, and a request that addresses another document than the one the previous record made.
             A number or a boolean given to a text value goes through the runtime class, <code>JsonText.text</code>, so that every
-            language gives the same text; <code>null</code> stays <code>null</code>.
+            language gives the same text; <code>null</code> stays <code>null</code>. A number is written in plain digits and never with
+            an exponent (<code>1e+21</code> is <code>1000000000000000000000</code> and <code>1e-7</code> is <code>0.0000001</code>),
+            the digits being those of the text of a double above; the text written inside a carrier keeps the exponent.
           </p>
           <p>
             The documentation lists each flow as a table, one row for each value: the kind and where it comes from. The Turtle
